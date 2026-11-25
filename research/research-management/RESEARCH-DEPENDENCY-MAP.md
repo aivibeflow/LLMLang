@@ -18,6 +18,8 @@ The native catalog race comparison exercises DEP-048 and DEP-054 at the joint au
 
 The independent RV64 cohort replay rechecks the source, runtime and target boundaries in DEP-018, DEP-019 and DEP-024. The tracked ledger matches are scoped to one QEMU hart and separately checked logical reuse assumptions. Neither artifact set supplies an SMP or DMA implementation witness. [RV64 cohort replay](RT-00/RT-00-RV64-COHORT-REPLAY-2026-11-25.md)
 
+The Cortex-M3 replay rechecks DEP-017, DEP-019 and DEP-024 across twelve exact ledgers. The linked memory access count, exception-stack measurement and DMA handback proof retain distinct premises. [Cortex cohort replay](RT-00/RT-00-CORTEX-COHORT-REPLAY-2026-11-25.md)
+
 This map describes how choices in one LLMLang aspect can affect other aspects. It is a research-planning instrument, not a normative architecture and not a claim that every edge has already been proven.
 
 The direction of an edge is **source aspect → affected aspect**. It means a change or choice in the source can impose requirements on, constrain, enable, or alter the trade-offs of the target.

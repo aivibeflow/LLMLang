@@ -1,0 +1,282 @@
+{
+  "commit": "9a18919e11b22f47be0a83e0795569c61bb10228",
+  "fixtures": {
+    "COMPOSED-DEVICE-BOUNDARY-01": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/COMPOSED-DEVICE-BOUNDARY-01/check.py"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/COMPOSED-DEVICE-BOUNDARY-01/evidence.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/COMPOSED-DEVICE-BOUNDARY-01/check.py": "89514196d6f04ce902ed3ddf909d2e7fa814b998654c68cda6252d4f580b0e34"
+      },
+      "sha256": "cf9dbd56316d8dc4d54dddb142dccf092e6c491ce27ae08f9e121c37292c3469"
+    },
+    "RESOURCE-AND-DEADLINE-01": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/RESOURCE-AND-DEADLINE-01/check.py"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/RESOURCE-AND-DEADLINE-01/evidence.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/RESOURCE-AND-DEADLINE-01/check.py": "04412a7d0d6a5e9535b0e92573fd11d0216db4ffde17ba974c46ba8b397a01a2",
+        "research/runtime-and-systems/RT-37/RESOURCE-AND-DEADLINE-01/esp-program-headers.txt": "db781f62a55dad1fc572b22914f1d44b8c58449be5c70dab305a273ebce31b3a",
+        "research/runtime-and-systems/RT-37/RESOURCE-AND-DEADLINE-01/f1-program-headers.txt": "4198e764a128351bbbf23682a9d892fb846456982c109128d949fd5a58273329",
+        "research/runtime-and-systems/RT-37/RESOURCE-AND-DEADLINE-01/f4-program-headers.txt": "fde8be8f58c30a8df177faa0e03dd06fbec0c402e9cd970d3fd6494177ee3e2c"
+      },
+      "sha256": "6d052a421c70d8e87d6365c7846f5b041591b5e134a257394a9cc1a0bea61554"
+    },
+    "allocator": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/cortex-m3-allocator/run.py",
+        "--qemu",
+        "<pinned-qemu>",
+        "--output",
+        "<scratch>"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/cortex-m3-allocator/results.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/cortex-m3-allocator/reserve.ll": "022acaebb75c3f8fc85077b5291c6fa9d22d985c4b7fe0a206339499eedcec1f",
+        "research/runtime-and-systems/RT-37/cortex-m3-allocator/reserve.rs": "8ad742a543abff0e698964bee18b1d701d63873220b35dbb52cc5b70a7aa7f43",
+        "research/runtime-and-systems/RT-37/cortex-m3-allocator/run.py": "b0f53439848e8a7db8c56d0a13d52b56b34c9a44582eb7197e365c73c85c70ba",
+        "research/runtime-and-systems/RT-37/cortex-m3-allocator/startup.s": "c67e76b5128b19b8da37d876ff46ff4d40779ec5c3b1507fea77851bc9216d8d"
+      },
+      "sha256": "653b6e335c4743c5efbe19b8b06ab293ba3e3db3064b2d05447c7139f8ebb557"
+    },
+    "closure": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/cortex-m3-closure/run.py",
+        "--qemu",
+        "<pinned-qemu>",
+        "--output",
+        "<scratch>"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/cortex-m3-closure/results.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/cortex-m3-closure/inputs.json": "e59e21e596f2103e6ae6a1ea6270f050b922c1439d67db45608bb1c9c29609be",
+        "research/runtime-and-systems/RT-37/cortex-m3-closure/memory.ld": "5085ad0a4168a699d202d6f9af2caeced5d70ec5c0d44372cb16e5ea335b2ecb",
+        "research/runtime-and-systems/RT-37/cortex-m3-closure/run.py": "5ec43ef68d29aaf7bc88bcbf7e97e46f59abdfa18dbb567897333d8a23092477",
+        "research/runtime-and-systems/RT-37/cortex-m3-closure/startup.s": "dea75a65935a992ae6076bc1df2aaa12f54f608a6fde0f31c6754b10cb7bbc72",
+        "research/runtime-and-systems/RT-37/cortex-m3-closure/step.ll": "9aad2599598df165a42bc1a3a4f3aeffb437082885068a038b8eb6cd45c0dd97",
+        "research/runtime-and-systems/RT-37/cortex-m3-closure/step.rs": "e86a221dd0860c283f2536f991ba6c3ea71df5d1b898f3db5138a5d1a287ee6b",
+        "research/runtime-and-systems/RT-37/cortex-m3-closure/wide_division.ll": "65ccd348159e9a5f138cdf4719ff7331e43d91593f87e32d24d6ef5f8d076669"
+      },
+      "sha256": "5a08105beed3167742bf49f044aac08b1285ef74dc60fdebc64a6f17158009f9"
+    },
+    "dma-lease": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/dma-lease/run.py",
+        "--output",
+        "<scratch>"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/dma-lease/results.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/dma-lease/DmaLease.lean": "09f6ee75845898177b12e662979315b5c554aeb692cfab23d7ed7844fdef7936",
+        "research/runtime-and-systems/RT-37/dma-lease/run.py": "7cf0a6e24a98bca00478f64f97def572644ad13dd8d0e4fc700660f83171e739"
+      },
+      "sha256": "bbb5d97c6d9a46c587f909cf64e29edbd9be9a3b5f2407d963eee8f0ed548b55"
+    },
+    "isr-effects": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/cortex-m3-isr-effects/run.py",
+        "--output",
+        "<scratch>"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/cortex-m3-isr-effects/results.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/cortex-m3-isr-effects/handlers.s": "9bcc44a5713752d300a07fc6959b849819e944e455d958559a2a49e89f769920",
+        "research/runtime-and-systems/RT-37/cortex-m3-isr-effects/run.py": "d0cb73e7acfbf8bdab0338eac21d761f00f3a75206b1f9bda2c962e203fb574c"
+      },
+      "sha256": "8580ce24dd371451fe854e0191f15924eed4a0dc27570581a4839cdcc1e70258"
+    },
+    "nested-stack": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/cortex-m3-nested-stack/run.py",
+        "--clang",
+        "<pinned-clang>",
+        "--qemu",
+        "<pinned-qemu>"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/cortex-m3-nested-stack/evidence.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/cortex-m3-nested-stack/nested.S": "eb17aa3d049574ac8a57fce8d2a073090001be314b15ce1c4a70feadebc546bd",
+        "research/runtime-and-systems/RT-37/cortex-m3-nested-stack/run.py": "32dc2daada32a9989f1cda7e643cc1f871ab8f44352233e145578ec725957602"
+      },
+      "sha256": "29cb4338c37c2a65a13827bd632cde4b717f5cf296d3dd46243a22301ce5fe2e"
+    },
+    "nvic-clear": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/cortex-m3-nvic-clear/run.py",
+        "--clang",
+        "<pinned-clang>",
+        "--qemu",
+        "<pinned-qemu>"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/cortex-m3-nvic-clear/evidence.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/cortex-m3-nvic-clear/pending.S": "3030c3d707bc6d94591f211e2f4c8aafa490e3ab4866944f70b42644a442a9d9",
+        "research/runtime-and-systems/RT-37/cortex-m3-nvic-clear/run.py": "4313e5a0434a4248854a2eb968a0a5a0dd4ad7e233b88305cdadecd4e14bb010"
+      },
+      "sha256": "91c3b5a636a24b986ded0f72b4aec8c5efeb670d7b2fd3ecd3ff9dae8c895994"
+    },
+    "stack": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/cortex-m3-stack/run.py",
+        "--qemu",
+        "<pinned-qemu>",
+        "--output",
+        "<scratch>"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/cortex-m3-stack/results.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/cortex-m3-stack/run.py": "bbb3fb48f6e59cb280bb417738be29d477a8ed4591347ae17165404fc1d050db",
+        "research/runtime-and-systems/RT-37/cortex-m3-stack/stack_model.py": "fe5baa36d31f101343c73cc318727fbaed5bd8c095b6c2cb3e96a416f375780f",
+        "research/runtime-and-systems/RT-37/cortex-m3-stack/stack_probe.s": "0a2ce13d67355631c9c0a81f1fa58a5a6b28c48f2584c5ed503cd858a68a1830"
+      },
+      "sha256": "45f241be1ba53e0c2237a101a4253435a43e0237759be268cd6ba590ad19ae30"
+    },
+    "startup-retention": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/cortex-m3-startup-retention/run.py",
+        "--clang",
+        "<pinned-clang>",
+        "--qemu",
+        "<pinned-qemu>"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/cortex-m3-startup-retention/evidence.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/cortex-m3-startup-retention/memory.ld": "f70f527b749b58c3ac152d4b041db7927ef35d6339b53ab01bc7b29f751b9845",
+        "research/runtime-and-systems/RT-37/cortex-m3-startup-retention/run.py": "3f12cd4f8875f454ab12b65c942ed35e8a2505175aace13bde7a80a3b2acd4a4",
+        "research/runtime-and-systems/RT-37/cortex-m3-startup-retention/startup.S": "f304af23d15eef1b6d11c69131f34a3b9789b4140bab10e6bc28d6c1246382c9"
+      },
+      "sha256": "01857b2c992e9e4f5e6cac8d02fd9d37ba72a5a97f9dc29d3f840c4dbba54e55"
+    },
+    "timer": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/cortex-m3-timer/run.py",
+        "--qemu",
+        "<pinned-qemu>",
+        "--output",
+        "<scratch>"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/cortex-m3-timer/results.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/cortex-m3-timer/run.py": "678465d92151d64b0adae27a16f7344015e54a7ed3914a99af97afa131519d05",
+        "research/runtime-and-systems/RT-37/cortex-m3-timer/timer.s": "645e1746f2a9bf01edc49722f372cee500e9280c2d8c3aece7552b2e355b5905"
+      },
+      "sha256": "b8be6689903b79314312fad3a67045160c2b49d42ad4279790d43aa0da48f48a"
+    },
+    "volatile": {
+      "invocation": [
+        "research/runtime-and-systems/RT-37/cortex-m3-volatile/run.py",
+        "--qemu",
+        "<pinned-qemu>",
+        "--output",
+        "<scratch>"
+      ],
+      "ledger": "research/runtime-and-systems/RT-37/cortex-m3-volatile/results.json",
+      "local_files_sha256": {
+        "research/runtime-and-systems/RT-37/cortex-m3-volatile/pair.ll": "0ddec76a6555e6bb0e87ca319f97cd7acc194b76e6687aac0571184fd0dcffad",
+        "research/runtime-and-systems/RT-37/cortex-m3-volatile/pair.rs": "900ff8dcbc5628ce72241dfd38a6bd1c10b5b4c402cdcb9d3cab1a11f5531372",
+        "research/runtime-and-systems/RT-37/cortex-m3-volatile/run.py": "11cc1b10c4db61e9e9c7b5bd882fe98a6095a5116e92a641d3b8c2676909e15f",
+        "research/runtime-and-systems/RT-37/cortex-m3-volatile/startup.s": "c855986cfea9f4cd97c485ef1a9319688d2ef88dd324f7d7d96cd7ec6fa3a69e"
+      },
+      "sha256": "79fc829b7e54da2f4a96c7706a6766c3463f2a7f7e0b4698835943398d142d04"
+    }
+  },
+  "host": {
+    "kernel": "6.18.57",
+    "machine": "x86_64"
+  },
+  "independent_observations": {
+    "abstract_deadline_checks": {
+      "cost_only_false_accepts": 11845,
+      "deadline_checks": {
+        "met": 4955,
+        "missed": 5845,
+        "no_completion": 8400
+      },
+      "max_finite_response_ticks": 63,
+      "scenarios": 1200
+    },
+    "device_admission_inputs": 2304,
+    "dma_logical_transitions": 5628,
+    "fixed_and_cursor_requests": 2704,
+    "linked_isr_outcomes": {
+      "ACCEPTED": 2,
+      "REJECTED": 3,
+      "UNKNOWN": 2
+    },
+    "nested_stack_profiles": 4,
+    "pending_bit_observations": 8,
+    "startup_control_uart_streams": 4,
+    "volatile_builds": 7
+  },
+  "python": "3.12.14",
+  "python_executable_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+  "tools": {
+    "clang": {
+      "banner": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+      "entry_sha256": "df2e7d9b9e23822587cf04ac28f206a1ddaac5053312a4c875acf5608701b9d2",
+      "tool_sha256": "df2e7d9b9e23822587cf04ac28f206a1ddaac5053312a4c875acf5608701b9d2"
+    },
+    "ld.lld-19": {
+      "banner": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+      "entry_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+      "tool_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+    },
+    "lean": {
+      "banner": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+      "entry_sha256": "871d5b75f707f60c8dced03407f1b171f8ae52a84050cca0d1a89320a370b722",
+      "tool_sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00"
+    },
+    "llc-19": {
+      "banner": "Debian LLVM version 19.1.7",
+      "entry_sha256": "757877e6d5dd8bd9607a1515284e8ff39c8acb784b5f0ed789187531129cd790",
+      "tool_sha256": "757877e6d5dd8bd9607a1515284e8ff39c8acb784b5f0ed789187531129cd790"
+    },
+    "llvm-mc-19": {
+      "banner": "Debian LLVM version 19.1.7",
+      "entry_sha256": "d934d7015ec1fdb2e1cab279814a21cb35e588387ed21d777de02d40ce1caf5a",
+      "tool_sha256": "d934d7015ec1fdb2e1cab279814a21cb35e588387ed21d777de02d40ce1caf5a"
+    },
+    "llvm-nm-19": {
+      "banner": "llvm-nm, compatible with GNU nm",
+      "entry_sha256": "ed2427f2e14ac235a12fc3ca878f3621dd347e1e0dba7a316824f4d2a5e78403",
+      "tool_sha256": "ed2427f2e14ac235a12fc3ca878f3621dd347e1e0dba7a316824f4d2a5e78403"
+    },
+    "llvm-objcopy-19": {
+      "banner": "llvm-objcopy, compatible with GNU objcopy",
+      "entry_sha256": "8723d4539a1c621fbaa2f0bc9f6a5268ccb7cf93bac6b4fc8f1d6aed1b77201e",
+      "tool_sha256": "8723d4539a1c621fbaa2f0bc9f6a5268ccb7cf93bac6b4fc8f1d6aed1b77201e"
+    },
+    "llvm-objdump-19": {
+      "banner": "Debian LLVM version 19.1.7",
+      "entry_sha256": "c904a20cf0caeb812b542b69488e5c79738951a92ca99098fbb8941505eb789d",
+      "tool_sha256": "c904a20cf0caeb812b542b69488e5c79738951a92ca99098fbb8941505eb789d"
+    },
+    "llvm-readelf-19": {
+      "banner": "Debian LLVM version 19.1.7",
+      "entry_sha256": "e513bd45eb2b0f4d3740dfa312416a250c2e95c5dd5d4713c0e04d253c89b4eb",
+      "tool_sha256": "e513bd45eb2b0f4d3740dfa312416a250c2e95c5dd5d4713c0e04d253c89b4eb"
+    },
+    "opt-19": {
+      "banner": "Debian LLVM version 19.1.7",
+      "entry_sha256": "6d32545b2590f82c9b2d5021b8c13236225b1241728ffb123f77956940f9f87a",
+      "tool_sha256": "6d32545b2590f82c9b2d5021b8c13236225b1241728ffb123f77956940f9f87a"
+    },
+    "qemu": {
+      "banner": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+      "entry_sha256": "0dfd6c04c472cf2e6478092caf090a963a6e9ae354ffe39cfc309966430c093e",
+      "tool_sha256": "0dfd6c04c472cf2e6478092caf090a963a6e9ae354ffe39cfc309966430c093e"
+    },
+    "readelf": {
+      "banner": "GNU readelf (GNU Binutils for Debian) 2.44",
+      "entry_sha256": "4a387d80a70e6e97ef940a666fab59d5c38e7cf19ff907192fa983cb8505a7de",
+      "tool_sha256": "4a387d80a70e6e97ef940a666fab59d5c38e7cf19ff907192fa983cb8505a7de"
+    },
+    "rustc": {
+      "banner": "rustc 1.85.1 (4eb161250 2025-03-15)",
+      "entry_sha256": "b1c8cb14e30889e7e2999e6b69e62d9e9b9ffc0f4df8180564d306d9680e6c55",
+      "tool_sha256": "f8d033fd72e878ec60493788c8bffec2e6c154dcab6f0cb4c145af8ada26a7ed"
+    }
+  }
+}
