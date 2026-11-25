@@ -18,6 +18,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-12 shared Store and scoped registry](RT-12/RT-12-SHARED-STORE-AND-SCOPED-REGISTRY-2026-11-25.md) checks exact authorized reads over retained registry generations and shared object bytes.
 - [RT-12 template lifecycle](RT-12/RT-12-TEMPLATE-LIFECYCLE-2026-11-25.md) checks typed expansion, local edits, detachment and exact three-way migration.
 - [RT-12 exact dependency locks](RT-12/RT-12-EXACT-DEPENDENCY-LOCKS-2026-11-25.md) checks immutable replay and deterministic discovery across provider order.
 - [RT-12 package and library contracts](RT-12/RT-12-PACKAGE-AND-LIBRARY-CONTRACTS-2026-11-25.md) checks separately addressed specifications, designs and implementations across verified archives.
