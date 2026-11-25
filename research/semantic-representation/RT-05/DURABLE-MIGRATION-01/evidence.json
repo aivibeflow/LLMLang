@@ -1,0 +1,51 @@
+{
+  "publication": {
+    "cases": {
+      "after-commit": {
+        "retained_old_closure": true,
+        "selected": "new",
+        "writer_status": 72
+      },
+      "before-commit": {
+        "retained_old_closure": true,
+        "selected": "old",
+        "writer_status": 71
+      },
+      "missing-staged-object": {
+        "retained_old_closure": true,
+        "selected": "old",
+        "writer_status": 5
+      },
+      "normal": {
+        "retained_old_closure": true,
+        "selected": "new",
+        "writer_status": 0
+      },
+      "stale-selection": {
+        "retained_old_closure": true,
+        "selected": "old",
+        "writer_status": 4
+      },
+      "wrong-structure": {
+        "retained_old_closure": true,
+        "selected": "old",
+        "writer_status": 6
+      }
+    },
+    "new_nodes": 8,
+    "old_nodes": 8
+  },
+  "python": "3.12.14",
+  "quarantine": {
+    "after_reopen": "quarantined",
+    "both_retries": "quarantined",
+    "original_bytes_preserved": true
+  },
+  "revision": "3856c0165e2c7f6122291e2adb6e97bd16ba6792",
+  "sources": {
+    "check.py": "d865486bd27c461a0dabc2ef2adef2e8ef24db2550b324ff224f355210819f43",
+    "migration.py": "4b9fd7c0a87a87761793a78c2198654e771f2dfe928815797992061a842e6958",
+    "run.py": "a3411411649e71791286b5dc254ffda5dbc66e32a132fa89005554e5451c8f14"
+  },
+  "sqlite": "3.53.1"
+}
