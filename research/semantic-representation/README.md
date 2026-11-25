@@ -43,6 +43,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-05 recursive representation boundaries](RT-05/RT-05-RECURSIVE-REPRESENTATION-BOUNDARIES-2026-11-25.md) defines exact mutual groups and checks layout and edit invalidation.
 - [RT-05 evolution and lineage boundaries](RT-05/RT-05-EVOLUTION-AND-LINEAGE-BOUNDARIES-2026-11-25.md) defines revision-bound continuation, replacement, split and merge.
 - [RT-05 normalization boundaries](RT-05/RT-05-NORMALIZATION-BOUNDARIES-2026-11-25.md) distinguishes structural normalization from checked observation-preserving rewrites.
 - [RT-05 nodes, references and selection](RT-05/RT-05-NODES-REFERENCES-AND-SELECTION-2026-11-25.md) checks typed occurrence, archive, reachability, selection and ownership boundaries.
