@@ -226,6 +226,8 @@ RT-23 and RT-24 have a bounded mapping-revision merge experiment with key and ex
 
 RT-23 compares reader refs and journal ancestry for retaining an exact Git snapshot across local history rewrites and collection on both ref backends. [Pinned Git retention](../toolchain-and-collaboration/RT-23/RT-23-PINNED-GIT-RETENTION-2026-11-25.md)
 
+RT-23 compares historical receipt lookup by first-parent scan and a scoped index in the same pinned Git journal tree. [Indexed Git journal recovery](../toolchain-and-collaboration/RT-23/RT-23-INDEXED-JOURNAL-RECOVERY-2026-11-25.md)
+
 ## 5. Relationship to the specification space
 
 The taxonomy defines dimensions of research, not a checklist of independent toggles. The eventual option space is constructed from the vectors actually supported by research. The dependency map identifies conditional choices and incompatibilities; the synthesis process then generates valid integrated candidate specifications and compares them as wholes.

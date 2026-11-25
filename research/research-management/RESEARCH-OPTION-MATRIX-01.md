@@ -261,6 +261,8 @@ cmp "$study/evidence.json" /tmp/llmlang-toolchain-option-evidence.json
 
 [Git LFS object admission](../toolchain-and-collaboration/RT-24/RT-24-LFS-OBJECT-ADMISSION-2026-11-25.md) compares ordinary Git objects, working bytes and verified external media across fourteen settings. Working filters can normalize the committed pointer in both checkout and archive, so exact admission requires the pinned Git blob and separate byte verification.
 
+[Indexed Git journal recovery](../toolchain-and-collaboration/RT-23/RT-23-INDEXED-JOURNAL-RECOVERY-2026-11-25.md) compares complete first-parent search, bounded search and a cumulative receipt tree in the same authority commit. The index preserves all tested decisions after a clean-clone fetch and reduces oldest-request lookup from 65 receipt examinations to one. It adds 131 retained trees and requires an exact append-only authority and retention contract.
+
 [Partial and sparse Git reconstruction](../toolchain-and-collaboration/RT-24/RT-24-PARTIAL-SPARSE-RECONSTRUCTION-2026-11-25.md) distinguishes visibility, object availability and exact tree membership. A verified blob cache restores two available graphs that lack local Git payloads, and a path cache accepts eight incorrect snapshots.
 
 [Versioned I64 Git merge](../toolchain-and-collaboration/RT-24/RT-24-VERSIONED-I64-GIT-MERGE-2026-11-25.md) compares a hard version cutover, ordinary JavaScript numbers, exact dual reads and exact dual reads with parent-root checks. The last policy admits all six unique bounded results and refuses all six invalid or unresolved histories. This separates a physical format upgrade from a semantic change.
