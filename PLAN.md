@@ -1459,7 +1459,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Check three RV64 HAL leaf bodies in assembly and LLVM O0/O2/O3. The 12 linked symbol checks agree, including distinct data and translation fences. The closure gate rejects an unresolved host dependency. Machine execution and general source-to-binary correspondence remain open. [RT-38 HAL and intrinsics](research/runtime-and-systems/RT-38/RT-38-RV64-HAL-AND-INTRINSICS-2026-11-25.md)
 - [x] Run the bounded RV64 QEMU single-core pilot with two Sv39 address spaces and a generation-checked endpoint. Independent IPC traces and stack/page-fault controls detect two incorrect mappings. The missing shared-ASID fence passes in QEMU and is identified by exact linked inspection. [RV64 isolated IPC pilot](research/runtime-and-systems/RT-38/RT-38-RV64-ISOLATED-IPC-PILOT-2026-11-24.md).
 - [ ] Compose live allocation, mapping, scheduling and IPC invariants and extend the hardware premises before enabling SMP/DMA.
-  - [ ] [WIP] Compose the single-frame and blocking-receiver models with exact task admission and atomic retirement effects.
+  - [x] Compose the frame and blocking receiver models. Lean checks joint invariants, stale lease refusal and atomic detach/cancel. The oracle agrees with 20,976 transitions and finds faults when ignoring frame generation, suspension or mapping admission. Concrete SMP and DMA proof remain open. [RT-38 composed mapping and IPC](research/runtime-and-systems/RT-38/RT-38-COMPOSED-MAPPING-AND-IPC-2026-11-25.md)
+  - [ ] [WIP human] Provide the selected physical platform and measurement environment for hardware timing, SMP and DMA validation.
 
 **Dependencies:** RT-37 profile/pilot, RT-03/04/07/08/09/10/13/16/32/33/34/36 and Stage 6 lowering. **Exit:** reproducible feasible or falsified kernel profile and bounded pilot evidence, explicit proof/TCB gaps. No full-kernel verification or production readiness claim.
 

@@ -74,6 +74,8 @@ The [live frame lifecycle](RT-38-LIVE-FRAME-QUIESCENCE-2026-11-25.md) checks pub
 
 The [HAL lowering comparison](RT-38-RV64-HAL-AND-INTRINSICS-2026-11-25.md) checks three exact linked leaf operations and guest link closure.
 
+The [joint mapping and IPC model](RT-38-COMPOSED-MAPPING-AND-IPC-2026-11-25.md) checks admission and suspension over the existing frame and receiver proofs.
+
 ## 5. seL4 precedent and a first translation check
 
 **Evidence** · Published prior art and a proposed experiment, reviewed against LLMLang baseline fe229c3215c42d8bded531d77bbef47761ac5770 on 2026-11-24.

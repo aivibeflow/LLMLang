@@ -1,0 +1,206 @@
+{
+  "counts": {
+    "ignore-frame-generation": 332,
+    "omit-suspension": 52,
+    "schedule-unmapped": 678,
+    "states": 254,
+    "transitions": 20976
+  },
+  "depth": 10,
+  "lean": {
+    "axioms": [
+      "'Combined.suspended_has_no_active_waiter_or_runner' depends on axioms: [propext]",
+      "'Combined.frame_change_preserves_joint_invariant' depends on axioms: [propext, Quot.sound]",
+      "'Combined.endpoint_change_preserves_joint_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'Combined.stale_frame_lease_refuses_dispatch' depends on axioms: [propext]",
+      "'Combined.detaching_cancels_waiting_receiver' depends on axioms: [propext]"
+    ],
+    "generated_proof_sha256": "c12d999a98b454c8f5873ec44c5ae00166209a2a04629e8a7f792c2f582d69ec",
+    "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "sources_sha256": {
+    "BLOCKING-ENDPOINT-01/Blocking.lean": "64fe473e526bcf8c57fe1fabf82f5481e267989949387b6c72fd942e43439d88",
+    "BLOCKING-ENDPOINT-01/run.py": "b92530753622602ffa492399717d8f195f7d8b4da681e45d24742a775a44932d",
+    "COMPOSED-MAPPING-IPC-01/Compose.lean": "4bf5da8c662b02797eead6343c253a7095bdfebd3b904592d7efa1362c8fc88a",
+    "COMPOSED-MAPPING-IPC-01/run.py": "7e518a9d94ba5a0fb140ec6a94689a12f1c9cc27ac9f45b85052c687547e03d6",
+    "LIVE-FRAME-QUIESCENCE-01/Mapping.lean": "87e92e5eee9ec0b2124263dc08a87ca544954438c62ad70ecb9987e5a9f9dd3c",
+    "LIVE-FRAME-QUIESCENCE-01/run.py": "672348a65767763594a7569c2cb2484bbb632456ecbbe284ba27ae44594f493c"
+  },
+  "witnesses": {
+    "ignore-frame-generation": {
+      "action": [
+        "endpoint",
+        [
+          0,
+          0
+        ],
+        [
+          "schedule",
+          0
+        ]
+      ],
+      "correct": {
+        "endpoint": {
+          "active": true,
+          "generation": 1,
+          "pending": null,
+          "phase": "ready"
+        },
+        "frame": [
+          "published",
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "mutant": {
+        "endpoint": {
+          "active": true,
+          "generation": 1,
+          "pending": null,
+          "phase": "running"
+        },
+        "frame": [
+          "published",
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "state": {
+        "endpoint": {
+          "active": true,
+          "generation": 1,
+          "pending": null,
+          "phase": "ready"
+        },
+        "frame": [
+          "published",
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    },
+    "omit-suspension": {
+      "action": [
+        "frame",
+        null,
+        [
+          "detach",
+          [
+            0,
+            1
+          ],
+          true
+        ]
+      ],
+      "correct": {
+        "endpoint": {
+          "active": false,
+          "generation": 1,
+          "pending": null,
+          "phase": "ready"
+        },
+        "frame": [
+          "revoking",
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "mutant": {
+        "endpoint": {
+          "active": true,
+          "generation": 1,
+          "pending": null,
+          "phase": "ready"
+        },
+        "frame": [
+          "revoking",
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "state": {
+        "endpoint": {
+          "active": true,
+          "generation": 1,
+          "pending": null,
+          "phase": "ready"
+        },
+        "frame": [
+          "published",
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    },
+    "schedule-unmapped": {
+      "action": [
+        "endpoint",
+        [
+          0,
+          0
+        ],
+        [
+          "schedule",
+          0
+        ]
+      ],
+      "correct": {
+        "endpoint": {
+          "active": false,
+          "generation": 1,
+          "pending": null,
+          "phase": "ready"
+        },
+        "frame": [
+          "revoking",
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "mutant": {
+        "endpoint": {
+          "active": false,
+          "generation": 1,
+          "pending": null,
+          "phase": "running"
+        },
+        "frame": [
+          "revoking",
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "state": {
+        "endpoint": {
+          "active": false,
+          "generation": 1,
+          "pending": null,
+          "phase": "ready"
+        },
+        "frame": [
+          "revoking",
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    }
+  }
+}
