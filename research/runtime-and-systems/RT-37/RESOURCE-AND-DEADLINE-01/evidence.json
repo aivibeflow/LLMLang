@@ -1,0 +1,82 @@
+{
+  "esp_load_segments": [
+    {
+      "address": 1061158944,
+      "file_bytes": 36352,
+      "memory_bytes": 36352,
+      "physical": 1061158944
+    },
+    {
+      "address": 1073414144,
+      "file_bytes": 9988,
+      "memory_bytes": 12184,
+      "physical": 1073414144
+    },
+    {
+      "address": 1074266112,
+      "file_bytes": 56923,
+      "memory_bytes": 56924,
+      "physical": 1074266112
+    },
+    {
+      "address": 1074593824,
+      "file_bytes": 65042,
+      "memory_bytes": 65042,
+      "physical": 1074593824
+    },
+    {
+      "address": 1342177280,
+      "file_bytes": 32,
+      "memory_bytes": 32,
+      "physical": 1342177280
+    },
+    {
+      "address": 1342185448,
+      "file_bytes": 0,
+      "memory_bytes": 24,
+      "physical": 1342185448
+    }
+  ],
+  "logical_periodic_deadlines": {
+    "cost_only_false_accepts": 11845,
+    "deadline_checks": {
+      "met": 4955,
+      "missed": 5845,
+      "no_completion": 8400
+    },
+    "max_finite_response_ticks": 63,
+    "scenarios": 1200
+  },
+  "stack_archives": {
+    "fixed_scope": [
+      "images",
+      "machine",
+      "paint_window_bytes",
+      "schema",
+      "source_sha256",
+      "steps_per_image",
+      "tools"
+    ],
+    "fixed_sha256": "45f241be1ba53e0c2237a101a4253435a43e0237759be268cd6ba590ad19ae30",
+    "nested_scope": [
+      "assembler",
+      "clang",
+      "linker",
+      "profiles",
+      "python",
+      "qemu"
+    ],
+    "nested_sha256": "29cb4338c37c2a65a13827bd632cde4b717f5cf296d3dd46243a22301ce5fe2e"
+  },
+  "stm32_memory_extent_bytes": {
+    "f1": {
+      "flash": 1040,
+      "sram": 1544
+    },
+    "f4": {
+      "ccm": 0,
+      "flash": 1120,
+      "sram": 1544
+    }
+  }
+}
