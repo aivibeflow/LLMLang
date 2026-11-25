@@ -1,0 +1,286 @@
+{
+  "profiles": {
+    "cranelift": {
+      "none-false-unregistered": {
+        "code_size": 14,
+        "fde_found_after_deregistration": false,
+        "host": {
+          "call_site_offset": 5,
+          "callback_count": 1,
+          "dladdr_symbol_found": 0,
+          "libgcc_fde_found": 0,
+          "reached_host_caller": 0,
+          "return_value": 35,
+          "saw_generated_frame": 1
+        },
+        "internal_source_line": 4,
+        "source_spans": [
+          [
+            0,
+            4,
+            4294967295
+          ],
+          [
+            4,
+            6,
+            4
+          ],
+          [
+            6,
+            14,
+            5
+          ]
+        ],
+        "unwind_info_object_available": true,
+        "unwind_operations": 0
+      },
+      "none-true-registered": {
+        "code_size": 14,
+        "fde_found_after_deregistration": false,
+        "host": {
+          "call_site_offset": 5,
+          "callback_count": 1,
+          "dladdr_symbol_found": 0,
+          "libgcc_fde_found": 1,
+          "reached_host_caller": 1,
+          "return_value": 35,
+          "saw_generated_frame": 1
+        },
+        "internal_source_line": 4,
+        "source_spans": [
+          [
+            0,
+            4,
+            4294967295
+          ],
+          [
+            4,
+            6,
+            4
+          ],
+          [
+            6,
+            14,
+            5
+          ]
+        ],
+        "unwind_info_object_available": true,
+        "unwind_operations": 2
+      },
+      "none-true-unregistered": {
+        "code_size": 14,
+        "fde_found_after_deregistration": false,
+        "host": {
+          "call_site_offset": 5,
+          "callback_count": 1,
+          "dladdr_symbol_found": 0,
+          "libgcc_fde_found": 0,
+          "reached_host_caller": 0,
+          "return_value": 35,
+          "saw_generated_frame": 1
+        },
+        "internal_source_line": 4,
+        "source_spans": [
+          [
+            0,
+            4,
+            4294967295
+          ],
+          [
+            4,
+            6,
+            4
+          ],
+          [
+            6,
+            14,
+            5
+          ]
+        ],
+        "unwind_info_object_available": true,
+        "unwind_operations": 2
+      },
+      "speed-false-unregistered": {
+        "code_size": 14,
+        "fde_found_after_deregistration": false,
+        "host": {
+          "call_site_offset": 5,
+          "callback_count": 1,
+          "dladdr_symbol_found": 0,
+          "libgcc_fde_found": 0,
+          "reached_host_caller": 0,
+          "return_value": 35,
+          "saw_generated_frame": 1
+        },
+        "internal_source_line": 4,
+        "source_spans": [
+          [
+            0,
+            4,
+            4294967295
+          ],
+          [
+            4,
+            6,
+            4
+          ],
+          [
+            6,
+            14,
+            5
+          ]
+        ],
+        "unwind_info_object_available": true,
+        "unwind_operations": 0
+      },
+      "speed-true-registered": {
+        "code_size": 14,
+        "fde_found_after_deregistration": false,
+        "host": {
+          "call_site_offset": 5,
+          "callback_count": 1,
+          "dladdr_symbol_found": 0,
+          "libgcc_fde_found": 1,
+          "reached_host_caller": 1,
+          "return_value": 35,
+          "saw_generated_frame": 1
+        },
+        "internal_source_line": 4,
+        "source_spans": [
+          [
+            0,
+            4,
+            4294967295
+          ],
+          [
+            4,
+            6,
+            4
+          ],
+          [
+            6,
+            14,
+            5
+          ]
+        ],
+        "unwind_info_object_available": true,
+        "unwind_operations": 2
+      },
+      "speed-true-unregistered": {
+        "code_size": 14,
+        "fde_found_after_deregistration": false,
+        "host": {
+          "call_site_offset": 5,
+          "callback_count": 1,
+          "dladdr_symbol_found": 0,
+          "libgcc_fde_found": 0,
+          "reached_host_caller": 0,
+          "return_value": 35,
+          "saw_generated_frame": 1
+        },
+        "internal_source_line": 4,
+        "source_spans": [
+          [
+            0,
+            4,
+            4294967295
+          ],
+          [
+            4,
+            6,
+            4
+          ],
+          [
+            6,
+            14,
+            5
+          ]
+        ],
+        "unwind_info_object_available": true,
+        "unwind_operations": 2
+      }
+    },
+    "orc": {
+      "original": {
+        "accepted_origin": true,
+        "host": {
+          "call_site_offset": 9,
+          "callback_count": 1,
+          "dladdr_symbol_found": 0,
+          "libgcc_fde_found": 1,
+          "reached_host_caller": 1,
+          "return_value": 35,
+          "saw_generated_frame": 1
+        },
+        "object_sha256": "2137b02f2188ef748f24995e8886ae34513803386268b845eb2131af8571247c",
+        "object_size": 2224,
+        "offline_dwarf_origin": {
+          "Column": 20,
+          "FileName": "/llmlang/rt13/source.c",
+          "FunctionName": "jit_step",
+          "Line": 4
+        },
+        "text_sha256": "99780f9c9efdee14e29d6b8fe692e16188fb820c2679e5da8976f3f40a8b524c"
+      },
+      "without_uwtable": {
+        "accepted_origin": true,
+        "host": {
+          "call_site_offset": 9,
+          "callback_count": 1,
+          "dladdr_symbol_found": 0,
+          "libgcc_fde_found": 0,
+          "reached_host_caller": 0,
+          "return_value": 35,
+          "saw_generated_frame": 1
+        },
+        "object_sha256": "34b60dbb103ab796e55fc457ea19bb91abc98f7550873f0d940854ba979fc3d4",
+        "object_size": 2280,
+        "offline_dwarf_origin": {
+          "Column": 20,
+          "FileName": "/llmlang/rt13/source.c",
+          "FunctionName": "jit_step",
+          "Line": 4
+        },
+        "text_sha256": "99780f9c9efdee14e29d6b8fe692e16188fb820c2679e5da8976f3f40a8b524c"
+      },
+      "wrong_origin": {
+        "accepted_origin": false,
+        "host": {
+          "call_site_offset": 9,
+          "callback_count": 1,
+          "dladdr_symbol_found": 0,
+          "libgcc_fde_found": 1,
+          "reached_host_caller": 1,
+          "return_value": 35,
+          "saw_generated_frame": 1
+        },
+        "object_sha256": "8206f3e8f355ac09674700d9688bce391e77f382515c1b58c66baa486796ad6e",
+        "object_size": 2224,
+        "offline_dwarf_origin": {
+          "Column": 20,
+          "FileName": "/llmlang/rt13/source.c",
+          "FunctionName": "jit_step",
+          "Line": 5
+        },
+        "text_sha256": "99780f9c9efdee14e29d6b8fe692e16188fb820c2679e5da8976f3f40a8b524c"
+      }
+    }
+  },
+  "source_sha256": {
+    "Cargo.lock": "bdd328a2843fdcc23f7b876a976bf2b6abf0de37d587c0f326f5259f591085d3",
+    "Cargo.toml": "8d988d4e029c8ecfe6997e66d58f2d930e264ee8fc0ed957e93bb3ad616bdedd",
+    "jit.ll": "9a18e159590b1ee76826a4cd346a727e11d629e534e6504c21b06b3228da9abe",
+    "observer.c": "8e27f7795d10437304bf5d042e90b5c9946522c0816ff736a5176938205be574",
+    "observer.h": "ce846013f44744aff775608ebb1e70ee36c0d44c89018c1fa05c87952476ce1c",
+    "orc.cpp": "832cc2c6206494772a027e4a2af03e30df1c2989eacf2b7dac583729acc3f14e",
+    "run.py": "97a76c07bd6419bf2e9d05decb053bb6facdbb3a847331545d1f5bf0bbe50117",
+    "source.c": "212bb9c7aabbd8e734bdaf41aa4d65192e05b82f066996c10010832de41d8fde",
+    "src/main.rs": "188dde09512878aa859d51a11a3ee54b28110f27fd93997bf71edc189f6a9006"
+  },
+  "tools": {
+    "gcc": "14.2.0",
+    "glibc": "glibc 2.41",
+    "llvm": "19.1.7",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  }
+}

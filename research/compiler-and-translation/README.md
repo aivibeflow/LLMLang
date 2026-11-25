@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-13 JIT unwind and callback origins](RT-13/RT-13-JIT-UNWIND-AND-CALLBACK-ORIGINS-2026-11-25.md) checks native frame traversal, registration lifetime and offline source attribution.
 - [RT-13 target support evidence matrix](RT-13/RT-13-TARGET-SUPPORT-EVIDENCE-MATRIX-2026-11-25.md) records implemented and unverified architecture, ABI and runtime profiles.
 - [RT-13 Wasm host effect boundary](RT-13/RT-13-WASM-HOST-EFFECT-BOUNDARY-2026-11-25.md) compares direct and LLVM modules across host bindings and argument admission.
 - [RT-13 LLVM progress and divergence](RT-13/RT-13-LLVM-PROGRESS-AND-DIVERGENCE-2026-11-25.md) checks exact optimizer consequences of source progress promises.
