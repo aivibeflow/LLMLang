@@ -1,0 +1,505 @@
+{
+  "adjudication": "provisional/no-human-adjudication",
+  "basis": [
+    "constant",
+    "n",
+    "square",
+    "hidden"
+  ],
+  "counts": {
+    "false_promotion_if_finite_agreement_means_proved": 1,
+    "finite/abstain": 3,
+    "finite/finite-agreement": 7,
+    "finite/visible-witness": 4,
+    "label/conditional": 1,
+    "label/proved": 3,
+    "label/refuted": 5,
+    "label/unknown": 1,
+    "label/unsupported": 4,
+    "manual/kernel-checked": 3,
+    "manual/kernel-checked-under-foreign-assumption": 1,
+    "manual/unknown": 6,
+    "manual/unsupported": 4
+  },
+  "format": "inference-vectors-01",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "potential_vector": {
+    "disposition": "checked-hand-provided-potential",
+    "source": "b373cf431e82aa3abed65c6a915b5a03917143106c97bdd077532aee4023245c"
+  },
+  "rows": [
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "proved",
+        "id": "CXB-001-exact",
+        "scope": "exact-steps",
+        "subject": "sum-steps"
+      },
+      "finite_scaling": {
+        "disposition": "finite-agreement",
+        "witness": null
+      },
+      "kernel_audit": {
+        "axiom_audit": "'audited' depends on axioms: [propext, Quot.sound]",
+        "disposition": "kernel-checked",
+        "source": "b9addba7af147013024929ca7f3b49b317a4eb5988de90b3e0e9b8ce088f145a"
+      },
+      "manual_budget_vc": {
+        "axiom_audit": "'audited' depends on axioms: [propext, Quot.sound]",
+        "disposition": "kernel-checked",
+        "source": "b9addba7af147013024929ca7f3b49b317a4eb5988de90b3e0e9b8ce088f145a"
+      },
+      "symbolic": {
+        "disposition": "proved",
+        "witness": null
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "refuted",
+        "id": "CXB-001-too-low",
+        "scope": "exact-steps",
+        "subject": "sum-steps"
+      },
+      "finite_scaling": {
+        "disposition": "visible-witness",
+        "witness": 1
+      },
+      "kernel_audit": {
+        "axiom_audit": "'audited' does not depend on any axioms",
+        "disposition": "kernel-checked",
+        "source": "a9bb1fc67755f75062fb9a4c361f94c31c71a277ff592b28ca972868fb48c119"
+      },
+      "manual_budget_vc": {
+        "disposition": "unknown",
+        "source": "b3666c871da5efd3f8a817d994d058bc5cfa9ed1480d113b9362871035027b22"
+      },
+      "symbolic": {
+        "disposition": "refuted",
+        "witness": 1
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "proved",
+        "id": "CXB-008-rectangle",
+        "scope": "exact-steps",
+        "subject": "rectangular-steps"
+      },
+      "finite_scaling": {
+        "disposition": "finite-agreement",
+        "witness": null
+      },
+      "kernel_audit": {
+        "axiom_audit": "'audited' depends on axioms: [propext, Quot.sound]",
+        "disposition": "kernel-checked",
+        "source": "aec3aebaca438aa55a609986ccc7628e5e57b175adbb1fb343be802f817ed8ef"
+      },
+      "manual_budget_vc": {
+        "axiom_audit": "'audited' depends on axioms: [propext, Quot.sound]",
+        "disposition": "kernel-checked",
+        "source": "aec3aebaca438aa55a609986ccc7628e5e57b175adbb1fb343be802f817ed8ef"
+      },
+      "symbolic": {
+        "disposition": "proved",
+        "witness": null
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "refuted",
+        "id": "CXB-008-linear-claim",
+        "scope": "exact-steps",
+        "subject": "rectangular-steps"
+      },
+      "finite_scaling": {
+        "disposition": "visible-witness",
+        "witness": 2
+      },
+      "kernel_audit": {
+        "axiom_audit": "'audited' does not depend on any axioms",
+        "disposition": "kernel-checked",
+        "source": "3442e6ff1c82086caa6a07305437cb0f2a7a40eec96b496a7276996d7b7d5602"
+      },
+      "manual_budget_vc": {
+        "disposition": "unknown",
+        "source": "d6fcdc875f7ebf61ced9713c0954e80d68703bedd54a7f92bb768aa8cdedabaa"
+      },
+      "symbolic": {
+        "disposition": "refuted",
+        "witness": 2
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          2,
+          0,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "proved",
+        "id": "CXB-016-size-preserved",
+        "scope": "exact-steps",
+        "subject": "equal-size-pipeline"
+      },
+      "finite_scaling": {
+        "disposition": "finite-agreement",
+        "witness": null
+      },
+      "kernel_audit": {
+        "axiom_audit": "'audited' depends on axioms: [propext, Quot.sound]",
+        "disposition": "kernel-checked",
+        "source": "195d5f5adff96a9ef4137ce53fda459fd341974d86c12ac7c06230f89fc1e96b"
+      },
+      "manual_budget_vc": {
+        "axiom_audit": "'audited' depends on axioms: [propext, Quot.sound]",
+        "disposition": "kernel-checked",
+        "source": "195d5f5adff96a9ef4137ce53fda459fd341974d86c12ac7c06230f89fc1e96b"
+      },
+      "symbolic": {
+        "disposition": "proved",
+        "witness": null
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          2,
+          0,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "refuted",
+        "id": "CXB-016-size-expanded",
+        "scope": "exact-steps",
+        "subject": "expanded-pipeline"
+      },
+      "finite_scaling": {
+        "disposition": "visible-witness",
+        "witness": 2
+      },
+      "kernel_audit": {
+        "axiom_audit": "'audited' does not depend on any axioms",
+        "disposition": "kernel-checked",
+        "source": "14bc498a38d64f93f8e586e59a66c1712d172d3e3df5e35a3cbcf5d7f966e175"
+      },
+      "manual_budget_vc": {
+        "disposition": "unknown",
+        "source": "711bddcdd2c94a3c9601b69b117f5f742d99ecc095ba2e4a55c34cd32fce24ee"
+      },
+      "symbolic": {
+        "disposition": "refuted",
+        "witness": 2
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "unknown",
+        "id": "CXB-022-missing",
+        "scope": "exact-steps",
+        "subject": "no-provider-bound"
+      },
+      "finite_scaling": {
+        "disposition": "abstain",
+        "witness": null
+      },
+      "kernel_audit": {
+        "disposition": "unknown"
+      },
+      "manual_budget_vc": {
+        "disposition": "unknown"
+      },
+      "symbolic": {
+        "disposition": "unknown",
+        "witness": null
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": "provider twice-n summary",
+        "bound": [
+          0,
+          2,
+          0,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "conditional",
+        "id": "CXB-022-conditional",
+        "scope": "exact-steps",
+        "subject": "foreign-assumption"
+      },
+      "finite_scaling": {
+        "disposition": "finite-agreement",
+        "witness": null
+      },
+      "kernel_audit": {
+        "axiom_audit": "'audited' depends on axioms: [propext, Quot.sound]",
+        "disposition": "kernel-checked",
+        "source": "195d5f5adff96a9ef4137ce53fda459fd341974d86c12ac7c06230f89fc1e96b"
+      },
+      "manual_budget_vc": {
+        "axiom_audit": "'audited' depends on axioms: [propext, Quot.sound]",
+        "disposition": "kernel-checked-under-foreign-assumption",
+        "source": "195d5f5adff96a9ef4137ce53fda459fd341974d86c12ac7c06230f89fc1e96b"
+      },
+      "symbolic": {
+        "disposition": "conditional",
+        "witness": null
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "refuted",
+        "id": "CXB-024-extra-work",
+        "scope": "exact-steps",
+        "subject": "rectangular-steps"
+      },
+      "finite_scaling": {
+        "disposition": "visible-witness",
+        "witness": 2
+      },
+      "kernel_audit": {
+        "axiom_audit": "'audited' does not depend on any axioms",
+        "disposition": "kernel-checked",
+        "source": "3442e6ff1c82086caa6a07305437cb0f2a7a40eec96b496a7276996d7b7d5602"
+      },
+      "manual_budget_vc": {
+        "disposition": "unknown",
+        "source": "d6fcdc875f7ebf61ced9713c0954e80d68703bedd54a7f92bb768aa8cdedabaa"
+      },
+      "symbolic": {
+        "disposition": "refuted",
+        "witness": 2
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "domain": "0-12",
+        "expected": "unsupported",
+        "id": "CXB-026-finite-parent",
+        "scope": "exact-steps",
+        "subject": "sum-steps"
+      },
+      "finite_scaling": {
+        "disposition": "finite-agreement",
+        "witness": null
+      },
+      "kernel_audit": {
+        "disposition": "unsupported"
+      },
+      "manual_budget_vc": {
+        "disposition": "unsupported"
+      },
+      "symbolic": {
+        "disposition": "unsupported",
+        "witness": null
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "domain": "empty",
+        "expected": "unsupported",
+        "id": "CXB-026-empty-parent",
+        "scope": "exact-steps",
+        "subject": "sum-steps"
+      },
+      "finite_scaling": {
+        "disposition": "abstain",
+        "witness": null
+      },
+      "kernel_audit": {
+        "disposition": "unsupported"
+      },
+      "manual_budget_vc": {
+        "disposition": "unsupported"
+      },
+      "symbolic": {
+        "disposition": "unsupported",
+        "witness": null
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "refuted",
+        "id": "CXB-029-threshold",
+        "scope": "exact-steps",
+        "subject": "hidden-expensive-branch"
+      },
+      "finite_scaling": {
+        "disposition": "finite-agreement",
+        "witness": null
+      },
+      "kernel_audit": {
+        "axiom_audit": "'audited' does not depend on any axioms",
+        "disposition": "kernel-checked",
+        "source": "4c05bb2025f56198b22fb4603291b902729f3d9074f62b1cf18d07e0aff29b2c"
+      },
+      "manual_budget_vc": {
+        "disposition": "unknown",
+        "source": "552762c712e1a4b34b23fa124aca44807060d3d8c7e8cc64de86085300c00e75"
+      },
+      "symbolic": {
+        "disposition": "refuted",
+        "witness": 33
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "domain": "0-12",
+        "expected": "unsupported",
+        "id": "CXB-029-bounded-domain",
+        "scope": "exact-steps",
+        "subject": "hidden-expensive-branch"
+      },
+      "finite_scaling": {
+        "disposition": "finite-agreement",
+        "witness": null
+      },
+      "kernel_audit": {
+        "disposition": "unsupported"
+      },
+      "manual_budget_vc": {
+        "disposition": "unsupported"
+      },
+      "symbolic": {
+        "disposition": "unsupported",
+        "witness": null
+      }
+    },
+    {
+      "adjudication": "provisional",
+      "case": {
+        "assumption": null,
+        "bound": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "domain": "all-natural",
+        "expected": "unsupported",
+        "id": "CXB-030-wrong-projection",
+        "scope": "wall-time",
+        "subject": "sum-steps"
+      },
+      "finite_scaling": {
+        "disposition": "abstain",
+        "witness": null
+      },
+      "kernel_audit": {
+        "disposition": "unsupported"
+      },
+      "manual_budget_vc": {
+        "disposition": "unsupported"
+      },
+      "symbolic": {
+        "disposition": "unsupported",
+        "witness": null
+      }
+    }
+  ],
+  "visible_sizes": [
+    0,
+    12
+  ],
+  "witness_search_sizes": [
+    0,
+    64
+  ]
+}
