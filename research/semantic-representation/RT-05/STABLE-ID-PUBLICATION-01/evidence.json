@@ -1,0 +1,25 @@
+{
+  "model": {
+    "ordered_cases": 36,
+    "outcomes": {
+      "conflict/conflict": 9,
+      "conflict/pending": 3,
+      "conflict/published": 6,
+      "pending/conflict": 3,
+      "pending/pending": 1,
+      "pending/published": 2,
+      "published/pending": 12
+    },
+    "post_commit_retries": {
+      "conflict": 18,
+      "pending": 2
+    }
+  },
+  "prior_ledgers": {
+    "EVOLUTION-BOUNDARY-01": "903919de861ce82493ff701862b29e7199a925a0632c265eab84a009757c606b",
+    "MULTI-PARENT-LINEAGE-01": "fa5a9a73a61aa95d208b79371fe143577c83251f0830d627851075289bfba663",
+    "OPERATION-LIFETIME-01": "74ea00e004c315fdcbadfb1a178ef3d5ec9b18e8733822f4e7056d8be0fc748b"
+  },
+  "revision": "72afdd7055fb17bb7274ae9330aa6a32791fde4e",
+  "runner_sha256": "9628de977bd7e5c6b43d65d1a390176c4b10ad74249bc04899fc7fb2776d7c39"
+}

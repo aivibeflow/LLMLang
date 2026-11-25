@@ -77,6 +77,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Recommendation:** Keep lineage changes explicit and auditable; never infer identity solely from names or contract similarity.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 3.6.
 - **Evidence:** [RT-05 operation lifetime](research/semantic-representation/RT-05/RT-05-OPERATION-LIFETIME-2026-11-25.md) separates retirement and reactivation from immutable value retrieval and replacement. Exact old call admission depends on its publication pair and archive policy. Tombstone authority and distributed retention remain open.
+- **Candidate:** [Stable-ID publication](research/semantic-representation/RT-05/RT-05-STABLE-ID-PUBLICATION-2026-11-25.md) checks terminal retirement and authorized atomic allocation.
 
 ### LL-003 — Specify contract-based analogue discovery and substitution
 
