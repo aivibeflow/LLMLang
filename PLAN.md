@@ -1456,6 +1456,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define provider snapshot consistency, deterministic logical package roots, and separation of content from delivery metadata.
   - [x] Compare 36 exact archives across 12 request profiles, two SQLite Providers and an independently built Static Package. Delivery snapshots and insertion order do not change matched archive bytes. Active missing data refuses publication while an inactive edge permits it. Distributed policy remains open. [Pinned Provider views](research/packages-and-ecosystem/RT-12/RT-12-DYNAMIC-REQUEST-2026-11-25.md)
 - [ ] Define multi-provider index merge, availability metadata, selective retrieval, and trust/provenance boundaries.
+  - [ ] [WIP] Check selective exact-object retrieval from overlapping Provider catalogs with stale, missing and unauthorized availability offers on `research/all`.
 - [x] Add a reproducible Provider benchmark harness for chain, diamond, high-fan-out, and many-dependency graphs; report time, throughput, Python allocation peak, process RSS, temporary-directory disk high-water, and archive size.
 - [x] Add CI stress coverage for 1,200-object chain and high-fan-out dependency closures.
 - [ ] Run and retain representative small/medium/large benchmark baselines on controlled hardware; CI measurements are exploratory and are not acceptance thresholds.
