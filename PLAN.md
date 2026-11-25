@@ -877,7 +877,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Compare KV databases, content-addressed object stores, relational indexes, and filesystem layouts.
 - [ ] Define canonical object encoding and immutable object lifecycle.
 - [ ] Define indexes for graph traversal, reverse dependencies, contracts, and implementation discovery.
-  - [ ] [WIP] Compare snapshot-bound reverse edge indexes, role/occurrence preservation, and authoritative fallback using SQLite on `research/all`.
+  - [x] Compare eight SQLite reverse projections across six queries. Only exact typed occurrence inventories are admitted, and all 48 checked/fallback results agree. A WAL schedule shows why validation and lookup must share a read snapshot or immutable generation. [RT-12 snapshot-bound reverse index](research/packages-and-ecosystem/RT-12/RT-12-SNAPSHOT-BOUND-REVERSE-INDEX-2026-11-25.md)
 - [ ] Define transactions and atomic publication of graph revisions.
 - [ ] Define garbage collection and reachability.
   - [x] Compare six real SQLite WAL schedules for stale mark/sweep, generation recheck, writer exclusion, multiple leases, cycles and incomplete closure. The unchecked plan loses a newly published root; the generation recheck preserves it after retry. External CAS lifetime and recovery remain open. [RT-12 reachability sweep](research/packages-and-ecosystem/RT-12/RT-12-REACHABILITY-SWEEP-2026-11-25.md)
