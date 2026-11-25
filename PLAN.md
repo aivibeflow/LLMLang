@@ -619,6 +619,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 - [ ] Define proof obligations for semantic graph rewrites, including correspondence with authoritative LLMLang semantics when Lean or another verifier is used as a target representation.
 - [ ] Define proof obligations for compiler optimizations.
+  - Lean characterizes the exact agreement guard for seven binary64 extrema rules under normalized NaN outputs. All 1,024 archived native pair equations match, with 518 agreeing pairs and 506 disagreements. General LLVM/source correspondence and status flags remain open. [F64 extrema agreement guard](research/formal-verification/RT-32/RT-32-F64-EXTREMA-AGREEMENT-GUARD-2026-11-25.md)
 - [ ] Study translation validation versus proving the optimizer correct.
 - [ ] Evaluate Alive2 and related LLVM validation techniques.
   - [x] Cross-check five LLVM 19 modules in the structural verifier, Alive2 and the extracted Vellvm interpreter. Alive2 confirms identity and refutes incorrect signed-overflow metadata and a store reorder. Unsupported atomic and fence cases need separate concurrent evidence. [LLVM validation coverage](research/compiler-and-translation/RT-13/RT-13-ALIVE2-VELLVM-COVERAGE-2026-11-24.md). [Stock replay](research/compiler-and-translation/RT-13/RT-13-STOCK-ALIVE2-LLVM-EH-2026-11-24.md) confirms the same verdicts using unmodified Alive2 and exception-enabled LLVM 19.1.7.
