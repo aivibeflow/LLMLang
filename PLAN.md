@@ -829,7 +829,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 **Estimated research complexity:** **5/10** — controlled benchmark design and measurement; conclusions depend on representative workloads and hardware.
 
 - [ ] Validate the analytical model in `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
-- [ ] Implement reproducible benchmarks for cold, warm, local-edit, component-edit, and broad-change builds.
+- [ ] Implement reproducible benchmarks for cold, warm, local-edit, component-edit, and broad-change builds. [WIP] — collect a pinned synthetic C++ comparison against clean and dependency-aware Make builds on `research/all`.
 - [ ] Measure cache hit rates by action type.
 - [ ] Measure hashing, dependency discovery, scheduling, storage, and verification overhead.
 - [ ] Compare against clean and conventional incremental builds in representative Rust, Go, and C++ projects.
