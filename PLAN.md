@@ -1230,6 +1230,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Estimated research complexity:** **8/10** — overlaps the unresolved RT-04 type, ownership, effect, and capability architecture.
 
 - [ ] Define primitive and algebraic data types.
+  - [ ] [WIP] Check primitive validity and algebraic sum/product isomorphisms across exact native encodings on `research/all` (#324).
   - [x] Compare closed and extensible Rust outcome types across 40 compile decisions and 6,144 native observations. Extensible types preserve wildcard client admission; an explicit unknown branch refuses the new case while a success wildcard incorrectly classifies 340 controls. Binary and wire compatibility remain open. [Sum extension](research/semantic-representation/RT-05/RT-05-SUM-EXTENSION-2026-11-25.md)
   - [x] Compare explicit-tag and dense native encodings of 258 nested optional byte values. All four compiler builds match both exhaustive inventories over 65,536 words each. The two layouts share two valid words and disagree on one of them. Other payloads, targets and ABI evolution remain open. [RT-04 nested optional byte ABI](research/language-design/RT-04/RT-04-NESTED-OPTIONAL-BYTE-ABI-2026-11-25.md)
 - [x] Compare structural and nominal typing.
