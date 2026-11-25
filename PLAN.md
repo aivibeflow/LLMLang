@@ -1779,6 +1779,7 @@ Research a typed, versioned object describing the task an agent is expected to p
 - [ ] Study multi-agent ownership, concurrent task revisions, subtask dependencies, idempotency, recovery, and the boundary between task completion and commit/push authorization.
   - [x] Check 27 SQLite WAL task settlements and an interrupted retry. Active-state and task-only checks admit six and three stale completions respectively. Exact task and prerequisite matching admits both valid transitions and no stale ones. Connection-close rollback and exact retry retain one outcome. Production authorization and multi-child integration remain open. [Task Context settlement](research/toolchain-and-collaboration/RT-14/RT-14-TASK-CONTEXT-SQLITE-2026-11-25.md)
 - [ ] Keep authorization independent: a Task Context describes requested work and constraints but does not grant capabilities; RT-16 policy checks remain authoritative.
+  - [ ] [WIP] Compose the existing RT-16 policy gate with Task Context completion and test independent authorization of exact actions (#340).
 - [ ] Build lifecycle and adversarial fixtures for stale baselines, scope expansion, omitted obligations, conflicting delegated work, cancellation/retry, and partial completion.
 
 ### Joint integration and exit criteria
