@@ -906,6 +906,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Keep Semantic Hash, Action Key, and Artifact Hash distinct.
   - Five native compilation cells demonstrate a changed contract with the same action and object, different action keys for the same object, and an omitted flag yielding one incomplete key for two objects. [Semantic, action and artifact identities](research/toolchain-and-collaboration/RT-11/RT-11-SEMANTIC-ACTION-ARTIFACT-IDENTITIES-2026-11-25.md)
 - [ ] Include tool identity, tool version, configuration, target, environment, runtime, and policy inputs whenever they can affect a result.
+  - [ ] [WIP] Check exact runtime dependency closure and ordered loader inputs for a native test action on `research/all` (#300).
 - [ ] Define deterministic versus nondeterministic action handling.
   - [ ] [WIP] Compare byte-deterministic, semantic-deterministic and non-cacheable action results using exact package artifacts and ordered events (#300).
   - [x] Compare exact compile artifacts under ambient path and fixed-clock changes. Across 32 builds, requests keyed without relevant path or clock inputs can hit incorrect artifacts. Keys using the declared inputs prevent every tested false hit, while unavailable relevant inputs block lookup. General action determinism and environment discovery remain open. [RT-13 compile action inputs](research/compiler-and-translation/RT-13/RT-13-COMPILE-ACTION-DETERMINISM-2026-11-25.md)
@@ -916,6 +917,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Define test and proof evidence caching with exact subject and assumption binding.
   - [x] Match 15 native test observations and five Lean propositions. Different executable bytes, test cases, premises or source applicability invalidate the corresponding receipt. A test receipt cannot be admitted as a proof. [Typed action receipts](research/toolchain-and-collaboration/RT-11/RT-11-TYPED-ACTION-RECEIPTS-2026-11-25.md)
 - [ ] Define behavior for incomplete dependency closure: invalidate conservatively or disable caching.
+  - [ ] [WIP] Check cache lookup and publication when a required runtime dependency is unknown on `research/all` (#300).
 - [ ] Define reproducibility requirements and cache poisoning defenses.
 
 **Existing evidence:** [SEMANTIC-COMPILATION-CACHE.md](research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [COMPILATION-CACHE-SPEEDUP-ESTIMATE.md](research/toolchain-and-collaboration/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md), [Language Versioning](research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md), and the exploratory [Package Identity Prototype 01](research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/README.md).
