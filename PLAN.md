@@ -811,9 +811,9 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 - [ ] Define invalidation for type checking, contract checking, optimization, code generation, tests, and proofs.
   - [x] Compare six exact action keys across eight directed edits and an ill-typed body. Formatting invalidates source-map evidence alone. Equivalent source trees require fresh source checks while retaining exact optimized code and test inputs. A signature-only type key collides with the ill-typed body. [RT-11 typed pipeline invalidation](research/toolchain-and-collaboration/RT-11/RT-11-TYPED-PIPELINE-INVALIDATION-2026-11-25.md)
-- [ ] Define the difference between semantic impact and evidence staleness.
+- [x] Define the difference between semantic impact and evidence staleness.
   - [x] Compare proof freshness with checked semantic impact across five source variants and Lean 4.34/4.36. Whitespace preserves the exact check request while changing its source receipt. An equivalent refactor changes the request, and a semantic change can still satisfy the same property. Same-version compiled imports succeed and both cross-version loads fail. [Semantic impact and proof freshness](research/toolchain-and-collaboration/RT-11/RT-11-SEMANTIC-IMPACT-AND-PROOF-FRESHNESS-2026-11-25.md)
-  - [ ] [WIP] Compare exact evidence applicability with observed semantic impact across graph, source, toolchain, projection and trust-policy edits on `research/all`.
+  - [x] Compare exact evidence applicability across 160 graph, projection, scope, verifier, policy and receipt cases. In 52 cases the receipt was stale with no observed behavior change. In 24 cases behavior changed with no receipt present. [RT-11 observational impact and evidence applicability](research/toolchain-and-collaboration/RT-11/RT-11-OBSERVATIONAL-IMPACT-AND-EVIDENCE-APPLICABILITY-2026-11-25.md)
 - [ ] Define how an `ImplHash` change propagates through dependent semantic nodes and action results.
 - [ ] Define safe reuse when only non-semantic metadata changes.
   - [x] Independently check the column-only boundary with four GCC builds and 40 native calls. Executable text and decoded line/address pairs are unchanged, while raw DWARF column updates and the exact debug object change. [RT-11 debug column reuse](research/toolchain-and-collaboration/RT-11/RT-11-DEBUG-COLUMN-REUSE-2026-11-25.md)
