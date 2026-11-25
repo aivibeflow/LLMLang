@@ -1058,8 +1058,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Estimated research complexity:** **8/10** — overlaps the unresolved RT-04 type, ownership, effect, and capability architecture.
 
 - [ ] Define primitive and algebraic data types.
-- [ ] Compare structural and nominal typing.
-  - [ ] [WIP] Compare structural tuple interchange, nominal record identity, and transparent ABI wrappers with native compiler controls on `research/all`.
+- [x] Compare structural and nominal typing.
+  - Twenty Go and Rust compiler controls distinguish structural assignment, nominal identity, aliases and explicit conversions. 4,632 C calls compare a scalar and two transparent Rust wrappers on x86-64 Linux. The comparison preserves separate source and ABI rules; LLMLang type-system selection remains open. [Native type identity](research/semantic-representation/RT-05/RT-05-NATIVE-TYPE-IDENTITY-2026-11-25.md)
 - [ ] Research generic and polymorphic types.
   - Compare inlined and separately linked static specializations, Rust trait objects and explicit dictionaries across 18 native links and 18,432 results. Cross-linking stale caller objects changes 1,024 inlined results while the other three routes use the linked provider throughout. A nondependent edit changes the provider archive but preserves the caller object bytes. Generic SPG lowering, ABI policy and representative measurements remain open. [Generic provider binding](research/semantic-representation/RT-05/RT-05-GENERIC-PROVIDER-BINDING-2026-11-25.md)
 - [ ] Evaluate refinement types and dependent types.

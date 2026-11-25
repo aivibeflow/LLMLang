@@ -1,0 +1,163 @@
+{
+  "tools": {
+    "go": "go version go1.27.4 linux/amd64",
+    "rustc": [
+      "rustc 1.85.1 (4eb161250 2025-03-15)",
+      "binary: rustc",
+      "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+      "commit-date: 2025-03-15",
+      "host: x86_64-unknown-linux-gnu",
+      "release: 1.85.1",
+      "LLVM version: 19.1.7"
+    ],
+    "cc": "cc (Debian 14.2.0-19) 14.2.0",
+    "cc_target": "x86_64-linux-gnu"
+  },
+  "source_sha256": {
+    "abi.c": "6fda41878172f208dd3f9b25390fe3bd25e0a269a90a9525b6c61cdb11750673",
+    "abi.rs": "b77495a7fd7184624ffacfb526ab05435604d2e5c0548b1acc7e2be089e068ef",
+    "run.py": "c6ad369754a4f31dec6ce77dee4824c3e1c2f308a59180199897a107f3ac3269"
+  },
+  "go_compile": [
+    {
+      "case": "identical-unnamed",
+      "admitted": true,
+      "classification": "assignable"
+    },
+    {
+      "case": "different-field-name",
+      "admitted": false,
+      "classification": "assignment-rejected"
+    },
+    {
+      "case": "different-field-type",
+      "admitted": false,
+      "classification": "assignment-rejected"
+    },
+    {
+      "case": "different-tag",
+      "admitted": false,
+      "classification": "assignment-rejected"
+    },
+    {
+      "case": "unnamed-to-named",
+      "admitted": true,
+      "classification": "assignable"
+    },
+    {
+      "case": "named-to-unnamed",
+      "admitted": true,
+      "classification": "assignable"
+    },
+    {
+      "case": "different-named",
+      "admitted": false,
+      "classification": "assignment-rejected"
+    },
+    {
+      "case": "named-alias",
+      "admitted": true,
+      "classification": "assignable"
+    },
+    {
+      "case": "explicit-named-conversion",
+      "admitted": true,
+      "classification": "assignable"
+    },
+    {
+      "case": "explicit-tagged-conversion",
+      "admitted": true,
+      "classification": "assignable"
+    }
+  ],
+  "rust_compile": [
+    {
+      "case": "identical-tuple",
+      "admitted": true,
+      "error_code": null
+    },
+    {
+      "case": "reversed-tuple-types",
+      "admitted": false,
+      "error_code": "E0308"
+    },
+    {
+      "case": "nominal-record-alias",
+      "admitted": true,
+      "error_code": null
+    },
+    {
+      "case": "same-shaped-second-record",
+      "admitted": false,
+      "error_code": "E0308"
+    },
+    {
+      "case": "explicit-record-construction",
+      "admitted": true,
+      "error_code": null
+    },
+    {
+      "case": "same-abi-second-wrapper",
+      "admitted": false,
+      "error_code": "E0308"
+    },
+    {
+      "case": "bare-field-to-wrapper",
+      "admitted": false,
+      "error_code": "E0308"
+    },
+    {
+      "case": "explicit-wrapper-construction",
+      "admitted": true,
+      "error_code": null
+    },
+    {
+      "case": "default-layout-rejected",
+      "admitted": false,
+      "classification": "unspecified-layout"
+    },
+    {
+      "case": "transparent-layout-available",
+      "admitted": true,
+      "classification": "ffi-lint-accepted"
+    }
+  ],
+  "native_abi": [
+    {
+      "rust_optimization": 0,
+      "c_optimization": 0,
+      "size": 8,
+      "alignment": 8,
+      "inputs": 386,
+      "verified_foreign_calls": 1158
+    },
+    {
+      "rust_optimization": 0,
+      "c_optimization": 2,
+      "size": 8,
+      "alignment": 8,
+      "inputs": 386,
+      "verified_foreign_calls": 1158
+    },
+    {
+      "rust_optimization": 3,
+      "c_optimization": 0,
+      "size": 8,
+      "alignment": 8,
+      "inputs": 386,
+      "verified_foreign_calls": 1158
+    },
+    {
+      "rust_optimization": 3,
+      "c_optimization": 2,
+      "size": 8,
+      "alignment": 8,
+      "inputs": 386,
+      "verified_foreign_calls": 1158
+    }
+  ],
+  "totals": {
+    "compile_controls": 20,
+    "native_calls": 4632
+  }
+}
