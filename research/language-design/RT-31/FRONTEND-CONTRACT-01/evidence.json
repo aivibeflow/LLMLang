@@ -1,0 +1,482 @@
+{
+  "dependencies": {
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+    "research/language-design/RT-31/CROSS-PROFILE-SPG-01/profiles.py": "8fc88d9b8d9af652783e9f3d3c43d66edb061d1e22ff62d622d46e6d307b6dcf",
+    "research/language-design/RT-31/CROSS-PROFILE-SPG-01/run.py": "344cdab493a1981021ab5d9096e473888761de4f8bcd24dd233b76301e58145a",
+    "research/language-design/RT-31/HYBRID-PROFILE-01/hybrid.py": "5d749682e057822f0cb232e0852fe27f08f9b1cc33a542f9e992976e35f6b887",
+    "research/language-design/RT-31/HYBRID-PROFILE-01/replay.py": "d39bfa565edfb8c3e01bd6d5b9e16ac98ac7d0d8339ef6532a7ea34385f36ff5"
+  },
+  "diagnostics": {
+    "additional": {
+      "invalid-utf8": {
+        "location": null,
+        "message": "ill-formed UTF-8 source",
+        "path": [],
+        "phase": "source",
+        "profile": "infix/1",
+        "source_sha256": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89"
+      },
+      "lossy-conversion": {
+        "location": null,
+        "message": "target profile changes normalized expression",
+        "path": [],
+        "phase": "generation",
+        "profile": "json-tree/1",
+        "source_sha256": "3103a3d4bf430e4013d42811b54a6bf353816fa421a93a847c6d1e5d5dc1b203"
+      },
+      "unknown-profile": {
+        "location": null,
+        "message": "unsupported requested profile version",
+        "path": [],
+        "phase": "profile",
+        "profile": "infix/2",
+        "source_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+      }
+    },
+    "exact-locations": {
+      "inner-direct": {
+        "location": {
+          "byte_column": 43,
+          "end_byte": 69,
+          "line": 3,
+          "precision": "point",
+          "start_byte": 68
+        },
+        "message": "invalid embedded scalar",
+        "path": [
+          "expression",
+          "expr"
+        ],
+        "phase": "frontend",
+        "profile": "hybrid/1",
+        "source_sha256": "f4a07c34d52b0d133c70b9f5c6a59cc68fd06114d2b3310e163f139b9f00b4c4"
+      },
+      "inner-escaped": {
+        "location": {
+          "byte_column": 48,
+          "end_byte": 79,
+          "line": 3,
+          "precision": "point",
+          "start_byte": 73
+        },
+        "message": "invalid embedded scalar",
+        "path": [
+          "expression",
+          "expr"
+        ],
+        "phase": "frontend",
+        "profile": "hybrid/1",
+        "source_sha256": "de9ca4eb91e94af214592bf269265ce03fe45163ae6df81e6f45db832f7531f2"
+      },
+      "nested-field": {
+        "location": {
+          "byte_column": 122,
+          "end_byte": 127,
+          "line": 1,
+          "precision": "field",
+          "start_byte": 122
+        },
+        "message": "expected scalar expression string",
+        "path": [
+          "expression",
+          "arguments",
+          0,
+          "expr"
+        ],
+        "phase": "frontend",
+        "profile": "hybrid/1",
+        "source_sha256": "d784db8a4c59d3c77b9cdf76a81e290528e88ebc68755af88bea14b48e70c2ca"
+      },
+      "outer-json": {
+        "location": {
+          "byte_column": 11,
+          "end_byte": 12,
+          "line": 1,
+          "precision": "point",
+          "start_byte": 11
+        },
+        "message": "invalid structured expression",
+        "path": [],
+        "phase": "frontend",
+        "profile": "hybrid/1",
+        "source_sha256": "5d3d4c87408457fbd86d9c022216bb256f357ce984a8f6b05aaa3dd2aa4563ba"
+      },
+      "outer-version": {
+        "location": {
+          "byte_column": 11,
+          "end_byte": 21,
+          "line": 1,
+          "precision": "field",
+          "start_byte": 11
+        },
+        "message": "unsupported hybrid profile",
+        "path": [
+          "profile"
+        ],
+        "phase": "profile",
+        "profile": "hybrid/1",
+        "source_sha256": "74afc40457b08dfef2f7c80b178cf434b69e9cb1778add46998b092bbfc08421"
+      },
+      "precise-infix": {
+        "location": {
+          "byte_column": 3,
+          "end_byte": 7,
+          "line": 2,
+          "precision": "point",
+          "start_byte": 6
+        },
+        "message": "invalid infix expression",
+        "path": [],
+        "phase": "frontend",
+        "profile": "infix/1",
+        "source_sha256": "305bcead0ae234d8666267ad328dd83376a43f8e3f4a2902e2d45759bb00e186"
+      },
+      "precise-json-tree": {
+        "location": {
+          "byte_column": 4,
+          "end_byte": 13,
+          "line": 2,
+          "precision": "point",
+          "start_byte": 12
+        },
+        "message": "invalid JSON expression",
+        "path": [],
+        "phase": "frontend",
+        "profile": "json-tree/1",
+        "source_sha256": "5486607a1118a4ce12f1072702436c9fad2ce61d3acb78d879cfb3aacfeb562a"
+      },
+      "precise-sexp": {
+        "location": {
+          "byte_column": 3,
+          "end_byte": 9,
+          "line": 2,
+          "precision": "point",
+          "start_byte": 8
+        },
+        "message": "unexpected token",
+        "path": [],
+        "phase": "frontend",
+        "profile": "s-expression/1",
+        "source_sha256": "d108cd7e6850b9a405d8a0ba98f26b4c50e5c24faf6248368355144daa73fd24"
+      }
+    },
+    "hybrid/1": {
+      "abstract-shape": {
+        "location": null,
+        "message": "unsupported abstract expression shape",
+        "path": [],
+        "phase": "normalization",
+        "profile": "hybrid/1",
+        "source_sha256": "1c31f0e0a447126f5ca2ca1103c94101e2cd82da47399c5a729e637e6a6d51a9"
+      },
+      "generator-version": {
+        "location": null,
+        "message": "unsupported target profile version",
+        "path": [],
+        "phase": "generation",
+        "profile": "hybrid/1",
+        "source_sha256": "1c31f0e0a447126f5ca2ca1103c94101e2cd82da47399c5a729e637e6a6d51a9"
+      },
+      "invalid-operand": {
+        "location": null,
+        "message": "add expects two Int operands",
+        "path": [],
+        "phase": "elaboration",
+        "profile": "hybrid/1",
+        "source_sha256": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82"
+      },
+      "ordered-observation": {
+        "location": null,
+        "message": "independent observation mismatch",
+        "path": [],
+        "phase": "semantic-validation",
+        "profile": "hybrid/1",
+        "source_sha256": "be807257584ebcf000f31d05705a08bb4ba2ee4584f990108c41c6d087dc3e68"
+      },
+      "source-mismatch": {
+        "location": null,
+        "message": "source digest mismatch",
+        "path": [],
+        "phase": "source",
+        "profile": "hybrid/1",
+        "source_sha256": "76941047a398256d5fde201c94fe28502acf03b1b99a327eb507cbe974014679"
+      },
+      "truncated": {
+        "location": {
+          "byte_column": 395,
+          "end_byte": 395,
+          "line": 1,
+          "precision": "point",
+          "start_byte": 395
+        },
+        "message": "invalid structured expression",
+        "path": [],
+        "phase": "frontend",
+        "profile": "hybrid/1",
+        "source_sha256": "76941047a398256d5fde201c94fe28502acf03b1b99a327eb507cbe974014679"
+      },
+      "unknown-argument": {
+        "location": null,
+        "message": "unknown parameter: unbound",
+        "path": [],
+        "phase": "elaboration",
+        "profile": "hybrid/1",
+        "source_sha256": "6a298c82b51a50397c400f44cab11c6c7033ab45f1143d33b794417bbf055b86"
+      }
+    },
+    "infix/1": {
+      "abstract-shape": {
+        "location": null,
+        "message": "unsupported abstract expression shape",
+        "path": [],
+        "phase": "normalization",
+        "profile": "infix/1",
+        "source_sha256": "3cce6044d8966223cac4b713d2984c67188612a80c2c6975cc223cb083866214"
+      },
+      "generator-version": {
+        "location": null,
+        "message": "unsupported target profile version",
+        "path": [],
+        "phase": "generation",
+        "profile": "infix/1",
+        "source_sha256": "3cce6044d8966223cac4b713d2984c67188612a80c2c6975cc223cb083866214"
+      },
+      "invalid-operand": {
+        "location": null,
+        "message": "add expects two Int operands",
+        "path": [],
+        "phase": "elaboration",
+        "profile": "infix/1",
+        "source_sha256": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49"
+      },
+      "ordered-observation": {
+        "location": null,
+        "message": "independent observation mismatch",
+        "path": [],
+        "phase": "semantic-validation",
+        "profile": "infix/1",
+        "source_sha256": "13844e89546e08e46bd74b133ab4fe1fb957a4c85f778bfcf9cfecb8b7f560b3"
+      },
+      "source-mismatch": {
+        "location": null,
+        "message": "source digest mismatch",
+        "path": [],
+        "phase": "source",
+        "profile": "infix/1",
+        "source_sha256": "6747c2c0eaac527bd4526287a71dd7e83a02bcda66fc181adb497fb0fc32680e"
+      },
+      "truncated": {
+        "location": {
+          "byte_column": 0,
+          "end_byte": 1,
+          "line": 1,
+          "precision": "point",
+          "start_byte": 0
+        },
+        "message": "invalid infix expression",
+        "path": [],
+        "phase": "frontend",
+        "profile": "infix/1",
+        "source_sha256": "6747c2c0eaac527bd4526287a71dd7e83a02bcda66fc181adb497fb0fc32680e"
+      },
+      "unknown-argument": {
+        "location": null,
+        "message": "unknown parameter: unbound",
+        "path": [],
+        "phase": "elaboration",
+        "profile": "infix/1",
+        "source_sha256": "4d96595f02410d87543f406d30f9bac86f5168e8f58cef7514b22d9eb5e0e5da"
+      }
+    },
+    "json-tree/1": {
+      "abstract-shape": {
+        "location": null,
+        "message": "unsupported abstract expression shape",
+        "path": [],
+        "phase": "normalization",
+        "profile": "json-tree/1",
+        "source_sha256": "0edccc865c4776f16bd874cf251683a3f24187e062153d84092981dae54fa33f"
+      },
+      "generator-version": {
+        "location": null,
+        "message": "unsupported target profile version",
+        "path": [],
+        "phase": "generation",
+        "profile": "json-tree/1",
+        "source_sha256": "0edccc865c4776f16bd874cf251683a3f24187e062153d84092981dae54fa33f"
+      },
+      "invalid-operand": {
+        "location": null,
+        "message": "add expects two Int operands",
+        "path": [],
+        "phase": "elaboration",
+        "profile": "json-tree/1",
+        "source_sha256": "f6310a1a2991c5d83f6d930a6d76a113e310bf0d32af83ba22604ff4ff8c5ee3"
+      },
+      "ordered-observation": {
+        "location": null,
+        "message": "independent observation mismatch",
+        "path": [],
+        "phase": "semantic-validation",
+        "profile": "json-tree/1",
+        "source_sha256": "3cfb731c9a2eb2bc132d2037e89123f1ae12e6c5d1d835a10ed38c506d364d91"
+      },
+      "source-mismatch": {
+        "location": null,
+        "message": "source digest mismatch",
+        "path": [],
+        "phase": "source",
+        "profile": "json-tree/1",
+        "source_sha256": "3fa49aff131ddcce5e7ce9f5f83b8370b54ff9e072dbd0618147a4cb428dca2b"
+      },
+      "truncated": {
+        "location": {
+          "byte_column": 150,
+          "end_byte": 150,
+          "line": 1,
+          "precision": "point",
+          "start_byte": 150
+        },
+        "message": "invalid JSON expression",
+        "path": [],
+        "phase": "frontend",
+        "profile": "json-tree/1",
+        "source_sha256": "3fa49aff131ddcce5e7ce9f5f83b8370b54ff9e072dbd0618147a4cb428dca2b"
+      },
+      "unknown-argument": {
+        "location": null,
+        "message": "unknown parameter: unbound",
+        "path": [],
+        "phase": "elaboration",
+        "profile": "json-tree/1",
+        "source_sha256": "a5327d9cba72d6451deada070deb03d5c5e6904edc20e9d40c330425aa15cc64"
+      }
+    },
+    "s-expression/1": {
+      "abstract-shape": {
+        "location": null,
+        "message": "unsupported abstract expression shape",
+        "path": [],
+        "phase": "normalization",
+        "profile": "s-expression/1",
+        "source_sha256": "7227208ef440a98cbfee8c09e2045c2439b75eaceb0e33c8c2e78fe7cf18fe87"
+      },
+      "generator-version": {
+        "location": null,
+        "message": "unsupported target profile version",
+        "path": [],
+        "phase": "generation",
+        "profile": "s-expression/1",
+        "source_sha256": "7227208ef440a98cbfee8c09e2045c2439b75eaceb0e33c8c2e78fe7cf18fe87"
+      },
+      "invalid-operand": {
+        "location": null,
+        "message": "add expects two Int operands",
+        "path": [],
+        "phase": "elaboration",
+        "profile": "s-expression/1",
+        "source_sha256": "198e13c0f254ab7b7dbda5ec65be3e6283cf2bfdb8e811acc78787dadc453c0d"
+      },
+      "ordered-observation": {
+        "location": null,
+        "message": "independent observation mismatch",
+        "path": [],
+        "phase": "semantic-validation",
+        "profile": "s-expression/1",
+        "source_sha256": "a82c249f354e4886a61edbe0029e9643feca12d26f2601e6b600d439b8986906"
+      },
+      "source-mismatch": {
+        "location": null,
+        "message": "source digest mismatch",
+        "path": [],
+        "phase": "source",
+        "profile": "s-expression/1",
+        "source_sha256": "1ba24a192e154a3b2168705aa4ad5c84d201668987186c6052deae5c026bf0e9"
+      },
+      "truncated": {
+        "location": {
+          "byte_column": 128,
+          "end_byte": 128,
+          "line": 1,
+          "precision": "point",
+          "start_byte": 128
+        },
+        "message": "expected expression",
+        "path": [],
+        "phase": "frontend",
+        "profile": "s-expression/1",
+        "source_sha256": "1ba24a192e154a3b2168705aa4ad5c84d201668987186c6052deae5c026bf0e9"
+      },
+      "unknown-argument": {
+        "location": null,
+        "message": "unknown parameter: unbound",
+        "path": [],
+        "phase": "elaboration",
+        "profile": "s-expression/1",
+        "source_sha256": "2ace49f9f283f5452eed7d68d82c704df5fe12a493eaedee2875902cd8646849"
+      }
+    }
+  },
+  "routes": 256,
+  "source_revision": "d2c80ff58323a819a54e0455efbaeea41b3c7223",
+  "subjects": [
+    {
+      "canonical_graph": "11d538236f103f42b79b193012ed9b956404365e72199e7bcc325ab6b753ae50",
+      "delta": -1,
+      "index": 0,
+      "mode": "op",
+      "provider": "primary"
+    },
+    {
+      "canonical_graph": "a6a613d693b92b608fa517b0913d424c54734454e64c8b077f3ed0f5b025a19c",
+      "delta": 3,
+      "index": 1,
+      "mode": "op",
+      "provider": "primary"
+    },
+    {
+      "canonical_graph": "e3aa4168a6d1bc4f5877bdf0a0736a76142c24a775c5b0c8e4b427e39a437d58",
+      "delta": -1,
+      "index": 2,
+      "mode": "op",
+      "provider": "alternate"
+    },
+    {
+      "canonical_graph": "fae2953bdc79c26d068930e2f06fc9aae79794ad64f81b9c913d7e600b822dd6",
+      "delta": 3,
+      "index": 3,
+      "mode": "op",
+      "provider": "alternate"
+    },
+    {
+      "canonical_graph": "ed6a10c303c46f234f2625b63df99433de3c8976f10cc7395f64962b60ec9a5a",
+      "delta": -1,
+      "index": 4,
+      "mode": "pin",
+      "provider": "primary"
+    },
+    {
+      "canonical_graph": "36e38c7d6c4176d02899a0b46d55018ecf666a60e39b729eed073180dd071e99",
+      "delta": 3,
+      "index": 5,
+      "mode": "pin",
+      "provider": "primary"
+    },
+    {
+      "canonical_graph": "484e51f44803266a46fdfb7ec42d4fcc2451773a42917a4e9a94065d31f58b6b",
+      "delta": -1,
+      "index": 6,
+      "mode": "pin",
+      "provider": "alternate"
+    },
+    {
+      "canonical_graph": "ff0f46209724096b8a846bdd834409c952ac3d45359dc026e823022a6a94c431",
+      "delta": 3,
+      "index": 7,
+      "mode": "pin",
+      "provider": "alternate"
+    }
+  ],
+  "value_and_trace_observations": 3584
+}
