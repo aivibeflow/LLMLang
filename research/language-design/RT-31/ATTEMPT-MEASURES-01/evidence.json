@@ -1,0 +1,68 @@
+{
+  "archived_attribution_sha256": "062bf3475432e9e569afa9c6cc67ccc88319ed480371494e1d2f9c6febb7ea09",
+  "archived_attribution_totals": {
+    "exact_match": 66048,
+    "expected_multiple_causes": 43176,
+    "expected_unknown": 12288,
+    "first_attempt_match": 11400,
+    "last_session_match": 9600,
+    "schedules": 66048
+  },
+  "errors": {
+    "first_pass": {
+      "contract": 1,
+      "mcp-tool-call": 1,
+      "parse": 1,
+      "semantic": 1,
+      "task-completion": 1,
+      "type-effect-ownership": 1,
+      "unsupported-claim": 1
+    },
+    "repair_attempts": {
+      "contract": 1
+    }
+  },
+  "first_pass_sensitivity_to_pending": {
+    "denominator": 7,
+    "maximum_possible_passes": 2,
+    "minimum_possible_passes": 1
+  },
+  "metrics": {
+    "cost_nanos": {
+      "median": 53.0,
+      "missing": 3,
+      "observed": 8
+    },
+    "latency_ms": {
+      "median": 17.5,
+      "missing": 3,
+      "observed": 8
+    },
+    "review_ms": {
+      "median": 8.5,
+      "missing": 5,
+      "observed": 6
+    },
+    "tokens": {
+      "median": 32.0,
+      "missing": 3,
+      "observed": 8
+    }
+  },
+  "mode": "synthetic-attempt-report",
+  "observation_orders": 24,
+  "python": "3.12.14",
+  "source_sha256": "3718aca092a1a270be7be0a73d98c3a0c00fbdf69b36e3b6587ec7f2240e5a7f",
+  "status": {
+    "first_pass": {
+      "fail": 5,
+      "pass": 1,
+      "pending": 1
+    },
+    "repair_attempts": {
+      "fail": 1,
+      "pass": 2,
+      "pending": 1
+    }
+  }
+}

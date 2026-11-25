@@ -40,6 +40,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-31 attempt measures and attribution](RT-31/RT-31-ATTEMPT-MEASURES-AND-ATTRIBUTION-2026-11-25.md) checks separate semantic categories, attempt denominators and missing observations.
 - [RT-31 authoring corpus and comparison protocol](RT-31/RT-31-AUTHORING-CORPUS-AND-PROTOCOL-2026-11-25.md) pins staged acceptance and counterbalanced assignments.
 - [RT-31 syntax and semantic layers](RT-31/RT-31-SYNTAX-AND-SEMANTIC-LAYER-BOUNDARIES-2026-11-25.md) checks source provenance, contextual elaboration and frontend profile contracts.
 - [RT-01 adoption readiness](RT-01/RT-01-ADOPTION-AND-MIGRATION-READINESS-2026-11-25.md) checks staged migration prerequisites and separates pilot evidence from rollout authority.
