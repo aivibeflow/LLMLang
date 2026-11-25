@@ -72,6 +72,8 @@ The [blocking endpoint lifecycle](RT-38-BLOCKING-ENDPOINT-LIFECYCLE-2026-11-25.m
 
 The [live frame lifecycle](RT-38-LIVE-FRAME-QUIESCENCE-2026-11-25.md) checks publication and deferred frame reuse under explicit visibility and quiescence premises.
 
+The [HAL lowering comparison](RT-38-RV64-HAL-AND-INTRINSICS-2026-11-25.md) checks three exact linked leaf operations and guest link closure.
+
 ## 5. seL4 precedent and a first translation check
 
 **Evidence** · Published prior art and a proposed experiment, reviewed against LLMLang baseline fe229c3215c42d8bded531d77bbef47761ac5770 on 2026-11-24.

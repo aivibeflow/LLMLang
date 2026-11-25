@@ -1,0 +1,159 @@
+{
+  "controls": {
+    "changed-stack-pointer": {
+      "changed_symbol": "read_sp",
+      "closure": "accepted",
+      "observed_words": [
+        "01010513",
+        "00008067"
+      ]
+    },
+    "data-fence-substituted-for-translation": {
+      "changed_symbol": "translation_barrier",
+      "closure": "accepted",
+      "observed_words": [
+        "0330000f",
+        "00008067"
+      ]
+    },
+    "unresolved-hosted-symbol": {
+      "closure": "rejected",
+      "reported_symbol": "hosted_log"
+    }
+  },
+  "instruction_extensions": "+zicsr,+zifencei",
+  "profiles": {
+    "assembly": {
+      "elf_sha256": "d16b785de579709b5a789da9bec0ccc72a96f4c61242f4c5ba97f87fe2409db5",
+      "load_regions": [
+        [
+          2147483648,
+          60,
+          "RE"
+        ],
+        [
+          2147487744,
+          4096,
+          "RW"
+        ]
+      ],
+      "words": {
+        "memory_barrier": [
+          "0330000f",
+          "00008067"
+        ],
+        "read_sp": [
+          "00010513",
+          "00008067"
+        ],
+        "translation_barrier": [
+          "12000073",
+          "00008067"
+        ]
+      }
+    },
+    "llvm-O0": {
+      "elf_sha256": "16b1aa81f5915d0b786926910467ad316273450f9e5f631fdf60b7090881b1b3",
+      "load_regions": [
+        [
+          2147483648,
+          60,
+          "RE"
+        ],
+        [
+          2147487744,
+          4096,
+          "RW"
+        ]
+      ],
+      "words": {
+        "memory_barrier": [
+          "0330000f",
+          "00008067"
+        ],
+        "read_sp": [
+          "00010513",
+          "00008067"
+        ],
+        "translation_barrier": [
+          "12000073",
+          "00008067"
+        ]
+      }
+    },
+    "llvm-O2": {
+      "elf_sha256": "16b1aa81f5915d0b786926910467ad316273450f9e5f631fdf60b7090881b1b3",
+      "load_regions": [
+        [
+          2147483648,
+          60,
+          "RE"
+        ],
+        [
+          2147487744,
+          4096,
+          "RW"
+        ]
+      ],
+      "words": {
+        "memory_barrier": [
+          "0330000f",
+          "00008067"
+        ],
+        "read_sp": [
+          "00010513",
+          "00008067"
+        ],
+        "translation_barrier": [
+          "12000073",
+          "00008067"
+        ]
+      }
+    },
+    "llvm-O3": {
+      "elf_sha256": "16b1aa81f5915d0b786926910467ad316273450f9e5f631fdf60b7090881b1b3",
+      "load_regions": [
+        [
+          2147483648,
+          60,
+          "RE"
+        ],
+        [
+          2147487744,
+          4096,
+          "RW"
+        ]
+      ],
+      "words": {
+        "memory_barrier": [
+          "0330000f",
+          "00008067"
+        ],
+        "read_sp": [
+          "00010513",
+          "00008067"
+        ],
+        "translation_barrier": [
+          "12000073",
+          "00008067"
+        ]
+      }
+    }
+  },
+  "sources_sha256": {
+    "hal.ll": "01155dcc253ed78afbe4dea2cba56f86b23a5e31f3474854af92c82345d0ce8b",
+    "hal.s": "31ab98d476f622d34985cf8143921f9588090f9e3a32fdf29946d553cf37b5b6",
+    "layout.ld": "dcdf54c0ed8aa9c69c4c5eb46e2ec4df1fc17ac1087f69f3d1e973017da9fa44",
+    "run.py": "3599c4e6307f85addbf88fd5e0cb4cf569a97133dad64a8ce4f2652af941b65b",
+    "start.s": "a237c65016bd5357f0de99cbd2a6f2d8a0dd3a45b2363228e9033f5f355f56da"
+  },
+  "target": "riscv64-unknown-none-elf",
+  "tools": {
+    "ld.lld-19": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "llc-19": "Debian LLVM version 19.1.7",
+    "llvm-mc-19": "Debian LLVM version 19.1.7",
+    "llvm-objdump-19": "Debian LLVM version 19.1.7",
+    "llvm-readelf-19": "Debian LLVM version 19.1.7",
+    "opt-19": "Debian LLVM version 19.1.7"
+  }
+}
