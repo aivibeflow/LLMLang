@@ -1,0 +1,64 @@
+method SnapshotCopy(a: array<int>, src: nat, dst: nat, len: nat)
+  @CONTRACT(full)
+{
+  ghost var before := a[..];
+  var saved := a[src..src + len];
+  var n: nat := 0;
+  while n < len
+    @LOOP(snapshot)
+  {
+    a[dst + n] := saved[n];
+    n := n + 1;
+  }
+}
+
+method DirectedCopy(a: array<int>, src: nat, dst: nat, len: nat)
+  @CONTRACT(full)
+{
+  ghost var before := a[..];
+  if dst <= src {
+    var n: nat := 0;
+    while n < len
+      @LOOP(forward)
+    {
+      assert !(dst <= src + n < dst + n);
+      assert a[src + n] == before[src + n];
+      a[dst + n] := a[src + n];
+      n := n + 1;
+    }
+  } else {
+    var n: nat := len;
+    while n > 0
+      @LOOP(backward)
+    {
+      assert !(dst + n <= src + n - 1 < dst + len);
+      assert a[src + n - 1] == before[src + n - 1];
+      a[dst + n - 1] := a[src + n - 1];
+      n := n - 1;
+    }
+  }
+}
+
+method ForwardOnly(a: array<int>, src: nat, dst: nat, len: nat)
+  @CONTRACT(forward)
+{
+  ghost var before := a[..];
+  var n: nat := 0;
+  while n < len
+    @LOOP(forward)
+  {
+    assert !(dst <= src + n < dst + n);
+    assert a[src + n] == before[src + n];
+    a[dst + n] := a[src + n];
+    n := n + 1;
+  }
+}
+
+method SnapshotWithWrite(a: array<int>, src: nat, dst: nat, len: nat)
+  @CONTRACT(weak)
+{
+  SnapshotCopy(a, src, dst, len);
+  if dst > 0 {
+    a[0] := a[0] + 1;
+  }
+}
