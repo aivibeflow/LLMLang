@@ -81,7 +81,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 - [x] Recheck the exact current-main verification-key prototype against the three focused suites and compare exact execution identity with subject-only and policy/applicability separation; 26/26 tests passed. See [RT-00 C verification reuse identity recheck](research/research-management/RT-00/RT-00-C-VERIFICATION-REUSE-IDENTITY-RECHECK-2026-11-24.md). This is a bounded prototype evidence audit, not proof of production dependency/environment completeness.
 - [x] Record three explicit section-level supersession cases (Scenario 31 query representation; Scenario 32 parser-state bridge sketch; embedded ADR-0001 proposal); no whole document is marked superseded.
 - [ ] Complete the corpus-wide semantic duplicate, superseded-version, orphan, and contradiction review. The current-main exact-blob scan at `983b2e0e6ee25f53de40ad0a3b5035d584ae3799` found seven repeated-blob groups among 1,722 research paths: six groups are lockfiles, solver outputs, or query-scoped fixtures, and one is the expected shared OCI/REAPI Apache-2.0 license. No Markdown/MDX files are byte-identical. The bounded [B12 control recheck](research/research-management/RT-00/RT-00-B-13-KNOWN-RELATIONSHIP-CONTROLS-2026-11-25.md) confirms four previously missed relationships against current blobs; it does not review all content-level relationships, new/modified families, or cross-cutting contradictions. See also [RT-00 B9](research/research-management/RT-00/RT-00-B-09-CURRENT-MAIN-CORPUS-RELATIONSHIP-DELTA-2026-11-24.md).
-  - [ ] [WIP] Check first-party link reachability after the shared-branch expansion and repair unambiguous stale research paths in active PLAN evidence pointers on `research/all`.
+  - [x] Check navigation across 2,591 artifacts and repair 24 moved research references in PLAN plus one first-party report link. The designated future audit output and unresolved copied-reference paths remain recorded. [Plan paths and navigation replay](research/research-management/RT-00/RT-00-B-19-PLAN-PATHS-AND-NAVIGATION-2026-11-25.md)
   - [x] Recheck 2,080 tracked artifacts and 711 research Markdown/MDX documents on a pinned shared-branch tree. Every artifact remains navigable with directory browsing. The corrected dependency-map path removes the sole authored error from the 6,459-link offline scan. The 82 remaining errors are in copied upstream snapshots. [Shared-branch navigation delta](research/research-management/RT-00/RT-00-B-18-NAVIGATION-DELTA-2026-11-25.md)
   - [x] Compare immutable published components, candidate runtime structure commits, and Toolchain/Git publication at exact source blobs. They address distinct state and identity boundaries. Two worked cases expose premature visibility and the insufficiency of disjoint writes for cross-structure invariants. [RT-00 component and runtime state boundary](research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md)
   - [x] Compare English and Russian concept §18A at exact blobs. Shared proof status, property scope, invalidation and trust boundaries agree. Two clauses differ in apparent obligation strength, and the proposed RT-36 lifecycle model in §18A.9 is present only in English. [RT-00 scoped concept translation review](research/research-management/RT-00/RT-00-B-CONCEPT-TRANSLATION-PROOF-BOUNDARY-2026-11-25.md)
@@ -338,7 +338,7 @@ Research the complete path from a user's request to an accepted, traceable busin
   - [x] Compare exact directed, role-labeled recursive component identity on 2,496 components and 14,976 relabelings. Erasing direction, roles or multiplicity collapses distinct classes. Typed refinement still admits a symmetric collision. Keep ordered occurrence semantics, larger bounds and canonical bytes open. [Directed recursive roles](research/semantic-representation/RT-05/RT-05-DIRECTED-RECURSIVE-ROLES-2026-11-24.md).
   - [x] Compare ordered executable occurrences with role-local order, unique steps and unordered call operands in a closed recursive fragment. Exact lowering preserves all 6,048 source observations and all 2,016 renamed or reordered surface keys. Every projection collapses behaviorally distinct sources. Keep general frontend correspondence, recursion policy and production bytes open. [Ordered recursive occurrences](research/semantic-representation/RT-05/RT-05-ORDERED-RECURSIVE-OCCURRENCES-2026-11-24.md).
 
-**Existing evidence:** `research/LLMLang-CONCEPT.md` describes the SPG and the three logical graph layers; dependency-graph scenarios 18–28 explore requirement evolution, dependency discovery, and formal dependency analysis.
+**Existing evidence:** [LLMLang-CONCEPT.md](research/language-design/RT-01/LLMLang-CONCEPT.md) describes the SPG and the three logical graph layers; dependency-graph scenarios 18–28 explore requirement evolution, dependency discovery, and formal dependency analysis.
 
 **Research output (2026-11-21)** · The typed SPG study proposes nodes, edges, layer boundaries, lifecycle and granularity. In a closed fixture, 32 pairs of source bodies produce byte-identical graphs and match an independent trace oracle on 224 paired inputs. The experiment also distinguishes exact calls from operation bindings, validates typed recursion in two group encodings, and checks lineage across equal-value selections. [Typed Semantic Program Graph](research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md)
 
@@ -380,7 +380,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Specify the invariant that a semantic change affecting an implementation changes its `ImplHash`; determine the exact dependency propagation rules that make this automatic.
   - [x] Check direct reference propagation in Lean and compare 2,016 profile pairs for abstract-call reuse. The exact implementation subject eliminates direct-child omissions but allows 128 stale execution reuses when the selected binding is omitted. The consulted binding closes this fixture. Production hash admission and dependency extraction remain open. [Exact dependency propagation](research/semantic-representation/RT-05/RT-05-EXACT-DEPENDENCY-PROPAGATION-2026-11-25.md)
 
-**Existing evidence:** `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, `research/LLMLang-CONCEPT.md`, and the open questions LL-001–LL-008 in `TODO.md`.
+**Existing evidence:** [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [LLMLang-CONCEPT.md](research/language-design/RT-01/LLMLang-CONCEPT.md), and the open questions LL-001–LL-008 in `TODO.md`.
 
 **Status:** researched; decision pending on canonical envelopes, dependency boundaries, stable-ID lifecycle, and exact `OpHash`/`ImplHash` payloads. The current project plan explicitly defers locking identity choices until cross-aspect synthesis.
 
@@ -602,7 +602,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define assumptions and environmental boundaries explicitly.
   - [x] Compare a conditional POSIX environment read with an explicit observation model. Two native profiles agree on 144 cases each. Successful-only input footprints merge 64 distinct outcomes, while an exact read or checked projection prevents stale reuse in 1,224 comparisons. Lean checks the conditional assumptions. General environment extraction remains open. [Explicit environment boundary](research/formal-verification/RT-07/RT-07-EXPLICIT-ENVIRONMENT-BOUNDARY-2026-11-25.md)
 
-**Existing evidence:** `research/LLMLang-FORMAL-VERIFICATION.md`, `research/LLMLang-CONCEPT.md`, typed requirement IR and formal dependency scenarios 25–33.
+**Existing evidence:** [LLMLang-FORMAL-VERIFICATION.md](research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md), [LLMLang-CONCEPT.md](research/language-design/RT-01/LLMLang-CONCEPT.md), typed requirement IR and formal dependency scenarios 25–33.
 
 **Status:** partially researched; a complete language semantics is not yet established.
 
@@ -628,7 +628,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Define the relationship between proof validity and specification adequacy; a proof cannot establish that the specification captures user intent.
   - [x] Distinguish proof validity, contract feasibility, functional transfer to a recorded intent relation and eligibility coverage. Lean proves exact transfer under feasibility. Among 4,096 Boolean contract pairs, 1,767 feasible pairs fail transfer, while 960 pairs with infeasible candidates give vacuous implication. Stakeholder validation remains a separate RT-02 gate. [Proof validity and adequacy](research/formal-verification/RT-07/RT-07-PROOF-VALIDITY-AND-ADEQUACY-2026-11-25.md)
 
-**Existing evidence:** scenarios 28–33, prototype 29, Lean CPC parser-state binding prototype, Logos integration, and `research/LLMLang-FORMAL-VERIFICATION.md`.
+**Existing evidence:** scenarios 28–33, prototype 29, Lean CPC parser-state binding prototype, Logos integration, and [LLMLang-FORMAL-VERIFICATION.md](research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md).
 
 **Status** — Partially validated. Scenario 34 and the runtime gate bind the admitted typed Int/Bool fragment through the generated formula, canonical JSON and exact ordered CPC assumptions. The pinned Lean 4.34.0 proof composition includes upstream native computation axioms. General source frontend correspondence, production proof policy and explicit acceptance of the Logos trust basis remain open. [Scenario 34](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) · [Logos verdict proof](research/formal-verification/RT-07/RT-07-LOGOS-VERDICT-PROOF-2026-11-25.md)
 
@@ -810,7 +810,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Existing evidence:** scenarios 18–28 and prototypes 18–28 in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`.
 
-**Status:** extensively researched and prototyped in Scenarios 18–28 and dependency-graph prototypes 18–28. A candidate index contract and executable typed extractor now exist in `research/SEMANTIC-DEPENDENCY-INDEX.md` and `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`. The candidate schema is not canonical; reconciliation with the accepted SPG model, formal soundness, and Toolchain integration remain open.
+**Status:** extensively researched and prototyped in Scenarios 18–28 and dependency-graph prototypes 18–28. A candidate index contract and executable typed extractor now exist in [SEMANTIC-DEPENDENCY-INDEX.md](research/semantic-representation/RT-06/SEMANTIC-DEPENDENCY-INDEX.md) and `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`. The candidate schema is not canonical; reconciliation with the accepted SPG model, formal soundness, and Toolchain integration remain open.
 
 **Research output (2026-11-21)** · A closed scoped-lookup fixture distinguishes absent and present binding reads. Per-key projection reuses 216 results with zero observed false reuse, conditional on whole-layer admission. [Negative binding reads](research/semantic-representation/RT-06/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md)
 
@@ -833,7 +833,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [x] Compare separate and composed non-interference checks across 6,144 truth-table edits. Independent baseline checks admit 768 changed outcomes despite disjoint writes. Lean checks a counterexample and composition under sequential or uniformly applicable premises. [RT-11 composed non-interference](research/toolchain-and-collaboration/RT-11/RT-11-COMPOSED-NONINTERFERENCE-2026-11-25.md)
 - [ ] Benchmark small local edits, shared component edits, and broad semantic changes.
 
-**Existing evidence:** `research/SEMANTIC-COMPILATION-CACHE.md`, scenarios 18–28, and dependency graph prototypes.
+**Existing evidence:** [SEMANTIC-COMPILATION-CACHE.md](research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), scenarios 18–28, and dependency graph prototypes.
 
 **Status:** researched and prototyped in parts; full compiler integration and empirical validation are not implemented.
 
@@ -843,7 +843,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Estimated research complexity:** **6/10** — requires sound action keys, dependency closure, and demonstrated invalidation/reuse.
 - [ ] Define optional package-distributed cache-index files for validation, compilation, analysis, tests, and proofs; decide whether indexes and result payloads are embedded or separately fetched.
-- [x] Establish the version-identity split for cache records: composite `LanguageVersion`, append-only component-registry digest, and separate `ToolchainIdentity`; record the candidate design in `research/LANGUAGE-VERSIONING.md`.
+- [x] Establish the version-identity split for cache records: composite `LanguageVersion`, append-only component-registry digest, and separate `ToolchainIdentity`; record the candidate design in [LANGUAGE-VERSIONING.md](research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md).
 - [x] Add an experimental version-bound cache-record validator and tests covering language-version, registry-digest, and toolchain changes to Action Key inputs. This remains a prototype, not a normative cache-index format.
 - [ ] Bind every cached result to exact Action Key inputs and complete dependency closure; define compatibility evidence for reuse across different language or toolchain identities.
   - [x] Compare four GCC and Clang artifacts and 1,024 native returns. Equal wrapping observations admit an exact return-only compatibility receipt while action keys and full objects differ. The wrapping-to-saturation receipt over inputs 0–254 is refused for the full domain. [RT-11 cross-toolchain cache compatibility](research/toolchain-and-collaboration/RT-11/RT-11-CROSS-TOOLCHAIN-CACHE-COMPATIBILITY-2026-11-25.md)
@@ -865,7 +865,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define behavior for incomplete dependency closure: invalidate conservatively or disable caching.
 - [ ] Define reproducibility requirements and cache poisoning defenses.
 
-**Existing evidence:** `research/SEMANTIC-COMPILATION-CACHE.md`, `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, `research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`, [Language Versioning](research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md), and the exploratory [Package Identity Prototype 01](research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/README.md).
+**Existing evidence:** [SEMANTIC-COMPILATION-CACHE.md](research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [COMPILATION-CACHE-SPEEDUP-ESTIMATE.md](research/toolchain-and-collaboration/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md), [Language Versioning](research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md), and the exploratory [Package Identity Prototype 01](research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/README.md).
 
 **Status:** researched; the version-binding design and a first experimental cache-record validator now exist. The initial component registry is `language-components.toml` and is append-only. The candidate validator keeps LanguageVersion, registry digest, and ToolchainIdentity distinct and includes them in Action Key construction. The cache-index wire format, compatibility declarations, complete dependency-closure model, merge/conflict policy, and broader implementation validation remain open.
 
@@ -932,7 +932,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define portability without requiring a live external database.
   - [x] Compare ten native offline Git clone and archive controls. Six restore exact semantic bytes. A pointer-only current tree fails even with complete history, while an explicit same-root historical carrier can restore it. A shallow closed bundle restores its current root and lacks the older revision. Production retention and authority remain open. [Offline semantic clone](research/packages-and-ecosystem/RT-12/RT-12-OFFLINE-SEMANTIC-CLONE-2026-11-25.md)
 
-**Existing evidence:** `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md` and the current Git representation research.
+**Existing evidence:** [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md) and the current Git representation research.
 
 **Status:** researched at architectural level; storage prototype and recovery tests remain open.
 
@@ -959,7 +959,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define repository portability and reproducibility from a clean clone.
   - Compare 22 native full, shallow, sparse and partial Git settings in SHA-1 and SHA-256 repositories. Exact tree and verified blob-cache admission reconstructs all 12 available graphs, distinctly refusing ten unavailable, corrupt or invalid cases. A path cache accepts eight incorrect snapshots. General remote recovery and repository closure remain open. [Partial and sparse Git reconstruction](research/toolchain-and-collaboration/RT-24/RT-24-PARTIAL-SPARSE-RECONSTRUCTION-2026-11-25.md)
 
-**Existing evidence:** `research/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md`.
+**Existing evidence:** [GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md](research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md).
 
 **Status:** researched at architectural level; binary-container efficiency is under investigation. The benchmark and physical-layout decision remain open.
 
@@ -1213,7 +1213,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define precisely what POSIX compatibility and formal verification claims cover.
   - [x] Prove exact recovery for admissible read histories with Lean and audit the premises against 108 pinned Linux observations. Identical counts and an empty pipe cannot establish recovery when a full-vector retry overwrites the recorded prefix. Native scope and proof assumptions remain explicit. [RT-10 POSIX read continuation proof](research/runtime-and-systems/RT-10/RT-10-POSIX-READ-CONTINUATION-PROOF-2026-11-25.md)
 
-**Existing evidence:** `research/POSIX-RUNTIME-ARCHITECTURE.md`; related open questions LL-013–LL-019 in `TODO.md`.
+**Existing evidence:** [POSIX-RUNTIME-ARCHITECTURE.md](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md); related open questions LL-013–LL-019 in `TODO.md`.
 
 **Research output (2026-11-21)** · Libc and raw Linux x86-64 adapters match 112 expected nonblocking pipe observations, including short transfer, would-block, EOF and SIGPIPE. [RT-10 pipe I/O](research/runtime-and-systems/RT-10/RT-10-POSIX-NONBLOCKING-PIPE-IO.md)
 
@@ -1266,7 +1266,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define verification independent of the code generator wherever practical.
 - [ ] Define incremental translation and selective verification invalidation.
 
-**Existing evidence:** `research/TRANSLATION-AND-TARGET-BACKENDS.md`, `research/LLVM-BACKEND-ARCHITECTURE.md`, and formal-verification research.
+**Existing evidence:** [TRANSLATION-AND-TARGET-BACKENDS.md](research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md), [LLVM-BACKEND-ARCHITECTURE.md](research/compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md), and formal-verification research.
 
 **Research output (2026-11-21)** · Direct SPG execution and a lowered instruction stream agree with an independent oracle over 140 observations. An operation-binding change alters the reachable artifact while leaving the caller address fixed. [Ordered SPG lowering](research/compiler-and-translation/RT-09/RT-09-ORDERED-SPG-LOWERING.md)
 
@@ -1318,7 +1318,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Reject silent semantic weakening; report restrictions explicitly.
   - Compare native record layouts over 2,048 C calls and 16 exact ELF artifacts. Symbol plus size/alignment admits 478 incorrect vectors. DWARF/ELF comparison detects inaccurate field locations and widths. Matching layout with changed behavior still fails the exact output check. Eight artifacts satisfy both within the fixture. By-value and cross-target ABI remain open. [Native record layout](research/compiler-and-translation/RT-13/RT-13-NATIVE-RECORD-LAYOUT-2026-11-25.md)
 
-**Existing evidence:** target selection recommendation in `research/TRANSLATION-AND-TARGET-BACKENDS.md`.
+**Existing evidence:** target selection recommendation in [TRANSLATION-AND-TARGET-BACKENDS.md](research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md).
 
 **Research output (2026-11-21)** · Direct LLVM and C++ realizations of one checked mutable byte-view operation match a Python oracle over 470,400 comparisons. An invalid LLVM alias annotation changes an ordered observation under O3 while preserving the final slab. [RT-09/13 mutable byte views](research/compiler-and-translation/RT-09/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md)
 
@@ -1365,7 +1365,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] [WIP human] Decide whether one backend or mode-specific backends (Debug/Release/JIT) are justified by the combined correctness, performance, portability, and maintenance evidence.
 - [ ] [WIP human] Record the selected initial configuration, explicit non-goals, unsupported target combinations, fallback behavior, and criteria for revisiting the decision.
 
-**Existing evidence:** `research/LLVM-BACKEND-ARCHITECTURE.md`; Scenarios 96, 96A, and 96B provide bounded source-to-LLVM preservation evidence, not a general backend validation.
+**Existing evidence:** [LLVM-BACKEND-ARCHITECTURE.md](research/compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md); Scenarios 96, 96A, and 96B provide bounded source-to-LLVM preservation evidence, not a general backend validation.
 
 **Status:** architectural recommendation exists; backend selection, comparative measurements, full target matrix, lowering validation, and target-specific correctness evidence remain open.
 
@@ -1492,9 +1492,9 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Compare verified bytes, publication signatures and exact declared-use scope across 192 native Ed25519 cases. Integrity alone accepts 128, publisher authority accepts 16, and the full check admits two. Repacking preserves root-bound declared use while requiring a new exact archive statement. Production license and authority policy remain open. [Declared package rights](research/packages-and-ecosystem/RT-12/RT-12-DECLARED-PACKAGE-RIGHTS-2026-11-25.md)
 - [ ] Define opaque implementation evidence and verification limitations.
 
-**Existing evidence:** `research/LIBRARIES-AND-TEMPLATES.md` and `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`; related TODO items LL-006–LL-012.
+**Existing evidence:** [LIBRARIES-AND-TEMPLATES.md](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md) and [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md); related TODO items LL-006–LL-012.
 
-**Status:** researched in `research/LIBRARIES-AND-TEMPLATES.md`, `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, and `research/PACKAGE-SYSTEM.md`; package/index/provider design is proposed but not accepted, and operational policy, benchmarks, and trust implementation remain open.
+**Status:** researched in [LIBRARIES-AND-TEMPLATES.md](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md), [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), and [PACKAGE-SYSTEM.md](research/packages-and-ecosystem/RT-12/PACKAGE-SYSTEM.md); package/index/provider design is proposed but not accepted, and operational policy, benchmarks, and trust implementation remain open.
 
 ## 7.3 Parallel development and collaboration
 

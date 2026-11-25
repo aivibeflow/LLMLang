@@ -6,7 +6,7 @@
 
 ## Question and source contract
 
-When does compiling a typed operation establish that the selected target can realize it? The fixture divides an unsigned 128-bit dividend, represented by two 64-bit words, by an unsigned 64-bit divisor. The source contract distinguishes zero divisor, quotient overflow and success. Error returns preserve a caller slot. Two realizations are compared. The wide route accepts the full source domain. The native restricted route supports a zero high word and reports an explicit restriction for other nonzero-divisor inputs. Both check zero divisor first. [Target backends](../TRANSLATION-AND-TARGET-BACKENDS.md)
+When does compiling a typed operation establish that the selected target can realize it? The fixture divides an unsigned 128-bit dividend, represented by two 64-bit words, by an unsigned 64-bit divisor. The source contract distinguishes zero divisor, quotient overflow and success. Error returns preserve a caller slot. Two realizations are compared. The wide route accepts the full source domain. The native restricted route supports a zero high word and reports an explicit restriction for other nonzero-divisor inputs. Both check zero divisor first. [Target backends](TRANSLATION-AND-TARGET-BACKENDS.md)
 
 GCC and Clang compile both routes at O0 and O3 in freestanding mode. The harness audits undefined object symbols and attempts to link the objects as shared ELF artifacts using a no-default-library link that rejects unresolved symbols. The separately named runtime-supported attempt supplies the exact static `libgcc.a` archive. A hosted Python harness then calls each linked artifact and compares statuses and slots with a Python integer oracle.
 
