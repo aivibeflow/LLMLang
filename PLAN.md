@@ -1,5 +1,7 @@
 # LLMLang Research and Development Plan
 
+## 1. Plan scope
+
 This plan tracks the remaining research, engineering, decisions and validation gates in dependency order. See the [research register](RESEARCH.md) for results and the [design questions](#open-design-questions) below for stable LL identifiers.
 
 Only explicitly accepted project decisions enter the candidate specification in `draft/`.
@@ -133,7 +135,9 @@ Define canonical contract and operation semantics, establish general native corr
 
 **Status:** proposed; [public-interface research](research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md). **Exit gate:** independent review and positive/negative evidence across relevant semantic profiles; no change to accepted single-toolchain compatibility decision.
 
-### Contract IR and controlled natural-language rendering
+<a name="contract-ir-and-controlled-natural-language-rendering"></a>
+
+### 1.3.2 Contract IR and controlled natural-language rendering
 
 **Goal.** Build a versioned, backend-independent Contract IR that can express the contract families in the verification coverage matrix. For every supported clause, produce controlled natural language (CNL) suitable for review. CNL is a human-readable syntax with a formal grammar, typed vocabulary, and defined interpretation. FRETISH provides a model for scoped temporal clauses. Function contracts, state changes, resource ownership, and proof assumptions need additional clause forms. [Verification coverage](research/formal-verification/VERIFICATION-COVERAGE.ru.md) · [FRETISH comparison](research/language-design/RT-02/RT-02-FRETISH-REQUIREMENT-BACKEND-COMPARISON-2026-11-25.md)
 
@@ -155,7 +159,9 @@ flowchart LR
 
 The CNL round trip checks that the review text preserves the formal contract. Human review assesses whether that contract reflects the requirements. Machine verification checks the implementation and binding under stated assumptions. Track all three outcomes separately and bind them to the exact revision before applying admission policy. [RT-02 reconstruction and human validation](research/language-design/RT-02/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md) · [ADR-020](draft/adr/020-immutable-objects-and-implhash-calls.md)
 
-#### Work packages and exit criteria
+<a name="work-packages-and-exit-criteria"></a>
+
+#### 1.3.2.1 Work packages and exit criteria
 
 | Order | Work package | Deliverable and exit criterion |
 |---|---|---|
@@ -167,7 +173,9 @@ The CNL round trip checks that the review text preserves the formal contract. Hu
 | 6 | Build review and exact-revision admission | Produce a review packet with controlled prose, clause-to-source traceability, explicitly resolved and unresolved assumptions, scenario tables, counterexamples and a semantic diff between revisions. Preserve approval of meaning separately from proof outcomes. Pin the delivered packet and approval to the exact contract, source and relevant profile revisions. Re-evaluate approvals after relevant changes. Run the controlled human study before claiming reviewer benefit. |
 | 7 | Integrate and publish support | Integrate parsing, rendering, verification and binding in the Toolchain. Check independent consumer use, reproducible runs with pinned versions, retained evidence, incompatible schemas, partial translations and stale approvals. Publish the supported coverage matrix and the limits of any human study. |
 
-#### Contract family coverage
+<a name="contract-family-coverage"></a>
+
+#### 1.3.2.2 Contract family coverage
 
 The development scope includes every class in the [verification coverage matrix](research/formal-verification/VERIFICATION-COVERAGE.ru.md). The rows below are required work, including the later profiles. The evidence routes describe an implementation sequence. A route counts as supported only for its declared semantics and evidence policy. Backend selection follows [ADR-018](draft/adr/018-formal-verification-backends.md).
 
@@ -191,7 +199,9 @@ The development scope includes every class in the [verification coverage matrix]
 
 For each family, publish exact versioned coverage entries for the constructs, observation model, translation grammar, test corpus and verification route. Include positive fixtures, boundary cases, counterexamples and unsupported cases. Track each family through semantics, typed IR, lossless CNL rendering and evidence admission. Completion requires a validated profile for every family and an explicit coverage decision for extensions beyond each profile.
 
-#### Review and verification gates
+<a name="review-and-verification-gates"></a>
+
+#### 1.3.2.3 Review and verification gates
 
 - [ ] Use the [contract formalization corpus](research/formal-verification/CONTRACT-FORMALIZATION-CORPUS/README.md) to test fidelity to requirements and the [proof-obligation benchmark](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/README.md) to test obligation generation, routing and evidence admission.
 - [ ] For every supported clause form, test omitted and inserted clauses, changed quantifiers or polarity, shifted deadlines, wrong pre-state or post-state references, swapped assumptions and guarantees, and silently weakened effects. Reject partial or lossy rendering as a complete review packet. A correct rendering of a wrong contract must still fail any applicable comparison with approved requirements or scenario oracles.
@@ -289,7 +299,9 @@ Extend source, graph and backend correspondence, integrated CI coverage and prod
 
 ---
 
-## Dafny language and verification transfer study (cross-cutting; Stage 2)
+<a name="dafny-language-and-verification-transfer-study-cross-cutting-stage-2"></a>
+
+## 2.6 Dafny language and verification transfer study (cross-cutting; Stage 2)
 
 - [ ] [WIP human] Run controlled human and pinned-model readability and proof-guidance trials on the Dafny/LLMLang examples.
 
@@ -428,7 +440,7 @@ Extend mixed-order semantics, source correspondence and backend validation.
 
 Select the POSIX profile, broaden conformance testing, and integrate it with the runtime.
 
-The [Linux syscall package implementation plan](#linux-syscall-package-implementation-plan) covers the native x86-64 syscall ABI and its public LLMLang contracts.
+The [§8.2 Linux syscall package implementation plan](#82-linux-syscall-package-implementation-plan) covers the native x86-64 syscall ABI and its public LLMLang contracts.
 
 **Exit criteria:** a small typed executable subset; reference execution; one POSIX vertical slice with explicit contracts and conformance scope; tests for observable behavior and error cases.
 
@@ -468,7 +480,9 @@ Vendor references: [STM32F1](https://www.st.com/en/microcontrollers-microprocess
 
 Select the canonical IR and establish general preservation across lowering.
 
-### Required bidirectional translation study (RT-30)
+<a name="required-bidirectional-translation-study-rt-30"></a>
+
+### 6.1.1 Required bidirectional translation study (RT-30)
 
 **Research brief:** [RT-30 — Bidirectional Semantic Translation](research/compiler-and-translation/RT-30/RT-30-BIDIRECTIONAL-SEMANTIC-TRANSLATION.md). Coordinate with RT-13, RT-28, and RT-29. Extend the translation and importer coverage beyond the restricted semantic profiles, validate production provenance and general translation obligations, and measure shared runtime lifecycle and dispatch costs.
 
@@ -510,7 +524,9 @@ Obtain explicit human decisions on native platform support and releases. **Prior
 
 **Goal:** LLMLang programs must be able to consume operating-system APIs and third-party native libraries, and LLMLang must be able to produce native libraries consumable by programs written in other languages. Preserve public semantic contracts across implementations and platforms; check binary compatibility independently. POSIX is an optional system-library facade, not a requirement of the language or every target.
 
-### Target research matrix
+<a name="target-research-matrix"></a>
+
+### 6.6.1 Target research matrix
 
 All listed OS/architecture pairs are in scope for research and eventual feasibility/conformance assessment, not claims of existing support. ARM64 means AArch64; x86-64 means AMD64; RISC-V 64 means RV64. Priorities order investigation, not exclusion. Record exact supported OS releases, SDKs, deployment constraints, architectures, ABI variants, and toolchains before claiming support.
 
@@ -527,7 +543,9 @@ All listed OS/architecture pairs are in scope for research and eventual feasibil
 
 The hosted matrix contains 16 OS/CPU pairs. Existing freestanding research additionally covers ARM Cortex-M (initial Cortex-M3, Thumb) in [RT-37](research/runtime-and-systems/RT-37/README.md) and RV64 (initial RISC-V QEMU microkernel target) in [RT-38](research/runtime-and-systems/RT-38/README.md). For these targets, investigate static archives, object-level C ABI and explicit runtime closure; do not assume a host OS or dynamic loader. Keep hardware/privilege profiles and any later RTOS profiles separate from hosted targets. Required embedded MCU families in §5.4 are STM32F1 (Cortex-M3), STM32F4 (Cortex-M4F) and ESP32 (Xtensa LX6); evaluate ESP32-family Xtensa LX7 and RV32 variants separately. Static archives/object-level interoperability, vendor SDK bindings and explicit runtime closure are required research topics; hosted matrix counts remain unchanged.
 
-### Architecture and research vectors
+<a name="architecture-and-research-vectors"></a>
+
+### 6.6.2 Architecture and research vectors
 
 ```mermaid
 flowchart TD
@@ -548,7 +566,9 @@ The diagram describes proposed import and export paths, not an implemented pipel
 - Compare static linking, load-time shared linking and runtime symbol resolution where supported. Record symbol visibility, versions, loader/search policy, dependency closure, relocation and code-signing/package constraints. A platform restriction may make a particular mode unsupported without eliminating the entire OS target.
 - Compare header-driven binding generation with manually reviewed contracts: headers describe representation and declarations but do not by themselves establish behavioral guarantees. Keep externally supplied contracts, assumptions, provider identity and ABI descriptors separately versioned and auditable.
 
-### Work packages and acceptance gates
+<a name="work-packages-and-acceptance-gates"></a>
+
+### 6.6.3 Work packages and acceptance gates
 
 - [ ] [WIP human] Supply the selected hosted OS SDKs, native runtime profiles and approval for the platform conformance scope outside the confirmed Linux x86-64 route.
 - [ ] [WIP human] Review the resulting support matrix and select production profiles, availability of native runners/devices and required SDK access; record any platform restriction or unresolved target rather than silently dropping it.
@@ -579,7 +599,9 @@ The diagram describes proposed import and export paths, not an implemented pipel
 
 **Estimated research complexity:** **6/10** — identity, indexes, providers, publication, provenance, and operational policy.
 
-### Package indexes and dynamic package delivery
+<a name="package-indexes-and-dynamic-package-delivery"></a>
+
+### 7.2.1 Package indexes and dynamic package delivery
 
 - [ ] [WIP human] Accept the stable manifest schema, canonical hash encoding and digest algorithm after independent validation.
 - [ ] [WIP human] Select the production interpretation for independent target dependency edges and associated compatibility policy.
@@ -643,17 +665,23 @@ Validate action kinds, prerequisites and evidence sufficiency, dynamic dependenc
 
 These are two separate research requirements. Do not collapse them into one generic Context object before their responsibilities and invariants are understood.
 
-### Knowledge Context — LL-026
+<a name="knowledge-context--ll-026"></a>
+
+### 7.8.1 Knowledge Context — LL-026
 
 Research a bounded, versioned, provenance-preserving description of the information available to an LLM agent for a task.
 
 - [ ] [WIP human] Supply representative tasks and approved live agent access to measure context precision, recall and task outcomes.
 
-### Task Context — LL-027
+<a name="task-context--ll-027"></a>
+
+### 7.8.2 Task Context — LL-027
 
 Research a typed, versioned object describing the task an agent is expected to perform and the obligations that govern completion.
 
-### Joint integration and exit criteria
+<a name="joint-integration-and-exit-criteria"></a>
+
+### 7.8.3 Joint integration and exit criteria
 
 - [ ] [WIP human] Compare agent performance with full-context, bounded-context, and deliberately incomplete-context conditions; measure task success, missed constraints, scope violations, token/context cost, review effort, and recovery behavior.
 
@@ -846,18 +874,24 @@ The [Research State 2026-11-19](research/research-management/RESEARCH-STATE-2026
 
    - [ ] [WIP human] Approve the selected RFC baseline or record a decision to revise it. Keep the final compatibility audit as a separate prerequisite.
 
-## MVP implementation plan
+<a name="mvp-implementation-plan"></a>
+
+## 8.1 MVP implementation plan
 
 Deliver one reproducible LLMLang CLI application from a clean checkout. Use Calculator as the end-to-end workload, with Hello and Echo as runtime smoke tests. Start on Linux x86-64 with one source dialect, one typed SPG subset, and Rust code generation. Preserve the existing full Contract IR roadmap and accepted architectural requirements as the scope for later milestones. [Reference workloads](research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md) · [Calculator candidate source](draft/examples/0003-calculator/main.llmlang) · [ADR-016](draft/adr/016-compiler-bootstrap.md)
 
-### Ownership and integration boundary
+<a name="ownership-and-integration-boundary"></a>
+
+### 8.1.1 Ownership and integration boundary
 
 The MVP workstream includes the Contract IR language, its formal semantics, typed grammar and versioned representation, as well as the LLMLang frontend and SPG, the interpreter and native backend, verification and evidence admission, controlled natural-language rendering and review, and CLI and CI integration. Use the typed Contract IR interface as the boundary for parallel implementation.
 
 - [ ] Agree on the smallest integration interface with the Contract IR workstream. Specify versioned typed input and diagnostics, shared numeric types and exact overflow rules, callable signatures, clause roles, outcome types, contract and clause references, and the observations exposed by the SPG. Define which component assigns canonical contract identity and how the consumer checks the schema version. Use small positive and negative fixtures as the interface acceptance cases.
 - [ ] Proceed in parallel with the frontend, SPG, execution and conformance fixtures. Build their consumers against the agreed interface or local fixtures while the Contract IR language is in development. Integrate with the actual implementation before MVP acceptance and reject unsupported versions explicitly. [Contract IR roadmap](#contract-ir-and-controlled-natural-language-rendering)
 
-### Implementation sequence
+<a name="implementation-sequence"></a>
+
+### 8.1.2 Implementation sequence
 
 1. **Freeze the executable subset and observations.** Specify the syntax and semantics needed by Calculator, including `Bool`, `I64`, typed functions, locals, branches, explicit errors, signed division, overflow, and evaluation order. Separate the scalar core from CLI parsing and I/O behind a small runtime boundary. Fix the input record and token-separator policy for the selected reference cases.
 2. **Implement the frontend and typed SPG.** Parse and type-check candidate source, lower it to canonical SPG, and retain source spans for diagnostics. Resolve a public name in a pinned catalog, record the selected `ImplHash`, and preserve separate required, public and provided Contract references. Reject missing, ambiguous or stale bindings. Demonstrate deterministic reconstruction from the checkout. [ADR-014](draft/adr/014-git-semantic-merge.md) · [ADR-020](draft/adr/020-immutable-objects-and-implhash-calls.md)
@@ -865,7 +899,9 @@ The MVP workstream includes the Contract IR language, its formal semantics, type
 4. **Integrate verification and human review.** Translate scalar obligations to Boogie + Z3. Check body conformance and public-contract refinement separately, and validate counterexamples against source semantics. Use the Contract IR schema to render the supported clauses in controlled natural language and independently reparse and compare the normalized IR. Present text, source references and assumptions at the exact revision. Keep human approval separate from machine evidence and reject stale or insufficient evidence at the binding gate. Cross-check one shared claim family in Lean as specified by ADR-018. [ADR-018](draft/adr/018-formal-verification-backends.md)
 5. **Wire the CLI and CI.** Document reproducible commands for checking, reviewing, building and running the application from a clean checkout. Run the same fixture suite through both execution paths on the pinned target. Report byte-exact stdout and stderr, exit status, exact inputs and tool versions. Exercise verification failures in CI as well as successful runs.
 
-### MVP acceptance
+<a name="mvp-acceptance"></a>
+
+### 8.1.3 MVP acceptance
 
 The [scalar implementation](tools/llmlang_mvp/README.md) provides a provisional frontend, reference interpreter, Rust generation, scalar Contract IR, controlled rendering, and Boogie + Z3 checks. Remaining integration work includes a Rust implementation of the Stage 0 compiler, source confirmation of general solver counterexamples, and authenticated review approval with clause-level provenance and scenario evidence. The full contract-family roadmap remains open.
 
@@ -878,11 +914,15 @@ The [scalar implementation](tools/llmlang_mvp/README.md) provides a provisional 
 
 Full self-hosting, additional dialects, semantic Git merge, broader native ABI support, and the full contract-family rollout follow this CLI milestone. An agent workflow over MCP can build on the same typed change, validation and review interfaces after the CLI path is reproducible. [ADR-015](draft/adr/015-toolchain-server-semantic-api.md) · [ADR-017](draft/adr/017-mcp-agent-object-format.md)
 
-## Linux syscall package implementation plan
+<a name="linux-syscall-package-implementation-plan"></a>
+
+## 8.2 Linux syscall package implementation plan
 
 Пакет `linux.syscalls` для LLMLang должен покрыть все системные вызовы нативного Linux x86-64 ABI для закреплённой ревизии ядра. Прикладной код импортирует типизированные операции с публичными контрактами. Toolchain при сборке связывает их с конкретным провайдером. AArch64, RV64, x32 и 32-битный compat ABI находятся за пределами этой дорожной карты.
 
-### Исходная база и связывание
+<a name="исходная-база-и-связывание"></a>
+
+### 8.2.1 Исходная база и связывание
 
 Скалярный MVP Calculator уже даёт типизированный SPG, интерпретатор, генерацию Rust, раздельные публичные контракты и контракты реализаций, проверку Boogie/Z3 и команды `review`, `check`, `build`. Для пакета добавляем импорт между модулями, I/O-типы и эффекты. Calculator остаётся регрессионной проверкой, а Echo становится первым потребителем пакета. [Скалярный MVP](tools/llmlang_mvp/README.md)
 
@@ -899,13 +939,17 @@ flowchart LR
     E --> F["Системный вызов Linux"]
 ```
 
-### Каталог и граница покрытия
+<a name="каталог-и-граница-покрытия"></a>
+
+### 8.2.2 Каталог и граница покрытия
 
 На старте выбираем тег ядра и составляем версионируемый каталог из записей `common` и `64` таблицы `syscall_64.tbl`. Для каждой записи фиксируем номер, имя, этап, статус реализации и зависимость от версии или конфигурации ядра. CI сверяет каталог с закреплённой таблицей. [Таблица Linux x86-64](https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl)
 
 Полное покрытие достигнуто, когда у каждого действующего вызова есть провайдер, а у исторических и зарезервированных записей зафиксировано поведение выбранного ядра. Для вызовов, зависящих от конфигурации, указываем условия доступности. `ENOSYS` на конкретной системе остаётся результатом вызова. Статус реализации пакета учитываем отдельно.
 
-### Этапы разработки
+<a name="этапы-разработки"></a>
+
+### 8.2.3 Этапы разработки
 
 | Этап | Объём и критерий завершения |
 |---|---|
@@ -918,7 +962,9 @@ flowchart LR
 | **7. Системные и редкие вызовы** | Реализовать вызовы для пространств имён, монтирования, квот, ключей, политик безопасности, модулей, аудита и администрирования. Проверять привилегированные операции и изменения состояния системы в одноразовых VM. |
 | **8. Закрытие покрытия** | Сверить все записи с таблицей выбранной ревизии ядра и выпустить отчёт по вызовам, командам и конфигурациям. При обновлении тега ядра CI показывает новые и изменившиеся записи. |
 
-### Сквозные примеры для этапов 1–5
+<a name="сквозные-примеры-для-этапов-15"></a>
+
+### 8.2.4 Сквозные примеры для этапов 1–5
 
 Все пять примеров импортируют публичный интерфейс пакета и входят в сквозные проверки на Linux x86-64.
 
@@ -930,18 +976,24 @@ flowchart LR
 
 Для этапов 6–8 достаточно документации контрактов и внутренних тестовых сценариев.
 
-### Критерий готовности системного вызова
+<a name="критерий-готовности-системного-вызова"></a>
+
+### 8.2.5 Критерий готовности системного вызова
 
 - **Публичный контракт.** Типы аргументов и результата, допустимые состояния, ошибки и эффекты. Для буферов и структур указано, что ядро читает или меняет. Для ресурсов указано, кто отвечает за освобождение.
 - **Нативный провайдер.** Провайдер связан с точной ревизией интерфейса. Соответствие реализации её контракту и уточнение публичного контракта проверяются отдельно. Допущения о ядре и ABI зафиксированы, а проверенные свойства и результаты экспериментов различимы в `review`.
 - **Контрактные тесты.** Проверены передача аргументов, декодирование результата, применимые успешные и ошибочные исходы, частичный прогресс, прерывание и изменения состояния. Сборка отклоняет отсутствующее, неоднозначное или устаревшее связывание.
 - **Покрытие команд.** Для `ioctl` и аналогичных интерфейсов отдельно учитываем покрытие syscall и его команд. У каждой поддержанной команды есть контракт. Драйверные команды привязаны к конкретному UAPI и его версии.
 
-### Первая задача
+<a name="первая-задача"></a>
+
+### 8.2.6 Первая задача
 
 Закрепить тег ядра, построить полный инвентарь и провести `read` и `write` через весь путь от публичного контракта и разрешения импорта до нативного запуска Echo в CI.
 
-## External evidence and approval dependencies
+<a name="external-evidence-and-approval-dependencies"></a>
+
+## 8.3 External evidence and approval dependencies
 
 For production recovery, bind source, SPG, dependencies and authorization to Git and filesystem recovery. Integrate persistent storage with an authenticated multi-client environment and record the maintainer decision on production backend selection under ADR-015.
 
@@ -967,7 +1019,9 @@ The open inputs below affect implementation selection. Record the result in the 
 
 Complete Stage 0 technical claim and experiment review under [#284](https://github.com/aivibeflow/LLMLang/issues/284) and [#285](https://github.com/aivibeflow/LLMLang/issues/285).
 
-## GitHub issue index
+<a name="github-issue-index"></a>
+
+## 8.4 GitHub issue index
 
 The issue numbers below are navigation links, not execution priorities. Execute the research work packages in the dependency-aware stage/order defined by this plan and the predecessor gates in each issue. Complexity estimates and detailed checklists are maintained in the issue bodies. Research 18 has one canonical active issue (#318); the duplicate #301 is closed.
 
@@ -1033,19 +1087,27 @@ The package work has separate implementation details in Stage 7.2 and the semant
 - Keep implementation bugs and short-lived tasks in the appropriate issue/task tracker; this document is the ordered research and development programme.
 - Review this plan whenever the research corpus or architecture changes materially.
 
-## Open design questions
+<a name="open-design-questions"></a>
+
+## 9.1 Open design questions
 
 Keep the LL identifier, tracking issue, status and priority with each question. The priorities below apply to design choices. The stage sequence and exit criteria above govern research execution.
 
 Open items still require investigation, Discussion items are being explored, and Decision needed items await a project decision. Record accepted decisions in the [research register](RESEARCH.md#accepted-decisions).
 
-### Stage 0.2 review follow-up
+<a name="stage-02-review-follow-up"></a>
+
+### 9.1.1 Stage 0.2 review follow-up
 
 Complete the independent [24-document review queue](research/quality-audit/2026-11-23-root-census-observations.json) and separate [eight-claim review](research/quality-audit/2026-11-23-independent-review-handoff.md). Have reviewers assess actual claims, including reports without structural warnings. Resolve the eight original-run provenance/host gaps where archival evidence is available, and obtain explicit maintainer approval before adopting the proposed protocol. Track this work in [§0.2](#02-establish-research-quality-and-decision-rules) and [#285](https://github.com/aivibeflow/LLMLang/issues/285).
 
-### Operation identity and calls
+<a name="operation-identity-and-calls"></a>
 
-#### LL-001 — Define the canonical OpHash envelope
+### 9.1.2 Operation identity and calls
+
+<a name="ll-001--define-the-canonical-ophash-envelope"></a>
+
+#### 9.1.2.1 LL-001 — Define the canonical OpHash envelope
 
 - **GitHub issue:** [#344](https://github.com/aivibeflow/LLMLang/issues/344)
 
@@ -1060,7 +1122,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Prefer a dedicated, typed operation-definition envelope with explicit references to interface and contract artifacts, plus only those additional fields that affect call semantics. Avoid duplicating their full content in multiple places.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 3.6.
 
-#### LL-002 — Define Operation Stable ID lifecycle
+<a name="ll-002--define-operation-stable-id-lifecycle"></a>
+
+#### 9.1.2.2 LL-002 — Define Operation Stable ID lifecycle
 
 - **GitHub issue:** [#345](https://github.com/aivibeflow/LLMLang/issues/345)
 
@@ -1072,7 +1136,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Keep lineage changes explicit and auditable; never infer identity solely from names or contract similarity.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 3.6.
 
-#### LL-003 — Specify contract-based analogue discovery and substitution
+<a name="ll-003--specify-contract-based-analogue-discovery-and-substitution"></a>
+
+#### 9.1.2.3 LL-003 — Specify contract-based analogue discovery and substitution
 
 - **GitHub issue:** [#346](https://github.com/aivibeflow/LLMLang/issues/346)
 
@@ -1086,7 +1152,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 
 ---
 
-#### Public interfaces — cross-cutting extension of LL-001, LL-002, LL-003 and LL-008
+<a name="public-interfaces--cross-cutting-extension-of-ll-001-ll-002-ll-003-and-ll-008"></a>
+
+#### 9.1.2.4 Public interfaces — cross-cutting extension of LL-001, LL-002, LL-003 and LL-008
 
 - **Status:** Open; candidate research, not a decision.
 - **Priority:** P0 for identity and verification foundations.
@@ -1097,9 +1165,13 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 
 ---
 
-### Semantic identity and artifact store
+<a name="semantic-identity-and-artifact-store"></a>
 
-#### LL-004 — Choose canonical encoding and hash algorithm policy
+### 9.1.3 Semantic identity and artifact store
+
+<a name="ll-004--choose-canonical-encoding-and-hash-algorithm-policy"></a>
+
+#### 9.1.3.1 LL-004 — Choose canonical encoding and hash algorithm policy
 
 - **GitHub issue:** [#347](https://github.com/aivibeflow/LLMLang/issues/347)
 
@@ -1111,7 +1183,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Specify typed canonical encoding and domain separation before standardizing any digest spelling. Keep algorithm identity explicit in the digest representation.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 4–5.
 
-#### LL-005 — Define hash-relevant dependency edges and cycles
+<a name="ll-005--define-hash-relevant-dependency-edges-and-cycles"></a>
+
+#### 9.1.3.2 LL-005 — Define hash-relevant dependency edges and cycles
 
 - **GitHub issue:** [#348](https://github.com/aivibeflow/LLMLang/issues/348)
 
@@ -1124,7 +1198,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Keep the hash-dependency relation acyclic for the initial model; represent other graph relations separately until a canonical cyclic-group scheme is justified.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 5; [Libraries and Templates](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md), section 5.
 
-#### LL-006 — Decide artifact granularity for the initial SPG/store
+<a name="ll-006--decide-artifact-granularity-for-the-initial-spgstore"></a>
+
+#### 9.1.3.3 LL-006 — Decide artifact granularity for the initial SPG/store
 
 - **GitHub issue:** [#349](https://github.com/aivibeflow/LLMLang/issues/349)
 
@@ -1136,7 +1212,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 4 and 6.
 
-#### LL-007 — Separate target-profile semantics from implementation identity
+<a name="ll-007--separate-target-profile-semantics-from-implementation-identity"></a>
+
+#### 9.1.3.4 LL-007 — Separate target-profile semantics from implementation identity
 
 - **GitHub issue:** [#350](https://github.com/aivibeflow/LLMLang/issues/350)
 
@@ -1147,7 +1225,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Hash only properties that can affect the artifact's interpretation or behavior; keep deployment-selection constraints in the binding when they do not alter the artifact itself.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 3.5, 5, and 8.
 
-#### LL-008 — Define compatibility evidence and evidence reuse rules
+<a name="ll-008--define-compatibility-evidence-and-evidence-reuse-rules"></a>
+
+#### 9.1.3.5 LL-008 — Define compatibility evidence and evidence reuse rules
 
 - **GitHub issue:** [#351](https://github.com/aivibeflow/LLMLang/issues/351)
 
@@ -1158,7 +1238,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Bind evidence to exact artifact hashes, target profile, assumptions, and tool versions. Reuse only when all proof/test-relevant inputs are unchanged or a sound reuse rule is established.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 9.
 
-#### LL-009 — Define registry trust, provenance, licensing, and retention policy
+<a name="ll-009--define-registry-trust-provenance-licensing-and-retention-policy"></a>
+
+#### 9.1.3.6 LL-009 — Define registry trust, provenance, licensing, and retention policy
 
 - **GitHub issue:** [#352](https://github.com/aivibeflow/LLMLang/issues/352)
 
@@ -1171,9 +1253,13 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 
 ---
 
-### Language, packages, and templates
+<a name="language-packages-and-templates"></a>
 
-#### LL-010 — Decide whether Package is part of the SPG
+### 9.1.4 Language, packages, and templates
+
+<a name="ll-010--decide-whether-package-is-part-of-the-spg"></a>
+
+#### 9.1.4.1 LL-010 — Decide whether Package is part of the SPG
 
 - **GitHub issue:** [#353](https://github.com/aivibeflow/LLMLang/issues/353)
 
@@ -1184,7 +1270,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Initially keep Package as a distribution/identity concept unless a concrete semantic use case requires it inside the SPG.
 - **Related:** [Libraries and Templates](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md), sections 3 and 12.
 
-#### LL-011 — Define Library identity and publication requirements
+<a name="ll-011--define-library-identity-and-publication-requirements"></a>
+
+#### 9.1.4.2 LL-011 — Define Library identity and publication requirements
 
 - **GitHub issue:** [#354](https://github.com/aivibeflow/LLMLang/issues/354)
 
@@ -1195,7 +1283,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Treat Library as a reusable component role and require machine-readable public contracts for semantic integration; make verification limits explicit for opaque implementations.
 - **Related:** [Libraries and Templates](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md), sections 3 and 12.
 
-#### LL-022 — Define the package content, index, and dynamic-provider model
+<a name="ll-022--define-the-package-content-index-and-dynamic-provider-model"></a>
+
+#### 9.1.4.3 LL-022 — Define the package content, index, and dynamic-provider model
 
 - **GitHub issue:** [#355](https://github.com/aivibeflow/LLMLang/issues/355)
 
@@ -1215,7 +1305,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Next gaps:** finalize dependency-kind and condition semantics; decide empty-module and Stable ID rules; determine whether further identity-bearing tables are required; measure disk-backed traversal and ZIP central-directory memory; implement and test a real Content Store snapshot adapter; investigate multi-provider composition; extend manifest-to-index checks to cache-index payloads and any future identity-bearing tables; evaluate archive container alternatives and measure ZIP central-directory memory overhead before selecting a scalable archive design. Binary index block representation, compression, sparse lookup, provenance, and trust remain subsequent work.
 - **Related:** [Package System: Static and Dynamic Packages](research/packages-and-ecosystem/RT-12/PACKAGE-SYSTEM.md), [Package Manifest and Content Identity](research/packages-and-ecosystem/RT-12/PACKAGE-MANIFEST-AND-IDENTITY.md), [illustrative manifest.toml](research/packages-and-ecosystem/examples/package/manifest.toml), [Libraries and Templates](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md), [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), and research area RT-12.
 
-#### LL-012 — Define template instantiation and migration semantics
+<a name="ll-012--define-template-instantiation-and-migration-semantics"></a>
+
+#### 9.1.4.4 LL-012 — Define template instantiation and migration semantics
 
 - **GitHub issue:** [#356](https://github.com/aivibeflow/LLMLang/issues/356)
 
@@ -1229,9 +1321,13 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 
 ---
 
-### Runtime and system interfaces
+<a name="runtime-and-system-interfaces"></a>
 
-#### LL-013 — Select the initial POSIX edition and conformance profile
+### 9.1.5 Runtime and system interfaces
+
+<a name="ll-013--select-the-initial-posix-edition-and-conformance-profile"></a>
+
+#### 9.1.5.1 LL-013 — Select the initial POSIX edition and conformance profile
 
 - **GitHub issue:** [#357](https://github.com/aivibeflow/LLMLang/issues/357)
 
@@ -1242,7 +1338,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Choose a small, explicit POSIX Core profile first; record optional and implementation-defined behavior separately.
 - **Related:** [POSIX Runtime Architecture](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
 
-#### LL-014 — Choose the LLMLang-facing POSIX API shape
+<a name="ll-014--choose-the-llmlang-facing-posix-api-shape"></a>
+
+#### 9.1.5.2 LL-014 — Choose the LLMLang-facing POSIX API shape
 
 - **GitHub issue:** [#358](https://github.com/aivibeflow/LLMLang/issues/358)
 
@@ -1253,7 +1351,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Preserve POSIX behavioral compatibility while allowing LLMLang types to express ownership, errors, and capabilities more precisely. Validate with concrete API examples before deciding.
 - **Related:** [POSIX Runtime Architecture](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
 
-#### LL-015 — Define the first portable and native runtime vertical slices
+<a name="ll-015--define-the-first-portable-and-native-runtime-vertical-slices"></a>
+
+#### 9.1.5.3 LL-015 — Define the first portable and native runtime vertical slices
 
 - **GitHub issue:** [#359](https://github.com/aivibeflow/LLMLang/issues/359)
 
@@ -1264,7 +1364,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Select a small shared-contract slice (for example, process startup, basic file I/O, and error handling) before expanding the API.
 - **Related:** [POSIX Runtime Architecture](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
 
-#### LL-016 — Select initial native architectures and isolate syscall ABI details
+<a name="ll-016--select-initial-native-architectures-and-isolate-syscall-abi-details"></a>
+
+#### 9.1.5.4 LL-016 — Select initial native architectures and isolate syscall ABI details
 
 - **GitHub issue:** [#360](https://github.com/aivibeflow/LLMLang/issues/360)
 
@@ -1275,7 +1377,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Begin with one target architecture for the first vertical slice, but define an abstraction boundary that permits additional architectures.
 - **Related:** [POSIX Runtime Architecture](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
 
-#### LL-017 — Define the trusted low-level runtime boundary
+<a name="ll-017--define-the-trusted-low-level-runtime-boundary"></a>
+
+#### 9.1.5.5 LL-017 — Define the trusted low-level runtime boundary
 
 - **GitHub issue:** [#361](https://github.com/aivibeflow/LLMLang/issues/361)
 
@@ -1286,7 +1390,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Minimize the trusted computing base, enumerate every trusted primitive, and expose explicit contracts and verification limits.
 - **Related:** [POSIX Runtime Architecture](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
 
-#### LL-018 — Specify POSIX concurrency and environment-dependent semantics
+<a name="ll-018--specify-posix-concurrency-and-environment-dependent-semantics"></a>
+
+#### 9.1.5.6 LL-018 — Specify POSIX concurrency and environment-dependent semantics
 
 - **GitHub issue:** [#362](https://github.com/aivibeflow/LLMLang/issues/362)
 
@@ -1297,7 +1403,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Define the language memory model independently, then specify explicit refinement/compatibility mappings for POSIX and kernel behavior.
 - **Related:** [POSIX Runtime Architecture](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), section 13.
 
-#### LL-019 — Scope POSIX conformance and formal-verification claims
+<a name="ll-019--scope-posix-conformance-and-formal-verification-claims"></a>
+
+#### 9.1.5.7 LL-019 — Scope POSIX conformance and formal-verification claims
 
 - **GitHub issue:** [#363](https://github.com/aivibeflow/LLMLang/issues/363)
 
@@ -1310,7 +1418,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 
 ---
 
-#### LL-020 — Define LLVM backend role and semantic boundary
+<a name="ll-020--define-llvm-backend-role-and-semantic-boundary"></a>
+
+#### 9.1.5.8 LL-020 — Define LLVM backend role and semantic boundary
 
 - **GitHub issue:** [#364](https://github.com/aivibeflow/LLMLang/issues/364)
 
@@ -1329,7 +1439,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Decision gate:** Resolve this item only when the target support matrix, benchmark protocol and workload corpus, semantic-conformance gates, candidate results, maintenance costs, and explicit rationale for the initial backend configuration are recorded. Unknown or unsupported target/semantic combinations must remain explicit; a favorable benchmark cannot compensate for missing correctness evidence.
 - **Related** — [LLVM Backend Architecture](research/compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md) · [Translation and Target Backends](research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md) · [LLVM integer preservation evidence](research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md)
 
-#### LL-021 — Define semantic action caching and incremental compilation
+<a name="ll-021--define-semantic-action-caching-and-incremental-compilation"></a>
+
+#### 9.1.5.9 LL-021 — Define semantic action caching and incremental compilation
 
 - **GitHub issue:** [#365](https://github.com/aivibeflow/LLMLang/issues/365)
 
@@ -1341,7 +1453,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Model compilation and analysis as a typed dependency graph of actions. Keep Semantic Hash, Action Key, and Artifact Hash distinct. Permit reuse only when dependency closure and all result-determining inputs are captured; otherwise invalidate conservatively or mark the action non-cacheable. Every result records a composite `LanguageVersion`, the digest of the append-only ordered component registry used to interpret it, and a separate `ToolchainIdentity`; these are distinct Action Key inputs whenever result-determining. The initial registry is `language-components.toml`; its entries are append-only and new coordinates are appended only at the end. Permit optional package-distributed cache indexes for validation, compilation, tests, and proofs; key them by exact Action Key (not bare object hash), address payloads by Artifact Hash, and ensure cache metadata never affects semantic package identity. Reuse across behavior-changing toolchain versions is forbidden unless explicit compatibility evidence exists.
 - **Related:** [Semantic Compilation Cache](research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), [Package System: Static and Dynamic Packages](research/packages-and-ecosystem/RT-12/PACKAGE-SYSTEM.md), [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [Formal Verification](research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md).
 
-#### LL-024 — Define the Toolchain Server and semantic development API
+<a name="ll-024--define-the-toolchain-server-and-semantic-development-api"></a>
+
+#### 9.1.5.10 LL-024 — Define the Toolchain Server and semantic development API
 
 - **GitHub issue:** [#367](https://github.com/aivibeflow/LLMLang/issues/367)
 
@@ -1353,7 +1467,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Start with a modular monolith, transport-neutral typed API, in-memory prototype, and a storage abstraction designed to admit a persistent embedded backend. Keep accepted SPG snapshots immutable; use expected-hash preconditions and optimistic concurrency; separate semantic acceptance, filesystem export, Git commit, and push. Do not make an external database the sole source of truth.
 - **Related:** [RT-19 — Toolchain Server and Semantic Development API](research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [ADR-015](draft/adr/015-toolchain-server-semantic-api.md), [Toolchain Prototype 01](research/toolchain-and-collaboration/PROTOTYPES/TOOLCHAIN-SERVER-01/README.md), [Development Engine RFC](research/toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md), [Git semantic repository](research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md), [ADR-014](draft/adr/014-git-semantic-merge.md).
 
-#### LL-023 — Define complete LLM patch planning and validation-gated commit
+<a name="ll-023--define-complete-llm-patch-planning-and-validation-gated-commit"></a>
+
+#### 9.1.5.11 LL-023 — Define complete LLM patch planning and validation-gated commit
 
 - **GitHub issue:** [#366](https://github.com/aivibeflow/LLMLang/issues/366)
 
@@ -1365,7 +1481,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Introduce a versioned Change Impact Plan with separate Dependency Analysis and Change Implementation Plan views. Make compatibility decisions edge-specific. Validate completeness server-side before permitting mutations. Enforce every planned function/reference change. Expose one authorized completion operation that validates and audits the frozen candidate and creates a Git commit only if all mandatory gates pass; keep remote push separate.
 - **Related:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](research/toolchain-and-collaboration/RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md), [RT-19](research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md), [Development Engine RFC](research/toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md), [RT-05 identity research](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [RT-06 dependency research](research/semantic-representation/RT-06/RESEARCH-SCENARIO-25-FORMAL-SEMANTIC-DEPENDENCY-ANALYSIS.md).
 
-#### LL-028 — Define backend-independent proof selection and evidence orchestration
+<a name="ll-028--define-backend-independent-proof-selection-and-evidence-orchestration"></a>
+
+#### 9.1.5.12 LL-028 — Define backend-independent proof selection and evidence orchestration
 
 - **GitHub issue:** [#390](https://github.com/aivibeflow/LLMLang/issues/390)
 - **Status:** Open for implementation and evaluation. [ADR-018](draft/adr/018-formal-verification-backends.md) records the accepted initial backend profile.
@@ -1376,7 +1494,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Keep Contract IR backend-independent. Select one or more backends per proof obligation from explicit capability profiles, and abstain when required semantics or evidence strength is unsupported. Preserve each translation/correspondence obligation and all assumptions. Never aggregate partial, unknown, unsupported, or untrusted results into proven.
 - **Related:** [RT-33](research/formal-verification/RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [RT-32](research/formal-verification/RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md), [RT-07](research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md), [contract formalization corpus](research/formal-verification/CONTRACT-FORMALIZATION-CORPUS/README.md).
 
-#### LL-029 — Build a representative proof-obligation benchmark
+<a name="ll-029--build-a-representative-proof-obligation-benchmark"></a>
+
+#### 9.1.5.13 LL-029 — Build a representative proof-obligation benchmark
 
 - **Status:** Open — proposed executable seed infrastructure in [#393](https://github.com/aivibeflow/LLMLang/issues/393); independent validation, backend integration and evaluation remain open. See [seed corpus and follow-ups](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/README.md).
 - **Priority:** P0 (supports RT-33)
@@ -1386,9 +1506,13 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Start with a small seed set spanning structurally different domains and at least one multi-backend case. Expand toward the proposed 80-case coverage matrix only where cases add distinct semantic or planner coverage; do not treat 80 as a quota.
 - **Related:** [RT-33](research/formal-verification/RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md), [Proof Obligation Benchmark](research/formal-verification/RT-33/PROOF-OBLIGATION-BENCHMARK.md), [CF corpus](research/formal-verification/CONTRACT-FORMALIZATION-CORPUS/README.md), [Issue #390](https://github.com/aivibeflow/LLMLang/issues/390).
 
-### AI authoring contexts
+<a name="ai-authoring-contexts"></a>
 
-#### LL-026 — Define the Knowledge Context model
+### 9.1.6 AI authoring contexts
+
+<a name="ll-026--define-the-knowledge-context-model"></a>
+
+#### 9.1.6.1 LL-026 — Define the Knowledge Context model
 
 - **GitHub issue:** [#368](https://github.com/aivibeflow/LLMLang/issues/368)
 
@@ -1400,7 +1524,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Research an immutable context manifest pinned to an explicit baseline, with typed entries, source provenance, inclusion rationale, required/optional status, access restrictions, and explicit completeness/unknown outcomes. Do not claim completeness from relevance ranking alone, and do not silently treat missing or stale sources as absent.
 - **Related:** RT-14 AI-native authoring; RT-05 representation and identity; RT-06 dependency analysis; RT-16 security and trust; RT-19 Toolchain Server; [Development Engine RFC](research/toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md); [Open-question research program](research/research-management/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md).
 
-#### LL-027 — Define the Task Context model
+<a name="ll-027--define-the-task-context-model"></a>
+
+#### 9.1.6.2 LL-027 — Define the Task Context model
 
 - **GitHub issue:** [#369](https://github.com/aivibeflow/LLMLang/issues/369)
 
@@ -1413,7 +1539,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Research a typed task record with explicit objective, scope, constraints, linked Knowledge Context and baseline, expected outputs, prerequisites, and machine-checkable completion obligations. Keep lifecycle and schema alternatives open until they are tested against multi-step and delegated agent workflows.
 - **Related:** RT-14 AI-native authoring; RT-02 requirements and intent; RT-16 security and trust; RT-19 Toolchain Server; RT-20 patch planning; [Development Engine RFC](research/toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md); [Open-question research program](research/research-management/RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md).
 
-#### LL-030 — Define assumption identity, conditional proof closure and trust policy
+<a name="ll-030--define-assumption-identity-conditional-proof-closure-and-trust-policy"></a>
+
+#### 9.1.6.3 LL-030 — Define assumption identity, conditional proof closure and trust policy
 
 - **Status:** Open
 - **Priority:** P0
@@ -1421,9 +1549,13 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Recommendation:** Compare typed versioned claims and scoped authorization, PDG property-specific dependency closure, independent status dimensions, and strict versus conditional admission. Preserve exact provider/contract/ABI identities and distinguish proof from trust approval. Coordinate with LL-008, LL-009, LL-017, LL-019 and LL-028.
 - **Related:** [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md), [Issue #436](https://github.com/aivibeflow/LLMLang/issues/436).
 
-## Deferred engineering tasks
+<a name="deferred-engineering-tasks"></a>
 
-### DEFERRED-001 — Repair canonical query semantics Lean module
+## 9.2 Deferred engineering tasks
+
+<a name="deferred-001--repair-canonical-query-semantics-lean-module"></a>
+
+### 9.2.1 DEFERRED-001 — Repair canonical query semantics Lean module
 
 - **GitHub issue:** [#343](https://github.com/aivibeflow/LLMLang/issues/343) (Deferred / someday; excluded from the active execution sequence).
 
@@ -1436,7 +1568,9 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 - **Acceptance criteria:** The module builds under the pinned Lean 4.34.0 and Logos revision; the semantic-preservation theorem is accepted by Lean's kernel without `sorry` or untrusted shortcuts; positive and adversarial tests pass; the active Lean CI workflow remains green. The result must still be described as query-level correspondence only, not source-program-to-query or whole-program correctness.
 - **Related:** `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean`, `SourceQuerySemantics.lean`, and Scenarios 29–33.
 
-### Maintaining design questions
+<a name="maintaining-design-questions"></a>
+
+## 9.3 Maintaining design questions
 
 - Add a new item when a discussion exposes a durable unresolved design question, not for every implementation task or transient note.
 - Search this register before adding an item; extend an existing ID when the question is the same.
