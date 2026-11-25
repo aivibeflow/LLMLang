@@ -1,0 +1,147 @@
+{
+  "baseline": "a824e8e0d92f7ead7eac313376352ad21b3e8bca",
+  "python": "3.12.14",
+  "horizons": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "runner_sha256": "dfe5ee590ea4d38621f2a0eee05aa9b81ee197dd0ff41608f8379279c56b433f",
+  "case_count": 384,
+  "mode_counts": {
+    "both-decrease": {
+      "cases": 96,
+      "both_roots_closed": 9,
+      "false_root_closures": 16
+    },
+    "left-same": {
+      "cases": 96,
+      "both_roots_closed": 14,
+      "false_root_closures": 18
+    },
+    "right-same": {
+      "cases": 96,
+      "both_roots_closed": 14,
+      "false_root_closures": 18
+    },
+    "both-same": {
+      "cases": 96,
+      "both_roots_closed": 4,
+      "false_root_closures": 40
+    }
+  },
+  "selected_examples": {
+    "both-decrease-0-3": {
+      "horizon": 5,
+      "base_mask": 0,
+      "step_mask": 3,
+      "grounded_mask": 0,
+      "one_step_mask": 4080,
+      "closed_root_mask": 0
+    },
+    "left-same-0-3": {
+      "horizon": 5,
+      "base_mask": 0,
+      "step_mask": 3,
+      "grounded_mask": 0,
+      "one_step_mask": 4084,
+      "closed_root_mask": 0
+    },
+    "right-same-0-3": {
+      "horizon": 5,
+      "base_mask": 0,
+      "step_mask": 3,
+      "grounded_mask": 0,
+      "one_step_mask": 4088,
+      "closed_root_mask": 0
+    },
+    "both-same-0-3": {
+      "horizon": 5,
+      "base_mask": 0,
+      "step_mask": 3,
+      "grounded_mask": 0,
+      "one_step_mask": 4092,
+      "closed_root_mask": 0
+    },
+    "both-decrease-1-3": {
+      "horizon": 5,
+      "base_mask": 1,
+      "step_mask": 3,
+      "grounded_mask": 2457,
+      "one_step_mask": 4089,
+      "closed_root_mask": 2048
+    },
+    "left-same-1-3": {
+      "horizon": 5,
+      "base_mask": 1,
+      "step_mask": 3,
+      "grounded_mask": 4093,
+      "one_step_mask": 4093,
+      "closed_root_mask": 3072
+    },
+    "right-same-1-3": {
+      "horizon": 5,
+      "base_mask": 1,
+      "step_mask": 3,
+      "grounded_mask": 1,
+      "one_step_mask": 4089,
+      "closed_root_mask": 0
+    },
+    "both-same-1-3": {
+      "horizon": 5,
+      "base_mask": 1,
+      "step_mask": 3,
+      "grounded_mask": 1,
+      "one_step_mask": 4093,
+      "closed_root_mask": 0
+    },
+    "both-decrease-3-3": {
+      "horizon": 5,
+      "base_mask": 3,
+      "step_mask": 3,
+      "grounded_mask": 4095,
+      "one_step_mask": 4095,
+      "closed_root_mask": 3072
+    },
+    "left-same-3-3": {
+      "horizon": 5,
+      "base_mask": 3,
+      "step_mask": 3,
+      "grounded_mask": 4095,
+      "one_step_mask": 4095,
+      "closed_root_mask": 3072
+    },
+    "right-same-3-3": {
+      "horizon": 5,
+      "base_mask": 3,
+      "step_mask": 3,
+      "grounded_mask": 4095,
+      "one_step_mask": 4095,
+      "closed_root_mask": 3072
+    },
+    "both-same-3-3": {
+      "horizon": 5,
+      "base_mask": 3,
+      "step_mask": 3,
+      "grounded_mask": 3,
+      "one_step_mask": 4095,
+      "closed_root_mask": 0
+    }
+  },
+  "proof_check": {
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "source_sha256": "845703a16f6003f937089ca5d699e50075e4a877f14ffe6e86eca2749e53a5af",
+    "axioms": [
+      "'ProofDischarge.closeDecreasing' does not depend on any axioms",
+      "'ProofDischarge.closeLeftSame' does not depend on any axioms",
+      "'ProofDischarge.closeRightSame' does not depend on any axioms",
+      "'ProofDischarge.missingBaseCountermodel' does not depend on any axioms",
+      "'ProofDischarge.noDecreaseCountermodel' does not depend on any axioms"
+    ],
+    "wrong_rule_rejected": true,
+    "wrong_rule_source_sha256": "deebe259b88f881cf7e60f10e0cd53b4960efa6a106c1d0ff3a96a75a16cac28"
+  }
+}
