@@ -1,0 +1,585 @@
+{
+  "source_sha256": {
+    "INDEX-INTEGRITY-01/sparse.py": "f4f523f26d156febe9116ef8d1580f3d85f0603478cea2b08f0c665aa6c13293",
+    "INDEX-COMPRESSION-01/run.py": "cce13c2f831be60e74d1fe227df47e68758fc9ebf9a42720605f9ab7d10365e5"
+  },
+  "projections": [
+    {
+      "codec": "gzip",
+      "block_rows": 64,
+      "logical_sha256": "fd319f83b72e98ff7f23271d77e9d86164f265e44b91878c3efbbbbdd61d2e57",
+      "directory_sha256": "c2f68c7b872402a54b7dd8e4047bdaddd2a0049005748248fed875048e64b224"
+    },
+    {
+      "codec": "gzip",
+      "block_rows": 256,
+      "logical_sha256": "fd319f83b72e98ff7f23271d77e9d86164f265e44b91878c3efbbbbdd61d2e57",
+      "directory_sha256": "7ba1b687804ba0ed4af94d2869fef7fcf174d5f47958cda01a0ab2b8067c3f89"
+    },
+    {
+      "codec": "bzip2",
+      "block_rows": 64,
+      "logical_sha256": "fd319f83b72e98ff7f23271d77e9d86164f265e44b91878c3efbbbbdd61d2e57",
+      "directory_sha256": "aad102f03dbf50702fa64501ce03842fa23a4d6034ce1126ad00e298b210efc5"
+    }
+  ],
+  "queries": {
+    "leading-hit": "0075f358fa49e8e64d2cd4e7f31b15f3b0eb5f89208c9d7e454a71cf9d79a8c3",
+    "middle-hit": "7e56c3701bc0eff3d0f20624b13bfe73957bbee108df77b36beb006790542ff2",
+    "miss": "cc8c667a59a72276d6a1ad85a2f2b5e9a7e28d751000eff45e715925e8d1a82a"
+  },
+  "lookup_cases": 33,
+  "false_results_when_self_checked": 3,
+  "results": {
+    "unchanged": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15",
+          "sparse"
+        ],
+        "pinned": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15",
+          "sparse"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "sparse"
+        ],
+        "pinned": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "sparse"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "missing",
+          null,
+          "sparse"
+        ],
+        "pinned": [
+          "missing",
+          null,
+          "sparse"
+        ]
+      }
+    },
+    "no-optional-directory": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15",
+          "rebuilt"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "rebuilt"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "missing",
+          null,
+          "rebuilt"
+        ]
+      }
+    },
+    "stale-directory-same-logical-root": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15",
+          "rebuilt"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "rebuilt"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "missing",
+          null,
+          "rebuilt"
+        ]
+      }
+    },
+    "truncated-directory-disagrees-with-checksum": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15",
+          "rebuilt"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "rebuilt"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "missing",
+          null,
+          "rebuilt"
+        ]
+      }
+    },
+    "omitted-leading-block-and-self-checksum": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "missing",
+          null,
+          "sparse"
+        ],
+        "pinned": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15",
+          "rebuilt"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "sparse"
+        ],
+        "pinned": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "rebuilt"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "missing",
+          null,
+          "sparse"
+        ],
+        "pinned": [
+          "missing",
+          null,
+          "rebuilt"
+        ]
+      }
+    },
+    "wrong-pointer-and-self-checksum": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "missing",
+          null,
+          "sparse"
+        ],
+        "pinned": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15",
+          "rebuilt"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "sparse"
+        ],
+        "pinned": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "rebuilt"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "missing",
+          null,
+          "sparse"
+        ],
+        "pinned": [
+          "missing",
+          null,
+          "rebuilt"
+        ]
+      }
+    },
+    "changed-row-and-self-checksum": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "found",
+          "5d40614812fcd5f518f030cd9eeb0e304eee3ab15d0a5f4b9fc3aeecfd722d54",
+          "sparse"
+        ],
+        "pinned": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15",
+          "rebuilt"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "sparse"
+        ],
+        "pinned": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "rebuilt"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "missing",
+          null,
+          "sparse"
+        ],
+        "pinned": [
+          "missing",
+          null,
+          "rebuilt"
+        ]
+      }
+    },
+    "truncated-block-under-valid-directory": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15",
+          "rebuilt"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "rebuilt"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "missing",
+          null,
+          "rebuilt"
+        ]
+      }
+    },
+    "corrupt-only-first-block-under-valid-directory": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15",
+          "rebuilt"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "sparse"
+        ],
+        "pinned": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942",
+          "sparse"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "missing",
+          null,
+          "sparse"
+        ],
+        "pinned": [
+          "missing",
+          null,
+          "sparse"
+        ]
+      }
+    },
+    "missing-directory-and-missing-canonical": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "unavailable",
+          null,
+          "refused"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "unavailable",
+          null,
+          "refused"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "unavailable",
+          null,
+          "refused"
+        ]
+      }
+    },
+    "missing-directory-and-wrong-canonical": {
+      "leading-hit": {
+        "oracle": [
+          "found",
+          "a6fd19ee3a9a17a3f184797b5f375ace53a7b3dd79d300b371174afc30688e15"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "unavailable",
+          null,
+          "refused"
+        ]
+      },
+      "middle-hit": {
+        "oracle": [
+          "found",
+          "2c1e373c19c177b5afd92b718e6be1cd2f1c2203362c53bbc681e09f6f3cb942"
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "unavailable",
+          null,
+          "refused"
+        ]
+      },
+      "miss": {
+        "oracle": [
+          "missing",
+          null
+        ],
+        "self_checked": [
+          "unavailable",
+          null,
+          "refused"
+        ],
+        "pinned": [
+          "unavailable",
+          null,
+          "refused"
+        ]
+      }
+    }
+  }
+}
