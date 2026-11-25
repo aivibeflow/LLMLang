@@ -1,0 +1,106 @@
+{
+  "comparison": {
+    "unsafe_status_only_admissions": 152
+  },
+  "outcomes": {
+    "accepted": 40,
+    "invalid-transition": 238,
+    "missing-evidence": 8,
+    "stale": 858
+  },
+  "python": "3.12.14",
+  "source_sha256": "da6e716c98a14a968e8f01df0c04d2727e5a6a60f5faea434b7eaf366f567795",
+  "states": 1144,
+  "successful_lifecycle": [
+    [
+      "create",
+      "draft",
+      3,
+      5
+    ],
+    [
+      "clarify",
+      "clarifying",
+      4,
+      5
+    ],
+    [
+      "plan",
+      "planned",
+      4,
+      5
+    ],
+    [
+      "decompose",
+      "planned",
+      4,
+      5
+    ],
+    [
+      "run",
+      "running",
+      4,
+      5
+    ],
+    [
+      "delegate",
+      "running",
+      4,
+      5
+    ],
+    [
+      "block",
+      "blocked",
+      4,
+      5
+    ],
+    [
+      "retry",
+      "planned",
+      4,
+      6
+    ],
+    [
+      "run",
+      "running",
+      4,
+      6
+    ],
+    [
+      "fail",
+      "failed",
+      4,
+      6
+    ],
+    [
+      "retry",
+      "planned",
+      4,
+      7
+    ],
+    [
+      "run",
+      "running",
+      4,
+      7
+    ],
+    [
+      "review",
+      "reviewing",
+      4,
+      7
+    ],
+    [
+      "handoff",
+      "handed-off",
+      4,
+      7
+    ],
+    [
+      "complete",
+      "completed",
+      4,
+      7
+    ]
+  ]
+}
