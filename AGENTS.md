@@ -2,6 +2,10 @@
 
 These repository-wide instructions apply to agents creating, revising, reviewing, or publishing LLMLang research materials. Follow existing repository contribution requirements and applicable scoped instructions. The rules below govern documentation and evidence presentation; they do not adopt any candidate language semantics or research conclusion.
 
+## ADR and RFC maintenance
+
+When adding or changing an ADR under `draft/adr/`, follow the [contribution rule for updating the RFC in the same change](CONTRIBUTING.md#keep-the-rfc-in-sync-with-adrs).
+
 ## Research deliverables: explanations and visual evidence
 
 Research deliverables MUST be self-contained in the repository. Do not leave material explanations, diagrams, comparisons, or experimental charts exclusively in a chat response, PR description, or issue comment.

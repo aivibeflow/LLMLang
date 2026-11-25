@@ -2,6 +2,7 @@
 
 This directory contains the current candidate specification and its supporting terminology.
 
+- [LLMLang architecture RFC](RFC.md) — integrated description of the accepted architecture and its open boundaries.
 - [GLOSSARY.md](GLOSSARY.md) — shared terminology for semantic identities, operations, implementations, and conformance classes.
 - [ARCHITECTURE-DECISIONS.md](ARCHITECTURE-DECISIONS.md) — accepted project architecture decisions and their boundaries.
 - [Architecture decision records (ADRs)](adr/) — numbered records with their individual decision statuses.
