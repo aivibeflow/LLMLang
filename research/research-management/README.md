@@ -33,6 +33,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-06 path replay and conditional-call boundary](RT-00/RT-00-C-RT06-PATH-COMPLETENESS-REPLAY-2026-11-25.md)
 - [RT-19/RT-23 recovery evidence and claim lineage](RT-00/RT-00-RT19-RT23-RECOVERY-RELATIONSHIPS-2026-11-25.md)
 - [Research register and dependency path evidence](RT-00/RT-00-DEPENDENCY-REGISTER-AND-PATH-BOUNDARY-2026-11-25.md)
+- [Observation evidence dependency recheck](RT-00/RT-00-OBSERVATION-EVIDENCE-DEPENDENCY-RECHECK-2026-11-25.md) — replays the executable reference, observation projections and exact-target proof controls.
 - [Native binary64 replay across four studies](RT-00/RT-00-C-BINARY64-NATIVE-REPLAY-2026-11-25.md)
 - [RT-13 symbolic checked-add replay](RT-00/RT-00-C-RT13-SYMBOLIC-CHECKED-ADD-REPLAY-2026-11-25.md) — reproduces the proof ledger and checks additional concrete preservation controls.
 - [RT-13 CPC binding replay](RT-00/RT-00-C-RT13-CPC-BINDING-REPLAY-2026-11-25.md) — reproduces both Logos certificate bindings and separates declaration order, sort and admissible commands.
