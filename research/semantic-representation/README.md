@@ -23,6 +23,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-05 conformance class identity](RT-05/RT-05-CONFORMANCE-CLASS-IDENTITY-2026-11-25.md) — compares interpreted contracts, class definitions, discovery snapshots and exact evidence.
 - [RT-05 provided contract identity](RT-05/RT-05-PROVIDED-CONTRACT-IDENTITY-2026-11-25.md) — checks declaration changes against exact body and refinement obligations.
 - [RT-05 operation lifetime](RT-05/RT-05-OPERATION-LIFETIME-2026-11-25.md) — compares exact old call pins across revision, retirement and replacement.
+- [RT-05 identity roles crosswalk](RT-05/RT-05-IDENTITY-ROLES-CROSSWALK-2026-11-25.md) — consolidates eleven source-bound replays and the candidate change-impact matrix.
 - [RT-05 canonical wire admission](RT-05/RT-05-CANONICAL-WIRE-ADMISSION-2026-11-25.md) — compares strict typed bytes and normalization at the storage boundary.
 - [Scenario 01 — Rename identity](RT-05/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md)
 - [Prototype 01 results](RT-05/PROTOTYPE-01-RESULTS.md). Early finite dependency-graph experiment.
