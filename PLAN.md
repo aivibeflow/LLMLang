@@ -1033,7 +1033,9 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 **Estimated research complexity:** **6/10** — repository mapping and semantic versioning need consistency with SPG identity.
 
 - [ ] Define the canonical Git-visible representation of a semantic program.
+  - [ ] [WIP] Verify a closed Git-visible candidate with explicit semantic root, indexes and layout version on `research/all` (#320).
 - [ ] Compare storing canonical serialized semantic objects directly in Git with storing KV-backed objects plus repository manifests.
+  - [ ] [WIP] Compare direct Git objects, packed Git records, and externally resolved manifests on identical typed revisions on `research/all` (#320).
 - [x] Define the mapping between Git commits/trees and semantic graph snapshots.
   - Reconstruct typed roots across 16 native commits in SHA-1 and SHA-256 repositories. Equal semantic roots can have different trees and ordered ancestry; a changed provider changes the root and interpreted calls. Closed admission refuses missing and undeclared inputs. [Commit, tree and semantic root mapping](research/toolchain-and-collaboration/RT-24/RT-24-COMMIT-TREE-SEMANTIC-ROOT-MAPPING-2026-11-25.md)
 - [ ] Preserve ordinary Git clone, fetch, push, branch, tag, and history behavior.
