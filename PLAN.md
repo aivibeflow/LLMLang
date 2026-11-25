@@ -742,8 +742,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Estimated research complexity:** **9/10** — semantic preservation across lowering and optimization needs version-pinned corpora and independent validation.
 
-- [ ] Define proof obligations for semantic graph rewrites, including correspondence with authoritative LLMLang semantics when Lean or another verifier is used as a target representation.
-  - [ ] [WIP] Check structural sharing versus once-only evaluation with a bounded State/Result graph elaboration, exact trace preservation and explicit correspondence obligations on `research/all`.
+- [x] Define proof obligations for semantic graph rewrites, including correspondence with authoritative LLMLang semantics when Lean or another verifier is used as a target representation.
+  - [x] Check reconstruction, relabeling and occurrence preservation for a typed acyclic graph. Lean checks graph and tree denotation. All 9,210 graph observations match both archived reference routes, while node/cell memoization changes 870 observations. Production SPG-to-model correspondence remains open. [Graph occurrence preservation](research/compiler-and-translation/RT-13/RT-13-GRAPH-OCCURRENCE-PRESERVATION-2026-11-25.md)
 - [ ] Define proof obligations for compiler optimizations.
   - Lean characterizes the exact agreement guard for seven binary64 extrema rules under normalized NaN outputs. All 1,024 archived native pair equations match, with 518 agreeing pairs and 506 disagreements. General LLVM/source correspondence and status flags remain open. [F64 extrema agreement guard](research/formal-verification/RT-32/RT-32-F64-EXTREMA-AGREEMENT-GUARD-2026-11-25.md)
   - Compare LLVM lowerings for checked binary64 to signed I64 conversion. Alive2 validates the ordered branch and the poison-masking select against a bit-based reference, including optimized O0/O3 variants. Native and bytecode Vellvm agree on all 1,304 supported assertions per extraction. The saturation intrinsic remains outside both validators. [LLVM checked F64 to I64 lowering](research/compiler-and-translation/RT-13/RT-13-LLVM-F64-I64-LOWERING-2026-11-25.md)

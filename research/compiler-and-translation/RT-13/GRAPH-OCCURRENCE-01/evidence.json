@@ -1,0 +1,152 @@
+{
+  "schema": "llmlang-graph-occurrence-preservation/1",
+  "python": "3.12.14",
+  "archive_revision": "58c8de7873cd6996eb7be82e40eef09f49dc3c37",
+  "archive_sha256": {
+    "research/formal-verification/RT-07/STATE-RESULT-REFERENCE-01/reference.py": "83d9e003fda21fba074c060ee3db0d9023fe519b231da31fd491425b2a2497b4",
+    "research/formal-verification/RT-07/THREE-SEMANTICS-01/run.py": "ff0036446f3cee77ef9db1c63a51a10ed0af88625b622fe0e2fbc0cb5367e5cd",
+    "research/PROTOTYPES/RT-04-01/rt03_reference.py": "9aa14d41f837c3c0bae137f6732b72ff9edb0b70a31f1f966639124be98ed8d8",
+    "research/PROTOTYPES/RT-04-01/rt03_smallstep.py": "79516cb51e8ec6f505ab8833646f42415eb1e5f46171aac399b41c6652ed7459"
+  },
+  "sources_sha256": {
+    "run.py": "e6610d7286fa58b17e2ab0170fc2e338f4222ee1babc929e2b17d8e61bd3c899",
+    "Graph.lean": "b9a2f1883ac23ad9765bb5f6a84dd9831188b420cc86a1ebb1fe83c4991673ec",
+    "axioms.txt": "51a513a7dfd9cd4c05905251e4d569b2fbf1ae308f45e8fd437cc4c7c16d4e7e"
+  },
+  "counts": {
+    "programs": 4605,
+    "numeric_relabels": 4400,
+    "exact_observations": 9210,
+    "cache_node_changed": 1290,
+    "cache_node_trace_only": 1206,
+    "cache_node_and_cell_changed": 870,
+    "cache_node_and_cell_trace_only": 834
+  },
+  "counterexamples": {
+    "cache_node": [
+      [
+        "strict",
+        [
+          "read"
+        ],
+        [
+          "strict",
+          [
+            "write",
+            0
+          ],
+          [
+            "read"
+          ]
+        ]
+      ],
+      1,
+      [
+        [
+          "ok",
+          0
+        ],
+        0,
+        [
+          [
+            "read",
+            1
+          ],
+          [
+            "write",
+            0
+          ],
+          [
+            "read",
+            0
+          ]
+        ]
+      ],
+      [
+        [
+          "ok",
+          1
+        ],
+        0,
+        [
+          [
+            "read",
+            1
+          ],
+          [
+            "write",
+            0
+          ]
+        ]
+      ]
+    ],
+    "cache_node_and_cell": [
+      [
+        "strict",
+        [
+          "write",
+          0
+        ],
+        [
+          "strict",
+          [
+            "write",
+            1
+          ],
+          [
+            "write",
+            0
+          ]
+        ]
+      ],
+      1,
+      [
+        [
+          "ok",
+          null
+        ],
+        0,
+        [
+          [
+            "write",
+            0
+          ],
+          [
+            "write",
+            1
+          ],
+          [
+            "write",
+            0
+          ]
+        ]
+      ],
+      [
+        [
+          "ok",
+          null
+        ],
+        1,
+        [
+          [
+            "write",
+            0
+          ],
+          [
+            "write",
+            1
+          ]
+        ]
+      ]
+    ]
+  },
+  "malformed_graphs_refused": [
+    "cycle",
+    "forward",
+    "negative_child",
+    "root",
+    "typed_bool",
+    "unknown"
+  ],
+  "ordered_replay_sha256": "4ee86069de78ffb7b7432a3f59686ce8fbf9adef26d7f777c07668e378546ebd"
+}
