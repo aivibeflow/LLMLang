@@ -1312,6 +1312,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define specialization and multi-versioning.
 - [ ] Define cost models and profile-guided selection.
 - [ ] Define safe fallback when no compatible implementation is available.
+  - [ ] [WIP] Check ordered fallback against exact implementation and runtime compatibility, with Lean and a finite dispatch matrix on `research/all`.
 - [ ] Define whether and how implementation choice can change without changing operation semantics.
 - [ ] Measure dispatch and adaptation overhead.
 - [ ] Define optimization across semantic nodes while preserving contracts.
