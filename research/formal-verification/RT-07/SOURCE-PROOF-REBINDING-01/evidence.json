@@ -1,0 +1,169 @@
+{
+  "schema": "llmlang-source-proof-rebinding/1",
+  "baseline": "d0be069bc08e456dd3f173537245e42612ec7c6e",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+  "logos_api_olean_sha256": "dc2d0ffeb2e3e4bc3adf1e2346f69a8849ec0d55f65abf453d3ec93693fe07bf",
+  "sources_sha256": {
+    "run.py": "cfda8b4f0087b95daff932ce9b09dbc572c803ff83f890b64c26f300bb5a372d",
+    "Rebind.lean": "6fbb260b62951ba4a8b2b6eba7a91dbdddb863540e4b52a3f4cdab56a48ada65",
+    "proof.cpc": "189416a6495157637adf7254aafe3ea2cad1acc2f473e828bf50218666d0ef8d"
+  },
+  "rebuilt_modules_sha256": {
+    "SourceQuerySemantics": "d13ed2e95108aefe58dfc34bad79da83b187d5f12f64d8790a22ed77cd194ef3",
+    "SourceSyntax": "635b4b6599473a39f5cfab7779107e976ee052417fcd5fb608ac1d893651e080",
+    "CheckedSourceSemantics": "fa84f3797be9c345ec8b5f685578ba80c1c44ac6c59b7e8cb352ef789e6daa89",
+    "SourceCommandSemantics": "9c4c14e7be7dd2f761e5522f852beaf4a9c0edbdfea78a47b428201d64b20a47",
+    "SymbolicCommandSemantics": "4fc91afbbb6ed037d035800b2f352d25387b8e34d436438097ae28c6dc464706",
+    "ProgramObservationSemantics": "bcb0d6631f48177c779d1f518cbc1416b150af8254dd9f00276b8fdb5a021ca1",
+    "PairedObservationSemantics": "8231975dabf48fb03c0ad3885e1b8c511939555b6b3573ea8206fb137639b079",
+    "RelationalSourceQuerySemantics": "337aca01c7ccea05e87964cd09a7ed02a1c53487c861fd3943998d624e2b6e13",
+    "CanonicalQuerySymbols": "3e61b95d4d6a520a3c4b7acaa2f5b20936588e91ff9975c63f745090f20beec2",
+    "ProgramRelationalQuery": "03825db11aa46cb215e0b469f104d4f97b4dd7da8623cd26a2bbf4fb6f27a747",
+    "QfLiaQuery": "c170e2879925101292e4d58644a1af8c001d8b217110139fa034ff96171dd80d",
+    "LogosQueryAdapter": "e7a1eb6df1f3f0205042e5e3252d506c6fb1a0f82204c3a409c6ebd5c9192d26",
+    "QfLiaAdmissibility": "97c9d0b6fbd28a4190354ec2bc446f39140bbbf2d51489d90078f25b7a5412b0",
+    "SolverRelationalQuery": "18dc85ec9b00d18af68a14445f304f357a357bb744592bc133aa1dd2f2489d75",
+    "LLMLangLogosBinding": "d97967f3743afce4e6c8d427e0fa9fed537a7d310ac8699b3745a12b598eea00",
+    "QuerySymbolRenaming": "91c55bc3f81a12322eb10aac9766441b8fcf618b7d7654c403dcb5f890d32f77",
+    "TypedQueryEquality": "6900abff02f85dea322ccb70cd5a7f99a90b9923e395dedb549002a0f9c4133b",
+    "SourceQueryEnvelope": "d653ca79036f856c75f4e5f58ccfd0780f1962c1dd5c39b2b1519156ff8cd032",
+    "SourceWireRefutation": "c3afbbc6d9d34afc783ac04bd9e7e602e780f19473eaf8042cba3527463166bb"
+  },
+  "full_transcript_sha256": "596bf2c5fe476d6b798d8447f7f73dc6837a1f07fcbe80e0a2658ea9445a6838",
+  "axioms": [
+    "'LLMLang.SourceWireRefutation.check_exact' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'LLMLang.SourceQueryEnvelope.decodeSourceEnvelope_typed' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "same_wire_including_base": 4,
+  "changed_wire": 5,
+  "source_unavailable": 3,
+  "rebuilt_certificate_admissions": 3,
+  "controls": [
+    {
+      "name": "base",
+      "changed_wire_fields": [],
+      "fresh_wire_sha256": "605b100449f82d49936007362d476874b6bf53c1fab551f191db7e895ad30792",
+      "same_wire_as_base": true,
+      "old_wire_check": "admitted",
+      "fresh_wire_check": "admitted",
+      "rebound_proof_check": null
+    },
+    {
+      "name": "sequence_of_two_skips",
+      "changed_wire_fields": [],
+      "fresh_wire_sha256": "605b100449f82d49936007362d476874b6bf53c1fab551f191db7e895ad30792",
+      "same_wire_as_base": true,
+      "old_wire_check": "admitted",
+      "fresh_wire_check": "admitted",
+      "rebound_proof_check": null
+    },
+    {
+      "name": "renamed_factor",
+      "changed_wire_fields": [],
+      "fresh_wire_sha256": "605b100449f82d49936007362d476874b6bf53c1fab551f191db7e895ad30792",
+      "same_wire_as_base": true,
+      "old_wire_check": "admitted",
+      "fresh_wire_check": "admitted",
+      "rebound_proof_check": null
+    },
+    {
+      "name": "unused_hidden_declaration",
+      "changed_wire_fields": [],
+      "fresh_wire_sha256": "605b100449f82d49936007362d476874b6bf53c1fab551f191db7e895ad30792",
+      "same_wire_as_base": true,
+      "old_wire_check": "admitted",
+      "fresh_wire_check": "admitted",
+      "rebound_proof_check": null
+    },
+    {
+      "name": "unused_visible_state",
+      "changed_wire_fields": [
+        "declarations"
+      ],
+      "fresh_wire_sha256": "83a9b8d955990dc5fcefc9c9d73a3e5447ab8bf10a7040ec78bc5dcfeeb9ceb9",
+      "same_wire_as_base": false,
+      "old_wire_check": "source-or-wire",
+      "fresh_wire_check": "assumptions",
+      "rebound_proof_check": "admitted"
+    },
+    {
+      "name": "observed_state",
+      "changed_wire_fields": [
+        "declarations",
+        "observation_contract",
+        "observations_differ"
+      ],
+      "fresh_wire_sha256": "09d76ccdbab09247270b97f5ad7f164042e853f5688d27f67e6ea98cf1e47ac5",
+      "same_wire_as_base": false,
+      "old_wire_check": "source-or-wire",
+      "fresh_wire_check": "assumptions",
+      "rebound_proof_check": null
+    },
+    {
+      "name": "different_constant_return",
+      "changed_wire_fields": [
+        "observations_differ"
+      ],
+      "fresh_wire_sha256": "8e27e0c37f66d8053cb2cef661392a2961f431048adbbf5f6308bcc2f0b2de67",
+      "same_wire_as_base": false,
+      "old_wire_check": "source-or-wire",
+      "fresh_wire_check": "assumptions",
+      "rebound_proof_check": "admitted"
+    },
+    {
+      "name": "dependent_return",
+      "changed_wire_fields": [
+        "observations_differ"
+      ],
+      "fresh_wire_sha256": "286992dc432cecddb8de5ff86a83eea89b5879d5b98235e88c7c4d4a18d9dc1f",
+      "same_wire_as_base": false,
+      "old_wire_check": "source-or-wire",
+      "fresh_wire_check": "assumptions",
+      "rebound_proof_check": null
+    },
+    {
+      "name": "new_factor_identity",
+      "changed_wire_fields": [
+        "declarations",
+        "factor",
+        "factor_difference",
+        "factor_left",
+        "factor_right"
+      ],
+      "fresh_wire_sha256": "eb8a18fff6841a529f8f8f41000e190d4580e6d9988063cac04acf6412327b38",
+      "same_wire_as_base": false,
+      "old_wire_check": "source-or-wire",
+      "fresh_wire_check": "assumptions",
+      "rebound_proof_check": "admitted"
+    },
+    {
+      "name": "factor_role_changed",
+      "changed_wire_fields": null,
+      "fresh_wire_sha256": null,
+      "same_wire_as_base": false,
+      "old_wire_check": "source-or-wire",
+      "fresh_wire_check": "source-unavailable: source program, contract or factor is not admitted",
+      "rebound_proof_check": null
+    },
+    {
+      "name": "factor_uninitialized",
+      "changed_wire_fields": null,
+      "fresh_wire_sha256": null,
+      "same_wire_as_base": false,
+      "old_wire_check": "source-or-wire",
+      "fresh_wire_check": "source-unavailable: source program, contract or factor is not admitted",
+      "rebound_proof_check": null
+    },
+    {
+      "name": "ambiguous_duplicate_name",
+      "changed_wire_fields": null,
+      "fresh_wire_sha256": null,
+      "same_wire_as_base": false,
+      "old_wire_check": "source-or-wire",
+      "fresh_wire_check": "source-unavailable: source program, contract or factor is not admitted",
+      "rebound_proof_check": null
+    }
+  ]
+}

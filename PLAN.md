@@ -603,8 +603,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define proof object formats, proof checking, provenance, and evidence reuse.
 - [x] Separate solver answers from independently checked proofs.
   - [x] Preserve distinct raw verdict, validated-model and Lean-refutation evidence in an incremental QF_LIA fixture. Two solvers agree on 192 incremental and 160 fresh queries each. Lean checks all 58 distinct refutations. Matching session and command still admit 938 wrong-context pairs with satisfying witnesses. [Incremental solver evidence](research/formal-verification/RT-07/RT-07-INCREMENTAL-SOLVER-EVIDENCE-2026-11-25.md)
-- [ ] Define exact binding between source-level assumptions, typed IR, serialized queries, and proof obligations.
-  - [ ] [WIP] Check when changed source assumptions and typed programs can rebind the same CPC proof through the exact source-owned wire gate on `research/all`.
+- [x] Define exact binding between source-level assumptions, typed IR, serialized queries, and proof obligations.
+  - [x] Rebuild and replay the source-owned wire and CPC gate. Three source edits regenerate the same typed wire and recheck the same proof. Five changed wires reject the old proof under fresh binding, three rebuilt proofs pass, and three invalid sources are refused at admission. [Source and CPC proof rebinding](research/formal-verification/RT-07/RT-07-SOURCE-CPC-PROOF-REBINDING-2026-11-25.md)
 - [x] Define fail-closed behavior for unsupported or ambiguous constructs.
   - [x] Withhold evidence on failed typed admission or ambiguous solver context. The evidence gate withholds seven injected faults per solver and recovers six from explicit repairs. Four blind Z3 answers disagree with fresh replay, and Z3 silently accepts one mixed-sort profile violation. Missing repair stays unresolved. [Solver session recovery](research/formal-verification/RT-07/RT-07-SOLVER-SESSION-RECOVERY-2026-11-25.md)
 - [x] Define how proof status is represented: candidate, unknown, checked, rejected, or proven.
@@ -614,7 +614,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Existing evidence:** scenarios 28–33, prototype 29, Lean CPC parser-state binding prototype, Logos integration, and `research/LLMLang-FORMAL-VERIFICATION.md`.
 
-**Status** — Partially validated. The pinned Lean 4.34.0 and Logos CI run validated the parser-state bridge, typed renderer and JSON decoder. Scenario 34 proves source-to-query preservation in the independent Lean IR for the finite Int/Bool fragment, including paired command executions. The connection from the proved formula to serialized queries and CPC assumptions remains open. [CI run 44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422) · [Scenario 34](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md)
+**Status** — Partially validated. Scenario 34 and the runtime gate bind the admitted typed Int/Bool fragment through the generated formula, canonical JSON and exact ordered CPC assumptions. The pinned Lean 4.34.0 proof composition includes upstream native computation axioms. General source frontend correspondence, production proof policy and explicit acceptance of the Logos trust basis remain open. [Scenario 34](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) · [Logos verdict proof](research/formal-verification/RT-07/RT-07-LOGOS-VERDICT-PROOF-2026-11-25.md)
 
 ## 2.3 Lean, Logos, SMT, and solver integration
 

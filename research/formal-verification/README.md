@@ -33,6 +33,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-07 incremental solver evidence](RT-07/RT-07-INCREMENTAL-SOLVER-EVIDENCE-2026-11-25.md) — binds validated models and independent Lean refutations to active assertion and assumption scopes.
 - [RT-07 solver session recovery](RT-07/RT-07-SOLVER-SESSION-RECOVERY-2026-11-25.md) — compares typed admission, unresolved context and fresh replay after bad incremental commands.
 - [RT-07 proof status history](RT-07/RT-07-PROOF-STATUS-HISTORY-2026-11-25.md) — derives exact claim status without losing earlier checks, rejected attempts or open premises.
+- [RT-07 source and CPC proof rebinding](RT-07/RT-07-SOURCE-CPC-PROOF-REBINDING-2026-11-25.md) — replays source-owned typed wire and exact CPC assumptions after source edits.
 - [CONTRACT-FORMALIZATION-CORPUS](CONTRACT-FORMALIZATION-CORPUS/)
 - [PROOF-OBLIGATION-BENCHMARK](PROOF-OBLIGATION-BENCHMARK/)
 
