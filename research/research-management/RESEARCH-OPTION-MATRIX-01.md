@@ -163,6 +163,8 @@ The [nested-loop cost pilot](../formal-verification/RT-34/RT-34-NESTED-LOOP-COST
 
 [Worker kernel replay](../formal-verification/RT-32/RT-32-WORKER-CANCEL-KERNEL-2026-11-25.md) separates protocol invariants over arbitrary command lists from exact finite Rust/CPython observations. Fresh effect permission and post-release settlement are distinct obligations. The model preserves a known result under a later cancellation and exposes explicit counterexamples to weaker strategies.
 
+[Unicode source binding](../semantic-representation/RT-05/RT-05-UNICODE-SOURCE-BINDING-2026-11-25.md) compares raw spelling, decoded names, normalization and resolved cells. The correct name rule still leaves the Rust capture obligation, where six observations per setting distinguish shared assignment from shadowing. Full source-profile resolution preserves every native vector while retaining exact literal data.
+
 ### 5.2 Comparisons supported by the November 24 reproductions
 
 The reproduced studies below constrain components of the existing vectors. Their common comparison unit is the exact claim, observation scope and dependency closure. The [dependency map](RESEARCH-DEPENDENCY-MAP.md) records the corresponding cross-area relationships. Use these observations to eliminate a failing shortcut within its tested profile and to state the conditions a surviving implementation must meet.
