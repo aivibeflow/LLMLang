@@ -59,6 +59,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-24 concurrent publication costs](RT-24/RT-24-CONCURRENT-PUBLICATION-COST-2026-11-25.md) measures wait, retry and outcome scopes for live SQLite writers.
 - [RT-27 large Git graph benchmark](RT-27/RT-27-LARGE-GIT-GRAPH-BENCHMARK-2026-11-25.md) compares Git pack size, verified checkout and reachability at two edge densities.
 - [RT-27 SQLite retention benchmark](RT-27/RT-27-SQLITE-RETENTION-BENCHMARK-2026-11-25.md) compares reverse index, marked reachability and physical compaction costs under exact retained roots.
 - [RT-11 persistent build cache](RT-11/RT-11-PERSISTENT-BUILD-CACHE-BENCHMARK-2026-11-25.md) checks exact compile, archive, link and verification restoration across fresh processes.

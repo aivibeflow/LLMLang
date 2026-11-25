@@ -1,0 +1,569 @@
+{
+  "profiles": {
+    "duplicate/2/exact-projection": {
+      "batch_ns": {
+        "median": 1502782.0,
+        "n": 10,
+        "p10": 1418056.6,
+        "p90": 2938992.3
+      },
+      "commits": 1,
+      "commits_per_second": {
+        "median": 665.7185616505107,
+        "n": 10,
+        "p10": 350.8379427663207,
+        "p90": 705.1980049586842
+      },
+      "final_edges_sha256": "9911a86cc3bfa38ff02881dbdf109035abfb182fe22271f0bb69c38f62aab8c7",
+      "max_wait_ns": {
+        "median": 1098030.0,
+        "n": 10,
+        "p10": 1091683.5,
+        "p90": 1645832.6
+      },
+      "refusals": 1,
+      "retries": {
+        "median": 0.0,
+        "n": 10,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "total_hold_ns": {
+        "median": 857088.0,
+        "n": 10,
+        "p10": 733274.9,
+        "p90": 2051323.5
+      },
+      "total_wait_ns": {
+        "median": 1101585.0,
+        "n": 10,
+        "p10": 1095178.4,
+        "p90": 1660282.9
+      },
+      "write_attempts": {
+        "median": 2.0,
+        "n": 10,
+        "p10": 2.0,
+        "p90": 2.0
+      }
+    },
+    "duplicate/2/whole-head": {
+      "batch_ns": {
+        "median": 1357183.0,
+        "n": 10,
+        "p10": 1307997.7,
+        "p90": 1487484.7
+      },
+      "commits": 1,
+      "commits_per_second": {
+        "median": 736.8908544074282,
+        "n": 10,
+        "p10": 672.2800106291197,
+        "p90": 764.5305724733082
+      },
+      "final_edges_sha256": "9911a86cc3bfa38ff02881dbdf109035abfb182fe22271f0bb69c38f62aab8c7",
+      "max_wait_ns": {
+        "median": 1088879.0,
+        "n": 10,
+        "p10": 1086868.8,
+        "p90": 1137454.2
+      },
+      "refusals": 1,
+      "retries": {
+        "median": 1.0,
+        "n": 10,
+        "p10": 1.0,
+        "p90": 1.0
+      },
+      "total_hold_ns": {
+        "median": 540383.0,
+        "n": 10,
+        "p10": 451278.0,
+        "p90": 789005.0
+      },
+      "total_wait_ns": {
+        "median": 1092554.5,
+        "n": 10,
+        "p10": 1089770.8,
+        "p90": 1141738.2
+      },
+      "write_attempts": {
+        "median": 2.0,
+        "n": 10,
+        "p10": 2.0,
+        "p90": 2.0
+      }
+    },
+    "duplicate/4/exact-projection": {
+      "batch_ns": {
+        "median": 1725197.5,
+        "n": 10,
+        "p10": 1656596.3,
+        "p90": 3649366.2
+      },
+      "commits": 1,
+      "commits_per_second": {
+        "median": 579.6532834604584,
+        "n": 10,
+        "p10": 274.0574040866879,
+        "p90": 603.7572517853971
+      },
+      "final_edges_sha256": "9911a86cc3bfa38ff02881dbdf109035abfb182fe22271f0bb69c38f62aab8c7",
+      "max_wait_ns": {
+        "median": 1377623.0,
+        "n": 10,
+        "p10": 1345896.5,
+        "p90": 3322840.5
+      },
+      "refusals": 3,
+      "retries": {
+        "median": 0.0,
+        "n": 10,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "total_hold_ns": {
+        "median": 1000499.5,
+        "n": 10,
+        "p10": 939157.2,
+        "p90": 1445561.2
+      },
+      "total_wait_ns": {
+        "median": 3719201.5,
+        "n": 10,
+        "p10": 3634166.6,
+        "p90": 6042253.1
+      },
+      "write_attempts": {
+        "median": 4.0,
+        "n": 10,
+        "p10": 4.0,
+        "p90": 4.0
+      }
+    },
+    "duplicate/4/whole-head": {
+      "batch_ns": {
+        "median": 3565730.5,
+        "n": 10,
+        "p10": 1719463.6,
+        "p90": 3719914.7
+      },
+      "commits": 1,
+      "commits_per_second": {
+        "median": 280.46854512926245,
+        "n": 10,
+        "p10": 269.3661052492997,
+        "p90": 581.5929375678754
+      },
+      "final_edges_sha256": "9911a86cc3bfa38ff02881dbdf109035abfb182fe22271f0bb69c38f62aab8c7",
+      "max_wait_ns": {
+        "median": 3298383.0,
+        "n": 10,
+        "p10": 1502449.7,
+        "p90": 3398414.4
+      },
+      "refusals": 3,
+      "retries": {
+        "median": 3.0,
+        "n": 10,
+        "p10": 3.0,
+        "p90": 3.0
+      },
+      "total_hold_ns": {
+        "median": 728074.5,
+        "n": 10,
+        "p10": 529322.0,
+        "p90": 1150935.0
+      },
+      "total_wait_ns": {
+        "median": 5625445.5,
+        "n": 10,
+        "p10": 3775745.9,
+        "p90": 6420715.2
+      },
+      "write_attempts": {
+        "median": 4.0,
+        "n": 10,
+        "p10": 4.0,
+        "p90": 4.0
+      }
+    },
+    "duplicate/8/exact-projection": {
+      "batch_ns": {
+        "median": 3479599.0,
+        "n": 10,
+        "p10": 2066792.5,
+        "p90": 9103596.7
+      },
+      "commits": 1,
+      "commits_per_second": {
+        "median": 313.71805379280715,
+        "n": 10,
+        "p10": 109.84972180870386,
+        "p90": 483.856192278878
+      },
+      "final_edges_sha256": "9911a86cc3bfa38ff02881dbdf109035abfb182fe22271f0bb69c38f62aab8c7",
+      "max_wait_ns": {
+        "median": 2715988.0,
+        "n": 10,
+        "p10": 1721095.9,
+        "p90": 8742783.6
+      },
+      "refusals": 7,
+      "retries": {
+        "median": 0.0,
+        "n": 10,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "total_hold_ns": {
+        "median": 1385658.5,
+        "n": 10,
+        "p10": 1226175.9,
+        "p90": 2147976.8
+      },
+      "total_wait_ns": {
+        "median": 12781731.5,
+        "n": 10,
+        "p10": 9861878.7,
+        "p90": 28442581.8
+      },
+      "write_attempts": {
+        "median": 8.0,
+        "n": 10,
+        "p10": 8.0,
+        "p90": 8.0
+      }
+    },
+    "duplicate/8/whole-head": {
+      "batch_ns": {
+        "median": 2248611.5,
+        "n": 10,
+        "p10": 1991055.0,
+        "p90": 5149727.5
+      },
+      "commits": 1,
+      "commits_per_second": {
+        "median": 444.7255619094373,
+        "n": 10,
+        "p10": 201.46209245097475,
+        "p90": 502.24630183523857
+      },
+      "final_edges_sha256": "9911a86cc3bfa38ff02881dbdf109035abfb182fe22271f0bb69c38f62aab8c7",
+      "max_wait_ns": {
+        "median": 1896094.0,
+        "n": 10,
+        "p10": 1759543.3,
+        "p90": 4875746.1
+      },
+      "refusals": 7,
+      "retries": {
+        "median": 7.0,
+        "n": 10,
+        "p10": 7.0,
+        "p90": 7.0
+      },
+      "total_hold_ns": {
+        "median": 768644.0,
+        "n": 10,
+        "p10": 547272.1,
+        "p90": 902171.8
+      },
+      "total_wait_ns": {
+        "median": 10540962.5,
+        "n": 10,
+        "p10": 9956340.5,
+        "p90": 24241148.0
+      },
+      "write_attempts": {
+        "median": 8.0,
+        "n": 10,
+        "p10": 8.0,
+        "p90": 8.0
+      }
+    },
+    "independent/2/exact-projection": {
+      "batch_ns": {
+        "median": 1952091.5,
+        "n": 10,
+        "p10": 1917472.4,
+        "p90": 2104675.6
+      },
+      "commits": 2,
+      "commits_per_second": {
+        "median": 1024.5586498023276,
+        "n": 10,
+        "p10": 950.3633261565659,
+        "p90": 1043.8150636266923
+      },
+      "final_edges_sha256": "e3fd69c384f14b6f842d74a8688af64e0dedc1c9a9df8d031fb1e0a653a8c7e9",
+      "max_wait_ns": {
+        "median": 1088719.0,
+        "n": 10,
+        "p10": 1086231.9,
+        "p90": 1110009.5
+      },
+      "refusals": 0,
+      "retries": {
+        "median": 0.0,
+        "n": 10,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "total_hold_ns": {
+        "median": 1297515.5,
+        "n": 10,
+        "p10": 1149435.8,
+        "p90": 1500247.9
+      },
+      "total_wait_ns": {
+        "median": 1093014.5,
+        "n": 10,
+        "p10": 1089551.9,
+        "p90": 1113856.4
+      },
+      "write_attempts": {
+        "median": 2.0,
+        "n": 10,
+        "p10": 2.0,
+        "p90": 2.0
+      }
+    },
+    "independent/2/whole-head": {
+      "batch_ns": {
+        "median": 2014233.0,
+        "n": 10,
+        "p10": 1786286.5,
+        "p90": 3166950.1
+      },
+      "commits": 2,
+      "commits_per_second": {
+        "median": 994.3952123000175,
+        "n": 10,
+        "p10": 631.6355360755372,
+        "p90": 1119.644378556997
+      },
+      "final_edges_sha256": "e3fd69c384f14b6f842d74a8688af64e0dedc1c9a9df8d031fb1e0a653a8c7e9",
+      "max_wait_ns": {
+        "median": 1091838.0,
+        "n": 10,
+        "p10": 1084969.8,
+        "p90": 1410310.0
+      },
+      "refusals": 0,
+      "retries": {
+        "median": 1.0,
+        "n": 10,
+        "p10": 1.0,
+        "p90": 1.0
+      },
+      "total_hold_ns": {
+        "median": 1197955.0,
+        "n": 10,
+        "p10": 1064606.0,
+        "p90": 1633594.5
+      },
+      "total_wait_ns": {
+        "median": 1097512.0,
+        "n": 10,
+        "p10": 1090802.0,
+        "p90": 1431712.7
+      },
+      "write_attempts": {
+        "median": 3.0,
+        "n": 10,
+        "p10": 3.0,
+        "p90": 3.0
+      }
+    },
+    "independent/4/exact-projection": {
+      "batch_ns": {
+        "median": 9849372.0,
+        "n": 10,
+        "p10": 9575738.8,
+        "p90": 19877458.3
+      },
+      "commits": 4,
+      "commits_per_second": {
+        "median": 406.11728215732546,
+        "n": 10,
+        "p10": 201.58622945502563,
+        "p90": 417.73808274852
+      },
+      "final_edges_sha256": "5fa0d1388e14f9a50280ad2d5c6108651b12a5ebd67f0631e0aec5df2519901b",
+      "max_wait_ns": {
+        "median": 8699899.0,
+        "n": 10,
+        "p10": 8609095.2,
+        "p90": 18980722.8
+      },
+      "refusals": 0,
+      "retries": {
+        "median": 0.0,
+        "n": 10,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "total_hold_ns": {
+        "median": 2802379.5,
+        "n": 10,
+        "p10": 2470732.1,
+        "p90": 4664025.9
+      },
+      "total_wait_ns": {
+        "median": 13250301.5,
+        "n": 10,
+        "p10": 13052577.1,
+        "p90": 28727903.4
+      },
+      "write_attempts": {
+        "median": 4.0,
+        "n": 10,
+        "p10": 4.0,
+        "p90": 4.0
+      }
+    },
+    "independent/4/whole-head": {
+      "batch_ns": {
+        "median": 9396587.0,
+        "n": 10,
+        "p10": 9001295.7,
+        "p90": 9777351.1
+      },
+      "commits": 4,
+      "commits_per_second": {
+        "median": 425.70416289314494,
+        "n": 10,
+        "p10": 409.32478043005875,
+        "p90": 451.49432748150105
+      },
+      "final_edges_sha256": "5fa0d1388e14f9a50280ad2d5c6108651b12a5ebd67f0631e0aec5df2519901b",
+      "max_wait_ns": {
+        "median": 8652480.5,
+        "n": 10,
+        "p10": 8052113.7,
+        "p90": 8794914.9
+      },
+      "refusals": 0,
+      "retries": {
+        "median": 3.0,
+        "n": 10,
+        "p10": 3.0,
+        "p90": 3.1
+      },
+      "total_hold_ns": {
+        "median": 2115666.5,
+        "n": 10,
+        "p10": 1803874.9,
+        "p90": 2768113.7
+      },
+      "total_wait_ns": {
+        "median": 13099420.0,
+        "n": 10,
+        "p10": 12644475.5,
+        "p90": 13472554.3
+      },
+      "write_attempts": {
+        "median": 7.0,
+        "n": 10,
+        "p10": 7.0,
+        "p90": 7.1
+      }
+    },
+    "independent/8/exact-projection": {
+      "batch_ns": {
+        "median": 81608540.0,
+        "n": 10,
+        "p10": 81130452.7,
+        "p90": 82244150.9
+      },
+      "commits": 8,
+      "commits_per_second": {
+        "median": 98.02910065384944,
+        "n": 10,
+        "p10": 97.27136471166702,
+        "p90": 98.60662360422693
+      },
+      "final_edges_sha256": "ad5e8e7f385aaa76f14da7390abfe840d086a4e132f9e231781e934751410d20",
+      "max_wait_ns": {
+        "median": 80357873.5,
+        "n": 10,
+        "p10": 80109802.3,
+        "p90": 80643859.7
+      },
+      "refusals": 0,
+      "retries": {
+        "median": 0.0,
+        "n": 10,
+        "p10": 0.0,
+        "p90": 0.0
+      },
+      "total_hold_ns": {
+        "median": 6143541.0,
+        "n": 10,
+        "p10": 5305410.7,
+        "p90": 7404259.9
+      },
+      "total_wait_ns": {
+        "median": 201751063.5,
+        "n": 10,
+        "p10": 201246825.2,
+        "p90": 202611104.7
+      },
+      "write_attempts": {
+        "median": 8.0,
+        "n": 10,
+        "p10": 8.0,
+        "p90": 8.0
+      }
+    },
+    "independent/8/whole-head": {
+      "batch_ns": {
+        "median": 81330211.5,
+        "n": 10,
+        "p10": 55926239.8,
+        "p90": 83938557.3
+      },
+      "commits": 8,
+      "commits_per_second": {
+        "median": 98.36456688614439,
+        "n": 10,
+        "p10": 95.3092209884912,
+        "p90": 143.04568183967433
+      },
+      "final_edges_sha256": "ad5e8e7f385aaa76f14da7390abfe840d086a4e132f9e231781e934751410d20",
+      "max_wait_ns": {
+        "median": 80376135.5,
+        "n": 10,
+        "p10": 54939834.5,
+        "p90": 81037574.0
+      },
+      "refusals": 0,
+      "retries": {
+        "median": 7.0,
+        "n": 10,
+        "p10": 7.0,
+        "p90": 8.0
+      },
+      "total_hold_ns": {
+        "median": 6239312.0,
+        "n": 10,
+        "p10": 4758505.5,
+        "p90": 7655109.1
+      },
+      "total_wait_ns": {
+        "median": 202101873.5,
+        "n": 10,
+        "p10": 123658316.1,
+        "p90": 203551475.0
+      },
+      "write_attempts": {
+        "median": 15.0,
+        "n": 10,
+        "p10": 15.0,
+        "p90": 16.0
+      }
+    }
+  },
+  "samples_sha256": "bfe4a6f14b5839fa920eaa1fce185e67f1bc36e8174c0f07cbe846b849bf8b7d"
+}

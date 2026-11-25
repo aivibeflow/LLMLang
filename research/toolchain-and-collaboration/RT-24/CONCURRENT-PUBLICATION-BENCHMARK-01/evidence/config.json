@@ -1,0 +1,23 @@
+{
+  "backbone_edges": 192,
+  "counter_delta": {
+    "burst_usec": 0,
+    "nice_usec": 0,
+    "nr_bursts": 0,
+    "nr_periods": 32,
+    "nr_throttled": 0,
+    "system_usec": 302762,
+    "throttled_usec": 0,
+    "usage_usec": 893434,
+    "user_usec": 590672
+  },
+  "cpu": 4,
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "kernel": "6.18.57",
+  "model_sha256": "6801b96f22208ea2cb75a4a9a9d99f148cd83c405460b73801378ce871a04c22",
+  "python": "3.12.14",
+  "seed": 20261125,
+  "source_sha256": "b5274f4b94911404265b7d1fc5eddcf90115dd87cfad4e257bb0d752f3f80468",
+  "sqlite": "3.53.1",
+  "trials": 10
+}
