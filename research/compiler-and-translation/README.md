@@ -61,6 +61,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-13 common subset backend receipts](RT-13/RT-13-COMMON-SUBSET-BACKEND-RECEIPTS-2026-11-25.md) verifies the implemented scalar backend gate across archived profiles.
 - [RT-13 Java cleanup occurrences](RT-13/RT-13-JAVA-CLEANUP-OCCURRENCES-2026-11-25.md) compares automatic suppression with separate typed failure occurrences.
 - [RT-09 static link artifact identity](RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md) compares archive order, selected native members and exact executable bytes.
+- [RT-09 ordered runtime realization](RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md) binds native runtime providers and independently audits ordered effects.
 - [RT-09 translation outcome closure](RT-09/RT-09-TRANSLATION-OUTCOME-CLOSURE-2026-11-25.md) composes scoped region decisions and required target evidence.
 - [RT-09 SSA parallel-copy lowering](RT-09/RT-09-SSA-PARALLEL-COPY-LOWERING-2026-11-25.md) checks scheduled sequential assignments against native LLVM phi traces.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.

@@ -1,0 +1,8 @@
+{
+  "name": "emit_pair",
+  "inputs": ["left", "right"],
+  "steps": [
+    {"tag": 11, "value": "left"},
+    {"tag": 29, "value": "right"}
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "fixture_sha256": {
+    "abi.h": "98bcaff5822aaea1e6654845a7fb2184fdc98214450bce19eb2ea59502bee3b5",
+    "driver.c": "17e4c8ff1211b568b2ea6a781c6d6d1166b663b5d5edfd7150129cc3ca1c7854",
+    "emit.py": "35619c36f936de01fc4439c9bc02bea51f1ffe1f8dd181fd0917638ffca7df52",
+    "program.json": "b25eb28716ececb08d29e0eddb2238cecc135c7b60e2a18e78fac4f7e45c99e4",
+    "run.py": "e6e45488996944e6b4bf7be176664a16dadca541de7197b2eceb74c2a118e2c2",
+    "runtime.c": "192b2cf0cefb7c91e484ab552f25276920332dbc4cda15c7c4516b4a1416f20c"
+  },
+  "input_count": 375,
+  "inputs_sha256": "b8c27aaecf99eaf21149e1fffb86473558aac334e173c9d8a86167fa3fdb7f09",
+  "linker": "GNU ld (GNU Binutils for Debian) 2.44",
+  "oracle_trace_sha256": "64f1dec538aca4d57681de152141f76c5b41d75266c3f01eaa01a4f7a01af027",
+  "profiles": {
+    "-O0": {
+      "missing_runtime_link": "rejected",
+      "routes": {
+        "ordered/intended": {
+          "archive_sha256": "b9e8085a60f75ea5520457c6a94f47030cf0e797312684cbc4870a68b5bb2a8f",
+          "dynamic_libraries": [
+            "libc.so.6"
+          ],
+          "elf_sha256": "e83d953139d9c70221a01218a5d466afb2b6737fd6942e8fdb86eaa5ebe25338",
+          "full_matches": 375,
+          "lowered_source_sha256": "080e950bbfcbd34c29bcf9a56e9d33a891dcd662d7b346366dea6cac779e83ed",
+          "matches_required_archive": true,
+          "matching_projections_with_wrong_ordered_effects": 0,
+          "observations_sha256": "64f1dec538aca4d57681de152141f76c5b41d75266c3f01eaa01a4f7a01af027",
+          "runtime_object_sha256": "904b44a1b011fa1f68b87e110c450374985c5d3e48dce102740706adfa1af172",
+          "status_value_state_and_quota_matches": 375
+        },
+        "ordered/same_abi": {
+          "archive_sha256": "e4cdd347cc66b267ca8da886af0533c3848a67e28daec1354da2833824467560",
+          "dynamic_libraries": [
+            "libc.so.6"
+          ],
+          "elf_sha256": "bb532eb413b2a5680f2a63457a0dcabe1555553513598319d53d8ff1a40d3724",
+          "full_matches": 0,
+          "lowered_source_sha256": "080e950bbfcbd34c29bcf9a56e9d33a891dcd662d7b346366dea6cac779e83ed",
+          "matches_required_archive": false,
+          "matching_projections_with_wrong_ordered_effects": 375,
+          "observations_sha256": "5394eaa5f0ad70e331eb1ac2a0a7c82bdd8e1eb0a46240b20e05ee9ae637e963",
+          "runtime_object_sha256": "6c38672534b6f83131faba88e26a5812d5af871ec8df09c5bc8287817703209c",
+          "status_value_state_and_quota_matches": 375
+        },
+        "reversed/intended": {
+          "archive_sha256": "b9e8085a60f75ea5520457c6a94f47030cf0e797312684cbc4870a68b5bb2a8f",
+          "dynamic_libraries": [
+            "libc.so.6"
+          ],
+          "elf_sha256": "935ae368e710d2ce943c55726a4e47e1e61ccec106dfc121adb15ceeeadd923a",
+          "full_matches": 0,
+          "lowered_source_sha256": "068894b23a0f3cf864f43301901969123b67b711dac29342b7b1014f9852482b",
+          "matches_required_archive": true,
+          "matching_projections_with_wrong_ordered_effects": 275,
+          "observations_sha256": "53f96429a6f15a8b96d6be45fd0f0505a7986015226127872b8feaf7bbca8af8",
+          "runtime_object_sha256": "904b44a1b011fa1f68b87e110c450374985c5d3e48dce102740706adfa1af172",
+          "status_value_state_and_quota_matches": 275
+        }
+      }
+    },
+    "-O2": {
+      "missing_runtime_link": "rejected",
+      "routes": {
+        "ordered/intended": {
+          "archive_sha256": "93cfcfd476fd606aef17d51955bf99359f1bf070f61cf214823b9a87b72c1762",
+          "dynamic_libraries": [
+            "libc.so.6"
+          ],
+          "elf_sha256": "bd93b2bc7acb9d3a9fa363b295faf46f7fd62ce862902c0281a3aba435ec988e",
+          "full_matches": 375,
+          "lowered_source_sha256": "080e950bbfcbd34c29bcf9a56e9d33a891dcd662d7b346366dea6cac779e83ed",
+          "matches_required_archive": true,
+          "matching_projections_with_wrong_ordered_effects": 0,
+          "observations_sha256": "64f1dec538aca4d57681de152141f76c5b41d75266c3f01eaa01a4f7a01af027",
+          "runtime_object_sha256": "106c7799f6bd39c2d06956e115e5f97e6da3ba406a3547e78929d4f417f71f6e",
+          "status_value_state_and_quota_matches": 375
+        },
+        "ordered/same_abi": {
+          "archive_sha256": "8fbd61b14c47b1670a3194efe6365c27b3a2c96e978626e9f9adf75fbf4ecd3a",
+          "dynamic_libraries": [
+            "libc.so.6"
+          ],
+          "elf_sha256": "d0d458a128cacc7bccd52ebfc5d37571a5268e05d4ab320c5ae658ffe2c44602",
+          "full_matches": 0,
+          "lowered_source_sha256": "080e950bbfcbd34c29bcf9a56e9d33a891dcd662d7b346366dea6cac779e83ed",
+          "matches_required_archive": false,
+          "matching_projections_with_wrong_ordered_effects": 375,
+          "observations_sha256": "5394eaa5f0ad70e331eb1ac2a0a7c82bdd8e1eb0a46240b20e05ee9ae637e963",
+          "runtime_object_sha256": "13c913a009ca8f3b2b968e2ca09da4f05bad3404f161ffb2e5a1c942f805aba3",
+          "status_value_state_and_quota_matches": 375
+        },
+        "reversed/intended": {
+          "archive_sha256": "93cfcfd476fd606aef17d51955bf99359f1bf070f61cf214823b9a87b72c1762",
+          "dynamic_libraries": [
+            "libc.so.6"
+          ],
+          "elf_sha256": "900254aeb67e66d0fda215929c7952ca16f9c021e66d3c6e2d22f542232f4480",
+          "full_matches": 0,
+          "lowered_source_sha256": "068894b23a0f3cf864f43301901969123b67b711dac29342b7b1014f9852482b",
+          "matches_required_archive": true,
+          "matching_projections_with_wrong_ordered_effects": 275,
+          "observations_sha256": "53f96429a6f15a8b96d6be45fd0f0505a7986015226127872b8feaf7bbca8af8",
+          "runtime_object_sha256": "106c7799f6bd39c2d06956e115e5f97e6da3ba406a3547e78929d4f417f71f6e",
+          "status_value_state_and_quota_matches": 275
+        }
+      }
+    }
+  },
+  "target": "x86_64-linux-gnu"
+}
