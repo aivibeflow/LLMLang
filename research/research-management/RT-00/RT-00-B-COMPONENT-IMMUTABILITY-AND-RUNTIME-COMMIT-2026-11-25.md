@@ -20,7 +20,7 @@ flowchart LR
   R --> W["Advance the applicable selector or ref"]
 ```
 
-The accepted decision concerns the component version. The runtime candidate concerns the state of instances acted on by that version. RT-23 concerns the publication of development artifacts and the selector that exposes them. A candidate representation can keep the three subjects distinct. It can still bind transition evidence to the exact behavior and contract version on which it relies. [Dependency map, DEP-046, DEP-058, DEP-068 and DEP-072](RESEARCH-DEPENDENCY-MAP.md)
+The accepted decision concerns the component version. The runtime candidate concerns the state of instances acted on by that version. RT-23 concerns the publication of development artifacts and the selector that exposes them. A candidate representation can keep the three subjects distinct. It can still bind transition evidence to the exact behavior and contract version on which it relies. [Dependency map, DEP-046, DEP-058, DEP-068 and DEP-072](../RESEARCH-DEPENDENCY-MAP.md)
 
 ## Two boundary checks
 

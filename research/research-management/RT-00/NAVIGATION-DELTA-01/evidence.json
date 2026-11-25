@@ -1,0 +1,1549 @@
+{
+  "schema": "llmlang-shared-branch-navigation-delta/1",
+  "revision": "c5413e08742e90e3d8c38572a6af771cca600c9d",
+  "python": "3.12.14",
+  "kernel": "6.18.57",
+  "arch": "x86_64",
+  "image": "lycheeverse/lychee@sha256:e2d19e57cf6ab037026f20b8e449a1f30d9d7f81eef4194763aab2eab20bd28d",
+  "source_sha256": {
+    "run.py": "9e2de7d2023df0eb2ea3d0e190ca9b2abb7af03c9e933864bdf9afae74ad8b83",
+    "audit_research_index_coverage.py": "d2fcb40f5e3a94b05facefdf2c2d83fe06bc2cf3c3a69bdc4bff5d8e5feb3399",
+    "audit_research_index_reachability.py": "e37f162d8fe6e37387cea4b37729f6bb9902e4513b39ca9752063fb9170932ec"
+  },
+  "repair": {
+    "path": "research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md",
+    "from": "](RESEARCH-DEPENDENCY-MAP.md)",
+    "to": "](../RESEARCH-DEPENDENCY-MAP.md)"
+  },
+  "baseline": {
+    "navigation": {
+      "artifacts": 2080,
+      "markdown_mdx_documents": 711,
+      "artifacts_reachable_by_document_links": 1762,
+      "documents_reachable_by_document_links": 704,
+      "artifacts_reachable_with_directory_links": 2080,
+      "documents_reachable_with_directory_links": 711,
+      "documents_without_a_direct_index_link": 38,
+      "documents_without_an_incoming_document_link": 5
+    },
+    "directory_only_documents": [
+      "research/references/snapshots/MCP/LICENSE.md",
+      "research/references/snapshots/MCP/authorization.mdx",
+      "research/references/snapshots/MCP/basic-index.mdx",
+      "research/references/snapshots/MCP/transports.mdx",
+      "research/references/snapshots/OCI/descriptor.md",
+      "research/references/snapshots/OCI/image-layout.md",
+      "research/references/snapshots/OCI/manifest.md"
+    ],
+    "unreachable_with_directory_links": [],
+    "path_only_unresolved": [
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/alive2.png"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/google.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/nlnet.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/woven.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/matterlabs.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "BugList.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "image-index.md#image-index-property-descriptions"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#ebnf"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#canonicalization"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "annotations.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "conversion.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md#imageid"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#file-attributes"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#zstd-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#pre-defined-annotation-keys"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md",
+        "target": "RESEARCH-DEPENDENCY-MAP.md"
+      }
+    ],
+    "lychee_exit": 2,
+    "lychee_counts": {
+      "total": 6459,
+      "unique": 3113,
+      "successful": 4623,
+      "errors": 83,
+      "excludes": 1753
+    },
+    "lychee_errors": [
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/imgs/alive2.png",
+        "line": 4,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/imgs/google.svg",
+        "line": 37,
+        "column": 2,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/imgs/nlnet.svg",
+        "line": 39,
+        "column": 2,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/imgs/woven.svg",
+        "line": 41,
+        "column": 2,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/imgs/matterlabs.svg",
+        "line": 43,
+        "column": 2,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/BugList.md",
+        "line": 410,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/authorization-server-discovery",
+        "line": 57,
+        "column": 39,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/client-registration#client-id-metadata-documents",
+        "line": 65,
+        "column": 61,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/client-registration#dynamic-client-registration",
+        "line": 70,
+        "column": 4,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/authorization-server-discovery",
+        "line": 74,
+        "column": 71,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/authorization-server-discovery#authorization-server-metadata-discovery",
+        "line": 80,
+        "column": 38,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/authorization-server-discovery",
+        "line": 88,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/client-registration",
+        "line": 95,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/docs/draft/tutorials/security/security_best_practices#scope-minimization",
+        "line": 132,
+        "column": 30,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/client-registration",
+        "line": 139,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/authorization-server-discovery#authorization-server-metadata-discovery",
+        "line": 192,
+        "column": 156,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/security-considerations",
+        "line": 410,
+        "column": 17,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#jsonrpcrequest",
+        "line": 33,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#jsonrpcresultresponse",
+        "line": 57,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/mrtr#inputrequiredresult",
+        "line": 82,
+        "column": 154,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#jsonrpcerrorresponse",
+        "line": 89,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema",
+        "line": 124,
+        "column": 19,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#headermismatcherror",
+        "line": 133,
+        "column": 14,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#missingrequiredclientcapabilityerror",
+        "line": 134,
+        "column": 14,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#unsupportedprotocolversionerror",
+        "line": 135,
+        "column": 14,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/server/resources#error-handling",
+        "line": 141,
+        "column": 11,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#jsonrpcnotification",
+        "line": 159,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns",
+        "line": 176,
+        "column": 51,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns#request-and-response",
+        "line": 178,
+        "column": 6,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns#multi-round-trip-requests",
+        "line": 179,
+        "column": 6,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns#subscribe-and-notify",
+        "line": 180,
+        "column": 6,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/subscriptions",
+        "line": 212,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization",
+        "line": 223,
+        "column": 17,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/progress",
+        "line": 352,
+        "column": 112,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/server/utilities/logging",
+        "line": 356,
+        "column": 112,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/subscriptions",
+        "line": 357,
+        "column": 112,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/versioning#extension-negotiation",
+        "line": 360,
+        "column": 10,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/versioning",
+        "line": 371,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#missingrequiredclientcapabilityerror",
+        "line": 390,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/subscriptions",
+        "line": 412,
+        "column": 34,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns",
+        "line": 14,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/transports/stdio",
+        "line": 18,
+        "column": 4,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/transports/streamable-http",
+        "line": 20,
+        "column": 4,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns",
+        "line": 35,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/index#meta",
+        "line": 42,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/transports/streamable-http#request-metadata",
+        "line": 47,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/cancellation",
+        "line": 58,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns",
+        "line": 69,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/transports/stdio",
+        "line": 76,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/versioning#backward-compatibility-with-initialization-based-versions",
+        "line": 87,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md",
+        "line": 12,
+        "column": 67,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md",
+        "line": 25,
+        "column": 39,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/annotations.md#rules",
+        "line": 48,
+        "column": 39,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md#image-index-property-descriptions",
+        "line": 63,
+        "column": 135,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/considerations.md#ebnf",
+        "line": 78,
+        "column": 42,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/considerations.md#canonicalization",
+        "line": 112,
+        "column": 28,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md",
+        "line": 8,
+        "column": 87,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#applying-changesets",
+        "line": 9,
+        "column": 3,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/config.md",
+        "line": 10,
+        "column": 18,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md",
+        "line": 29,
+        "column": 19,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md",
+        "line": 135,
+        "column": 70,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md",
+        "line": 148,
+        "column": 5,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/annotations.md",
+        "line": 209,
+        "column": 15,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md",
+        "line": 6,
+        "column": 32,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/conversion.md",
+        "line": 7,
+        "column": 25,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md",
+        "line": 9,
+        "column": 71,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md#compatibility-matrix",
+        "line": 10,
+        "column": 60,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md",
+        "line": 14,
+        "column": 12,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md#compatibility-matrix",
+        "line": 25,
+        "column": 36,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/config.md",
+        "line": 51,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/config.md#imageid",
+        "line": 60,
+        "column": 263,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#applying-changesets",
+        "line": 72,
+        "column": 58,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#file-attributes",
+        "line": 73,
+        "column": 9,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md",
+        "line": 82,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#gzip-media-types",
+        "line": 83,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#non-distributable-layers",
+        "line": 84,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#non-distributable-layers",
+        "line": 84,
+        "column": 103,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#gzip-media-types",
+        "line": 85,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#non-distributable-layers",
+        "line": 85,
+        "column": 100,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#zstd-media-types",
+        "line": 92,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/annotations.md#rules",
+        "line": 108,
+        "column": 39,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/annotations.md#pre-defined-annotation-keys",
+        "line": 110,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md",
+        "url": "file:///input/research/research-management/RT-00/RESEARCH-DEPENDENCY-MAP.md",
+        "line": 23,
+        "column": 393,
+        "status": "File not found. Check if file exists and path is correct"
+      }
+    ]
+  },
+  "after_link_repair": {
+    "navigation": {
+      "artifacts": 2080,
+      "markdown_mdx_documents": 711,
+      "artifacts_reachable_by_document_links": 1762,
+      "documents_reachable_by_document_links": 704,
+      "artifacts_reachable_with_directory_links": 2080,
+      "documents_reachable_with_directory_links": 711,
+      "documents_without_a_direct_index_link": 38,
+      "documents_without_an_incoming_document_link": 5
+    },
+    "directory_only_documents": [
+      "research/references/snapshots/MCP/LICENSE.md",
+      "research/references/snapshots/MCP/authorization.mdx",
+      "research/references/snapshots/MCP/basic-index.mdx",
+      "research/references/snapshots/MCP/transports.mdx",
+      "research/references/snapshots/OCI/descriptor.md",
+      "research/references/snapshots/OCI/image-layout.md",
+      "research/references/snapshots/OCI/manifest.md"
+    ],
+    "unreachable_with_directory_links": [],
+    "path_only_unresolved": [
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/alive2.png"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/google.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/nlnet.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/woven.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/matterlabs.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "BugList.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "image-index.md#image-index-property-descriptions"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#ebnf"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#canonicalization"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "annotations.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "conversion.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md#imageid"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#file-attributes"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#zstd-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#pre-defined-annotation-keys"
+      }
+    ],
+    "lychee_exit": 2,
+    "lychee_counts": {
+      "total": 6459,
+      "unique": 3112,
+      "successful": 4624,
+      "errors": 82,
+      "excludes": 1753
+    },
+    "lychee_errors": [
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/imgs/alive2.png",
+        "line": 4,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/imgs/google.svg",
+        "line": 37,
+        "column": 2,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/imgs/nlnet.svg",
+        "line": 39,
+        "column": 2,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/imgs/woven.svg",
+        "line": 41,
+        "column": 2,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/imgs/matterlabs.svg",
+        "line": 43,
+        "column": 2,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "url": "file:///input/research/references/snapshots/Alive2/BugList.md",
+        "line": 410,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/authorization-server-discovery",
+        "line": 57,
+        "column": 39,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/client-registration#client-id-metadata-documents",
+        "line": 65,
+        "column": 61,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/client-registration#dynamic-client-registration",
+        "line": 70,
+        "column": 4,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/authorization-server-discovery",
+        "line": 74,
+        "column": 71,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/authorization-server-discovery#authorization-server-metadata-discovery",
+        "line": 80,
+        "column": 38,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/authorization-server-discovery",
+        "line": 88,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/client-registration",
+        "line": 95,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/docs/draft/tutorials/security/security_best_practices#scope-minimization",
+        "line": 132,
+        "column": 30,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/client-registration",
+        "line": 139,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/authorization-server-discovery#authorization-server-metadata-discovery",
+        "line": 192,
+        "column": 156,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/authorization.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization/security-considerations",
+        "line": 410,
+        "column": 17,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#jsonrpcrequest",
+        "line": 33,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#jsonrpcresultresponse",
+        "line": 57,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/mrtr#inputrequiredresult",
+        "line": 82,
+        "column": 154,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#jsonrpcerrorresponse",
+        "line": 89,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema",
+        "line": 124,
+        "column": 19,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#headermismatcherror",
+        "line": 133,
+        "column": 14,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#missingrequiredclientcapabilityerror",
+        "line": 134,
+        "column": 14,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#unsupportedprotocolversionerror",
+        "line": 135,
+        "column": 14,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/server/resources#error-handling",
+        "line": 141,
+        "column": 11,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#jsonrpcnotification",
+        "line": 159,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns",
+        "line": 176,
+        "column": 51,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns#request-and-response",
+        "line": 178,
+        "column": 6,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns#multi-round-trip-requests",
+        "line": 179,
+        "column": 6,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns#subscribe-and-notify",
+        "line": 180,
+        "column": 6,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/subscriptions",
+        "line": 212,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/authorization",
+        "line": 223,
+        "column": 17,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/progress",
+        "line": 352,
+        "column": 112,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/server/utilities/logging",
+        "line": 356,
+        "column": 112,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/subscriptions",
+        "line": 357,
+        "column": 112,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/versioning#extension-negotiation",
+        "line": 360,
+        "column": 10,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/versioning",
+        "line": 371,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/schema#missingrequiredclientcapabilityerror",
+        "line": 390,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/basic-index.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/subscriptions",
+        "line": 412,
+        "column": 34,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns",
+        "line": 14,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/transports/stdio",
+        "line": 18,
+        "column": 4,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/transports/streamable-http",
+        "line": 20,
+        "column": 4,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns",
+        "line": 35,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/index#meta",
+        "line": 42,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/transports/streamable-http#request-metadata",
+        "line": 47,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns/cancellation",
+        "line": 58,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/patterns",
+        "line": 69,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/transports/stdio",
+        "line": 76,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/MCP/transports.mdx",
+        "url": "file:///input/specification/2026-07-28/basic/versioning#backward-compatibility-with-initialization-based-versions",
+        "line": 87,
+        "column": 1,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md",
+        "line": 12,
+        "column": 67,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md",
+        "line": 25,
+        "column": 39,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/annotations.md#rules",
+        "line": 48,
+        "column": 39,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md#image-index-property-descriptions",
+        "line": 63,
+        "column": 135,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/considerations.md#ebnf",
+        "line": 78,
+        "column": 42,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "url": "file:///input/research/references/snapshots/OCI/considerations.md#canonicalization",
+        "line": 112,
+        "column": 28,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md",
+        "line": 8,
+        "column": 87,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#applying-changesets",
+        "line": 9,
+        "column": 3,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/config.md",
+        "line": 10,
+        "column": 18,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md",
+        "line": 29,
+        "column": 19,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md",
+        "line": 135,
+        "column": 70,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md",
+        "line": 148,
+        "column": 5,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "url": "file:///input/research/references/snapshots/OCI/annotations.md",
+        "line": 209,
+        "column": 15,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md",
+        "line": 6,
+        "column": 32,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/conversion.md",
+        "line": 7,
+        "column": 25,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md",
+        "line": 9,
+        "column": 71,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md#compatibility-matrix",
+        "line": 10,
+        "column": 60,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/image-index.md",
+        "line": 14,
+        "column": 12,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/media-types.md#compatibility-matrix",
+        "line": 25,
+        "column": 36,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/config.md",
+        "line": 51,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/config.md#imageid",
+        "line": 60,
+        "column": 263,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#applying-changesets",
+        "line": 72,
+        "column": 58,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#file-attributes",
+        "line": 73,
+        "column": 9,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md",
+        "line": 82,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#gzip-media-types",
+        "line": 83,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#non-distributable-layers",
+        "line": 84,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#non-distributable-layers",
+        "line": 84,
+        "column": 103,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#gzip-media-types",
+        "line": 85,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#non-distributable-layers",
+        "line": 85,
+        "column": 100,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/layer.md#zstd-media-types",
+        "line": 92,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/annotations.md#rules",
+        "line": 108,
+        "column": 39,
+        "status": "File not found. Check if file exists and path is correct"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "url": "file:///input/research/references/snapshots/OCI/annotations.md#pre-defined-annotation-keys",
+        "line": 110,
+        "column": 7,
+        "status": "File not found. Check if file exists and path is correct"
+      }
+    ]
+  }
+}
