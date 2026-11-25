@@ -1,5 +1,9 @@
 # Contributing
 
+## Project language
+
+Write project files in English, including documentation, plans, ADRs, RFCs, code comments, and user-facing strings.
+
 ## Keep the RFC in sync with ADRs
 
 When adding an architecture decision record under `draft/adr/`, update the [LLMLang architecture RFC](draft/RFC.md) in the same change. Summarize a new accepted decision in the affected RFC sections and link to its ADR. Record a proposed ADR as open work with its status and a link. Apply the same rule when an ADR changes status, is superseded, or changes in a way that affects the RFC. Cite a same-change ADR by its repository-relative path and check the relevant references and diagrams before submitting the change.
