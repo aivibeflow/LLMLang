@@ -1,0 +1,354 @@
+{
+  "cross_profile_fused_raw_nan_differences": 114,
+  "distinct_split_and_fused_rows": 77,
+  "format": "rt13-binary64-contraction/1",
+  "fused_nan_rows": 2943,
+  "gcc": "14.2.0",
+  "java_compiler": "javac 21.0.13",
+  "java_runtime": [
+    "openjdk version \"21.0.13\" 2026-10-20",
+    "OpenJDK Runtime Environment (build 21.0.13+9-1-deb13u2-Debian)",
+    "OpenJDK 64-Bit Server VM (build 21.0.13+9-1-deb13u2-Debian, mixed mode, sharing)"
+  ],
+  "operand_bits": [
+    "0000000000000000",
+    "8000000000000000",
+    "0000000000000001",
+    "8000000000000001",
+    "000fffffffffffff",
+    "0010000000000000",
+    "3fe0000000000000",
+    "3feffffffc000000",
+    "3ff0000000000000",
+    "3ff0000002000000",
+    "bff0000000000000",
+    "4000000000000000",
+    "7fefffffffffffff",
+    "ffefffffffffffff",
+    "7ff0000000000000",
+    "fff0000000000000",
+    "7ff8000000000042",
+    "fff8000000000007",
+    "7ff0000000000011"
+  ],
+  "python": "3.12.14",
+  "queries": 6859,
+  "raw_nan_witness": {
+    "fused_output_bits": {
+      "C-O0-split": "fff8000000000007",
+      "C-O3-contract": "7ff8000000000042",
+      "C-O3-split": "7ff8000000000042",
+      "Java-VM": "fff8000000000007",
+      "Java-interpreted": "fff8000000000007",
+      "Rust-O3": "fff8000000000007"
+    },
+    "input_bits": [
+      "7ff8000000000042",
+      "fff8000000000007",
+      "0000000000000000"
+    ]
+  },
+  "results": {
+    "C-O0-split": {
+      "explicit_mismatches_to_fused_rounding": 0,
+      "expression_instructions": [
+        "vaddsd",
+        "vmulsd"
+      ],
+      "fused_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "options": [
+        "-O0",
+        "-ffp-contract=off",
+        "-mfma"
+      ],
+      "plain_mismatches_to_separate_rounding": 0,
+      "plain_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "raw_output_sha256": "8bf514a888d91ec2b6250ad0669bfd85d67dd341c843496bc0794dd9d172243f",
+      "rows": 6859
+    },
+    "C-O3-contract": {
+      "explicit_mismatches_to_fused_rounding": 0,
+      "expression_instructions": [
+        "vfmadd132sd"
+      ],
+      "fused_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "options": [
+        "-O3",
+        "-ffp-contract=fast",
+        "-mfma"
+      ],
+      "plain_mismatches_to_separate_rounding": 77,
+      "plain_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "raw_output_sha256": "2e4051d22dbff0b845f62cd51a15ee99662e21270e9885c540e21bbae19700f4",
+      "rows": 6859
+    },
+    "C-O3-split": {
+      "explicit_mismatches_to_fused_rounding": 0,
+      "expression_instructions": [
+        "vaddsd",
+        "vmulsd"
+      ],
+      "fused_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "options": [
+        "-O3",
+        "-ffp-contract=off",
+        "-mfma"
+      ],
+      "plain_mismatches_to_separate_rounding": 0,
+      "plain_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "raw_output_sha256": "6e400fc2765fe64660ab47165516457ade7929544111e0067eee1b346e80a83c",
+      "rows": 6859
+    },
+    "Java-VM": {
+      "explicit_mismatches_to_fused_rounding": 0,
+      "expression_instructions": null,
+      "fused_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "options": [],
+      "plain_mismatches_to_separate_rounding": 0,
+      "plain_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "raw_output_sha256": "c44ca562bea898c00bcad4be6dea1e2d8df1677fe086ead291c0b4b347592219",
+      "rows": 6859
+    },
+    "Java-interpreted": {
+      "explicit_mismatches_to_fused_rounding": 0,
+      "expression_instructions": null,
+      "fused_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "options": [
+        "-Xint"
+      ],
+      "plain_mismatches_to_separate_rounding": 0,
+      "plain_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "raw_output_sha256": "c44ca562bea898c00bcad4be6dea1e2d8df1677fe086ead291c0b4b347592219",
+      "rows": 6859
+    },
+    "Rust-O3": {
+      "explicit_mismatches_to_fused_rounding": 0,
+      "expression_instructions": null,
+      "fused_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "options": [
+        "-C",
+        "opt-level=3"
+      ],
+      "plain_mismatches_to_separate_rounding": 0,
+      "plain_nan_bits": [
+        "7ff8000000000011",
+        "7ff8000000000042",
+        "fff8000000000000",
+        "fff8000000000007"
+      ],
+      "raw_output_sha256": "8bf514a888d91ec2b6250ad0669bfd85d67dd341c843496bc0794dd9d172243f",
+      "rows": 6859
+    }
+  },
+  "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)",
+  "source_sha256": {
+    "Probe.java": "fca9beb29b778cbefcb1f255cb918432bf86831190b21c1260b892647cacd1fa",
+    "probe.c": "84cbe798bf6f03970ea38815210dc777ad4fb7381bf3782fdef4e66d209bdcf9",
+    "probe.rs": "fa728d5f380e734ce7a1c6b1d4f7b0bb98a1b59e8ec6e617e88a27a4d355ce66"
+  },
+  "witnesses": {
+    "one-round-versus-two": {
+      "expected": [
+        "0000000000000000",
+        "bc90000000000000"
+      ],
+      "inputs": [
+        "3ff0000002000000",
+        "3feffffffc000000",
+        "bff0000000000000"
+      ],
+      "profile_bits": {
+        "C-O0-split": [
+          "0000000000000000",
+          "bc90000000000000"
+        ],
+        "C-O3-contract": [
+          "bc90000000000000",
+          "bc90000000000000"
+        ],
+        "C-O3-split": [
+          "0000000000000000",
+          "bc90000000000000"
+        ],
+        "Java-VM": [
+          "0000000000000000",
+          "bc90000000000000"
+        ],
+        "Java-interpreted": [
+          "0000000000000000",
+          "bc90000000000000"
+        ],
+        "Rust-O3": [
+          "0000000000000000",
+          "bc90000000000000"
+        ]
+      }
+    },
+    "overflow-before-cancellation": {
+      "expected": [
+        "7ff0000000000000",
+        "7fefffffffffffff"
+      ],
+      "inputs": [
+        "7fefffffffffffff",
+        "4000000000000000",
+        "ffefffffffffffff"
+      ],
+      "profile_bits": {
+        "C-O0-split": [
+          "7ff0000000000000",
+          "7fefffffffffffff"
+        ],
+        "C-O3-contract": [
+          "7fefffffffffffff",
+          "7fefffffffffffff"
+        ],
+        "C-O3-split": [
+          "7ff0000000000000",
+          "7fefffffffffffff"
+        ],
+        "Java-VM": [
+          "7ff0000000000000",
+          "7fefffffffffffff"
+        ],
+        "Java-interpreted": [
+          "7ff0000000000000",
+          "7fefffffffffffff"
+        ],
+        "Rust-O3": [
+          "7ff0000000000000",
+          "7fefffffffffffff"
+        ]
+      }
+    },
+    "signed-zero": {
+      "expected": [
+        "8000000000000000",
+        "8000000000000000"
+      ],
+      "inputs": [
+        "8000000000000000",
+        "3ff0000000000000",
+        "8000000000000000"
+      ],
+      "profile_bits": {
+        "C-O0-split": [
+          "8000000000000000",
+          "8000000000000000"
+        ],
+        "C-O3-contract": [
+          "8000000000000000",
+          "8000000000000000"
+        ],
+        "C-O3-split": [
+          "8000000000000000",
+          "8000000000000000"
+        ],
+        "Java-VM": [
+          "8000000000000000",
+          "8000000000000000"
+        ],
+        "Java-interpreted": [
+          "8000000000000000",
+          "8000000000000000"
+        ],
+        "Rust-O3": [
+          "8000000000000000",
+          "8000000000000000"
+        ]
+      }
+    },
+    "underflow-before-addition": {
+      "expected": [
+        "0000000000000001",
+        "0000000000000002"
+      ],
+      "inputs": [
+        "0000000000000001",
+        "3fe0000000000000",
+        "0000000000000001"
+      ],
+      "profile_bits": {
+        "C-O0-split": [
+          "0000000000000001",
+          "0000000000000002"
+        ],
+        "C-O3-contract": [
+          "0000000000000002",
+          "0000000000000002"
+        ],
+        "C-O3-split": [
+          "0000000000000001",
+          "0000000000000002"
+        ],
+        "Java-VM": [
+          "0000000000000001",
+          "0000000000000002"
+        ],
+        "Java-interpreted": [
+          "0000000000000001",
+          "0000000000000002"
+        ],
+        "Rust-O3": [
+          "0000000000000001",
+          "0000000000000002"
+        ]
+      }
+    }
+  }
+}
