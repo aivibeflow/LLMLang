@@ -310,6 +310,8 @@ The native release fixture checks how this workflow's evidence and authority int
 
 A cross-process replay moves the publication fence later while keeping exact artifact and trace checks. Both native routes then admit one old-policy write and a duplicate transition from the prior parent. Holding the existing SQLite fence serializes both operations. [Concurrent release admission](planning-and-synthesis/CONCURRENT-RELEASE-2026-11-25.md)
 
+A common finite workload compares all four source profiles under exact order and compares the actor's eligible delivery set. Each fixed order agrees across profiles. Of 1,536 inputs, 936 share their balance across different actor traces and 600 vary even the final balance. The fixture distinguishes contextual correspondence from schedule-independent correctness. [Four resource profiles](../language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md)
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.
