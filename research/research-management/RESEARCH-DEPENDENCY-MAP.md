@@ -635,7 +635,7 @@ These edges are research hypotheses, not implementation commitments. No backend 
 | ID | Edge | Relationship | Rationale | Confidence |
 |---|---|---|---|---|
 | DEP-201 | RT-03 → RT-34 | Requires | Authoritative evaluation and termination semantics for source costs. | Strong hypothesis |
-| DEP-202 | RT-04 → RT-34 | Requires | Types, size/representation relations, effects, ownership and lifetimes. | Strong hypothesis |
+| DEP-202 | RT-04 → RT-34 | Requires | Types, size/representation relations, effects, ownership and lifetimes. A typed affine profile distinguishes length, selected count, work steps and peak entries, and binds the exact size relation in generated evidence. [Typed resource contracts](../formal-verification/RT-34/RT-34-RESOURCE-CONTRACT-IR-2026-11-25.md) | Strong hypothesis |
 | DEP-203 | RT-05 → RT-34 | Requires | Exact semantic identity and complete call-binding dependency closure. | Strong hypothesis |
 | DEP-204 | RT-07 → RT-34 | Requires | Sound proof/evidence scope and independent checking. Independent Lean checks distinguish explicit query-model lower/upper bounds, amortized history charges and live-entry invariants. [Read lower bound and FIFO cost](../formal-verification/RT-34/RT-34-READ-LOWER-AND-QUEUE-2026-11-25.md) Balanced DAG work, span and communication, distribution-bound expectation and output-width claims require distinct evidence profiles. [Parallel, expected and output costs](../formal-verification/RT-34/RT-34-PARALLEL-EXPECTED-OUTPUT-2026-11-25.md) | Strong hypothesis |
 | DEP-205 | RT-08 → RT-34 | Requires | Independently reviewed benchmark oracles and adversarial controls. | Strong hypothesis |
