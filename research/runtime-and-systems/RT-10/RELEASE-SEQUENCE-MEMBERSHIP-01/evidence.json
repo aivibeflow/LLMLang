@@ -1,0 +1,93 @@
+{
+  "controls": {
+    "foreign_store_then_rmw": {
+      "edge_cpp17": false,
+      "edge_cpp20": false,
+      "flag": 1,
+      "order": [
+        "writer-release",
+        "other-relaxed",
+        "relay-a-rmw",
+        "relay-b-rmw",
+        "writer-relaxed"
+      ],
+      "payload_cpp17": [
+        0,
+        1
+      ],
+      "payload_cpp20": [
+        0,
+        1
+      ],
+      "read_from": "relay-b-rmw"
+    },
+    "read_release_directly": {
+      "edge_cpp17": true,
+      "edge_cpp20": true,
+      "flag": 1,
+      "order": [
+        "other-relaxed",
+        "writer-release",
+        "writer-relaxed",
+        "relay-a-rmw",
+        "relay-b-rmw"
+      ],
+      "payload_cpp17": [
+        1
+      ],
+      "payload_cpp20": [
+        1
+      ],
+      "read_from": "writer-release"
+    },
+    "rmw_with_no_interrupt": {
+      "edge_cpp17": true,
+      "edge_cpp20": true,
+      "flag": 1,
+      "order": [
+        "writer-release",
+        "relay-a-rmw",
+        "relay-b-rmw",
+        "writer-relaxed",
+        "other-relaxed"
+      ],
+      "payload_cpp17": [
+        1
+      ],
+      "payload_cpp20": [
+        1
+      ],
+      "read_from": "relay-b-rmw"
+    },
+    "same_writer_store_then_rmw": {
+      "edge_cpp17": true,
+      "edge_cpp20": false,
+      "flag": 1,
+      "order": [
+        "writer-release",
+        "writer-relaxed",
+        "relay-a-rmw",
+        "relay-b-rmw",
+        "other-relaxed"
+      ],
+      "payload_cpp17": [
+        1
+      ],
+      "payload_cpp20": [
+        0,
+        1
+      ],
+      "read_from": "relay-b-rmw"
+    }
+  },
+  "runtime": "3.12.14",
+  "totals": {
+    "edge_changes": 60,
+    "edge_cpp17": 150,
+    "edge_cpp20": 90,
+    "numeric_false_positives_cpp17": 120,
+    "numeric_false_positives_cpp20": 180,
+    "orders": 60,
+    "read_from_cases": 360
+  }
+}
