@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-25",
+  "baseline_main": "c9cb445c6e68ccae45a362e0bcc95fc4a235198d",
+  "scope": "Scenario 133 current-main finite native differential replay; source-to-Rust fixture comparison only",
+  "environment": {
+    "python": "CPython 3.12.14",
+    "rustc": "1.85.1 (4eb161250 2025-03-15)",
+    "rust_target": "x86_64-unknown-linux-gnu",
+    "llvm": "19.1.7",
+    "os": "Ubuntu 26.04",
+    "kernel_glibc": "Linux 7.0.0-1020-azure x86_64; glibc 2.43",
+    "python_sqlite": "3.53.1; source ID 2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9",
+    "c_sqlite": "3.46.1; source ID 2024-08-13 09:16:08 c9c2ab54ba1f5f46360f1b4f35d849cd3f080e6fc2b6c60e91b16c63f69aalt1",
+    "source": "exact CI checkout; report/test source bytes are committed in that tree"
+  },
+  "result": {
+    "fixtures": 6,
+    "inputs_per_fixture": 10496,
+    "optimization_levels": [
+      0,
+      3
+    ],
+    "native_observations_compared": 125952,
+    "mismatches": 0,
+    "admitted_start_counts": {
+      "forwarding": {
+        "before_cleanup": 1856,
+        "after_cleanup": 2576
+      },
+      "recovery": {
+        "before_cleanup": 2816,
+        "after_cleanup": 2996
+      },
+      "retargeted_recovery": {
+        "before_cleanup": 2368,
+        "after_cleanup": 2590
+      }
+    },
+    "generator_unit_tests": 3,
+    "all_generator_unit_tests_passed": true,
+    "native_suite": {
+      "commands_passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "preflight_errors": 0
+    },
+    "generator_unit_tests_local": 3
+  },
+  "source_sha256": {
+    "rt04_rust_owned_probe.py": "974e26bbb902cea1116def8c0cbae9c7ffe4eabe00bca751aa9b467950f05c4f",
+    "rt04_owned_probe.rs": "69610f556ae76755338b3643388ee30e91d47a8830844fa4a7b86acb2a2d50d7",
+    "test_rt04_rust_owned_probe.py": "f8322a7cdca9cc220722b7ed3362032a2af3d94dc1a50a9241ea4af75b5a29c3",
+    "rt04_return_disposition.py": "23f8eadbc83cdcd140f994b78fe33a4afeebdc42a5c6c0d9621b9172423cbb5e",
+    "rt04_shared_owned_handlers.py": "3fad6dad5ddfff1b979c435d8d407e121756104e2fcdf42e1f471896bfb5ff7b",
+    "rt04_shared_owned_workload.py": "391a80c05dc4ec40e5a813821d419e1e5f15b83e0586698cfb0154eab9cc7ae4"
+  },
+  "limitations": [
+    "bounded COR-13 fixtures, not arbitrary LLMLang programs",
+    "fresh current-main reproduction does not attest original historical uncommitted source or physical host",
+    "current runner OS/kernel differs from the full historical host profile",
+    "no actual foreign-resource/runtime or non-Linux target coverage"
+  ],
+  "draft_impact": "none",
+  "ci_run": {
+    "url": "https://github.com/aivibeflow/LLMLang/actions/runs/45562902629",
+    "checkout_sha": "d75fd5474950944a2a101bc419316603abb1fb78",
+    "event": "workflow_dispatch",
+    "conclusion": "success",
+    "job": "native-reproduction"
+  },
+  "reproductions": [
+    "successful clean current-main CI run 45562902629",
+    "focused local generator tests on CPython 3.12.14"
+  ]
+}
