@@ -1081,6 +1081,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Research generic and polymorphic types.
   - Compare inlined and separately linked static specializations, Rust trait objects and explicit dictionaries across 18 native links and 18,432 results. Cross-linking stale caller objects changes 1,024 inlined results while the other three routes use the linked provider throughout. A nondependent edit changes the provider archive but preserves the caller object bytes. Generic SPG lowering, ABI policy and representative measurements remain open. [Generic provider binding](research/semantic-representation/RT-05/RT-05-GENERIC-PROVIDER-BINDING-2026-11-25.md)
 - [ ] Evaluate refinement types and dependent types.
+  - [ ] [WIP] Compare local length bounds, checked relational refinement and length-indexed pairs for exact zip on `research/all`.
 - [ ] Define typed states, state transitions, and constrained values.
 - [ ] Define ownership, borrowing, lifetimes, references, and aliasing.
 - [ ] Define mutability and resource management.
