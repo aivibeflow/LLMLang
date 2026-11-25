@@ -183,6 +183,8 @@ RT-05 compares four binary64 identity and wire policies against exact bits, nume
 
 RT-03 and RT-05 compare native binary64 extrema rules for signed-zero ties and NaN selection. [Native F64 minimum and maximum](../semantic-representation/RT-05/RT-05-NATIVE-F64-MINMAX-2026-11-25.md)
 
+RT-00 reconciles exact dedicated objects and shared registry references for an integrated batch of 18 studies. [Batch evidence reconciliation](RT-00/RT-00-BATCH-EVIDENCE-RECONCILIATION-2026-11-25.md)
+
 ## 3. Required research artifact
 
 Every research report should identify:

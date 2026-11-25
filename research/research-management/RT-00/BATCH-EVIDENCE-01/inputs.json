@@ -1,0 +1,98 @@
+{
+  "integration_base": "ebecbdd6f7a24d8d5dc2555051d61d276d233c5d",
+  "pre_batch_main": "e8facfe560f4da1192df34bf31ee939352c07776",
+  "published_main": "c06ad1b9c30c806dea0fddb8c362322f8587a5b3",
+  "integration_head": "5d14486c7dafde8525c87e770142690bb00d2b10",
+  "pulls": [
+    {
+      "number": 645,
+      "pull_head": "d1dd1b7b706a5e7beda1d6477e3c1f3940432661",
+      "integration_commit": "b739359f3e55b2d37a156a2bd7174c127434d75b"
+    },
+    {
+      "number": 621,
+      "pull_head": "ab51a4184a5934eab06042c35caa1ae7cf1066d8",
+      "integration_commit": "bede86c7a43568d8b9c0f82871d35d674a86dc75"
+    },
+    {
+      "number": 619,
+      "pull_head": "3e65ee3567133de4309b0369a4d23d0fb0a5117f",
+      "integration_commit": "66804eb6455253b2df00a5568a7e0a98d473d712"
+    },
+    {
+      "number": 614,
+      "pull_head": "46448248aa1e0b38956cb90d489b926263fff947",
+      "integration_commit": "3a544e67180193dee1f3e01d3a0048fbae490b11"
+    },
+    {
+      "number": 599,
+      "pull_head": "bc696ffa0186caae42502ac49619f1e0da40131b",
+      "integration_commit": "978dcf725831da70012a4c01b2f62a604a998174"
+    },
+    {
+      "number": 580,
+      "pull_head": "5ddd69713f68367d4e9e9d2132644839dc63cbb5",
+      "integration_commit": "fe6cb5743a2e4766b9c631b47631e8bccde33396"
+    },
+    {
+      "number": 574,
+      "pull_head": "3409025dd96d40246097b5462c55aaee4adc717e",
+      "integration_commit": "8b565ec9385bd707353888f2a4c5f771017e3467"
+    },
+    {
+      "number": 564,
+      "pull_head": "dbf8da30fc2de226de14da61d51d88b255a9637e",
+      "integration_commit": "fb65c797c8413219cd0681c9d7fa203b6dc54e09"
+    },
+    {
+      "number": 563,
+      "pull_head": "0cd0fc1c560ff972c6fcc1b302b465bf143fbd4f",
+      "integration_commit": "dd97157589af09385b7d6d2ca08ee3909d3d2496"
+    },
+    {
+      "number": 560,
+      "pull_head": "c392083862edab22863648e525ad00c230fbf034",
+      "integration_commit": "573ec7f034ae37881c7ae4956443609fbcb4dcab"
+    },
+    {
+      "number": 555,
+      "pull_head": "d95f1f5124ce4fa50d4d0559ff42d65814eec090",
+      "integration_commit": "cf4e70747f3d3dc2096caad2d7f5315a23015433"
+    },
+    {
+      "number": 553,
+      "pull_head": "2c86dddaa031522150fb949ec9ca005bb85787ca",
+      "integration_commit": "d1b19d5d7d26aa4721876668475fa7f381953547"
+    },
+    {
+      "number": 551,
+      "pull_head": "7a3019880a60ee88340c470813e22f259bf1b067",
+      "integration_commit": "0c1924896c09a9481f7b04b585cbf2f070e809a9"
+    },
+    {
+      "number": 549,
+      "pull_head": "7472e6e487876961a6b11aa98b04a1831d9cfa9d",
+      "integration_commit": "962895efc22cad1d02db5aeb580df0e13d02e42c"
+    },
+    {
+      "number": 539,
+      "pull_head": "89609e95330284ac45dfe767f2bced3459aed539",
+      "integration_commit": "5a95d6e55f2117eee52dd4f0b848f080fa0a09c4"
+    },
+    {
+      "number": 587,
+      "pull_head": "b13dc7b0a32a1c264caadb3fb0f68c0f3662dcc4",
+      "integration_commit": "342fe4e83a33372643e7f560015099cbd9678887"
+    },
+    {
+      "number": 646,
+      "pull_head": "796f20ff6c6ae6781e355aa61e0ce1126bdb177b",
+      "integration_commit": "f2c12f5a135342171ebea4f0de9358f60a543c6d"
+    },
+    {
+      "number": 543,
+      "pull_head": "b070bf0647ffde77a59219c2d33b6fcd456ee302",
+      "integration_commit": "6d3be6bc7c23bd895a1dfc09ca7a60df18c3abff"
+    }
+  ]
+}
