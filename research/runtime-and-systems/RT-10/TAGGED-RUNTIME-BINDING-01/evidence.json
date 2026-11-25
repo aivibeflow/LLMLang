@@ -1,0 +1,174 @@
+{
+  "changed_field_controls": [
+    [
+      "-O0",
+      "operation",
+      "binding-refused"
+    ],
+    [
+      "-O0",
+      "abi",
+      "binding-refused"
+    ],
+    [
+      "-O0",
+      "encoding",
+      "binding-refused"
+    ],
+    [
+      "-O0",
+      "version",
+      "binding-refused"
+    ],
+    [
+      "-O0",
+      "call_slot",
+      "binding-refused"
+    ],
+    [
+      "-O0",
+      "loaded-release",
+      "loaded release does not match"
+    ],
+    [
+      "-O2",
+      "operation",
+      "binding-refused"
+    ],
+    [
+      "-O2",
+      "abi",
+      "binding-refused"
+    ],
+    [
+      "-O2",
+      "encoding",
+      "binding-refused"
+    ],
+    [
+      "-O2",
+      "version",
+      "binding-refused"
+    ],
+    [
+      "-O2",
+      "call_slot",
+      "binding-refused"
+    ],
+    [
+      "-O2",
+      "loaded-release",
+      "loaded release does not match"
+    ]
+  ],
+  "format": "tagged-runtime-binding-01",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "native_calls": 2048,
+  "pair_admission_cases": 32,
+  "rows": {
+    "-O0/alternate-wire-same-release": {
+      "exact_binding": {
+        "abi": "x86_64-linux/u32-to-u32",
+        "call_slot": "rt_sample",
+        "encoding": 2,
+        "operation": "3fe640ebcf6df3564743b858ee8349ec4f9d0ba1c026fff31686b8ac00f16828",
+        "runtime_artifact": "da3ec725c35171e3a3303e5b9a63c1872677fe3b840868ab777aae9674f39d07",
+        "version": "1.0"
+      },
+      "legacy_differences": 0,
+      "legacy_invalid_words": 256,
+      "observations": "00fef978dae4de8750e230890d77bf54d830544d0a69b479e4ba4b96ac32dab0"
+    },
+    "-O0/baseline": {
+      "exact_binding": {
+        "abi": "x86_64-linux/u32-to-u32",
+        "call_slot": "rt_sample",
+        "encoding": 1,
+        "operation": "3fe640ebcf6df3564743b858ee8349ec4f9d0ba1c026fff31686b8ac00f16828",
+        "runtime_artifact": "8374ed9b96c8410d8dcf1236cbaf1a50eb6a3e952b55576bb4e5de46554be853",
+        "version": "1.0"
+      },
+      "legacy_differences": 0,
+      "legacy_invalid_words": 0,
+      "observations": "00fef978dae4de8750e230890d77bf54d830544d0a69b479e4ba4b96ac32dab0"
+    },
+    "-O0/changed-value-same-release": {
+      "exact_binding": {
+        "abi": "x86_64-linux/u32-to-u32",
+        "call_slot": "rt_sample",
+        "encoding": 1,
+        "operation": "3fe640ebcf6df3564743b858ee8349ec4f9d0ba1c026fff31686b8ac00f16828",
+        "runtime_artifact": "f7f864d291a728312a14f93d3e2d94acaf8fd49a3259b22e77bfa8ac71ba13fc",
+        "version": "1.0"
+      },
+      "legacy_differences": 0,
+      "legacy_invalid_words": 0,
+      "observations": "73280750cfac3b95b84686d621c605f500e8a7eed8979b267571286bda0ad578"
+    },
+    "-O0/same-semantics-new-release": {
+      "exact_binding": {
+        "abi": "x86_64-linux/u32-to-u32",
+        "call_slot": "rt_sample",
+        "encoding": 1,
+        "operation": "3fe640ebcf6df3564743b858ee8349ec4f9d0ba1c026fff31686b8ac00f16828",
+        "runtime_artifact": "69b430ce147c5e824df27bfb35bd5b1aa40f4e9ee67e255468193e62c6648841",
+        "version": "1.1"
+      },
+      "legacy_differences": 0,
+      "legacy_invalid_words": 0,
+      "observations": "00fef978dae4de8750e230890d77bf54d830544d0a69b479e4ba4b96ac32dab0"
+    },
+    "-O2/alternate-wire-same-release": {
+      "exact_binding": {
+        "abi": "x86_64-linux/u32-to-u32",
+        "call_slot": "rt_sample",
+        "encoding": 2,
+        "operation": "3fe640ebcf6df3564743b858ee8349ec4f9d0ba1c026fff31686b8ac00f16828",
+        "runtime_artifact": "5f2a5c4ad61d2140a9c26e6daf96b651f944aaa933944bbc83c4fcbccd3d3464",
+        "version": "1.0"
+      },
+      "legacy_differences": 0,
+      "legacy_invalid_words": 256,
+      "observations": "00fef978dae4de8750e230890d77bf54d830544d0a69b479e4ba4b96ac32dab0"
+    },
+    "-O2/baseline": {
+      "exact_binding": {
+        "abi": "x86_64-linux/u32-to-u32",
+        "call_slot": "rt_sample",
+        "encoding": 1,
+        "operation": "3fe640ebcf6df3564743b858ee8349ec4f9d0ba1c026fff31686b8ac00f16828",
+        "runtime_artifact": "9880e7eaf9c11719790df20d11a60e1bf6a22f421f30ffebb4d835a9c2eb3509",
+        "version": "1.0"
+      },
+      "legacy_differences": 0,
+      "legacy_invalid_words": 0,
+      "observations": "00fef978dae4de8750e230890d77bf54d830544d0a69b479e4ba4b96ac32dab0"
+    },
+    "-O2/changed-value-same-release": {
+      "exact_binding": {
+        "abi": "x86_64-linux/u32-to-u32",
+        "call_slot": "rt_sample",
+        "encoding": 1,
+        "operation": "3fe640ebcf6df3564743b858ee8349ec4f9d0ba1c026fff31686b8ac00f16828",
+        "runtime_artifact": "5af04d2e8a43e5a861a41752456f8988c252548b06409c32c96c6c1db484b644",
+        "version": "1.0"
+      },
+      "legacy_differences": 0,
+      "legacy_invalid_words": 0,
+      "observations": "73280750cfac3b95b84686d621c605f500e8a7eed8979b267571286bda0ad578"
+    },
+    "-O2/same-semantics-new-release": {
+      "exact_binding": {
+        "abi": "x86_64-linux/u32-to-u32",
+        "call_slot": "rt_sample",
+        "encoding": 1,
+        "operation": "3fe640ebcf6df3564743b858ee8349ec4f9d0ba1c026fff31686b8ac00f16828",
+        "runtime_artifact": "b9ad7ccdc559f53848cff3acc19d356c12c1016a2ded2e7619aee0df8ca4880a",
+        "version": "1.1"
+      },
+      "legacy_differences": 0,
+      "legacy_invalid_words": 0,
+      "observations": "00fef978dae4de8750e230890d77bf54d830544d0a69b479e4ba4b96ac32dab0"
+    }
+  }
+}
