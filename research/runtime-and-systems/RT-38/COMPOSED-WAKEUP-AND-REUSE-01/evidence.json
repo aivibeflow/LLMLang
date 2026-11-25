@@ -1,0 +1,26 @@
+{
+  "archive_sha256": {
+    "compose": "f898c0068e7fefaee072b3797241ca6c3c6b16b4c0e823ca31ffe510ddad88d8",
+    "hardware": "5fe3202ec85b3ce3ee0d06c9ed9fd83fa3097518f38bba5cd69d9478166090a8",
+    "live": "423575f0eba46d3f1e5eb12dbff6b664cc7c07ef70a0d4efd271ba5705626c42",
+    "preemptive": "33ec7c109a0932a863a26f632b64c50aca4e0209e1c62cdbbe44fac751f315cd"
+  },
+  "cpu_and_device": {
+    "admissible": 12,
+    "false_admissions": {
+      "omit-remote": 12,
+      "omit-visibility": 44,
+      "wake-before-map": 84
+    },
+    "inputs": 362880
+  },
+  "cpu_only": {
+    "admissible": 2,
+    "false_admissions": {
+      "omit-remote": 4,
+      "omit-visibility": 0,
+      "wake-before-map": 10
+    },
+    "inputs": 5040
+  }
+}
