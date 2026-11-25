@@ -133,6 +133,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 5; [Libraries and Templates](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md), section 5.
 - **Evidence:** [RT-05 typed edge projections](research/semantic-representation/RT-05/RT-05-TYPED-EDGE-PROJECTIONS-2026-11-25.md) distinguishes the implementation identity closure from verification and source-navigation closures in one closed graph. Reverse lookups can create cycles when followed as identity edges. The experiment holds production edge extraction and semantic cycles open.
 - **Evidence:** [RT-05 recursive topology edits](research/semantic-representation/RT-05/RT-05-RECURSIVE-TOPOLOGY-EDITS-2026-11-25.md) checks group condensation through finite split and merge edits. Both prototype encodings match exact rooted graph equality and retain old addresses. Atomic publication and production canonicalization remain open.
+- **Evidence:** [RT-05 exact dependency propagation](research/semantic-representation/RT-05/RT-05-EXACT-DEPENDENCY-PROPAGATION-2026-11-25.md) proves change propagation under fixed ordered direct-call contexts and tests abstract-call reuse against exact consulted bindings. The proof concerns typed preimages; production digest admission and extraction remain open.
 
 ### LL-006 — Decide artifact granularity for the initial SPG/store
 

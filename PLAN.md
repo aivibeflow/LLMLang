@@ -363,7 +363,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define collision handling and migration policy.
   - [x] Compare dual digest locators and closed graph rewriting in 20 controls. Byte-preserving aliases leave the embedded legacy dependencies intact. A rewritten graph can drop that reader dependency, but changes exact conformance bindings. The synthetic collision quarantines the name. Production migration and evidence transfer remain open. [RT-05 collision and migration study](research/semantic-representation/RT-05/RT-05-DIGEST-MIGRATION-AND-COLLISION-2026-11-25.md)
 - [ ] Specify the invariant that a semantic change affecting an implementation changes its `ImpHash`; determine the exact dependency propagation rules that make this automatic.
-  - [ ] [WIP] Check exact dependency propagation for direct versus contract-addressed calls with a Lean model and independent finite change controls on `research/all`.
+  - [x] Check direct reference propagation in Lean and compare 2,016 profile pairs for abstract-call reuse. The exact implementation subject eliminates direct-child omissions but allows 128 stale execution reuses when the selected binding is omitted. The consulted binding closes this fixture. Production hash admission and dependency extraction remain open. [Exact dependency propagation](research/semantic-representation/RT-05/RT-05-EXACT-DEPENDENCY-PROPAGATION-2026-11-25.md)
 
 **Existing evidence:** `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, `research/LLMLang-CONCEPT.md`, and the open questions LL-001–LL-008 in `TODO.md`.
 

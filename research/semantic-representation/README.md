@@ -18,6 +18,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-05 native implementation identity](RT-05/RT-05-NATIVE-IMPLEMENTATION-IDENTITY-2026-11-25.md) — compares build actions, caller bytes and resolved provider, ABI and runtime identities.
 - [RT-05 typed edge projections](RT-05/RT-05-TYPED-EDGE-PROJECTIONS-2026-11-25.md) — compares identity closures for execution, verification and source navigation.
 - [RT-05 recursive topology edits](RT-05/RT-05-RECURSIVE-TOPOLOGY-EDITS-2026-11-25.md) — checks exact address reuse when recursive groups split or merge.
+- [RT-05 exact dependency propagation](RT-05/RT-05-EXACT-DEPENDENCY-PROPAGATION-2026-11-25.md) — checks direct-call propagation and exact abstract-call binding dependencies.
 - [RT-05 permissive operation identity](RT-05/RT-05-PERMISSIVE-OPERATION-IDENTITY-2026-11-25.md) — compares contract-level addresses and exact native provider bindings with ordered effects.
 - [RT-05 conformance class identity](RT-05/RT-05-CONFORMANCE-CLASS-IDENTITY-2026-11-25.md) — compares interpreted contracts, class definitions, discovery snapshots and exact evidence.
 - [RT-05 operation lifetime](RT-05/RT-05-OPERATION-LIFETIME-2026-11-25.md) — compares exact old call pins across revision, retirement and replacement.

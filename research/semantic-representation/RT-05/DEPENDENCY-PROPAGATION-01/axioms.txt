@@ -1,0 +1,4 @@
+'DependencyPropagation.exactContextInjective' does not depend on any axioms
+'DependencyPropagation.changePropagates' does not depend on any axioms
+'DependencyPropagation.bindingsOutsideRequiredSetAreIrrelevant' depends on axioms: [propext]
+'DependencyPropagation.unboundSubjectHasDistinctExecutions' does not depend on any axioms
