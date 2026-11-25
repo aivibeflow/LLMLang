@@ -207,6 +207,8 @@ For the next integrated comparison, reuse one typed workload across observation,
 
 [Partial record ownership](../semantic-representation/RT-05/RT-05-PARTIAL-RECORD-OWNERSHIP-2026-11-25.md) compares one shared order against phase-specific acquisition and drop in 4,608 native observations. The separate-order projection preserves every trace. Using initializer order for completed release changes 168 vectors, and filtering declaration order for abort changes 144. The comparison narrows the obligations for controlled construction and exact SPG identity to phase, order and resource ownership.
 
+[Record ownership proof](../formal-verification/RT-32/RT-32-RECORD-OWNERSHIP-PROOF-2026-11-25.md) distinguishes general conservation checked on role lists from exact finite source correspondence across 2,304 Rust vectors. Multiset conservation allows both teardown orders, while trace equality excludes an order change. Check unique owned roles and the declaration/acquisition permutation alongside the chosen execution sequence.
+
 ### 5.3 Bounded toolchain route comparisons
 
 These comparisons join verified results on the current merged research baseline at `3835327254d74943979f10cb29b0ec113205e9fc`. They establish several conditions a candidate implementation must meet. A comparison between two routes applies only where both ran the same source profile under comparable observations. The hosted integer corpus, JIT latency corpus, proof fixtures and repository lifecycle fixtures measure different workloads. [Cross-check ledger](OPTION-EVIDENCE-01/evidence.json)
