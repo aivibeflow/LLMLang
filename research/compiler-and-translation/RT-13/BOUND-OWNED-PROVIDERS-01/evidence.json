@@ -1,0 +1,119 @@
+{
+  "c_caller_sha256": "936e7fe25fb1526e66e96bce9a9fa0f12aac3d747fe9339e28018f98cc432584",
+  "contract": "b3d6f3a148c28a7949faa127dd7ebe0fb8cd02291ed1cd97e444b66ee5175b92",
+  "format": "rt13-bound-owned-providers/1",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "input_rows_sha256": "7574581b3c05e6c4b095d913e0027a18106a15818fa80b5b7aa106394c4aed06",
+  "lean_model": {
+    "axiom_report": [
+      "'decode_preserves_obligation' depends on axioms: [propext]",
+      "'distinct_bindings_change_retained_request' depends on axioms: [propext]"
+    ],
+    "model_sha256": "94786b0d478cc0c9a43a31e1f0b41d12d69e7fc977a03d5511239f95c0c4a5eb",
+    "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "providers": {
+    "consume-retained": {
+      "object_sha256": "5a26957b88a9b8e6df76412d4b3a6f8bae01c1ba74eae19ae14496a1d4743c27",
+      "required_contract": "b3d6f3a148c28a7949faa127dd7ebe0fb8cd02291ed1cd97e444b66ee5175b92",
+      "source_sha256": "afb03175d472b8eb5c97a823995eed6fb1ea8a318e93c40fd828c7609bbea0a7"
+    },
+    "scripted": {
+      "object_sha256": "519dbd1f7c34d17a22c5749c8a7507d16634cebaed9c0e1d22ef53a2e67661f2",
+      "required_contract": "b3d6f3a148c28a7949faa127dd7ebe0fb8cd02291ed1cd97e444b66ee5175b92",
+      "source_sha256": "8f25687765500cdd6d957baf7b3b22a2f6c36960341e6f70111ead5b5ec577ba"
+    }
+  },
+  "python": "3.12.14",
+  "results": {
+    "after_cleanup/consume-retained": {
+      "caller_source_value": "a3fae93cb045390cef3573e82de98c8dd37a9e2d097554d998d86099344c1623",
+      "compiled_c_configuration_sha256": "bc520446f3e4138266e4cbd4e935bceb21e34d57e3f9528402a190c78bd1185a",
+      "generated_rust_sha256": "5953819339149bbb96c5eb8e72338742b3c28e933da592e2c7d5c101b8e51520",
+      "native": {
+        "C": {
+          "rows": 20992,
+          "trace_sha256": "28fcfda775b864ba9c40d422df75596fb02a480b05f74de0697d0b4ab6cc3cfc"
+        },
+        "Rust": {
+          "rows": 20992,
+          "trace_sha256": "28fcfda775b864ba9c40d422df75596fb02a480b05f74de0697d0b4ab6cc3cfc"
+        }
+      },
+      "provider_value": "276bc8373c0704c0509fb22e20396e3b7ae0ee01485e794d6eda7e56cd04af47",
+      "semantic_root": "f367b19e8952188de3d7b6f181fe7b3a89c6ba0d7cb1bd57a01cc7b315109325",
+      "substituted_object_rejected": true
+    },
+    "after_cleanup/rebind": {
+      "different_exact_roots": true,
+      "incorrect_cached_rows_with_caller_and_contract_key": 5720,
+      "language_trace_changes": 5720,
+      "physical_audit_changes": 5720,
+      "same_caller_source_and_contract": true,
+      "total_rows_per_provider": 20992
+    },
+    "after_cleanup/scripted": {
+      "caller_source_value": "a3fae93cb045390cef3573e82de98c8dd37a9e2d097554d998d86099344c1623",
+      "compiled_c_configuration_sha256": "bc520446f3e4138266e4cbd4e935bceb21e34d57e3f9528402a190c78bd1185a",
+      "generated_rust_sha256": "5953819339149bbb96c5eb8e72338742b3c28e933da592e2c7d5c101b8e51520",
+      "native": {
+        "C": {
+          "rows": 20992,
+          "trace_sha256": "e68ba9cdaf87e626e454a2c9c765d808972a7392ba697510972168f3a8cf8342"
+        },
+        "Rust": {
+          "rows": 20992,
+          "trace_sha256": "e68ba9cdaf87e626e454a2c9c765d808972a7392ba697510972168f3a8cf8342"
+        }
+      },
+      "provider_value": "6a3a1855ae1d106f252c4e895b021c259fd0abc29c9a99444ed1d975a3e9369b",
+      "semantic_root": "96620bd148e039137fffae083acfaf765dfbe78e986c2ffa043c5731e24921cf",
+      "substituted_object_rejected": true
+    },
+    "before_cleanup/consume-retained": {
+      "caller_source_value": "1ce8a8c93a0995e8d28580f4bfad084e4b715fd78dcadb9f6e8588a5a8faeadf",
+      "compiled_c_configuration_sha256": "1b052181e28133265464422507f425bf1944623fe46ae27abdbde3f8744ebfc7",
+      "generated_rust_sha256": "ce317e298e6f04672ffe98596959384e94e31ea45ae0b585f5dcad24df153612",
+      "native": {
+        "C": {
+          "rows": 20992,
+          "trace_sha256": "fcd25f83e31417aac973e87e4f402248bd5a3f3125ee4a8314b7f8aa6798064c"
+        },
+        "Rust": {
+          "rows": 20992,
+          "trace_sha256": "fcd25f83e31417aac973e87e4f402248bd5a3f3125ee4a8314b7f8aa6798064c"
+        }
+      },
+      "provider_value": "276bc8373c0704c0509fb22e20396e3b7ae0ee01485e794d6eda7e56cd04af47",
+      "semantic_root": "0aa7c08ca556f6f9e34feb4c4d7823af7dfd91286f9e87210491a74899a8f66a",
+      "substituted_object_rejected": true
+    },
+    "before_cleanup/rebind": {
+      "different_exact_roots": true,
+      "incorrect_cached_rows_with_caller_and_contract_key": 5720,
+      "language_trace_changes": 5720,
+      "physical_audit_changes": 5720,
+      "same_caller_source_and_contract": true,
+      "total_rows_per_provider": 20992
+    },
+    "before_cleanup/scripted": {
+      "caller_source_value": "1ce8a8c93a0995e8d28580f4bfad084e4b715fd78dcadb9f6e8588a5a8faeadf",
+      "compiled_c_configuration_sha256": "1b052181e28133265464422507f425bf1944623fe46ae27abdbde3f8744ebfc7",
+      "generated_rust_sha256": "ce317e298e6f04672ffe98596959384e94e31ea45ae0b585f5dcad24df153612",
+      "native": {
+        "C": {
+          "rows": 20992,
+          "trace_sha256": "0c1c2599ff1fcbe1b9f212b8bdbace7970ad41925c67af7dec4cc71d415330e7"
+        },
+        "Rust": {
+          "rows": 20992,
+          "trace_sha256": "0c1c2599ff1fcbe1b9f212b8bdbace7970ad41925c67af7dec4cc71d415330e7"
+        }
+      },
+      "provider_value": "6a3a1855ae1d106f252c4e895b021c259fd0abc29c9a99444ed1d975a3e9369b",
+      "semantic_root": "ab572da2fa09e0d0890e508c793e5b52945eb2f6974fb55c5b5b0e09f1471499",
+      "substituted_object_rejected": true
+    }
+  },
+  "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+}
