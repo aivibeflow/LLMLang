@@ -24,6 +24,7 @@ This direction groups related research studies without changing their RT identif
 
 - [RT-13 rule proof and translation validation](RT-13/RT-13-RULE-PROOF-AND-TRANSLATION-VALIDATION-2026-11-25.md) — compares a checked store swap with validation of an exact emitted target.
 - [RT-13 state/Result mutation coverage](RT-13/RT-13-STATE-RESULT-MUTATION-COVERAGE-2026-11-25.md) — checks which generators and projections expose seeded rewrite faults.
+- [Exhaustive evidence boundary](RT-13/RT-13-EXHAUSTIVE-EVIDENCE-BOUNDARY-2026-11-25.md) — exact domains, observation coverage and requirements for a broader claim.
 - [PROTOTYPES](PROTOTYPES/)
 
 ## Cross-direction evidence

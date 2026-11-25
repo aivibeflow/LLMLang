@@ -756,8 +756,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Prove the same checked-add claims with symbolic signed arithmetic and normalization in Lean. All 20 claims and three arithmetic lemmas use only standard axioms, and three false preservation claims are refused. This covers the exact fixture without changing the general LRAT assumption. [Symbolic checked-add proof](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-SYMBOLIC-2026-11-25.md)
 - [ ] Define differential and property-based testing against reference semantics.
   - [x] Compare six rewrite mutations across 77,376 finite observations. Final Result and cell hide all 240 overwritten-write mismatches in the exhaustive corpus. An event multiset hides 16 order mismatches, and success-only generation misses two error mutations. [State/Result mutation coverage](research/compiler-and-translation/RT-13/RT-13-STATE-RESULT-MUTATION-COVERAGE-2026-11-25.md)
-- [ ] Define when testing is sufficient evidence and when formal proof is required.
-  - [ ] [WIP] Check when exhaustive differential evidence discharges a closed observation claim and when source, coverage or proof obligations remain on `research/all`.
+- [x] Define when testing is sufficient evidence and when formal proof is required.
+  - [x] Specify exact-domain, complete-observation and correspondence obligations. Lean checks the exhaustion and observation-lifting rules. The 128-case corpus detects four defects under full scope, and single-schedule, success-only and weakened observation controls miss defects. Three archived ledgers retain their recorded claim scope. [Exhaustive evidence boundary](research/compiler-and-translation/RT-13/RT-13-EXHAUSTIVE-EVIDENCE-BOUNDARY-2026-11-25.md)
 
 **Prior art:** Lean, SMT solvers, TLAPS, Dafny, K Framework, Vellvm, Alive2.
 
