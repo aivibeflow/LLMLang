@@ -1199,7 +1199,7 @@ Complete the independent [24-document review queue](research/quality-audit/2026-
 #### LL-028 — Define backend-independent proof selection and evidence orchestration
 
 - **GitHub issue:** [#390](https://github.com/aivibeflow/LLMLang/issues/390)
-- **Status:** Open
+- **Status:** Open for implementation and evaluation. [ADR-018](draft/adr/018-formal-verification-backends.md) records the accepted initial backend profile.
 - **Priority:** P0
 - **Question:** How should LLMLang classify proof obligations and select, combine, and validate backends such as Lean, SMT, and TLA+ without making backend-specific semantics authoritative or silently weakening a contract?
 - **Context:** Contract meaning and authoritative LLMLang semantics must remain independent of proof engines. A single contract may generate heterogeneous obligations, and one obligation may benefit from complementary or independent backends. RT-32 investigates one Lean route; it does not settle whether all evidence should reduce to Lean.
