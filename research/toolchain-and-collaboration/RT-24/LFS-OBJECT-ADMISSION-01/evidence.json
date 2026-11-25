@@ -1,0 +1,826 @@
+{
+  "schema": "llmlang-rt24-lfs-object-admission/1",
+  "python": "3.12.14",
+  "git": "git version 2.52.0",
+  "lfs": "git-lfs/3.6.1 (GitHub; linux amd64; go 1.24.4)",
+  "source_sha256": "7bfaebeaf1d1f1c82ea3f2d6be9196461be3874a7eb1e39eff872db77fb629f6",
+  "scenarios": 14,
+  "commits": {
+    "main": "e75079b0fc1c4c48b6d8312bd70157dbaf0abf78",
+    "old": "c0943a9eeeffbedf442aa3b4bb41be9bc0401f2f",
+    "inline": "3d11fbf1330b74b1013cbe1a7cf0a9fe9643f7c0",
+    "wrong-manifest": "8e551a7e8df8c97f1665b7cbd24278ddd31c3ac6",
+    "wrong-size": "d24065ca508b61719c19b42ead527a5097ed2740",
+    "invalid-pointer": "337608e9c1e4b33de6a4321ba5d3d63dc8b3b498"
+  },
+  "inputs": [
+    -7,
+    -1,
+    0,
+    13
+  ],
+  "metrics": {
+    "git_blob": {
+      "exact": 1,
+      "wrong_acceptance": 0,
+      "available_refused": 6,
+      "expected_refusal": 7
+    },
+    "worktree": {
+      "exact": 3,
+      "wrong_acceptance": 2,
+      "available_refused": 3,
+      "expected_refusal": 6
+    },
+    "worktree_path_cache": {
+      "exact": 4,
+      "wrong_acceptance": 6,
+      "available_refused": 2,
+      "expected_refusal": 2
+    },
+    "exact": {
+      "exact": 7,
+      "wrong_acceptance": 0,
+      "available_refused": 0,
+      "expected_refusal": 7
+    }
+  },
+  "observations": [
+    {
+      "case": "inline_git_object",
+      "snapshot": "inline",
+      "commit": "3d11fbf1330b74b1013cbe1a7cf0a9fe9643f7c0",
+      "object": "9c3344649849a3a37eece13c69ff5ef6918c1bc5",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "inline",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+      "worktree_payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+      "native_lfs_media": false,
+      "archive_contains_media": true,
+      "filtered_archive_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+      "raw_archive_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 1,
+      "native_worktree_pointer_check": 1,
+      "expected": "exact",
+      "policies": {
+        "git_blob": {
+          "status": "accepted",
+          "receipt": "git",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        },
+        "worktree": {
+          "status": "accepted",
+          "receipt": "worktree",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        },
+        "worktree_path_cache": {
+          "status": "accepted",
+          "receipt": "worktree",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        },
+        "exact": {
+          "status": "accepted",
+          "receipt": "git-inline",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "native_smudged_clone",
+      "snapshot": "main",
+      "commit": "e75079b0fc1c4c48b6d8312bd70157dbaf0abf78",
+      "object": "51119d078bc8df6fb34fd98ee3c36c734dca6c22",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "worktree_payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+      "native_lfs_media": true,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "smudged_archive_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 1,
+      "expected": "exact",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "worktree": {
+          "status": "accepted",
+          "receipt": "worktree",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        },
+        "worktree_path_cache": {
+          "status": "accepted",
+          "receipt": "worktree",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        },
+        "exact": {
+          "status": "accepted",
+          "receipt": "native-lfs-media",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "pointer_only_clone",
+      "snapshot": "main",
+      "commit": "e75079b0fc1c4c48b6d8312bd70157dbaf0abf78",
+      "object": "51119d078bc8df6fb34fd98ee3c36c734dca6c22",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "worktree_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "native_lfs_media": false,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 0,
+      "expected": "unavailable",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree_path_cache": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "exact": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "fetch_pinned_media_without_checkout",
+      "snapshot": "main",
+      "commit": "e75079b0fc1c4c48b6d8312bd70157dbaf0abf78",
+      "object": "51119d078bc8df6fb34fd98ee3c36c734dca6c22",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "worktree_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "native_lfs_media": true,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 0,
+      "expected": "exact",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "worktree": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "worktree_path_cache": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "exact": {
+          "status": "accepted",
+          "receipt": "native-lfs-media",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "native_lfs_pull",
+      "snapshot": "main",
+      "commit": "e75079b0fc1c4c48b6d8312bd70157dbaf0abf78",
+      "object": "51119d078bc8df6fb34fd98ee3c36c734dca6c22",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "worktree_payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+      "native_lfs_media": true,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 1,
+      "expected": "exact",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "worktree": {
+          "status": "accepted",
+          "receipt": "worktree",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        },
+        "worktree_path_cache": {
+          "status": "accepted",
+          "receipt": "worktree",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        },
+        "exact": {
+          "status": "accepted",
+          "receipt": "native-lfs-media",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "fetch_historic_media_after_tip_moved",
+      "snapshot": "old",
+      "commit": "c0943a9eeeffbedf442aa3b4bb41be9bc0401f2f",
+      "object": "fbdc66bad54a6e990512ed908cae83c891a90f1f",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "a803e4386bec7cf53260c86f111174ff672fa07be62e55c0d23dc6fdbae6aa51"
+      },
+      "git_payload_sha256": "1e3c3c9bd794e04da974622af69df3920f12fedf02b1ea7daaa05688f745e9ea",
+      "worktree_payload_sha256": "1e3c3c9bd794e04da974622af69df3920f12fedf02b1ea7daaa05688f745e9ea",
+      "native_lfs_media": true,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "1e3c3c9bd794e04da974622af69df3920f12fedf02b1ea7daaa05688f745e9ea",
+      "raw_archive_sha256": "1e3c3c9bd794e04da974622af69df3920f12fedf02b1ea7daaa05688f745e9ea",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 0,
+      "expected": "exact",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "worktree": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "worktree_path_cache": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "exact": {
+          "status": "accepted",
+          "receipt": "native-lfs-media",
+          "payload_sha256": "a803e4386bec7cf53260c86f111174ff672fa07be62e55c0d23dc6fdbae6aa51",
+          "delta": 11,
+          "semantic_root": "7bbc9bde7b0be1c72f0c95b473f2b239084d971c325ddbc53358096bb6480478",
+          "values": [
+            4,
+            10,
+            11,
+            24
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "dirty_media_worktree",
+      "snapshot": "main",
+      "commit": "e75079b0fc1c4c48b6d8312bd70157dbaf0abf78",
+      "object": "51119d078bc8df6fb34fd98ee3c36c734dca6c22",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "worktree_payload_sha256": "a803e4386bec7cf53260c86f111174ff672fa07be62e55c0d23dc6fdbae6aa51",
+      "native_lfs_media": true,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 1,
+      "expected": "exact",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "worktree": {
+          "status": "accepted",
+          "receipt": "worktree",
+          "payload_sha256": "a803e4386bec7cf53260c86f111174ff672fa07be62e55c0d23dc6fdbae6aa51",
+          "delta": 11,
+          "semantic_root": "7bbc9bde7b0be1c72f0c95b473f2b239084d971c325ddbc53358096bb6480478",
+          "values": [
+            4,
+            10,
+            11,
+            24
+          ],
+          "class": "wrong_acceptance"
+        },
+        "worktree_path_cache": {
+          "status": "accepted",
+          "receipt": "worktree",
+          "payload_sha256": "a803e4386bec7cf53260c86f111174ff672fa07be62e55c0d23dc6fdbae6aa51",
+          "delta": 11,
+          "semantic_root": "7bbc9bde7b0be1c72f0c95b473f2b239084d971c325ddbc53358096bb6480478",
+          "values": [
+            4,
+            10,
+            11,
+            24
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact": {
+          "status": "accepted",
+          "receipt": "native-lfs-media",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "verified_separate_media_cache",
+      "snapshot": "main",
+      "commit": "e75079b0fc1c4c48b6d8312bd70157dbaf0abf78",
+      "object": "51119d078bc8df6fb34fd98ee3c36c734dca6c22",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "worktree_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "native_lfs_media": false,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 0,
+      "expected": "exact",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "worktree": {
+          "status": "unavailable",
+          "class": "available_refused"
+        },
+        "worktree_path_cache": {
+          "status": "accepted",
+          "receipt": "path-cache",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        },
+        "exact": {
+          "status": "accepted",
+          "receipt": "separate-verified-media-cache",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "exact"
+        }
+      }
+    },
+    {
+      "case": "stale_media_path_cache",
+      "snapshot": "main",
+      "commit": "e75079b0fc1c4c48b6d8312bd70157dbaf0abf78",
+      "object": "51119d078bc8df6fb34fd98ee3c36c734dca6c22",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "worktree_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "native_lfs_media": false,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 0,
+      "expected": "unavailable",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree_path_cache": {
+          "status": "accepted",
+          "receipt": "path-cache",
+          "payload_sha256": "a803e4386bec7cf53260c86f111174ff672fa07be62e55c0d23dc6fdbae6aa51",
+          "delta": 11,
+          "semantic_root": "7bbc9bde7b0be1c72f0c95b473f2b239084d971c325ddbc53358096bb6480478",
+          "values": [
+            4,
+            10,
+            11,
+            24
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "incorrect_media_in_application_cache",
+      "snapshot": "main",
+      "commit": "e75079b0fc1c4c48b6d8312bd70157dbaf0abf78",
+      "object": "51119d078bc8df6fb34fd98ee3c36c734dca6c22",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "worktree_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "native_lfs_media": false,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 0,
+      "expected": "corrupt",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree_path_cache": {
+          "status": "accepted",
+          "receipt": "path-cache",
+          "payload_sha256": "a803e4386bec7cf53260c86f111174ff672fa07be62e55c0d23dc6fdbae6aa51",
+          "delta": 11,
+          "semantic_root": "7bbc9bde7b0be1c72f0c95b473f2b239084d971c325ddbc53358096bb6480478",
+          "values": [
+            4,
+            10,
+            11,
+            24
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact": {
+          "status": "corrupt",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "canonical_pointer_with_wrong_size",
+      "snapshot": "wrong-size",
+      "commit": "d24065ca508b61719c19b42ead527a5097ed2740",
+      "object": "e6aa8b4783bfad2939f34fb770931daa9faf2c6a",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "3fd52c5f292f7c805e29bcb3d9873f118a508f9b692bc151cb4544ab3e0fca14",
+      "worktree_payload_sha256": "3fd52c5f292f7c805e29bcb3d9873f118a508f9b692bc151cb4544ab3e0fca14",
+      "native_lfs_media": false,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "3fd52c5f292f7c805e29bcb3d9873f118a508f9b692bc151cb4544ab3e0fca14",
+      "raw_archive_sha256": "3fd52c5f292f7c805e29bcb3d9873f118a508f9b692bc151cb4544ab3e0fca14",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 0,
+      "expected": "corrupt",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree_path_cache": {
+          "status": "accepted",
+          "receipt": "path-cache",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact": {
+          "status": "corrupt",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "conflicting_manifest_digest",
+      "snapshot": "wrong-manifest",
+      "commit": "8e551a7e8df8c97f1665b7cbd24278ddd31c3ac6",
+      "object": "51119d078bc8df6fb34fd98ee3c36c734dca6c22",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "a803e4386bec7cf53260c86f111174ff672fa07be62e55c0d23dc6fdbae6aa51"
+      },
+      "git_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "worktree_payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+      "native_lfs_media": true,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 1,
+      "expected": "binding",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree": {
+          "status": "accepted",
+          "receipt": "worktree",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "wrong_acceptance"
+        },
+        "worktree_path_cache": {
+          "status": "accepted",
+          "receipt": "worktree",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact": {
+          "status": "binding",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "authorized_origin_unavailable",
+      "snapshot": "main",
+      "commit": "e75079b0fc1c4c48b6d8312bd70157dbaf0abf78",
+      "object": "51119d078bc8df6fb34fd98ee3c36c734dca6c22",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "worktree_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "native_lfs_media": false,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 0,
+      "native_worktree_pointer_check": 0,
+      "expected": "unavailable",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree_path_cache": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "exact": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        }
+      }
+    },
+    {
+      "case": "unsupported_pointer_grammar",
+      "snapshot": "invalid-pointer",
+      "commit": "337608e9c1e4b33de6a4321ba5d3d63dc8b3b498",
+      "object": "ed0c4bd30a8fb6b3cdabad93f5b98936888ef898",
+      "manifest": {
+        "artifact": "graph/delta.bin",
+        "codec": "lfs",
+        "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e"
+      },
+      "git_payload_sha256": "9cc8db97e57c27dd741bc35edd5027fa52d2788a537be688117cd458153d540a",
+      "worktree_payload_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "native_lfs_media": false,
+      "archive_contains_media": false,
+      "filtered_archive_sha256": "c0ba32685876a16ed14a16f3496fbb571d04c64098aa81e80a96fe3a8340e3ce",
+      "raw_archive_sha256": "9cc8db97e57c27dd741bc35edd5027fa52d2788a537be688117cd458153d540a",
+      "smudged_archive_sha256": null,
+      "native_git_pointer_check": 2,
+      "native_worktree_pointer_check": 0,
+      "expected": "pointer",
+      "policies": {
+        "git_blob": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree": {
+          "status": "unavailable",
+          "class": "expected_refusal"
+        },
+        "worktree_path_cache": {
+          "status": "accepted",
+          "receipt": "path-cache",
+          "payload_sha256": "1d2cf3baa7ccca7c951110750819f3fcc217fcf90637671f87d25f462701750e",
+          "delta": 17,
+          "semantic_root": "8d2cffe6c79ebe554858d2528ad10b913e83ebc4549b155e01c6e58aaf2367e2",
+          "values": [
+            10,
+            16,
+            17,
+            30
+          ],
+          "class": "wrong_acceptance"
+        },
+        "exact": {
+          "status": "pointer",
+          "class": "expected_refusal"
+        }
+      }
+    }
+  ]
+}
