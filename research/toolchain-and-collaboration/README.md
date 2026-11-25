@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Recent bounded rechecks
 
+- [RT-24 team Git workflow](RT-24/RT-24-TEAM-GIT-WORKFLOW-2026-11-25.md) documents candidate inspection, recovery and publication boundaries.
 - [RT-24 merge validation audit replay](RT-24/RT-24-MERGE-VALIDATION-AUDIT-REPLAY-2026-11-25.md) checks exact validation decisions across equal candidate results.
 - [RT-27 Git journal compaction](RT-27/RT-27-GIT-JOURNAL-COMPACTION-2026-11-25.md) checks exact logical deletion and index recovery from Git.
 - [RT-11 scoped dependency fallback](RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md) — compares conservative recomputation with mixed completeness receipts.
