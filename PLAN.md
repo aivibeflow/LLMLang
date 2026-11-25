@@ -1008,6 +1008,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define transactions and atomic publication of graph revisions.
   - [x] Check six SQLite WAL writer-process exits. Atomic publication preserves a complete selected graph, reverse projection and receipt at both commit boundaries. A split head-first writer exposes an incomplete revision; a stale epoch and wrong-root receipt are withheld. [RT-12 atomic graph publication](research/packages-and-ecosystem/RT-12/RT-12-ATOMIC-GRAPH-PUBLICATION-2026-11-25.md)
 - [ ] Define garbage collection and reachability.
+  - [ ] [WIP] Check external CAS sweep, exact snapshot leases and interrupted collection recovery on `research/all` (#319).
   - [x] Compare six real SQLite WAL schedules for stale mark/sweep, generation recheck, writer exclusion, multiple leases, cycles and incomplete closure. The unchecked plan loses a newly published root; the generation recheck preserves it after retry. External CAS lifetime and recovery remain open. [RT-12 reachability sweep](research/packages-and-ecosystem/RT-12/RT-12-REACHABILITY-SWEEP-2026-11-25.md)
 - [x] Define crash recovery, corruption detection, backup, and replication.
   - [x] Check 20 incremental replica controls. A follower process exit leaves the old graph visible, exact retries and corruption repair succeed, and current verified read authority remains distinct from writer takeover. [Graph replica recovery](research/packages-and-ecosystem/RT-12/RT-12-GRAPH-REPLICA-RECOVERY-2026-11-25.md)
