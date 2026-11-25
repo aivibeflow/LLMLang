@@ -1,0 +1,81 @@
+{
+  "archives": {
+    "context-switch": {
+      "kind": "linked-instructions-and-qemu",
+      "path": "RT-38/riscv-cooperative-scheduler/results.json",
+      "sha256": "7da305cf16e12a4af1d5af6c09a35704cf59984ef2a0e404ecac76eba9adc9be"
+    },
+    "entry-and-trap": {
+      "kind": "executable-closure-and-qemu",
+      "path": "RT-38/riscv-trap-isolation/results.json",
+      "sha256": "85da5d657f38458e4711c07e3251df5b5589bbe811ed3193ab3192d07d81a41f"
+    },
+    "frame-allocation": {
+      "kind": "separate-model-and-qemu",
+      "path": "RT-38/riscv-frame-allocator/results.json",
+      "sha256": "b15efcf031103fc7674ce5072fca74fb214b2ac0ecab15d8657a6945aced7932"
+    },
+    "ipc-delegation": {
+      "kind": "qemu",
+      "path": "RT-38/riscv-ipc/results.json",
+      "sha256": "3c95f46a9963fff006f2343f9a65196a054365570d02d001fb9b24099d2da7ef"
+    },
+    "isolated-ipc": {
+      "kind": "linked-instructions-and-qemu",
+      "path": "RT-38/riscv-address-spaces/results.json",
+      "sha256": "0c045255e1bd4e0b63ec2c18dc1295507d5f7952aee8df3f507b48ded5c47e44"
+    },
+    "local-translation": {
+      "kind": "linked-instructions-and-qemu",
+      "path": "RT-38/riscv-sv39-remap/results.json",
+      "sha256": "b63f80a6b7840ff36b5afa06742cf67d7dad9dd8ece4a68e97d535f5ea8edf5e"
+    },
+    "startup-closure": {
+      "kind": "shared-method-only",
+      "path": "RT-37/cortex-m3-closure/results.json",
+      "sha256": "5a08105beed3167742bf49f044aac08b1285ef74dc60fdebc64a6f17158009f9"
+    }
+  },
+  "limits": [
+    "physical-hardware",
+    "multi-hart",
+    "smp-shootdown",
+    "dma",
+    "preemption",
+    "blocking",
+    "live-allocator-map-composition",
+    "hosted-imports",
+    "source-to-linked-refinement",
+    "arbitrary-asid-width-or-reuse",
+    "fpu-and-vector-context",
+    "supervisor-kernel-entry"
+  ],
+  "pinned_sources": {
+    "RT-38/riscv-address-spaces/address_space.py": "4279b9a63f89a8008a8bfee83bd87e44b09aaa288085cb9935e928242da0c847",
+    "RT-38/riscv-address-spaces/run.py": "d50cba0762c59be3d41f9c6c83814005557bf5402b96a0c7048833b4c62361bd",
+    "RT-38/riscv-cooperative-scheduler/boot.s": "cc872c1bedf92e86c5ee116dabbff5529a4524fa21bb29d20ac010d2d60bef27",
+    "RT-38/riscv-cooperative-scheduler/run.py": "e6d1f13de085b31bcff663497005ca3459470fcab4102852ee54524ceb225603",
+    "RT-38/riscv-trap-isolation/run.py": "82e7a733660f259da0df298a146abf06ff2915aad0ea1a07defdc185d7dc589b"
+  },
+  "platform": {
+    "abi": "lp64",
+    "bios": "none",
+    "cpu": "rv64",
+    "guest_hosted_runtime": false,
+    "harts": 1,
+    "instruction_attributes": [
+      "zicsr",
+      "zifencei"
+    ],
+    "kernel_entry": "0x80000000",
+    "machine": "virt",
+    "memory_mib": 64,
+    "target": "riscv64-unknown-none-elf"
+  },
+  "profile": "rv64-qemu-virt-single-hart-pilot/1",
+  "toolchain": {
+    "llvm": "19.1.7",
+    "qemu": "10.0.13",
+    "qemu_source": "98f88efe8f07067667b8d9b1a5ce9551d34036c1"
+  }
+}

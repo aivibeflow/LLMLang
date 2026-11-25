@@ -1,0 +1,27 @@
+{
+  "archived_image_rows": {
+    "context-switch": 11,
+    "entry-and-trap": 5,
+    "frame-allocation": 5,
+    "ipc-delegation": 3,
+    "isolated-ipc": 5,
+    "local-translation": 4,
+    "startup-closure": 5
+  },
+  "distinct_rv64_elf_digests": 33,
+  "profile_sha256": "7b34a7d13c039a9235d619e9b3e23ee6d582e140aa5ff2aa1a2e452aeee55126",
+  "runner_sha256": "6c6f0f2ec8fdf06a40976748c4363d02ddbdb13e2fe362c892a626d29e1d317f",
+  "scope_controls": {
+    "rv64-physical/isolated-ipc": "outside-profile",
+    "rv64-qemu-single-hart/entry-and-trap": "executable-closure-and-qemu",
+    "rv64-qemu-single-hart/frame-allocation": "separate-model-and-qemu",
+    "rv64-qemu-single-hart/isolated-ipc": "linked-instructions-and-qemu",
+    "rv64-qemu-single-hart/new-linker-profile": "unknown-evidence",
+    "rv64-qemu-single-hart/preemption": "outside-profile",
+    "rv64-qemu-single-hart/source-to-linked-refinement": "outside-profile",
+    "rv64-qemu-single-hart/startup-closure": "shared-method-only",
+    "rv64-qemu-single-hart/supervisor-kernel-entry": "outside-profile",
+    "rv64-qemu-smp/isolated-ipc": "outside-profile"
+  },
+  "verified_archive_count": 7
+}
