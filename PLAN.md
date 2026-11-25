@@ -927,7 +927,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define semantic diff independently of textual diff and AST diff.
 - [ ] Define three-way merge over semantic graph snapshots.
 - [ ] Define conflict classes: same-node edits, contract/implementation divergence, identity collisions, dependency conflicts, split/merge conflicts, and metadata-only conflicts.
-- [ ] Define automatic merge when changes are provably independent.
+- [ ] Define automatic merge when changes are provably independent. [WIP] — check read/write independence and post-merge invariants in a closed semantic edit model on `research/all`.
 - [ ] Define conservative conflict behavior when independence cannot be established.
 - [ ] Define interactive conflict resolution and preservation of both alternatives.
 - [ ] Define post-merge validation: graph integrity, type checking, contract checking, dependency completeness, tests, and proofs.
