@@ -1,0 +1,2447 @@
+{
+  "audit_environment": {
+    "git": "git version 2.56.1",
+    "python": "3.12.14"
+  },
+  "baseline": "d2e32df3ff25ef28dc66750b3e14e777d7cd7d35",
+  "identity_outcome_counts": {
+    "generated-source-requires-replay": 25,
+    "match": 120,
+    "outside-flat-sha256-shape": 7
+  },
+  "ledger_count": 138,
+  "ledgers": [
+    {
+      "git_blob": "f7fdd9bcfbe5309f44153c3613f637f4bec11054",
+      "identity_observations": [
+        {
+          "actual_sha256": "fca9beb29b778cbefcb1f255cb918432bf86831190b21c1260b892647cacd1fa",
+          "expected_sha256": "fca9beb29b778cbefcb1f255cb918432bf86831190b21c1260b892647cacd1fa",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "8b2dd2e20753d7ade3968a870ff82906abef7e83",
+          "label": "Probe.java",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/Probe.java"
+        },
+        {
+          "actual_sha256": "84cbe798bf6f03970ea38815210dc777ad4fb7381bf3782fdef4e66d209bdcf9",
+          "expected_sha256": "84cbe798bf6f03970ea38815210dc777ad4fb7381bf3782fdef4e66d209bdcf9",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "39693352032ca084711c45362d492aa8b7ac4e6d",
+          "label": "probe.c",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/probe.c"
+        },
+        {
+          "actual_sha256": "fa728d5f380e734ce7a1c6b1d4f7b0bb98a1b59e8ec6e617e88a27a4d355ce66",
+          "expected_sha256": "fa728d5f380e734ce7a1c6b1d4f7b0bb98a1b59e8ec6e617e88a27a4d355ce66",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "c35fe01f224c9485d70622930ec57d40cf3dbb36",
+          "label": "probe.rs",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/probe.rs"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "913383e7ab152d78c7354ec27f3c90e6e9b082f3",
+      "identity_observations": [],
+      "path": "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "fa49d1dedd237d3db1a957155e33fea3f368b13d",
+      "identity_observations": [
+        {
+          "actual_sha256": "ff3ea2bed694089d60db9d337d9b3b00cb37502c807a89b35063bc9627745306",
+          "expected_sha256": "ff3ea2bed694089d60db9d337d9b3b00cb37502c807a89b35063bc9627745306",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "cfb725bd2cc3e621bb9f952ef6c069db82183894",
+          "label": "caller.c",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/BY-VALUE-CALL-ABI-01/caller.c"
+        },
+        {
+          "actual_sha256": "af2da2c2e9217b6ba428cf407ddf9e68146c6bf4c3f5238209f82f0cc529557e",
+          "expected_sha256": "af2da2c2e9217b6ba428cf407ddf9e68146c6bf4c3f5238209f82f0cc529557e",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "b9dd1360434bf6c31d1c08be6ac3b5ccf7c64786",
+          "label": "caller.rs",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/BY-VALUE-CALL-ABI-01/caller.rs"
+        },
+        {
+          "actual_sha256": "8456b056be8ff1df2e6c870fb18095296ea68bcd4dccc7272440f1dcad711ae6",
+          "expected_sha256": "8456b056be8ff1df2e6c870fb18095296ea68bcd4dccc7272440f1dcad711ae6",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "c45081d7653f6135bc20bebb1e42a0bf12e97035",
+          "label": "provider.c",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/BY-VALUE-CALL-ABI-01/provider.c"
+        },
+        {
+          "actual_sha256": "2d6879a2ccc488000702483fe18ad5795c606857e868f54cdc9792f8e6ad862b",
+          "expected_sha256": "2d6879a2ccc488000702483fe18ad5795c606857e868f54cdc9792f8e6ad862b",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "473d4a5350252fd5361fa25f54c03ea0591855be",
+          "label": "provider.h",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/BY-VALUE-CALL-ABI-01/provider.h"
+        },
+        {
+          "actual_sha256": "1ed2d82cb30a11c395bf9b7bb6417bf0ff2764ed608b2004508596e89d0344e6",
+          "expected_sha256": "1ed2d82cb30a11c395bf9b7bb6417bf0ff2764ed608b2004508596e89d0344e6",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "df53a9ac5fa84003da7b2b6662dc9e6cf9a2f859",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/BY-VALUE-CALL-ABI-01/run.py"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/BY-VALUE-CALL-ABI-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "4b6c560da0456037456bca424b770cdda1c12bc2",
+      "identity_observations": [
+        {
+          "actual_sha256": "ab39375a7add1a915083c3084bdca6d21dc9d18d2d8adb2f0e103e25ed90c65a",
+          "expected_sha256": "ab39375a7add1a915083c3084bdca6d21dc9d18d2d8adb2f0e103e25ed90c65a",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "664e06bacbb90b7a684ce8cc53061d04874e4149",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/DWARF-ORIGINS-01/run.py"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/DWARF-ORIGINS-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "59ac9e755626988acbd8150ca2096f1fca858a80",
+      "identity_observations": [],
+      "path": "research/compiler-and-translation/RT-13/GENERATED-CPP-INTEGERS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "d41838cf6a46e8903cb378b30c2ab14e06081f55",
+      "identity_observations": [],
+      "path": "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "4f19c6d60b45611a2284d72f8aa8f2806dd1b86a",
+      "identity_observations": [],
+      "path": "research/compiler-and-translation/RT-13/GENERATED-GO-OWNERSHIP-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "1e541fe1887dcf8bd872c0aa6b6bbc8819b1f4e7",
+      "identity_observations": [],
+      "path": "research/compiler-and-translation/RT-13/GENERATED-JAVA-INTEGERS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "8527f94645413be01b0618262684c832a580d325",
+      "identity_observations": [
+        {
+          "actual_sha256": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+          "expected_sha256": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+          "explicit_path_alias": true,
+          "field": "input_sources_sha256",
+          "git_blob": "aa0d691782368e3722fd7afecb03dd0c6ee2b797",
+          "label": "integer_fixture.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py"
+        },
+        {
+          "actual_sha256": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a",
+          "expected_sha256": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a",
+          "explicit_path_alias": true,
+          "field": "input_sources_sha256",
+          "git_blob": "db0566b96eb866b04f4d41219e41ac9f7adc031c",
+          "label": "llvm_integer_probe.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py"
+        },
+        {
+          "actual_sha256": "37bf696956ea2899bebf8cdd66ab488ac95d7bc16db4465d2e1766f3acdd2074",
+          "expected_sha256": "37bf696956ea2899bebf8cdd66ab488ac95d7bc16db4465d2e1766f3acdd2074",
+          "explicit_path_alias": false,
+          "field": "input_sources_sha256",
+          "git_blob": "6bc6b48f62dbfb1d03f46a97d80cc40c98a4773f",
+          "label": "lower_rust.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/GENERATED-RUST-INTEGERS-01/lower_rust.py"
+        },
+        {
+          "actual_sha256": "2d818461d81a4596e2849386e9df41ba142efc584efd12d1a63b9d174da563b1",
+          "expected_sha256": "2d818461d81a4596e2849386e9df41ba142efc584efd12d1a63b9d174da563b1",
+          "explicit_path_alias": false,
+          "field": "input_sources_sha256",
+          "git_blob": "1282a21fd5b9e5590a287aa1909d3008d29dd4ac",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/GENERATED-RUST-INTEGERS-01/run.py"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/GENERATED-RUST-INTEGERS-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "091b3cceec82fa00b575933591b0ed48ee3da9df",
+      "identity_observations": [
+        {
+          "actual_sha256": "8b593097391a44cf9de7da8d782750e0caef4c21d24edbcf1c9c671e765b7e49",
+          "expected_sha256": "8b593097391a44cf9de7da8d782750e0caef4c21d24edbcf1c9c671e765b7e49",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "a3718e3477676eb7f175280f594e64ee8f6cee1b",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/run.py"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "d0dd8baec4213972e8d0e3129b82fbe7523b5f28",
+      "identity_observations": [
+        {
+          "actual_sha256": "237cba5216bfe5350b896b8924f562d1169af4e6b9a9e1753009c029539effd9",
+          "expected_sha256": "237cba5216bfe5350b896b8924f562d1169af4e6b9a9e1753009c029539effd9",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "f954b5b7a45c065610845bff7480e1602e14799e",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-SYMBOLIC-01/run.py"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-SYMBOLIC-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "5d78b81657a3fb370e930f869d5ef380a6b2e365",
+      "identity_observations": [
+        {
+          "expected_sha256": "844e56ad44e8f30fc9eacf3d1e25a294fdd9c05140926f15ca8734c9848ec1cb",
+          "field": "source_sha256",
+          "label": "generated_header",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "2fdcc9ebf3a569a9e340a5f32c270a5017e4d433edda3d6df85b35ab0d5e9b3d",
+          "field": "source_sha256",
+          "label": "generated_ir",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "actual_sha256": "4d7d3ca0ff343c7652efdfb04983b78be33ab6257cbadbc2760b015057450cac",
+          "expected_sha256": "4d7d3ca0ff343c7652efdfb04983b78be33ab6257cbadbc2760b015057450cac",
+          "explicit_path_alias": true,
+          "field": "source_sha256",
+          "git_blob": "db2dc24ea9e9426abfe2d4f6cea653da4b46b5b9",
+          "label": "host_c",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/LLVM-DYNAMIC-ROUNDING-01/host.c"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/LLVM-DYNAMIC-ROUNDING-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "060e2e0a2c16295ecc31426b9115645a40471156",
+      "identity_observations": [
+        {
+          "actual_sha256": "5990c6083f41c058ef36e2aef6b07cd648a6b57f5c111e5aef0c782e0476e260",
+          "expected_sha256": "5990c6083f41c058ef36e2aef6b07cd648a6b57f5c111e5aef0c782e0476e260",
+          "explicit_path_alias": true,
+          "field": "source_sha256",
+          "git_blob": "7858a6c76df5b0b79766cd359b87bd8e39b76eca",
+          "label": "evidence.json",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/F64-I64-CONVERSION-01/evidence.json"
+        },
+        {
+          "actual_sha256": "33da72f3d42886fb06ba19578c466d7c576409b38456af03710b338bdffc7063",
+          "expected_sha256": "33da72f3d42886fb06ba19578c466d7c576409b38456af03710b338bdffc7063",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "a66e54cfbac9a75bc3ccb281eb3dc5b2765701f0",
+          "label": "lowerings.ll",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/LLVM-F64-I64-LOWERING-01/lowerings.ll"
+        },
+        {
+          "actual_sha256": "ec7cd3199bcffb5532d83d65adfb8cff7d2168f4addc578d0d132e4fbd7e20c1",
+          "expected_sha256": "ec7cd3199bcffb5532d83d65adfb8cff7d2168f4addc578d0d132e4fbd7e20c1",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "e4d1619eae5763fe1b085a412b5d81c5c87ee2e2",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/LLVM-F64-I64-LOWERING-01/run.py"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/LLVM-F64-I64-LOWERING-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "a38ac0acef15acbaec3d07ce05006cc548febcd8",
+      "identity_observations": [
+        {
+          "actual_sha256": "2516eb41640881f49e93a178fff676d19fd29c779c61bdc19086c6097fa0f605",
+          "expected_sha256": "2516eb41640881f49e93a178fff676d19fd29c779c61bdc19086c6097fa0f605",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "24d71ab9bdf2c21c2a58c5d9553f1fde8b6e0b0c",
+          "label": "host.c",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01/host.c"
+        },
+        {
+          "actual_sha256": "138f20fb669b86806a00e56d0ca54b9ea3337a4581b469ee0e47577281973ecc",
+          "expected_sha256": "138f20fb669b86806a00e56d0ca54b9ea3337a4581b469ee0e47577281973ecc",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "fd65dd28f5062992ddf3565141f0023882c8744f",
+          "label": "operations.ll",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01/operations.ll"
+        },
+        {
+          "actual_sha256": "a1c280d533073037061b313c8cd68c55dbbcfc303cd618be10efcbf21cab23ce",
+          "expected_sha256": "a1c280d533073037061b313c8cd68c55dbbcfc303cd618be10efcbf21cab23ce",
+          "explicit_path_alias": true,
+          "field": "source_sha256",
+          "git_blob": "b779e3a51eeb955476b5f107c24f5cfe913e33f6",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/run.py"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "4d4acbf08cdd69a6d4413d1e97a23d46914fb92c",
+      "identity_observations": [
+        {
+          "actual_sha256": "e7ab51a686648cda6d6f97dfc9e3bda0312ba47c6d9e763458f750abf7792cd6",
+          "expected_sha256": "e7ab51a686648cda6d6f97dfc9e3bda0312ba47c6d9e763458f750abf7792cd6",
+          "explicit_path_alias": false,
+          "field": "sources_sha256",
+          "git_blob": "d372d6ac5d60357526e45c33db12375d383139fa",
+          "label": "host.c",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/LLVM-ROUNDING-LTO-01/host.c"
+        },
+        {
+          "actual_sha256": "7fc305509151bc44fca082b8f96f7c0f56bdca13fa97571e7b8f26c1e27c4a69",
+          "expected_sha256": "7fc305509151bc44fca082b8f96f7c0f56bdca13fa97571e7b8f26c1e27c4a69",
+          "explicit_path_alias": false,
+          "field": "sources_sha256",
+          "git_blob": "4f07b648d0b731a5814dd632f81d6d9ca46286f4",
+          "label": "operation.ll",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/LLVM-ROUNDING-LTO-01/operation.ll"
+        },
+        {
+          "actual_sha256": "1f3dac13ee440cbb57a63bc14a77a8a12804ba95cb1adf3d4f7d7710c7607152",
+          "expected_sha256": "1f3dac13ee440cbb57a63bc14a77a8a12804ba95cb1adf3d4f7d7710c7607152",
+          "explicit_path_alias": false,
+          "field": "sources_sha256",
+          "git_blob": "40d850408c51ecc5d292e163516965a8ece7e88b",
+          "label": "wrappers.ll",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/LLVM-ROUNDING-LTO-01/wrappers.ll"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/LLVM-ROUNDING-LTO-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "f0c6e6adac0b914c518cd9f66b7381265a3dfeaa",
+      "identity_observations": [],
+      "path": "research/compiler-and-translation/RT-13/LLVM-ROUNDING-VERSIONS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "d3c95ae6e50923d3c0fe4e0229fd6c86196a2361",
+      "identity_observations": [],
+      "path": "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "076a6f8be78917bfedddff657986684724fd9e50",
+      "identity_observations": [],
+      "path": "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "d3ddd35f6a6a1bfa808c48895d76a40274bddcef",
+      "identity_observations": [
+        {
+          "actual_sha256": "3646453b3fbd7bd09a77ff5feaa8ff6315b5cf44ab43fbe4f344d30c1326419a",
+          "expected_sha256": "3646453b3fbd7bd09a77ff5feaa8ff6315b5cf44ab43fbe4f344d30c1326419a",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "3a097d2104373c5f55afbbcc1bae62f262629b17",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/compiler-and-translation/RT-13/NATIVE-RECORD-LAYOUT-01/run.py"
+        }
+      ],
+      "path": "research/compiler-and-translation/RT-13/NATIVE-RECORD-LAYOUT-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "7a4db389433d97ae789f31a0b7570008f2a3b2cb",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-07/AFFINE-CERTIFICATES-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "9cc1792d1330fa81feb75a54de3076780fc07c0d",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-07/DAFNY-CONCURRENT-FRAME-HISTORY-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "8827148a40b5e82423441a1c48df91c9d93742e9",
+      "identity_observations": [
+        {
+          "actual_sha256": "060dc44b1c730318f462f3361b3ff91b45be9a3d988f0576363f5df877fc87b5",
+          "expected_sha256": "060dc44b1c730318f462f3361b3ff91b45be9a3d988f0576363f5df877fc87b5",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "c2b27122d07c48492f9324a5c7b99b38ff19b5af",
+          "label": "Lookup.dfy",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-07/DAFNY-KERNEL-FOREIGN-BOUNDARY-01/Lookup.dfy"
+        },
+        {
+          "actual_sha256": "e9a07a3e9bb8a26fe328a22ad521072f2c29ff4951ecba2549dc0df3e0d5be36",
+          "expected_sha256": "e9a07a3e9bb8a26fe328a22ad521072f2c29ff4951ecba2549dc0df3e0d5be36",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "93a62c7b63224ac4d209f592ddc3adfd495e1b4e",
+          "label": "ffi_bridge.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-07/DAFNY-KERNEL-FOREIGN-BOUNDARY-01/ffi_bridge.py"
+        },
+        {
+          "actual_sha256": "b88f29baae5c039b2efe19fd90237ceba8078f485bc2ec5fd3854016423d8b20",
+          "expected_sha256": "b88f29baae5c039b2efe19fd90237ceba8078f485bc2ec5fd3854016423d8b20",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "5078f5128f25b11993bf98d2d1f4a9783f22f86d",
+          "label": "provider.c",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-07/DAFNY-KERNEL-FOREIGN-BOUNDARY-01/provider.c"
+        },
+        {
+          "actual_sha256": "9d7fc88375a28942470dc71f1963dfb7d773adbede6f219afbaa176a9a5184e0",
+          "expected_sha256": "9d7fc88375a28942470dc71f1963dfb7d773adbede6f219afbaa176a9a5184e0",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "43d2c3957e24950857f00771b905071e1cdd7dbc",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-07/DAFNY-KERNEL-FOREIGN-BOUNDARY-01/run.py"
+        }
+      ],
+      "path": "research/formal-verification/RT-07/DAFNY-KERNEL-FOREIGN-BOUNDARY-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "834997c8bcb81aa48f4cbbd8bd735fccb67fd99d",
+      "identity_observations": [
+        {
+          "actual_sha256": "bec9ff998df1df7aa5d1e1eca3efee69518bdfc8cdc1f20e85dd97767e9c5d58",
+          "expected_sha256": "bec9ff998df1df7aa5d1e1eca3efee69518bdfc8cdc1f20e85dd97767e9c5d58",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "12b37b7415d6d044f9261e8457cf9d9b1baf0daf",
+          "label": "BoundCpc.lean",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-07/DAFNY-MODULAR-PROOF-CLOSURE-01/BoundCpc.lean"
+        },
+        {
+          "actual_sha256": "dfc390c403790c07020b935bef3e32262f09d7ce7cb4f131ffb7d6ce29d4f40a",
+          "expected_sha256": "dfc390c403790c07020b935bef3e32262f09d7ce7cb4f131ffb7d6ce29d4f40a",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "6d6022321cae25a164cc9b24f65c528f4b56429c",
+          "label": "Caller.smt2",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-07/DAFNY-MODULAR-PROOF-CLOSURE-01/Caller.smt2"
+        },
+        {
+          "actual_sha256": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+          "expected_sha256": "a7cb097b9e215069bbad958775199eadbc15979a6682d9700eeeed08f943eb83",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "48b02000ebc652e0b7908eff09b074b54d64c3e0",
+          "label": "Client.dfy",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-07/DAFNY-MODULAR-PROOF-CLOSURE-01/Client.dfy"
+        },
+        {
+          "actual_sha256": "a50d0cba6fed948405cef043d402ad52331a7399f7fa074fde108af90ed7ca0b",
+          "expected_sha256": "a50d0cba6fed948405cef043d402ad52331a7399f7fa074fde108af90ed7ca0b",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "94028cdee6a363d45fd35814be3983510981fd72",
+          "label": "Provider.dfy",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-07/DAFNY-MODULAR-PROOF-CLOSURE-01/Provider.dfy"
+        },
+        {
+          "actual_sha256": "6e04fc82ee4c3aef8648d769f1bc6fc1c279a78bfc66883cd3f479cd83ac7529",
+          "expected_sha256": "6e04fc82ee4c3aef8648d769f1bc6fc1c279a78bfc66883cd3f479cd83ac7529",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "5ad05abf67b62203256800d7fa6c2aed22ebaa6a",
+          "label": "Threshold.lean",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-07/DAFNY-MODULAR-PROOF-CLOSURE-01/Threshold.lean"
+        },
+        {
+          "actual_sha256": "222ab05f73267c5a6d90a642544a81cfc17a612884464ec2b50943052e63d16e",
+          "expected_sha256": "222ab05f73267c5a6d90a642544a81cfc17a612884464ec2b50943052e63d16e",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "a685e2206536d583d43fbb354eae9e21c17c4280",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-07/DAFNY-MODULAR-PROOF-CLOSURE-01/run.py"
+        }
+      ],
+      "path": "research/formal-verification/RT-07/DAFNY-MODULAR-PROOF-CLOSURE-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "381a3baa6d936c1b10045b33b3b601a6494ed933",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "a697d1866b2a852291aaffe86eb8755939a9c570",
+      "identity_observations": [
+        {
+          "actual_sha256": "0b863d2785d52ff7623947c07fedd81fcd9450a03ee0daeadcd2779daacee772",
+          "expected_sha256": "0b863d2785d52ff7623947c07fedd81fcd9450a03ee0daeadcd2779daacee772",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "ef767c6a2194abc59bd0ac5661d373353990b2bd",
+          "label": "Receiver.lean",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-32/BOUND-METHOD-OBSERVATIONS-01/Receiver.lean"
+        },
+        {
+          "actual_sha256": "d6fe8c5e20f6b4c0ac4ebc2a5f03ede6f9ded64911fc3afc7d2613be36db0ec7",
+          "expected_sha256": "d6fe8c5e20f6b4c0ac4ebc2a5f03ede6f9ded64911fc3afc7d2613be36db0ec7",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "82ecd6dbc4590d48affd9424c4d0b21e96a7929b",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-32/BOUND-METHOD-OBSERVATIONS-01/run.py"
+        }
+      ],
+      "path": "research/formal-verification/RT-32/BOUND-METHOD-OBSERVATIONS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "adb1e8068fc1ce8d38cf91bc71b31054262dd41e",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-32/COMPILED-ADMISSION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "3aade48cdf4dcd393a920c38ee428b4a33bc77db",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-32/DEEP-FUEL-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "b7bbba911b59d19aa54be399f22b888928106949",
+      "identity_observations": [
+        {
+          "expected_sha256": "22e4676ea701222e18e120a87c39faf6c8b7a05aa23611811aaa11b4402f25f5",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay0.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "eea4741572956ca9aba29d6ca9bd1a921578c2c9e763c7396c562057b1c5ae78",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay128.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "c56bb8c9676be4385a5ed187253fec1f194aa559d9c4aab3924dc51b0a0e9881",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay192.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "b60f92df314d1fe8ddf2304fe4780335881ba3f65d3b44808c5a09d63db4b732",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay256.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "9668d065d4962b074456711668c6de1ac09a6bbddb885be53797a6645d1fff39",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay320.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "39663c66074f0a54dd7f0c36e7a049029cb364e74414661132bd9d9b5e9bd284",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay384.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "d49396e69cbb80812a276a73b6bb90976e58476a9244cfa55269a15f49e37e19",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay448.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "2f923197871406c1fed387f3ea6adcbc99cbd0d7a149d4020bba8b5e298e5f3a",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay512.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "88eb756bde7659ac0fbf0cc9d1238fefb9ee84bcae91ad391871a3f754d3ef07",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay576.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "037cb8438956a1bc43793a0302eee927dadf367b7957346b116f9fefa35b28b0",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay64.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "67975da76e7c15b35e7720da7964187e8e1622bfde85a4afeddb84f4863fa2ab",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay640.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "b5fc3ba09e44914f56a2b63d89d4aaf9504d4c5e8cc9f241104eab09c8b92732",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay704.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "9ed852165f66d18031a79534dff806019a0762354df99875a913c1f1aff6eced",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay768.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "be98ec07b63f205d7423f21ec65ada1dd7e89bf00d1ded9f4fe1d22228a0a9d8",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay832.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "270d11e3564699af31be7c558ffdbe6d4d4a8e9d1c87d00974bd3d3775714d8f",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay896.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "aa7003e226022cd3a1bd8e4c7483ce2fd7ba057d9c5973a3bbd29fb80f5b42f4",
+          "field": "archive_replay_sources_sha256",
+          "label": "Replay960.lean",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "actual_sha256": "be277eb122f630402966961b36a8fc8c416a30f9c378f38df9b5d2317d5b8efe",
+          "expected_sha256": "be277eb122f630402966961b36a8fc8c416a30f9c378f38df9b5d2317d5b8efe",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "3a98333989a8ea67ce11b4ebd891ba1881719397",
+          "label": "Extrema.lean",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-32/F64-EXTREMA-GUARD-01/Extrema.lean"
+        },
+        {
+          "actual_sha256": "60967639352bbc191dfb18212063c508ddc48423dedda57823d630a0412a62c3",
+          "expected_sha256": "60967639352bbc191dfb18212063c508ddc48423dedda57823d630a0412a62c3",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "c4e461f79f545339f3e07d2bd5806ba0b1f07f89",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-32/F64-EXTREMA-GUARD-01/run.py"
+        }
+      ],
+      "path": "research/formal-verification/RT-32/F64-EXTREMA-GUARD-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "b9021ad7d210d716d9ff00f77a70351e961b3083",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-32/GENERATED-CALL-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "51f142b054a0ded84b52f6309331ca4e9761123a",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-32/I64-BYTE-KERNEL-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "729db813e7ea82cd428ba1dd32f89ca2b7f6fcd7",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-32/LEAN-DEPENDENCIES-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "81eae044282bf2e177264c2d8a2f7232be0eba15",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-32/LOOP-OBLIGATIONS-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "3ab091ac957632fd628725639d41c4ab06b0ee54",
+      "identity_observations": [
+        {
+          "actual_sha256": "c031aff79227e2d0958b89a4db756acbdedf5dc240140cf948cc4ee2922a7615",
+          "expected_sha256": "c031aff79227e2d0958b89a4db756acbdedf5dc240140cf948cc4ee2922a7615",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "2506487ce72d9ed37414a9e19a9ea3eeeb294a2e",
+          "label": "Heap.lean",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-32/MUTABLE-RENAMING-01/Heap.lean"
+        },
+        {
+          "actual_sha256": "1d524792c7de720063e90f368121a3283140e6bf325c90fb72aab78254bfb843",
+          "expected_sha256": "1d524792c7de720063e90f368121a3283140e6bf325c90fb72aab78254bfb843",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "8f4052e6bbf7aa589a5a72da04d18454d5566868",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-32/MUTABLE-RENAMING-01/run.py"
+        }
+      ],
+      "path": "research/formal-verification/RT-32/MUTABLE-RENAMING-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "1c43e219550a2ae5974de8eda4b41c96f3a665a6",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-32/MUTUAL-EFFECTS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "4354d17562dc936f64884d2937484ae79d2c6e79",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-32/MUTUAL-TERMINATION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "cd21933d9c48710add3fa4a204aaf53992c48788",
+      "identity_observations": [
+        {
+          "actual_sha256": "da6b794ee4f6739d79289d0ad1c2d5c55bf335b005971ed6fe491fd040d91fbd",
+          "expected_sha256": "da6b794ee4f6739d79289d0ad1c2d5c55bf335b005971ed6fe491fd040d91fbd",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "4af958d2b25daa6355ed6993adf5ac7e15ffbf4b",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-32/RECORD-OWNERSHIP-01/run.py"
+        }
+      ],
+      "path": "research/formal-verification/RT-32/RECORD-OWNERSHIP-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "1d00050aa26710f14033158966fdf770928f1313",
+      "identity_observations": [
+        {
+          "actual_sha256": "a10c91274a0657e670bf1aeb74074c616a06cb31440c506de82232c6e5d14900",
+          "expected_sha256": "a10c91274a0657e670bf1aeb74074c616a06cb31440c506de82232c6e5d14900",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "819ecf5366f2e4350e0a68c52e68d32ec75f433a",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-32/SOURCE-CLEANUP-KERNEL-01/run.py"
+        }
+      ],
+      "path": "research/formal-verification/RT-32/SOURCE-CLEANUP-KERNEL-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "8df3962855d2b9bf1eb1c953e25876982a303718",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-32/TRANSITIVE-CLOSURE-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "72b78c1f78b92c6a71c1b9338b0c9ca852f5d3dd",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-32/WORKER-CANCEL-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "afa32e7d2026c350177fb6b0c058556107a6ceae",
+      "identity_observations": [
+        {
+          "actual_sha256": "2386ff4a058480b221cf3b4e5dcb554802760f0c31195cec49d9f9bc51ca17fe",
+          "expected_sha256": "2386ff4a058480b221cf3b4e5dcb554802760f0c31195cec49d9f9bc51ca17fe",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "0f5cacbf2c65b1f6a64e6994e0d32f392e95b9d5",
+          "label": "SearchCost.lean",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-34/BINARY-SEARCH-COST-01/SearchCost.lean"
+        },
+        {
+          "actual_sha256": "18431018a59e61d14fe5e2e583bd355badc4e69096e3226450b62a4dd50f3122",
+          "expected_sha256": "18431018a59e61d14fe5e2e583bd355badc4e69096e3226450b62a4dd50f3122",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "2099111b00670aecf12eaa4f54816d2bcf95522d",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-34/BINARY-SEARCH-COST-01/run.py"
+        },
+        {
+          "actual_sha256": "b823982c537107b2d772a19dc4797dcaca6fad313c974daa46416772b9e1443e",
+          "expected_sha256": "b823982c537107b2d772a19dc4797dcaca6fad313c974daa46416772b9e1443e",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "0355a4e218fd01fff8efda7d18f3aa7133fa2fe9",
+          "label": "search.c",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-34/BINARY-SEARCH-COST-01/search.c"
+        }
+      ],
+      "path": "research/formal-verification/RT-34/BINARY-SEARCH-COST-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "dd05ab74755a46af79253054802f834171ce5211",
+      "identity_observations": [
+        {
+          "actual_sha256": "d95310d6458d9830c3338bec1657cc3349c337ed81e37d5fda2944a7f90aa0dc",
+          "expected_sha256": "d95310d6458d9830c3338bec1657cc3349c337ed81e37d5fda2944a7f90aa0dc",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "0733368d9baf43c4b0bf46673086f97d3f938ed7",
+          "label": "CallCost.lean",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-34/CALL-COST-BINDING-01/CallCost.lean"
+        },
+        {
+          "actual_sha256": "0f93ad15319a247df090bb45923b70ff8155b26b57fc731b96525eebcf158e1a",
+          "expected_sha256": "0f93ad15319a247df090bb45923b70ff8155b26b57fc731b96525eebcf158e1a",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "67710ea524ff78561b47bd9d47e50ec498899ff1",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-34/CALL-COST-BINDING-01/run.py"
+        }
+      ],
+      "path": "research/formal-verification/RT-34/CALL-COST-BINDING-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "a0f728a3ebebd9f0ea75a4d5af88fe29cea781ce",
+      "identity_observations": [
+        {
+          "actual_sha256": "3d8bc0d0b07cca86f6cb5902b7dcfd495b977169f87fb464207c3805b389ab6d",
+          "expected_sha256": "3d8bc0d0b07cca86f6cb5902b7dcfd495b977169f87fb464207c3805b389ab6d",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "b47bbc4e073ceb01ba4c67a7a4e8b7e5aed661d2",
+          "label": "MergeCost.lean",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-34/MERGE-RECURRENCE-01/MergeCost.lean"
+        },
+        {
+          "actual_sha256": "0c2fdd535a916e41df93af5fc0640b5e6cd094cd029b493b075c9c9034b9bc2a",
+          "expected_sha256": "0c2fdd535a916e41df93af5fc0640b5e6cd094cd029b493b075c9c9034b9bc2a",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "47c56832cd1c8142b72e1fd36c0a5da2037d32ad",
+          "label": "merge.c",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-34/MERGE-RECURRENCE-01/merge.c"
+        },
+        {
+          "actual_sha256": "42abb41f5e2bcdc242efa76864fb10b0a5429826d112901f61c5aa66c14ffd71",
+          "expected_sha256": "42abb41f5e2bcdc242efa76864fb10b0a5429826d112901f61c5aa66c14ffd71",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "4e263b55b02f7b30d392b85366f4b70fca648370",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/formal-verification/RT-34/MERGE-RECURRENCE-01/run.py"
+        }
+      ],
+      "path": "research/formal-verification/RT-34/MERGE-RECURRENCE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "0af0c5f5ad7cc287417192ed38b9b640a2ce6af3",
+      "identity_observations": [],
+      "path": "research/formal-verification/RT-34/NESTED-LOOP-COST-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "cb88a3894b74f4083506b672564814736f994d21",
+      "identity_observations": [],
+      "path": "research/language-design/RT-01/CLI-ACTION-KEYS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "213fcb7e787cdd6414046e08eb4a48cecbe45a67",
+      "identity_observations": [
+        {
+          "actual_sha256": "ce21e22783df9ac2683bdbba604257608bfa248be6f6adc28b7a54d1377abf32",
+          "expected_sha256": "ce21e22783df9ac2683bdbba604257608bfa248be6f6adc28b7a54d1377abf32",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "53ab846f085678d098413c22a1c2919b00306d81",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/language-design/RT-01/CLI-CALL-SITES-01/run.py"
+        }
+      ],
+      "path": "research/language-design/RT-01/CLI-CALL-SITES-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "a484ee35253200fff4724e567a0df2fd7bbca5ba",
+      "identity_observations": [
+        {
+          "actual_sha256": "f8b64039e47925235611f3acec02d70b69eec90c3c8e3e4e17fb6ea1887f7a6f",
+          "expected_sha256": "f8b64039e47925235611f3acec02d70b69eec90c3c8e3e4e17fb6ea1887f7a6f",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "e9109c1944091b697a0c5addb8a7037a7166606d",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/language-design/RT-01/RESOURCE-WORKER-01/run.py"
+        },
+        {
+          "actual_sha256": "3387357818c676d1e2abfa76c13a67f1a1b539620da3db9a0b8ecac86b6424e9",
+          "expected_sha256": "3387357818c676d1e2abfa76c13a67f1a1b539620da3db9a0b8ecac86b6424e9",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "f94fdf9675ca13bd05ae9bc0ccf4a2facafa0cf5",
+          "label": "worker.py",
+          "outcome": "match",
+          "path": "research/language-design/RT-01/RESOURCE-WORKER-01/worker.py"
+        },
+        {
+          "actual_sha256": "f97d05b92db3989f0f1efdabe5cd93930c90c881019efbdb496dc81f70324884",
+          "expected_sha256": "f97d05b92db3989f0f1efdabe5cd93930c90c881019efbdb496dc81f70324884",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "82ce078a2d9428e074d8ac5111a346028969bb98",
+          "label": "worker.rs",
+          "outcome": "match",
+          "path": "research/language-design/RT-01/RESOURCE-WORKER-01/worker.rs"
+        }
+      ],
+      "path": "research/language-design/RT-01/RESOURCE-WORKER-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": [
+        "linux"
+      ]
+    },
+    {
+      "git_blob": "5df105827fcdb8f7f843acbaac94ecaa8a885c24",
+      "identity_observations": [],
+      "path": "research/language-design/RT-01/TYPED-CLI-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "1a4b22dc67f03bde9a9916c9f3b5722744c7300f",
+      "identity_observations": [
+        {
+          "actual_sha256": "6b2e052c617d16cd37e4d4fa55770351da299fb70fa3a340f441fa83d5ca768b",
+          "expected_sha256": "6b2e052c617d16cd37e4d4fa55770351da299fb70fa3a340f441fa83d5ca768b",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "7ae07acc2bbd7e55b99f4cc970c93b70abc8e4d4",
+          "label": "flow.py",
+          "outcome": "match",
+          "path": "research/language-design/RT-03/SOURCE-CLEANUP-CFG-01/flow.py"
+        },
+        {
+          "actual_sha256": "138915528f312e10b2d8939ba6e5b8c26cef70556cf54f68f1ac329bb55acce9",
+          "expected_sha256": "138915528f312e10b2d8939ba6e5b8c26cef70556cf54f68f1ac329bb55acce9",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "7193d48584472e46ca513c01071db302829cbf56",
+          "label": "reference.py",
+          "outcome": "match",
+          "path": "research/language-design/RT-03/SOURCE-CLEANUP-CFG-01/reference.py"
+        },
+        {
+          "actual_sha256": "b7fd11eddc9ef95e8084d7b9833632ea4b3b865f7193e533dea4d6a349a69002",
+          "expected_sha256": "b7fd11eddc9ef95e8084d7b9833632ea4b3b865f7193e533dea4d6a349a69002",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "e19aeee164dbdc8a40f425717223b8241f16a7f4",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/language-design/RT-03/SOURCE-CLEANUP-CFG-01/run.py"
+        }
+      ],
+      "path": "research/language-design/RT-03/SOURCE-CLEANUP-CFG-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "7a0f4d3c6d0acdefd364ccdef5c5550d41da163b",
+      "identity_observations": [],
+      "path": "research/language-design/RT-04/EXTERNAL-REVOCATION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": [
+        "filesystem",
+        "kernel"
+      ]
+    },
+    {
+      "git_blob": "d6b2107d7ea0c39acae21814179b9dab1a091449",
+      "identity_observations": [
+        {
+          "actual_sha256": "e33cd3d648eebadc3fd104b39953aaf7ad19de80475c2797eb4cdfa90d5cc90a",
+          "expected_sha256": "e33cd3d648eebadc3fd104b39953aaf7ad19de80475c2797eb4cdfa90d5cc90a",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "3c1a92ceb4cb7d7d84b176fb82670446ab964144",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/language-design/RT-04/GRANT-REVOCATION-01/run.py"
+        }
+      ],
+      "path": "research/language-design/RT-04/GRANT-REVOCATION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "1792d5bf3b174a9f8e283ddeafa78d222aadebcd",
+      "identity_observations": [
+        {
+          "actual_sha256": "072e572ccee4009bb67830d7dda113b3727cdf8cd321ac196a3ae58e9c7b3c66",
+          "expected_sha256": "072e572ccee4009bb67830d7dda113b3727cdf8cd321ac196a3ae58e9c7b3c66",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "363040506f9885f72a59fbd1c1c6aac8d366d564",
+          "label": "receiver.c",
+          "outcome": "match",
+          "path": "research/language-design/RT-04/QUEUED-FOREIGN-OWNERSHIP-01/receiver.c"
+        },
+        {
+          "actual_sha256": "c8c703c32c8f5fd26639487acdaeb1250bc9dcde28e2eb1895c9b03fd4f73270",
+          "expected_sha256": "c8c703c32c8f5fd26639487acdaeb1250bc9dcde28e2eb1895c9b03fd4f73270",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "8b5fc9a2a73ee4efbc276598368065573f740a35",
+          "label": "receiver.py",
+          "outcome": "match",
+          "path": "research/language-design/RT-04/QUEUED-FOREIGN-OWNERSHIP-01/receiver.py"
+        },
+        {
+          "actual_sha256": "636064ea650122dc5a4c149750a5f410467fe934449e2e7f187d08736038f1f7",
+          "expected_sha256": "636064ea650122dc5a4c149750a5f410467fe934449e2e7f187d08736038f1f7",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "4dd38f2d3303d9dbb1e2ab2b678cae0b34d669fa",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/language-design/RT-04/QUEUED-FOREIGN-OWNERSHIP-01/run.py"
+        }
+      ],
+      "path": "research/language-design/RT-04/QUEUED-FOREIGN-OWNERSHIP-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": [
+        "platform"
+      ]
+    },
+    {
+      "git_blob": "fd2a3d342eee3416fff207a3a2258e3728fa8d9b",
+      "identity_observations": [],
+      "path": "research/language-design/RT-31/CROSS-PROFILE-SPG-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "b7234c34b39d167408554857722db91932599201",
+      "identity_observations": [],
+      "path": "research/research-management/OPTION-EVIDENCE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "c91d6867f3aa85dbd6c7834896d202321ef74a7d",
+      "identity_observations": [],
+      "path": "research/research-management/RT-00/BATCH-EVIDENCE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "f00ab331b11fa8d146c512e35bdbd286b86fcf6c",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-26/COROUTINE-CPU-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "40d2d938c7a8501a0d3c31fdb07bf4d0f87d8f6f",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-26/LINUX-CPU-BUDGET-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "b88c9fe78fe6ef7af33afcdd20dce882b06fdb3c",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-26/LINUX-FILE-BUDGET-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": [
+        "kernel",
+        "os"
+      ]
+    },
+    {
+      "git_blob": "6d561f1f1292650defe7db345f5c7a9924389b7e",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-26/LINUX-IO-CANCEL-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "99656750586963f762058c54b14165ec91f94234",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-26/LINUX-MAPPING-BUDGET-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": [
+        "kernel"
+      ]
+    },
+    {
+      "git_blob": "68a4c6687cdafbe2c9b01cd9229bacbc5d9a25e9",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-26/LINUX-PERF-COUNTERS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "29d45e5fac9ba5334e8d85e57c6a5ecd82545395",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-26/LINUX-SHARED-MEMORY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "bcace1cf8add1b731faa9662584a8292c5e05ca3",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-26/LINUX-SOCKET-BUDGET-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "eb93e3ea755fd179abf4a1bfe55d72d09647f96b",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-26/MIGRATING-CPU-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": [
+        "kernel"
+      ]
+    },
+    {
+      "git_blob": "bdc5697b3f73e78b198c32d245041ab5b8086c35",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-38/SEL4-ABSTRACT-LOOKUP-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "ae59d0f91b3bee736664dc7fec83b524f593498a",
+      "identity_observations": [
+        {
+          "field": "sources",
+          "label": "aliased-registers",
+          "outcome": "outside-flat-sha256-shape"
+        },
+        {
+          "field": "sources",
+          "label": "direct",
+          "outcome": "outside-flat-sha256-shape"
+        },
+        {
+          "field": "sources",
+          "label": "missing-line-end",
+          "outcome": "outside-flat-sha256-shape"
+        },
+        {
+          "field": "sources",
+          "label": "renamed-refactor",
+          "outcome": "outside-flat-sha256-shape"
+        },
+        {
+          "field": "sources",
+          "label": "reordered-steps",
+          "outcome": "outside-flat-sha256-shape"
+        },
+        {
+          "field": "sources",
+          "label": "swapped-result",
+          "outcome": "outside-flat-sha256-shape"
+        },
+        {
+          "field": "sources",
+          "label": "unsupported-operation",
+          "outcome": "outside-flat-sha256-shape"
+        }
+      ],
+      "path": "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "8a1745999ec3288aa34c2021c76f278b4bb87515",
+      "identity_observations": [],
+      "path": "research/runtime-and-systems/RT-38/SEL4-REFINED-LOOKUP-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "9a14ccd66cb95f937dd287b26d9e3a3fbea12b69",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/COMPOSED-LINEAGE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "b1da8a95d4816002c8b6e1fc64b316e72f4a0633",
+      "identity_observations": [
+        {
+          "actual_sha256": "5707db4ccd9bdfb6d216d26cf09b41e39b34c4e89757225819cf22df89f94195",
+          "expected_sha256": "5707db4ccd9bdfb6d216d26cf09b41e39b34c4e89757225819cf22df89f94195",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "f4146ee4705bddaf8627e9fbd4f0f4260820cd88",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/CROSS-PROFILE-CLEANUP-01/run.py"
+        },
+        {
+          "expected_sha256": "9380bc83f6ec424e461225940b218cf0beb0897c4472163929a7015fccd9b736",
+          "field": "source_sha256",
+          "label": "cpp",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "73e4b27b627cde2bb98697f962c99d7e59b530174055eb77ebfadac9cc01d3b9",
+          "field": "source_sha256",
+          "label": "rust",
+          "outcome": "generated-source-requires-replay"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/CROSS-PROFILE-CLEANUP-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "38f8c1f3eae10fa43ca3d40b39fab8c6784598b4",
+      "identity_observations": [
+        {
+          "actual_sha256": "4c419955185b21ec87040e9c361743e310e6d466d42977c8fb0ac5bf627117cd",
+          "expected_sha256": "4c419955185b21ec87040e9c361743e310e6d466d42977c8fb0ac5bf627117cd",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "6f514d23ddd744eff65ff130d88746533e1d82a5",
+          "label": "observe.js",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/CROSS-RUNTIME-F64-01/observe.js"
+        },
+        {
+          "actual_sha256": "00b468f3a86d5c0dc1cb1b6e85b9a7193f00121a7559ede8748f194a981b9873",
+          "expected_sha256": "00b468f3a86d5c0dc1cb1b6e85b9a7193f00121a7559ede8748f194a981b9873",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "50d6d1ba920c92f372f1aa5a8419311bfe1252ca",
+          "label": "observe.rs",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/CROSS-RUNTIME-F64-01/observe.rs"
+        },
+        {
+          "actual_sha256": "0c8d54709a0dd4d92bc064be13bee8a2f7480029769c146ab043794d7a6b2084",
+          "expected_sha256": "0c8d54709a0dd4d92bc064be13bee8a2f7480029769c146ab043794d7a6b2084",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "f3097b2e383af8a9de6a3f7e31edc95ca6d464b6",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/CROSS-RUNTIME-F64-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/CROSS-RUNTIME-F64-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "bfb0d0c102dc8dd0b77d1ee228632681c3b43f1c",
+      "identity_observations": [
+        {
+          "actual_sha256": "819c30ae316b83189ad9b70dc2ee1208fb1ccd9f7aee76224a31bf32f03deb36",
+          "expected_sha256": "819c30ae316b83189ad9b70dc2ee1208fb1ccd9f7aee76224a31bf32f03deb36",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "2fe2d31cad3b2d0c1c50ae10c5e4105cc23264bf",
+          "label": "decode.js",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/CROSS-RUNTIME-I64-01/decode.js"
+        },
+        {
+          "actual_sha256": "19f9abebd993e9b277562c95d7f96afb74b9f3446bbe406de3e4ac1331e849d9",
+          "expected_sha256": "19f9abebd993e9b277562c95d7f96afb74b9f3446bbe406de3e4ac1331e849d9",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "4241c09d1271cf911435941991d4ca7834558c5e",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/CROSS-RUNTIME-I64-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/CROSS-RUNTIME-I64-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "a0cbc763d97eb6faa149b8ccb0d94f4ac60b8793",
+      "identity_observations": [
+        {
+          "actual_sha256": "05b34a67523b23f1a7b545b2019836be0d1989778e6ad2e26b0f3e44ded49539",
+          "expected_sha256": "05b34a67523b23f1a7b545b2019836be0d1989778e6ad2e26b0f3e44ded49539",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "5094df11166bd4683ace14ec682fccfa4a433f2e",
+          "label": "copy.dfy.in",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/DAFNY-SPG-COPY-FRAME-01/copy.dfy.in"
+        },
+        {
+          "actual_sha256": "f0322924a31ee6611bbfd5b090648e1d7cb73fbc964cdef4791cec4494c93bca",
+          "expected_sha256": "f0322924a31ee6611bbfd5b090648e1d7cb73fbc964cdef4791cec4494c93bca",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "5fa83ac8830920b75925bb3299dbb28c084d206e",
+          "label": "graph.json",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/DAFNY-SPG-COPY-FRAME-01/graph.json"
+        },
+        {
+          "actual_sha256": "b38c822c39138ec537003c4c227c709300d12340c85821008a56a71d3430f2a1",
+          "expected_sha256": "b38c822c39138ec537003c4c227c709300d12340c85821008a56a71d3430f2a1",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "0d6ce717cf2f2095d2818114f8c58c3420ec979a",
+          "label": "observe.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/DAFNY-SPG-COPY-FRAME-01/observe.py"
+        },
+        {
+          "actual_sha256": "94035ec12da345d4f001be0b202c218d872c744ff9a10209e90aa8cacc405462",
+          "expected_sha256": "94035ec12da345d4f001be0b202c218d872c744ff9a10209e90aa8cacc405462",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "b7024220954941cdfe15501144a8af6a62938ebd",
+          "label": "render.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/DAFNY-SPG-COPY-FRAME-01/render.py"
+        },
+        {
+          "actual_sha256": "c0c8778b90319f0363c8c80b7390cd4ad54dfd2ef7dde659dae0356ffea8f4c8",
+          "expected_sha256": "c0c8778b90319f0363c8c80b7390cd4ad54dfd2ef7dde659dae0356ffea8f4c8",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "f6de1f0df3c5a3faccc0f0521568d259cc238c6d",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/DAFNY-SPG-COPY-FRAME-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/DAFNY-SPG-COPY-FRAME-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "a21799324cb4407dc2a6baf4a017407a2ca37b66",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/DIRECTED-RECURSIVE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "7858a6c76df5b0b79766cd359b87bd8e39b76eca",
+      "identity_observations": [
+        {
+          "actual_sha256": "59101c51d1d9bcbb1a7c493a207a2555c4b574386daca12dd7bce17ea96474ad",
+          "expected_sha256": "59101c51d1d9bcbb1a7c493a207a2555c4b574386daca12dd7bce17ea96474ad",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "400a646e93833f34ed8697aaf4436f4a4fec814b",
+          "label": "observe.c",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/F64-I64-CONVERSION-01/observe.c"
+        },
+        {
+          "actual_sha256": "771bb7ccae2b623faa0d66db8f074aefb8feb9cf24e3d6a1b5863404bc2d0e18",
+          "expected_sha256": "771bb7ccae2b623faa0d66db8f074aefb8feb9cf24e3d6a1b5863404bc2d0e18",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "deba82784bc12669e57adbfd68411fe6d72aa69b",
+          "label": "observe.js",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/F64-I64-CONVERSION-01/observe.js"
+        },
+        {
+          "actual_sha256": "559f7cf9e1413d26a373d4bb01f5163de9b1f6d4dabf049892c77649532052f1",
+          "expected_sha256": "559f7cf9e1413d26a373d4bb01f5163de9b1f6d4dabf049892c77649532052f1",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "37567f6ac005639bbe7cdd73f4f24f861d8cb329",
+          "label": "observe.rs",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/F64-I64-CONVERSION-01/observe.rs"
+        },
+        {
+          "actual_sha256": "5b3a3563c8c5f9679a1d28ca31812ef752854a03d3f72784c18a9664d64c0bda",
+          "expected_sha256": "5b3a3563c8c5f9679a1d28ca31812ef752854a03d3f72784c18a9664d64c0bda",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "ba4379971e7b3ff9ed34f3fd5b3ddc05facf9a46",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/F64-I64-CONVERSION-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/F64-I64-CONVERSION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "5e9be8672d82ad59de3a0c9516d86d7630173141",
+      "identity_observations": [
+        {
+          "actual_sha256": "898b7d84bdae1c9802450e11a181c483a032155f715ac1ef4928bf15edf47114",
+          "expected_sha256": "898b7d84bdae1c9802450e11a181c483a032155f715ac1ef4928bf15edf47114",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "e7dc4628302902b3717a00e4a93a20df6d3099df",
+          "label": "consumer.rs",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/GENERIC-PROVIDER-BINDING-01/consumer.rs"
+        },
+        {
+          "actual_sha256": "c23cfccca7193901d0126fe1fd5c6fbfeac0dcc7b11f28c84892d2c0b4b258f9",
+          "expected_sha256": "c23cfccca7193901d0126fe1fd5c6fbfeac0dcc7b11f28c84892d2c0b4b258f9",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "41d063535711147f3e0fd6d3fd3d7d125d8c1bf7",
+          "label": "driver.c",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/GENERIC-PROVIDER-BINDING-01/driver.c"
+        },
+        {
+          "actual_sha256": "30e4cb241b4b49b622c3b84599c7b703cc806b8e38438c580b03754f71ec806d",
+          "expected_sha256": "30e4cb241b4b49b622c3b84599c7b703cc806b8e38438c580b03754f71ec806d",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "b0417c64f04cdc66138c3aeedebbc86566952e1c",
+          "label": "provider.rs.in",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/GENERIC-PROVIDER-BINDING-01/provider.rs.in"
+        },
+        {
+          "actual_sha256": "8f1efb5276e43403dab66e313c781517d4fa3637aa33c7908310cfb4c874a74f",
+          "expected_sha256": "8f1efb5276e43403dab66e313c781517d4fa3637aa33c7908310cfb4c874a74f",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "31cde7b5bbab6907c136fb37255ddfafaa4a0e27",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/GENERIC-PROVIDER-BINDING-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/GENERIC-PROVIDER-BINDING-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "0e244a0cb1bff6c05e42beaf0a060ce8c70c1f14",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/GUARDED-DISPATCH-IDENTITY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "570828aef05766232e7cfbef42636b76827b9ecf",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/IMPORT-RESOLUTION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "f43d46e2c6beed5ff36dba23ce56b6521fecd460",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/LAYERED-REFINEMENT-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "17f764a5388b66e609613194b51c031159d7fe33",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/MACRO-BINDING-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "637a95f5cb88d790a22eb5b9b97638cbc898134f",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/MULTI-PARENT-LINEAGE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "86b663ecf2cb97c5504e1fbd2e608fd39a094e6f",
+      "identity_observations": [
+        {
+          "actual_sha256": "4545c0336cbd1440424ddfc23a07ef99039096c250de837632f2a8fd66f4b1ff",
+          "expected_sha256": "4545c0336cbd1440424ddfc23a07ef99039096c250de837632f2a8fd66f4b1ff",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "494b0adfe643b0f38d841fb8203e3b7a8377076a",
+          "label": "observe.js",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/MUTABLE-REFERENCE-TOPOLOGY-01/observe.js"
+        },
+        {
+          "actual_sha256": "0f53b1cfce1ad07677db6488f745aeeb9c5d2c638a212b6207fc1f3e8aa9c748",
+          "expected_sha256": "0f53b1cfce1ad07677db6488f745aeeb9c5d2c638a212b6207fc1f3e8aa9c748",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "a75c48a542f95c2649dde8b1b11b742b7eff02fc",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/MUTABLE-REFERENCE-TOPOLOGY-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/MUTABLE-REFERENCE-TOPOLOGY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "3160c4cf0310b719c0fffa8304bf9235da7714df",
+      "identity_observations": [
+        {
+          "actual_sha256": "07bbf0dcda220f31905c31e1cca6a7584c9c16af6eb7eddf67f5896de90b4c2a",
+          "expected_sha256": "07bbf0dcda220f31905c31e1cca6a7584c9c16af6eb7eddf67f5896de90b4c2a",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "b97ef8999991c1c43b5d789c49c70a228fd6db3f",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/NAMED-RECORD-01/run.py"
+        },
+        {
+          "expected_sha256": "fa093521c06e2c2d47b74f44685c523af51ca78cfb33499c193ba1a98ba78c52",
+          "field": "source_sha256",
+          "label": "python",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "1e8719f3ebeb19765a9ef7d3f8bc1f0dd7660b166c032ca8c2e840bdb40eb521",
+          "field": "source_sha256",
+          "label": "rust",
+          "outcome": "generated-source-requires-replay"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/NAMED-RECORD-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "4add8295e90ed561d37443575e19cea7dd78fe50",
+      "identity_observations": [
+        {
+          "actual_sha256": "b1516c5645f94066f309804a7c39c9abbeca3d58a829fbba39e834a2665431b8",
+          "expected_sha256": "b1516c5645f94066f309804a7c39c9abbeca3d58a829fbba39e834a2665431b8",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "ccc610cc03a6236a2529a6d6f708356261737621",
+          "label": "observe.c",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/NATIVE-F64-MINMAX-01/observe.c"
+        },
+        {
+          "actual_sha256": "c97aba6f5f60238065d873739924a8bb8fc26d97f34b9589cebd48a84ec2c243",
+          "expected_sha256": "c97aba6f5f60238065d873739924a8bb8fc26d97f34b9589cebd48a84ec2c243",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "b80f2ece84851c8ff2332fdca76e35a58b9a43d9",
+          "label": "observe.js",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/NATIVE-F64-MINMAX-01/observe.js"
+        },
+        {
+          "actual_sha256": "8f5c70285ee1673aef59e697d5fc91c3cbaed95e0a379067752750336103a036",
+          "expected_sha256": "8f5c70285ee1673aef59e697d5fc91c3cbaed95e0a379067752750336103a036",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "7aac6eade24590b8ca05c7563c542d31dc6f88b1",
+          "label": "observe.rs",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/NATIVE-F64-MINMAX-01/observe.rs"
+        },
+        {
+          "actual_sha256": "b56293fc730339c09d3f7e61e8a3f7b84f33e31570ca25ceb0675eaf0cfd31ec",
+          "expected_sha256": "b56293fc730339c09d3f7e61e8a3f7b84f33e31570ca25ceb0675eaf0cfd31ec",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "5ffed3dfe7193eeb6c6b16abf9c01f19addb0f93",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/NATIVE-F64-MINMAX-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/NATIVE-F64-MINMAX-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "e05ca5b35548464fcfc0c9d9750fe255a69f02ef",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/ORDERED-OCCURRENCES-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "233cd1d207d65c9a3493a3683561383198f0aa34",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/OWNED-SPG-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "d6153154fd6ed50ad504b29acc92e2f8dd9921fb",
+      "identity_observations": [
+        {
+          "actual_sha256": "7c679d05bd932da8c071f8da1cae8ff485d184be61fca05f5fc49229857a9cf1",
+          "expected_sha256": "7c679d05bd932da8c071f8da1cae8ff485d184be61fca05f5fc49229857a9cf1",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "9411f4b0067182410114279c4a38db60816198f0",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/PARTIAL-RECORD-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/PARTIAL-RECORD-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "eb9057f7f7eab2c68fa874dddebfd6b423c50194",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/RECURSIVE-CANONICAL-02/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "225b415b6f7771646d134f5f7e3922445fda470d",
+      "identity_observations": [
+        {
+          "actual_sha256": "e97713d75fda24c67eded2c7c5a3f3ab5f4f2fea59af20082b26484caedfba10",
+          "expected_sha256": "e97713d75fda24c67eded2c7c5a3f3ab5f4f2fea59af20082b26484caedfba10",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "38bc9b0af533e775e310fd86af5bece522a5cb30",
+          "label": "archive.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/RECURSIVE-STORAGE-01/archive.py"
+        },
+        {
+          "actual_sha256": "d832839f1167ac49a4d2c48dc3881b1d8d1789d455cf2a10871ba2d2c1e41078",
+          "expected_sha256": "d832839f1167ac49a4d2c48dc3881b1d8d1789d455cf2a10871ba2d2c1e41078",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "4cc5915174fe9c711dc92d8cbf74237f006047cb",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/RECURSIVE-STORAGE-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/RECURSIVE-STORAGE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "4b845f05c698f7b7af8697623e17dc24fde85ddc",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/RECURSIVE-TYPES-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "e6cf4539f52d79fc44f743c65b4ee7ab7b875fe7",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/REQUIREMENT-COVERAGE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "442cfe6076ee93fb2403e9d9ab8b0bf04be328ec",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/SPG-GRANULARITY-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "d3404f52136c97abd11cfc9fbd48945ec821d973",
+      "identity_observations": [
+        {
+          "actual_sha256": "7bf2a016bdd044cd4525207e7c85309149068c5cb4b8577e08ce1d5719e2b754",
+          "expected_sha256": "7bf2a016bdd044cd4525207e7c85309149068c5cb4b8577e08ce1d5719e2b754",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "578fe323aaf9f196ebea9ef8876495c5fba89490",
+          "label": "observe.c",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/STATEFUL-BOUND-METHOD-01/observe.c"
+        },
+        {
+          "actual_sha256": "286a3a5559290fb81b533b81b7c41966e76410d1f45a72e6c9a5773fc98a6b72",
+          "expected_sha256": "286a3a5559290fb81b533b81b7c41966e76410d1f45a72e6c9a5773fc98a6b72",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "0fe093d7d2a149b68548bc88d3f168754d9a6f60",
+          "label": "observe.rs",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/STATEFUL-BOUND-METHOD-01/observe.rs"
+        },
+        {
+          "actual_sha256": "3a197266ef0e3843d66638c13938ee18dacc0ad92934b2aee9417304151893b2",
+          "expected_sha256": "3a197266ef0e3843d66638c13938ee18dacc0ad92934b2aee9417304151893b2",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "82c4f5d7eafd1b30fa9bc50583f50029d625b2c6",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/STATEFUL-BOUND-METHOD-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/STATEFUL-BOUND-METHOD-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "34cee81f5ebe8ed710b6760fe58734309af24628",
+      "identity_observations": [
+        {
+          "actual_sha256": "234224cbfaee3772cc85ab1d4b178e7b84141baad19528d016c0e43c026710bd",
+          "expected_sha256": "234224cbfaee3772cc85ab1d4b178e7b84141baad19528d016c0e43c026710bd",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "636ad51d1af2b37ca7fe67e40816bdab5cc269bf",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-05/UNICODE-BINDING-01/run.py"
+        },
+        {
+          "expected_sha256": "20002292c07cfa85b22a29fa56dcfa510a9485c4d14fe68d7bc5b5f148754a11",
+          "field": "source_sha256",
+          "label": "node",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "57fabc20b92ab882387c4b112f0ac7ddcc7b9968e0720b74b8f40be16cd8f2c2",
+          "field": "source_sha256",
+          "label": "python",
+          "outcome": "generated-source-requires-replay"
+        },
+        {
+          "expected_sha256": "6cfed4d41a63ed4f88e679a86ce26a929286bc528ce6d0b1df9a08dd3b43c460",
+          "field": "source_sha256",
+          "label": "rust",
+          "outcome": "generated-source-requires-replay"
+        }
+      ],
+      "path": "research/semantic-representation/RT-05/UNICODE-BINDING-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "1bc0515929b300779e98453416a6373296f5aaef",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-05/UNORDERED-RECURSIVE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "7240ec8ce172b82f63ad28cb9c77cd931b262a31",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-06/CONDITIONAL-DEPENDENCY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "7ba72058932adf2123e20fdcfd530582a0881703",
+      "identity_observations": [
+        {
+          "actual_sha256": "fb507c67c47a6a76369cf4fa4af3661f1cd60c0bb39e7080e6de2b551c557661",
+          "expected_sha256": "fb507c67c47a6a76369cf4fa4af3661f1cd60c0bb39e7080e6de2b551c557661",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "c77c9bb12c1968646aa86d3361594e5499ccbba9",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/semantic-representation/RT-35/PERSISTENT-INDEX-01/run.py"
+        }
+      ],
+      "path": "research/semantic-representation/RT-35/PERSISTENT-INDEX-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "812f28f5a523d0a7960494b9c2a45bbe557faafd",
+      "identity_observations": [],
+      "path": "research/semantic-representation/RT-35/SCOPED-RETRIEVAL-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "ae41532cf65327a9a953b3bfa3f5de0c56939ade",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-17/WIRE-DIAGNOSTIC-01/evidence.json",
+      "reported_python": "Python 3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "168ad5f284e1786283dfbc76a18da3afa5da58a3",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-17/WIRE-POSITIONS-01/evidence.json",
+      "reported_python": "Python 3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "632fddee01ad599ddab399b6265d6dc23acddd65",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-17/WIRE-REPAIR-01/evidence.json",
+      "reported_python": "Python 3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "b20b5a89ca80cc47c30685e1e5135a8aca937743",
+      "identity_observations": [
+        {
+          "actual_sha256": "7ad5091f18ed6df755c9002687d70e6be9c78c0bce9a65e914be78d7a33e0fdc",
+          "expected_sha256": "7ad5091f18ed6df755c9002687d70e6be9c78c0bce9a65e914be78d7a33e0fdc",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "4cdba68f0fc0b67a7c4b6b60dc3eac33206d6c15",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-19/EXTERNAL-RECEIPT-RECOVERY-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-19/EXTERNAL-RECEIPT-RECOVERY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": [
+        "filesystem",
+        "kernel"
+      ]
+    },
+    {
+      "git_blob": "5f51399c81ab147aea229d4660eaeb7095935087",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-19/MCP-STDIO-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "0286e5db737abc3844475167ce12274fdbee308a",
+      "identity_observations": [
+        {
+          "actual_sha256": "6d2375328e844fcdb8774baa3921be42532e2bda093441a446d88cd74fa0f631",
+          "expected_sha256": "6d2375328e844fcdb8774baa3921be42532e2bda093441a446d88cd74fa0f631",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "cbf835fa8c10f9f5162311722301c43c566b6357",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-19/MUTABLE-LOG-RECOVERY-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-19/MUTABLE-LOG-RECOVERY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": [
+        "linux"
+      ]
+    },
+    {
+      "git_blob": "35dceec319287eddba10a0fe1007735181f571f3",
+      "identity_observations": [
+        {
+          "actual_sha256": "eef130ef1e7239d767cb9abc86ceb3ff3cd1256c8c99f0cb90c617f24c8c69c3",
+          "expected_sha256": "eef130ef1e7239d767cb9abc86ceb3ff3cd1256c8c99f0cb90c617f24c8c69c3",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "bee14865fe49759b9d421cb8730dd96a61fbc769",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-19/RECOVERY-AUTHORITY-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-19/RECOVERY-AUTHORITY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": [
+        "linux"
+      ]
+    },
+    {
+      "git_blob": "eac5b558dc5b2f6d191f7888cf1cde2b48828d83",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-23/CONCURRENT-RECEIVE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "7a6fb16e0de81b653a5c834d55804882f19cb268",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-23/DEPENDENT-REF-VERIFY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "05a34e487547fe13e1f71b2ce2f6d3196d32ebb8",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-23/GIT-PREPARED-CRASH-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "2b5fdebf955981a4adf67794157feecac35843c4",
+      "identity_observations": [
+        {
+          "actual_sha256": "d1c68a660ca650fac7c37d2287b477a4279c69387bac4550349e754d74c55223",
+          "expected_sha256": "d1c68a660ca650fac7c37d2287b477a4279c69387bac4550349e754d74c55223",
+          "explicit_path_alias": false,
+          "field": "source_digests",
+          "git_blob": "1da1b0e3ac6328b134bc29f9267059c372f5ac16",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-23/INDEXED-JOURNAL-RECOVERY-01/run.py"
+        },
+        {
+          "actual_sha256": "100cc263dc500abe7f2dcbeb5e16e0645c1300248bd132110e8f8e2d47a006e3",
+          "expected_sha256": "100cc263dc500abe7f2dcbeb5e16e0645c1300248bd132110e8f8e2d47a006e3",
+          "explicit_path_alias": true,
+          "field": "source_digests",
+          "git_blob": "86803dbf109c598aead2182ce450e6d5a0c9d2d0",
+          "label": "test_rt23_commit_recovery.py",
+          "outcome": "match",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt23_commit_recovery.py"
+        },
+        {
+          "actual_sha256": "aa6aa6f76cb0632160bcc06bfd42cb2b640171a554e484c0b2ad90c2fc617cba",
+          "expected_sha256": "aa6aa6f76cb0632160bcc06bfd42cb2b640171a554e484c0b2ad90c2fc617cba",
+          "explicit_path_alias": true,
+          "field": "source_digests",
+          "git_blob": "b78452a9c86d7ae7e078c5fcd3b11b77a37513c3",
+          "label": "test_rt24_merge_tree_gate.py",
+          "outcome": "match",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_rt24_merge_tree_gate.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-23/INDEXED-JOURNAL-RECOVERY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "fa1075855cd014fd8fd8c00c50be3cb76c37a9a0",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-23/LINKED-WORKTREE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "a4e08875b8eaf9ceb0e60f00851863ffd3b08919",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-23/NATIVE-GENERATION-READS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "6769307bebbbaacd10178994d2e77f83e441d47f",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-23/PINNED-GIT-RETENTION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "e5a2db37f11cc50146a4729e87f010606f876a76",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-23/REF-VISIBILITY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "38f251ff3b60db9993f8324b5fc2f0a7ea4fb33f",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-23/SINGLE-JOURNAL-REF-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "4bcf60b3cf973bd0157f8d06a216af0421e44515",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/AUDIT-AUTHORITY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "780c4c5c9c3d307cffed5940565bd9059493760d",
+      "identity_observations": [
+        {
+          "actual_sha256": "ac761a83e462f57892d49009931a88433249d056aa8496f1c9d5a3c78ae7052d",
+          "expected_sha256": "ac761a83e462f57892d49009931a88433249d056aa8496f1c9d5a3c78ae7052d",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "5955f4a2f35623e77c5f1c0138605e20213e6f14",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CLEAN-CLONE-CLI-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-24/CLEAN-CLONE-CLI-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "2cb6cda8458d2e3c169e2e49650bf865c438acc9",
+      "identity_observations": [
+        {
+          "actual_sha256": "480a7e1ec57dbd935804826213446cd1f235cc0e45cb9cc84a6d8a0c5982edde",
+          "expected_sha256": "480a7e1ec57dbd935804826213446cd1f235cc0e45cb9cc84a6d8a0c5982edde",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "066e4104ddbbb2a12374dd8c01b6291e450fade2",
+          "label": "client.c",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/client.c"
+        },
+        {
+          "actual_sha256": "aad2a3a9f2555e3a19b78642f017d3172eeecc5bef3dac901cffc180e06b565a",
+          "expected_sha256": "aad2a3a9f2555e3a19b78642f017d3172eeecc5bef3dac901cffc180e06b565a",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "2df1eacdb9747000ddab19872b506bb82be1fb98",
+          "label": "driver.c",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/driver.c"
+        },
+        {
+          "actual_sha256": "dc9de0839e1c388c51d2bf19fdf09f0ba82e7e40072bc0b6b57eb2ef93fa9a79",
+          "expected_sha256": "dc9de0839e1c388c51d2bf19fdf09f0ba82e7e40072bc0b6b57eb2ef93fa9a79",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "93d3d3991e71b2b7c977a99db466cdf0a6257e91",
+          "label": "providers.c",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/providers.c"
+        },
+        {
+          "actual_sha256": "54e22f2c53420eaf161bd4883af63c2efcc1048c54a551a3755e5634c865e033",
+          "expected_sha256": "54e22f2c53420eaf161bd4883af63c2efcc1048c54a551a3755e5634c865e033",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "b55a699c94512c1e243a2d800ff79b53e59c0993",
+          "label": "routes.h",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/routes.h"
+        },
+        {
+          "actual_sha256": "3ea1b900c7df98d932060300b3015a72c288240ce6c56d02244e1b794b93d289",
+          "expected_sha256": "3ea1b900c7df98d932060300b3015a72c288240ce6c56d02244e1b794b93d289",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "bb04789f18ee8b64732d35dfce6654efd057f51a",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "b357fa43f79a2a765aae04884f7152642d833937",
+      "identity_observations": [
+        {
+          "actual_sha256": "2101b557030dbe8ffc7d26063f7afce996f113b66e2ce68a2cbbc7123b00de62",
+          "expected_sha256": "2101b557030dbe8ffc7d26063f7afce996f113b66e2ce68a2cbbc7123b00de62",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "366e7c4a354d3efd43a20ed434d0817deac8e916",
+          "label": "app.c",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/app.c"
+        },
+        {
+          "actual_sha256": "529b7f23b293e933589bc194f4ed253b2b942baa6e961ea23142299fd10f0f0f",
+          "expected_sha256": "529b7f23b293e933589bc194f4ed253b2b942baa6e961ea23142299fd10f0f0f",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "21464032c18de3787f1208297b435015a2240c2f",
+          "label": "observe.c",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/observe.c"
+        },
+        {
+          "actual_sha256": "e5f00ed6e208ef5cd5a009b339108f7fe532724346fb6b64f2e96be53436e853",
+          "expected_sha256": "e5f00ed6e208ef5cd5a009b339108f7fe532724346fb6b64f2e96be53436e853",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "33ff2d4d13c6faaddf64faeba3f474b970d89791",
+          "label": "providers.c",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/providers.c"
+        },
+        {
+          "actual_sha256": "bd462a55b98ed75e63ac5f247eb3727b9bda26835de30d19e2083c47808132a8",
+          "expected_sha256": "bd462a55b98ed75e63ac5f247eb3727b9bda26835de30d19e2083c47808132a8",
+          "explicit_path_alias": false,
+          "field": "source_sha256",
+          "git_blob": "b96a84d0b1cc8c5fa3c3085bcef5dd5657ba2875",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "1c2d105eed695baf9cd0d89f155e18ea12edc8a4",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/CONFLICT-RESOLUTION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "d471cbb63af1d302e8a057a26da272b51b353110",
+      "identity_observations": [
+        {
+          "actual_sha256": "66a80bee546d6e6449dcbfe68e97e09ebc7792a4656c13dc95e85c8ee5f16718",
+          "expected_sha256": "66a80bee546d6e6449dcbfe68e97e09ebc7792a4656c13dc95e85c8ee5f16718",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "4758ee74e4d2c823a39b21b72c6abe1d8fb26fa2",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CROSS-MAP-EXPORT-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-24/CROSS-MAP-EXPORT-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "9a8b1fa54ad629bf8ba08bd6cfc6bca243f895c0",
+      "identity_observations": [
+        {
+          "actual_sha256": "bdcc23f4b67ef4863dd8ee596421c9a33505f56cb828c0395127f390337080a0",
+          "expected_sha256": "bdcc23f4b67ef4863dd8ee596421c9a33505f56cb828c0395127f390337080a0",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "ba2e459668cfcfc22ce40f61c69f96fb83077d60",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/CROSS-MAP-REFS-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-24/CROSS-MAP-REFS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "9f3967d4db618ba9b9263db7b97f807a0527b7e9",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/GIT-LIFETIME-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "9faf5886ce75b67354cd10335c7b8a8a89917847",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/GITLINK-RECONSTRUCTION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "886c920e6a78313f249d0c64c8bc93825d95bdf7",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/GUARDED-MERGE-EVIDENCE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "b9f6fb725dead36512df4b99b8cb0ac6cf741a69",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/LFS-OBJECT-ADMISSION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "c202ed3c4ab0e727f5ff4de68f3748f3626a6f7e",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/MULTI-COMMIT-REPLAY-01/evidence.json",
+      "reported_python": null,
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "8bf854f02f5c65b09b95890a84169eec5c89123c",
+      "identity_observations": [
+        {
+          "actual_sha256": "442b3c58de927b3bec5757bba0107c06b617680dc233df8941d7cfe8d35ca221",
+          "expected_sha256": "442b3c58de927b3bec5757bba0107c06b617680dc233df8941d7cfe8d35ca221",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "8a10edbebaa2212ff1b633d564f4b714146d26bf",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/MULTIPLE-MERGE-BASES-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-24/MULTIPLE-MERGE-BASES-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "41cf44ee30079a63fdb49945036f01bbb29f11a9",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/NATIVE-GIT-HOOKS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "056ea4f59ebee7a73586437f01fd7c2b75b7d8b0",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/NATIVE-MERGE-DRIVER-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "645e80cf241039ebffa6ab7aa3f59c47f03cac4c",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/NATIVE-MERGETOOL-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "058f689ed553fbb617a14515d46f8deffcae730d",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/NATIVE-RECEIVE-GATE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "38053caedc498a6f3cc6304022869f15f828379d",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/PARTIAL-SPARSE-RECONSTRUCTION-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "a8827f21e74c813e01752a24fecd295676edf704",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/PROFILE-BOUND-PATHS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": [
+        "system"
+      ]
+    },
+    {
+      "git_blob": "c839980ce5913b2a8a0777ceeafd465313000a5f",
+      "identity_observations": [
+        {
+          "actual_sha256": "98bf215c863aedbde6ad38a1c017f79da55ff7d2f6be1bdc9daeeb5802076b3a",
+          "expected_sha256": "98bf215c863aedbde6ad38a1c017f79da55ff7d2f6be1bdc9daeeb5802076b3a",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "65322db766f235c51da4cb17ba0d1bb5035ce739",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/REBASE-MERGE-RESIDUAL-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-24/REBASE-MERGE-RESIDUAL-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "7d38b8808c49aa5b4dcbd8eacf42098ebaecb8a1",
+      "identity_observations": [
+        {
+          "actual_sha256": "fae30ac1c1f788f734e1966f45f97857cf60d2359115f05477b522edca9c0636",
+          "expected_sha256": "fae30ac1c1f788f734e1966f45f97857cf60d2359115f05477b522edca9c0636",
+          "explicit_path_alias": false,
+          "field": "runner_sha256",
+          "git_blob": "6f99d7c899ac71885081b2ca3343b4e82d3abf49",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/RERERE-SCOPE-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-24/RERERE-SCOPE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "dbce368b9f2d97901dd69fab80048e5988219e3b",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-24/SPLIT-CALLER-PATHS-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "7b0a40c923913359aef5284b63ce85406faff784",
+      "identity_observations": [
+        {
+          "actual_sha256": "bc7efa4dd486d982ee55d5d8e0e5d28494fdbe37b117297c67ca5347b485294c",
+          "expected_sha256": "bc7efa4dd486d982ee55d5d8e0e5d28494fdbe37b117297c67ca5347b485294c",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "f54f0bf91f8ddf69c78c951bd920d3a8269212f1",
+          "label": "read.js",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/VERSIONED-I64-MERGE-01/read.js"
+        },
+        {
+          "actual_sha256": "920193d44b086034385ce918b8d38a33d3b761cc6b75ed804b8a2bdbbf41d962",
+          "expected_sha256": "920193d44b086034385ce918b8d38a33d3b761cc6b75ed804b8a2bdbbf41d962",
+          "explicit_path_alias": false,
+          "field": "sources",
+          "git_blob": "b9b102fe4f7950fd4301bb2d73abcfb79c89ae58",
+          "label": "run.py",
+          "outcome": "match",
+          "path": "research/toolchain-and-collaboration/RT-24/VERSIONED-I64-MERGE-01/run.py"
+        }
+      ],
+      "path": "research/toolchain-and-collaboration/RT-24/VERSIONED-I64-MERGE-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "1c284bc8a951d90f1b43d51d747379dd586d899e",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-27/CHUNK-BOUNDARIES-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "d5c7cc067d37a04233df48111b30757bf6f89aee",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-27/METADATA-FIRST-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    },
+    {
+      "git_blob": "68a9518f68b5d653f08a1e188802a53591274a34",
+      "identity_observations": [],
+      "path": "research/toolchain-and-collaboration/RT-27/SHARDED-HISTORY-01/evidence.json",
+      "reported_python": "3.12.14",
+      "top_level_environment_keys": []
+    }
+  ],
+  "ledgers_with_identity_observations": 54,
+  "ledgers_with_top_level_environment_keys": 10,
+  "schema": "rt00-evidence-ledger-identities-v1",
+  "top_level_python_count": 114
+}
