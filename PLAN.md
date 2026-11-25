@@ -561,6 +561,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define an executable reference semantics for a deliberately small subset.
 - [ ] Define observable behavior: return values, errors, state changes, I/O, resource behavior, concurrency, and declared effects.
 - [ ] Define semantic equivalence and refinement.
+  - [ ] [WIP] Kernel-check whether agreement on all postconditions characterizes complete observations in the closed state/Result fragment on `research/all`.
 - [ ] Define evaluation order, effects, error propagation, and state transitions.
 - [ ] Define semantics of contracts and their composition.
 - [ ] Define semantics-preserving transformations and compiler correctness boundaries.- [ ] Define assumptions and environmental boundaries explicitly.
