@@ -1469,7 +1469,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define provenance, authorship, approval, and audit trails.
 - [ ] Define collaboration across branches, forks, and shared artifact registries.
 - [ ] Test large multi-contributor scenarios.
-  - [ ] [WIP] Compare native Git integration of 48 independent contributor heads with full-graph and affected-group semantic checks on `research/all`.
+  - [x] Integrate 48 synthetic contributor heads in six orders over 576 native merge calls. Scope checks match full validation on all 288 guarded candidates, accept 36 per order and reject 12 while clean textual merges leave invalid groups. A fresh clone preserves the checked head. Real-team workloads and general affected-set completeness remain open. [Multi-contributor Git integration](research/toolchain-and-collaboration/RT-24/RT-24-CONTRIBUTOR-MERGES-2026-11-25.md)
 
 **Existing evidence:** requirement evolution and semantic impact scenarios 18–19; Git semantic merge research.
 
