@@ -844,6 +844,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define typed build actions and their inputs/outputs.
   - Compare the generated RT-01 CLI with a separately linked native division object. The scoped action key plans nine compilations across six edits, versus 18 under whole-input invalidation. Entry and semantic snapshot keys retain stale artifacts and hide two failures of a requested replacement. General closure extraction and controlled timing remain open. [CLI action keys](research/language-design/RT-01/RT-01-CLI-ACTION-KEYS-2026-11-25.md)
 - [ ] Keep Semantic Hash, Action Key, and Artifact Hash distinct.
+  - [ ] [WIP] Verify the three cache identity roles against existing native evidence and an exact key/output-collision control on `research/all`.
 - [ ] Include tool identity, tool version, configuration, target, environment, runtime, and policy inputs whenever they can affect a result.
 - [ ] Define deterministic versus nondeterministic action handling.
   - [x] Compare exact compile artifacts under ambient path and fixed-clock changes. Across 32 builds, requests keyed without relevant path or clock inputs can hit incorrect artifacts. Keys using the declared inputs prevent every tested false hit, while unavailable relevant inputs block lookup. General action determinism and environment discovery remain open. [RT-13 compile action inputs](research/compiler-and-translation/RT-13/RT-13-COMPILE-ACTION-DETERMINISM-2026-11-25.md)
