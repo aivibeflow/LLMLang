@@ -1,0 +1,519 @@
+{
+  "baseline": "873556ad43892c7c2ffcae602881ffd544020eca",
+  "fixture": "research/PROTOTYPES/RT-04-01",
+  "python": "3.12.14",
+  "sympy": "1.14.0",
+  "linux": "6.18.57",
+  "architecture": "x86_64",
+  "suite_results": {
+    "test_rt03_path_model": {
+      "ran": 13,
+      "skipped": 0
+    },
+    "test_rt03_predicate_paths": {
+      "ran": 3,
+      "skipped": 0
+    },
+    "test_rt03_sympy_predicate_paths": {
+      "ran": 3,
+      "skipped": 0
+    },
+    "test_rt03_feasibility_outcomes": {
+      "ran": 8,
+      "skipped": 0
+    },
+    "test_rt03_bounded_solver_worker": {
+      "ran": 5,
+      "skipped": 0
+    },
+    "test_rt03_mutable_predicate_identity": {
+      "ran": 3,
+      "skipped": 0
+    },
+    "test_rt03_call_mutation_summaries": {
+      "ran": 5,
+      "skipped": 0
+    },
+    "test_rt03_alias_sensitive_call_paths": {
+      "ran": 5,
+      "skipped": 0
+    },
+    "test_rt03_source_alias_extraction": {
+      "ran": 10,
+      "skipped": 0
+    }
+  },
+  "caller_fixtures": 14,
+  "inputs_per_caller": 8,
+  "joined_unsound_fixtures": 6,
+  "controls": [
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(flag)\nflip(target)\n",
+      "target": "flag",
+      "guard": null,
+      "call_when": null,
+      "oracle_routes": [
+        "FT",
+        "TF"
+      ],
+      "concrete_routes": [
+        "FT",
+        "TF"
+      ],
+      "joined_routes": [
+        "FT",
+        "TF"
+      ],
+      "path_sensitive_routes": [
+        "FT",
+        "TF"
+      ],
+      "joined_with_skip_routes": [
+        "FT",
+        "TF"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(flag)\nif flag:\n    mark()\nelse:\n    flip(target)\n",
+      "target": "flag",
+      "guard": "flag",
+      "call_when": false,
+      "oracle_routes": [
+        "FT",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FT",
+        "TT"
+      ],
+      "joined_routes": [
+        "FT",
+        "TF"
+      ],
+      "path_sensitive_routes": [
+        "FT",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [
+        "FF",
+        "TF"
+      ],
+      "missing_joined_routes": [
+        "TT"
+      ],
+      "extra_joined_routes": [
+        "TF"
+      ]
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(flag)\nif flag:\n    flip(target)\n",
+      "target": "flag",
+      "guard": "flag",
+      "call_when": true,
+      "oracle_routes": [
+        "FF",
+        "TF"
+      ],
+      "concrete_routes": [
+        "FF",
+        "TF"
+      ],
+      "joined_routes": [
+        "FT",
+        "TF"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "TF"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [
+        "FT",
+        "TT"
+      ],
+      "missing_joined_routes": [
+        "FF"
+      ],
+      "extra_joined_routes": [
+        "FT"
+      ]
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(flag)\nif other:\n    mark()\nelse:\n    flip(target)\n",
+      "target": "flag",
+      "guard": "other",
+      "call_when": false,
+      "oracle_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FT",
+        "TF"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(flag)\nif other:\n    flip(target)\n",
+      "target": "flag",
+      "guard": "other",
+      "call_when": true,
+      "oracle_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FT",
+        "TF"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(flag)\nif choose:\n    mark()\nelse:\n    flip(target)\n",
+      "target": "flag",
+      "guard": "choose",
+      "call_when": false,
+      "oracle_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FT",
+        "TF"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(flag)\nif choose:\n    flip(target)\n",
+      "target": "flag",
+      "guard": "choose",
+      "call_when": true,
+      "oracle_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FT",
+        "TF"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "FT",
+        "TF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(other)\nflip(target)\n",
+      "target": "other",
+      "guard": null,
+      "call_when": null,
+      "oracle_routes": [
+        "FF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(other)\nif flag:\n    mark()\nelse:\n    flip(target)\n",
+      "target": "other",
+      "guard": "flag",
+      "call_when": false,
+      "oracle_routes": [
+        "FF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(other)\nif flag:\n    flip(target)\n",
+      "target": "other",
+      "guard": "flag",
+      "call_when": true,
+      "oracle_routes": [
+        "FF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(other)\nif other:\n    mark()\nelse:\n    flip(target)\n",
+      "target": "other",
+      "guard": "other",
+      "call_when": false,
+      "oracle_routes": [
+        "FF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(other)\nif other:\n    flip(target)\n",
+      "target": "other",
+      "guard": "other",
+      "call_when": true,
+      "oracle_routes": [
+        "FF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(other)\nif choose:\n    mark()\nelse:\n    flip(target)\n",
+      "target": "other",
+      "guard": "choose",
+      "call_when": false,
+      "oracle_routes": [
+        "FF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [],
+      "extra_joined_routes": []
+    },
+    {
+      "source": "def flip(ref):\n    ref.value = not ref.value\n\nflag = input_bool(\"flag\")\nother = input_bool(\"other\")\nchoose = input_bool(\"choose\")\ntarget = ref(other)\nif choose:\n    flip(target)\n",
+      "target": "other",
+      "guard": "choose",
+      "call_when": true,
+      "oracle_routes": [
+        "FF",
+        "TT"
+      ],
+      "concrete_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_routes": [
+        "FF",
+        "TT"
+      ],
+      "path_sensitive_routes": [
+        "FF",
+        "TT"
+      ],
+      "joined_with_skip_routes": [
+        "FF",
+        "TT"
+      ],
+      "extra_joined_with_skip_routes": [],
+      "missing_joined_routes": [],
+      "extra_joined_routes": []
+    }
+  ]
+}
