@@ -23,7 +23,7 @@ The [earlier in-memory study](RT-05-DIGEST-MIGRATION-AND-COLLISION-2026-11-25.md
 
 ## Native local checks
 
-The child process stages already verified data, opens an immediate transaction, checks the exact old root and new closure, and updates the selected slot. Each observation reopens the database in the parent process.
+The parent stages the fixture data. The child opens an immediate transaction, checks the exact old root and staged closure, and updates the selected slot. Each observation reopens the database in the parent process.
 
 | Case | Observed selection after reopen | Old closure readable |
 |---|---|---|
