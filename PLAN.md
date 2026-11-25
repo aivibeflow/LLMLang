@@ -1717,6 +1717,7 @@ Research a bounded, versioned, provenance-preserving description of the informat
 - [ ] Compare exact snapshot-pinned object references with derived summaries, retrieved excerpts, and relevance-ranked material. Distinguish mandatory entries from optional supporting information.
 - [ ] Define provenance, source trust classes, revision freshness, conflict handling, unknown/missing sources, and evidence that a context is complete for a declared purpose.
 - [ ] Study context-size/token budgets, deterministic selection, relevance/coverage trade-offs, omission reporting, redaction, data minimization, and permission-aware retrieval.
+  - [ ] [WIP] Measure exact token budgets for a pinned renderer and tokenizer, with mandatory evidence, scoped omissions and greedy versus exhaustive selection (#339).
 - [ ] Separate Knowledge Context identity from semantic object identity, dependency hashes, Action Keys, and rendered prompt identity; specify invalidation and safe reuse conditions.
 - [ ] Define transport-neutral assembly, inspection, serialization, and agent-facing retrieval APIs for RT-19.
   - [x] Check ten paginated read schedules under three policies with matching direct and JSON results. Snapshot and digest checks refuse lost or changed sources. Live grants stop both revoked reads, and exact scope binding requires reassembly after a grant revision changes. MCP, atomic revocation and production cursor handling remain open. [Knowledge Context pages](research/toolchain-and-collaboration/RT-14/RT-14-KNOWLEDGE-CONTEXT-PAGES-2026-11-25.md)
