@@ -1570,8 +1570,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Estimated research complexity:** **5/10** — current threat model and fixture prototype narrow the next experiments, but full operational security remains larger.
 
 - [ ] Define trust boundaries among LLM authors, compiler, runtime, plugins, external tools, and artifact registries.
-- [ ] Define deterministic validation independent of LLM claims.
-  - [ ] [WIP] Check that an independent verifier controls validation inputs, outcomes and evidence scope regardless of agent claims (#335).
+- [x] Define deterministic validation independent of LLM claims.
+  - [x] Check three candidate models with two execution bounds, contrary agent claims and five receipt controls. Verifier-owned scope exposes the missing boundary input and reversed trace. A valid narrower receipt remains stale for the larger domain. All 24 existing policy tests pass. Production execution and evidence authentication remain open. [Independent validation](research/security/RT-16/RT-16-INDEPENDENT-VALIDATION-2026-11-25.md)
 - [ ] Define supply-chain provenance and signed evidence.
 - [ ] Define sandboxing and capability restrictions for generated code.
   - A native cross-store experiment separates stale grant admission, scope-aware serialization and external-effect recovery. In a 45-case matrix the SQLite writer gate has no stale rename, while a process stop after rename leaves a file without a receipt under every tested policy. General external and issuer guarantees remain open. [External-effect revocation](research/language-design/RT-04/RT-04-EXTERNAL-EFFECT-REVOCATION-2026-11-25.md)
