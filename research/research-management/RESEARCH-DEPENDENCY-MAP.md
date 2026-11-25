@@ -380,6 +380,8 @@ These edges are planning hypotheses. They identify the research dependencies for
 
 ## 12. Canonical semantic representation, diff, and merge (RT-24)
 
+[Merge-only changes after rebase](../toolchain-and-collaboration/RT-24/RT-24-REBASE-MERGE-RESIDUALS-2026-11-25.md) distinguish exact graph closure from retention of reviewed call-site changes at two-parent merge commits. The fixture requires old and new parent tuples, the old automatic merge and the exact reviewed caller change. Terminal agreement alone misses a lost intermediate migration.
+
 The typed tree diff fixture informs DEP-087. A deterministic semantic comparison can preserve exact call selectors across a retarget while Git evidence varies independently. [Typed tree diff](../toolchain-and-collaboration/RT-24/RT-24-TYPED-TREE-DIFF.md#model-and-observations)
 
 RT-24 is a research proposal, not an accepted SPG schema, identity model, canonical encoding, or merge policy. It depends on the source semantics and identity/dependency evidence, and must preserve the separate responsibilities of RT-20 caller/hash propagation and RT-22/RT-23 repository/worktree integration.

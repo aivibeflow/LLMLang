@@ -225,6 +225,8 @@ For histories with multiple best common ancestors, the [native merge-base compar
 
 [Scoped retrieval](../semantic-representation/RT-35/RT-35-SCOPED-RETRIEVAL-2026-11-25.md) compares structured, lexical, single-vector, multi-aspect and reciprocal-rank hybrid suggestions against the same exact finite contract checks. Lexical and multi-aspect tie at 42/48 compatible pairs. An index-only binding gate falsely binds 18/36 contexts for each channel and can miss a compatible alternative even with the current index root. The complete authorized snapshot registry preserves both ambiguity and pending compatibility. Compare candidate ranking separately from binding authority. Keep the channel replaceable pending measured ANN, storage and update costs and an independently collected corpus.
 
+[Git rebase merge-only changes](../toolchain-and-collaboration/RT-24/RT-24-REBASE-MERGE-RESIDUALS-2026-11-25.md) compare topology and closure, old terminal root equality, and per-merge exact caller correspondence. Two terminal matches hide a lost migration. The scoped gate reconstructs six candidates and reserves incompatible or unsupported changes for review. Linear-history checks therefore need an exact merge-only change obligation when a retained node has two parents.
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.
