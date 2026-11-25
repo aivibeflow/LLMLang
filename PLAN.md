@@ -991,7 +991,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define automatic merge when changes are provably independent.
   - [x] Check a sufficient read/write independence rule in Lean and 3,888 finite patch/state cases. All 1,458 admitted compositions commute, but 24 cases with valid independent parent edits still violate the merged capacity invariant. Full graph completeness and merge policy remain open. [RT-24 independent merge gate](research/toolchain-and-collaboration/RT-24/RT-24-INDEPENDENT-MERGE-GATE-2026-11-25.md)
 - [ ] Define conservative conflict behavior when independence cannot be established.
-  - [ ] [WIP] Check conservative merge routing for unknown, rejected and stale evidence while retaining both ordered alternatives (#321).
+  - [x] Check eleven finite merge decisions and replay both retained alternatives. Missing, incomplete and stale checks remain pending. Fresh checks distinguish order-dependent conflict, invariant failure and an eligible candidate. General SPG completeness and publication remain open. [Conservative merge decisions](research/toolchain-and-collaboration/RT-24/RT-24-CONSERVATIVE-MERGE-2026-11-25.md)
 - [ ] Define interactive conflict resolution and preservation of both alternatives.
 - [ ] Define post-merge validation: graph integrity, type checking, contract checking, dependency completeness, tests, and proofs.
 - [ ] Define merge reproducibility and audit history.
