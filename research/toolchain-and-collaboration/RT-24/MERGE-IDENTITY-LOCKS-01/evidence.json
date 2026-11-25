@@ -1,0 +1,145 @@
+{
+  "baseline": "9cbe01391f984a62c7a6309b09bbd86cf60bf4ed",
+  "comparison": {
+    "cases": {
+      "delete-update": {
+        "record_digests": {
+          "action": "0c78d386bb5493f11eb8b7b7ba43cde201e4a37f7dad2a99d16a1a2ff66770de",
+          "evidence": "22f30f1c8c7a1698262395e6ba4a0a67b672db52df4fc8662dd48b00e0b4bcff",
+          "git": "bd5ddc25f767ffe01cda3e9e99f3b76a978b1a2b083fe9fcd5115e00a14a7399",
+          "semantic": "ead29ba07e67cd9da8e1cf5758cfcb70d65267e4ba93af9505da7e607f068b0c"
+        },
+        "verdict": "conflict"
+      },
+      "equal-payload-independent-add": {
+        "record_digests": {
+          "action": "c13f7b0d02c17bea096b578f34e5f9f61c67b88e6f853d068d1fd1a4a04bde8d",
+          "evidence": "9e2cb4092c6ae3ddb592389ae102424536f38cdedf6cb7236e6c06bfd7858ea1",
+          "git": "c9263410ce2a2042aed07777a9bf7e271bb3d26b813e957d8c223ec9d5057524",
+          "semantic": "f6fc9d3d9ebee68b99de11be66bbcd0f138b286e8e92429ab29f09103d0e443e"
+        },
+        "verdict": "conflict"
+      },
+      "independent-add-add": {
+        "record_digests": {
+          "action": "3c4f48660a4def901f00e4d37981f4028a3c23df3ece50e62b98d56e304ebb32",
+          "evidence": "7352844c97703aafd2e47b727b6cabb141b2ef62bc19e912c0b3d58875e29774",
+          "git": "535a4c33f20cd584d75bb96a0f54819611bb1e06e2bfb0991f202394f69d9419",
+          "semantic": "0f7cd467d8425a100fd4331ecca178b75f76a0903922f5777ddc6b0338991fe5"
+        },
+        "verdict": "clean-within-profile"
+      },
+      "lock-and-caller-aligned": {
+        "record_digests": {
+          "action": "fc4866939efda912729032a943618a9b736a9798649d54f3bcee51b3d3a7f229",
+          "evidence": "3c200e1ee52af762461117fe5539b043423763e8afb7507a6fb2fff4fbe5ed4c",
+          "git": "385b989962cb13bd2fa9288469e0c34a6c70b714102955f088c0b174492b0574",
+          "semantic": "4562ed8b1583e2d698b8188d0318220cd5ecb29fb37714a7454c2ba802179776"
+        },
+        "verdict": "clean-within-profile"
+      },
+      "lock-change-with-unmigrated-caller": {
+        "record_digests": {
+          "action": "a459b84b148d881aa6728f925730db2ca62330607069556bcfcca2249641478d",
+          "evidence": "ee84f0781906a8ee341d0174a2431ea119b072487e9eb6685704626aaa4f87f5",
+          "git": "260ec1f175a8416a83c3017403ce619dd775321a788c5e74c4961b639912648a",
+          "semantic": "a3c55f0172f955e2bd7226e295c7f0af9fc2219b3866b1a4bba5c859badb01f5"
+        },
+        "verdict": "invalid"
+      },
+      "mapping-both-edits": {
+        "record_digests": {
+          "action": "da8f48d2f6bf7b4015714bcc859b146c7f3f4139ba333219fe5271dd6b2cc4f8",
+          "evidence": "e3d9dbba336da25ec1a60fa49f4d03029b7553de10bbf225cbe1c4331d999b9e",
+          "git": "daff80e0dfae2719355cbf866fe846fb4d5dcee008dd70e22500a59b9638ab03",
+          "semantic": "d812165c6c289e7ae12970c788cfd0e75e6e76f6c1c913c00b49165f592fa79f"
+        },
+        "verdict": "conflict"
+      },
+      "merge": {
+        "record_digests": {
+          "action": "4474e8c609d4ab1676951fe2c7806c29407f13b64aef4d8b954da8624441ed13",
+          "evidence": "bab43ddb71577157b9b0176de65235adeb2c8957afd1e4e938fb36db07fa8e7c",
+          "git": "340501c742e20043f7d78eb0aca39cb701f17f7c2d83edff757a11fe4757ef79",
+          "semantic": "c56ab083b0985500a699746c1c2915713977d7d2cbfa4c18f60aa6dca6b16ea3"
+        },
+        "verdict": "clean-within-profile"
+      },
+      "move-and-independent-update": {
+        "record_digests": {
+          "action": "399b1aa3168433ea89ee1d133c2467d1602efeb378a7590300c1dff5215b7722",
+          "evidence": "0d544971bc6f8f5844cb4140a75772c8b510e54f96ff62aadbbb9fd57fa0cb12",
+          "git": "756389a320ab8a27abef9ecb6198bbcc7c99e22dcc5e9d56be0e3ef35c7251cb",
+          "semantic": "c92598dba62a0712ab9489c79ec7c7dfe3c54c576c20720a17c59574c9f1e2e1"
+        },
+        "verdict": "clean-within-profile"
+      },
+      "replacement": {
+        "record_digests": {
+          "action": "d7c4456d59fff784f14ed63038e221a0b4b54803afc239d528a079f235ff46d4",
+          "evidence": "0b11f8e68b5913cc7569a4dbb5eb9d90b5b1e7c7e4949c429821e48b81f12e16",
+          "git": "847b38a16b1ba8f404bf8b054d5378248007101245b9b757eea74f037c694190",
+          "semantic": "2e6b5d4661b7df90437dacebc93537da0d75f671a7c9b71f49e89af18a541ed3"
+        },
+        "verdict": "clean-within-profile"
+      },
+      "same-occurrence-diverges": {
+        "record_digests": {
+          "action": "0c78d386bb5493f11eb8b7b7ba43cde201e4a37f7dad2a99d16a1a2ff66770de",
+          "evidence": "22f30f1c8c7a1698262395e6ba4a0a67b672db52df4fc8662dd48b00e0b4bcff",
+          "git": "2177fc86e5aff2ab00cb36cd1127d022f9713aa7aaa08f3c6b8014cefa33620a",
+          "semantic": "ead29ba07e67cd9da8e1cf5758cfcb70d65267e4ba93af9505da7e607f068b0c"
+        },
+        "verdict": "conflict"
+      },
+      "split": {
+        "record_digests": {
+          "action": "d163ea579617a6b68e70ac40635f8c0e6760af6ad2fa88320ad35875390b6bad",
+          "evidence": "940a13d1aadc22acc4b325c8b6215f066b25672371a69dccb3fba889e75889b4",
+          "git": "61bd2b46c5ab379c90ebe4767e68deded303fc4f2789679e3b85c6aef1bfabe5",
+          "semantic": "8bcfc21350ab3fff7cc5fa06ad3cec13e7ea67a31d2b2e3003673d0abe8bbd72"
+        },
+        "verdict": "clean-within-profile"
+      },
+      "split-merge": {
+        "record_digests": {
+          "action": "d022bec8a706d5b0ecdcf11c05b0ae7288cbb9b4e1a7f4aeaa50e7078699212a",
+          "evidence": "4e5a634d1accc449e499e955e7005d87edf2a8098f4bd86f2bbf2070ba113cdc",
+          "git": "acfe83a18ebd08805a19b624c49ed39286d131346832f008af84cfbcd1a00fb0",
+          "semantic": "aaa5f73bf0aee11acae3d128b981219b67e4045c14c8c1d3c4c8be83d08d0a55"
+        },
+        "verdict": "conflict"
+      }
+    },
+    "stale_mapping_baseline": "insufficient-context",
+    "totals": {
+      "clean-within-profile": 6,
+      "conflict": 5,
+      "invalid": 1
+    }
+  },
+  "identity_edits": {
+    "evidence-policy": [
+      "evidence"
+    ],
+    "physical-tree": [
+      "git"
+    ],
+    "semantic-selection": [
+      "action",
+      "evidence",
+      "semantic"
+    ],
+    "toolchain": [
+      "action",
+      "evidence"
+    ]
+  },
+  "prior_ledgers": {
+    "CONFLICT-RESOLUTION-01": "8b06849b3089d119276382c4100a022441f1fc2f85a47b12add7015998c45872",
+    "CROSS-MAP-REFS-01": "069a0f7d627379d9aeb2cb76dbf7fd960377ee97af0abd4d0e1638153f304b08",
+    "IDENTITY-LINEAGE-01": "5c0126baa4d2a8668ef5b49f93984c5403d7f64711fb3367654618f1020f5f1d",
+    "PURE-MERGE-CORE-01": "6c67d2584dfd0d3513b10273791d555521e748408a705326cd2f8f8e2e1f8f35"
+  },
+  "runner_sha256": "6c23968ed23c7f341904907ee047ed5198e1b0d41c0ecd0b651589aa4a76673a"
+}
