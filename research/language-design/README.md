@@ -20,6 +20,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-02 clause reconstruction and mutation pilot](RT-02/RT-02-CLAUSE-ROUNDTRIP-AND-MUTATION-2026-11-25.md)
 - [RT-02 requirement lifecycle binding](RT-02/RT-02-ARTIFACT-LIFECYCLE-BINDING-2026-11-25.md) — tests exact review and execution evidence against controlled revisions.
 - [RT-02 clause provenance authority](RT-02/RT-02-CLAUSE-PROVENANCE-AUTHORITY-2026-11-25.md) — distinguishes source identity, typed support, active conflict and authorized replacement.
+- [RT-02 semantic difference direction](RT-02/RT-02-SEMANTIC-DIFFERENCE-DIRECTION-2026-11-25.md) — distinguishes typed edits, directional witnesses and evaluation coverage.
 - [Scenario 03 — Requirement impact](RT-02/RESEARCH-SCENARIO-03-REQUIREMENT-IMPACT.md)
 - [Token-efficiency notes](RT-31/TOKEN_EFFICIENCY.md). Exploratory options for authoring and context size.
 
