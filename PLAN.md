@@ -1180,6 +1180,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Define and validate a bounded process-to-file candidate. All 24 glibc and musl cases agree on descriptor mapping, progress including a short read, EOF, startup errors, child I/O errors and shared file offset. General POSIX conformance remains open. [RT-10 startup and file I/O slice](research/runtime-and-systems/RT-10/RT-10-POSIX-STARTUP-IO-SLICE-2026-11-25.md)
   - [x] Check 64 native startup case outcomes. Fork retains marked slots, exec closes them, ordered spawn mapping moves a live description, and same-slot spawn clears the flag that raw same-slot `dup2` preserves. Other libc error and process profiles remain open. [POSIX spawn descriptors](research/runtime-and-systems/RT-10/RT-10-POSIX-SPAWN-DESCRIPTORS-2026-11-25.md)
 - [ ] Select initial Linux architecture and isolate syscall ABI details.
+  - [ ] [WIP] Compare one freestanding Linux call contract through isolated x86-64 and AArch64 syscall adapters on `research/all`.
 - [ ] Define how existing C libraries and external ABI boundaries are called.
 - [ ] Define the trusted low-level runtime boundary.
 - [ ] Compare behavior using conformance, differential, and contract-derived tests.
