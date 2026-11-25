@@ -1,0 +1,285 @@
+{
+  "examples": {
+    "complete": {
+      "expected": [
+        [
+          "model",
+          "toolchain"
+        ],
+        [],
+        false
+      ],
+      "first_attempt": [
+        [
+          "model"
+        ],
+        [],
+        false
+      ],
+      "last_session": [
+        [
+          "toolchain"
+        ],
+        [],
+        false
+      ]
+    },
+    "conflicting-toolchain-check": {
+      "expected": [
+        [
+          "model"
+        ],
+        [
+          "toolchain"
+        ],
+        false
+      ],
+      "first_attempt": [
+        [
+          "model"
+        ],
+        [],
+        false
+      ],
+      "last_session": [
+        [
+          "toolchain"
+        ],
+        [],
+        false
+      ]
+    },
+    "missing-model-check": {
+      "expected": [
+        [
+          "toolchain"
+        ],
+        [
+          "model"
+        ],
+        false
+      ],
+      "first_attempt": [
+        [
+          "toolchain"
+        ],
+        [],
+        false
+      ],
+      "last_session": [
+        [
+          "toolchain"
+        ],
+        [],
+        false
+      ]
+    },
+    "previous-attempt-failure": {
+      "expected": [
+        [],
+        [],
+        false
+      ],
+      "first_attempt": [
+        [],
+        [],
+        false
+      ],
+      "last_session": [
+        [
+          "model"
+        ],
+        [],
+        false
+      ]
+    },
+    "repeated-environment-check": {
+      "expected": [
+        [],
+        [],
+        false
+      ],
+      "first_attempt": [
+        [],
+        [],
+        false
+      ],
+      "last_session": [
+        [],
+        [],
+        false
+      ]
+    },
+    "unsealed": {
+      "expected": [
+        [
+          "model",
+          "toolchain"
+        ],
+        [],
+        true
+      ],
+      "first_attempt": [
+        [
+          "model"
+        ],
+        [],
+        false
+      ],
+      "last_session": [
+        [
+          "toolchain"
+        ],
+        [],
+        false
+      ]
+    },
+    "wrong-build-failure": {
+      "expected": [
+        [],
+        [],
+        false
+      ],
+      "first_attempt": [
+        [
+          "task-context"
+        ],
+        [],
+        false
+      ],
+      "last_session": [
+        [
+          "task-context"
+        ],
+        [],
+        false
+      ]
+    },
+    "wrong-producer-failure": {
+      "expected": [
+        [],
+        [],
+        false
+      ],
+      "first_attempt": [
+        [
+          "environment"
+        ],
+        [],
+        false
+      ],
+      "last_session": [
+        [
+          "environment"
+        ],
+        [],
+        false
+      ]
+    },
+    "wrong-snapshot-failure": {
+      "expected": [
+        [],
+        [],
+        false
+      ],
+      "first_attempt": [
+        [
+          "environment"
+        ],
+        [],
+        false
+      ],
+      "last_session": [
+        [
+          "environment"
+        ],
+        [],
+        false
+      ]
+    }
+  },
+  "fault_masks": 16,
+  "runner_sha256": "7dbcaf82a7511c3211bcc77f68e5537efaa15c4c8400a92e5af75d52efce0527",
+  "totals": {
+    "exact_match": 66048,
+    "expected_multiple_causes": 43176,
+    "expected_unknown": 12288,
+    "first_attempt_match": 11400,
+    "last_session_match": 9600,
+    "schedules": 66048
+  },
+  "variants": {
+    "complete": {
+      "exact_match": 1920,
+      "expected_multiple_causes": 1320,
+      "expected_unknown": 0,
+      "first_attempt_match": 600,
+      "last_session_match": 600,
+      "schedules": 1920
+    },
+    "conflicting-toolchain-check": {
+      "exact_match": 11520,
+      "expected_multiple_causes": 5760,
+      "expected_unknown": 11520,
+      "first_attempt_match": 0,
+      "last_session_match": 0,
+      "schedules": 11520
+    },
+    "missing-model-check": {
+      "exact_match": 384,
+      "expected_multiple_causes": 192,
+      "expected_unknown": 384,
+      "first_attempt_match": 0,
+      "last_session_match": 0,
+      "schedules": 384
+    },
+    "previous-attempt-failure": {
+      "exact_match": 11520,
+      "expected_multiple_causes": 7920,
+      "expected_unknown": 0,
+      "first_attempt_match": 3600,
+      "last_session_match": 1800,
+      "schedules": 11520
+    },
+    "repeated-environment-check": {
+      "exact_match": 5760,
+      "expected_multiple_causes": 3960,
+      "expected_unknown": 0,
+      "first_attempt_match": 1800,
+      "last_session_match": 1800,
+      "schedules": 5760
+    },
+    "unsealed": {
+      "exact_match": 384,
+      "expected_multiple_causes": 264,
+      "expected_unknown": 384,
+      "first_attempt_match": 0,
+      "last_session_match": 0,
+      "schedules": 384
+    },
+    "wrong-build-failure": {
+      "exact_match": 11520,
+      "expected_multiple_causes": 7920,
+      "expected_unknown": 0,
+      "first_attempt_match": 1800,
+      "last_session_match": 1800,
+      "schedules": 11520
+    },
+    "wrong-producer-failure": {
+      "exact_match": 11520,
+      "expected_multiple_causes": 7920,
+      "expected_unknown": 0,
+      "first_attempt_match": 1800,
+      "last_session_match": 1800,
+      "schedules": 11520
+    },
+    "wrong-snapshot-failure": {
+      "exact_match": 11520,
+      "expected_multiple_causes": 7920,
+      "expected_unknown": 0,
+      "first_attempt_match": 1800,
+      "last_session_match": 1800,
+      "schedules": 11520
+    }
+  }
+}

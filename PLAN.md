@@ -1570,7 +1570,7 @@ Research a typed, versioned object describing the task an agent is expected to p
 - [ ] Define an MCP session event model for sessions, turns, requests/responses, tool calls, validation runs, repair attempts, and final outcomes, with stable correlation and provenance.
 - [ ] Prototype privacy-aware recording with metadata-only and redacted-content modes; define authorization, secret redaction, retention, deletion, export, and audit controls before any unrestricted content capture.
 - [ ] Define error attribution that distinguishes model mistakes, ambiguous/incomplete task context, Toolchain defects, and external environment failures; preserve multi-cause and unknown classifications.
-  - [ ] [WIP] Compare attempt-bound multi-cause attribution with last-event and first-match policies under reordered and incomplete MCP validation evidence on `research/all`.
+  - [x] Compare attribution over 66,048 synthetic delivery schedules with overlapping causes, unknown checks and wrong-attempt evidence. Last-session and first-attempt rules match 9,600 and 11,400 schedules. Exact attempt binding and an expected check roster match all. Live MCP instrumentation and reviewer calibration remain open. [MCP attempt attribution](research/language-design/RT-31/RT-31-MCP-ATTEMPT-ATTRIBUTION-2026-11-25.md)
 - [ ] Build analytics and held-out regression evaluation for syntax, instruction, diagnostic, and Toolchain changes; require reviewed promotion rather than automatic unreviewed mutation.
 - [ ] Report sample sizes, uncertainty, reproducibility, token/cost, latency, human review effort, and semantic coverage; do not optimize parse success or token count at the expense of semantics.
 
