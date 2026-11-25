@@ -1796,6 +1796,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Prototype failed-validation/no-commit, exact-tree commit, concurrency rejection, and idempotent retry behavior.
   - [x] Reproduce 16 exact-tree acceptance cases across SHA-1 and SHA-256 and both Git ref backends. Invalid candidates create no commit, ordinary races admit exactly one publication, and an exact retry returns the retained commit after the head advances. Worktree and mismatched-receipt controls verify exact tree binding. Production CIP checks, ref visibility and cross-store recovery remain open. [Exact-tree Git acceptance](research/toolchain-and-collaboration/RT-20/RT-20-EXACT-TREE-ACCEPTANCE-2026-11-25.md)
 - [ ] Reconcile the completion transaction with RT-19 persistence, crash recovery, atomic export, and Git coordination.
+  - [ ] [WIP] Compose exact CIP completion with a native SQLite outbox, Git receipt and atomic generation export, then replay boundary failures (#338).
 
 **Evidence:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](research/toolchain-and-collaboration/RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) records the proposed workflow and invariants. It is a research proposal, not an accepted identity or Toolchain decision.
 
