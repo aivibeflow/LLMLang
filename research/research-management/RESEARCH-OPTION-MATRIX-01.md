@@ -237,6 +237,8 @@ cmp "$study/evidence.json" /tmp/llmlang-toolchain-option-evidence.json
 
 [Cross-map export proof](../toolchain-and-collaboration/RT-24/RT-24-CROSS-MAP-EXPORT-PROOF-2026-11-25.md) compares native Git success, reference closure, contract-level receipt presence and exact selected-tuple evidence. All 18 native candidates are clean, while six satisfy the exact operation, provider, ABI and input-scope check. Use the combined selection to validate export proof coverage before advancing a ref.
 
+[Partial and sparse Git reconstruction](../toolchain-and-collaboration/RT-24/RT-24-PARTIAL-SPARSE-RECONSTRUCTION-2026-11-25.md) distinguishes visibility, object availability and exact tree membership. A verified blob cache restores two available graphs that lack local Git payloads, and a path cache accepts eight incorrect snapshots.
+
 [Versioned I64 Git merge](../toolchain-and-collaboration/RT-24/RT-24-VERSIONED-I64-GIT-MERGE-2026-11-25.md) compares a hard version cutover, ordinary JavaScript numbers, exact dual reads and exact dual reads with parent-root checks. The last policy admits all six unique bounded results and refuses all six invalid or unresolved histories. This separates a physical format upgrade from a semantic change.
 
 [Profile-bound Git paths](../toolchain-and-collaboration/RT-24/RT-24-PROFILE-BOUND-GIT-PATHS-2026-11-25.md) compares raw bytes, ASCII and Unicode complete paths, and prefix-aware admission. All 28 native Linux clones reconstruct their exact candidates. Eight of the fourteen distinct candidates still collide under the declared naming profile, and the prefix-aware gate catches all eight.
