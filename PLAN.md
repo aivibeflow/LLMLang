@@ -1486,8 +1486,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Measure separate encoding and SHA-256 phases over 60 trials. For nested 512-entry payloads the medians are 461.78 and 27.61 µs per object, and retained lookup plus hashing with setup takes 56.38 µs. All byte and digest observations agree across repeated exact keys. Representative payload distributions and persistent caching remain open. [RT-05 canonical hash cost](research/semantic-representation/RT-05/RT-05-CANONICAL-HASH-COST-2026-11-25.md)
 - [x] Benchmark dependency discovery and impact planning.
   - [x] Measure discovery, independent payload audit and plan generation in 60 trials. Grouped decision lookup preserves every complete plan ID and conservative control, reducing median hot 1,024-caller planning from 76.28 to 18.95 ms. Persistent indexes, mixed actions and representative workloads remain open. [RT-06 impact planning benchmark](research/semantic-representation/RT-06/RT-06-IMPACT-PLANNING-BENCHMARK-2026-11-25.md)
-- [ ] Benchmark compilation and cache performance.
-  - [ ] [WIP] Measure fresh-process restore, persistent cache commit and scoped verifier-policy invalidation in the native build fixture.
+- [x] Benchmark compilation and cache performance.
+  - [x] Measure a persistent native cache across ten trials. Fresh processes restore 10/10 artifacts, a verifier-only edit restores 9/10, and a damaged entry is refused before use. Median full-process warm restore is 47.05 ms versus 147.02 ms forced. Concurrent and distributed caching remain open. [RT-11 persistent build cache](research/toolchain-and-collaboration/RT-11/RT-11-PERSISTENT-BUILD-CACHE-BENCHMARK-2026-11-25.md)
 - [ ] Benchmark proof and test execution costs.
 - [ ] Benchmark storage, indexing, and garbage collection.
 - [ ] Benchmark large repositories and highly connected graphs.

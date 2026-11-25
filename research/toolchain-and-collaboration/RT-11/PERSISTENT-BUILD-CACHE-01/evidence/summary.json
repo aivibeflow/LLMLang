@@ -1,0 +1,97 @@
+{
+  "phases": {
+    "cold": {
+      "artifact_sha256": "b30aa3b78cdd1ac591943c52db589387efacdab1cd45f49a4168ce6104971e52",
+      "build_ns": {
+        "median": 106813186.5,
+        "n": 10,
+        "p10": 99564958.1,
+        "p90": 114900176.8
+      },
+      "cache_bytes": {
+        "median": 65536.0,
+        "n": 10,
+        "p10": 65536.0,
+        "p90": 65536.0
+      },
+      "hits": 0,
+      "process_ns": {
+        "median": 153118584.0,
+        "n": 10,
+        "p10": 146676964.9,
+        "p90": 161684453.5
+      },
+      "total_actions": 10
+    },
+    "forced": {
+      "artifact_sha256": "b30aa3b78cdd1ac591943c52db589387efacdab1cd45f49a4168ce6104971e52",
+      "build_ns": {
+        "median": 100858083.0,
+        "n": 10,
+        "p10": 95270956.9,
+        "p90": 109161708.4
+      },
+      "cache_bytes": {
+        "median": 65536.0,
+        "n": 10,
+        "p10": 65536.0,
+        "p90": 65536.0
+      },
+      "hits": 0,
+      "process_ns": {
+        "median": 147019373.5,
+        "n": 10,
+        "p10": 138149045.0,
+        "p90": 155608492.9
+      },
+      "total_actions": 10
+    },
+    "policy-changed": {
+      "artifact_sha256": "7d256271e7c3813e84bca09e70f1ba2e88b8f511a081d3c6657df46bd750c21f",
+      "build_ns": {
+        "median": 6327131.5,
+        "n": 10,
+        "p10": 5807572.3,
+        "p90": 7601059.0
+      },
+      "cache_bytes": {
+        "median": 65536.0,
+        "n": 10,
+        "p10": 65536.0,
+        "p90": 65536.0
+      },
+      "hits": 9,
+      "process_ns": {
+        "median": 52188720.5,
+        "n": 10,
+        "p10": 48880088.9,
+        "p90": 59594299.4
+      },
+      "total_actions": 10
+    },
+    "restored": {
+      "artifact_sha256": "b30aa3b78cdd1ac591943c52db589387efacdab1cd45f49a4168ce6104971e52",
+      "build_ns": {
+        "median": 2285648.0,
+        "n": 10,
+        "p10": 1903638.4,
+        "p90": 2754186.0
+      },
+      "cache_bytes": {
+        "median": 65536.0,
+        "n": 10,
+        "p10": 65536.0,
+        "p90": 65536.0
+      },
+      "hits": 10,
+      "process_ns": {
+        "median": 47053012.0,
+        "n": 10,
+        "p10": 43876856.6,
+        "p90": 54087876.2
+      },
+      "total_actions": 10
+    }
+  },
+  "samples_sha256": "982758a9059029590ef4b6395c8c8c3f3130c678781dcd4a443621094de61be6"
+}
