@@ -1,0 +1,289 @@
+{
+  "profile": "rt21-mask4-v1",
+  "entry": "dependency_closure",
+  "functions": [
+    {
+      "name": "take_row",
+      "parameters": [
+        "seen",
+        "node",
+        "row"
+      ],
+      "returns": "Mask4",
+      "body": {
+        "if": [
+          {
+            "eq": [
+              {
+                "bits_and": [
+                  "seen",
+                  "node"
+                ]
+              },
+              0
+            ]
+          },
+          0,
+          "row"
+        ]
+      }
+    },
+    {
+      "name": "row_is_valid",
+      "parameters": [
+        "live",
+        "node",
+        "row"
+      ],
+      "returns": "Bool",
+      "body": {
+        "if": [
+          {
+            "eq": [
+              {
+                "bits_and": [
+                  "live",
+                  "node"
+                ]
+              },
+              0
+            ]
+          },
+          {
+            "eq": [
+              "row",
+              0
+            ]
+          },
+          {
+            "eq": [
+              {
+                "bits_and": [
+                  "row",
+                  "live"
+                ]
+              },
+              "row"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "root_is_valid",
+      "parameters": [
+        "live",
+        "root"
+      ],
+      "returns": "Bool",
+      "body": {
+        "all": [
+          {
+            "any": [
+              {
+                "eq": [
+                  "root",
+                  1
+                ]
+              },
+              {
+                "eq": [
+                  "root",
+                  2
+                ]
+              },
+              {
+                "eq": [
+                  "root",
+                  4
+                ]
+              },
+              {
+                "eq": [
+                  "root",
+                  8
+                ]
+              }
+            ]
+          },
+          {
+            "eq": [
+              {
+                "bits_and": [
+                  "root",
+                  "live"
+                ]
+              },
+              "root"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "expand",
+      "parameters": [
+        "seen",
+        "r0",
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "returns": "Mask4",
+      "body": {
+        "bits_or": [
+          "seen",
+          {
+            "call": [
+              "take_row",
+              "seen",
+              1,
+              "r0"
+            ]
+          },
+          {
+            "call": [
+              "take_row",
+              "seen",
+              2,
+              "r1"
+            ]
+          },
+          {
+            "call": [
+              "take_row",
+              "seen",
+              4,
+              "r2"
+            ]
+          },
+          {
+            "call": [
+              "take_row",
+              "seen",
+              8,
+              "r3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "dependency_closure",
+      "parameters": [
+        "live",
+        "root",
+        "r0",
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "returns": "Result",
+      "body": {
+        "if": [
+          {
+            "call": [
+              "root_is_valid",
+              "live",
+              "root"
+            ]
+          },
+          {
+            "if": [
+              {
+                "all": [
+                  {
+                    "call": [
+                      "row_is_valid",
+                      "live",
+                      1,
+                      "r0"
+                    ]
+                  },
+                  {
+                    "call": [
+                      "row_is_valid",
+                      "live",
+                      2,
+                      "r1"
+                    ]
+                  },
+                  {
+                    "call": [
+                      "row_is_valid",
+                      "live",
+                      4,
+                      "r2"
+                    ]
+                  },
+                  {
+                    "call": [
+                      "row_is_valid",
+                      "live",
+                      8,
+                      "r3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "result": [
+                  0,
+                  {
+                    "call": [
+                      "expand",
+                      {
+                        "call": [
+                          "expand",
+                          {
+                            "call": [
+                              "expand",
+                              {
+                                "call": [
+                                  "expand",
+                                  "root",
+                                  "r0",
+                                  "r1",
+                                  "r2",
+                                  "r3"
+                                ]
+                              },
+                              "r0",
+                              "r1",
+                              "r2",
+                              "r3"
+                            ]
+                          },
+                          "r0",
+                          "r1",
+                          "r2",
+                          "r3"
+                        ]
+                      },
+                      "r0",
+                      "r1",
+                      "r2",
+                      "r3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "result": [
+                  2,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "result": [
+              1,
+              0
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

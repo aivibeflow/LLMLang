@@ -105,7 +105,7 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 
 ## 3. Directed dependency register
 
-A [pinned RT-03 crosswalk](../language-design/RT-03/RT-03-DOWNSTREAM-EDGE-EVIDENCE-2026-11-25.md) binds all 24 outgoing edges to scope-specific evidence or an explicit proxy. DEP-094 still lacks a selected LLMLang-authored bootstrap tool.
+A [pinned RT-03 crosswalk](../language-design/RT-03/RT-03-DOWNSTREAM-EDGE-EVIDENCE-2026-11-25.md) binds all 24 outgoing edges to scope-specific evidence or an explicit proxy. A later [Structured dependency bootstrap](../toolchain-and-collaboration/RT-21/RT-21-STRUCTURED-DEPENDENCY-BOOTSTRAP-2026-11-25.md) supplies a scoped executable pilot for DEP-094.
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
 |---|---|---|---|---|
@@ -337,7 +337,7 @@ RT-21 is a staged capability goal, not a prerequisite to completing the language
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
 |---|---|---|---|---|
-| DEP-094 | RT-03 → RT-21 | Requires | A LLMLang-authored tool needs a stable executable semantic subset; the subset must define values, control flow, functions, errors, and observable effects used by that tool. | Strong hypothesis |
+| DEP-094 | RT-03 → RT-21 | Requires | A tool authored in LLMLang needs executable values, control flow, functions, errors and an observation boundary. The structured dependency-tool pilot agrees with an independent traversal on 16,468 graph cases in an interpreter and generated C. [Structured dependency bootstrap](../toolchain-and-collaboration/RT-21/RT-21-STRUCTURED-DEPENDENCY-BOOTSTRAP-2026-11-25.md) | Scoped executable bootstrap evidence |
 | DEP-061 | RT-05 → RT-21 | Requires | Reproducible tool representation, semantic editing, and dependency analysis require canonical graph/IR objects and explicit identity boundaries. | Strong hypothesis |
 | DEP-062 | RT-09 → RT-21 | Requires | A bootstrap compiler and typed intermediate representation are needed to build LLMLang tools deterministically. | Strong hypothesis |
 | DEP-063 | RT-10 → RT-21 | Requires | A minimal runtime and explicit platform capability boundary are needed for tools that inspect and validate repository state. | Strong hypothesis |
