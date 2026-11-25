@@ -1,0 +1,33 @@
+{
+  "artifact_lock": {
+    "artifact": "eec45530cde0edc2650799ff230d57f59fdd9c6bcfcc221eed880922437d731b",
+    "generation": 2,
+    "registry": "registry:reviewed"
+  },
+  "checked_clone": true,
+  "expected_target": "3c2837333def8343968939ecd579e5e6ca126a8a75ad7e5e7fd48cc124d91a83",
+  "first_candidate": "5cb50b41a749d1366cd2ed8188d64326dee062ebec7081bb1e1e25c0e8b8e1a2",
+  "fork_commit": "744a6d659b9883004a4747c29d6bf71d5f159dd0cf5449dddadf2c98f564b061",
+  "gate_decisions": {
+    "exact_input": "eligible",
+    "grant_missing": "registry-unavailable",
+    "missing_exact_payload": "registry-unavailable",
+    "payload_mismatch": "registry-unavailable",
+    "retained_old_review": "stale-target",
+    "wrong_candidate": "source-or-candidate-mismatch",
+    "wrong_fork_same_commit": "source-or-candidate-mismatch",
+    "wrong_generation": "registry-binding-mismatch",
+    "wrong_registry_same_bytes": "registry-binding-mismatch"
+  },
+  "git": "git version 2.56.1",
+  "original_target": "73fd2d72fae4b4301559bbd2a3dc9a4073a45dd11c7ec2c76c45c00bf3c62561",
+  "published_candidate": "f51e94de8cca0969c9b4870fd61d5defad1574729d750bb3f9e9e9332da1d859",
+  "published_parents": [
+    "3c2837333def8343968939ecd579e5e6ca126a8a75ad7e5e7fd48cc124d91a83",
+    "744a6d659b9883004a4747c29d6bf71d5f159dd0cf5449dddadf2c98f564b061"
+  ],
+  "python": "3.12.14",
+  "source_sha256": "9840e39a107357f40e46648e32f13470badb265f05f9c2e6409fbc80f5dd343f",
+  "stale_ref_cas": "refused",
+  "wrong_parent_tree": "merge-parents-mismatch"
+}

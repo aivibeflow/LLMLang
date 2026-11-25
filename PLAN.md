@@ -1673,7 +1673,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define provenance, authorship, approval, and audit trails.
   - [x] Verify four distinct signed roles and nine refused audit histories. Exact scope, policy, predecessor, approved disposition and checkpoint distinguish the complete chain. Production issuance and checkpoint authority remain open. [Signed audit chain](research/toolchain-and-collaboration/RT-24/RT-24-SIGNED-AUDIT-CHAIN-2026-11-25.md)
   - [ ] [WIP human] Approve the production reviewer and publisher roles and supply real reviewer participation for effectiveness checks.
-- [ ] [WIP] Define collaboration across branches, forks, and shared artifact registries.
+- [x] Define collaboration across branches, forks, and shared artifact registries.
+  - [x] Check nine fork and registry handoffs plus parent and native ref controls. Only the exact current handoff publishes. A clean clone reproduces the selected merge and artifact lock. Remote authority and distributed coordination remain open. [Fork and registry handoff](research/toolchain-and-collaboration/RT-24/RT-24-FORK-AND-REGISTRY-HANDOFF-2026-11-25.md)
 - [ ] Test large multi-contributor scenarios.
   - [x] Integrate 48 synthetic contributor heads in six orders over 576 native merge calls. Scope checks match full validation on all 288 guarded candidates, accept 36 per order and reject 12 while clean textual merges leave invalid groups. A fresh clone preserves the checked head. Real-team workloads and general affected-set completeness remain open. [Multi-contributor Git integration](research/toolchain-and-collaboration/RT-24/RT-24-CONTRIBUTOR-MERGES-2026-11-25.md)
 
