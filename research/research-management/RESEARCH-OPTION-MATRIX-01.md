@@ -288,6 +288,8 @@ The [external-effect revocation experiment](../language-design/RT-04/RT-04-EXTER
 
 The [external receipt recovery fixture](../toolchain-and-collaboration/RT-19/RT-19-EXTERNAL-RECEIPT-RECOVERY-2026-11-25.md) compares receipt-only, filename-only and exact operation binding after a process crash. The exact recovery route relies on a stable immutable namespace and records observed effects separately.
 
+[Mutable log recovery](../toolchain-and-collaboration/RT-19/RT-19-MUTABLE-LOG-RECOVERY-2026-11-25.md) compares blind retry, latest-payload reconciliation, and recovery bound to the exact framed operation and current file. The exact gate prevents false successes in 42 calls, including controlled partial completion, a stale receipt after truncation and a pair of concurrent retries. The case bounds the external state contract for a Toolchain result receipt.
+
 ## 8. Readiness assessment for comparative selection
 
 The [call-cost evidence comparison](../formal-verification/RT-34/RT-34-CALL-COST-BINDING-2026-11-25.md) keeps the conditional caller theorem reusable across a rebind while requiring a checked cost claim for the current provider, weighting and budget.
