@@ -62,6 +62,7 @@ Priority is a planning aid, not a measure of correctness:
   - Define a dedicated Operation Definition artifact that references these components by typed hashes.
 - **Recommendation:** Prefer a dedicated, typed operation-definition envelope with explicit references to interface and contract artifacts, plus only those additional fields that affect call semantics. Avoid duplicating their full content in multiple places.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), section 3.6.
+- **Evidence:** [RT-05 permissive operation identity](research/semantic-representation/RT-05/RT-05-PERMISSIVE-OPERATION-IDENTITY-2026-11-25.md) contrasts a complete relational contract address with exact provider binding. The fixture requires the ordered value/effect relation and its arithmetic interpretation, and leaves the production envelope open.
 
 ### LL-002 — Define Operation Stable ID lifecycle
 
