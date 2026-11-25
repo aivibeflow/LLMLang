@@ -1696,10 +1696,10 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define supply-chain provenance and signed evidence.
   - [x] Reconcile three exact ledgers that distinguish signed builder provenance, independent restoration, archive identity and root-bound declared rights. Authority and exact scope remain separate checks. [Signed provenance boundary](research/security/RT-16/RT-16-PROVENANCE-AND-REBUILD-BOUNDARY-2026-11-25.md)
   - [ ] [WIP human] Approve production trust roots, authorized evidence issuers and signing or transparency policy.
-- [ ] Define sandboxing and capability restrictions for generated code.
+- [ ] [WIP] Define sandboxing and capability restrictions for generated code.
   - A native cross-store experiment separates stale grant admission, scope-aware serialization and external-effect recovery. In a 45-case matrix the SQLite writer gate has no stale rename, while a process stop after rename leaves a file without a receipt under every tested policy. General external and issuer guarantees remain open. [External-effect revocation](research/language-design/RT-04/RT-04-EXTERNAL-EFFECT-REVOCATION-2026-11-25.md)
 - [ ] Define cache poisoning and malicious artifact defenses.
-- [ ] Define secret handling and isolation of build/test environments.
+- [ ] [WIP] Define secret handling and isolation of build/test environments.
   - [x] Check 48 native launches and 336 observations across explicit environment and descriptor lists and a scoped seccomp profile. New file opens fail under the filter while passed descriptors and environment values remain available. The local Landlock query returns ENOSYS. Production runner isolation remains open. [Build-worker isolation](research/security/RT-16/RT-16-WORKER-ISOLATION-2026-11-25.md)
 - [x] Define reproducible builds and attestations.
   - [x] Verify the distinct recipe and artifact claims across eight native build profiles and three exact independent cache rebuilds. Equal bytes with changed sources or flags require an exact new build statement. Cross-machine and full dependency closure remain open. [Rebuild and attestation evidence](research/security/RT-16/RT-16-PROVENANCE-AND-REBUILD-BOUNDARY-2026-11-25.md#reconciled-observations)
