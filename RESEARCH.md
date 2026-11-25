@@ -3226,3 +3226,193 @@ The entries below incorporate the completed work recorded on the main branch thr
 ### LL-030 — Define assumption identity, conditional proof closure and trust policy
 
 - **Scoped evidence:** [Claim trust crosswalk](research/formal-verification/RT-07/RT-07-CLAIM-TRUST-CROSSWALK-2026-11-25.md) distinguishes explicit premises, transitive axioms and checker trust for seven claims. The pinned Logos composition still needs an explicit trust disposition.
+
+## Evidence formerly summarized in the development plan
+
+These scoped observations retain the original experimental context and limitations. Follow-up work is tracked in the [development plan](PLAN.md).
+
+### 0.3 Research taxonomy and cross-aspect dependency map
+
+**Evidence:** The [research taxonomy](research/research-management/RESEARCH-TAXONOMY.md) enumerates 38 areas (RT-01–RT-38) and the [cross-aspect dependency map](research/research-management/RESEARCH-DEPENDENCY-MAP.md) records 264 edges (DEP-001–DEP-264) at the audited revision. These counts describe the audited register. The map also records research waves and feedback loops.
+
+### 1.0 Intent, requirements, and human-validated formalization (RT-02)
+
+- Native FRET v3.1.0 formalizes temporal and instrumented state clauses; finite end handling differs from a closed-operation rule on 225 of 1,426 traces. cvc5 checks the finite/state comparisons and finds three weakening witnesses; Lean checks the typed call relation. Backend adoption, correspondence, and human approval remain open. [RT-02 backend comparison](research/language-design/RT-02/RT-02-FRETISH-REQUIREMENT-BACKEND-COMPARISON-2026-11-25.md)
+
+- Define and exercise a candidate protocol over 28 controls. Bind each decision to the exact semantic/evidence revision, scope, review round and reviewer grant; preserve the separate formal-admission disposition. Human review and production authorization remain open. [RT-02 exact review binding](research/language-design/RT-02/RT-02-EXACT-HUMAN-APPROVAL-2026-11-25.md)
+
+**Status:** partially researched. Scenarios 15/17/18 supply the building blocks. The controlled order fixture adds bounded evidence for deterministic reconstruction and semantic-difference detection. Human-review effectiveness and broader requirement classes remain unvalidated. The linked research proposal includes a worked order-confirmation example and an experiment plan; it is not a normative architecture decision.
+
+### 1.1 Semantic Program Graph and program representation
+
+- Confirm identical typed graph bytes for infix, JSON tree and S-expression profiles in the supported subset. Replay 4,032 RT-31 observations plus 168 hand-written controls; operation binding and a direct provider pin stay distinct even when a catalog makes the tested observations equal. [RT-05 cross-syntax validation](research/semantic-representation/RT-05/RT-05-CROSS-SYNTAX-SPG-VALIDATION-2026-11-25.md)
+
+### 1.2 Semantic identity, hashes, and canonical encoding
+
+**Status:** researched; decision pending on canonical envelopes, dependency boundaries, stable-ID lifecycle, and exact `OpHash`/`ImplHash` payloads. The current project plan explicitly defers locking identity choices until cross-aspect synthesis.
+
+### 1.3 Contracts and compatible implementations
+
+**Status:** checked scoped studies cover the eight contract and implementation research questions above. Canonical contract and operation semantics, general native correspondence, authority and production implementation-selection policy remain pending. The separate public-interface extension remains proposed.
+
+### 1.4 Core language semantics (RT-03)
+
+- A source fixture with one syntactic call may skip it at runtime. The joined model misses feasible routes in six of 14 controls. Adding the possible skip preserves coverage in this corpus, while the finite path-sensitive executor also preserves precision. [Conditional-call boundary](research/research-management/RT-00/RT-00-C-RT06-PATH-COMPLETENESS-REPLAY-2026-11-25.md)
+
+### 2.0 Automatic complexity inference and resource verification (RT-34)
+
+**Priority:** P0 foundations/pilot, P1 advanced domains. **Status:** scoped checks cover typed cost obligations, generated loops, mutual recursion and exact bindings, lower bounds, advanced resource profiles and resource-aware lowering. A 14-case vector comparison carries provisional labels. Independent benchmark adjudication, production cost semantics and broad implementation correspondence remain open. [RT-34](research/formal-verification/RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) · [Benchmark plan](research/formal-verification/RT-34/RT-34-COMPLEXITY-BENCHMARK.md) · [Issue #412](https://github.com/aivibeflow/LLMLang/issues/412).
+
+### 2.1 Formal semantics of the language
+
+**Status:** checked scoped studies cover all eight formal semantics research questions above. Canonical language rules, composition across fragments, and general source and backend correspondence remain open.
+
+### 2.2 Proof architecture and proof boundary
+
+**Status** — Partially validated. Scenario 34 and the runtime gate bind the admitted typed Int/Bool fragment through the generated formula, canonical JSON and exact ordered CPC assumptions. The pinned Lean 4.34.0 proof composition includes upstream native computation axioms. General source frontend correspondence, production proof policy and explicit acceptance of the Logos trust basis remain open. [Scenario 34](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md) · [Logos verdict proof](research/formal-verification/RT-07/RT-07-LOGOS-VERDICT-PROOF-2026-11-25.md)
+
+### 2.3 Lean, Logos, SMT, and solver integration
+
+- Clean-build the pinned Lean/Logos decoder and verify the conservative boundary at both entry points. The Python builder rejects eight unsupported source inputs, the Lean decoder rejects ten typed-wire mutations, and cvc5 checks the four emitted queries with their expected scoped outcomes. [RT-07 strict admission audit](research/formal-verification/RT-07/RT-07-STRICT-QFLIA-ADMISSION-2026-11-25.md)
+
+- The audit reproduces four runtime theorem transcripts and reconstructs the five archived upstream dependency sets. The exact 2,118 native axiom names remain distinct from theorem hypotheses and source-admission conditions. Trust disposition remains pending. [RT-07 Lean and Logos proof boundary](research/formal-verification/RT-07/RT-07-LEAN-LOGOS-PROOF-BOUNDARY-RECHECK-2026-11-25.md)
+
+### 2.4 Verified SPG-to-Lean pipeline (RT-32)
+
+**Status:** checked scoped studies cover the SPG-to-Lean research questions above. General production decoding, source correspondence across profiles, issuer governance and deployment remain open.
+
+### 2.5 Correctness of optimization and translation
+
+- Compare a Lean-checked general rule with exact finite validation over 64 ordered write pairs. Final-state-only checking admits eight trace-changing swaps. A proof for an allowed swap does not bind a different emitted target. Production optimizer correctness remains open. [RT-13 rule proof and translation validation](research/compiler-and-translation/RT-13/RT-13-RULE-PROOF-AND-TRANSLATION-VALIDATION-2026-11-25.md)
+
+**Status:** checked scoped studies cover the optimization and translation questions above. Source, graph and backend correspondence, integrated CI coverage and production proof-policy adoption remain open.
+
+### 3.1 Semantic dependency model
+
+- Distinguish discovery candidates, positive witnesses, covered may-sets, exact absence and unresolved evidence. The 648-case comparison finds 84 stale reuses with sample-only absence. Exact scoped exclusion safely reuses 32 more cases than the covered whole-program bound. [RT-06 dependency evidence classes](research/semantic-representation/RT-06/RT-06-DEPENDENCY-EVIDENCE-CLASSES-2026-11-25.md)
+
+**Status:** checked scoped studies cover the dependency model and its candidate extractor, evidence and planning rules. Normative reconciliation remains pending the accepted SPG schema and formal semantics. General source soundness and Toolchain integration remain open.
+
+### 3.2 Incremental analysis and invalidation
+
+**Status:** checked scoped studies cover the incremental analysis questions above. Full compiler integration, representative performance validation and canonical policies remain open.
+
+### 3.3 Semantic build and cache graph
+
+- Five native compilation cells demonstrate a changed contract with the same action and object, different action keys for the same object, and an omitted flag yielding one incomplete key for two objects. [Semantic, action and artifact identities](research/toolchain-and-collaboration/RT-11/RT-11-SEMANTIC-ACTION-ARTIFACT-IDENTITIES-2026-11-25.md)
+
+**Status:** candidate rules have scoped checks for versioned actions, exact dependency manifests, separate compatibility receipts, optional delivery, signed conflict handling and persistent cache layers. The append-only `language-components.toml` registry, LanguageVersion and ToolchainIdentity remain distinct inputs. Determinism classification is under investigation. Production format, general dependency discovery, registry authority and remote operation remain open.
+
+### 3.4 Quantify compilation speedup
+
+**Status:** the analytical table, native action metrics, and clean/incremental/content-cache comparisons on three upstream projects are checked. Broader workload coverage, controlled hardware, integration with the LLMLang pipeline and calibration of its stage weights remain open.
+
+### 3.5 Verification artifact cache and incremental proof reuse (RT-11/32/33/36)
+
+**Status:** proposed integrated research; existing bounded persistent-cache and invalidation experiments are evidence, not a production cache. **Priority:** P0 (exact local reuse and sound admission), P1 (advanced and distributed reuse). [Execution brief](research/formal-verification/RT-33/VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) · [Persistent modular/closed cache](research/formal-verification/RT-32/RT-32-PERSISTENT-PROOF-CACHE-2026-11-25.md) · [8,192-profile invalidation comparison](research/formal-verification/RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md).
+
+### 4.1 Semantic object storage
+
+**Status:** scoped prototypes verify immutable object admission, exact graph indexes and transactions, collection, incremental replication, local/shared storage and portable Git reconstruction. Canonical SPG object envelopes, authority, distributed recovery and power-loss durability remain open.
+
+### 4.2 Git representation and repository model
+
+- Reconstruct typed roots across 16 native commits in SHA-1 and SHA-256 repositories. Equal semantic roots can have different trees and ordered ancestry; a changed provider changes the root and interpreted calls. Closed admission refuses missing and undeclared inputs. [Commit, tree and semantic root mapping](research/toolchain-and-collaboration/RT-24/RT-24-COMMIT-TREE-SEMANTIC-ROOT-MAPPING-2026-11-25.md)
+
+**Status:** scoped checks cover closed typed Git state, cache-first loads, exact ordinary ref transport, review projections, binary closure, whole-graph merge validation, compaction and two longer pack comparisons. Canonical production representation and shard or layout selection remain open pending SPG identity and lineage review.
+
+### 4.4 Git integration workflow
+
+- Define and validate a conservative native fallback on six Git 2.56.1 cases. A named but unconfigured driver can silently admit an invalid text merge; binary fallback preserves stages for same-file changes, and cross-file results still require the exact whole-graph gate. [RT-24 native fallback admission](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-FALLBACK-ADMISSION-2026-11-25.md)
+
+### 5.1 Type system and data model
+
+- Twenty Go and Rust compiler controls distinguish structural assignment, nominal identity, aliases and explicit conversions. 4,632 C calls compare a scalar and two transparent Rust wrappers on x86-64 Linux. The comparison preserves separate source and ABI rules; LLMLang type-system selection remains open. [Native type identity](research/semantic-representation/RT-05/RT-05-NATIVE-TYPE-IDENTITY-2026-11-25.md)
+
+**Status:** all scoped comparisons have checked evidence. Candidate primitive, algebraic and dependent representations, polymorphism, native ownership and typestate, effects, inference and provider compatibility remain subject to a cohesive production LLMLang type-system design and review.
+
+### 6.1 Translation architecture
+
+**Status:** bounded external lowering, runtime binding, independent verification and selective regeneration validated for the linked fixtures. Canonical IR selection and general preservation remain open.
+
+### 6.2 Backend selection and cross-backend validation
+
+- Generated Python matches 197,440 shared scalar observations in each of two CPython profiles. Native floor division and remainder change signed results in controls; an assertion-based shift check fails under optimization. Python is viable for the checked hosted subset. Resource semantics and native target integration remain open. [Generated Python integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-PYTHON-INTEGER-LOWERING-2026-11-25.md)
+
+**Status:** hosted scalar and ordered commit/rollback conformance validated for the linked profiles. Broader platform and effect coverage and initial target selection remain open.
+
+### 6.4 Implementation discovery, selection, and optimization
+
+**Status:** All nine §6.4 research items have linked bounded results. Production policy adoption, broader workloads and composition with concurrent lifecycle handling remain open.
+
+### 6.6 Cross-platform native interoperability and bidirectional FFI (cross-cutting)
+
+**Status:** All 16 hosted cells have two-direction static and shared artifact evidence. Native Linux x86-64, Linux user-mode emulation and embedded proofs have separate bounded evidence. Native platform and release decisions remain human-gated. **Priority:** P0 for the shared target/ABI model and first three hosted OS families; P1/P2 for additional target profiles as listed below.
+
+### 7.1 Performance and scalability
+
+- Production approval depends on representative workloads, selected target/link modes and the controlled measurement environment. The archived Linux comparisons and the new concurrent virtual-address workload establish bounded research results.
+
+### Package indexes and dynamic package delivery
+
+- Test nine layouts with 8,192 sorted rows, 64 point queries and exact full scans. The 64-row gzip layout grows the whole-stream archive by 5.8% while reading 163 KiB per batch versus 303 KiB for retained whole-stream lookup. Seven measured trials cover latency and separate allocation traces record peak memory. Representative workloads and a format decision remain open. [Package index compression](research/packages-and-ecosystem/RT-12/RT-12-INDEX-COMPRESSION-2026-11-25.md)
+
+**Status:** researched in [LIBRARIES-AND-TEMPLATES.md](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md), [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), and [PACKAGE-SYSTEM.md](research/packages-and-ecosystem/RT-12/PACKAGE-SYSTEM.md); package/index/provider design is proposed but not accepted, and operational policy, benchmarks, and trust implementation remain open.
+
+### 7.3 Parallel development and collaboration
+
+**Status:** partially researched; end-to-end team workflow remains open.
+
+### 7.7 LLM patch planning, caller migration, hash propagation, and verified commit (RT-20)
+
+**Status:** RT-20 remains a research proposal. The dependency-graph prototype includes Snapshot-scoped reverse lookup, differential payload-scan auditing, per-call-site compatibility planning, candidate call-site materialization checks, and a complete explicit-declaration dependency-closure audit. The candidate declaration schema is v2: each call-site alternative pins its required Contract hash, each callable callee owns one provided-Contract reference, and RT-20 decisions preserve the caller requirement plus exact callee identity without duplicating the provided-Contract reference. The dependency-index edge projection is v3. The graph audit checks exact object hashes, transitive target resolution/kinds, and consistency between payload-derived edges and stored dependency metadata. CIP schema v2 adds exact output slots, typed-reference/call-target edge deltas, materialized output-hash bindings, and consumer-path-specific shared-caller forks. PR #24 is merged. Post-merge workflows on `cf51c15a34cee14a8b0390322be0a15d9ee85559` passed: semantic dependency 101 tests + compilation, repository structure 6 + 78 tests, and strict QF_LIA 30 tests + compileall. Action-kind/prerequisite/evidence sufficiency, dynamic dependency completeness, behavioral compatibility, and integration of the validation-gated Git prototype with the Toolchain Server remain open.
+
+### Joint integration and exit criteria
+
+**Research status:** Required research is now registered as LL-026 and LL-027. No Knowledge Context or Task Context schema, syntax, lifecycle, or architecture has been selected.
+
+### 6.5 Synthesis status
+
+Conduct and complete aspect research — **In progress** — RT-03 now has a candidate-profile survey; semantic validation/reference semantics, types/effects/ownership, security, and other gaps remain
+
+Normalize vectors and validate compatibility — **In progress** — The option matrix records initial choices and bounded resource compatibility constraints. Extend normalization and validate constraints across all research areas. [Option matrix](research/research-management/RESEARCH-OPTION-MATRIX-01.md)
+
+Generate candidate specification space — **In progress** — The four illustrative bundles anchor the comparison. The first bounded source-to-publication workflow has 576 enumerated bundles. The full compatible space still needs enumeration or a documented constrained search. [Bounded enumeration](research/research-management/planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
+
+Compare complete candidate specifications — **In progress** — The evidence audit records all four profiles and ten criteria. Common integrated workloads, approved inputs and independent review still gate scoring. [Candidate comparison evidence](research/research-management/planning-and-synthesis/CANDIDATE-COMPARISON-2026-11-25.md)
+
+### 8. Immediate execution order
+
+1. **Close the shared source-semantics and type/resource gap.** Compare typed calls, owned-resource results, transfer/return, cleanup failure composition and ordering, ordered effects, cancellation, and recursion/fuel across RT-03 profiles and RT-04 type/resource alternatives. Scenarios 97–108 provide bounded outcome composition, ownership auditing, finite predicate paths, solver cross-checking, conservative UNKNOWN handling, one real worker deadline, mutation-identity counterexamples, call-summary transitions, alias-sensitive path cases, a bounded source-derived alias adapter, and finite path-sensitive alias precision. Scenarios 109–111 add bounded JSON observations for presence, version skew/defaults, and unknown variants. [Scenario 134](research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md) compares Protobuf, Avro, and CBOR rules and separates parsing fingerprints from evolution-policy and wire-contract identity. Real-runtime conformance, migration behavior, schema/ABI policy, and semantic identity boundaries remain open. Broader hard-formula distributions, negative-result trust/checking, full parser/source correspondence, general alias/call/loop analysis, and independent review remain required before claiming source-level completeness.
+
+### External evidence and approval dependencies
+
+Upstream reference scope and foreign-contract evidence — The [reference register](research/references/README.md) records omissions in partial upstream snapshots; the [current-main offline link audit](research/research-management/RT-00/RT-00-A-CURRENT-MAIN-LINK-ANCHOR-AUDIT-2026-11-25.md) locates 82 unresolved local references in copied MCP/OCI/Alive2 material. The [pinned snapshot routes](research/research-management/RT-00/RT-00-PINNED-SNAPSHOT-ROUTES-2026-11-25.md) resolve all 82 occurrences to 30 exact upstream files and verify 39 fragments. Hosted rendering of the MCP `#meta` fragment remains unverified. Claims that depend on omitted references or foreign providers still require authoritative contract evidence. [RT-36](research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md) and [CF-008](research/formal-verification/CONTRACT-FORMALIZATION-CORPUS/cases/CF-008-linux-pipe-transfer.md) identify how undischarged assumptions constrain the claim.
+
+[WIP human] Logos native computation and upstream rule trust decision — The [completed proof audit](research/formal-verification/RT-07/RT-07-LOGOS-VERDICT-PROOF-2026-11-25.md) checks the pinned verifier and source composition, both with the same 2,118 native computation axioms. The [model witness comparison](research/formal-verification/RT-07/RT-07-LOGOS-KERNEL-MODEL-WITNESS-2026-11-24.md) validates an `rfl` replacement for one model-existence theorem's `native_decide` dependency but leaves the pinned verdict axioms in scope. Record an explicit trust disposition or adopt a restricted proof; audit the upstream rule build before treating the runtime verdict as a checked source refutation.
+
+[WIP human] Production solver backend and protocol decision — The [one-shot worker protocol audit](research/research-management/RT-00/RT-00-C-SOLVER-WORKER-PROTOCOL-AUDIT-2026-11-25.md) covers one CPython/SymPy POSIX harness only. Production selection still needs representative formula/workload coverage, CPU/memory/descendant/concurrency limits, target-platform runners, Lean/JSON/Logos/CPC integration, and either an explicit trusted-backend decision or independently checked UNSAT certificates. Persistent-worker lifecycle remains unmeasured if retained as a candidate.
+
+[WIP human] Physical Cortex-M3 register, DMA and timing evidence — The [RT-37 metadata comparison](research/runtime-and-systems/RT-37/RT-37-MMIO-METADATA-AND-CAPABILITIES-2026-11-24.md) records the absence of an exact LM3S SVD in the pinned dataset. An authoritative target register contract and board observations are needed before transferring emulator MMIO or timing results to physical devices. The [DMA lease model](research/runtime-and-systems/RT-37/RT-37-DMA-LEASE-OWNERSHIP-2026-11-24.md) needs a concrete controller contract for descriptor identity, quiescence, queue drain, cache visibility and device address ranges.
+
+[WIP human] Authorized native performance-counter measurement — [RT-26 Linux performance counters](research/runtime-and-systems/RT-26/RT-26-LINUX-PERFORMANCE-COUNTER-BOUNDARY-2026-11-24.md) records EPERM for every tested self-thread perf event. Selection of cycle- or instruction-based resource contracts requires a measurement environment with usable events and explicit target and scheduling scope.
+
+[WIP human] Native checkout on selected filesystem profiles — The [profile-bound Git paths](research/toolchain-and-collaboration/RT-24/RT-24-PROFILE-BOUND-GIT-PATHS-2026-11-25.md) experiment in §4.4 and §4.5 covers case-sensitive Linux and a declared UTF-8 comparison profile. Cross-platform exit evidence needs native checkouts on the selected case-insensitive or normalization-sensitive filesystems with pinned OS, filesystem and Git versions.
+
+### LL-005 — Define hash-relevant dependency edges and cycles
+
+- **New evidence:** Two exact group encodings preserve addresses under display renames and propagate relevant changes to callers. Structural canonicalization can share a value address across symmetric members. Compare the cost of that invalidation with a design that pins Contract-level bindings separately from implementation closures. [RT-05 recursive identity](research/semantic-representation/RT-05/RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md)
+
+### LL-006 — Decide artifact granularity for the initial SPG/store
+
+- **New evidence** · The typed SPG fixture measures which selected values change after a body edit, a binding update, and a contract revision. It also compares the addressable units for interfaces, types, tests, models, and proofs. [RT-05 Typed Semantic Program Graph](research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md#6-artifact-granularity-and-trade-offs)
+
+### LL-022 — Define the package content, index, and dynamic-provider model
+
+- **New evidence:** the first logical schema for Objects, Dependencies, Exports, and Modules is documented in [Package Index Logical Schema](research/packages-and-ecosystem/RT-12/PACKAGE-INDEX-LOGICAL-SCHEMA.md). Prototype 01 tests schema validation, cross-table references, canonical ordering, deterministic merge, conflict rejection, and merge laws. A lazy k-way merge, bounded-memory external cross-table reference validator, and deterministic streaming ZIP archive writer/verifier are implemented and CI-tested. The archive prototype parses the manifest, recomputes the logical index hash and Package Content Root Hash using the identity prototype, verifies declared roots are included, and streams object bytes while checking exact SHA-256 Content Hashes and sizes; ZIP is not a normative format.
+
+- **New evidence:** Prototype 01 now resolves exact required/optional dependency closure under the three manifest policies against one immutable Content Store snapshot. It rejects missing or substituted hashes, requires explicit boolean selections for traversed conditional edges, handles cycles and shared dependencies, and recomputes index included flags. A disk-backed Provider-to-archive pipeline now stores traversal queue, visited object metadata, and dependency rows in SQLite; sorted index iterators feed the streaming archive writer and payloads are opened one at a time. It remains a prototype: measure actual resource bounds and connect a production Content Store adapter.\n- **Next gaps:** finalize dependency-kind and condition semantics; decide empty-module and Stable ID rules; determine whether further identity-bearing tables are required; measure disk-backed traversal and ZIP central-directory memory; implement and test a real Content Store snapshot adapter; investigate multi-provider composition; extend manifest-to-index checks to cache-index payloads and any future identity-bearing tables; evaluate archive container alternatives and measure ZIP central-directory memory overhead before selecting a scalable archive design. Binary index block representation, compression, sparse lookup, provenance, and trust remain subsequent work.
+
+### DEFERRED-001 — Repair canonical query semantics Lean module
+
+- **Context:** The experimental module `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/CanonicalQuerySemantics.lean` attempted to define an evaluator for the actual dependent `QueryTerm` in `LLMLangLogosBinding.lean`, translate it into the independent semantic query representation from `SourceQuerySemantics.lean`, and prove evaluation preservation. The attempt was removed from the active build and deleted after it broke Lean CI; it is intentionally not part of the current validated baseline.
