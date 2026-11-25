@@ -1,0 +1,78 @@
+{
+  "baseline": "d7874b9547b58ca44a741f5cf98158c871592f21",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "axioms": [
+    "'ScopedDependency.observed_implies_reachable' does not depend on any axioms",
+    "'ScopedDependency.upper_bound_exclusion' does not depend on any axioms",
+    "'ScopedDependency.exact_boolean_absence' does not depend on any axioms"
+  ],
+  "runner_sha256": "1d48e8ae5c0695c070f359568724cf34c196268a092c2c3764b31a053dbe5a77",
+  "model_sha256": "91bdea594005ba187035b850093017be39acec1b3614d07e38fc3accbfea9f66",
+  "scope_profiles": [
+    [
+      false
+    ],
+    [
+      true
+    ],
+    [
+      false,
+      true
+    ]
+  ],
+  "sample_subsets": [
+    [],
+    [
+      false
+    ],
+    [
+      true
+    ],
+    [
+      false,
+      true
+    ]
+  ],
+  "program_count": 9,
+  "per_policy": {
+    "sample-only": {
+      "cases": 648,
+      "safe_reuses": 472,
+      "stale_reuses": 84,
+      "safe_cases_held": 0
+    },
+    "closed-upper-bound": {
+      "cases": 648,
+      "safe_reuses": 204,
+      "stale_reuses": 0,
+      "safe_cases_held": 268
+    },
+    "exact-scope": {
+      "cases": 648,
+      "safe_reuses": 236,
+      "stale_reuses": 0,
+      "safe_cases_held": 236
+    }
+  },
+  "distinct_evidence_classes": {
+    "unresolved": 278,
+    "checked_absence": 236,
+    "reachable_after_complete_replay": 42,
+    "witnessed_edge": 92
+  },
+  "controls": {
+    "valid_scope": {
+      "snapshot": "0473ef2dc0d324ab659d3580c1134e9d812035905c4781fdd6d529b0c6860e13",
+      "scope": [
+        false
+      ],
+      "target": "b",
+      "schema": "closed-boolean-dispatch/1"
+    },
+    "broadened_scope_rejected": true,
+    "rebound_source_rejected": true,
+    "source_coverage_missing_rejected": true,
+    "altered_observation_rows_rejected": true
+  }
+}
