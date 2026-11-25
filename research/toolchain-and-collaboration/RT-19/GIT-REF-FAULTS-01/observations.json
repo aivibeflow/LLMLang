@@ -1,0 +1,980 @@
+{
+  "git": "git version 2.56.1",
+  "profiles": {
+    "files": [
+      {
+        "events": [
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "beta-lock",
+            "observed"
+          ]
+        ],
+        "exit": 0,
+        "fault": null,
+        "policy": "reference",
+        "recovery": "observe-exact-visible-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "commit: ok"
+        ],
+        "visible_after_exit": [
+          "new",
+          "new"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "write",
+          "beta-lock",
+          1
+        ],
+        "policy": "reference",
+        "recovery": "retry-exact-old-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "fatal: prepare: cannot update ref 'refs/llmlang/fixture/beta': couldn't write '<repo>/./refs/llmlang/fixture/beta.lock'"
+        ],
+        "visible_after_exit": [
+          "old",
+          "old"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "beta-lock",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "fsync",
+          "beta-lock",
+          1
+        ],
+        "policy": "reference",
+        "recovery": "retry-exact-old-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "fatal: prepare: cannot update ref 'refs/llmlang/fixture/beta': couldn't write '<repo>/./refs/llmlang/fixture/beta.lock'"
+        ],
+        "visible_after_exit": [
+          "old",
+          "old"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "alpha-lock",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "rename",
+          "alpha-lock",
+          1
+        ],
+        "policy": "reference",
+        "recovery": "retry-exact-old-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: couldn't set 'refs/llmlang/fixture/alpha'"
+        ],
+        "visible_after_exit": [
+          "old",
+          "old"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "beta-lock",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "rename",
+          "beta-lock",
+          1
+        ],
+        "policy": "reference",
+        "recovery": "refuse-mixed-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: couldn't set 'refs/llmlang/fixture/beta'"
+        ],
+        "visible_after_exit": [
+          "new",
+          "old"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "beta-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "alpha-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "beta-lock",
+            "observed"
+          ]
+        ],
+        "exit": 0,
+        "fault": null,
+        "policy": "none",
+        "recovery": "observe-exact-visible-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "commit: ok"
+        ],
+        "visible_after_exit": [
+          "new",
+          "new"
+        ]
+      }
+    ],
+    "reftable": [
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-list-lock",
+            "observed"
+          ]
+        ],
+        "exit": 0,
+        "fault": null,
+        "policy": "reference",
+        "recovery": "observe-exact-visible-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "commit: ok"
+        ],
+        "visible_after_exit": [
+          "new",
+          "new"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "write",
+          "table-temp",
+          1
+        ],
+        "policy": "reference",
+        "recovery": "retry-exact-old-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: reftable: transaction failure: I/O error"
+        ],
+        "visible_after_exit": [
+          "old",
+          "old"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "fsync",
+          "table-temp",
+          1
+        ],
+        "policy": "reference",
+        "recovery": "retry-exact-old-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: reftable: transaction failure: I/O error"
+        ],
+        "visible_after_exit": [
+          "old",
+          "old"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "rename",
+          "table-temp",
+          1
+        ],
+        "policy": "reference",
+        "recovery": "retry-exact-old-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: reftable: transaction failure: I/O error"
+        ],
+        "visible_after_exit": [
+          "old",
+          "old"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "write",
+          "table-list-lock",
+          1
+        ],
+        "policy": "reference",
+        "recovery": "retry-exact-old-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: reftable: transaction failure: I/O error"
+        ],
+        "visible_after_exit": [
+          "old",
+          "old"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-list-lock",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "fsync",
+          "table-list-lock",
+          1
+        ],
+        "policy": "reference",
+        "recovery": "retry-exact-old-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: reftable: transaction failure: I/O error"
+        ],
+        "visible_after_exit": [
+          "old",
+          "old"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-list-lock",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "rename",
+          "table-list-lock",
+          1
+        ],
+        "policy": "reference",
+        "recovery": "retry-exact-old-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: reftable: transaction failure: I/O error"
+        ],
+        "visible_after_exit": [
+          "old",
+          "old"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "write",
+          "table-temp",
+          3
+        ],
+        "policy": "reference",
+        "recovery": "observe-exact-visible-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: reftable: transaction failure: I/O error"
+        ],
+        "visible_after_exit": [
+          "new",
+          "new"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-list-lock",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "fsync",
+          "table-list-lock",
+          2
+        ],
+        "policy": "reference",
+        "recovery": "observe-exact-visible-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: reftable: transaction failure: I/O error"
+        ],
+        "visible_after_exit": [
+          "new",
+          "new"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "fsync",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-list-lock",
+            "failed"
+          ]
+        ],
+        "exit": 128,
+        "fault": [
+          "rename",
+          "table-list-lock",
+          2
+        ],
+        "policy": "reference",
+        "recovery": "observe-exact-visible-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "fatal: commit: reftable: transaction failure: I/O error"
+        ],
+        "visible_after_exit": [
+          "new",
+          "new"
+        ]
+      },
+      {
+        "events": [
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-temp",
+            "observed"
+          ],
+          [
+            "write",
+            "table-list-lock",
+            "observed"
+          ],
+          [
+            "rename",
+            "table-list-lock",
+            "observed"
+          ]
+        ],
+        "exit": 0,
+        "fault": null,
+        "policy": "none",
+        "recovery": "observe-exact-visible-vector",
+        "remaining_locks": [],
+        "reported": [
+          "start: ok",
+          "prepare: ok",
+          "commit: ok"
+        ],
+        "visible_after_exit": [
+          "new",
+          "new"
+        ]
+      }
+    ]
+  }
+}
