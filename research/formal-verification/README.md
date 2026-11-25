@@ -11,6 +11,7 @@ This direction groups related research studies without changing their RT identif
 - [Complexity and resource guarantees](complexity-and-resource-guarantees/README.md) · RT-34
 - [Resource-aware lowering](RT-34/RT-34-RESOURCE-AWARE-LOWERING-2026-11-25.md) · Native budget regressions, exact foreign binding and Lean inequalities
 - [Read lower bound and FIFO cost](RT-34/RT-34-READ-LOWER-AND-QUEUE-2026-11-25.md) · Query optimality, amortized FIFO cost and peak logical storage
+- [Parallel, expected and output costs](RT-34/RT-34-PARALLEL-EXPECTED-OUTPUT-2026-11-25.md) · Work, span, distribution-dependent probes and multivariate output
 
 ## Studies
 

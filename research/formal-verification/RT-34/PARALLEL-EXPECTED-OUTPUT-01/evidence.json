@@ -1,0 +1,72 @@
+{
+  "axioms": {
+    "bounded_width": [],
+    "full_tree_nodes": [
+      "propext",
+      "Quot.sound"
+    ],
+    "no_n_only_bound": [
+      "propext",
+      "Quot.sound"
+    ],
+    "padded_path": [
+      "propext"
+    ],
+    "tree_messages": [
+      "propext",
+      "Quot.sound"
+    ],
+    "uniform_probe_sum": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "format": "parallel-expected-output-01",
+  "lean_source": "cc9bde74dec6d3514fda149363b28b85eaf5b886484dfc3ed08510a307303c23",
+  "output": {
+    "cases": 612,
+    "one_item_output_widths": [
+      1,
+      4,
+      17,
+      33
+    ]
+  },
+  "parallel": {
+    "cases": 10235,
+    "max_messages": 30,
+    "max_span": 10,
+    "max_work": 25
+  },
+  "probability": {
+    "absent_inputs": 128,
+    "examples": {
+      "1": [
+        "1",
+        "1",
+        "1",
+        1
+      ],
+      "2": [
+        "3/2",
+        "13/8",
+        "7/4",
+        2
+      ],
+      "16": [
+        "17/2",
+        "83/8",
+        "49/4",
+        16
+      ],
+      "128": [
+        "129/2",
+        "643/8",
+        "385/4",
+        128
+      ]
+    },
+    "positive_inputs": 8256,
+    "size_cells_detecting_change": 127
+  }
+}
