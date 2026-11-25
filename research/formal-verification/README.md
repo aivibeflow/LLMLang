@@ -29,6 +29,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [Dafny construct transfer](RT-07/RT-07-DAFNY-CONSTRUCT-TRANSFER-2026-11-25.md) compares thirteen documented constructs with candidate LLMLang obligations and evidence boundaries.
 - [Multi-backend integration and verification artifact cache](RT-33/VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) — candidate adapters, persistent proof and certificate reuse, exact admission and VAC-01–15 execution plan.
 
 - [Proof and test execution costs](PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-2026-11-25.md) compares pinned proof and finite-oracle phases across three evidence packages.
