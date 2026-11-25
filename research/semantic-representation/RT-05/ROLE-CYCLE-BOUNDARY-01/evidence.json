@@ -1,0 +1,35 @@
+{
+  "counts": {
+    "graphs": 46656,
+    "universal_projection_overgroups": 44856,
+    "with_any_cycle": 45575,
+    "with_semantic_cycle": 4031
+  },
+  "prior_ledger_sha256": {
+    "RECURSIVE-BOUNDARY-01": "399a4705681d7e85560dc02dbac0164156ff2be44a368370e2cd91f97f9db7cc",
+    "RECURSIVE-TOPOLOGY-EDITS-01": "5a88298254d5d333b04537419b4e12c77ee2b078dcd543d01721c13458996b7c",
+    "TYPED-EDGE-PROJECTIONS-01": "bb19d6e1ae0c233e71a845cad6bc492c81e0a613446af2afa867fee0abf46d51"
+  },
+  "reverse_edge_changed_views": {
+    "build": [
+      "build"
+    ],
+    "description": [
+      "description"
+    ],
+    "proof": [
+      "proof"
+    ],
+    "semantic": [
+      "semantic",
+      "build",
+      "proof",
+      "source"
+    ],
+    "source": [
+      "source"
+    ]
+  },
+  "revision": "9e8644f39c6b3ba650bcf2e48e81363dd3d701bb",
+  "runner_sha256": "2b7609e2ab23691b19240969d8aaf3fff4ea41bc6efcaf58a29bd0da692ffedb"
+}
