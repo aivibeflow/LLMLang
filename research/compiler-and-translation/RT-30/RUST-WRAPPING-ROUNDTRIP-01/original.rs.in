@@ -1,0 +1,7 @@
+// Standalone function fixture. The original uses an independently named entry.
+pub fn @FUNCTION@(a:u32,b:u32,enabled:u32, emit:&mut dyn FnMut(u32), out:&mut u32) -> u32 {
+    emit(a); let mut value=b;
+    if enabled != 0 { value=@LEFT@.@METHOD@(@RIGHT@); }
+    emit(value); *out=value;
+    0
+}

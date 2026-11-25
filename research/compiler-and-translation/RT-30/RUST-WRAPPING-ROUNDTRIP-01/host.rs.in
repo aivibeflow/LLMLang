@@ -1,0 +1,33 @@
+use std::io::{self, Read, Write};
+
+type Entry = fn(u32, u32, u32, &mut dyn FnMut(u32), &mut u32) -> u32;
+const ENTRIES: &[Entry] = &[@ENTRIES@];
+
+fn word(bytes: &[u8], offset: usize) -> u32 {
+    u32::from_le_bytes(bytes[offset..offset + 4].try_into().expect("framed input"))
+}
+
+fn main() -> io::Result<()> {
+    let mut request = Vec::new();
+    io::stdin().read_to_end(&mut request)?;
+    let mut response = io::BufWriter::new(io::stdout().lock());
+    let records = request.chunks_exact(16);
+    if !records.remainder().is_empty() {
+        return Err(io::Error::new(io::ErrorKind::InvalidData, "partial record"));
+    }
+    for record in records {
+        let entry = ENTRIES[word(record, 0) as usize];
+        let mut slot = 0xabad1234;
+        let mut events = [0; 2];
+        let mut count = 0;
+        let mut emit = |value| {
+            events[count] = value;
+            count += 1;
+        };
+        let status = entry(word(record, 4), word(record, 8), word(record, 12), &mut emit, &mut slot);
+        for field in [status, slot, count as u32, events[0], events[1]] {
+            response.write_all(&field.to_le_bytes())?;
+        }
+    }
+    response.flush()
+}
