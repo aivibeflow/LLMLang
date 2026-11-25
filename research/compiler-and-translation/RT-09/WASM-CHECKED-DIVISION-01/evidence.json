@@ -1,0 +1,381 @@
+{
+  "engines": {
+    "v22.23.5": {
+      "checks": {
+        "guarded/full/intended": {
+          "accepted": 5041,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 0,
+          "trace_sha256": "2c5f539af261ca7b96c0bfb94b26011bb314c80ed33aa974a222c9f673066a8a",
+          "traps": 0,
+          "wrong": 0,
+          "wrong_domain": 0,
+          "wrong_result": 0,
+          "wrong_trace": 0
+        },
+        "guarded/full/missing": {
+          "binding": "refused",
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ]
+        },
+        "guarded/full/wrong": {
+          "accepted": 5041,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 0,
+          "trace_sha256": "70be126b6fc55d17f219903834e8faf6f9f080a00e28255ab903592f361c90ec",
+          "traps": 0,
+          "wrong": 5041,
+          "wrong_domain": 0,
+          "wrong_result": 0,
+          "wrong_trace": 5041
+        },
+        "pure/pure/none": {
+          "accepted": 5041,
+          "cases": 5041,
+          "imports": [],
+          "rejected_domain": 0,
+          "trace_sha256": "4cf5c52cdd583b1e224e365d07ee26ada482826ad9cfa18b7801430495290ef8",
+          "traps": 0,
+          "wrong": 0,
+          "wrong_domain": 0,
+          "wrong_result": 0,
+          "wrong_trace": 0
+        },
+        "raw/full/intended": {
+          "accepted": 5041,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 0,
+          "trace_sha256": "960c9f52287e15ca9d751a79083c5d7c41711a8042aefab819a36ba16cbd4b10",
+          "traps": 72,
+          "wrong": 72,
+          "wrong_domain": 0,
+          "wrong_result": 72,
+          "wrong_trace": 72
+        },
+        "raw/restricted-zero-only/intended": {
+          "accepted": 4970,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 71,
+          "trace_sha256": "6b413bb08b279a189b6fab86de83d1d1f79370f9f944a12d8c2bb148bdfdefd6",
+          "traps": 1,
+          "wrong": 1,
+          "wrong_domain": 1,
+          "wrong_result": 1,
+          "wrong_trace": 1
+        },
+        "raw/restricted/intended": {
+          "accepted": 4969,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 72,
+          "trace_sha256": "546f94f392c08085d7a95167d6acf645cc50de4ecc6c5001dd2db52a253749a6",
+          "traps": 0,
+          "wrong": 0,
+          "wrong_domain": 0,
+          "wrong_result": 0,
+          "wrong_trace": 0
+        },
+        "reversed/full/intended": {
+          "accepted": 5041,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 0,
+          "trace_sha256": "c1e62b40c6aba7638fe284875f9ea9dec5d7115f3ff1421d0ed41e433fd7e233",
+          "traps": 0,
+          "wrong": 5041,
+          "wrong_domain": 0,
+          "wrong_result": 0,
+          "wrong_trace": 5041
+        }
+      },
+      "decision_controls": {
+        "accepted exact restriction": "restricted",
+        "different provider receipt": "unverified",
+        "exact provider": "runtime-supported",
+        "missing import capability": "unsupported",
+        "old executable receipt": "unverified",
+        "old restriction approval": "unverified",
+        "pure profile": "exact-under-assumptions",
+        "unapproved restriction": "unverified",
+        "unknown import capability": "unverified",
+        "validator without multi-value": "unsupported",
+        "wrong domain guard": "unverified",
+        "wrong trace with exact metadata": "unverified"
+      },
+      "scopes": [
+        {
+          "binding": null,
+          "capability_profile": "node-core-multivalue-v1",
+          "engine": "v22.23.5",
+          "module": "ff61045aec725df02456df3064b5574e25ed00bbe9dde48828bc948ca9b62627",
+          "observation": "status-value",
+          "restriction": null,
+          "source": "83bd3ad6a58e171f43aeadbc2db18176729bdf3e6dd1d9294b4f293096b1b657"
+        },
+        {
+          "binding": "ac068ad702e07253c82419f7038f2619bbc567dbaa481cc1f5313b0b9b7848a3#intended",
+          "capability_profile": "node-core-multivalue-v1",
+          "engine": "v22.23.5",
+          "module": "b9292605cd86a371456b909e8e1728a89cfb8a63ca6c63f1576688178933acfe",
+          "observation": "status-value-ordered-host-audit",
+          "restriction": null,
+          "source": "83bd3ad6a58e171f43aeadbc2db18176729bdf3e6dd1d9294b4f293096b1b657"
+        },
+        {
+          "binding": "ac068ad702e07253c82419f7038f2619bbc567dbaa481cc1f5313b0b9b7848a3#intended",
+          "capability_profile": "node-core-multivalue-v1",
+          "engine": "v22.23.5",
+          "module": "13d9af7c10f5ffd20408cff1c9059584883dae47f9689af437292ef3f954ceef",
+          "observation": "status-value-ordered-host-audit",
+          "restriction": "y!=0 and (x,y)!=(I32_MIN,-1)",
+          "source": "83bd3ad6a58e171f43aeadbc2db18176729bdf3e6dd1d9294b4f293096b1b657"
+        }
+      ]
+    },
+    "v24.22.3": {
+      "checks": {
+        "guarded/full/intended": {
+          "accepted": 5041,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 0,
+          "trace_sha256": "2c5f539af261ca7b96c0bfb94b26011bb314c80ed33aa974a222c9f673066a8a",
+          "traps": 0,
+          "wrong": 0,
+          "wrong_domain": 0,
+          "wrong_result": 0,
+          "wrong_trace": 0
+        },
+        "guarded/full/missing": {
+          "binding": "refused",
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ]
+        },
+        "guarded/full/wrong": {
+          "accepted": 5041,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 0,
+          "trace_sha256": "70be126b6fc55d17f219903834e8faf6f9f080a00e28255ab903592f361c90ec",
+          "traps": 0,
+          "wrong": 5041,
+          "wrong_domain": 0,
+          "wrong_result": 0,
+          "wrong_trace": 5041
+        },
+        "pure/pure/none": {
+          "accepted": 5041,
+          "cases": 5041,
+          "imports": [],
+          "rejected_domain": 0,
+          "trace_sha256": "4cf5c52cdd583b1e224e365d07ee26ada482826ad9cfa18b7801430495290ef8",
+          "traps": 0,
+          "wrong": 0,
+          "wrong_domain": 0,
+          "wrong_result": 0,
+          "wrong_trace": 0
+        },
+        "raw/full/intended": {
+          "accepted": 5041,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 0,
+          "trace_sha256": "960c9f52287e15ca9d751a79083c5d7c41711a8042aefab819a36ba16cbd4b10",
+          "traps": 72,
+          "wrong": 72,
+          "wrong_domain": 0,
+          "wrong_result": 72,
+          "wrong_trace": 72
+        },
+        "raw/restricted-zero-only/intended": {
+          "accepted": 4970,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 71,
+          "trace_sha256": "6b413bb08b279a189b6fab86de83d1d1f79370f9f944a12d8c2bb148bdfdefd6",
+          "traps": 1,
+          "wrong": 1,
+          "wrong_domain": 1,
+          "wrong_result": 1,
+          "wrong_trace": 1
+        },
+        "raw/restricted/intended": {
+          "accepted": 4969,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 72,
+          "trace_sha256": "546f94f392c08085d7a95167d6acf645cc50de4ecc6c5001dd2db52a253749a6",
+          "traps": 0,
+          "wrong": 0,
+          "wrong_domain": 0,
+          "wrong_result": 0,
+          "wrong_trace": 0
+        },
+        "reversed/full/intended": {
+          "accepted": 5041,
+          "cases": 5041,
+          "imports": [
+            {
+              "kind": "function",
+              "module": "host",
+              "name": "audit"
+            }
+          ],
+          "rejected_domain": 0,
+          "trace_sha256": "c1e62b40c6aba7638fe284875f9ea9dec5d7115f3ff1421d0ed41e433fd7e233",
+          "traps": 0,
+          "wrong": 5041,
+          "wrong_domain": 0,
+          "wrong_result": 0,
+          "wrong_trace": 5041
+        }
+      },
+      "decision_controls": {
+        "accepted exact restriction": "restricted",
+        "different provider receipt": "unverified",
+        "exact provider": "runtime-supported",
+        "missing import capability": "unsupported",
+        "old executable receipt": "unverified",
+        "old restriction approval": "unverified",
+        "pure profile": "exact-under-assumptions",
+        "unapproved restriction": "unverified",
+        "unknown import capability": "unverified",
+        "validator without multi-value": "unsupported",
+        "wrong domain guard": "unverified",
+        "wrong trace with exact metadata": "unverified"
+      },
+      "scopes": [
+        {
+          "binding": null,
+          "capability_profile": "node-core-multivalue-v1",
+          "engine": "v24.22.3",
+          "module": "ff61045aec725df02456df3064b5574e25ed00bbe9dde48828bc948ca9b62627",
+          "observation": "status-value",
+          "restriction": null,
+          "source": "83bd3ad6a58e171f43aeadbc2db18176729bdf3e6dd1d9294b4f293096b1b657"
+        },
+        {
+          "binding": "ac068ad702e07253c82419f7038f2619bbc567dbaa481cc1f5313b0b9b7848a3#intended",
+          "capability_profile": "node-core-multivalue-v1",
+          "engine": "v24.22.3",
+          "module": "b9292605cd86a371456b909e8e1728a89cfb8a63ca6c63f1576688178933acfe",
+          "observation": "status-value-ordered-host-audit",
+          "restriction": null,
+          "source": "83bd3ad6a58e171f43aeadbc2db18176729bdf3e6dd1d9294b4f293096b1b657"
+        },
+        {
+          "binding": "ac068ad702e07253c82419f7038f2619bbc567dbaa481cc1f5313b0b9b7848a3#intended",
+          "capability_profile": "node-core-multivalue-v1",
+          "engine": "v24.22.3",
+          "module": "13d9af7c10f5ffd20408cff1c9059584883dae47f9689af437292ef3f954ceef",
+          "observation": "status-value-ordered-host-audit",
+          "restriction": "y!=0 and (x,y)!=(I32_MIN,-1)",
+          "source": "83bd3ad6a58e171f43aeadbc2db18176729bdf3e6dd1d9294b4f293096b1b657"
+        }
+      ]
+    }
+  },
+  "modules": {
+    "guarded": "b9292605cd86a371456b909e8e1728a89cfb8a63ca6c63f1576688178933acfe",
+    "pure": "ff61045aec725df02456df3064b5574e25ed00bbe9dde48828bc948ca9b62627",
+    "raw": "13d9af7c10f5ffd20408cff1c9059584883dae47f9689af437292ef3f954ceef",
+    "reversed": "5d00774a3796c664e1addaebfca332990545f58183630409403184754ee831ef"
+  },
+  "source_files": {
+    "check.mjs": "ac068ad702e07253c82419f7038f2619bbc567dbaa481cc1f5313b0b9b7848a3",
+    "lower.py": "51b874a415a5799bf20311492f53c4cc620da310fc91de4768119a36ee3a1428",
+    "run.py": "4c44733bfc82c0e26816912580d4d7e02b77faba8dffaf8b3753834dc2c2cb91",
+    "source.json": "83bd3ad6a58e171f43aeadbc2db18176729bdf3e6dd1d9294b4f293096b1b657"
+  },
+  "tools": {
+    "node": [
+      "v22.23.5",
+      "v24.22.3"
+    ],
+    "wabt": "1.0.36"
+  },
+  "validator_profiles": {
+    "default": "admitted",
+    "disable-multi-value": "rejected"
+  }
+}
