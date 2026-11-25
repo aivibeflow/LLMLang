@@ -1,0 +1,95 @@
+{
+  "git": "git version 2.56.1",
+  "python": "3.12.14",
+  "results": {
+    "info-binary-over-nested": {
+      "admissible_graph": false,
+      "attributes": {
+        "head_source": "unset",
+        "index": "unset",
+        "worktree": "unset"
+      },
+      "git_exit": 1,
+      "input_commits": [
+        "484a568953e9e9e5b58915a54c724790aa704d20",
+        "349a0ed83b82968bb4a36859d064ece6f5b8eb18",
+        "1a9f46401e852facaa41b4327283011ca154cf81"
+      ],
+      "staged_candidate_total": null,
+      "unmerged_stages": [
+        1,
+        2,
+        3
+      ]
+    },
+    "info-text": {
+      "admissible_graph": false,
+      "attributes": {
+        "head_source": "text",
+        "index": "text",
+        "worktree": "text"
+      },
+      "git_exit": 0,
+      "input_commits": [
+        "6cdd94f384b0405c94ffcf7fc1491411472780e4",
+        "3e5360f715a31eaae8b15827f254e19ae54908ec",
+        "d2351bc2287040d6e1612533b582b658883dc116"
+      ],
+      "staged_candidate_total": 2,
+      "unmerged_stages": []
+    },
+    "nested-text": {
+      "admissible_graph": false,
+      "attributes": {
+        "head_source": "text",
+        "index": "text",
+        "worktree": "text"
+      },
+      "git_exit": 0,
+      "input_commits": [
+        "484a568953e9e9e5b58915a54c724790aa704d20",
+        "349a0ed83b82968bb4a36859d064ece6f5b8eb18",
+        "1a9f46401e852facaa41b4327283011ca154cf81"
+      ],
+      "staged_candidate_total": 2,
+      "unmerged_stages": []
+    },
+    "tracked-binary": {
+      "admissible_graph": false,
+      "attributes": {
+        "head_source": "unset",
+        "index": "unset",
+        "worktree": "unset"
+      },
+      "git_exit": 1,
+      "input_commits": [
+        "6cdd94f384b0405c94ffcf7fc1491411472780e4",
+        "3e5360f715a31eaae8b15827f254e19ae54908ec",
+        "d2351bc2287040d6e1612533b582b658883dc116"
+      ],
+      "staged_candidate_total": null,
+      "unmerged_stages": [
+        1,
+        2,
+        3
+      ]
+    },
+    "worktree-text": {
+      "admissible_graph": false,
+      "attributes": {
+        "head_source": "unset",
+        "index": "unset",
+        "worktree": "text"
+      },
+      "git_exit": 0,
+      "input_commits": [
+        "6cdd94f384b0405c94ffcf7fc1491411472780e4",
+        "3e5360f715a31eaae8b15827f254e19ae54908ec",
+        "d2351bc2287040d6e1612533b582b658883dc116"
+      ],
+      "staged_candidate_total": 2,
+      "unmerged_stages": []
+    }
+  },
+  "reused_harness_sha256": "5825a41ba367f4b43009a544d6a7fbcba33f9886e2e5991824eecfb1c4566055"
+}

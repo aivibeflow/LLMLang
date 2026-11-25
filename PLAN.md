@@ -966,7 +966,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Test merges in normal Git workflows and across operating systems.
   - Sixteen native Git histories isolate two ordinary conflicts and eight declared profile collisions in otherwise clean Linux merges. Checking all prefixes catches the eight profile collisions while two Git configuration values still restore all fourteen clean trees on Linux. Native filesystem coverage on other profiles remains open. [Profile-bound Git paths](research/toolchain-and-collaboration/RT-24/RT-24-PROFILE-BOUND-GIT-PATHS-2026-11-25.md)
 - [ ] Verify that merge drivers do not silently discard unresolved semantic conflicts.
-  - [ ] [WIP] Check whether effective per-path Git attributes preserve semantic conflict stages when nested or local configuration overrides the tracked fallback on `research/all`.
+  - [x] Test five native attribute combinations. Two preserve exact conflict stages and three produce a clean invalid tree. Local attributes affect even the HEAD-source query, while an untracked nested override changes only the worktree query. The whole-graph gate refuses all invalid candidates. [RT-24 effective merge attributes](research/toolchain-and-collaboration/RT-24/RT-24-EFFECTIVE-MERGE-ATTRIBUTES-2026-11-25.md)
 - [x] Document repository setup and team workflows.
   - [x] Document the tested Linux Git workflow for setup, candidate inspection, conflict preservation, publication and recovery. Git 2.56.1 checks cover pending stage-0 and unmerged outcomes. Production deployment and other filesystem profiles remain open. [RT-24 team Git workflow](research/toolchain-and-collaboration/RT-24/RT-24-TEAM-GIT-WORKFLOW-2026-11-25.md)
 
