@@ -1,5 +1,7 @@
 # RT-38 — Operating-system kernels and verified microkernel feasibility
 
+The exact tracked-archive replay checks six RT-38 ledgers, 25 single-hart guest configurations and 11 Lean theorem outputs. The audit records separate emulator and conditional protocol scopes. [RV64 cohort replay](../../research-management/RT-00/RT-00-RV64-COHORT-REPLAY-2026-11-25.md)
+
 **Status:** Bounded RV64 boot and trap isolation checked in QEMU. Broader kernel evidence remains open.
 
 **Priority:** P1 feasibility; P0 prerequisite compatibility questions through RT-37.  
