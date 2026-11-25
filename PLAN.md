@@ -1216,8 +1216,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 ### Required bidirectional translation study (RT-30)
 
 - [ ] Research automated LLMLang → C, C++, Go, and Rust translation and C/C++/Go/Rust → LLMLang import as separate directions.
-- [ ] Define a source/target matrix, semantic observation model, preservation contracts, and explicit exact/runtime-supported/restricted/partial/unverified/unsupported outcomes.
-  - [ ] [WIP] Compose the four verified wrapping importers and exporters into a source/target capability matrix with native cross-language checks on `research/all`.
+- [x] Define a source/target matrix, semantic observation model, preservation contracts, and explicit exact/runtime-supported/restricted/partial/unverified/unsupported outcomes.
+  - [x] Define and exercise the restricted wrapping matrix: four exact imports into the checked model and 20 native routes with 740,400 matching observations. Record the shared observation contract and six evidence-dependent outcome classes. The matrix records restricted support; additional language semantics and general translator obligations remain open. [Wrapping translation matrix](research/compiler-and-translation/RT-30/RT-30-WRAPPING-TRANSLATION-MATRIX-2026-11-25.md)
 - [ ] Compare canonical semantic IR, direct SPG lowering, and hybrid representations; preserve source provenance without conflating it with semantic identity.
 - [ ] Evaluate whether a dedicated C runtime can implement high-level LLMLang features while keeping LLMLang—not C—as the semantic source of truth; compare runtime requirements and costs for all four targets.
 - [ ] Cover same-language round trips, cross-target migration, mixed-language modules, ABI/FFI, source-language undefined/implementation-defined behavior, and incremental regeneration.
