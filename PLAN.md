@@ -1763,6 +1763,7 @@ Research a typed, versioned object describing the task an agent is expected to p
 - [ ] Compare single-vector, multi-aspect, structured, lexical, and hybrid fingerprints/retrieval channels; keep embedding and ANN choices replaceable.
 - [ ] Define intent-only, structured-requirement, and hybrid query forms, including provenance for explicit hard constraints versus soft preferences.
 - [ ] Prototype KNN/ANN candidate retrieval and structured metadata/contract filters; preserve retrieval-channel and score provenance.
+  - [ ] [WIP] Prototype exact and approximate neighbor search with structured scope and contract evidence, and verify channel and score provenance (#335).
 - [ ] Define and test hard compatibility checks for types, ownership, preconditions, postconditions, effects, capabilities, and failure behavior. Similarity scores must never authorize compatibility.
 - [ ] Specify unknown/incomplete evidence behavior, exclusion reasons, ranking, explanation, and ambiguity handling; do not silently bind an arbitrary top-1 result.
 - [ ] Demonstrate exact hash resolution and call binding against an immutable semantic snapshot; runtime invocation must not repeat semantic search.
