@@ -604,6 +604,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Separate solver answers from independently checked proofs.
   - [x] Preserve distinct raw verdict, validated-model and Lean-refutation evidence in an incremental QF_LIA fixture. Two solvers agree on 192 incremental and 160 fresh queries each. Lean checks all 58 distinct refutations. Matching session and command still admit 938 wrong-context pairs with satisfying witnesses. [Incremental solver evidence](research/formal-verification/RT-07/RT-07-INCREMENTAL-SOLVER-EVIDENCE-2026-11-25.md)
 - [ ] Define exact binding between source-level assumptions, typed IR, serialized queries, and proof obligations.
+  - [ ] [WIP] Check when changed source assumptions and typed programs can rebind the same CPC proof through the exact source-owned wire gate on `research/all`.
 - [x] Define fail-closed behavior for unsupported or ambiguous constructs.
   - [x] Withhold evidence on failed typed admission or ambiguous solver context. The evidence gate withholds seven injected faults per solver and recovers six from explicit repairs. Four blind Z3 answers disagree with fresh replay, and Z3 silently accepts one mixed-sort profile violation. Missing repair stays unresolved. [Solver session recovery](research/formal-verification/RT-07/RT-07-SOLVER-SESSION-RECOVERY-2026-11-25.md)
 - [x] Define how proof status is represented: candidate, unknown, checked, rejected, or proven.
