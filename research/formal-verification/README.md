@@ -29,6 +29,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-07 dead-store alias boundary](RT-07/RT-07-DEAD-STORE-ALIAS-BOUNDARY-2026-11-25.md) — checks when declared write visibility and intervening reads permit removal.
 - [RT-07 partial-output observations](RT-07/RT-07-PARTIAL-OUTPUT-OBSERVATIONS-2026-11-25.md) — verifies accepted bytes, terminal failure and adapter traces under coalescing.
 - [RT-07 proof validity and adequacy](RT-07/RT-07-PROOF-VALIDITY-AND-ADEQUACY-2026-11-25.md) — proves the transfer condition for recorded intent and checks feasibility and coverage controls.
+- [RT-07 per-claim Lean trust](RT-07/RT-07-PER-CLAIM-LEAN-TRUST-2026-11-25.md) — checks exact theorem types, transitive assumptions and native evaluation trust.
 - [CONTRACT-FORMALIZATION-CORPUS](CONTRACT-FORMALIZATION-CORPUS/)
 - [PROOF-OBLIGATION-BENCHMARK](PROOF-OBLIGATION-BENCHMARK/)
 
