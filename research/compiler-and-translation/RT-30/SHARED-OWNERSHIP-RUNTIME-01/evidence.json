@@ -1,0 +1,122 @@
+{
+  "adapters": {
+    "c": {
+      "debug_stripped_bytes": 15008,
+      "elf_bytes": 15128,
+      "elf_sha256": "89ce2ebf7928c830cf79273a491644acd2ad2502e30781932ae73f2f9525e961",
+      "needed": [
+        "libowned.so"
+      ],
+      "sections_bytes": {
+        ".bss": 8,
+        ".data": 8,
+        ".text": 197
+      }
+    },
+    "cpp": {
+      "debug_stripped_bytes": 15008,
+      "elf_bytes": 15128,
+      "elf_sha256": "601e78296163e60674ec3648b044f9f9751f1e954a949533ed9b82e06853f5a8",
+      "needed": [
+        "libowned.so"
+      ],
+      "sections_bytes": {
+        ".bss": 8,
+        ".data": 8,
+        ".text": 197
+      }
+    },
+    "go": {
+      "debug_stripped_bytes": 1196320,
+      "elf_bytes": 1644200,
+      "elf_sha256": "925a588b3a38ba0a9f4de6a2abefcf580125308295b1fde365f752dc74575d79",
+      "needed": [
+        "libowned.so",
+        "libc.so.6"
+      ],
+      "sections_bytes": {
+        ".bss": 130400,
+        ".data": 14192,
+        ".rodata": 126448,
+        ".text": 429859
+      }
+    },
+    "rust": {
+      "debug_stripped_bytes": 15264,
+      "elf_bytes": 3554152,
+      "elf_sha256": "135644c102f64385f88fd974a745d23671e5182e596397df07f8c4e64fc0c520",
+      "needed": [
+        "libowned.so",
+        "libgcc_s.so.1"
+      ],
+      "sections_bytes": {
+        ".bss": 24,
+        ".data": 8,
+        ".text": 231
+      }
+    }
+  },
+  "changed_adapter_only": {
+    "cpp": {
+      "debug_stripped_bytes": 15008,
+      "elf_bytes": 15128,
+      "elf_sha256": "aa1a5a8875673ef31781f2cf51e02bea97649a08b6391ab75911c3454d75359a",
+      "needed": [
+        "libowned.so"
+      ],
+      "sections_bytes": {
+        ".bss": 8,
+        ".data": 8,
+        ".text": 208
+      }
+    },
+    "observations": {
+      "complete_mismatches": 2304,
+      "result_mismatches": 2016,
+      "scenarios": 1152,
+      "state_mismatches": 2304,
+      "steps": 12672,
+      "trace_sha256": "5ca6ec7622391413fc10513b0b1daad9458a973f06d493ec7bd54b9da397bf22"
+    }
+  },
+  "generation_refusal": {
+    "last_handle": 65535,
+    "operations": 131072,
+    "wraparound": "refused"
+  },
+  "native_baseline": {
+    "complete_mismatches": 0,
+    "result_mismatches": 0,
+    "scenarios": 1152,
+    "state_mismatches": 0,
+    "steps": 12672,
+    "trace_sha256": "8c455b6c09ee2ee6407992a3b89fd7bc8b77ef24c432799aeba44186de1db4c2"
+  },
+  "runtime": {
+    "debug_stripped_bytes": 15088,
+    "elf_bytes": 15208,
+    "elf_sha256": "96156750202635961a568d94f7d4b544be6c656dca5c1a43045c9da84c7b19b6",
+    "needed": [],
+    "sections_bytes": {
+      ".bss": 24,
+      ".data": 8,
+      ".text": 507
+    }
+  },
+  "sources": {
+    "adapter.c": "6e70bb9689aa9788543a892f45b51bb120a8e4911acf20643c110145445d058e",
+    "adapter.cc": "955498cdb50a5455067982b335f4080b4d20b36c96c8d6f9a1baed35b3f077ad",
+    "adapter.go": "420387273b357f7fb1ce8de5e1aee567f92adaa075f969369d1add2f0ae29626",
+    "adapter.rs": "8590a57ba62ebc650d5428b885fe0f5253b2661777c2028e9794cdfaee7fadd8",
+    "measure.c": "ce7d468dba9480562fabf3f377c93a7e446466683327d4445b3607f26dc0de25",
+    "run.py": "5b78180e383ac6f9233a94d18636bb7d773e6de97010ea921149091d1213b809",
+    "runtime.c": "3bc1c41f90f36b904040fb97022b9afcdb94917765da244305ee48013be5675a",
+    "runtime.h": "ec2079c3224cab5ab03da8c27f8362824f6570de42b17332a091738c76a0adca"
+  },
+  "tools": {
+    "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "cxx": "g++ (Debian 14.2.0-19) 14.2.0",
+    "go": "go version go1.23.6 linux/amd64",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  }
+}

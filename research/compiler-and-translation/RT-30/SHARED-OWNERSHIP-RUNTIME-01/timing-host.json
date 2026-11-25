@@ -1,0 +1,186 @@
+{
+  "clock": "CLOCK_MONOTONIC_RAW",
+  "host": "x86_64",
+  "kernel": "6.18.57",
+  "cpu_affinity": [
+    4
+  ],
+  "rounds": {
+    "c": [
+      {
+        "round": 0,
+        "calls": 100000,
+        "wall_ns": 346693,
+        "checksum": 42900000
+      },
+      {
+        "round": 1,
+        "calls": 100000,
+        "wall_ns": 297791,
+        "checksum": 42900000
+      },
+      {
+        "round": 2,
+        "calls": 100000,
+        "wall_ns": 297851,
+        "checksum": 42900000
+      },
+      {
+        "round": 3,
+        "calls": 100000,
+        "wall_ns": 297871,
+        "checksum": 42900000
+      },
+      {
+        "round": 4,
+        "calls": 100000,
+        "wall_ns": 297841,
+        "checksum": 42900000
+      },
+      {
+        "round": 5,
+        "calls": 100000,
+        "wall_ns": 320314,
+        "checksum": 42900000
+      },
+      {
+        "round": 6,
+        "calls": 100000,
+        "wall_ns": 377429,
+        "checksum": 42900000
+      }
+    ],
+    "cpp": [
+      {
+        "round": 0,
+        "calls": 100000,
+        "wall_ns": 354575,
+        "checksum": 42900000
+      },
+      {
+        "round": 1,
+        "calls": 100000,
+        "wall_ns": 561461,
+        "checksum": 42900000
+      },
+      {
+        "round": 2,
+        "calls": 100000,
+        "wall_ns": 336888,
+        "checksum": 42900000
+      },
+      {
+        "round": 3,
+        "calls": 100000,
+        "wall_ns": 373283,
+        "checksum": 42900000
+      },
+      {
+        "round": 4,
+        "calls": 100000,
+        "wall_ns": 297771,
+        "checksum": 42900000
+      },
+      {
+        "round": 5,
+        "calls": 100000,
+        "wall_ns": 430928,
+        "checksum": 42900000
+      },
+      {
+        "round": 6,
+        "calls": 100000,
+        "wall_ns": 346172,
+        "checksum": 42900000
+      }
+    ],
+    "go": [
+      {
+        "round": 0,
+        "calls": 100000,
+        "wall_ns": 12578927,
+        "checksum": 42900000
+      },
+      {
+        "round": 1,
+        "calls": 100000,
+        "wall_ns": 11459150,
+        "checksum": 42900000
+      },
+      {
+        "round": 2,
+        "calls": 100000,
+        "wall_ns": 13297792,
+        "checksum": 42900000
+      },
+      {
+        "round": 3,
+        "calls": 100000,
+        "wall_ns": 14427063,
+        "checksum": 42900000
+      },
+      {
+        "round": 4,
+        "calls": 100000,
+        "wall_ns": 12717943,
+        "checksum": 42900000
+      },
+      {
+        "round": 5,
+        "calls": 100000,
+        "wall_ns": 12590926,
+        "checksum": 42900000
+      },
+      {
+        "round": 6,
+        "calls": 100000,
+        "wall_ns": 11418861,
+        "checksum": 42900000
+      }
+    ],
+    "rust": [
+      {
+        "round": 0,
+        "calls": 100000,
+        "wall_ns": 336198,
+        "checksum": 42900000
+      },
+      {
+        "round": 1,
+        "calls": 100000,
+        "wall_ns": 473921,
+        "checksum": 42900000
+      },
+      {
+        "round": 2,
+        "calls": 100000,
+        "wall_ns": 297761,
+        "checksum": 42900000
+      },
+      {
+        "round": 3,
+        "calls": 100000,
+        "wall_ns": 550946,
+        "checksum": 42900000
+      },
+      {
+        "round": 4,
+        "calls": 100000,
+        "wall_ns": 341375,
+        "checksum": 42900000
+      },
+      {
+        "round": 5,
+        "calls": 100000,
+        "wall_ns": 322878,
+        "checksum": 42900000
+      },
+      {
+        "round": 6,
+        "calls": 100000,
+        "wall_ns": 297791,
+        "checksum": 42900000
+      }
+    ]
+  }
+}
