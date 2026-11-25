@@ -244,6 +244,8 @@ Score each integrated candidate only after common definitions and workload weigh
 
 Do not score an unmeasured criterion as a numeric zero. Mark it **unknown**, report its effect on the candidate ranking, and prioritize an experiment if it could change the decision.
 
+[RT-35 persistent index generations](../semantic-representation/RT-35/RT-35-PERSISTENT-INDEX-GENERATIONS-2026-11-25.md) compare full rebuild and reduced row writes under the same published output. A complete version key with atomic readiness prevents stale acceptance in 28 SQLite WAL schedules. Marking a partial projection ready yields five incomplete results even with that key. The delta reduces writes, while both implementations still perform full row comparison and validation. Evaluate a dependency-bounded projection update and a generation-aware query path before selecting an index lifecycle.
+
 ## 7. Discriminating research programme
 
 1. **RT-03 shared semantics corpus:** define common programs and observations for values, control flow, divergence, recursion, errors, state, I/O, resources, cancellation, concurrency, and modules; implement at least two independent reference semantics for candidate profiles. Extend path analysis with difficult formula families, real resource deadlines, and source/CFG correspondence.
