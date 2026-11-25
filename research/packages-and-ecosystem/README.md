@@ -18,3 +18,4 @@ This direction groups related research studies without changing their RT identif
 - [RT-12 snapshot-bound reverse index](RT-12/RT-12-SNAPSHOT-BOUND-REVERSE-INDEX-2026-11-25.md) — verifies indexed occurrence completeness and exact reader snapshot binding.
 - [RT-12 atomic graph publication](RT-12/RT-12-ATOMIC-GRAPH-PUBLICATION-2026-11-25.md) — checks graph, index and receipt consistency across actual process exits.
 - [RT-12 concrete storage layouts](RT-12/RT-12-CONCRETE-STORAGE-LAYOUTS-2026-11-25.md) — measures persisted data for four layouts over the same closed graph corpus.
+- [RT-12 local and shared repository closures](RT-12/RT-12-REPOSITORY-LOCAL-AND-SHARED-CLOSURES-2026-11-25.md) — compares deduplication, exact scope and pinned offline availability.
