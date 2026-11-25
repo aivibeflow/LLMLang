@@ -18,8 +18,6 @@ jobs:
   replay:
     runs-on: ubuntu-24.04
     timeout-minutes: 12
-    env:
-      ELAN_HOME: ${{ runner.temp }}/rt13-elan
     steps:
       - name: Check out exact research commit and its archive history
         uses: actions/checkout@v4
@@ -31,12 +29,15 @@ jobs:
           python-version: "3.12.14"
       - name: Install Lean 4.36.0
         shell: bash
+        env:
+          ELAN_HOME: ${{ runner.temp }}/rt13-elan
         run: |
           set -euo pipefail
           curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/leanprover/elan/58e8d545e33641f66dbcbd22c4283109e71757be/elan-init.sh | sh -s -- -y --default-toolchain none
           "$ELAN_HOME/bin/elan" toolchain install leanprover/lean4:v4.36.0
           "$ELAN_HOME/bin/elan" default leanprover/lean4:v4.36.0
           echo "$ELAN_HOME/bin" >> "$GITHUB_PATH"
+          printf 'ELAN_HOME=%s\n' "$ELAN_HOME" >> "$GITHUB_ENV"
       - name: Replay the exact Lean and differential ledgers
         shell: bash
         run: bash research/compiler-and-translation/RT-13/OPTIMIZATION-REPLAY-01/replay.sh
