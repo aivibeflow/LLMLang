@@ -1,0 +1,29 @@
+{
+  "archives": {
+    "availability": {
+      "closed-offline": 8,
+      "closed-with-KV": 4
+    },
+    "native_git_versions": [
+      "git version 2.52.0"
+    ],
+    "pinned_sha256": {
+      "research/toolchain-and-collaboration/RT-24/COMMIT-TREE-SEMANTIC-ROOT-01/evidence.json": "09243104d1cf2f1d4c07db1fab5a277488920141db378bce983cd858e78f9106",
+      "research/toolchain-and-collaboration/RT-27/GIT-CLOSED-REPRESENTATION-01/evidence.json": "38ba848c602a9d3bd66f3717c4ef1705b5faa15648d099d384844c526b218436",
+      "research/toolchain-and-collaboration/RT-27/SPG-PROFILED-RECORDS-01/evidence.json": "4206b95c4b82dfbfcdfb8bb26482c4a91cb1999db1e8aeda08f91b4f3818c5a3",
+      "research/toolchain-and-collaboration/RT-27/SPG-REVIEW-PROJECTION-01/evidence.json": "a29034ba747306c9df4e5695397f3cc5d637267f17d987c53c122dadddcdb051",
+      "research/toolchain-and-collaboration/RT-27/TEXT-MERGE-GATE-01/evidence.json": "b9ecb79453299e086e3282079c43c5388d768c7c20cdd9260d494b2475852931"
+    },
+    "semantic_merge_controls": {
+      "refused": 16,
+      "validated": 8
+    }
+  },
+  "baseline": "3fc3ce60b041052470abdb3376f7ad53bc25b113",
+  "logical_envelope_checks": {
+    "canonical_sha256": "b0bbdac4fda3c60939480aba4a58bbc291eaf91b7217875f74169784c368739e",
+    "compared_logical_encodings": 24,
+    "transport_labels": 4
+  },
+  "runner_sha256": "b8f4aa0b767f27a417d99b1f1329306bb1aefb26bcc1c5b5c0fe40f35cdf7e2a"
+}
