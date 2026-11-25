@@ -1,0 +1,785 @@
+{
+  "kernel_control": {
+    "coroutine_dispatched": false,
+    "kernel_voluntary_switch_increased": true
+  },
+  "platform": "Linux",
+  "python": "3.12.14",
+  "rows": {
+    "1/0/0/False": {
+      "dispatch": {
+        "main": 2,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 3,
+        "root_suspensions": 1
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 1
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "1/0/0/True": {
+      "dispatch": {
+        "main": 2,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 3,
+        "root_suspensions": 1
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 1
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "1/0/3/False": {
+      "dispatch": {
+        "main": 2,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 6,
+        "root_suspensions": 4
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 2
+      },
+      "suspensions": {
+        "main": 1,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "1/0/3/True": {
+      "dispatch": {
+        "main": 2,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 6,
+        "root_suspensions": 4
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 2
+      },
+      "suspensions": {
+        "main": 1,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "1/1/0/False": {
+      "dispatch": {
+        "main": 3,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 4,
+        "root_suspensions": 2
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 2
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "1/1/0/True": {
+      "dispatch": {
+        "main": 3,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 4,
+        "root_suspensions": 2
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 2
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "1/1/3/False": {
+      "dispatch": {
+        "main": 3,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 7,
+        "root_suspensions": 5
+      },
+      "logical_owner_changes": {
+        "main": 2,
+        "peer": 3
+      },
+      "suspensions": {
+        "main": 2,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "1/1/3/True": {
+      "dispatch": {
+        "main": 3,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 7,
+        "root_suspensions": 5
+      },
+      "logical_owner_changes": {
+        "main": 2,
+        "peer": 3
+      },
+      "suspensions": {
+        "main": 2,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "1/3/0/False": {
+      "dispatch": {
+        "main": 5,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 6,
+        "root_suspensions": 4
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 4
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "1/3/0/True": {
+      "dispatch": {
+        "main": 5,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 6,
+        "root_suspensions": 4
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 4
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "1/3/3/False": {
+      "dispatch": {
+        "main": 5,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 9,
+        "root_suspensions": 7
+      },
+      "logical_owner_changes": {
+        "main": 4,
+        "peer": 4
+      },
+      "suspensions": {
+        "main": 4,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "1/3/3/True": {
+      "dispatch": {
+        "main": 5,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 9,
+        "root_suspensions": 7
+      },
+      "logical_owner_changes": {
+        "main": 4,
+        "peer": 4
+      },
+      "suspensions": {
+        "main": 4,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "2/0/0/False": {
+      "dispatch": {
+        "main": 3,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 4,
+        "root_suspensions": 2
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 2
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "2/0/0/True": {
+      "dispatch": {
+        "main": 2,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 3,
+        "root_suspensions": 1
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 1
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "2/0/3/False": {
+      "dispatch": {
+        "main": 3,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 7,
+        "root_suspensions": 5
+      },
+      "logical_owner_changes": {
+        "main": 2,
+        "peer": 3
+      },
+      "suspensions": {
+        "main": 2,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "2/0/3/True": {
+      "dispatch": {
+        "main": 2,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 6,
+        "root_suspensions": 4
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 2
+      },
+      "suspensions": {
+        "main": 1,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "2/1/0/False": {
+      "dispatch": {
+        "main": 4,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 5,
+        "root_suspensions": 3
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 3
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "2/1/0/True": {
+      "dispatch": {
+        "main": 3,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 4,
+        "root_suspensions": 2
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 2
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "2/1/3/False": {
+      "dispatch": {
+        "main": 4,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 8,
+        "root_suspensions": 6
+      },
+      "logical_owner_changes": {
+        "main": 3,
+        "peer": 4
+      },
+      "suspensions": {
+        "main": 3,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "2/1/3/True": {
+      "dispatch": {
+        "main": 3,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 7,
+        "root_suspensions": 5
+      },
+      "logical_owner_changes": {
+        "main": 2,
+        "peer": 3
+      },
+      "suspensions": {
+        "main": 2,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "2/3/0/False": {
+      "dispatch": {
+        "main": 6,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 7,
+        "root_suspensions": 5
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 5
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "2/3/0/True": {
+      "dispatch": {
+        "main": 5,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 6,
+        "root_suspensions": 4
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 4
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "2/3/3/False": {
+      "dispatch": {
+        "main": 6,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 10,
+        "root_suspensions": 8
+      },
+      "logical_owner_changes": {
+        "main": 4,
+        "peer": 4
+      },
+      "suspensions": {
+        "main": 5,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "2/3/3/True": {
+      "dispatch": {
+        "main": 5,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 9,
+        "root_suspensions": 7
+      },
+      "logical_owner_changes": {
+        "main": 4,
+        "peer": 4
+      },
+      "suspensions": {
+        "main": 4,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "4/0/0/False": {
+      "dispatch": {
+        "main": 5,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 6,
+        "root_suspensions": 4
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 4
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "4/0/0/True": {
+      "dispatch": {
+        "main": 2,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 3,
+        "root_suspensions": 1
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 1
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "4/0/3/False": {
+      "dispatch": {
+        "main": 5,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 9,
+        "root_suspensions": 7
+      },
+      "logical_owner_changes": {
+        "main": 4,
+        "peer": 4
+      },
+      "suspensions": {
+        "main": 4,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "4/0/3/True": {
+      "dispatch": {
+        "main": 2,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 6,
+        "root_suspensions": 4
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 2
+      },
+      "suspensions": {
+        "main": 1,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "4/1/0/False": {
+      "dispatch": {
+        "main": 6,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 7,
+        "root_suspensions": 5
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 5
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "4/1/0/True": {
+      "dispatch": {
+        "main": 3,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 4,
+        "root_suspensions": 2
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 2
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "4/1/3/False": {
+      "dispatch": {
+        "main": 6,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 10,
+        "root_suspensions": 8
+      },
+      "logical_owner_changes": {
+        "main": 4,
+        "peer": 4
+      },
+      "suspensions": {
+        "main": 5,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "4/1/3/True": {
+      "dispatch": {
+        "main": 3,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 7,
+        "root_suspensions": 5
+      },
+      "logical_owner_changes": {
+        "main": 2,
+        "peer": 3
+      },
+      "suspensions": {
+        "main": 2,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "4/3/0/False": {
+      "dispatch": {
+        "main": 8,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 9,
+        "root_suspensions": 7
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 7
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "4/3/0/True": {
+      "dispatch": {
+        "main": 5,
+        "peer": 1
+      },
+      "hierarchy": {
+        "root_dispatch": 6,
+        "root_suspensions": 4
+      },
+      "logical_owner_changes": {
+        "main": 1,
+        "peer": 1
+      },
+      "suspensions": {
+        "main": 4
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    },
+    "4/3/3/False": {
+      "dispatch": {
+        "main": 8,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 12,
+        "root_suspensions": 10
+      },
+      "logical_owner_changes": {
+        "main": 4,
+        "peer": 4
+      },
+      "suspensions": {
+        "main": 7,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "completed",
+        "peer": "completed"
+      }
+    },
+    "4/3/3/True": {
+      "dispatch": {
+        "main": 5,
+        "peer": 4
+      },
+      "hierarchy": {
+        "root_dispatch": 9,
+        "root_suspensions": 7
+      },
+      "logical_owner_changes": {
+        "main": 4,
+        "peer": 4
+      },
+      "suspensions": {
+        "main": 4,
+        "peer": 3
+      },
+      "terminal": {
+        "main": "cancelled",
+        "peer": "completed"
+      }
+    }
+  },
+  "runner_sha256": "64ce3d5f87f9ad7376e4b5d67e7092a9eacde036027c33f151070d5d91415d99"
+}
