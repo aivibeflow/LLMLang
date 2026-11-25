@@ -1495,8 +1495,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Measure a persistent native cache across ten trials. Fresh processes restore 10/10 artifacts, a verifier-only edit restores 9/10, and a damaged entry is refused before use. Median full-process warm restore is 47.05 ms versus 147.02 ms forced. Concurrent and distributed caching remain open. [RT-11 persistent build cache](research/toolchain-and-collaboration/RT-11/RT-11-PERSISTENT-BUILD-CACHE-BENCHMARK-2026-11-25.md)
 - [x] Benchmark proof and test execution costs.
   - [x] Measure 60 proof and finite-oracle processes across three pinned models. Every receipt matches its archive. Recorded median inner phases range from 370.31 to 1,306.24 ms for the proof harnesses and from 9.34 to 123.79 ms for the finite tests. Coverage and peak process RSS are reported separately. [Proof and test execution costs](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-2026-11-25.md)
-- [ ] Benchmark storage, indexing, and garbage collection.
-  - [ ] [WIP] Measure SQLite reverse indexing, retained-root reachability, mark-and-sweep, and physical compaction on synthetic immutable objects.
+- [x] Benchmark storage, indexing, and garbage collection.
+  - [x] Measure 40 SQLite trials with exact dependency and retained-root checks. At 8,192 objects the indexed layout reduces median mark-and-sweep from 2,666.57 to 37.55 ms. VACUUM reduces physical size without changing survivors. Concurrent root publication, crash recovery and representative storage remain open. [RT-27 SQLite retention benchmark](research/toolchain-and-collaboration/RT-27/RT-27-SQLITE-RETENTION-BENCHMARK-2026-11-25.md)
 - [ ] Benchmark large repositories and highly connected graphs.
 - [ ] Benchmark concurrent edits and merge operations.
 - [ ] Compare with Rust, Go, and C++ workflows on representative projects.
