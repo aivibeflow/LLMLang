@@ -1,0 +1,33 @@
+{
+  "catalog_entries": 46,
+  "python": "3.12.14",
+  "results": {
+    "blocking_read": "unknown",
+    "changed_receipt_bytes": "receipt-digest-mismatch",
+    "different_architecture": "unknown",
+    "different_archive": "unknown",
+    "different_kernel": "unknown",
+    "glibc_gnu_pipe2_runtime": "observed",
+    "glibc_posix_full_edition": "unknown",
+    "glibc_posix_macro_pipe2_header": "unsupported",
+    "glibc_posix_macro_pipe2_runtime": "unknown",
+    "libc_join": "observed",
+    "libc_stream": "observed",
+    "musl_close_on_fork_header": "unsupported",
+    "musl_close_on_fork_runtime": "unknown",
+    "musl_posix_macro_pipe2_runtime": "observed",
+    "older_version_baseline_under_new_request": "observed",
+    "raw_join": "observed",
+    "raw_stream": "contradicted"
+  },
+  "sources": {
+    "cancellation": [
+      "LIBC-SYSCALL-CANCELLATION-01/evidence.json",
+      "82c0f47f7ebad66ff43bdd33c864aa176722f82d645f9d3433213b39a809497f"
+    ],
+    "descriptors": [
+      "POSIX-EDITION-DESCRIPTORS-01/evidence.json",
+      "3c6bf9fb2245f9fd9a78bdbe900a512896c8757a55c68e6eda8822bb011afe11"
+    ]
+  }
+}
