@@ -1497,8 +1497,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Measure 60 proof and finite-oracle processes across three pinned models. Every receipt matches its archive. Recorded median inner phases range from 370.31 to 1,306.24 ms for the proof harnesses and from 9.34 to 123.79 ms for the finite tests. Coverage and peak process RSS are reported separately. [Proof and test execution costs](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-2026-11-25.md)
 - [x] Benchmark storage, indexing, and garbage collection.
   - [x] Measure 40 SQLite trials with exact dependency and retained-root checks. At 8,192 objects the indexed layout reduces median mark-and-sweep from 2,666.57 to 37.55 ms. VACUUM reduces physical size without changing survivors. Concurrent root publication, crash recovery and representative storage remain open. [RT-27 SQLite retention benchmark](research/toolchain-and-collaboration/RT-27/RT-27-SQLITE-RETENTION-BENCHMARK-2026-11-25.md)
-- [ ] Benchmark large repositories and highly connected graphs.
-  - [ ] [WIP] Measure clean Git reconstruction and reachability for exact 65,536-node synthetic histories with two dependency densities.
+- [x] Benchmark large repositories and highly connected graphs.
+  - [x] Check 14 fresh clones of two 65,536-node, three-commit synthetic repositories. All 70 closure queries match. From 130,944 to 2,095,104 edges, medians rise from 57.72 to 351.01 ms for read/verification and from 29.90 to 161.18 ms for five traversals. Long and representative histories remain open. [RT-27 large Git graph benchmark](research/toolchain-and-collaboration/RT-27/RT-27-LARGE-GIT-GRAPH-BENCHMARK-2026-11-25.md)
 - [ ] Benchmark concurrent edits and merge operations.
 - [ ] Compare with Rust, Go, and C++ workflows on representative projects.
   - [ ] [WIP human] Provide or approve the representative projects and comparison workloads for the three toolchains.
