@@ -1,0 +1,104 @@
+{
+  "format": "rt13-llvm-fp-flags/1",
+  "input_sha256": "81da8ab6c9c8109d68a6664ebb5efe9ecd544fa55bf9417f03f576a9de3cfe82",
+  "profiles": {
+    "O0": {
+      "contract_differences_from_split": 0,
+      "contract_is_fused": false,
+      "contraction_witness": null,
+      "exact_expression_disagreements": 0,
+      "exact_fma_disagreements": 0,
+      "instructions": {
+        "assume_no_nan": [
+          "vucomisd"
+        ],
+        "exact_fma": [
+          "vfmadd213sd"
+        ],
+        "ignore_zero_sign": [
+          "vaddsd"
+        ],
+        "inspect_nan": [
+          "vucomisd"
+        ],
+        "permit_contract": [
+          "vaddsd",
+          "vmulsd"
+        ],
+        "signed_zero": [
+          "vaddsd"
+        ],
+        "split_expression": [
+          "vaddsd",
+          "vmulsd"
+        ]
+      },
+      "nnan_inputs_excluded": 1083,
+      "nsz_differences_from_signed_zero": 0,
+      "optimized_nnan_ir": "%test = fcmp nnan uno double %a, %a\n  %result = zext i1 %test to i32\n  ret i32 %result",
+      "optimized_nsz_ir": "%result = fadd nsz double %a, 0.000000e+00\n  ret double %result",
+      "raw_rows_sha256": "b80ef2cdffb0868c3120d10403accca842fa0cbf70bdae4b82cd079748345c51",
+      "rows": 6859,
+      "zero_witness": null
+    },
+    "O3": {
+      "contract_differences_from_split": 77,
+      "contract_is_fused": true,
+      "contraction_witness": {
+        "contract": "8000000000000000",
+        "inputs": [
+          "0000000000000001",
+          "8000000000000001",
+          "0000000000000000"
+        ],
+        "split": "0000000000000000"
+      },
+      "exact_expression_disagreements": 0,
+      "exact_fma_disagreements": 0,
+      "instructions": {
+        "assume_no_nan": [],
+        "exact_fma": [
+          "vfmadd213sd"
+        ],
+        "ignore_zero_sign": [],
+        "inspect_nan": [
+          "vucomisd"
+        ],
+        "permit_contract": [
+          "vfmadd213sd"
+        ],
+        "signed_zero": [
+          "vaddsd"
+        ],
+        "split_expression": [
+          "vaddsd",
+          "vmulsd"
+        ]
+      },
+      "nnan_inputs_excluded": 1083,
+      "nsz_differences_from_signed_zero": 361,
+      "optimized_nnan_ir": "ret i32 0",
+      "optimized_nsz_ir": "ret double %a",
+      "raw_rows_sha256": "834462e9cae2e3e4ce740ab84c38590f81eb4971c4988e498b79729f04a4d950",
+      "rows": 6859,
+      "zero_witness": {
+        "input": "8000000000000000",
+        "nsz": "8000000000000000",
+        "strict": "0000000000000000"
+      }
+    }
+  },
+  "python": "3.12.14",
+  "rows_per_profile": 6859,
+  "source_sha256": {
+    "host.c": "2516eb41640881f49e93a178fff676d19fd29c779c61bdc19086c6097fa0f605",
+    "operations.ll": "138f20fb669b86806a00e56d0ca54b9ea3337a4581b469ee0e47577281973ecc",
+    "run.py": "a1c280d533073037061b313c8cd68c55dbbcfc303cd618be10efcbf21cab23ce"
+  },
+  "versions": {
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "llc": "Debian LLVM version 19.1.7",
+    "llvm-as": "Debian LLVM version 19.1.7",
+    "opt": "Debian LLVM version 19.1.7"
+  }
+}
