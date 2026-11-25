@@ -1,0 +1,112 @@
+{
+  "archives": {
+    "research/formal-verification/RT-07/RT-07-JOINT-OBSERVATION-REFINEMENT-2026-11-25.md": "ae005a91853814c7556471e55231ca8730da6363ce92645f4078e1f4697475dc",
+    "research/language-design/RT-04/CLEANUP-IDENTITY-01/evidence.json": "cd1f9ad93b4143148fbc5614f17f9b879b853f8fc9fd042e36d830ac6fab1817",
+    "research/semantic-representation/RT-05/CANDIDATE-ENVELOPES-01/evidence.json": "27a497eabff1d1006aea4cf94e6ae279c47dd64dd8cdb34d49de2405419754ca",
+    "research/semantic-representation/RT-05/PUBLIC-OBLIGATIONS-01/evidence.json": "91f77c651d5def45ea04f1ec6e950c2c007f03940ab7ff3a77f2fefafa15efa5"
+  },
+  "field_edits": {
+    "assumptions": [
+      false,
+      false,
+      true,
+      false
+    ],
+    "body": [
+      false,
+      true,
+      true,
+      true
+    ],
+    "checker": [
+      false,
+      false,
+      true,
+      false
+    ],
+    "display-name": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "effect-order": [
+      true,
+      false,
+      true,
+      true
+    ],
+    "error": [
+      true,
+      false,
+      true,
+      true
+    ],
+    "observation": [
+      false,
+      false,
+      true,
+      false
+    ],
+    "ownership": [
+      true,
+      false,
+      true,
+      true
+    ],
+    "private-cleanup": [
+      false,
+      true,
+      true,
+      true
+    ],
+    "protocol": [
+      true,
+      false,
+      true,
+      true
+    ],
+    "public-capability": [
+      true,
+      false,
+      true,
+      true
+    ],
+    "resolved-aliases": [
+      false,
+      true,
+      true,
+      true
+    ],
+    "source-position": [
+      false,
+      false,
+      false,
+      true
+    ],
+    "target": [
+      false,
+      false,
+      true,
+      false
+    ],
+    "type": [
+      true,
+      false,
+      true,
+      true
+    ]
+  },
+  "key_order": [
+    "operation",
+    "implementation",
+    "proof-scope",
+    "source-correspondence"
+  ],
+  "receipt_cases": {
+    "applicable": 3,
+    "withheld": 69
+  },
+  "revision": "688fe5dab78c69d495bc7e7d366008f69cbbba58",
+  "runner_sha256": "16dc27f5394db7e2686d13c2c7b7c314d696d778ac08e9e98daf9c5172769a45"
+}

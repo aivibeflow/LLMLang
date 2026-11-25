@@ -40,6 +40,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-04 identity and proof boundaries](RT-04/RT-04-IDENTITY-AND-PROOF-BOUNDARIES-2026-11-25.md) checks semantic field roles and exact observation receipts.
 - [RT-04 reconciliation and guard coverage](RT-04/RT-04-RECONCILIATION-AND-GUARD-COVERAGE-2026-11-25.md) checks restored terminal subjects and alias, reentry and effect coverage.
 - [RT-04 source ownership and grant boundaries](RT-04/RT-04-SOURCE-OWNERSHIP-AND-GRANT-BOUNDARIES-2026-11-25.md) checks exact call coverage, ownership paths and current capability ancestry.
 - [RT-03 semantic profiles for synthesis](RT-03/RT-03-SEMANTIC-PROFILES-FOR-SYNTHESIS-2026-11-25.md) aligns four candidates and their evidence across nine dimensions.
