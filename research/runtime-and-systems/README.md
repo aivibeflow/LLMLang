@@ -24,6 +24,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Recent bounded rechecks
 
+- [RT-37 cross-MCU pilot](RT-37/RT-37-CROSS-MCU-GPIO-TIMER-UART-2026-11-25.md) checks separate STM32 and ESP32 firmware paths against one independent C trace.
 - [RT-37 MCU target manifests](RT-37/RT-37-MCU-TARGET-MANIFESTS-2026-11-25.md) pins STM32F103, STM32F407 and ESP32 research profiles and checks their ABI objects.
 - [RT-26 task-switch accounting](RT-26/RT-26-TASK-SWITCH-ACCOUNTING-2026-11-25.md) separates runtime dispatch and suspension from logical owner and kernel switches.
 - [RT-37 Cortex-M3 NVIC pending clear](RT-37/RT-37-CORTEX-M3-NVIC-PENDING-CLEAR-2026-11-25.md) checks exact write-one-to-clear and read-modify-write effects.

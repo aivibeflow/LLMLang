@@ -1,0 +1,32 @@
+{
+  "f1": {
+    "elf_sha256": "a224154e2a9e562dfba0e7ee178ebaf86586c9094494ef4aa999c4ecb248c831",
+    "foreign_object_refused": true,
+    "linked_exact_symbols": 4,
+    "missing_archive_member_refused": true,
+    "sdk_revisions": [
+      "8a76309ed1250d817e9c888c4417171d2ba3ba63",
+      "77fbb30b7a1d02533980400083e48c559aae5a4f"
+    ],
+    "static_members": [
+      "pilot.o",
+      "format.o"
+    ],
+    "vector": "0x08000000"
+  },
+  "f4": {
+    "elf_sha256": "cf4dcd51b35710045275d14468cdb6336ae6f12c3c5cc2f0f31f320db0425298",
+    "foreign_object_refused": true,
+    "linked_exact_symbols": 4,
+    "missing_archive_member_refused": true,
+    "sdk_revisions": [
+      "3c77349ce04c8af401454cc51f85ea9a50e34fc1",
+      "b6f0ed3829f3829eb358a2e7417d80bba1a42db7"
+    ],
+    "static_members": [
+      "pilot.o",
+      "format.o"
+    ],
+    "vector": "0x08000000"
+  }
+}
