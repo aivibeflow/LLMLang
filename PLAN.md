@@ -1219,7 +1219,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Compare six native error-carrier observations across glibc and musl at two optimization levels. Try-lock returns EBUSY without replacing a prior errno, a successful read keeps stale errno, and delayed capture observes the next failure. Two synchronized threads retain distinct error values. [RT-10 libc error carriers](research/runtime-and-systems/RT-10/RT-10-LIBC-ERROR-CARRIERS-2026-11-25.md)
 - [ ] Define the trusted low-level runtime boundary.
 - [ ] Compare behavior using conformance, differential, and contract-derived tests.
-  - [ ] [WIP] Compare typed wait status, non-consuming observation and reaping in native glibc and musl process traces (#326).
+  - [x] Check 416 native child wait observations across glibc and musl. Repeated peeks preserve stop, continue and terminal statuses. Consumption drains the requested status, and terminal reaping makes the child unavailable. Exit 143 and SIGTERM share a scalar projection while their typed outcomes differ. Multiple waiters and other kernels remain open. [POSIX child wait status](research/runtime-and-systems/RT-10/RT-10-POSIX-WAIT-STATUS-2026-11-25.md)
 - [ ] Define precisely what POSIX compatibility and formal verification claims cover.
   - [x] Prove exact recovery for admissible read histories with Lean and audit the premises against 108 pinned Linux observations. Identical counts and an empty pipe cannot establish recovery when a full-vector retry overwrites the recorded prefix. Native scope and proof assumptions remain explicit. [RT-10 POSIX read continuation proof](research/runtime-and-systems/RT-10/RT-10-POSIX-READ-CONTINUATION-PROOF-2026-11-25.md)
 
