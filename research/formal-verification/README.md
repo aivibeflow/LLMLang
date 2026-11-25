@@ -13,6 +13,7 @@ This direction groups related research studies without changing their RT identif
 - [Read lower bound and FIFO cost](RT-34/RT-34-READ-LOWER-AND-QUEUE-2026-11-25.md) · Query optimality, amortized FIFO cost and peak logical storage
 - [Parallel, expected and output costs](RT-34/RT-34-PARALLEL-EXPECTED-OUTPUT-2026-11-25.md) · Work, span, distribution-dependent probes and multivariate output
 - [Typed resource contracts](RT-34/RT-34-RESOURCE-CONTRACT-IR-2026-11-25.md) · Affine size constraints and exact Lean evidence identity
+- [Loop and call correspondence](RT-34/RT-34-LOOP-CALL-CORRESPONDENCE-2026-11-25.md) · Generated loops, decreasing recursion and exact proof dependencies
 
 ## Studies
 

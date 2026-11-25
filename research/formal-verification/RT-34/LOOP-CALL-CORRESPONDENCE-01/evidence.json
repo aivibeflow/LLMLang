@@ -1,0 +1,508 @@
+{
+  "axioms": [
+    "'uniformly_bounded' depends on axioms: [propext, Quot.sound]",
+    "'loop_cost_bound' depends on axioms: [propext, Quot.sound]",
+    "'exact_call_count' depends on axioms: [propext]",
+    "'full_call_count' depends on axioms: [propext]",
+    "'rebind_invalidates' does not depend on any axioms"
+  ],
+  "format": "loop-call-correspondence-01",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "nondecreasing_recurrence": "refused",
+  "observations": 1056,
+  "omitted_node_controls": {
+    "composed-pilot": "incomplete-or-stale",
+    "finite-native-correspondence": "incomplete-or-stale",
+    "provider-cost": "incomplete-or-stale",
+    "symbolic-cost-recurrence": "incomplete-or-stale"
+  },
+  "proof_graph": [
+    {
+      "caller": "efdba7b1e18d762ed2f84002ad4c6607f58104e105c296d4ac668668472e701e",
+      "generated_source": "570237576fc3bb451f6511a00699f3027fd97d8007785aa230360ddabdc39017",
+      "inputs": "n=0..32, phase=0 or 1",
+      "ir": "1308b021f95903d5b18fa2c556a83680996f68e269b4203031871c36a318c8ef",
+      "observations": "d5a34c6049352e44d50cabe2a083d78090c000243f6dd825cea91fbaf88c8f5b",
+      "role": "finite-native-correspondence",
+      "subject": "5e4da141b81bbbf9801cd1d0ab5654a2efb8707e78741370988cdf4684eb8bf6"
+    },
+    {
+      "ir": "1308b021f95903d5b18fa2c556a83680996f68e269b4203031871c36a318c8ef",
+      "proof": "ad9b312175f12abe56956e452e7ac9a0c5cc5b7e31c1983e91f03105a74f150c",
+      "role": "symbolic-cost-recurrence"
+    },
+    {
+      "artifact": "f97f225363b4e4a279bac40ee2bf12a65ee6094d24bc3e08a27e6881e89f6a68",
+      "role": "provider-cost",
+      "weights": [
+        2,
+        5
+      ]
+    },
+    {
+      "dependencies": [
+        "b93c46ca05a622293434a8024b32467d344af5e662d1078388da5d6390c8c672",
+        "15de23bafc2ab0f8ab6317bd97725a9e27bd3f56a64438fb73b79e37a8c1b774",
+        "27855ab16c63e926d99e65f84485b575251fd0afbd99d9453a64a98bf2c60e76"
+      ],
+      "role": "composed-pilot",
+      "subject": "5e4da141b81bbbf9801cd1d0ab5654a2efb8707e78741370988cdf4684eb8bf6",
+      "symbolic_cost_envelope": {
+        "cap": 5,
+        "size_factor": "triangular(n)"
+      }
+    }
+  ],
+  "rows": {
+    "-O0/declared/base": {
+      "caller": "ecce47ef42471115434d7647ef944de1404eb2a8de5ccbee685c8730891815b4",
+      "count": 66,
+      "differences": {
+        "cost": 0,
+        "left": 0,
+        "return": 0,
+        "right": 0
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O0"
+      ],
+      "mode": "declared",
+      "observation": "d5a34c6049352e44d50cabe2a083d78090c000243f6dd825cea91fbaf88c8f5b",
+      "over_original_budget": 0,
+      "profile": "base",
+      "provider": "99027a51a1f681d44188183d9bd8ed5b19308a8101cb76e1cf92136360ef51fc",
+      "source": "570237576fc3bb451f6511a00699f3027fd97d8007785aa230360ddabdc39017",
+      "subject": "8c4899542c11515eacd585c5cea41040536541084ddec13f12230e0329b55a7d",
+      "weights": [
+        2,
+        5
+      ]
+    },
+    "-O0/declared/expensive": {
+      "caller": "ecce47ef42471115434d7647ef944de1404eb2a8de5ccbee685c8730891815b4",
+      "count": 66,
+      "differences": {
+        "cost": 0,
+        "left": 0,
+        "return": 0,
+        "right": 0
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O0"
+      ],
+      "mode": "declared",
+      "observation": "b4bf3c006c0cd4102997c07c36c96e139ed3db38189bd4b2276ebbf16d76eb3e",
+      "over_original_budget": 57,
+      "profile": "expensive",
+      "provider": "2e0cddf1b154fc36f620569d2bd32c962e65d56286755f6da8df698f9804250c",
+      "source": "570237576fc3bb451f6511a00699f3027fd97d8007785aa230360ddabdc39017",
+      "subject": "79d9942d67fc02442d68b832f83e05a7a3f44a7894c81aa29bff76a3a47b6fd2",
+      "weights": [
+        2,
+        9
+      ]
+    },
+    "-O0/extra-tick/base": {
+      "caller": "36cfe26f8959b045833c073e2d247032b00e276b8b5852bcf7eb03dedd785876",
+      "count": 66,
+      "differences": {
+        "cost": 63,
+        "left": 63,
+        "return": 0,
+        "right": 0
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O0"
+      ],
+      "mode": "extra-tick",
+      "observation": "e098cd892ecbd961d55382e9573209b0b6d16cc927982efc6e5fd662dee1ab3c",
+      "over_original_budget": 0,
+      "profile": "base",
+      "provider": "99027a51a1f681d44188183d9bd8ed5b19308a8101cb76e1cf92136360ef51fc",
+      "source": "4b2de55fadff1ca050ca1599f8c9ed9cc2a325d4c257b1cfa56114bef7c3b334",
+      "subject": "e9bd8ab47fa7de844ac6a6c8d8c25ac8ee8c661ca521ed29688deaa41fd7755f",
+      "weights": [
+        2,
+        5
+      ]
+    },
+    "-O0/extra-tick/expensive": {
+      "caller": "36cfe26f8959b045833c073e2d247032b00e276b8b5852bcf7eb03dedd785876",
+      "count": 66,
+      "differences": {
+        "cost": 63,
+        "left": 63,
+        "return": 0,
+        "right": 0
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O0"
+      ],
+      "mode": "extra-tick",
+      "observation": "3bc12e97bddcbd59756805c5d1058494b8c0ad93b522ff1dcf1a5f8bfc1d5476",
+      "over_original_budget": 63,
+      "profile": "expensive",
+      "provider": "2e0cddf1b154fc36f620569d2bd32c962e65d56286755f6da8df698f9804250c",
+      "source": "4b2de55fadff1ca050ca1599f8c9ed9cc2a325d4c257b1cfa56114bef7c3b334",
+      "subject": "5d3e9f50a68047f10f3f50370b2c0ed1193a82d116f1c538bd50d47c2c7adf01",
+      "weights": [
+        2,
+        9
+      ]
+    },
+    "-O0/omitted-tail/base": {
+      "caller": "b76b1f2c1ed3b00100ff078f87234df25bd554ff42df4cf8d10587f59b56ad5d",
+      "count": 66,
+      "differences": {
+        "cost": 64,
+        "left": 63,
+        "return": 64,
+        "right": 63
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O0"
+      ],
+      "mode": "omitted-tail",
+      "observation": "aac1adb0bcfc663cc38d5861240c1d33d5535355a910f85ccd4ca6ddc4425362",
+      "over_original_budget": 0,
+      "profile": "base",
+      "provider": "99027a51a1f681d44188183d9bd8ed5b19308a8101cb76e1cf92136360ef51fc",
+      "source": "4bd45112767b1fce1a124bbe13adaca3fa2c1ef8847abc3f1bb4795b974ca16d",
+      "subject": "44a51624b4514a7c2d23fabad8b1889806cb21af362b3a15751a2194f5863e7a",
+      "weights": [
+        2,
+        5
+      ]
+    },
+    "-O0/omitted-tail/expensive": {
+      "caller": "b76b1f2c1ed3b00100ff078f87234df25bd554ff42df4cf8d10587f59b56ad5d",
+      "count": 66,
+      "differences": {
+        "cost": 64,
+        "left": 63,
+        "return": 64,
+        "right": 63
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O0"
+      ],
+      "mode": "omitted-tail",
+      "observation": "4665f33782f23f38dd39bf9e3c571ae3b658468f3c931463ee6350c562de47f6",
+      "over_original_budget": 22,
+      "profile": "expensive",
+      "provider": "2e0cddf1b154fc36f620569d2bd32c962e65d56286755f6da8df698f9804250c",
+      "source": "4bd45112767b1fce1a124bbe13adaca3fa2c1ef8847abc3f1bb4795b974ca16d",
+      "subject": "87d9c8c28a6170ac32d6e65d1075953e94ac2e1e4b3431f5b340c7c74f8f621f",
+      "weights": [
+        2,
+        9
+      ]
+    },
+    "-O0/wrong-provider/base": {
+      "caller": "d3c24bcb281934fe7ccdbc39fad961ae7572f31ec1d3af327f9cfd5254354801",
+      "count": 66,
+      "differences": {
+        "cost": 63,
+        "left": 63,
+        "return": 0,
+        "right": 63
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O0"
+      ],
+      "mode": "wrong-provider",
+      "observation": "74cd5003577584ec963eebfd13246cc69e4987248a3434d3bea28991ffd99303",
+      "over_original_budget": 0,
+      "profile": "base",
+      "provider": "99027a51a1f681d44188183d9bd8ed5b19308a8101cb76e1cf92136360ef51fc",
+      "source": "09dd5f7b9dba5eee790ca38df9e6e8b0d2d3adcc9458f2a874698fd30d85936f",
+      "subject": "bf15215ded792f58edf7c5808699e1b035db6fd43f42184026f9b51ac16f41e7",
+      "weights": [
+        2,
+        5
+      ]
+    },
+    "-O0/wrong-provider/expensive": {
+      "caller": "d3c24bcb281934fe7ccdbc39fad961ae7572f31ec1d3af327f9cfd5254354801",
+      "count": 66,
+      "differences": {
+        "cost": 63,
+        "left": 63,
+        "return": 0,
+        "right": 63
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O0"
+      ],
+      "mode": "wrong-provider",
+      "observation": "74cd5003577584ec963eebfd13246cc69e4987248a3434d3bea28991ffd99303",
+      "over_original_budget": 0,
+      "profile": "expensive",
+      "provider": "2e0cddf1b154fc36f620569d2bd32c962e65d56286755f6da8df698f9804250c",
+      "source": "09dd5f7b9dba5eee790ca38df9e6e8b0d2d3adcc9458f2a874698fd30d85936f",
+      "subject": "5e7ff22200cdd1d7a0ecd6a0fe2d3019c4d0d354666f8ad991588ce5c8d84984",
+      "weights": [
+        2,
+        9
+      ]
+    },
+    "-O2/declared/base": {
+      "caller": "efdba7b1e18d762ed2f84002ad4c6607f58104e105c296d4ac668668472e701e",
+      "count": 66,
+      "differences": {
+        "cost": 0,
+        "left": 0,
+        "return": 0,
+        "right": 0
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2"
+      ],
+      "mode": "declared",
+      "observation": "d5a34c6049352e44d50cabe2a083d78090c000243f6dd825cea91fbaf88c8f5b",
+      "over_original_budget": 0,
+      "profile": "base",
+      "provider": "f97f225363b4e4a279bac40ee2bf12a65ee6094d24bc3e08a27e6881e89f6a68",
+      "source": "570237576fc3bb451f6511a00699f3027fd97d8007785aa230360ddabdc39017",
+      "subject": "5e4da141b81bbbf9801cd1d0ab5654a2efb8707e78741370988cdf4684eb8bf6",
+      "weights": [
+        2,
+        5
+      ]
+    },
+    "-O2/declared/expensive": {
+      "caller": "efdba7b1e18d762ed2f84002ad4c6607f58104e105c296d4ac668668472e701e",
+      "count": 66,
+      "differences": {
+        "cost": 0,
+        "left": 0,
+        "return": 0,
+        "right": 0
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2"
+      ],
+      "mode": "declared",
+      "observation": "b4bf3c006c0cd4102997c07c36c96e139ed3db38189bd4b2276ebbf16d76eb3e",
+      "over_original_budget": 57,
+      "profile": "expensive",
+      "provider": "35d495017e1c3645f4630febf460f80d6a6ddd546f7e1186fed9916855f752c4",
+      "source": "570237576fc3bb451f6511a00699f3027fd97d8007785aa230360ddabdc39017",
+      "subject": "527079e1e468c83ed2bb8877fe7255af38995d29388a601ae1c482da403a2512",
+      "weights": [
+        2,
+        9
+      ]
+    },
+    "-O2/extra-tick/base": {
+      "caller": "9a7403cceff845a269c68d0c8be4740bade0e069534d964fcc04da3b7be0e044",
+      "count": 66,
+      "differences": {
+        "cost": 63,
+        "left": 63,
+        "return": 0,
+        "right": 0
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2"
+      ],
+      "mode": "extra-tick",
+      "observation": "e098cd892ecbd961d55382e9573209b0b6d16cc927982efc6e5fd662dee1ab3c",
+      "over_original_budget": 0,
+      "profile": "base",
+      "provider": "f97f225363b4e4a279bac40ee2bf12a65ee6094d24bc3e08a27e6881e89f6a68",
+      "source": "4b2de55fadff1ca050ca1599f8c9ed9cc2a325d4c257b1cfa56114bef7c3b334",
+      "subject": "3c08308d6cb39dce67f3b502d6bf47352f4266d1d9dfd98d7405ebff813ec7bb",
+      "weights": [
+        2,
+        5
+      ]
+    },
+    "-O2/extra-tick/expensive": {
+      "caller": "9a7403cceff845a269c68d0c8be4740bade0e069534d964fcc04da3b7be0e044",
+      "count": 66,
+      "differences": {
+        "cost": 63,
+        "left": 63,
+        "return": 0,
+        "right": 0
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2"
+      ],
+      "mode": "extra-tick",
+      "observation": "3bc12e97bddcbd59756805c5d1058494b8c0ad93b522ff1dcf1a5f8bfc1d5476",
+      "over_original_budget": 63,
+      "profile": "expensive",
+      "provider": "35d495017e1c3645f4630febf460f80d6a6ddd546f7e1186fed9916855f752c4",
+      "source": "4b2de55fadff1ca050ca1599f8c9ed9cc2a325d4c257b1cfa56114bef7c3b334",
+      "subject": "f27cad27e219e12d27cf97d5b2a53080c39a6b90ba1ac8917b2b51203321fe0d",
+      "weights": [
+        2,
+        9
+      ]
+    },
+    "-O2/omitted-tail/base": {
+      "caller": "a00e9f63b283fe4c151a9a6b57e9a4e5c679adf7ad670651c32ae65ef2dab638",
+      "count": 66,
+      "differences": {
+        "cost": 64,
+        "left": 63,
+        "return": 64,
+        "right": 63
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2"
+      ],
+      "mode": "omitted-tail",
+      "observation": "aac1adb0bcfc663cc38d5861240c1d33d5535355a910f85ccd4ca6ddc4425362",
+      "over_original_budget": 0,
+      "profile": "base",
+      "provider": "f97f225363b4e4a279bac40ee2bf12a65ee6094d24bc3e08a27e6881e89f6a68",
+      "source": "4bd45112767b1fce1a124bbe13adaca3fa2c1ef8847abc3f1bb4795b974ca16d",
+      "subject": "52dcc8ddcbea5ce0ff33b1267c08519481bb9f8b58f2d859a80645e686d2ba6c",
+      "weights": [
+        2,
+        5
+      ]
+    },
+    "-O2/omitted-tail/expensive": {
+      "caller": "a00e9f63b283fe4c151a9a6b57e9a4e5c679adf7ad670651c32ae65ef2dab638",
+      "count": 66,
+      "differences": {
+        "cost": 64,
+        "left": 63,
+        "return": 64,
+        "right": 63
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2"
+      ],
+      "mode": "omitted-tail",
+      "observation": "4665f33782f23f38dd39bf9e3c571ae3b658468f3c931463ee6350c562de47f6",
+      "over_original_budget": 22,
+      "profile": "expensive",
+      "provider": "35d495017e1c3645f4630febf460f80d6a6ddd546f7e1186fed9916855f752c4",
+      "source": "4bd45112767b1fce1a124bbe13adaca3fa2c1ef8847abc3f1bb4795b974ca16d",
+      "subject": "7b072e44198af47d2231a65a5e3ce04bf3cfd108abc7e322d18beb28806d28e0",
+      "weights": [
+        2,
+        9
+      ]
+    },
+    "-O2/wrong-provider/base": {
+      "caller": "1526388c4c0d944842878516ee97148237379f8d855e339b7b95734fd26b8950",
+      "count": 66,
+      "differences": {
+        "cost": 63,
+        "left": 63,
+        "return": 0,
+        "right": 63
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2"
+      ],
+      "mode": "wrong-provider",
+      "observation": "74cd5003577584ec963eebfd13246cc69e4987248a3434d3bea28991ffd99303",
+      "over_original_budget": 0,
+      "profile": "base",
+      "provider": "f97f225363b4e4a279bac40ee2bf12a65ee6094d24bc3e08a27e6881e89f6a68",
+      "source": "09dd5f7b9dba5eee790ca38df9e6e8b0d2d3adcc9458f2a874698fd30d85936f",
+      "subject": "342945ed3c8920fc27e34376580281fd72cea1e36faf06e78b4c5ea3e71a8e58",
+      "weights": [
+        2,
+        5
+      ]
+    },
+    "-O2/wrong-provider/expensive": {
+      "caller": "1526388c4c0d944842878516ee97148237379f8d855e339b7b95734fd26b8950",
+      "count": 66,
+      "differences": {
+        "cost": 63,
+        "left": 63,
+        "return": 0,
+        "right": 63
+      },
+      "flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2"
+      ],
+      "mode": "wrong-provider",
+      "observation": "74cd5003577584ec963eebfd13246cc69e4987248a3434d3bea28991ffd99303",
+      "over_original_budget": 0,
+      "profile": "expensive",
+      "provider": "35d495017e1c3645f4630febf460f80d6a6ddd546f7e1186fed9916855f752c4",
+      "source": "09dd5f7b9dba5eee790ca38df9e6e8b0d2d3adcc9458f2a874698fd30d85936f",
+      "subject": "ed43c221ca0e7e53c9d7989b1311e22ee1eadeec0d2ba21c7744fe879b122a57",
+      "weights": [
+        2,
+        9
+      ]
+    }
+  },
+  "stale_binding": "incomplete-or-stale"
+}
