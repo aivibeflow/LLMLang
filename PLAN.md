@@ -1343,8 +1343,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define safe fallback when no compatible implementation is available.
   - [x] Prove that ordered fallback selects only a materialized candidate bound by exact checked evidence and returns unavailable iff none qualifies. Across 9,216 pairs the gate rejects 9,025 and selects 191 correctly. ABI-only admits 4,698 incorrect dispatches. Production evidence authority and runtime races remain open. [Evidence-gated fallback](research/compiler-and-translation/RT-13/RT-13-IMPLEMENTATION-FALLBACK-2026-11-25.md)
 - [ ] Define whether and how implementation choice can change without changing operation semantics.
-- [ ] Measure dispatch and adaptation overhead.
-  - [ ] [WIP] Measure native first-party dispatch and four shared-runtime ABI adapters using matched workloads, repeated timings and checked output on `research/all`.
+- [x] Measure dispatch and adaptation overhead.
+  - [x] Measure five native routes and two workloads with 70 checked trials. C, C++ and Rust medians are within one ns per call of direct C in this fixture. Go cgo medians are 84.6 and 77.3 ns per call for the two workloads. Shared traces, raw samples and chart reproduce the measurement procedure. Hosted deployment and representative workloads remain open. [Dispatch timing](research/compiler-and-translation/RT-13/RT-13-DISPATCH-TIMING-2026-11-25.md)
 - [ ] Define optimization across semantic nodes while preserving contracts.
 
 **Existing evidence:** global semantic artifact store and POSIX runtime architecture.
