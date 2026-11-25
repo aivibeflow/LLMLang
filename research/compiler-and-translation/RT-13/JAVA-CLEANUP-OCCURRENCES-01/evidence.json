@@ -1,0 +1,571 @@
+{
+  "fixtures": {
+    "ok,ok,ok": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "-",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": []
+    },
+    "ok,ok,own": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "outer",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "outer:outer"
+      ]
+    },
+    "ok,ok,shared": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "shared",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "outer:shared"
+      ]
+    },
+    "ok,own,ok": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "inner",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "inner:inner"
+      ]
+    },
+    "ok,own,own": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "inner",
+      "automatic_suppressed": [
+        "outer"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "inner:inner",
+        "outer:outer"
+      ]
+    },
+    "ok,own,shared": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "inner",
+      "automatic_suppressed": [
+        "shared"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "inner:inner",
+        "outer:shared"
+      ]
+    },
+    "ok,shared,ok": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "shared",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "inner:shared"
+      ]
+    },
+    "ok,shared,own": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "shared",
+      "automatic_suppressed": [
+        "outer"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "inner:shared",
+        "outer:outer"
+      ]
+    },
+    "ok,shared,shared": {
+      "automatic_cause": "shared",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "self-suppression",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "inner:shared",
+        "outer:shared"
+      ]
+    },
+    "own,ok,ok": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "body",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:body"
+      ]
+    },
+    "own,ok,own": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "body",
+      "automatic_suppressed": [
+        "outer"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:body",
+        "outer:outer"
+      ]
+    },
+    "own,ok,shared": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "body",
+      "automatic_suppressed": [
+        "shared"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:body",
+        "outer:shared"
+      ]
+    },
+    "own,own,ok": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "body",
+      "automatic_suppressed": [
+        "inner"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:body",
+        "inner:inner"
+      ]
+    },
+    "own,own,own": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "body",
+      "automatic_suppressed": [
+        "inner",
+        "outer"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:body",
+        "inner:inner",
+        "outer:outer"
+      ]
+    },
+    "own,own,shared": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "body",
+      "automatic_suppressed": [
+        "inner",
+        "shared"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:body",
+        "inner:inner",
+        "outer:shared"
+      ]
+    },
+    "own,shared,ok": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "body",
+      "automatic_suppressed": [
+        "shared"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:body",
+        "inner:shared"
+      ]
+    },
+    "own,shared,own": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "body",
+      "automatic_suppressed": [
+        "shared",
+        "outer"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:body",
+        "inner:shared",
+        "outer:outer"
+      ]
+    },
+    "own,shared,shared": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "body",
+      "automatic_suppressed": [
+        "shared",
+        "shared"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:body",
+        "inner:shared",
+        "outer:shared"
+      ]
+    },
+    "shared,ok,ok": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "shared",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:shared"
+      ]
+    },
+    "shared,ok,own": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "shared",
+      "automatic_suppressed": [
+        "outer"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:shared",
+        "outer:outer"
+      ]
+    },
+    "shared,ok,shared": {
+      "automatic_cause": "shared",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "self-suppression",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:shared",
+        "outer:shared"
+      ]
+    },
+    "shared,own,ok": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "shared",
+      "automatic_suppressed": [
+        "inner"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:shared",
+        "inner:inner"
+      ]
+    },
+    "shared,own,own": {
+      "automatic_cause": "-",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "shared",
+      "automatic_suppressed": [
+        "inner",
+        "outer"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:shared",
+        "inner:inner",
+        "outer:outer"
+      ]
+    },
+    "shared,own,shared": {
+      "automatic_cause": "shared",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "self-suppression",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:shared",
+        "inner:inner",
+        "outer:shared"
+      ]
+    },
+    "shared,shared,ok": {
+      "automatic_cause": "shared",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "self-suppression",
+      "automatic_suppressed": [],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:shared",
+        "inner:shared"
+      ]
+    },
+    "shared,shared,own": {
+      "automatic_cause": "shared",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "self-suppression",
+      "automatic_suppressed": [
+        "outer"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:shared",
+        "inner:shared",
+        "outer:outer"
+      ]
+    },
+    "shared,shared,shared": {
+      "automatic_cause": "shared",
+      "automatic_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "automatic_primary": "self-suppression",
+      "automatic_suppressed": [
+        "shared"
+      ],
+      "explicit_events": [
+        "body",
+        "inner",
+        "outer"
+      ],
+      "explicit_occurrences": [
+        "body:shared",
+        "inner:shared",
+        "outer:shared"
+      ]
+    }
+  },
+  "jvm": [
+    "openjdk version \"21.0.13\" 2026-10-20",
+    "OpenJDK Runtime Environment (build 21.0.13+9-1-deb13u2-Debian)",
+    "OpenJDK 64-Bit Server VM (build 21.0.13+9-1-deb13u2-Debian, mixed mode, sharing)"
+  ],
+  "profiles": [
+    "compiled",
+    "interpreted"
+  ],
+  "python": "3.12.14",
+  "same_throwable_replacements": [
+    "ok,shared,shared",
+    "shared,ok,shared",
+    "shared,own,shared",
+    "shared,shared,ok",
+    "shared,shared,own",
+    "shared,shared,shared"
+  ]
+}
