@@ -6,6 +6,8 @@
 
 ## 1. Purpose and interpretation
 
+The bounded integrated enumeration composes DEP-007, DEP-012, DEP-019, DEP-030, DEP-043, DEP-048 and DEP-054 as candidate interface conditions. Exact provider identity and full ordered observations flow into the evidence request. Current fenced effect authority, resource settlement and exact authorized publication remain independent gates. The finite model also records when the requested provider, evidence scope or current rights require withholding. The component studies retain their separate scopes. [Integrated candidate enumeration](planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
+
 This map describes how choices in one LLMLang aspect can affect other aspects. It is a research-planning instrument, not a normative architecture and not a claim that every edge has already been proven.
 
 The direction of an edge is **source aspect → affected aspect**. It means a change or choice in the source can impose requirements on, constrain, enable, or alter the trade-offs of the target.

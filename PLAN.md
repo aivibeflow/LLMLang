@@ -2414,7 +2414,7 @@ After relevant research coverage is sufficient:
 
 ## 6.5 Synthesis status
 
-- [ ] [WIP] Enumerate and independently verify a bounded integrated source-to-publication candidate space on `research/all` (#286).
+- [x] Enumerate and independently verify the bounded owned-result source-to-publication candidate space (#286). Python, Z3 and cvc5 agree on all 4,608 pairs. [Integrated candidate enumeration](research/research-management/planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
 
 The [scoped comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.md#52-comparisons-supported-by-the-november-24-reproductions) and [bounded toolchain route comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.md#53-bounded-toolchain-route-comparisons) record verified conditions for later whole-candidate comparison. The toolchain ledger checks shared integer source across three emitters and keeps measured JIT, verification, Git publication and runtime limits attached to their exact profiles.
 
@@ -2423,7 +2423,7 @@ The [scoped comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.
 | Define research taxonomy and initial dependency map | **Completed** | 18 research areas and 35 initial dependency edges are documented; ongoing updates remain required |
 | Conduct and complete aspect research | **In progress** | RT-03 now has a candidate-profile survey; semantic validation/reference semantics, types/effects/ownership, security, and other gaps remain |
 | Normalize vectors and validate compatibility | **In progress** | The option matrix records initial choices and bounded resource compatibility constraints. Extend normalization and validate constraints across all research areas. [Option matrix](research/research-management/RESEARCH-OPTION-MATRIX-01.md) |
-| Generate candidate specification space | **Not started** | The four illustrative bundles anchor the comparison. The full compatible space still needs enumeration or a documented constrained search. [Initial bundles](research/research-management/RESEARCH-OPTION-MATRIX-01.md#4-integrated-candidate-vectors) |
+| Generate candidate specification space | **In progress** | The four illustrative bundles anchor the comparison. The first bounded source-to-publication workflow has 576 enumerated bundles. The full compatible space still needs enumeration or a documented constrained search. [Bounded enumeration](research/research-management/planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md) |
 | Compare complete candidate specifications | **Not started** | Integrated candidates are evaluated against shared criteria and representative scenarios |
 | Select and baseline a specification direction | **Not started** | A coherent candidate is selected with rationale and unresolved risks recorded |
 

@@ -302,6 +302,10 @@ For histories with multiple best common ancestors, the [native merge-base compar
 
 [Native worker settlement](../language-design/RT-01/RT-01-RESOURCE-WORKER-SETTLEMENT-2026-11-25.md) compares initial admission, a fresh effect gate and post-release terminal outcomes over the same two-client workload. An admission-only strategy allows revoked writes. Immediate terminal cancellation retains live resources at six response events. The guarded strategy matches the expected effects, results and descriptor lifecycle.
 
+### 5.6 Bounded source-to-publication candidate space
+
+A finite owned-result workflow combines exact provider selection, build admission, native evidence, effect authority and authorized publication. Eight of 576 profiles pass the normal modeled request. A change to the requested provider leaves four eligible and makes four require an explicit repin. The model withholds all eight eligible profiles when the publisher is revoked or the required evidence domain widens. The component experiments provide distinct premises for this finite comparison. [Integrated candidate enumeration](planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.

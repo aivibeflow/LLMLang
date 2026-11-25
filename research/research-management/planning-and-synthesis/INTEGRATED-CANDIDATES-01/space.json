@@ -1,0 +1,37 @@
+{
+  "base": "2a058ab13af91b70dcb308d46e8cffe700af0983",
+  "axes": {
+    "route": ["c", "rust"],
+    "binding": ["explicit_pin", "snapshot_resolved", "contract_only"],
+    "observation": ["ordered_effects_and_ownership", "scalar_result"],
+    "cache": ["clean_rebuild", "exact_validated_hit", "caller_key_hit"],
+    "evidence": ["exact_native_scope", "portable_scalar_receipt"],
+    "authority": ["fresh_effect_gate", "initial_admission"],
+    "terminal": ["settled", "body_stopped"],
+    "publication": ["authorized_exact", "content_only"]
+  },
+  "scenarios": {
+    "normal_publication": {},
+    "provider_rebound": {"rebound": true},
+    "cancel_before_effect": {"cancel": true},
+    "outside_common_inputs": {"larger_scope": true},
+    "publisher_revoked": {"revoked": true},
+    "scalar_diagnostic": {"diagnostic": true},
+    "rebound_then_cancel": {"rebound": true, "cancel": true},
+    "publication_after_all_changes": {"rebound": true, "cancel": true, "larger_scope": true, "revoked": true}
+  },
+  "sources": {
+    "provider": "research/compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md",
+    "receipts": "research/toolchain-and-collaboration/RT-11/RT-11-CROSS-LANGUAGE-RECEIPTS-2026-11-25.md",
+    "worker": "research/language-design/RT-01/RT-01-RESOURCE-WORKER-SETTLEMENT-2026-11-25.md",
+    "cache": "research/toolchain-and-collaboration/RT-11/RT-11-SIGNED-REBUILD-ADMISSION-2026-11-25.md",
+    "publication": "research/toolchain-and-collaboration/RT-19/RT-19-RECOVERY-AUTHORITY-2026-11-25.md"
+  },
+  "adoption_gates": [
+    "canonical source and semantic identity",
+    "checked source-to-observation correspondence outside the exact fixtures",
+    "cross-component binding and authority implementation",
+    "production publisher and evidence trust policy",
+    "representative scenarios and independent review"
+  ]
+}
