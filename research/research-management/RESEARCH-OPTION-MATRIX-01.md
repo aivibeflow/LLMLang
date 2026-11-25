@@ -239,6 +239,8 @@ cmp "$study/evidence.json" /tmp/llmlang-toolchain-option-evidence.json
 
 [Cross-map export proof](../toolchain-and-collaboration/RT-24/RT-24-CROSS-MAP-EXPORT-PROOF-2026-11-25.md) compares native Git success, reference closure, contract-level receipt presence and exact selected-tuple evidence. All 18 native candidates are clean, while six satisfy the exact operation, provider, ABI and input-scope check. Use the combined selection to validate export proof coverage before advancing a ref.
 
+[Git LFS object admission](../toolchain-and-collaboration/RT-24/RT-24-LFS-OBJECT-ADMISSION-2026-11-25.md) compares ordinary Git objects, working bytes and verified external media across fourteen settings. Working filters can normalize the committed pointer in both checkout and archive, so exact admission requires the pinned Git blob and separate byte verification.
+
 [Partial and sparse Git reconstruction](../toolchain-and-collaboration/RT-24/RT-24-PARTIAL-SPARSE-RECONSTRUCTION-2026-11-25.md) distinguishes visibility, object availability and exact tree membership. A verified blob cache restores two available graphs that lack local Git payloads, and a path cache accepts eight incorrect snapshots.
 
 [Versioned I64 Git merge](../toolchain-and-collaboration/RT-24/RT-24-VERSIONED-I64-GIT-MERGE-2026-11-25.md) compares a hard version cutover, ordinary JavaScript numbers, exact dual reads and exact dual reads with parent-root checks. The last policy admits all six unique bounded results and refuses all six invalid or unresolved histories. This separates a physical format upgrade from a semantic change.
