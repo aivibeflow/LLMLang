@@ -1,0 +1,84 @@
+{
+  "schema": "llmlang-rt32-worker-cancel/1",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "lean_source_sha256": "b74488cb3a3e60c6b3bfd394973a4fddad5c984a54beb7b51be0168719ac2339",
+  "runner_source_sha256": "f3e94219bcd0d54a0a90a3f9e123666899992f2094abc917f6ace2a4c75e9ab1",
+  "generated_replay_sha256": "78da7d768f3cfa8fdfed5b3022e704491a9a4e4aba622896797243b6ef7e80d3",
+  "native_archive_sha256": "5d77fb9ebff6a0ea83c2e1cc5f83acaea192c7a9066b46215b95e721c011d7cb",
+  "generic_and_counterexample_axioms": {
+    "noWriteAfterRevocation": [
+      "propext"
+    ],
+    "terminalReportReleasesOwnership": [
+      "propext"
+    ],
+    "closeLeavesTerminal": [
+      "propext",
+      "Quot.sound"
+    ],
+    "writeRequiresOwnership": [
+      "propext"
+    ],
+    "knownResultResistsCancel": [
+      "propext"
+    ],
+    "settledIsAbsorbing": [
+      "propext"
+    ],
+    "settledDoesNotCloseAgain": [
+      "propext"
+    ],
+    "closesAtMostOnce": [
+      "propext",
+      "Quot.sound"
+    ],
+    "revokedNeverWrites": [
+      "propext"
+    ],
+    "separateJobStatesCommute": [
+      "propext"
+    ],
+    "staleAdmissionCopiesARevokedWrite": [
+      "propext"
+    ],
+    "earlyTerminalLeavesOwnership": [
+      "propext"
+    ]
+  },
+  "archive_equalities": {
+    "0": [
+      "propext"
+    ],
+    "1": [
+      "propext"
+    ],
+    "2": [
+      "propext"
+    ],
+    "3": [
+      "propext"
+    ],
+    "4": [
+      "propext"
+    ],
+    "5": [
+      "propext"
+    ],
+    "6": [
+      "propext"
+    ],
+    "7": [
+      "propext"
+    ]
+  },
+  "guarded_schedules": 8,
+  "guarded_steps": 56,
+  "guarded_terminal_outcomes": 16,
+  "native_host_configurations": [
+    "python",
+    "rust_O0",
+    "rust_O3"
+  ],
+  "incorrect_late_cancellation_proof": "rejected"
+}
