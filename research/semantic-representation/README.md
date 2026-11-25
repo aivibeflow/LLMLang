@@ -43,6 +43,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-35 semantic description and queries](RT-35/RT-35-SEMANTIC-DESCRIPTION-AND-QUERY-2026-11-25.md) checks separate identity, canonical description, fingerprint and query provenance.
 - [PROTOTYPES](PROTOTYPES/)
 
 ## Cross-direction evidence

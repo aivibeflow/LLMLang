@@ -1,0 +1,67 @@
+{
+  "accepted": 22,
+  "checks": 108,
+  "description": {
+    "capabilities": [
+      "reservation-ledger"
+    ],
+    "constraints": {
+      "maximum-request": 100,
+      "ordering": "request-order"
+    },
+    "cost": {
+      "state": "unknown"
+    },
+    "effects": [
+      "ledger-write"
+    ],
+    "errors": [
+      {
+        "retry": "permitted",
+        "state": "unchanged",
+        "tag": "Unavailable"
+      }
+    ],
+    "inputs": [
+      {
+        "ownership": "copy",
+        "role": "requested-quantity",
+        "type": "u32"
+      }
+    ],
+    "intent": {
+      "domain": "reservations",
+      "operation": "allocate-within-limit"
+    },
+    "outputs": [
+      {
+        "ownership": "caller",
+        "role": "reserved-quantity",
+        "type": "u32"
+      }
+    ],
+    "postconditions": [
+      {
+        "predicate": "bounded-by-request",
+        "role": "reserved-quantity"
+      }
+    ],
+    "preconditions": [
+      {
+        "predicate": "positive",
+        "role": "requested-quantity"
+      }
+    ],
+    "schema": "rt35-description/v1"
+  },
+  "description_digest": "2d9fbd397ad42d6bee37151261671afaf97785105d181302ba27e274eef05734",
+  "exact_function_address": "e8e4c6dbb5d99f70b7ba380a0a201811c3b6c37cba813bcd1583fac3a45de7ef",
+  "fingerprint_versions": [
+    "6031ab7017f92f5925e099b16a643d0fd191dd7ce1ab02da3d5a9a59e4bc0dd3",
+    "d8cce4cdbfc506772d66a60a9e93f1db466d5b010aa6b38d54237a8394c002e9"
+  ],
+  "intent_prose_cannot_form_hard_requirement": true,
+  "python": "3.12.14",
+  "refused": 86,
+  "source_sha256": "e9945d0065061bb1a4a4482834c7bc48e197c20dd76d68908886cc742e14cc2e"
+}
