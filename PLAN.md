@@ -602,6 +602,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define the trusted computing base for each proof claim.
   - [x] Audit transitive assumptions and exact types across six Lean declarations. Identical closed statements distinguish kernel reduction, an imported premise and native evaluation. A conditional type with an empty axiom set fails the closed request, and all policies refuse the placeholder. [Per-claim Lean trust](research/formal-verification/RT-07/RT-07-PER-CLAIM-LEAN-TRUST-2026-11-25.md)
 - [ ] Define proof object formats, proof checking, provenance, and evidence reuse.
+  - [ ] [WIP] Compare a shared claim and separate receipt identities for Lean source proofs and CPC artifacts, and test exact context and provenance on reuse on `research/all`.
 - [x] Separate solver answers from independently checked proofs.
   - [x] Preserve distinct raw verdict, validated-model and Lean-refutation evidence in an incremental QF_LIA fixture. Two solvers agree on 192 incremental and 160 fresh queries each. Lean checks all 58 distinct refutations. Matching session and command still admit 938 wrong-context pairs with satisfying witnesses. [Incremental solver evidence](research/formal-verification/RT-07/RT-07-INCREMENTAL-SOLVER-EVIDENCE-2026-11-25.md)
 - [x] Define exact binding between source-level assumptions, typed IR, serialized queries, and proof obligations.
