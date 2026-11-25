@@ -1112,6 +1112,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] Define interpreter/reference execution.
 - [ ] Define VM requirements, if a VM is needed.
+  - [ ] [WIP] Compare reference evaluation with a stack VM under source-step and opcode-step fuel on `research/all`.
 - [ ] Define runtime representation of values and semantic calls.
 - [ ] Define explicit call binding to immutable operation identity.
 - [ ] Define error propagation, cancellation, and resource cleanup.
