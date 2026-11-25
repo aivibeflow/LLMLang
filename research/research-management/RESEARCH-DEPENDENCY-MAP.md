@@ -607,7 +607,7 @@ These edges are research hypotheses, not implementation commitments. No backend 
 | DEP-205 | RT-08 → RT-34 | Requires | Independently reviewed benchmark oracles and adversarial controls. | Strong hypothesis |
 | DEP-206 | RT-11 → RT-34 | Influences | Exact proof keys and incremental invalidation. | Strong hypothesis |
 | DEP-207 | RT-26 → RT-34 | Influences | Runtime budget enforcement is distinct from static complexity. | Strong hypothesis |
-| DEP-208 | RT-32 → RT-34 | Influences | Source-derived cost obligations and compositional PDG. | Strong hypothesis |
+| DEP-208 | RT-32 → RT-34 | Influences | Source-derived cost obligations and compositional PDG. The checked loop model distinguishes guarded cost and added work despite equal scalar results. [Nested-loop cost](../formal-verification/RT-34/RT-34-NESTED-LOOP-COST-2026-11-25.md) | Strong hypothesis with scoped checked costs |
 | DEP-209 | RT-33 → RT-34 | Influences | Specialized analyzer/backend selection and conservative abstention. | Strong hypothesis |
 | DEP-210 | RT-34 → RT-09 | Influences | Resource-preserving lowering or separate target cost evidence. | Open hypothesis |
 | DEP-211 | RT-34 → RT-33 | Influences | New resource obligation forms and certificate capabilities. | Open hypothesis |

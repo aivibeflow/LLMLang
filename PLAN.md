@@ -455,10 +455,11 @@ The [symbolic CPC experiment](research/formal-verification/PROOF-OBLIGATION-BENC
 
 ## 2.0 Automatic complexity inference and resource verification (RT-34)
 
-**Priority:** P0 foundations/pilot, P1 advanced domains. **Status:** Research brief and benchmark plan established; implementation and experiments not started. [RT-34](research/formal-verification/RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) · [Benchmark plan](research/formal-verification/RT-34/RT-34-COMPLEXITY-BENCHMARK.md) · [Issue #412](https://github.com/aivibeflow/LLMLang/issues/412).
+**Priority:** P0 foundations/pilot, P1 advanced domains. **Status:** Research brief and benchmark plan established. The nested-loop pilot checks a scoped cost model; general inference and other benchmark cases remain open. [RT-34](research/formal-verification/RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) · [Benchmark plan](research/formal-verification/RT-34/RT-34-COMPLEXITY-BENCHMARK.md) · [Issue #412](https://github.com/aivibeflow/LLMLang/issues/412).
 
 - [ ] Define cost profiles, size domains, resource Contract IR and proof/evidence identity (CX-01–03).
 - [ ] Pilot loop, recursion and call analysis, source correspondence and independent checking (CX-04–07).
+  - The nested-loop pilot proves exact abstract event counts and sound dependent and rectangular envelopes over natural sizes. It checks 536 generated-C observations and detects guard omission and added work. General extraction, recursion, foreign cost and independent adjudication remain open. [Nested-loop cost](research/formal-verification/RT-34/RT-34-NESTED-LOOP-COST-2026-11-25.md)
 - [ ] Independently adjudicate benchmark cases and compare inference vectors (CX-19).
 - [ ] Study problem lower bounds, optimality, amortization, memory, parallel/probabilistic and multivariate complexity (CX-08–14).
 - [ ] Investigate resource-preserving lowering, synthesis, incremental invalidation, regression gates and external calls (CX-15–18, CX-20).
