@@ -10,6 +10,8 @@ The bounded integrated enumeration composes DEP-007, DEP-012, DEP-019, DEP-030, 
 
 The native release study checks DEP-012, DEP-043, DEP-048 and DEP-054 together in one local catalog. Exact provider closure, signed cache admission, typed trace identity, latest policy generation and the current release parent each gate selection. An inconsistency in one input preserves the selected release even if other inputs pass. [Native release admission](planning-and-synthesis/EXACT-PROVIDER-RELEASE-2026-11-25.md)
 
+The native catalog race comparison exercises DEP-048 and DEP-054 at the joint authority and expected-parent boundary. The local SQLite fence serializes selection against two concurrent operations, while moving the lock after validation admits against revoked rights and spends the exact parent twice. [Concurrent release admission](planning-and-synthesis/CONCURRENT-RELEASE-2026-11-25.md)
+
 The independent RV64 cohort replay rechecks the source, runtime and target boundaries in DEP-018, DEP-019 and DEP-024. The tracked ledger matches are scoped to one QEMU hart and separately checked logical reuse assumptions. Neither artifact set supplies an SMP or DMA implementation witness. [RV64 cohort replay](RT-00/RT-00-RV64-COHORT-REPLAY-2026-11-25.md)
 
 This map describes how choices in one LLMLang aspect can affect other aspects. It is a research-planning instrument, not a normative architecture and not a claim that every edge has already been proven.

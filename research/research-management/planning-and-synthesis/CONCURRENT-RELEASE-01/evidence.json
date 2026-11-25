@@ -1,0 +1,208 @@
+{
+  "base": "c92e9e3c168741ef6b96d2f21c90af5970794923",
+  "python": "3.12.14",
+  "results": {
+    "c": {
+      "competing_parent/fenced": {
+        "final_generation": 1,
+        "generation_at_writer_resumption": 1,
+        "history": [
+          [
+            null,
+            "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+            1
+          ],
+          [
+            "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+            "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+            1
+          ]
+        ],
+        "rival_after_selection": "parent-refused",
+        "rival_at_cut": "SQLITE_BUSY",
+        "writer_verdict": "published"
+      },
+      "competing_parent/late_lock": {
+        "final_generation": 1,
+        "generation_at_writer_resumption": 1,
+        "history": [
+          [
+            null,
+            "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+            1
+          ],
+          [
+            "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+            "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+            1
+          ],
+          [
+            "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+            "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+            1
+          ]
+        ],
+        "rival_after_selection": null,
+        "rival_at_cut": "published",
+        "writer_verdict": "published"
+      },
+      "revocation/fenced": {
+        "final_generation": 2,
+        "generation_at_writer_resumption": 1,
+        "history": [
+          [
+            null,
+            "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+            1
+          ],
+          [
+            "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+            "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+            1
+          ]
+        ],
+        "rival_after_selection": "revoked",
+        "rival_at_cut": "SQLITE_BUSY",
+        "writer_verdict": "published"
+      },
+      "revocation/late_lock": {
+        "final_generation": 2,
+        "generation_at_writer_resumption": 2,
+        "history": [
+          [
+            null,
+            "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+            1
+          ],
+          [
+            "573c9248d3624b96479b78836e499881ae5ff3f228ebc51d0462cb847a225835",
+            "71cc05161d2488bcc765c45789cbe80e1a4c24f67f35883b9d64c7d8cfd94fbf",
+            1
+          ]
+        ],
+        "rival_after_selection": null,
+        "rival_at_cut": "revoked",
+        "writer_verdict": "published"
+      }
+    },
+    "rust": {
+      "competing_parent/fenced": {
+        "final_generation": 1,
+        "generation_at_writer_resumption": 1,
+        "history": [
+          [
+            null,
+            "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+            1
+          ],
+          [
+            "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+            "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+            1
+          ]
+        ],
+        "rival_after_selection": "parent-refused",
+        "rival_at_cut": "SQLITE_BUSY",
+        "writer_verdict": "published"
+      },
+      "competing_parent/late_lock": {
+        "final_generation": 1,
+        "generation_at_writer_resumption": 1,
+        "history": [
+          [
+            null,
+            "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+            1
+          ],
+          [
+            "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+            "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+            1
+          ],
+          [
+            "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+            "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+            1
+          ]
+        ],
+        "rival_after_selection": null,
+        "rival_at_cut": "published",
+        "writer_verdict": "published"
+      },
+      "revocation/fenced": {
+        "final_generation": 2,
+        "generation_at_writer_resumption": 1,
+        "history": [
+          [
+            null,
+            "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+            1
+          ],
+          [
+            "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+            "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+            1
+          ]
+        ],
+        "rival_after_selection": "revoked",
+        "rival_at_cut": "SQLITE_BUSY",
+        "writer_verdict": "published"
+      },
+      "revocation/late_lock": {
+        "final_generation": 2,
+        "generation_at_writer_resumption": 2,
+        "history": [
+          [
+            null,
+            "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+            1
+          ],
+          [
+            "7191b7b3c21564878f56654dfcfa4a6938e138cb2ce8cc6f8eba905a3db5f51c",
+            "727b6f8c029e1ae057e19ad33f9ee9099ee17dc74a3e7074932f72c5cde030a9",
+            1
+          ]
+        ],
+        "rival_after_selection": null,
+        "rival_at_cut": "revoked",
+        "writer_verdict": "published"
+      }
+    }
+  },
+  "sources": {
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/__init__.py": "a611c5c0ef8f5d435524387e328c928550f5cd9b",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "0e86564830d3668ee888ee7f7f5994be953a2598",
+    "research/PROTOTYPES/RT-04-01/rt04_backup_roles.py": "cbf002088284e6bf76b4064cdfa3e8e2dbe4adb3",
+    "research/PROTOTYPES/RT-04-01/rt04_owned_call_match.py": "7c84fa78e36ae8c8032de32e8bd8646ccee0f527",
+    "research/PROTOTYPES/RT-04-01/rt04_return_disposition.py": "5364ca4c707d36117692936e35437f7a9b2b5b65",
+    "research/PROTOTYPES/RT-04-01/rt04_rust_owned_probe.py": "7d7c5b8eba2aa62dbc71230cd7499e57fbbe01c2",
+    "research/PROTOTYPES/RT-04-01/rt04_shared_owned_handlers.py": "0b03261129c54c2d2aa350c2a7bbe6e54dc245eb",
+    "research/PROTOTYPES/RT-04-01/rt04_shared_owned_workload.py": "0d94450eaf177337fe84689cdd51fa931c15a487",
+    "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/caller.c": "a04c89d9cd921724acf70ffa815c39cd8a6c3065",
+    "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/run.py": "a681cb5569e40d92abf7363bf85ff0e1d1a6790f",
+    "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/provider.c": "878ad8bf8595b7780bc463234aa0ac6aba675962",
+    "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/run.py": "281c739207fc9737596b52d809f306c60d048177",
+    "research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-01/evidence.json": "0eb035d0c2fcae152f1a12739f1b659e17ec7784",
+    "research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-01/run.py": "8f290dc932bf170e3a74abc87dff97120cf062c1",
+    "research/toolchain-and-collaboration/RT-11/SIGNED-REBUILD-ADMISSION-01/run.py": "aa0df25eb15f2b9fa779967fd4ade0c71ae8a1e3"
+  },
+  "sqlite": "3.53.1",
+  "tools": {
+    "gcc": {
+      "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+      "version": "gcc (Debian 14.2.0-19) 14.2.0"
+    },
+    "ld": {
+      "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+      "version": "GNU ld (GNU Binutils for Debian) 2.44"
+    },
+    "openssl": {
+      "sha256": "acc10176d038aeb7b2a77d9ec972ac2985857a7191f7aecb7c54ef0e2c7e9549",
+      "version": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)"
+    },
+    "rustc": {
+      "sha256": "f8d033fd72e878ec60493788c8bffec2e6c154dcab6f0cb4c145af8ada26a7ed",
+      "version": "rustc 1.85.1 (4eb161250 2025-03-15)"
+    }
+  }
+}

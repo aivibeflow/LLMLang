@@ -308,6 +308,8 @@ A finite owned-result workflow combines exact provider selection, build admissio
 
 The native release fixture checks how this workflow's evidence and authority interfaces compose. Two exact C/Rust artifacts accept the checked provider replacement and freshly authorized rollback. Old or narrower evidence, mismatched bytes or action, and revoked rights preserve the catalog selection. [Native release admission](planning-and-synthesis/EXACT-PROVIDER-RELEASE-2026-11-25.md)
 
+A cross-process replay moves the publication fence later while keeping exact artifact and trace checks. Both native routes then admit one old-policy write and a duplicate transition from the prior parent. Holding the existing SQLite fence serializes both operations. [Concurrent release admission](planning-and-synthesis/CONCURRENT-RELEASE-2026-11-25.md)
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.
