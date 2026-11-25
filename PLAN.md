@@ -948,6 +948,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Define the mapping between Git commits/trees and semantic graph snapshots.
   - Reconstruct typed roots across 16 native commits in SHA-1 and SHA-256 repositories. Equal semantic roots can have different trees and ordered ancestry; a changed provider changes the root and interpreted calls. Closed admission refuses missing and undeclared inputs. [Commit, tree and semantic root mapping](research/toolchain-and-collaboration/RT-24/RT-24-COMMIT-TREE-SEMANTIC-ROOT-MAPPING-2026-11-25.md)
 - [ ] Preserve ordinary Git clone, fetch, push, branch, tag, and history behavior.
+  - [ ] [WIP] Verify native clone, push, fetch, branch and tag history against exact committed semantic roots (#320).
 - [ ] Define readable textual representation, diff strategy, and generated metadata.
 - [ ] Define how large objects and binary artifacts are handled.
   - Native Git LFS 3.6.1 distinguishes the committed pointer, local media and filtered checkout or archive. Across fourteen settings, exact manifest, pointer, size and SHA-256 checks reconstruct seven available artifacts and refuse seven others. Path-based reuse accepts six wrong snapshots. External media retention and production transport remain open. [Git LFS object admission](research/toolchain-and-collaboration/RT-24/RT-24-LFS-OBJECT-ADMISSION-2026-11-25.md)
