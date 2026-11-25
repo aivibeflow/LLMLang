@@ -264,6 +264,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define the human review protocol and exact approval binding: ACCEPT, REVISE, CLARIFY, or REJECT against a specific immutable semantic revision and evidence package.
 - [ ] Define revision/impact behavior: semantic changes regenerate affected reconstructions and invalidate affected approvals; provenance-only changes must remain distinguishable from semantic changes.
 - [ ] Build clause-level round-trip and seeded-mutation experiments; measure semantic fidelity, provenance coverage, false acceptance, and unknown handling.
+  - [ ] [WIP] Run a source-blind deterministic round-trip and seeded clause-mutation pilot for a bounded RT-02 requirement class on `research/all`.
 - [ ] Run controlled human-review studies comparing prompt-only, formal-only, reconstruction-only, and reconstruction-plus-scenarios/provenance; include domain stakeholders and predeclare thresholds.
 - [ ] Keep intent correctness, formal-contract correctness, and implementation correctness as separate claims with separate evidence and acceptance gates.
 - [ ] Validate the workflow on representative requirement classes and risk levels; record limits before transferring any result into `draft/`.
