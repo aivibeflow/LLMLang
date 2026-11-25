@@ -1788,8 +1788,8 @@ Research a typed, versioned object describing the task an agent is expected to p
   - [x] Check 27 SQLite WAL task settlements and an interrupted retry. Active-state and task-only checks admit six and three stale completions respectively. Exact task and prerequisite matching admits both valid transitions and no stale ones. Connection-close rollback and exact retry retain one outcome. Production authorization and multi-child integration remain open. [Task Context settlement](research/toolchain-and-collaboration/RT-14/RT-14-TASK-CONTEXT-SQLITE-2026-11-25.md)
 - [x] Keep authorization independent: a Task Context describes requested work and constraints but does not grant capabilities; RT-16 policy checks remain authoritative.
   - [x] Check 120 completion and RT-16 authority combinations. One commit and one push combination pass their independent gates. Native Git CAS refuses a moved head, and exact-commit push preserves the authorized subject when the local branch advances. Production identity, remote trust and durable nonce handling remain open. [Task Context action authority](research/toolchain-and-collaboration/RT-14/RT-14-TASK-AUTHORITY-2026-11-25.md)
-- [ ] Build lifecycle and adversarial fixtures for stale baselines, scope expansion, omitted obligations, conflicting delegated work, cancellation/retry, and partial completion.
-  - [ ] [WIP] Check native SQLite sibling ownership, partial completion and cancellation/retry across exact Task Context revisions (#340).
+- [x] Build lifecycle and adversarial fixtures for stale baselines, scope expansion, omitted obligations, conflicting delegated work, cancellation/retry, and partial completion.
+  - [x] Check 22 lifecycle operations, 16 native delegation races and both cancellation orders. Overlap permits one owner, partial or incomplete scope cannot complete the parent, and an exact historical retry cannot settle a new revision. General dependency graphs and production authority remain open. [Task Context sibling lifecycle](research/toolchain-and-collaboration/RT-14/RT-14-TASK-SIBLINGS-2026-11-25.md)
 
 ### Joint integration and exit criteria
 
