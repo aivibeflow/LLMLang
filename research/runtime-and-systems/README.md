@@ -49,5 +49,6 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-25 concurrent ownership and address limits](RT-25/RT-25-ALLOCATOR-CONCURRENT-AND-ADDRESS-LIMIT-2026-11-25.md) checks cross-thread buffers across five providers and runs separate process address-space controls.
 - [RT-25 modern Google TCMalloc](RT-25/RT-25-MODERN-GOOGLE-TCMALLOC-2026-11-25.md) checks the pinned native build, process-wide Rust allocation and a head-to-head graph workload.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
