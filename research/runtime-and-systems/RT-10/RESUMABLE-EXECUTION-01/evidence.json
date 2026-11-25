@@ -1,0 +1,23 @@
+{
+  "control_refusals": {
+    "changed bytecode": "checkpoint-context",
+    "changed execution": "checkpoint-context",
+    "changed policy epoch": "checkpoint-context",
+    "changed stored budget": "checkpoint-bytes",
+    "malformed effect response": "receipt-shape"
+  },
+  "counts": {
+    "checkpoint_restorations": 13319,
+    "original_reference_agreements": 3645,
+    "reused_receipts_refused": 4023,
+    "same_operation_name": 1385
+  },
+  "format": "resumable-execution-01",
+  "terminal_states": {
+    "cancelled": 2324,
+    "exhausted": 5885,
+    "failed": 1173,
+    "returned": 5198
+  },
+  "treated_cases": 14580
+}
