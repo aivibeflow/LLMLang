@@ -1491,8 +1491,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Estimated research complexity:** **6/10** — identity, indexes, providers, publication, provenance, and operational policy.
 
 ### Package indexes and dynamic package delivery
-- [ ] Define optional derived-result cache indexes in package archives and their integration with the semantic action cache; indexes must be independently omittable and must not affect logical package identity.
-  - [ ] [WIP] Compare detached and optional archive cache indexes with exact action, payload and package-root checks (#333).
+- [x] Define optional derived-result cache indexes in package archives and their integration with the semantic action cache; indexes must be independently omittable and must not affect logical package identity.
+  - [x] Verify optional cache transport across thirteen configurations. Twelve retain exact package identity, with three verified cache hits. The same Action Key can carry a different result, so reuse also checks trusted output identity and actual payload bytes. Production encoding, network fetch and authority remain open. [Optional package cache](research/packages-and-ecosystem/RT-12/RT-12-OPTIONAL-ACTION-CACHE-2026-11-25.md)
 
 - [ ] Define the logical package-content model: roots, included objects, typed dependency edges, exports, modules, evidence, and provenance.
 - [x] Define compact canonical binary index tables and their key ordering; require binary-search and deterministic streaming-merge semantics.
