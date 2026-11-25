@@ -1,0 +1,129 @@
+{
+  "schema": "llmlang-rt02-requirement-class-coverage/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "research/language-design/RT-02/REQUIREMENT-CLASS-COVERAGE-01/run.py": "7dd6a7fb05f08bd70fb0b1ea08745ccddc5a807840969574056669bd1bd5ae44",
+    "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+    "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf"
+  },
+  "synthetic_risk_policies": {
+    "routine": [
+      "FINITE_ENUMERATION",
+      "FINITE_ENUMERATION_WITH_INDEPENDENT_ORACLE",
+      "CHECKED_PROOF"
+    ],
+    "stateful": [
+      "FINITE_ENUMERATION_WITH_INDEPENDENT_ORACLE",
+      "CHECKED_PROOF"
+    ],
+    "high_assurance": [
+      "CHECKED_PROOF"
+    ]
+  },
+  "results": {
+    "temporal": {
+      "comparison": {
+        "rows": 484,
+        "mismatch_count": 0,
+        "first_mismatch": null
+      },
+      "mutant": {
+        "rows": 484,
+        "mismatch_count": 110,
+        "first_mismatch": {
+          "observation": [
+            "retail",
+            "failed",
+            0,
+            null
+          ],
+          "source_accepts": false,
+          "candidate_accepts": true
+        }
+      },
+      "policy_results": {
+        "routine": "EVIDENCE_ELIGIBLE_FOR_REVIEW",
+        "stateful": "EVIDENCE_ELIGIBLE_FOR_REVIEW",
+        "high_assurance": "INSUFFICIENT_EVIDENCE_FOR_POLICY"
+      },
+      "mutant_policy_results": {
+        "routine": "NEEDS_REVISION",
+        "stateful": "NEEDS_REVISION",
+        "high_assurance": "NEEDS_REVISION"
+      },
+      "without_independent_oracle": "INSUFFICIENT_EVIDENCE_FOR_POLICY"
+    },
+    "numeric_precondition": {
+      "comparison": {
+        "rows": 72,
+        "mismatch_count": 0,
+        "first_mismatch": null
+      },
+      "mutant": {
+        "rows": 72,
+        "mismatch_count": 6,
+        "first_mismatch": {
+          "observation": [
+            0,
+            0,
+            true
+          ],
+          "source_accepts": false,
+          "candidate_accepts": true
+        }
+      },
+      "policy_results": {
+        "routine": "EVIDENCE_ELIGIBLE_FOR_REVIEW",
+        "stateful": "EVIDENCE_ELIGIBLE_FOR_REVIEW",
+        "high_assurance": "INSUFFICIENT_EVIDENCE_FOR_POLICY"
+      },
+      "mutant_policy_results": {
+        "routine": "NEEDS_REVISION",
+        "stateful": "NEEDS_REVISION",
+        "high_assurance": "NEEDS_REVISION"
+      },
+      "without_independent_oracle": "INSUFFICIENT_EVIDENCE_FOR_POLICY"
+    },
+    "state_transition": {
+      "comparison": {
+        "rows": 900,
+        "mismatch_count": 0,
+        "first_mismatch": null
+      },
+      "mutant": {
+        "rows": 900,
+        "mismatch_count": 20,
+        "first_mismatch": {
+          "observation": [
+            1,
+            1,
+            1,
+            2
+          ],
+          "source_accepts": false,
+          "candidate_accepts": true
+        }
+      },
+      "policy_results": {
+        "routine": "EVIDENCE_ELIGIBLE_FOR_REVIEW",
+        "stateful": "EVIDENCE_ELIGIBLE_FOR_REVIEW",
+        "high_assurance": "INSUFFICIENT_EVIDENCE_FOR_POLICY"
+      },
+      "mutant_policy_results": {
+        "routine": "NEEDS_REVISION",
+        "stateful": "NEEDS_REVISION",
+        "high_assurance": "NEEDS_REVISION"
+      },
+      "without_independent_oracle": "INSUFFICIENT_EVIDENCE_FOR_POLICY"
+    },
+    "unbounded_liveness": {
+      "comparison": null,
+      "reason": "finite observations do not establish eventual completion over unrestricted traces",
+      "policy_results": {
+        "routine": "UNKNOWN_UNSUPPORTED",
+        "stateful": "UNKNOWN_UNSUPPORTED",
+        "high_assurance": "UNKNOWN_UNSUPPORTED"
+      }
+    }
+  }
+}
