@@ -117,6 +117,7 @@ Priority is a planning aid, not a measure of correctness:
 - **Options to investigate:** Canonical typed binary encoding versus canonical structured text; algorithm-tagged digests; explicit migration/dual-hash strategy.
 - **Recommendation:** Specify typed canonical encoding and domain separation before standardizing any digest spelling. Keep algorithm identity explicit in the digest representation.
 - **Related:** [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), sections 4–5.
+- **Evidence:** [RT-05 canonical wire admission](research/semantic-representation/RT-05/RT-05-CANONICAL-WIRE-ADMISSION-2026-11-25.md) validates exact typed wire bytes, expected identity domains and canonical digests across Python and JavaScript. The bounded profile leaves the production schema and digest registry open.
 
 ### LL-005 — Define hash-relevant dependency edges and cycles
 
