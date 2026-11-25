@@ -1,0 +1,5574 @@
+{
+  "format": "rt17-lsp-wire-positions/1",
+  "node": "v22.23.5",
+  "sdk": "3.17.5",
+  "python": "Python 3.12.14",
+  "outcomes": {
+    "range": {
+      "correct": 36,
+      "range": 10,
+      "wrong": 26,
+      "version": 12
+    },
+    "token": {
+      "correct": 36,
+      "range": 10,
+      "wrong": 12,
+      "version": 12,
+      "token": 14
+    },
+    "occurrence": {
+      "correct": 36,
+      "range": 10,
+      "occurrence": 12,
+      "version": 12,
+      "token": 14
+    }
+  },
+  "sessions": [
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 8
+        },
+        "end": {
+          "line": 0,
+          "character": 11
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 8
+        },
+        "end": {
+          "line": 0,
+          "character": 11
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 8
+        },
+        "end": {
+          "line": 0,
+          "character": 11
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 8
+        },
+        "end": {
+          "line": 1,
+          "character": 11
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 8
+        },
+        "end": {
+          "line": 1,
+          "character": 11
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 8
+        },
+        "end": {
+          "line": 1,
+          "character": 11
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "a😀goodbad || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "a😀bq bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "a😀bq bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "Cafégoodd || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "Café bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "Café bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "heading\r\n😀good bad || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "a😀bgoodad || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "a😀bq bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "a😀bq bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "Cafégoodd || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "Café bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "Café bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-8",
+      "advertised": "utf-8",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "a😀bqgoodd || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "a😀bq bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "a😀bq bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "heading\r\n😀éqgoodd || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-16",
+      "advertised": "utf-16",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "😀goodad || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "😀goodad || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "a😀bq bgood|| bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "a😀bq bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "a😀bq bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "heading\r\n😀éq bgood|| bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "😀goodad || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "utf-32",
+      "advertised": "utf-32",
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "negotiated",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "a😀bqgoodd || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "a😀bq bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 5
+        },
+        "end": {
+          "line": 0,
+          "character": 8
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "a😀bq bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "heading\r\n😀éqgoodd || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "token",
+      "outputs": [
+        "heading\r\n😀éq bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "codepoint",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "ascii",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "first good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "astral",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "a😀bq good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "combining",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 6
+        },
+        "end": {
+          "line": 0,
+          "character": 9
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "Café good || bad suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "crlf",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 5
+        },
+        "end": {
+          "line": 1,
+          "character": 8
+        }
+      },
+      "outcome": "correct",
+      "outputs": [
+        "heading\r\n😀éq good || bad suffix\r\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "malformed-unit",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 1
+        },
+        "end": {
+          "line": 0,
+          "character": 4
+        }
+      },
+      "outcome": "range",
+      "outputs": [
+        "😀q bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "wrong",
+      "outputs": [
+        "bad || good suffix\n",
+        "set new options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "wrong-occurrence",
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 7
+        },
+        "end": {
+          "line": 0,
+          "character": 10
+        }
+      },
+      "outcome": "occurrence",
+      "outputs": [
+        "bad || bad suffix\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "range",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "token",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    },
+    {
+      "requested": "default",
+      "advertised": null,
+      "server": "fixed16",
+      "client": "occurrence",
+      "scenario": "stale",
+      "range": {
+        "start": {
+          "line": 1,
+          "character": 4
+        },
+        "end": {
+          "line": 1,
+          "character": 7
+        }
+      },
+      "outcome": "version",
+      "outputs": [
+        "old header\r\none bad || bad suffix\r\n",
+        "set old options\n"
+      ]
+    }
+  ]
+}
