@@ -262,6 +262,8 @@ For every experiment, record source commit, tool versions, fixtures, command, ra
 
 The [checked-add Lean bit-vector route](../compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-LEAN-2026-11-25.md) compares solver agreement and exact LRAT proof replay on the fixed-width LLVM observation predicates. Certificate replay can omit a SAT solver and retains a compiled reflection assumption. The [symbolic alternative](../compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-SYMBOLIC-2026-11-25.md) uses standard Lean axioms for these exact predicates and depends on operation-specific arithmetic correspondence lemmas.
 
+The [external-effect revocation experiment](../language-design/RT-04/RT-04-EXTERNAL-EFFECT-REVOCATION-2026-11-25.md) compares shared advisory ancestry locks and a coarser authorization writer fence. Both leave a separate filesystem-effect and receipt reconciliation boundary.
+
 The [external receipt recovery fixture](../toolchain-and-collaboration/RT-19/RT-19-EXTERNAL-RECEIPT-RECOVERY-2026-11-25.md) compares receipt-only, filename-only and exact operation binding after a process crash. The exact recovery route relies on a stable immutable namespace and records observed effects separately.
 
 ## 8. Readiness assessment for comparative selection
