@@ -1,0 +1,288 @@
+{
+  "core_package": {
+    "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3",
+    "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+    "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8"
+  },
+  "profiles": {
+    "linux-arm64": {
+      "binding": {
+        "action_implementation": "sha256:527e329ad188a6a8ede2b8cc54d28d6bd31308b53a443079a586544fa2901bb6",
+        "action_key": "sha256:03111cf3f83dc0b2a75786cbfd0db2a4f3842e5ce73d6c5bd4a19739687f9491",
+        "action_kind": "compile",
+        "configuration_digest": "sha256:d31cdb512300b64a7f579d4d142361144404212fe0e41216a7423885157cf685",
+        "dependency_complete": true,
+        "determinism": "byte_deterministic",
+        "input_hashes": [
+          "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+          "sha256:375484ddd26ab2be92741ba9e4ff0639046f4beda73a3b5e35215c9154387c48"
+        ],
+        "language_component_registry_digest": "sha256:455f7cd2d2d7a113645df451b5b3bed3ddfe1d98099b71eabae516d4060c11e6",
+        "language_version": "1.3.2.1.0",
+        "output_artifacts": [
+          "sha256:2c11565bfc4da42469a36a3eb163a253672f70ba3919263fb4944519192a43da"
+        ],
+        "runtime_identity": "sha256:535a3c2b1f34c9e801fb3eb3905da0deb93ebb3df031cb3d5f51c8754888be9f",
+        "status": "success",
+        "target_profile_digest": "sha256:a9b564bdb5bdaa914fa1c56e4c2a4d771a1a56f047c88a17addb16ea3ae98aa7",
+        "toolchain_identity": "sha256:1f78be5ae95b95db6d8343806ba0ede5baf37c7efca8e4df37568c202620429f"
+      },
+      "changed_artifact": "digest-refused",
+      "exact_artifact": "hit",
+      "inputs": {
+        "configuration": {
+          "compile": [
+            "-std=c17",
+            "-O2",
+            "-ffreestanding",
+            "-fno-builtin",
+            "-fPIC"
+          ],
+          "link": [
+            "-shared",
+            "--build-id=none",
+            "-soname",
+            "provider.so",
+            "-o",
+            "provider.so",
+            "provider.o"
+          ],
+          "sysroot": "none"
+        },
+        "runtime": {
+          "closure": "fixture-no-system-runtime",
+          "procedure": "shared-provider-only"
+        },
+        "target": {
+          "object_format": "elf",
+          "triple": "aarch64-linux-gnu"
+        },
+        "toolchain": {
+          "compiler": "sha256:0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+          "host": "x86_64",
+          "linker": "sha256:7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+          "linker_entrypoint": "ld.lld-19"
+        }
+      },
+      "mutated_fields": {
+        "configuration_digest": "action-miss",
+        "input_hashes": "action-miss",
+        "runtime_identity": "action-miss",
+        "target_profile_digest": "action-miss",
+        "toolchain_identity": "action-miss"
+      },
+      "wrong_attested_artifact": "receipt-refused"
+    },
+    "linux-x64": {
+      "binding": {
+        "action_implementation": "sha256:527e329ad188a6a8ede2b8cc54d28d6bd31308b53a443079a586544fa2901bb6",
+        "action_key": "sha256:48ae4d045d420807a96fe3ba6b6c4fa329cda787e311d3c1a8b1e27cfc134e93",
+        "action_kind": "compile",
+        "configuration_digest": "sha256:d31cdb512300b64a7f579d4d142361144404212fe0e41216a7423885157cf685",
+        "dependency_complete": true,
+        "determinism": "byte_deterministic",
+        "input_hashes": [
+          "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+          "sha256:375484ddd26ab2be92741ba9e4ff0639046f4beda73a3b5e35215c9154387c48"
+        ],
+        "language_component_registry_digest": "sha256:455f7cd2d2d7a113645df451b5b3bed3ddfe1d98099b71eabae516d4060c11e6",
+        "language_version": "1.3.2.1.0",
+        "output_artifacts": [
+          "sha256:12b653f5d68fe58264d4df304256827e7de96b961e4dc877f8c8a25b4b209bcf"
+        ],
+        "runtime_identity": "sha256:535a3c2b1f34c9e801fb3eb3905da0deb93ebb3df031cb3d5f51c8754888be9f",
+        "status": "success",
+        "target_profile_digest": "sha256:2fae03e19bfe9f8de8452b359070785fe3a326578fe12580592dfca7016d4b96",
+        "toolchain_identity": "sha256:1f78be5ae95b95db6d8343806ba0ede5baf37c7efca8e4df37568c202620429f"
+      },
+      "changed_artifact": "digest-refused",
+      "exact_artifact": "hit",
+      "inputs": {
+        "configuration": {
+          "compile": [
+            "-std=c17",
+            "-O2",
+            "-ffreestanding",
+            "-fno-builtin",
+            "-fPIC"
+          ],
+          "link": [
+            "-shared",
+            "--build-id=none",
+            "-soname",
+            "provider.so",
+            "-o",
+            "provider.so",
+            "provider.o"
+          ],
+          "sysroot": "none"
+        },
+        "runtime": {
+          "closure": "fixture-no-system-runtime",
+          "procedure": "shared-provider-only"
+        },
+        "target": {
+          "object_format": "elf",
+          "triple": "x86_64-linux-gnu"
+        },
+        "toolchain": {
+          "compiler": "sha256:0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+          "host": "x86_64",
+          "linker": "sha256:7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+          "linker_entrypoint": "ld.lld-19"
+        }
+      },
+      "mutated_fields": {
+        "configuration_digest": "action-miss",
+        "input_hashes": "action-miss",
+        "runtime_identity": "action-miss",
+        "target_profile_digest": "action-miss",
+        "toolchain_identity": "action-miss"
+      },
+      "wrong_attested_artifact": "receipt-refused"
+    },
+    "macos-arm64": {
+      "binding": {
+        "action_implementation": "sha256:527e329ad188a6a8ede2b8cc54d28d6bd31308b53a443079a586544fa2901bb6",
+        "action_key": "sha256:141677ec4e1efa4bf2b36ea0cf107bec849c1bed643330e4fcd28dc252028759",
+        "action_kind": "compile",
+        "configuration_digest": "sha256:2ab467f583cc7d0511a8f5799813f48f385d3aaee7705279a9208f16b2ec4928",
+        "dependency_complete": true,
+        "determinism": "byte_deterministic",
+        "input_hashes": [
+          "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+          "sha256:375484ddd26ab2be92741ba9e4ff0639046f4beda73a3b5e35215c9154387c48"
+        ],
+        "language_component_registry_digest": "sha256:455f7cd2d2d7a113645df451b5b3bed3ddfe1d98099b71eabae516d4060c11e6",
+        "language_version": "1.3.2.1.0",
+        "output_artifacts": [
+          "sha256:29ae38f188d81b19e185033e898bab18d4646da78bb993cc44456194c7b8e71e"
+        ],
+        "runtime_identity": "sha256:535a3c2b1f34c9e801fb3eb3905da0deb93ebb3df031cb3d5f51c8754888be9f",
+        "status": "success",
+        "target_profile_digest": "sha256:29e38eb5a24b2b40f26e0590ef785dc7bd2034b3d50ed0da16c378857582d47f",
+        "toolchain_identity": "sha256:393df4aee52e5457d9e696494f8c24bc687430c76e38dd841e30c9c05a460b0d"
+      },
+      "changed_artifact": "digest-refused",
+      "exact_artifact": "hit",
+      "inputs": {
+        "configuration": {
+          "compile": [
+            "-std=c17",
+            "-O2",
+            "-ffreestanding",
+            "-fno-builtin",
+            "-fPIC"
+          ],
+          "link": [
+            "-dylib",
+            "-arch",
+            "arm64",
+            "-platform_version",
+            "macos",
+            "13.0",
+            "13.0",
+            "-no_uuid",
+            "-install_name",
+            "@rpath/provider.dylib",
+            "-o",
+            "provider.dylib",
+            "provider.o"
+          ],
+          "sysroot": "none"
+        },
+        "runtime": {
+          "closure": "fixture-no-system-runtime",
+          "procedure": "shared-provider-only"
+        },
+        "target": {
+          "object_format": "macho",
+          "triple": "arm64-apple-macos13.0"
+        },
+        "toolchain": {
+          "compiler": "sha256:0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+          "host": "x86_64",
+          "linker": "sha256:7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+          "linker_entrypoint": "ld64.lld-19"
+        }
+      },
+      "mutated_fields": {
+        "configuration_digest": "action-miss",
+        "input_hashes": "action-miss",
+        "runtime_identity": "action-miss",
+        "target_profile_digest": "action-miss",
+        "toolchain_identity": "action-miss"
+      },
+      "wrong_attested_artifact": "receipt-refused"
+    },
+    "windows-x64": {
+      "binding": {
+        "action_implementation": "sha256:527e329ad188a6a8ede2b8cc54d28d6bd31308b53a443079a586544fa2901bb6",
+        "action_key": "sha256:5fdfd369301b123bbcf31c78b829990f73720f2f2caca765ca4a2f13367b58a9",
+        "action_kind": "compile",
+        "configuration_digest": "sha256:5151f726285a8112cd123f60484ffd6f69bbb42203a9e1ff129af8b4cc75aa8c",
+        "dependency_complete": true,
+        "determinism": "byte_deterministic",
+        "input_hashes": [
+          "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+          "sha256:375484ddd26ab2be92741ba9e4ff0639046f4beda73a3b5e35215c9154387c48"
+        ],
+        "language_component_registry_digest": "sha256:455f7cd2d2d7a113645df451b5b3bed3ddfe1d98099b71eabae516d4060c11e6",
+        "language_version": "1.3.2.1.0",
+        "output_artifacts": [
+          "sha256:98763b016f3fccbaf58e3fcce42062455bbf1e0857ff001785d0716dc6692af7"
+        ],
+        "runtime_identity": "sha256:535a3c2b1f34c9e801fb3eb3905da0deb93ebb3df031cb3d5f51c8754888be9f",
+        "status": "success",
+        "target_profile_digest": "sha256:eb9d00218c2489c7a6ca53b207da873b5436d92bdf1e649c400cee05d72aea25",
+        "toolchain_identity": "sha256:adedfcb68eb88d9ac3e1cf75fe3ea0ae162f489a2095a296097a1bcf2e650dbb"
+      },
+      "changed_artifact": "digest-refused",
+      "exact_artifact": "hit",
+      "inputs": {
+        "configuration": {
+          "compile": [
+            "-std=c17",
+            "-O2",
+            "-ffreestanding",
+            "-fno-builtin",
+            "-mno-incremental-linker-compatible"
+          ],
+          "link": [
+            "/dll",
+            "/noentry",
+            "/nodefaultlib",
+            "/machine:x64",
+            "/timestamp:0",
+            "/out:provider.dll",
+            "provider.o"
+          ],
+          "sysroot": "none"
+        },
+        "runtime": {
+          "closure": "fixture-no-system-runtime",
+          "procedure": "shared-provider-only"
+        },
+        "target": {
+          "object_format": "coff",
+          "triple": "x86_64-pc-windows-msvc"
+        },
+        "toolchain": {
+          "compiler": "sha256:0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a",
+          "host": "x86_64",
+          "linker": "sha256:7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+          "linker_entrypoint": "lld-link-19"
+        }
+      },
+      "mutated_fields": {
+        "configuration_digest": "action-miss",
+        "input_hashes": "action-miss",
+        "runtime_identity": "action-miss",
+        "target_profile_digest": "action-miss",
+        "toolchain_identity": "action-miss"
+      },
+      "wrong_attested_artifact": "receipt-refused"
+    }
+  },
+  "source_sha256": "sha256:375484ddd26ab2be92741ba9e4ff0639046f4beda73a3b5e35215c9154387c48"
+}
