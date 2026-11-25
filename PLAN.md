@@ -446,6 +446,45 @@ The [§8.2 Linux syscall package implementation plan](#82-linux-syscall-package-
 
 **Exit criteria:** a small typed executable subset; reference execution; one POSIX vertical slice with explicit contracts and conformance scope; tests for observable behavior and error cases.
 
+### 5.3.1 Implement glibc in LLMLang
+
+**Goal** — implement the GNU C Library in LLMLang for Linux, starting with Linux x86-64 and the System V C ABI. Implement library behavior in LLMLang and use `linux.syscalls` for kernel access. Document any low-level adapters used for entry points or machine-specific operations. The portable POSIX layer backed by system libraries is a separate LLMLang profile. A pinned glibc release defines the coverage target. [Linux syscall package plan, §8.2](#82-linux-syscall-package-implementation-plan) · [RT-10 POSIX architecture](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md) · [GNU C Library manual](https://sourceware.org/glibc/manual/latest/html_node/)
+
+#### Function groups and end-to-end examples
+
+| Group | Example functions | End-to-end example |
+|---|---|---|
+| Memory, strings, and conversions | `memcpy`, `memmove`, `strlen`, `strtol`, `qsort` | Parse numbers and copy between overlapping buffers. |
+| Allocation and memory mapping | `malloc`, `calloc`, `realloc`, `free`, `mmap` | Grow a buffer and handle allocation failure. |
+| Files, directories, and streams | `open`, `read`, `stat`, `readdir`, `fopen`, `fwrite`, `printf` | Copy a file and print formatted output from C. |
+| Processes, signals, time, and IPC | `fork`, `execve`, `waitpid`, `sigaction`, `clock_gettime`, `pipe`, `poll` | Launch a child process with redirected output. |
+| Sockets and name services | `socket`, `connect`, `recv`, `getaddrinfo`, `getpwnam_r` | Exchange data over local TCP and resolve names with a pinned Name Service Switch (NSS) configuration. |
+| Threads and synchronization | `pthread_create`, `pthread_join`, `pthread_mutex_lock`, `pthread_cond_wait`, `sem_wait` | Pass data through a shared queue and test wakeups and cancellation. |
+| Locales, Unicode, and encodings | `setlocale`, `strcoll`, `mbrtowc`, `iconv`, `gettext` | Sort in a specified locale and handle an incomplete multibyte sequence. |
+| Math and floating point | `sin`, `exp`, `strtod`, `fesetround`, `fetestexcept` | Check rounding, NaN handling, and floating-point exceptions. |
+| Dynamic loading and GNU extensions | `dlopen`, `dlsym`, `dlvsym`, `getopt_long`, `asprintf` | Load a library with a versioned symbol and parse long options. |
+
+The table lists initial work groups. The pinned release inventory defines full coverage. It includes headers, types, macros, exported symbols and symbol versions, plus the startup objects, loader, modules, and data required by the declared profiles. Record each item's interface origin (ISO C, POSIX, GNU, or Linux), dependencies, support status, and evidence.
+
+The diagram follows a call from C. Memory and string algorithms can run entirely within the library. Operations that need the kernel use the native syscall package.
+
+```mermaid
+flowchart LR
+    C["C application"] --> A["Public C headers and target ABI"]
+    A --> L["GNU libc functions implemented in LLMLang"]
+    L --> S["linux.syscalls for kernel access"]
+    S --> K["Linux x86-64 kernel"]
+```
+
+#### Milestones and acceptance criteria
+
+1. **Pin the target profile and reference.** Select the glibc release, minimum Linux version and configuration, compiler versions, linking modes, and environment settings. Build a versioned API and ABI inventory from the reference headers and artifacts. Track source compatibility, observable behavior, and binary compatibility separately.
+2. **Build the first static slice.** Implement minimal program startup and termination, `errno`, `memmove`, `strlen`, `read`, `write`, and `_exit`. Run an independently compiled C client and check its output bytes, errors, and exit status. Check that the startup objects, runtime, and generated code let the target executable run without the host glibc.
+3. **Expand the API and behavioral tests.** Add allocation, file I/O, stdio and variadic calls, processes, signals, and time, then networking and threads. Cover resource ownership, errors, partial I/O, `EINTR`, thread-local `errno`, cancellation, and cleanup. Expand coverage to DNS and NSS, locales, encodings, `libm`, and GNU extensions. Compare defined behavior against the reference in a pinned environment and add dedicated boundary tests.
+4. **Validate binary compatibility separately.** Build shared artifacts and check ELF symbols and symbol versions, calling conventions, public structure layouts, thread-local storage, and startup objects. Then check the loader, relocations, dynamic loading, and required modules. Run representative C binaries linked against the reference release in an isolated test environment without recompiling them. Publish results for each claimed configuration and set of symbol versions.
+
+**Exit criteria** — map the entire declared profile to the inventory and cover it with contracts, behavioral tests, and applicable ABI checks. For each release, publish a CI coverage matrix, limitations, and reproducible results. Claim a full replacement for the selected profile once all required coverage is complete and independently built consumers pass.
+
 ## 5.4 Freestanding embedded and real-time firmware (RT-37)
 
 **Priority:** P0 shared foundation; P1 pilot. [Research brief](research/runtime-and-systems/RT-37/README.md) · [Issue #440](https://github.com/aivibeflow/LLMLang/issues/440).
@@ -920,78 +959,78 @@ Full self-hosting, additional dialects, semantic Git merge, broader native ABI s
 
 ## 8.2 Linux syscall package implementation plan
 
-Пакет `linux.syscalls` для LLMLang должен покрыть все системные вызовы нативного Linux x86-64 ABI для закреплённой ревизии ядра. Прикладной код импортирует типизированные операции с публичными контрактами. Toolchain при сборке связывает их с конкретным провайдером. AArch64, RV64, x32 и 32-битный compat ABI находятся за пределами этой дорожной карты.
+The LLMLang `linux.syscalls` package must cover every native Linux x86-64 ABI syscall for a pinned kernel revision. Applications import typed operations with public contracts. The Toolchain binds them to a concrete provider at build time. AArch64, RV64, x32 and the 32-bit compatibility ABI are outside this roadmap.
 
-<a name="исходная-база-и-связывание"></a>
+<a name="syscall-baseline-and-binding"></a>
 
-### 8.2.1 Исходная база и связывание
+### 8.2.1 Baseline and binding
 
-Скалярный MVP Calculator уже даёт типизированный SPG, интерпретатор, генерацию Rust, раздельные публичные контракты и контракты реализаций, проверку Boogie/Z3 и команды `review`, `check`, `build`. Для пакета добавляем импорт между модулями, I/O-типы и эффекты. Calculator остаётся регрессионной проверкой, а Echo становится первым потребителем пакета. [Скалярный MVP](tools/llmlang_mvp/README.md)
+The Calculator scalar MVP already provides a typed SPG, an interpreter, Rust code generation, separate public and implementation contracts, Boogie/Z3 verification, and the `review`, `check`, and `build` commands. Add cross-module imports, I/O types and effects for the package. Keep Calculator as a regression check and use Echo as the first consumer. [Scalar MVP](tools/llmlang_mvp/README.md)
 
-Сборка разрешает квалифицированное имя через закреплённый каталог и сохраняет ревизию публичного интерфейса, хеши публичного и предоставляемого контрактов, целевой ABI и точный `ImplHash`. Номера и соглашение вызова принадлежат нативному адаптеру. Публикация нового провайдера сохраняет старое связывание. Явное обновление требует повторной проверки применимости свидетельств. [ADR-020](draft/adr/020-immutable-objects-and-implhash-calls.md) · [Адаптеры RT-10](research/runtime-and-systems/RT-10/RT-10-LINUX-SYSCALL-ABI-ISOLATION-2026-11-25.md)
+The build resolves qualified names through a pinned catalog and records the public interface revision, public and provided contract hashes, target ABI, and exact `ImplHash`. The native adapter owns syscall numbers and the calling convention. Publishing a new provider preserves the old binding. An explicit update requires checking that the evidence still applies. [ADR-020](draft/adr/020-immutable-objects-and-implhash-calls.md) · [RT-10 adapters](research/runtime-and-systems/RT-10/RT-10-LINUX-SYSCALL-ABI-ISOLATION-2026-11-25.md)
 
-Схема показывает путь от импорта до нативного вызова. Публичная ревизия и выбранная реализация фиксируются при сборке.
+The diagram follows the call from import to native execution. The build pins the public revision and the selected implementation.
 
 ```mermaid
 flowchart LR
-    A["Вызов в LLMLang"] --> B["Публичный интерфейс и контракт"]
-    B --> C["Закреплённый каталог и проверка связывания"]
-    C --> D["Точный ImplHash в SPG"]
-    D --> E["Нативный адаптер x86-64"]
-    E --> F["Системный вызов Linux"]
+    A["LLMLang call"] --> B["Public interface and contract"]
+    B --> C["Pinned catalog and binding validation"]
+    C --> D["Exact ImplHash in the SPG"]
+    D --> E["Native x86-64 adapter"]
+    E --> F["Linux syscall"]
 ```
 
-<a name="каталог-и-граница-покрытия"></a>
+<a name="syscall-inventory-and-coverage"></a>
 
-### 8.2.2 Каталог и граница покрытия
+### 8.2.2 Inventory and coverage boundary
 
-На старте выбираем тег ядра и составляем версионируемый каталог из записей `common` и `64` таблицы `syscall_64.tbl`. Для каждой записи фиксируем номер, имя, этап, статус реализации и зависимость от версии или конфигурации ядра. CI сверяет каталог с закреплённой таблицей. [Таблица Linux x86-64](https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl)
+Select a kernel tag and build a versioned inventory from the `common` and `64` entries in `syscall_64.tbl`. Record each entry's number, name, milestone, implementation status, and kernel version or configuration dependencies. CI checks the inventory against the pinned table. [Linux x86-64 syscall table](https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl)
 
-Полное покрытие достигнуто, когда у каждого действующего вызова есть провайдер, а у исторических и зарезервированных записей зафиксировано поведение выбранного ядра. Для вызовов, зависящих от конфигурации, указываем условия доступности. `ENOSYS` на конкретной системе остаётся результатом вызова. Статус реализации пакета учитываем отдельно.
+Full coverage requires a provider for every active syscall and documentation of the selected kernel's behavior for historical and reserved entries. Record the availability conditions for configuration-dependent calls. Track the package's implementation status separately from `ENOSYS` returned by a particular system.
 
-<a name="этапы-разработки"></a>
+<a name="syscall-development-milestones"></a>
 
-### 8.2.3 Этапы разработки
+### 8.2.3 Development milestones
 
-| Этап | Объём и критерий завершения |
+| Milestone | Scope and completion criteria |
 |---|---|
-| **1. Пакет поверх MVP** | Подключить `read` и `write` через публичный интерфейс. Зафиксировать один системный вызов на операцию, фактический прогресс, частичный результат, EOF, ошибки и применимые эффекты. Echo проходит через выбранный нативный провайдер, Calculator проходит регрессионные проверки. |
-| **2. Файлы и дескрипторы** | Добавить `openat`, `close`, позиционный и векторный I/O, метаданные, каталоги, ссылки, права, блокировки и операции с дескрипторами. Контракты описывают владение и заимствование. Копирование файла сохраняет данные при частичной записи и закрывает ресурсы при ошибке. |
-| **3. Время, ожидание и IPC** | Покрыть часы, таймеры, pipe, poll/epoll, eventfd, signalfd, очереди и остальные вызовы группы. Проверить таймауты, прерывания и сохранение частичного прогресса. |
-| **4. Процессы, сигналы и память** | Покрыть создание, запуск и ожидание процессов, сигналы, атрибуты и лимиты, отображения памяти, защиту страниц и синхронизацию. Проверить наследование ресурсов и вызовы, которые при успехе не возвращаются. |
-| **5. Сокеты и сетевой I/O** | Покрыть создание сокетов, соединения, приём подключений, передачу сообщений, адреса и параметры сокетов. Контракты описывают состояния сокета и входные и выходные структуры. |
-| **6. Командные интерфейсы и сложные структуры** | Завершить `ioctl`, `fcntl`, `prctl`, `bpf`, `perf_event_open`, семейство `io_uring` и остальные вызовы группы. Для поддерживаемых команд и вариантов структур зафиксировать типы, ограничения и уровень покрытия. |
-| **7. Системные и редкие вызовы** | Реализовать вызовы для пространств имён, монтирования, квот, ключей, политик безопасности, модулей, аудита и администрирования. Проверять привилегированные операции и изменения состояния системы в одноразовых VM. |
-| **8. Закрытие покрытия** | Сверить все записи с таблицей выбранной ревизии ядра и выпустить отчёт по вызовам, командам и конфигурациям. При обновлении тега ядра CI показывает новые и изменившиеся записи. |
+| **1. Package on top of the MVP** | Expose `read` and `write` through the public interface. Specify one syscall per operation, actual progress, partial results, EOF, errors, and applicable effects. Echo runs through the selected native provider and Calculator passes regression checks. |
+| **2. Files and descriptors** | Add `openat`, `close`, positional and vectored I/O, metadata, directories, links, permissions, locking, and descriptor operations. Contracts specify ownership and borrowing. The file-copy example preserves data across partial writes and releases resources on errors. |
+| **3. Time, waiting, and IPC** | Cover clocks, timers, pipes, poll/epoll, eventfd, signalfd, queues, and the remaining calls in this group. Test timeouts, interruptions, and preservation of partial progress. |
+| **4. Processes, signals, and memory** | Cover process creation, execution, and waiting, signals, attributes and limits, memory mapping, page protection, and synchronization. Test resource inheritance and calls that do not return on success. |
+| **5. Sockets and network I/O** | Cover socket creation, connecting, accepting connections, message transfer, addresses, and socket options. Contracts describe socket states and input and output structures. |
+| **6. Command interfaces and complex structures** | Complete `ioctl`, `fcntl`, `prctl`, `bpf`, `perf_event_open`, the `io_uring` family, and the remaining calls in this group. Document types, constraints, and coverage for supported commands and structure variants. |
+| **7. System and uncommon calls** | Implement calls for namespaces, mounts, quotas, keys, security policies, modules, auditing, and administration. Test privileged operations and system state changes in disposable VMs. |
+| **8. Coverage closure** | Reconcile every entry with the selected kernel revision's table and publish coverage by syscall, command, and configuration. CI reports new and changed entries when the kernel tag advances. |
 
-<a name="сквозные-примеры-для-этапов-15"></a>
+<a name="syscall-end-to-end-examples"></a>
 
-### 8.2.4 Сквозные примеры для этапов 1–5
+### 8.2.4 End-to-end examples for milestones 1–5
 
-Все пять примеров импортируют публичный интерфейс пакета и входят в сквозные проверки на Linux x86-64.
+All five examples import the package's public interface and run as end-to-end checks on Linux x86-64.
 
-1. **Echo** через `read` и `write`. Передаёт ровно столько байтов, сколько прочитано.
-2. **Копирование файла** через `openat`, `read`, `write` и `close`. Обрабатывает частичную запись и закрывает оба дескриптора при успехе или ошибке.
-3. **Ожидание данных в pipe** через `pipe2` и `poll`. Показывает таймаут на пустом канале и готовность к чтению после записи.
-4. **Запуск дочернего процесса** через `fork`, `execve` и `wait4`. Запускает короткую команду и возвращает её код завершения.
-5. **TCP Echo на `127.0.0.1`** через `socket`, `bind`, `listen`, `connect` и `accept`. Устанавливает локальное соединение, обменивается байтами и закрывает сокеты.
+1. **Echo** through `read` and `write`. Echo writes exactly the number of bytes read.
+2. **File copy** through `openat`, `read`, `write`, and `close`. Handle partial writes and close both descriptors on success or error.
+3. **Wait for data in a pipe** through `pipe2` and `poll`. Show a timeout on an empty pipe and readiness to read after a write.
+4. **Launch a child process** through `fork`, `execve`, and `wait4`. Run a short command and return its exit status.
+5. **TCP Echo on `127.0.0.1`** through `socket`, `bind`, `listen`, `connect`, and `accept`. Establish a local connection, exchange bytes, and close the sockets.
 
-Для этапов 6–8 достаточно документации контрактов и внутренних тестовых сценариев.
+Contract documentation and internal test scenarios are sufficient for milestones 6–8.
 
-<a name="критерий-готовности-системного-вызова"></a>
+<a name="syscall-acceptance-criteria"></a>
 
-### 8.2.5 Критерий готовности системного вызова
+### 8.2.5 Syscall acceptance criteria
 
-- **Публичный контракт.** Типы аргументов и результата, допустимые состояния, ошибки и эффекты. Для буферов и структур указано, что ядро читает или меняет. Для ресурсов указано, кто отвечает за освобождение.
-- **Нативный провайдер.** Провайдер связан с точной ревизией интерфейса. Соответствие реализации её контракту и уточнение публичного контракта проверяются отдельно. Допущения о ядре и ABI зафиксированы, а проверенные свойства и результаты экспериментов различимы в `review`.
-- **Контрактные тесты.** Проверены передача аргументов, декодирование результата, применимые успешные и ошибочные исходы, частичный прогресс, прерывание и изменения состояния. Сборка отклоняет отсутствующее, неоднозначное или устаревшее связывание.
-- **Покрытие команд.** Для `ioctl` и аналогичных интерфейсов отдельно учитываем покрытие syscall и его команд. У каждой поддержанной команды есть контракт. Драйверные команды привязаны к конкретному UAPI и его версии.
+- **Public contract.** Specify argument and result types, admissible states, errors, and effects. Document what the kernel reads or changes in buffers and structures, and who releases each resource.
+- **Native provider.** Bind the provider to the exact interface revision. Check conformance to its provided contract and refinement of the public contract separately. Record kernel and ABI assumptions, and distinguish verified properties from experimental results in `review`.
+- **Contract tests.** Cover argument passing, result decoding, applicable success and error outcomes, partial progress, interruption, and state changes. The build rejects missing, ambiguous, or stale bindings.
+- **Command coverage.** Track syscall and command coverage separately for `ioctl` and similar interfaces. Each supported command has a contract. Pin driver commands to the exact userspace API (UAPI) and version.
 
-<a name="первая-задача"></a>
+<a name="syscall-first-task"></a>
 
-### 8.2.6 Первая задача
+### 8.2.6 First task
 
-Закрепить тег ядра, построить полный инвентарь и провести `read` и `write` через весь путь от публичного контракта и разрешения импорта до нативного запуска Echo в CI.
+Pin a kernel tag, build the complete inventory, and take `read` and `write` through the full path from public contracts and import resolution to running the native Echo example in CI.
 
 <a name="external-evidence-and-approval-dependencies"></a>
 

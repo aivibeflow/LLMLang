@@ -2,6 +2,10 @@
 
 These repository-wide instructions apply to agents creating, revising, reviewing, or publishing LLMLang research materials. Follow existing repository contribution requirements and applicable scoped instructions. The rules below govern documentation and evidence presentation; they do not adopt any candidate language semantics or research conclusion.
 
+## Project language
+
+Write project files in English. Follow the [project language rule](CONTRIBUTING.md#project-language).
+
 ## ADR and RFC maintenance
 
 When adding or changing an ADR under `draft/adr/`, follow the [contribution rule for updating the RFC in the same change](CONTRIBUTING.md#keep-the-rfc-in-sync-with-adrs).
