@@ -54,6 +54,7 @@ RT-11 tests metadata reuse against exact ELF load, artifact and native self-insp
 RT-11 checks typed build input/output roles and exact independent test and proof evidence requests. [Typed action receipts](../toolchain-and-collaboration/RT-11/RT-11-TYPED-ACTION-RECEIPTS-2026-11-25.md)
 RT-11 compares exact startup ELF mappings and ordered lookup prefixes with native action-cache eligibility. [Native runtime closure](../toolchain-and-collaboration/RT-11/RT-11-NATIVE-RUNTIME-CLOSURE-2026-11-25.md)
 RT-11 compares optional cache delivery for five result families with exact package identity, selective read metrics and offline controls. [Package cache delivery](../toolchain-and-collaboration/RT-11/RT-11-PACKAGE-CACHE-DELIVERY-2026-11-25.md)
+RT-11 tests authenticated merge, byte-exact artifact admission, and independent native rebuilds. [Signed cache admission](../toolchain-and-collaboration/RT-11/RT-11-SIGNED-REBUILD-ADMISSION-2026-11-25.md)
 
 RT-11 compares stage-specific native cache inputs, implementation identity and Lean evidence under direct and contract-bound provider changes. [Six-stage native propagation](../toolchain-and-collaboration/RT-11/RT-11-SIX-STAGE-PROPAGATION-2026-11-25.md)
 

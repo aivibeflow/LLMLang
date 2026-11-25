@@ -898,8 +898,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Add an experimental version-bound cache-record validator and tests covering language-version, registry-digest, and toolchain changes to Action Key inputs. This remains a prototype, not a normative cache-index format.
 - [ ] Bind every cached result to exact Action Key inputs and complete dependency closure; define compatibility evidence for reuse across different language or toolchain identities.
   - [x] Compare four GCC and Clang artifacts and 1,024 native returns. Equal wrapping observations admit an exact return-only compatibility receipt while action keys and full objects differ. The wrapping-to-saturation receipt over inputs 0–254 is refused for the full domain. [RT-11 cross-toolchain cache compatibility](research/toolchain-and-collaboration/RT-11/RT-11-CROSS-TOOLCHAIN-CACHE-COMPATIBILITY-2026-11-25.md)
-- [ ] Define cache-index merge, conflict handling, artifact availability/eviction, and trust/evidence checks.
-  - [ ] [WIP] Check merge outcomes under real signatures, policy changes and independent rebuilds on `research/all` (#300).
+- [x] Define cache-index merge, conflict handling, artifact availability/eviction, and trust/evidence checks.
+  - [x] With real Ed25519 signatures, all 120 insertion orders preserve the authorized conflict. Missing payloads do not erase conflict, and revoked signers lose eligibility. [Signed cache admission](research/toolchain-and-collaboration/RT-11/RT-11-SIGNED-REBUILD-ADMISSION-2026-11-25.md)
   - [x] Check 23 scoped index merge and lookup controls across the existing schema validator. All 24 contributing orders agree. Authorized result conflicts, missing/corrupt payloads, stale attestations and output shape block exact reuse separately. Durable publication and authentication remain open. [RT-11 cache-index admission](research/toolchain-and-collaboration/RT-11/RT-11-CACHE-INDEX-MERGE-ADMISSION-2026-11-25.md)
 
 - [x] Define typed build actions and their inputs/outputs.
@@ -920,8 +920,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [x] Match 15 native test observations and five Lean propositions. Different executable bytes, test cases, premises or source applicability invalidate the corresponding receipt. A test receipt cannot be admitted as a proof. [Typed action receipts](research/toolchain-and-collaboration/RT-11/RT-11-TYPED-ACTION-RECEIPTS-2026-11-25.md)
 - [x] Define behavior for incomplete dependency closure: invalidate conservatively or disable caching.
   - [x] Skip lookup and publication for two unknown required closures. Two missing-library runs and two policy refusals also create no record. Four complete requests reuse observations equal to independent executions. [Native runtime closure](research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-RUNTIME-CLOSURE-2026-11-25.md)
-- [ ] Define reproducibility requirements and cache poisoning defenses.
-  - [ ] [WIP] Check result admission under real signatures, reproducible native bytes and local evidence revocation on `research/all` (#300).
+- [x] Define reproducibility requirements and cache poisoning defenses.
+  - [x] Compare three exact object rebuilds and 18 trust, scope and availability controls. Actual payload bytes are checked, and an authorized result is refused if it disagrees with the independent rebuild. [Signed cache admission](research/toolchain-and-collaboration/RT-11/RT-11-SIGNED-REBUILD-ADMISSION-2026-11-25.md)
 
 **Existing evidence:** [SEMANTIC-COMPILATION-CACHE.md](research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [COMPILATION-CACHE-SPEEDUP-ESTIMATE.md](research/toolchain-and-collaboration/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md), [Language Versioning](research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md), and the exploratory [Package Identity Prototype 01](research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/README.md).
 
