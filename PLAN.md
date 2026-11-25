@@ -876,6 +876,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 **Estimated research complexity:** **6/10** — storage, immutable snapshots, recovery, and identity integration.
 
 - [ ] Compare KV databases, content-addressed object stores, relational indexes, and filesystem layouts.
+  - [ ] [WIP] Compare filesystem CAS, KV and SQLite reverse-index layouts on the same exact closed graph corpus on `research/all`.
 - [ ] Define canonical object encoding and immutable object lifecycle.
 - [ ] Define indexes for graph traversal, reverse dependencies, contracts, and implementation discovery.
   - [x] Compare eight SQLite reverse projections across six queries. Only exact typed occurrence inventories are admitted, and all 48 checked/fallback results agree. A WAL schedule shows why validation and lookup must share a read snapshot or immutable generation. [RT-12 snapshot-bound reverse index](research/packages-and-ecosystem/RT-12/RT-12-SNAPSHOT-BOUND-REVERSE-INDEX-2026-11-25.md)
