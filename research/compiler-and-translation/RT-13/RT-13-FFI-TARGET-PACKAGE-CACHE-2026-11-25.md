@@ -16,7 +16,7 @@ The fixture reuses the existing RT-12 static package verifier and RT-11 detached
 
 | Checked distinction | Scope |
 |---|---|
-| Build host and output target | An x86-64 Linux host produces all four artifact formats and architecture variants. |
+| Build host and output target | An x86-64 Linux host produces four target artifacts in three formats. |
 | Package root and selected build result | The root remains exact across target selections and every refusal. |
 | Content hash and authorized action result | A different well-formed artifact can exist in the same catalog. It needs an authorized binding for the requested action. |
 | Cross-link and execution | This provider study inspects linked artifacts. Native and emulated execution, selected platform SDK closure and release signing have independent evidence gates. |
