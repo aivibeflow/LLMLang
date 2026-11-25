@@ -24,7 +24,7 @@ Normal exit with code 143 and termination by SIGTERM have distinct typed results
 
 ## Replay
 
-The source baseline is `8f69dcb` on `research/all`. Replay used GCC 14.2.0 and CPython 3.12.14 on x86-64 Linux 6.18.57. Obtain the musl development sysroot using the package and digest in the earlier audit. Exact binary digests depend on the toolchain and linked libraries. [Sysroot commands](RT-10-POSIX-CROSS-LIBC-2026-11-25.md#reproduce)
+The source baseline is `8f69dcb` on `research/all`. Replay used GCC 14.2.0 and CPython 3.12.14 on x86-64 Linux 6.18.57. Obtain the musl development sysroot using the package and digest in the earlier audit. Exact binary digests depend on the toolchain and linked libraries. [Sysroot commands](RT-10-POSIX-CROSS-LIBC-2026-11-25.md#reproduction)
 
 ```sh
 data=research/runtime-and-systems/RT-10/POSIX-WAIT-STATUS-01
