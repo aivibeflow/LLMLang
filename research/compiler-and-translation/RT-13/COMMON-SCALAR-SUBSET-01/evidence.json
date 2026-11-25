@@ -1,0 +1,584 @@
+{
+  "abi_slot_initial_word": 2880246324,
+  "archived_sha256": {
+    "evidence.json": "884e2ab45c9d214da80eebc01225b8b3eca46d317516de7a81ee94785dc2f6d9",
+    "integer_fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+    "llvm_integer_probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a"
+  },
+  "baseline": "7007a14dffa2417b2dae7da5e0bbed5ce698d667",
+  "expanded_observation_jsonl_sha256": "c29e1ef252eee9c03067b4ba7e495098cefda9608be8d0e1237d84b72f366985",
+  "inputs": {
+    "bits_per_word": 32,
+    "boundary_values": [
+      0,
+      1,
+      2,
+      30,
+      31,
+      32,
+      33,
+      1073741823,
+      1073741824,
+      1073741825,
+      2147483646,
+      2147483647,
+      2147483648,
+      2147483649,
+      4294967263,
+      4294967264,
+      4294967265,
+      4294967294,
+      4294967295
+    ],
+    "enabled_words": [
+      0,
+      1,
+      2,
+      2147483648,
+      4294967295
+    ],
+    "generated_pairs": 256,
+    "seed": 134,
+    "words": 3
+  },
+  "observations": 197440,
+  "programs": [
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "wrap_add"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "wrap_add"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "wrap_add"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "wrap_add"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "wrap_sub"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "wrap_sub"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "wrap_sub"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "wrap_sub"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "wrap_mul"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "wrap_mul"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "wrap_mul"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "wrap_mul"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_sadd"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_sadd"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_sadd"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_sadd"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_ssub"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_ssub"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_ssub"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_ssub"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_smul"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_smul"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_smul"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_smul"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_uadd"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_uadd"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_uadd"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_uadd"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_usub"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_usub"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_usub"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_usub"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_umul"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_umul"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_umul"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_umul"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_sdiv"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_sdiv"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_sdiv"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_sdiv"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_srem"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_srem"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_srem"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_srem"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_udiv"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_udiv"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_udiv"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_udiv"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_urem"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_urem"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_urem"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_urem"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_shl"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_shl"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_shl"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_shl"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_ashr"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_ashr"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_ashr"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_ashr"
+    },
+    {
+      "operands": [
+        "a",
+        "a"
+      ],
+      "operation": "checked_lshr"
+    },
+    {
+      "operands": [
+        "a",
+        "b"
+      ],
+      "operation": "checked_lshr"
+    },
+    {
+      "operands": [
+        "b",
+        "a"
+      ],
+      "operation": "checked_lshr"
+    },
+    {
+      "operands": [
+        "b",
+        "b"
+      ],
+      "operation": "checked_lshr"
+    }
+  ],
+  "projection_mismatches": {
+    "exact_one_enabled": {
+      "complete": 113430,
+      "status": 38544,
+      "status_slot": 113430
+    },
+    "generic_failure": {
+      "complete": 26272,
+      "status": 26272,
+      "status_slot": 26272
+    },
+    "reverse_callbacks": {
+      "complete": 137992,
+      "status": 0,
+      "status_slot": 0
+    },
+    "store_on_failure": {
+      "complete": 51392,
+      "status": 0,
+      "status_slot": 51392
+    }
+  },
+  "python": "3.12.14",
+  "refusals": {
+    "boolean_instead_of_word": {
+      "error": "expected three 32-bit input words",
+      "input": [
+        0,
+        0,
+        false
+      ]
+    },
+    "changed_effect_payload": {
+      "error": "expected bounded integer fixture",
+      "source": "def probe(a, b, enabled):\n    emit(a)\n    if enabled:\n        value = checked_sadd(a, b)\n    else:\n        value = b\n    emit(value + 1)\n    return value\n"
+    },
+    "external_call": {
+      "error": "expected bounded integer fixture",
+      "source": "def probe(a, b, enabled):\n    emit(a)\n    if enabled:\n        value = checked_sadd(a, b)\n    else:\n        value = b\n    other(value)\n    return value\n"
+    },
+    "extra_parameter": {
+      "error": "expected bounded integer fixture",
+      "source": "def probe(a, b, enabled, extra):\n    emit(a)\n    if enabled:\n        value = checked_sadd(a, b)\n    else:\n        value = b\n    emit(value)\n    return value\n"
+    },
+    "floating_input": {
+      "error": "expected three 32-bit input words",
+      "input": [
+        1.0,
+        0,
+        1
+      ]
+    },
+    "literal_operand": {
+      "error": "expected bounded integer fixture",
+      "source": "def probe(a, b, enabled):\n    emit(a)\n    if enabled:\n        value = checked_sadd(a, 1)\n    else:\n        value = b\n    emit(value)\n    return value\n"
+    },
+    "missing_entry_callback": {
+      "error": "expected bounded integer fixture",
+      "source": "def probe(a, b, enabled):\n    if enabled:\n        value = checked_sadd(a, b)\n    else:\n        value = b\n    emit(value)\n    return value\n"
+    },
+    "negative_word": {
+      "error": "expected three 32-bit input words",
+      "input": [
+        -1,
+        0,
+        1
+      ]
+    },
+    "out_of_range": {
+      "error": "expected three 32-bit input words",
+      "input": [
+        0,
+        4294967296,
+        1
+      ]
+    },
+    "untyped_operation": {
+      "error": "unsupported integer operation or operand",
+      "source": "def probe(a, b, enabled):\n    emit(a)\n    if enabled:\n        value = unchecked_add(a, b)\n    else:\n        value = b\n    emit(value)\n    return value\n"
+    }
+  },
+  "runner_sha256": "ade1197310ae5cdb12104f9320016ec905bae6619cd8719a5b4d2e98635ffb25",
+  "status_counts": {
+    "ok": 146048,
+    "overflow": 25120,
+    "shift_count": 25056,
+    "zero_divisor": 1216
+  },
+  "vectors_per_program": 3085
+}
