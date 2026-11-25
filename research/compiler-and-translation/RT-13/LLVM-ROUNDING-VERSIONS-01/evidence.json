@@ -1,0 +1,244 @@
+{
+  "baseline_inputs_sha256": {
+    "evidence.json": "d39e5fd899ed680929b8555816d706e1a20ea03bd6a4853df7c49e03c7f51413",
+    "host.c": "4d7d3ca0ff343c7652efdfb04983b78be33ab6257cbadbc2760b015057450cac",
+    "run.py": "4925a4df4c5577ee167bed8df9a347f03a33c8196ff9a6d0b6aabeb664c6bb43"
+  },
+  "format": "rt13-llvm-rounding-versions/1",
+  "generated_base_ir_sha256": "2fdcc9ebf3a569a9e340a5f32c270a5017e4d433edda3d6df85b35ab0d5e9b3d",
+  "generated_inline_ir_sha256": "65a88e800a47ed1d77e2cf359715d11292a1f8555bc36a4b259894d3f8db116d",
+  "inline_host_sha256": "464c13bdcced345929b6a9c4cb3b090303da042d047f852d9cd0aaf2c2c21aa6",
+  "profiles": {
+    "19/O0": {
+      "cancellation_ir": "%value = call double @llvm.experimental.constrained.fadd.f64(double 1.000000e+00, double -1.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.strict\") #1\n  ret double %value",
+      "counts": {
+        "parameterized": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "plain": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "strict": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        }
+      },
+      "driver": "Debian clang version 19.1.7 (3+b1)",
+      "full_observation_sha256": "8ad13943ff5d1dbd589c59fc99d6acf3203a9cdf1c1bf27a4327c088a62843e2",
+      "inlining": {
+        "bits": {
+          "downward/forced_inline": "0000000000000000",
+          "downward/retained_call": "8000000000000000",
+          "nearest/forced_inline": "0000000000000000",
+          "nearest/retained_call": "0000000000000000",
+          "toward-zero/forced_inline": "0000000000000000",
+          "toward-zero/retained_call": "0000000000000000",
+          "upward/forced_inline": "0000000000000000",
+          "upward/retained_call": "0000000000000000"
+        },
+        "optimized_bodies": {
+          "forced_inline": "%value.i = call double @llvm.experimental.constrained.fadd.f64(double 1.000000e+00, double -1.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.strict\") #1\n  ret double 0.000000e+00",
+          "retained_call": "%value = call double @parameterized_fadd(double 1.000000e+00, double -1.000000e+00) #2\n  ret double %value"
+        }
+      }
+    },
+    "19/O3": {
+      "cancellation_ir": "ret double 0.000000e+00",
+      "counts": {
+        "parameterized": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "plain": {
+          "flag_mismatches": 60,
+          "seed_dropped": 0,
+          "value_mismatches": 18
+        },
+        "strict": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 2
+        }
+      },
+      "driver": "Debian clang version 19.1.7 (3+b1)",
+      "full_observation_sha256": "3bf7ed8550ea56b37cda89b81e98d68dcc07278cfe01f2d00642b2dc1fd49d43",
+      "inlining": {
+        "bits": {
+          "downward/forced_inline": "0000000000000000",
+          "downward/retained_call": "8000000000000000",
+          "nearest/forced_inline": "0000000000000000",
+          "nearest/retained_call": "0000000000000000",
+          "toward-zero/forced_inline": "0000000000000000",
+          "toward-zero/retained_call": "0000000000000000",
+          "upward/forced_inline": "0000000000000000",
+          "upward/retained_call": "0000000000000000"
+        },
+        "optimized_bodies": {
+          "forced_inline": "ret double 0.000000e+00",
+          "retained_call": "%value = tail call double @parameterized_fadd(double 1.000000e+00, double -1.000000e+00) #5\n  ret double %value"
+        }
+      }
+    },
+    "22/O0": {
+      "cancellation_ir": "%value = call double @llvm.experimental.constrained.fadd.f64(double 1.000000e+00, double -1.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.strict\") #1\n  ret double %value",
+      "counts": {
+        "parameterized": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "plain": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "strict": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        }
+      },
+      "driver": "clang version 22.1.4 (https://github.com/llvm/llvm-project 35990504507d79e0b9deb809c8ee5e1b34ceef20)",
+      "full_observation_sha256": "8ad13943ff5d1dbd589c59fc99d6acf3203a9cdf1c1bf27a4327c088a62843e2",
+      "inlining": {
+        "bits": {
+          "downward/forced_inline": "0000000000000000",
+          "downward/retained_call": "8000000000000000",
+          "nearest/forced_inline": "0000000000000000",
+          "nearest/retained_call": "0000000000000000",
+          "toward-zero/forced_inline": "0000000000000000",
+          "toward-zero/retained_call": "0000000000000000",
+          "upward/forced_inline": "0000000000000000",
+          "upward/retained_call": "0000000000000000"
+        },
+        "optimized_bodies": {
+          "forced_inline": "%value.i = call double @llvm.experimental.constrained.fadd.f64(double 1.000000e+00, double -1.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.strict\") #1\n  ret double 0.000000e+00",
+          "retained_call": "%value = call double @parameterized_fadd(double 1.000000e+00, double -1.000000e+00) #2\n  ret double %value"
+        }
+      }
+    },
+    "22/O3": {
+      "cancellation_ir": "ret double 0.000000e+00",
+      "counts": {
+        "parameterized": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "plain": {
+          "flag_mismatches": 60,
+          "seed_dropped": 0,
+          "value_mismatches": 18
+        },
+        "strict": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 2
+        }
+      },
+      "driver": "clang version 22.1.4 (https://github.com/llvm/llvm-project 35990504507d79e0b9deb809c8ee5e1b34ceef20)",
+      "full_observation_sha256": "3bf7ed8550ea56b37cda89b81e98d68dcc07278cfe01f2d00642b2dc1fd49d43",
+      "inlining": {
+        "bits": {
+          "downward/forced_inline": "0000000000000000",
+          "downward/retained_call": "8000000000000000",
+          "nearest/forced_inline": "0000000000000000",
+          "nearest/retained_call": "0000000000000000",
+          "toward-zero/forced_inline": "0000000000000000",
+          "toward-zero/retained_call": "0000000000000000",
+          "upward/forced_inline": "0000000000000000",
+          "upward/retained_call": "0000000000000000"
+        },
+        "optimized_bodies": {
+          "forced_inline": "ret double 0.000000e+00",
+          "retained_call": "%value = tail call double @parameterized_fadd(double 1.000000e+00, double -1.000000e+00) #5\n  ret double %value"
+        }
+      }
+    },
+    "23/O0": {
+      "cancellation_ir": "%value = call double @llvm.experimental.constrained.fadd.f64(double 1.000000e+00, double -1.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.strict\") #1\n  ret double %value",
+      "counts": {
+        "parameterized": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "plain": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "strict": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        }
+      },
+      "driver": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+      "full_observation_sha256": "8ad13943ff5d1dbd589c59fc99d6acf3203a9cdf1c1bf27a4327c088a62843e2",
+      "inlining": {
+        "bits": {
+          "downward/forced_inline": "0000000000000000",
+          "downward/retained_call": "8000000000000000",
+          "nearest/forced_inline": "0000000000000000",
+          "nearest/retained_call": "0000000000000000",
+          "toward-zero/forced_inline": "0000000000000000",
+          "toward-zero/retained_call": "0000000000000000",
+          "upward/forced_inline": "0000000000000000",
+          "upward/retained_call": "0000000000000000"
+        },
+        "optimized_bodies": {
+          "forced_inline": "%value.i = call double @llvm.experimental.constrained.fadd.f64(double 1.000000e+00, double -1.000000e+00, metadata !\"round.dynamic\", metadata !\"fpexcept.strict\") #1\n  ret double 0.000000e+00",
+          "retained_call": "%value = call double @parameterized_fadd(double 1.000000e+00, double -1.000000e+00) #2\n  ret double %value"
+        }
+      }
+    },
+    "23/O3": {
+      "cancellation_ir": "ret double 0.000000e+00",
+      "counts": {
+        "parameterized": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 0
+        },
+        "plain": {
+          "flag_mismatches": 60,
+          "seed_dropped": 0,
+          "value_mismatches": 18
+        },
+        "strict": {
+          "flag_mismatches": 0,
+          "seed_dropped": 0,
+          "value_mismatches": 2
+        }
+      },
+      "driver": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+      "full_observation_sha256": "3bf7ed8550ea56b37cda89b81e98d68dcc07278cfe01f2d00642b2dc1fd49d43",
+      "inlining": {
+        "bits": {
+          "downward/forced_inline": "0000000000000000",
+          "downward/retained_call": "8000000000000000",
+          "nearest/forced_inline": "0000000000000000",
+          "nearest/retained_call": "0000000000000000",
+          "toward-zero/forced_inline": "0000000000000000",
+          "toward-zero/retained_call": "0000000000000000",
+          "upward/forced_inline": "0000000000000000",
+          "upward/retained_call": "0000000000000000"
+        },
+        "optimized_bodies": {
+          "forced_inline": "ret double 0.000000e+00",
+          "retained_call": "%value = tail call double @parameterized_fadd(double 1.000000e+00, double -1.000000e+00) #5\n  ret double %value"
+        }
+      }
+    }
+  },
+  "python": "3.12.14",
+  "rows_per_route_and_profile": 80,
+  "target": "x86_64-unknown-linux-gnu"
+}
