@@ -275,6 +275,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 **Terminology prerequisite:** Review [`draft/GLOSSARY.md`](draft/GLOSSARY.md) before changing this section or related RT-20/RT-24/package identity work. Preserve the distinct proposed identities `OpHash`, `ImplHash`, `CCHash`, optional `CandidateSetHash`, and conformance-evidence identity; reconcile the plan's existing `ImpHash` spelling with the glossary's `ImplHash` before treating either as normative. The glossary is a proposal, not an accepted schema or hash-envelope decision.
 
 - [ ] Define the distinct roles of logical/stable IDs, semantic hashes, operation identity, implementation identity, action keys, artifact hashes, and evidence identity.
+  - [x] Compare guarded execution keys across 19,200 scope and edit pairs. The exact possible-provider set still allows 1,708 stale reuses when the selection relation changes. A per-state projection preserves all scoped observations in the fixture and permits 3,187 safe reuses. General guards and identity envelopes remain open. [Guarded dispatch identity](research/semantic-representation/RT-05/RT-05-GUARDED-DISPATCH-IDENTITY-2026-11-25.md).
 - [ ] Specify the exact semantic payload committed by `OpHash`.
 - [ ] Specify `ImpHash` and the identity of a concrete implementation.
 - [ ] Define the contract identity and the identity of a class of compatible implementations.
