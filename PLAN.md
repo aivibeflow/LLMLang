@@ -1156,7 +1156,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define concurrency and environment-dependent behavior.
   - A blocking pipe probe distinguishes returned EINTR from a handled signal followed by a restarted read. [POSIX read interruption](research/runtime-and-systems/RT-10/RT-10-POSIX-READ-INTERRUPTION.md)
 - [ ] Define initial vertical slice, such as process startup, basic file I/O, and errors.
-  - [ ] [WIP] Compare process startup descriptor inheritance, close-on-exec and explicit POSIX spawn file actions with a native child observer on `research/all`.
+  - [x] Check 64 native startup case outcomes. Fork retains marked slots, exec closes them, ordered spawn mapping moves a live description, and same-slot spawn clears the flag that raw same-slot `dup2` preserves. Other libc error and process profiles remain open. [POSIX spawn descriptors](research/runtime-and-systems/RT-10/RT-10-POSIX-SPAWN-DESCRIPTORS-2026-11-25.md)
 - [ ] Select initial Linux architecture and isolate syscall ABI details.
 - [ ] Define how existing C libraries and external ABI boundaries are called.
 - [ ] Define the trusted low-level runtime boundary.

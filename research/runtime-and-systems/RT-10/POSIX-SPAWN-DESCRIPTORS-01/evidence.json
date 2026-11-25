@@ -1,0 +1,127 @@
+{
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+  "target": "x86_64-linux-gnu",
+  "libc": "glibc 2.41",
+  "source_sha256": {
+    "probe.c": "ccb0058c52d1fdaa6e348a1ffb66b8dcb124e2272e582a4209e2c461599dd150",
+    "run.py": "d4b448e3f8ab84926968b852e77f30b9d4c9b6ac9dcdf64452598e73cdf72e17"
+  },
+  "case_observations": {
+    "fork-only": [
+      [
+        "open",
+        65
+      ],
+      [
+        "cloexec",
+        66
+      ],
+      [
+        "closed"
+      ],
+      [
+        "closed"
+      ],
+      2
+    ],
+    "fork-exec": [
+      [
+        "open",
+        65
+      ],
+      [
+        "closed"
+      ],
+      [
+        "closed"
+      ],
+      [
+        "closed"
+      ],
+      1
+    ],
+    "raw-self-dup2-then-exec": [
+      [
+        "open",
+        65
+      ],
+      [
+        "closed"
+      ],
+      [
+        "closed"
+      ],
+      [
+        "closed"
+      ],
+      1
+    ],
+    "spawn-default": [
+      [
+        "open",
+        65
+      ],
+      [
+        "closed"
+      ],
+      [
+        "closed"
+      ],
+      [
+        "closed"
+      ],
+      1
+    ],
+    "spawn-map-then-close": [
+      [
+        "closed"
+      ],
+      [
+        "closed"
+      ],
+      [
+        "open",
+        65
+      ],
+      [
+        "closed"
+      ],
+      1
+    ],
+    "spawn-close-then-map": [
+      "EBADF"
+    ],
+    "spawn-self-map": [
+      [
+        "closed"
+      ],
+      [
+        "open",
+        65
+      ],
+      [
+        "closed"
+      ],
+      [
+        "closed"
+      ],
+      1
+    ],
+    "spawn-missing-source": [
+      "EBADF"
+    ]
+  },
+  "builds": {
+    "O0": {
+      "repetitions": 4,
+      "outcomes_per_repetition": 8,
+      "artifact_sha256": "8f697565ee583e1744d08fe9d4b31c6cf1c329078ff0db37c992d805b615f794"
+    },
+    "O2": {
+      "repetitions": 4,
+      "outcomes_per_repetition": 8,
+      "artifact_sha256": "d21c27fa4a961afd60ea7e3ffb01629778acbef0cd9249265ad815437c20ff39"
+    }
+  },
+  "verified_outcomes": 64
+}
