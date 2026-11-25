@@ -1,0 +1,18 @@
+{
+  "archive_sha256": {
+    "MIXED-SETTLEMENT-01/evidence.json": "2f4a0f3970b29518c3b58b39c4f038c317491e8461a4f403ecda5488e172bdef",
+    "SOURCE-BINDING-01/evidence.json": "0b5caf16619021e71a077d978b3ab20c1422fb4050b7f8b21422e07761a6656c",
+    "ZLIB-RELEASE-MIRROR-01/evidence.json": "aaf2263080c71049de1facb45107be36c45673130afb452915aeaedaa9f512fe"
+  },
+  "git": "git version 2.56.1",
+  "outcomes": {
+    "accepted/cutover-and-rollback": 1,
+    "accepted/held-original": 11,
+    "deferred/held-original": 12,
+    "modified/cutover-and-rollback": 1,
+    "modified/held-original": 11,
+    "rejected/held-original": 12
+  },
+  "runner_sha256": "7fb2c9c5eee6fed9a7795d5de4d4be8cb5953ee002a81659870e68dcc152ba9b",
+  "sqlite": "3.53.1"
+}
