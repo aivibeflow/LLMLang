@@ -23,6 +23,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [Proof and test execution costs](PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-2026-11-25.md) compares pinned proof and finite-oracle phases across three evidence packages.
 - [RT-32 recursive proof discharge](RT-32/RT-32-RECURSIVE-PROOF-DISCHARGE-2026-11-25.md) — distinguishes checked recursive induction from unsupported conditional cycles.
 - [Incremental proof invalidation](RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md) — exact modular reuse, provider freshness and transitive evidence.
 - [Generated proof route comparison](RT-32/RT-32-PROOF-ROUTE-COMPARISON-2026-11-25.md) — Lean tactics, reusable lemmas, SMT witnesses and rejection controls.
