@@ -1,0 +1,104 @@
+{
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "kernel": "6.18.57",
+  "machine": "x86_64",
+  "configurations": 8,
+  "native_launches": 48,
+  "native_fields_checked": 336,
+  "profiles": {
+    "O0": {
+      "binary_sha256": "ff4e373a35946839088cd58182b01ca3e51f4aeec23fd8b75281d1fec8695913",
+      "landlock_abi_query": [
+        -1,
+        38
+      ],
+      "repetitions": 3
+    },
+    "O2": {
+      "binary_sha256": "7882397a5a7173f618994d9d295daca70f6214501a0f9209fd398a7749f9e38a",
+      "landlock_abi_query": [
+        -1,
+        38
+      ],
+      "repetitions": 3
+    }
+  },
+  "presence_observations": {
+    "env=False,fd=False,seccomp=False": {
+      "public_env": true,
+      "fixture_private_env": false,
+      "public_fd": true,
+      "fixture_private_fd": false,
+      "public_path_read": true,
+      "fixture_private_path_read": true,
+      "public_path_write": true
+    },
+    "env=False,fd=False,seccomp=True": {
+      "public_env": true,
+      "fixture_private_env": false,
+      "public_fd": true,
+      "fixture_private_fd": false,
+      "public_path_read": false,
+      "fixture_private_path_read": false,
+      "public_path_write": false
+    },
+    "env=False,fd=True,seccomp=False": {
+      "public_env": true,
+      "fixture_private_env": false,
+      "public_fd": true,
+      "fixture_private_fd": true,
+      "public_path_read": true,
+      "fixture_private_path_read": true,
+      "public_path_write": true
+    },
+    "env=False,fd=True,seccomp=True": {
+      "public_env": true,
+      "fixture_private_env": false,
+      "public_fd": true,
+      "fixture_private_fd": true,
+      "public_path_read": false,
+      "fixture_private_path_read": false,
+      "public_path_write": false
+    },
+    "env=True,fd=False,seccomp=False": {
+      "public_env": true,
+      "fixture_private_env": true,
+      "public_fd": true,
+      "fixture_private_fd": false,
+      "public_path_read": true,
+      "fixture_private_path_read": true,
+      "public_path_write": true
+    },
+    "env=True,fd=False,seccomp=True": {
+      "public_env": true,
+      "fixture_private_env": true,
+      "public_fd": true,
+      "fixture_private_fd": false,
+      "public_path_read": false,
+      "fixture_private_path_read": false,
+      "public_path_write": false
+    },
+    "env=True,fd=True,seccomp=False": {
+      "public_env": true,
+      "fixture_private_env": true,
+      "public_fd": true,
+      "fixture_private_fd": true,
+      "public_path_read": true,
+      "fixture_private_path_read": true,
+      "public_path_write": true
+    },
+    "env=True,fd=True,seccomp=True": {
+      "public_env": true,
+      "fixture_private_env": true,
+      "public_fd": true,
+      "fixture_private_fd": true,
+      "public_path_read": false,
+      "fixture_private_path_read": false,
+      "public_path_write": false
+    }
+  },
+  "source_sha256": {
+    "probe.c": "6bb9f9329c8942fdc318c3f211f132168d816f93b0024a32caddf26c12c2615f",
+    "run.py": "c769cd4106e4919cfff7ba18e3f567d45838c7cb4c99ad2badb83bea025e15c8"
+  }
+}
