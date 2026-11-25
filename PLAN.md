@@ -787,7 +787,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define invalidation for type checking, contract checking, optimization, code generation, tests, and proofs.
   - [ ] [WIP] Compare typed pipeline invalidation and artifact reuse across six action classes on a closed expression workload on `research/all`.
 - [ ] Define the difference between semantic impact and evidence staleness.
-  - [ ] [WIP] Recheck semantic impact and proof receipt freshness independently across source edits and two exact Lean checker versions on `research/all`.
+  - [x] Compare proof freshness with checked semantic impact across five source variants and Lean 4.34/4.36. Whitespace preserves the exact check request while changing its source receipt. An equivalent refactor changes the request, and a semantic change can still satisfy the same property. Same-version compiled imports succeed and both cross-version loads fail. [Semantic impact and proof freshness](research/toolchain-and-collaboration/RT-11/RT-11-SEMANTIC-IMPACT-AND-PROOF-FRESHNESS-2026-11-25.md)
   - [ ] [WIP] Compare exact evidence applicability with observed semantic impact across graph, source, toolchain, projection and trust-policy edits on `research/all`.
 - [ ] Define how an `ImplHash` change propagates through dependent semantic nodes and action results.
 - [ ] Define safe reuse when only non-semantic metadata changes.
