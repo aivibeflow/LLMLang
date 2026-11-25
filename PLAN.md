@@ -1568,7 +1568,7 @@ All listed OS/architecture pairs are in scope for research and eventual feasibil
 | OpenBSD | x86-64, AArch64 | .so | .a | ELF | P2 |
 | NetBSD | x86-64, AArch64 | .so | .a | ELF | P2 |
 
-The hosted matrix contains 17 OS/CPU pairs. Existing freestanding research additionally covers ARM Cortex-M (initial Cortex-M3, Thumb) in [RT-37](research/runtime-and-systems/RT-37/README.md) and RV64 (initial RISC-V QEMU microkernel target) in [RT-38](research/runtime-and-systems/RT-38/README.md). For these targets, investigate static archives, object-level C ABI and explicit runtime closure; do not assume a host OS or dynamic loader. Keep hardware/privilege profiles and any later RTOS profiles separate from hosted targets.
+The hosted matrix contains 16 OS/CPU pairs. Existing freestanding research additionally covers ARM Cortex-M (initial Cortex-M3, Thumb) in [RT-37](research/runtime-and-systems/RT-37/README.md) and RV64 (initial RISC-V QEMU microkernel target) in [RT-38](research/runtime-and-systems/RT-38/README.md). For these targets, investigate static archives, object-level C ABI and explicit runtime closure; do not assume a host OS or dynamic loader. Keep hardware/privilege profiles and any later RTOS profiles separate from hosted targets.
 
 ### Architecture and research vectors
 
@@ -2219,7 +2219,7 @@ The [Research State 2026-11-19](research/research-management/RESEARCH-STATE-2026
 7. **Refresh the option matrix and synthesis gates from results.** Record evidence class, assumptions, confidence, unknowns, compatibility constraints, and falsifiers for each surviving vector. Compare complete candidate specifications only after major criteria have evidence; publish workload-weight sensitivity and preserve failed or unknown cases.
    **Freestanding feasibility:** start RT-37 profile constraints alongside the shared semantics and backend gates, then run the embedded firmware pilot before RT-38 microkernel experiments; both contribute evidence to the final compatibility audit. [RT-37](research/runtime-and-systems/RT-37/README.md) · [RT-38](research/runtime-and-systems/RT-38/README.md).
 
-   **Native interoperability:** develop the shared target/ABI model and first Linux, macOS and Windows import/export pilots in parallel with Stage 6; extend to all 17 hosted OS/CPU pairs and the applicable freestanding profiles under [§6.6](#66-cross-platform-native-interoperability-and-bidirectional-ffi-cross-cutting) before the final compatibility audit.
+   **Native interoperability:** develop the shared target/ABI model and first Linux, macOS and Windows import/export pilots in parallel with Stage 6; extend to all 16 hosted OS/CPU pairs and the applicable freestanding profiles under [§6.6](#66-cross-platform-native-interoperability-and-bidirectional-ffi-cross-cutting) before the final compatibility audit.
 
 8. **[Run the final feature compatibility and feasibility audit after all other research is complete](https://github.com/aivibeflow/LLMLang/issues/370).** This is the final cross-cutting research activity, not an early filter for individual research proposals. Start it only after all other registered aspect research, required follow-up experiments, evidence reviews, and candidate-vector synthesis have reached their documented completion gates. Re-read the then-current feature registry and the relevant research, option-matrix, and dependency-map evidence; do not rely on earlier preliminary estimates or assume the registry's current feature count will remain unchanged.
 
