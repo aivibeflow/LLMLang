@@ -986,7 +986,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Estimated research complexity:** **5/10** — controlled benchmark design and measurement; conclusions depend on representative workloads and hardware.
 
-- [ ] Validate the analytical model in `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
+- [ ] [WIP] Validate the analytical model in `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
   - [x] Recompute the published analytical table and compare an equal-cost compile-action approximation with 35 archived paired C++ blocks. The cold residual spans −37.951 to 41.548 ms. Representative calibration remains open. [Paired cache speedups](research/toolchain-and-collaboration/RT-11/RT-11-PAIRED-CACHE-SPEEDUP-2026-11-25.md)
 - [x] Implement reproducible benchmarks for cold, warm, local-edit, component-edit, and broad-change builds.
   - [x] Replay the pinned five-stage benchmark in fresh directories. All 45 rows across three new trials reproduce exact object manifests, tool fingerprints, edit-stage order and action counts. Fresh timings are recorded separately. [Five-stage build replay](research/toolchain-and-collaboration/RT-11/RT-11-BUILD-STAGE-REPLAY-2026-11-25.md)
