@@ -1119,7 +1119,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define a shared contract for multiple POSIX implementations.
 - [ ] Separate portable runtime implementation from native Linux syscall implementation.
 - [ ] Define conformance evidence, optional features, and implementation-defined behavior.
-- [ ] Define error, resource, process, file, and descriptor semantics. [WIP] — test pathname, descriptor slot and open-file-description identity across aliasing and replacement on `research/all`.
+- [ ] Define error, resource, process, file, and descriptor semantics.
+  - [x] Check 168 native observations across hard links, independent opens, duplicate descriptors, positional reads, replacement, unlink and descriptor rebinding. The fixture distinguishes namespace, object, descriptor slot and shared-offset identity. Broader POSIX conformance remains open. [RT-10 POSIX file identity](research/runtime-and-systems/RT-10/RT-10-POSIX-FILE-IDENTITY-2026-11-25.md)
 - [ ] Define concurrency and environment-dependent behavior.
   - A blocking pipe probe distinguishes returned EINTR from a handled signal followed by a restarted read. [POSIX read interruption](research/runtime-and-systems/RT-10/RT-10-POSIX-READ-INTERRUPTION.md)
 - [ ] Define initial vertical slice, such as process startup, basic file I/O, and errors.
