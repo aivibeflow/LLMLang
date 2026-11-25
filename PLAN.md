@@ -1412,7 +1412,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define static package archive and optional generated human-readable index (for example, `INDEX.md`) derived from the machine index.
 - [ ] Define Dynamic Package requests by exact root Content Hash values and explicit dependency policies.
 - [ ] Define exact-hash transitive dependency closure, optional/target/feature dependency semantics, and fail-closed missing-dependency behavior.
-  - [ ] [WIP] Compare feature and target condition receipts with unbound Boolean decisions in the existing exact package closure resolver on `research/all`.
+  - [x] Compare exact feature and target decisions in 3,840 resolver cases. Unbound Boolean reuse yields 1,846 incorrect memberships or outcomes. A snapshot-, root-, policy- and profile-bound gate matches all 240 current decisions and rejects the stale inputs. General target-kind and provider policies remain open. [Conditional package closure](research/packages-and-ecosystem/RT-12/RT-12-CONDITIONAL-CLOSURE-2026-11-25.md)
 - [ ] Define provider snapshot consistency, deterministic logical package roots, and separation of content from delivery metadata.
 - [ ] Define multi-provider index merge, availability metadata, selective retrieval, and trust/provenance boundaries.
 - [x] Add a reproducible Provider benchmark harness for chain, diamond, high-fan-out, and many-dependency graphs; report time, throughput, Python allocation peak, process RSS, temporary-directory disk high-water, and archive size.

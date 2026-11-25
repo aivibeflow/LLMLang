@@ -1,0 +1,46 @@
+{
+  "profiles": 16,
+  "availability_fixtures": 5,
+  "counts": {
+    "bare_incorrect": 1846,
+    "current_missing-exact-object": 52,
+    "current_resolved": 188,
+    "exact_current_matches": 240,
+    "exact_stale_refusals": 3600,
+    "queries": 3840
+  },
+  "bare_errors_by_policy": {
+    "roots_only": {},
+    "closure": {
+      "bare_incorrect": 984,
+      "incorrect_refusal": 160,
+      "missed_required_failure": 160,
+      "wrong_membership": 664
+    },
+    "closure_with_optional": {
+      "bare_incorrect": 862,
+      "incorrect_refusal": 232,
+      "missed_required_failure": 232,
+      "wrong_membership": 398
+    }
+  },
+  "focused_controls": {
+    "baseline_members": [
+      "sha256:a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333",
+      "sha256:caf90169eefa5f807d577486b9f795ab86ae2983c5c20806cff959117e90af18"
+    ],
+    "inactive_optional_edge_can_have_included_target": true,
+    "target_kind_does_not_trigger_enumeration": true,
+    "bare_missing_condition": "unknown-condition",
+    "receipt_changed_decision": "invalid-condition-receipt",
+    "receipt_missing_condition": "invalid-condition-receipt",
+    "receipt_stale_snapshot": "invalid-condition-receipt",
+    "receipt_stale_policy": "invalid-condition-receipt",
+    "receipt_wrong_root": "invalid-condition-receipt"
+  },
+  "source_sha256": {
+    "research/packages-and-ecosystem/RT-12/CONDITIONAL-CLOSURE-01/run.py": "866fa4843826e9a6b0634c5c788a0ccfed66f6279b573b88db2456c8e2f6a096",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_closure.py": "da6c62f5bd36ed08eef6aba8bd6de2d454ce440b7e3b9036df271da07db3ffed",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_index.py": "e03e977aef9a7dd9764854468bf0c43875236dae700bcdc498b2286e1de6ae3c"
+  }
+}
