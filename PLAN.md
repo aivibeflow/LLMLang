@@ -1176,8 +1176,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Check 168 native observations across hard links, independent opens, duplicate descriptors, positional reads, replacement, unlink and descriptor rebinding. The fixture distinguishes namespace, object, descriptor slot and shared-offset identity. Broader POSIX conformance remains open. [RT-10 POSIX file identity](research/runtime-and-systems/RT-10/RT-10-POSIX-FILE-IDENTITY-2026-11-25.md)
 - [ ] Define concurrency and environment-dependent behavior.
   - A blocking pipe probe distinguishes returned EINTR from a handled signal followed by a restarted read. [POSIX read interruption](research/runtime-and-systems/RT-10/RT-10-POSIX-READ-INTERRUPTION.md)
-- [ ] Define initial vertical slice, such as process startup, basic file I/O, and errors.
-  - [ ] [WIP] Define and check a cross-libc process-to-file vertical slice that distinguishes startup errors, child I/O errors, progress and EOF on `research/all`.
+- [x] Define initial vertical slice, such as process startup, basic file I/O, and errors.
+  - [x] Define and validate a bounded process-to-file candidate. All 24 glibc and musl cases agree on descriptor mapping, progress including a short read, EOF, startup errors, child I/O errors and shared file offset. General POSIX conformance remains open. [RT-10 startup and file I/O slice](research/runtime-and-systems/RT-10/RT-10-POSIX-STARTUP-IO-SLICE-2026-11-25.md)
   - [x] Check 64 native startup case outcomes. Fork retains marked slots, exec closes them, ordered spawn mapping moves a live description, and same-slot spawn clears the flag that raw same-slot `dup2` preserves. Other libc error and process profiles remain open. [POSIX spawn descriptors](research/runtime-and-systems/RT-10/RT-10-POSIX-SPAWN-DESCRIPTORS-2026-11-25.md)
 - [ ] Select initial Linux architecture and isolate syscall ABI details.
 - [ ] Define how existing C libraries and external ABI boundaries are called.
