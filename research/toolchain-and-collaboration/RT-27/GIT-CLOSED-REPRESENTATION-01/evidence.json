@@ -1,0 +1,169 @@
+{
+  "format": "git-closed-representation-01",
+  "git": "git version 2.52.0",
+  "recovered": [
+    {
+      "available": "closed-offline",
+      "closure_objects": 43,
+      "commit": "c70ebecb70fe4e1dac70d6fe2bdfe02bf02267e5",
+      "git_format": "sha1",
+      "layout": "one-file-per-object",
+      "root": "bcbc9a350b3dc4d69cd6c398bb54546ee83880150c12d48a0dbe298058bfcc70",
+      "tracked_files": 45,
+      "tree": "ab5a060a35340afdf42d9b3b4a4baab302c87f07"
+    },
+    {
+      "available": "closed-offline",
+      "closure_objects": 43,
+      "commit": "df2cbb9fbfa3dfae3ce7c2133ba14d9c39a879ae",
+      "git_format": "sha1",
+      "layout": "one-file-per-object",
+      "root": "b99f76ae3a56e700ead1ed7ee91b0a88ccb7d2b7e99b53ea7dd2278fd3e1a785",
+      "tracked_files": 45,
+      "tree": "5994c9297e0f5b1dce10c7ee75ea077d690d3952"
+    },
+    {
+      "available": "closed-offline",
+      "closure_objects": 43,
+      "commit": "ac9c481470ac827c1b7a8df2362cb3be1ce76eeb",
+      "git_format": "sha1",
+      "layout": "packed-records",
+      "root": "bcbc9a350b3dc4d69cd6c398bb54546ee83880150c12d48a0dbe298058bfcc70",
+      "tracked_files": 3,
+      "tree": "503862c50b6616590e8ff14f7bfd0f90f653436c"
+    },
+    {
+      "available": "closed-offline",
+      "closure_objects": 43,
+      "commit": "1ba44886148b0bbf53fd42148397425f8ea1e518",
+      "git_format": "sha1",
+      "layout": "packed-records",
+      "root": "b99f76ae3a56e700ead1ed7ee91b0a88ccb7d2b7e99b53ea7dd2278fd3e1a785",
+      "tracked_files": 3,
+      "tree": "e9ffa0d122546b6f531f5aa6f11467de8a81f922"
+    },
+    {
+      "available": "closed-with-KV",
+      "closure_objects": 43,
+      "commit": "4e789b9751a1d49801a4bc8b47a6a69d96d87280",
+      "git_format": "sha1",
+      "layout": "external-kv",
+      "root": "bcbc9a350b3dc4d69cd6c398bb54546ee83880150c12d48a0dbe298058bfcc70",
+      "tracked_files": 2,
+      "tree": "68cab5b470daee4230ba72760fb7f589294e295f"
+    },
+    {
+      "available": "closed-with-KV",
+      "closure_objects": 43,
+      "commit": "b79cb079753f72a37b6b5741ab16cc096eae35aa",
+      "git_format": "sha1",
+      "layout": "external-kv",
+      "root": "b99f76ae3a56e700ead1ed7ee91b0a88ccb7d2b7e99b53ea7dd2278fd3e1a785",
+      "tracked_files": 2,
+      "tree": "3c509935bb9dbe411b1c396ff62810bfb6e84313"
+    },
+    {
+      "available": "closed-offline",
+      "closure_objects": 43,
+      "commit": "b1d3c7c12445d514f767c41e952390ccac928d9e2ba72aee7e7a89b1a762de35",
+      "git_format": "sha256",
+      "layout": "one-file-per-object",
+      "root": "bcbc9a350b3dc4d69cd6c398bb54546ee83880150c12d48a0dbe298058bfcc70",
+      "tracked_files": 45,
+      "tree": "c5dcc652865881436fdf3c444ab386740fbc84c9c50329a3fc624a78bd2fb88b"
+    },
+    {
+      "available": "closed-offline",
+      "closure_objects": 43,
+      "commit": "4d1665f3e0691d23811a06583f799b66d9fa96826a11d6175d1735ae2744f76f",
+      "git_format": "sha256",
+      "layout": "one-file-per-object",
+      "root": "b99f76ae3a56e700ead1ed7ee91b0a88ccb7d2b7e99b53ea7dd2278fd3e1a785",
+      "tracked_files": 45,
+      "tree": "61bb526c32d4b6bf563ae278f0824f4b1fb139cf7aac012c7b1e2cc235b7aaaf"
+    },
+    {
+      "available": "closed-offline",
+      "closure_objects": 43,
+      "commit": "4dbb630d67903094a21d78d957f77629cf093111954df44005df71c5fedfb7b0",
+      "git_format": "sha256",
+      "layout": "packed-records",
+      "root": "bcbc9a350b3dc4d69cd6c398bb54546ee83880150c12d48a0dbe298058bfcc70",
+      "tracked_files": 3,
+      "tree": "73f631a9d8514eeb47aeeba2d69cd19be3b70202f39b17df1fe8fb0f1bdc9f8b"
+    },
+    {
+      "available": "closed-offline",
+      "closure_objects": 43,
+      "commit": "3dd1c3a1d1f5a4b3fe88f6d9bdd9b940bc4f0322c0fe0b68e2f30240e5dad430",
+      "git_format": "sha256",
+      "layout": "packed-records",
+      "root": "b99f76ae3a56e700ead1ed7ee91b0a88ccb7d2b7e99b53ea7dd2278fd3e1a785",
+      "tracked_files": 3,
+      "tree": "97aa7e963e266458e6b951a4592384248544f9e90fcdf9e254cc7d296f17abfc"
+    },
+    {
+      "available": "closed-with-KV",
+      "closure_objects": 43,
+      "commit": "5a0452f60d2b7b890e9b3b8d4e577b58ff078cec0e8adcf9a01f0a2faa35d19a",
+      "git_format": "sha256",
+      "layout": "external-kv",
+      "root": "bcbc9a350b3dc4d69cd6c398bb54546ee83880150c12d48a0dbe298058bfcc70",
+      "tracked_files": 2,
+      "tree": "3df51aaca5c765eaf9aa85821ec12312ac6b22fee3df550e26f011cc922df482"
+    },
+    {
+      "available": "closed-with-KV",
+      "closure_objects": 43,
+      "commit": "a0cab0a6ebc556577180b66c0d43b363500d783811de7662fa1cf44304ecbdf7",
+      "git_format": "sha256",
+      "layout": "external-kv",
+      "root": "b99f76ae3a56e700ead1ed7ee91b0a88ccb7d2b7e99b53ea7dd2278fd3e1a785",
+      "tracked_files": 2,
+      "tree": "eb705ba0a346b936cbad779db2cc9d824689f240c0f271660c8912dde61f0a54"
+    }
+  ],
+  "refusals": [
+    {
+      "case": "sha1-packed-records/stale-index",
+      "decision": "wrong required reverse metadata"
+    },
+    {
+      "case": "sha1-packed-records/unordered-pack",
+      "decision": "records out of order"
+    },
+    {
+      "case": "sha1-external-kv/bcbc9a350b3dc4d69cd6c398bb54546ee83880150c12d48a0dbe298058bfcc70/offline",
+      "decision": "required KV bytes unavailable"
+    },
+    {
+      "case": "sha1-external-kv/b99f76ae3a56e700ead1ed7ee91b0a88ccb7d2b7e99b53ea7dd2278fd3e1a785/offline",
+      "decision": "required KV bytes unavailable"
+    },
+    {
+      "case": "sha1-external-kv/corrupt-KV",
+      "decision": "object digest mismatch"
+    },
+    {
+      "case": "sha256-packed-records/stale-index",
+      "decision": "wrong required reverse metadata"
+    },
+    {
+      "case": "sha256-packed-records/unordered-pack",
+      "decision": "records out of order"
+    },
+    {
+      "case": "sha256-external-kv/bcbc9a350b3dc4d69cd6c398bb54546ee83880150c12d48a0dbe298058bfcc70/offline",
+      "decision": "required KV bytes unavailable"
+    },
+    {
+      "case": "sha256-external-kv/b99f76ae3a56e700ead1ed7ee91b0a88ccb7d2b7e99b53ea7dd2278fd3e1a785/offline",
+      "decision": "required KV bytes unavailable"
+    },
+    {
+      "case": "sha256-external-kv/corrupt-KV",
+      "decision": "object digest mismatch"
+    }
+  ],
+  "sqlite": "3.53.1"
+}
