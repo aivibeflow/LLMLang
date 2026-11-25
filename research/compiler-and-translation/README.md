@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-13 Go deferred resource capture](RT-13/RT-13-GO-DEFERRED-RESOURCE-CAPTURE-2026-11-25.md) checks exact handle identity under versioned loop binding.
 - [RT-13 common subset backend receipts](RT-13/RT-13-COMMON-SUBSET-BACKEND-RECEIPTS-2026-11-25.md) verifies the implemented scalar backend gate across archived profiles.
 - [RT-13 Java cleanup occurrences](RT-13/RT-13-JAVA-CLEANUP-OCCURRENCES-2026-11-25.md) compares automatic suppression with separate typed failure occurrences.
 - [RT-09 static link artifact identity](RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md) compares archive order, selected native members and exact executable bytes.
