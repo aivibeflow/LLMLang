@@ -399,8 +399,8 @@ Research the complete path from a user's request to an accepted, traceable busin
   - [x] Prove joint conformance for applicable contracts. Among 1,048,576 finite pairs, 93,600 are individually feasible and have no common provider. Both GCC profiles match the 32-row native observation reference, and 385 contracts allow equal results with different effects. [Joint contract conformance](research/language-design/RT-04/RT-04-JOINT-CONTRACT-CONFORMANCE-2026-11-25.md)
 - [x] Define contract-based analogue discovery separately from call identity and dispatch.
   - [x] Separate Jaccard analogue ranking, exact refinement and explicit operation/provider binding. Of 864 catalogs, 660 rank an incompatible contract first, including 73 with a refining alternative. Exact lookup remains fixed and refuses five mismatched identity or receipt controls. [Analogue ranking and dispatch](research/language-design/RT-04/RT-04-ANALOGUE-RANKING-AND-DISPATCH-2026-11-25.md)
-- [ ] Define the evidence required before substituting an implementation for a specific `OpHash`.
-  - [ ] [WIP] Compare direct observed conformance with modular body and refinement receipts for exact operation substitution across native and WebAssembly subjects on `research/all`.
+- [x] Define the evidence required before substituting an implementation for a specific `OpHash`.
+  - [x] Require exact operation, authorized binding, own-contract conformance and refinement receipts. Among 192 native/WebAssembly cases, all 100 modular admissions conform directly. Seventy-six direct positives lack a modular obligation, and five stale or mismatched binding controls refuse. [Modular operation substitution](research/language-design/RT-04/RT-04-MODULAR-OPERATION-SUBSTITUTION-2026-11-25.md)
   - [x] Compare seven candidate providers and six receipt controls for exact operation substitution. Observation alone misses four violations of coverage, progress or resource bounds. A scoped context edit invalidates just the affected receipt in the declared model. [RT-04 property-scoped substitution](research/language-design/RT-04/RT-04-PROPERTY-SCOPED-OPERATION-SUBSTITUTION-2026-11-25.md)
 - [x] Define verified adapters for compatible but non-identical contracts.
   - [x] Verify the Euclidean-to-truncating adapter, uniqueness and signed adjustment bounds in Lean. Three GCC profiles match 11,076 rows each, including 1,136 refusals before the provider call. Each incorrect or stale variant differs on 1,097 signed inputs. [Euclidean division adapter](research/language-design/RT-04/RT-04-EUCLIDEAN-DIVISION-ADAPTER-2026-11-25.md)
@@ -412,7 +412,7 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Existing evidence:** global semantic artifact store research; operation identity and analogue-discovery questions LL-001–LL-003; requirement/contract work in scenarios 15–19.
 
-**Status:** researched; decision pending on formal compatibility, refinement/substitution criteria, and the evidence needed for implementation selection.
+**Status:** checked scoped studies cover the eight contract and implementation research questions above. Canonical contract and operation semantics, general native correspondence, authority and production implementation-selection policy remain pending. The separate public-interface extension remains proposed.
 
 **Research output (2026-11-23):** [Contract versus implementation identity recheck](research/language-design/RT-04/RT-04-CONTRACT-VS-IMPLEMENTATION-IDENTITY-RECHECK-2026-11-23.md) reran the synthetic binding fixture on current main. It demonstrates two observably different implementations satisfying the same bounded contract, while caller compilation remains reusable only across a stable separately linked boundary. This supports separating OpHash from ImplHash and using explicit BindingHash when exact execution must be pinned; it does not prove general refinement/substitutability or settle the OpHash envelope.
 

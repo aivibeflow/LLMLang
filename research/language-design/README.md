@@ -55,3 +55,4 @@ See [shared executable research prototypes](../PROTOTYPES/README.md) for integra
 - [RT-04 cross-target conformance receipts](RT-04/RT-04-CROSS-TARGET-CONFORMANCE-RECEIPTS-2026-11-25.md) — binds native and WebAssembly evidence to exact subjects and observation assumptions.
 - [RT-04 Euclidean division adapter](RT-04/RT-04-EUCLIDEAN-DIVISION-ADAPTER-2026-11-25.md) — verifies a signed numeric conversion under an exact provider contract.
 - [RT-04 contextual provider substitution](RT-04/RT-04-CONTEXTUAL-PROVIDER-SUBSTITUTION-2026-11-25.md) — separates contract relations from equivalence in adaptive clients.
+- [RT-04 modular operation substitution](RT-04/RT-04-MODULAR-OPERATION-SUBSTITUTION-2026-11-25.md) — checks exact body, refinement and binding requirements for native and WebAssembly providers.
