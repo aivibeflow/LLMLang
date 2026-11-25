@@ -1,0 +1,61 @@
+{
+  "controls": {
+    "changed-policy": "miss",
+    "changed-query": "miss",
+    "copied-stale-receipt": "refused",
+    "corrupt-payload": "refused",
+    "metadata-only": "exact-hit",
+    "unsupported-proof-hole": "refused"
+  },
+  "exact_modes": {
+    "cold": {
+      "cache_hits": 0,
+      "executions": 132
+    },
+    "edit": {
+      "cache_hits": 99,
+      "executions": 132
+    },
+    "oracle": {
+      "cache_hits": 0,
+      "executions": 165
+    },
+    "revert": {
+      "cache_hits": 132,
+      "executions": 132
+    },
+    "warm": {
+      "cache_hits": 132,
+      "executions": 132
+    }
+  },
+  "host": {
+    "affinity": [
+      0
+    ],
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "kernel": "6.18.57",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "llm_requests": 0,
+  "llm_tokens": 0,
+  "paired_blocks": 11,
+  "queries_and_certificates_match_independent_generation": true,
+  "random_seed": 1731,
+  "tools": {
+    "carcara": {
+      "sha256": "8e4db8912497cd2b628c9d7f4f925b4601c2b9e4ffba91df5e980b61c70f2380",
+      "version": "carcara 1.1.0 [git none unknown]"
+    },
+    "cvc5": {
+      "sha256": "6aecddf466552b83bb5883756c7955e0c9d5ddcc6d7f45b48c2f6e06a741b102",
+      "version": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]"
+    },
+    "measure": {
+      "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+      "sha256": "911a2c0481efc0e0be35db5a434444176ac4bdaae4fa5bf6f64e6753a7ecee93",
+      "source_sha256": "a6f5e04457c78eeeac8593219846281c77e8fc22891030743b4623a11dbed67c"
+    }
+  }
+}
