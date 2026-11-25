@@ -841,6 +841,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define sound conservative may-depend graphs.
   - [x] Compare finite guard-sensitive may-dependency closure against 16,384 explicit queries. Location-only traversal misses targets in 3,408 queries. State-aware closure matches the known-table oracle, and local unknown expansion avoids misses with measurable loss of precision. Exhausted queries return unknown. Source extraction, wider effects and snapshot binding remain open. [Conditional dependency closure](research/semantic-representation/RT-06/RT-06-CONDITIONAL-DEPENDENCY-CLOSURE-2026-11-25.md).
 - [ ] Define how missing or incomplete dependency evidence affects reuse.
+  - [ ] [WIP] Compare positive depfile entries with complete header lookup evidence and unknown lookup scope on `research/all`.
 - [ ] Define cycles and strongly connected components for analysis and scheduling.
 - [ ] Define change-impact analysis for requirement, contract, design, implementation, and target changes.
 
@@ -867,6 +868,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [x] Independently check the column-only boundary with four GCC builds and 40 native calls. Executable text and decoded line/address pairs are unchanged, while raw DWARF column updates and the exact debug object change. [RT-11 debug column reuse](research/toolchain-and-collaboration/RT-11/RT-11-DEBUG-COLUMN-REUSE-2026-11-25.md)
   - [x] Compare 16 native builds and 240 outputs under source-only edits. Leading blank lines change exact debug objects and mapped locations without changing the constant-function executable observations. A location-dependent expression makes the same edit observable at runtime. General projection certification remains open. [Native source metadata reuse](research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-SOURCE-METADATA-REUSE-2026-11-25.md)
 - [ ] Define conservative fallback when dependency completeness cannot be established.
+  - [ ] [WIP] Check conservative rebuild and exact reuse when a compiler header search depends on unrecorded absent inputs on `research/all`.
   - [x] Compare mixed dependency completeness across 576 action-graph profiles. Scoped fallback executes 568 fewer actions and admits 16 more packages than whole-graph recomputation with zero stale results. The optimistic control admits 120 stale packages. Production extraction and publication remain open. [Scoped dependency fallback](research/toolchain-and-collaboration/RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md)
 - [ ] Define impact planning and non-interference gates.
   - [x] Compare separate and composed non-interference checks across 6,144 truth-table edits. Independent baseline checks admit 768 changed outcomes despite disjoint writes. Lean checks a counterexample and composition under sequential or uniformly applicable premises. [RT-11 composed non-interference](research/toolchain-and-collaboration/RT-11/RT-11-COMPOSED-NONINTERFERENCE-2026-11-25.md)
