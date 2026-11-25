@@ -1494,9 +1494,11 @@ Vendor references: [STM32F1](https://www.st.com/en/microcontrollers-microprocess
 - [ ] Define explicit translation outcomes: exact under assumptions, preserved with runtime support, restricted, unsupported, and unverified.
   - [x] Compare 18 translation closure controls. Four cover both requested roots, thirteen retain only the independent root, and one admits neither. An emission-only gate overstates complete coverage ten times. Local status, edge evidence, runtime binding and approved restrictions remain exact inputs. [RT-09 translation outcome closure](research/compiler-and-translation/RT-09/RT-09-TRANSLATION-OUTCOME-CLOSURE-2026-11-25.md)
 - [ ] Define runtime support as part of a target realization.
+  - [ ] [WIP] Check exact native runtime bindings for a typed ordered-effect translation on `research/all` (#327).
 - [ ] Define generated artifact identity and reproducibility.
   - [x] Compare five static archive links in two fresh roots. Reordering equal member bytes selects another provider and changes all 16 results. Changing unused members preserves the exact ELF. Forcing one unused symbol changes ELF bytes while preserving results. [RT-09 static link artifact identity](research/compiler-and-translation/RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md)
 - [ ] Define verification independent of the code generator wherever practical.
+  - [ ] [WIP] Validate native ordered-effect lowering with an independent semantic oracle and matching-output negative controls on `research/all` (#327).
 - [ ] Define incremental translation and selective verification invalidation.
   - [x] Compare eight GCC builds and 2,048 native observations. A source-location change alters DWARF while preserving release bytes and validation scope. A wider contract preserves both binaries and requires fresh evidence. A body mutation changes machine text and fails all 128 required checks. Production dependency discovery and receipt reuse remain open. [Selective translation and verification](research/compiler-and-translation/RT-09/RT-09-SELECTIVE-TRANSLATION-2026-11-25.md)
 
