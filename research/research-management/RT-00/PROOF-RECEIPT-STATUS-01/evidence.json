@@ -1,0 +1,2451 @@
+{
+  "archived_contrasts": {
+    "certificates": {
+      "dsl-rewrite": {
+        "logos": "correct",
+        "proof_sha256": "c93e6bbffc429d6313f1211c34f3fe17c0cdb693b1126834c6a65e639f16b74e",
+        "solver": "unsat",
+        "trust_commands": 0
+      },
+      "theory-rewrite": {
+        "logos": "rejected-trust",
+        "proof_sha256": "759110f0d0409f8e97b3ad09e164522451a609ebced9206ff4a4002329647c2a",
+        "solver": "unsat",
+        "trust_commands": 35
+      }
+    },
+    "dafny": [
+      {
+        "case": "provider failure",
+        "disposition": "verification-failure",
+        "errors": 1,
+        "exit": 4,
+        "out_of_resource": 0,
+        "provider_body": true,
+        "solver": "4.12.1"
+      },
+      {
+        "case": "resource exhaustion",
+        "disposition": "unknown-resource",
+        "errors": 0,
+        "exit": 4,
+        "out_of_resource": 1,
+        "provider_body": false,
+        "solver": "4.12.1"
+      },
+      {
+        "case": "caller only",
+        "disposition": "conditional-caller",
+        "errors": 0,
+        "exit": 0,
+        "out_of_resource": 0,
+        "provider_body": false,
+        "solver": "4.12.1"
+      },
+      {
+        "case": "source closure",
+        "disposition": "verified-source-closure",
+        "errors": 0,
+        "exit": 0,
+        "out_of_resource": 0,
+        "provider_body": true,
+        "solver": "4.12.1"
+      },
+      {
+        "case": "provider failure",
+        "disposition": "verification-failure",
+        "errors": 1,
+        "exit": 4,
+        "out_of_resource": 0,
+        "provider_body": true,
+        "solver": "4.14.1"
+      },
+      {
+        "case": "resource exhaustion",
+        "disposition": "unknown-resource",
+        "errors": 0,
+        "exit": 4,
+        "out_of_resource": 1,
+        "provider_body": false,
+        "solver": "4.14.1"
+      },
+      {
+        "case": "caller only",
+        "disposition": "conditional-caller",
+        "errors": 0,
+        "exit": 0,
+        "out_of_resource": 0,
+        "provider_body": false,
+        "solver": "4.14.1"
+      },
+      {
+        "case": "source closure",
+        "disposition": "verified-source-closure",
+        "errors": 0,
+        "exit": 0,
+        "out_of_resource": 0,
+        "provider_body": true,
+        "solver": "4.14.1"
+      }
+    ],
+    "host_control": {
+      "deadline_ms": 250,
+      "disposition": "unknown-host-timeout",
+      "injected_delay_ms": 10000
+    },
+    "smt_resource": [
+      "unknown",
+      "(:reason-unknown resourceout)"
+    ],
+    "weaker_binding": "assumptions-mismatch"
+  },
+  "baseline": "49f6d1a4328bf7d083ac44ff91ac587c02075276",
+  "composition": {
+    "aggregate_counts": {
+      "bounded-agreement": 8,
+      "conditional": 16,
+      "conflict": 16,
+      "insufficient": 80,
+      "refuted": 8
+    },
+    "distinct_unknown_attempts_with_equal_projection": 2,
+    "observations": [
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 1,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "counterexample"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 1,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "refuted",
+        "input_verdicts": [
+          "counterexample"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample"
+          ],
+          "status": "refuted"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 1,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "support"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "support"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 1,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "bounded-agreement",
+        "input_verdicts": [
+          "support"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support"
+          ],
+          "status": "bounded-agreement"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 1,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "timeout"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 1,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "timeout"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 1,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "unknown"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 1,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "unknown"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 1,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "unsupported"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 1,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "unsupported"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "support"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "support"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "timeout"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "counterexample",
+          "timeout"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "timeout"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "timeout"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "refuted",
+        "input_verdicts": [
+          "counterexample",
+          "timeout"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "timeout"
+          ],
+          "status": "refuted"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "counterexample",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "unknown"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "refuted",
+        "input_verdicts": [
+          "counterexample",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "unknown"
+          ],
+          "status": "refuted"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "counterexample",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "unsupported"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "refuted",
+        "input_verdicts": [
+          "counterexample",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "unsupported"
+          ],
+          "status": "refuted"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "timeout"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "support",
+          "timeout"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "support",
+            "timeout"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "timeout"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "bounded-agreement",
+        "input_verdicts": [
+          "support",
+          "timeout"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support",
+            "timeout"
+          ],
+          "status": "bounded-agreement"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "support",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "support",
+            "unknown"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "bounded-agreement",
+        "input_verdicts": [
+          "support",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support",
+            "unknown"
+          ],
+          "status": "bounded-agreement"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "support",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "support",
+            "unsupported"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "bounded-agreement",
+        "input_verdicts": [
+          "support",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support",
+            "unsupported"
+          ],
+          "status": "bounded-agreement"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "timeout",
+            "unknown"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "timeout",
+            "unknown"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "timeout",
+            "unsupported"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "timeout",
+            "unsupported"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "unknown",
+            "unsupported"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 2,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "unknown",
+            "unsupported"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "timeout"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "timeout"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "unknown"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "unknown"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "unsupported"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "unsupported"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "timeout",
+            "unknown"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "refuted",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "timeout",
+            "unknown"
+          ],
+          "status": "refuted"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "timeout",
+            "unsupported"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "refuted",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "timeout",
+            "unsupported"
+          ],
+          "status": "refuted"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "counterexample",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "refuted",
+        "input_verdicts": [
+          "counterexample",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "refuted"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "support",
+            "timeout",
+            "unknown"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "bounded-agreement",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support",
+            "timeout",
+            "unknown"
+          ],
+          "status": "bounded-agreement"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "support",
+            "timeout",
+            "unsupported"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "bounded-agreement",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support",
+            "timeout",
+            "unsupported"
+          ],
+          "status": "bounded-agreement"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "support",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "support",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "bounded-agreement",
+        "input_verdicts": [
+          "support",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "bounded-agreement"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "timeout",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 3,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "timeout",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 4,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "timeout",
+            "unknown"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 4,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unknown"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "timeout",
+            "unknown"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 4,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "timeout",
+            "unsupported"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 4,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "timeout",
+            "unsupported"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 4,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 4,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 4,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "timeout",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 4,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "refuted",
+        "input_verdicts": [
+          "counterexample",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "timeout",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "refuted"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 4,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conditional",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "support",
+            "timeout",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "conditional"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 4,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "bounded-agreement",
+        "input_verdicts": [
+          "support",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "support",
+            "timeout",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "bounded-agreement"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": false,
+        "rejected_count": 5,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": false,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [
+            "premise"
+          ],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "timeout",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "conflict"
+        }
+      },
+      {
+        "aggregate": "insufficient",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": false,
+        "rejected_count": 5,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [],
+          "status": "insufficient"
+        }
+      },
+      {
+        "aggregate": "conflict",
+        "input_verdicts": [
+          "counterexample",
+          "support",
+          "timeout",
+          "unknown",
+          "unsupported"
+        ],
+        "premise_checked": true,
+        "receipts_authorized": true,
+        "rejected_count": 0,
+        "target": {
+          "blocked_premises": [],
+          "observed_verdicts": [
+            "counterexample",
+            "support",
+            "timeout",
+            "unknown",
+            "unsupported"
+          ],
+          "status": "conflict"
+        }
+      }
+    ]
+  },
+  "python": "3.12.14",
+  "schema": "rt00-proof-receipt-status-audit-v1",
+  "source_sha256": {
+    "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/composition.py": "5d45070a18878bf49fe2504483eb8363c11c2cba2990a8a97acaeb63482604bd",
+    "research/formal-verification/RT-07/DAFNY-MODULAR-PROOF-CLOSURE-01/evidence.json": "35309384190482e4426041ff0bd99c4aff87e282223d47e680bbf42104aad4b6"
+  }
+}
