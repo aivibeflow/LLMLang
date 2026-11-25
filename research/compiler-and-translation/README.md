@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-13 multiversion guards](RT-13/RT-13-MULTIVERSION-GUARDS-2026-11-25.md) checks overlapping specialized routes, candidate priority and refusal without eligible coverage.
 - [RT-13 static and runtime binding](RT-13/RT-13-STATIC-AND-RUNTIME-BINDING-2026-11-25.md) checks replacement, stale admission and an in-flight provider lease with native loading.
 - [RT-13 typed selection constraints](RT-13/RT-13-TYPED-SELECTION-CONSTRAINTS-2026-11-25.md) checks exact profiles, capability inclusion, authority and scope-specific performance gates.
 - [RT-13 catalog discovery and binding](RT-13/RT-13-CATALOG-DISCOVERY-AND-BINDING-2026-11-25.md) separates exact catalog membership from a current, materialized target binding.

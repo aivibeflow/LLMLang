@@ -1,0 +1,111 @@
+{
+  "controls": {
+    "2147483647/1/baseline,small-nonnegative,zero-right": {
+      "observed": [
+        "unavailable",
+        null
+      ],
+      "selected": null
+    },
+    "2147483647/1/baseline,zero-right,small-nonnegative": {
+      "observed": [
+        "unavailable",
+        null
+      ],
+      "selected": null
+    },
+    "2147483647/1/small-nonnegative,baseline,zero-right": {
+      "observed": [
+        "unavailable",
+        null
+      ],
+      "selected": null
+    },
+    "2147483647/1/small-nonnegative,zero-right,baseline": {
+      "observed": [
+        "unavailable",
+        null
+      ],
+      "selected": null
+    },
+    "2147483647/1/zero-right,baseline,small-nonnegative": {
+      "observed": [
+        "unavailable",
+        null
+      ],
+      "selected": null
+    },
+    "2147483647/1/zero-right,small-nonnegative,baseline": {
+      "observed": [
+        "unavailable",
+        null
+      ],
+      "selected": null
+    },
+    "63/0/baseline,small-nonnegative,zero-right": {
+      "observed": [
+        "result",
+        63
+      ],
+      "selected": "small-nonnegative"
+    },
+    "63/0/baseline,zero-right,small-nonnegative": {
+      "observed": [
+        "result",
+        63
+      ],
+      "selected": "zero-right"
+    },
+    "63/0/small-nonnegative,baseline,zero-right": {
+      "observed": [
+        "result",
+        63
+      ],
+      "selected": "small-nonnegative"
+    },
+    "63/0/small-nonnegative,zero-right,baseline": {
+      "observed": [
+        "result",
+        63
+      ],
+      "selected": "small-nonnegative"
+    },
+    "63/0/zero-right,baseline,small-nonnegative": {
+      "observed": [
+        "result",
+        63
+      ],
+      "selected": "zero-right"
+    },
+    "63/0/zero-right,small-nonnegative,baseline": {
+      "observed": [
+        "result",
+        63
+      ],
+      "selected": "zero-right"
+    }
+  },
+  "counts": {
+    "decisions": 19602,
+    "evidence_free_selects_unchecked": 6972,
+    "guardless_invalid_selection": 8170,
+    "guardless_reported_result_differs": 7512,
+    "multiple_eligible": 510,
+    "overflow": 1512,
+    "result": 5946,
+    "unavailable": 12144
+  },
+  "lean": {
+    "axioms": [
+      "'guarded_refinement' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'choice_matches_reference' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'priority_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'unavailable_exactly_when_no_eligible' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    ],
+    "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "sources_sha256": {
+    "Multiversion.lean": "eb5c6ee7e5b06df4cdec5edb7aa1c7e5c1142a15b19daa68409a474e7b7855ad",
+    "run.py": "be9dfb21e7b78d85a5a49e5c4d1f034e542922efeff8be9fb6d9e4b5563b930b"
+  }
+}

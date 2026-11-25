@@ -1407,8 +1407,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Prove profile identity, capability/feature inclusion and exact matching receipts for mandatory bounds. A 4,200-cell matrix matches the independent oracle. Overlap and number-only checks each admit 18 invalid cases. Runtime identity and policy authority remain explicit inputs. [RT-13 typed selection constraints](research/compiler-and-translation/RT-13/RT-13-TYPED-SELECTION-CONSTRAINTS-2026-11-25.md)
 - [x] Define static binding versus runtime dispatch.
   - [x] Exercise a linked provider and runtime replacement with a retained worker invocation in 32 GCC and Clang processes. Fresh calls use the replacement, stale or retired bindings are refused, and the old loader handle drains after invocation. Concurrent admission and forced revocation remain open. [RT-13 static and runtime binding](research/compiler-and-translation/RT-13/RT-13-STATIC-AND-RUNTIME-BINDING-2026-11-25.md)
-- [ ] Define specialization and multi-versioning.
-  - [ ] [WIP] Check overlapping specialization guards, fallback closure, and observation invariance when candidate priority changes.
+- [x] Define specialization and multi-versioning.
+  - [x] Prove the reference outcome for eligible variants, invariance under priority changes with preserved coverage, and refusal without an eligible route. All 19,602 finite decisions agree. Omitting an applicability guard selects 8,170 ineligible routes. Production evidence and runtime costs remain open. [RT-13 multiversion guards](research/compiler-and-translation/RT-13/RT-13-MULTIVERSION-GUARDS-2026-11-25.md)
   - [x] Prove guarded division equivalence in Lean and match 56,304 observations across GCC and Clang. The specialized route requires checked evidence and an exact power-of-two divisor. Omitting that condition changes 1,506 results. General multi-version policy remains open. [Guarded specialization](research/compiler-and-translation/RT-13/RT-13-GUARDED-SPECIALIZATION-2026-11-25.md)
 - [ ] Define cost models and profile-guided selection.
 - [x] Define safe fallback when no compatible implementation is available.
