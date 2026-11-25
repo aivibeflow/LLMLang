@@ -1553,6 +1553,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Compare 32 clean native merges of individually valid contract and provider edits and 3,250 native observations. Validation of the exact combined pair refuses seven of 16 pairs on value or modeled trace obligations. General proof composition and cross-operation dependencies remain open. [Contract and implementation merges](research/toolchain-and-collaboration/RT-24/RT-24-CONTRACT-BODY-MERGES-2026-11-25.md)
 - [ ] Define conflict detection and safe automatic resolution.
 - [ ] Define reviewable semantic change sets.
+  - [ ] [WIP] Compare full, label-only and dependency-closed review subjects for semantic change sets (#334).
 - [ ] Define provenance, authorship, approval, and audit trails.
 - [ ] Define collaboration across branches, forks, and shared artifact registries.
 - [ ] Test large multi-contributor scenarios.
