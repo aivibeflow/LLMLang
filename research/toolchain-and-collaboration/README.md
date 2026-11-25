@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Recent bounded rechecks
 
+- [RT-27 Git journal compaction](RT-27/RT-27-GIT-JOURNAL-COMPACTION-2026-11-25.md) checks exact logical deletion and index recovery from Git.
 - [RT-11 scoped dependency fallback](RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md) — compares conservative recomputation with mixed completeness receipts.
 - [RT-11 semantic impact and proof freshness](RT-11/RT-11-SEMANTIC-IMPACT-AND-PROOF-FRESHNESS-2026-11-25.md) — compares source revisions, checker keys and archived proof artifacts.
 - [RT-11 native source metadata reuse](RT-11/RT-11-NATIVE-SOURCE-METADATA-REUSE-2026-11-25.md) — separates exact objects, source locations and observed execution after edits.
