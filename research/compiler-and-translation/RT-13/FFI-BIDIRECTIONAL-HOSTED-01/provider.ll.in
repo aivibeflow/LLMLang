@@ -1,0 +1,19 @@
+target triple = "@TRIPLE@"
+
+define @EXPORT@ i32 @fixture_step(ptr %slot, i32 %delta, ptr %trace) {
+entry:
+  %old = load i32, ptr %slot, align 4
+  %next = add i32 %old, %delta
+  %overflow = icmp ult i32 %next, %old
+  br i1 %overflow, label %refuse, label %apply
+
+apply:
+  store i32 %old, ptr %trace, align 4
+  %next_trace = getelementptr i32, ptr %trace, i64 1
+  store i32 %next, ptr %next_trace, align 4
+  store i32 %next, ptr %slot, align 4
+  ret i32 0
+
+refuse:
+  ret i32 1
+}

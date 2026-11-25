@@ -1,0 +1,9 @@
+target triple = "@TRIPLE@"
+
+declare i32 @fixture_step(ptr, i32, ptr)
+
+define @EXPORT@ i32 @ffi_observe(ptr %slot, i32 %delta, ptr %trace) {
+entry:
+  %status = call i32 @fixture_step(ptr %slot, i32 %delta, ptr %trace)
+  ret i32 %status
+}
