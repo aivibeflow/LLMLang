@@ -583,7 +583,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [x] Prove sequential contract satisfaction under a universal successful-state handoff. Across 60 declared pairs, accepting one suitable success gives eight false admissions. All 972 concrete refinement cases preserve exact composed observations. Divergence, recovery and source correspondence remain open. [Sequential contract composition](research/formal-verification/RT-07/RT-07-SEQUENTIAL-CONTRACT-COMPOSITION-2026-11-25.md)
 - [ ] Define semantics-preserving transformations and compiler correctness boundaries.
 - [ ] Define assumptions and environmental boundaries explicitly.
-  - [ ] [WIP] Check an explicit environment-input boundary, including absent and malformed values, in a closed Lean and native POSIX fixture on `research/all`.
+  - [x] Compare a conditional POSIX environment read with an explicit observation model. Two native profiles agree on 144 cases each. Successful-only input footprints merge 64 distinct outcomes, while an exact read or checked projection prevents stale reuse in 1,224 comparisons. Lean checks the conditional assumptions. General environment extraction remains open. [Explicit environment boundary](research/formal-verification/RT-07/RT-07-EXPLICIT-ENVIRONMENT-BOUNDARY-2026-11-25.md)
 
 **Existing evidence:** `research/LLMLang-FORMAL-VERIFICATION.md`, `research/LLMLang-CONCEPT.md`, typed requirement IR and formal dependency scenarios 25–33.
 

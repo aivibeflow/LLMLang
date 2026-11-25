@@ -1,0 +1,4 @@
+'EnvironmentBoundary.disabledIsIndependent' does not depend on any axioms
+'EnvironmentBoundary.enabledValidObservation' does not depend on any axioms
+'EnvironmentBoundary.absenceAndMalformationDiffer' does not depend on any axioms
+'EnvironmentBoundary.conditionalValidCaseDoesNotCoverAbsence' does not depend on any axioms
