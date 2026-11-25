@@ -1,0 +1,119 @@
+{
+  "inputs_sha256": {
+    "capsule.S": "c70a3e52f1062f74d1e00950c068ca67d1c86b605f4f3dbe53832b04bed0cf49",
+    "host.c": "e7ab51a686648cda6d6f97dfc9e3bda0312ba47c6d9e763458f750abf7792cd6",
+    "inline.ll": "79a95a57f5c6c3d4c07ef16cbb494e4e49e4736ef93c070b29ebfde6115c90d8",
+    "run.py": "e677f101e0ba4bbfa7ce58f95679e157e9f64959d294ebf1380b43a5d0d6d80a"
+  },
+  "profiles": {
+    "full": {
+      "bytes_through_return": {
+        "inline_literals": "660fefc0c3",
+        "inline_loads": "48b8000000000000f03f66480f6ec048b8000000000000f0bf66480f6ec8f20f58c1c3",
+        "keep_call": "48b8000000000000f03f66480f6ec048b8000000000000f0bf66480f6ec8f20f58c1c3"
+      },
+      "flag_checks_passed": 24,
+      "result_bits": {
+        "downward/0/inline_literals": "0000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "0000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    },
+    "native": {
+      "bytes_through_return": {
+        "inline_literals": "660fefc0c3",
+        "inline_loads": "48b8000000000000f03f66480f6ec048b8000000000000f0bf66480f6ec8f20f58c1c3",
+        "keep_call": "48b8000000000000f03f66480f6ec048b8000000000000f0bf66480f6ec8f20f58c1c3"
+      },
+      "flag_checks_passed": 24,
+      "result_bits": {
+        "downward/0/inline_literals": "0000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "0000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    },
+    "thin": {
+      "bytes_through_return": {
+        "inline_literals": "660fefc0c3",
+        "inline_loads": "48b8000000000000f03f66480f6ec048b8000000000000f0bf66480f6ec8f20f58c1c3",
+        "keep_call": "48b8000000000000f03f66480f6ec048b8000000000000f0bf66480f6ec8f20f58c1c3"
+      },
+      "flag_checks_passed": 24,
+      "result_bits": {
+        "downward/0/inline_literals": "0000000000000000",
+        "downward/0/inline_loads": "8000000000000000",
+        "downward/0/keep_call": "8000000000000000",
+        "downward/1/inline_literals": "0000000000000000",
+        "downward/1/inline_loads": "8000000000000000",
+        "downward/1/keep_call": "8000000000000000",
+        "nearest/0/inline_literals": "0000000000000000",
+        "nearest/0/inline_loads": "0000000000000000",
+        "nearest/0/keep_call": "0000000000000000",
+        "nearest/1/inline_literals": "0000000000000000",
+        "nearest/1/inline_loads": "0000000000000000",
+        "nearest/1/keep_call": "0000000000000000",
+        "toward-zero/0/inline_literals": "0000000000000000",
+        "toward-zero/0/inline_loads": "0000000000000000",
+        "toward-zero/0/keep_call": "0000000000000000",
+        "toward-zero/1/inline_literals": "0000000000000000",
+        "toward-zero/1/inline_loads": "0000000000000000",
+        "toward-zero/1/keep_call": "0000000000000000",
+        "upward/0/inline_literals": "0000000000000000",
+        "upward/0/inline_loads": "0000000000000000",
+        "upward/0/keep_call": "0000000000000000",
+        "upward/1/inline_literals": "0000000000000000",
+        "upward/1/inline_loads": "0000000000000000",
+        "upward/1/keep_call": "0000000000000000"
+      }
+    }
+  },
+  "tools": {
+    "binutils": "GNU objdump (GNU Binutils for Debian) 2.44",
+    "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+    "gcc": "14.2.0",
+    "glibc": "glibc 2.41",
+    "lld": "LLD 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689) (compatible with GNU linkers)"
+  }
+}
