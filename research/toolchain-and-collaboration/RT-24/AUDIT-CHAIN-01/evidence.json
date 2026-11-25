@@ -1,0 +1,74 @@
+{
+  "checkpoint": "bf8cc09a5772eb7b9d130761c576ffaee2ec84b88a285142e5c1956153e315a2",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "python": "3.12.14",
+  "record_payloads": [
+    {
+      "candidate": "fixture-tree:exact",
+      "decision": "submitted",
+      "epoch": 7,
+      "ordinal": 0,
+      "previous": "0000000000000000000000000000000000000000000000000000000000000000",
+      "record": "fixture-change-audit:v1",
+      "role": "author",
+      "scope": "binding:reserve"
+    },
+    {
+      "candidate": "fixture-tree:exact",
+      "decision": "verified",
+      "epoch": 7,
+      "ordinal": 1,
+      "previous": "98da35fc183a4a1afddb3430a432797fbd5024003d5778152653b010f6121f41",
+      "record": "fixture-change-audit:v1",
+      "role": "validator",
+      "scope": "binding:reserve"
+    },
+    {
+      "candidate": "fixture-tree:exact",
+      "decision": "approved",
+      "epoch": 7,
+      "ordinal": 2,
+      "previous": "1fbe0dfd5de7e389698d62495fa65fda4b60b5a8e0316510022a826e1794de54",
+      "record": "fixture-change-audit:v1",
+      "role": "reviewer",
+      "scope": "binding:reserve"
+    },
+    {
+      "candidate": "fixture-tree:exact",
+      "decision": "committed",
+      "epoch": 7,
+      "ordinal": 3,
+      "previous": "3c8fd870449c5091427d762d3e8f6df80a07cf7f12094ebb792406b63b06eb6d",
+      "record": "fixture-change-audit:v1",
+      "role": "publisher",
+      "scope": "binding:reserve"
+    }
+  ],
+  "results": {
+    "approval_for_other_scope": "wrong-subject-or-policy",
+    "author_signs_review": "invalid-role-signature",
+    "complete": "verified",
+    "different_candidate": "wrong-subject-or-policy",
+    "missing_review": "missing-lifecycle-event",
+    "old_policy": "wrong-subject-or-policy",
+    "signed_disapproval": "wrong-event-disposition",
+    "swapped_review_and_validation": "wrong-role-or-order",
+    "unlinked_approval": "chain-discontinuity",
+    "wrong_checkpoint": "unexpected-tail"
+  },
+  "roles": [
+    "author",
+    "validator",
+    "reviewer",
+    "publisher"
+  ],
+  "sources_sha256": {
+    "check.py": "acddd5afef186dd180a21eae196dad202b72453864101758537500d544042ac0",
+    "signing_fixture": "226c4316aa95db2b1600fcc9efbb2ba636747c6ce363b8b6d2d33f670372fbef"
+  },
+  "subject": {
+    "candidate": "fixture-tree:exact",
+    "epoch": 7,
+    "scope": "binding:reserve"
+  }
+}

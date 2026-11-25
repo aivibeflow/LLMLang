@@ -59,6 +59,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-24 signed audit chain](RT-24/RT-24-SIGNED-AUDIT-CHAIN-2026-11-25.md) checks separate authorship, validation, approval and publication records under an exact checkpoint.
 - [RT-24 reviewable change sets](RT-24/RT-24-REVIEWABLE-CHANGESET-2026-11-25.md) reconciles source projection, exact packets and dependency-closed review subjects.
 - [RT-24 safe merge resolution](RT-24/RT-24-SAFE-MERGE-RESOLUTION-BOUNDARY-2026-11-25.md) reconciles pending evidence, semantic conflicts, Git fallback and exact scope.
 - [RT-24 caller contract composition](RT-24/RT-24-CALLER-CONTRACT-COMPOSITION-2026-11-25.md) checks exact evidence for a separately selected callee after an implementation edit.

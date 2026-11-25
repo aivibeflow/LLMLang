@@ -1670,7 +1670,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define reviewable semantic change sets.
   - [x] Reconcile three exact ledgers covering five Git projections, eight independently verified packets and eleven review contexts. Empty rendered changes can hide metadata failure. A new transitive caller invalidates the closed review subject while the direct edit remains exact. Real reviewer effectiveness and production authority remain open. [Reviewable change sets](research/toolchain-and-collaboration/RT-24/RT-24-REVIEWABLE-CHANGESET-2026-11-25.md)
   - [x] Compare eleven semantic review contexts. Dependency-closed subjects retain review across two unrelated edits and require reapproval for changed consumers, selected provider, dependency, order or policy. An incomplete declared inventory stops before projection. Independent edge completeness, human authority and whole-candidate publication remain open. [Reviewable change-set scope](research/toolchain-and-collaboration/RT-24/RT-24-CHANGESET-REVIEW-SCOPE-2026-11-25.md)
-- [ ] [WIP] Define provenance, authorship, approval, and audit trails.
+- [x] Define provenance, authorship, approval, and audit trails.
+  - [x] Verify four distinct signed roles and nine refused audit histories. Exact scope, policy, predecessor, approved disposition and checkpoint distinguish the complete chain. Production issuance and checkpoint authority remain open. [Signed audit chain](research/toolchain-and-collaboration/RT-24/RT-24-SIGNED-AUDIT-CHAIN-2026-11-25.md)
   - [ ] [WIP human] Approve the production reviewer and publisher roles and supply real reviewer participation for effectiveness checks.
 - [ ] Define collaboration across branches, forks, and shared artifact registries.
 - [ ] Test large multi-contributor scenarios.
