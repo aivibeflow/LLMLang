@@ -33,6 +33,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-12 snapshot-bound reverse index](RT-12/RT-12-SNAPSHOT-BOUND-REVERSE-INDEX-2026-11-25.md) — verifies indexed occurrence completeness and exact reader snapshot binding.
 - [RT-12 atomic graph publication](RT-12/RT-12-ATOMIC-GRAPH-PUBLICATION-2026-11-25.md) — checks graph, index and receipt consistency across actual process exits.
 - [Graph replica recovery](RT-12/RT-12-GRAPH-REPLICA-RECOVERY-2026-11-25.md) — exact incremental closure, process-exit recovery and scoped failover eligibility.
+- [External CAS collection](RT-12/RT-12-EXTERNAL-CAS-COLLECTION-2026-11-25.md) — persistent reachability, snapshot leases and quarantine recovery.
 - [RT-12 offline semantic clone](RT-12/RT-12-OFFLINE-SEMANTIC-CLONE-2026-11-25.md) — compares current closure, packed archives and explicit historical Git carriers.
 - [RT-12 concrete storage layouts](RT-12/RT-12-CONCRETE-STORAGE-LAYOUTS-2026-11-25.md) — measures persisted data for four layouts over the same closed graph corpus.
 - [RT-12 local and shared repository closures](RT-12/RT-12-REPOSITORY-LOCAL-AND-SHARED-CLOSURES-2026-11-25.md) — compares deduplication, exact scope and pinned offline availability.
