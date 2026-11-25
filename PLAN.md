@@ -786,6 +786,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 - [ ] Define invalidation for type checking, contract checking, optimization, code generation, tests, and proofs.
 - [ ] Define the difference between semantic impact and evidence staleness.
+  - [ ] [WIP] Recheck semantic impact and proof receipt freshness independently across source edits and two exact Lean checker versions on `research/all`.
   - [ ] [WIP] Compare exact evidence applicability with observed semantic impact across graph, source, toolchain, projection and trust-policy edits on `research/all`.
 - [ ] Define how an `ImplHash` change propagates through dependent semantic nodes and action results.
 - [ ] Define safe reuse when only non-semantic metadata changes.
