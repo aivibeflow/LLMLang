@@ -2027,7 +2027,7 @@ Research a typed, versioned object describing the task an agent is expected to p
 - [ ] Build analytics and held-out regression evaluation for syntax, instruction, diagnostic, and Toolchain changes; require reviewed promotion rather than automatic unreviewed mutation.
   - [ ] [WIP] Check held-out RT-31 regression aggregates and exact reviewer-bound promotion across syntax, instruction, diagnostics and Toolchain changes (#342).
   - [ ] [WIP human] Approve promotion of any tested change to the production syntax, instruction or Toolchain profile.
-- [ ] Report sample sizes, uncertainty, reproducibility, token/cost, latency, human review effort, and semantic coverage; do not optimize parse success or token count at the expense of semantics.
+- [ ] [WIP] Report sample sizes, uncertainty, reproducibility, token/cost, latency, human review effort, and semantic coverage; do not optimize parse success or token count at the expense of semantics.
 
 **Research brief:** [RT-31 — AI-Oriented Syntax, Semantic Separation, and Toolchain Optimization](research/language-design/RT-31/RT-31-AI-ORIENTED-SYNTAX-AND-TOOLCHAIN-OPTIMIZATION.md).
 
