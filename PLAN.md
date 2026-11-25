@@ -966,6 +966,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - Sixteen native Git histories isolate two ordinary conflicts and eight declared profile collisions in otherwise clean Linux merges. Checking all prefixes catches the eight profile collisions while two Git configuration values still restore all fourteen clean trees on Linux. Native filesystem coverage on other profiles remains open. [Profile-bound Git paths](research/toolchain-and-collaboration/RT-24/RT-24-PROFILE-BOUND-GIT-PATHS-2026-11-25.md)
 - [ ] Verify that merge drivers do not silently discard unresolved semantic conflicts.
 - [ ] Document repository setup and team workflows.
+  - [ ] [WIP] Document the tested repository setup and team workflow for candidate inspection, conflict preservation and gated publication on `research/all`.
 
 ### 4.5 End-to-end semantic merge and synchronized commit lifecycle
 
