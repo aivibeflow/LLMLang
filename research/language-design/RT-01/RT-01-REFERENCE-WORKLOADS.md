@@ -48,6 +48,8 @@ The [typed CLI vertical slice](RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md) run
 
 The [Calculator call-site split](RT-01-CLI-CALL-SITE-REFACTOR-2026-11-25.md) exercises the move and refactor workload through native executables. An explicit per-call decision preserves the existing script and upgrades one report while refusing removal of required source. The controlled agent and reviewer comparison remains open.
 
+[Native worker settlement](RT-01-RESOURCE-WORKER-SETTLEMENT-2026-11-25.md) exercises the resource-owning worker with two client threads, real file descriptors, cancellation and I/O failure. CPython and Rust agree across 72 controlled runs. Scope, runtime and participant evaluation remain open.
+
 ## 3. Controls for design comparison
 
 For each candidate, record the version of the profile, toolchain and target along with the fixture and starting repository revision. Require the same observations across backends, with explicitly recorded unsupported cases. A disagreement with a fixture, an unsupported required feature, or missing evidence for a mandatory claim blocks acceptance for that workload. Two candidates that pass the same cases can still differ in source complexity, diagnostics or the work needed to check a change.

@@ -241,6 +241,8 @@ For histories with multiple best common ancestors, the [native merge-base compar
 
 [Calculator call-site split](../language-design/RT-01/RT-01-CLI-CALL-SITE-REFACTOR-2026-11-25.md) compares source path, alias, retained pin and explicit per-call binding. The executed workload separates preserving the old contract from choosing an opt-in variant and from reconstructing the exact provider. Both warm-cache removals match native behavior and fail source closure.
 
+[Native worker settlement](../language-design/RT-01/RT-01-RESOURCE-WORKER-SETTLEMENT-2026-11-25.md) compares initial admission, a fresh effect gate and post-release terminal outcomes over the same two-client workload. An admission-only strategy allows revoked writes. Immediate terminal cancellation retains live resources at six response events. The guarded strategy matches the expected effects, results and descriptor lifecycle.
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.

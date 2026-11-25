@@ -432,6 +432,8 @@ The 2026-11-24 workload-fit recheck finds that DEP-095 is only partially satisfi
 
 ## 14. Hierarchical resource accounting and real-time enforcement (RT-26)
 
+[Native worker settlement](../language-design/RT-01/RT-01-RESOURCE-WORKER-SETTLEMENT-2026-11-25.md) links RT-01 workload expectations with the RT-04 and RT-26 resource boundary. A response sent before a file handle closes and a write attempted after cancellation fail separate observed requirements.
+
 RT-26 studies resource accounting and enforcement as a potential high-level LLMLang capability. Its central unit is a task or task scope, including nested and delegated task hierarchies. It must distinguish language-level contracts and policy from runtime mechanisms and OS/container enforcement. The research must not assume that every resource metric is available or enforceable with equal precision on every target.
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
