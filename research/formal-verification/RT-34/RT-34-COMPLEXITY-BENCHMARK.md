@@ -60,6 +60,8 @@ Each fixture must separate reference evidence from analyzer output, specify whet
 
 ## 4. Pilot and reporting
 
+[Binary-search cost](./RT-34-BINARY-SEARCH-PROBE-BOUNDS-2026-11-25.md) checks CXB-004 over the exact half-open interval model and a bounded native corpus. It records a progress mutation and an unsorted control.
+
 First implement CXB-001, 004, 005, 008, 009, 010, 016, 022, 023, 024, 026, 027, 029, 030. Use a small typed IR and explicit cost evaluator plus separately checked symbolic derivations. Pin source, profile, tool versions and baseline; publish commands, case manifest and raw artifacts. Compare manual contracts, symbolic inference, candidate proof generation and independently checked proof. For CF, evaluate omission, overconstraint, model ambiguity, and correct clarification. For POB, measure false proven/refuted claims, correct abstention, proof coverage, bound tightness, evidence strength, proof-check time, inference time, memory, cost, and incremental reuse. For problem lower bounds, check model/domain/theorem matching independently. Report per class; no aggregate score may hide unsound success.
 
-The [nested-loop pilot](RT-34-NESTED-LOOP-COST-2026-11-25.md) exercises CXB-008 with controls for CXB-022 and CXB-024. The other cases remain proposed. The matrix is not exhaustive and independent adjudication remains pending.
+The [nested-loop pilot](RT-34-NESTED-LOOP-COST-2026-11-25.md) exercises CXB-008 with controls for CXB-022 and CXB-024. Cases beyond these two pilots remain proposed. The matrix is not exhaustive and independent adjudication remains pending.

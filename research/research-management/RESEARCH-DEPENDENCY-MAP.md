@@ -612,6 +612,8 @@ These edges are research hypotheses, not implementation commitments. No backend 
 | DEP-210 | RT-34 → RT-09 | Influences | Resource-preserving lowering or separate target cost evidence. | Open hypothesis |
 | DEP-211 | RT-34 → RT-33 | Influences | New resource obligation forms and certificate capabilities. | Open hypothesis |
 
+The [binary-search cost pilot](../formal-verification/RT-34/RT-34-BINARY-SEARCH-PROBE-BOUNDS-2026-11-25.md) gives scoped evidence for DEP-201 and DEP-204. A checked halving recurrence bounds probes. Sortedness and conditional-test cost belong to separate claims.
+
 ## 23. Semantic Function Discovery and Retrieval (RT-35)
 
 RT-35 studies semantic retrieval as a Toolchain capability. Approximate similarity may find candidates, but only explicit compatibility evidence can authorize a candidate binding; invocation remains bound to an exact immutable function hash.
