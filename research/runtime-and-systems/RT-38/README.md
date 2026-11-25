@@ -68,6 +68,8 @@ The [RV64 trap and isolation study](RT-38-RV64-PMP-SV39-TRAP-ISOLATION-2026-11-2
 
 The [pinned RV64 freestanding profile](RT-38-RV64-FREESTANDING-PROFILE-2026-11-25.md) records shared startup requirements, privileged ABI, local translation and the scope of the archived pilot results.
 
+The [blocking endpoint lifecycle](RT-38-BLOCKING-ENDPOINT-LIFECYCLE-2026-11-25.md) checks a separate serialized model for wakeup, preemption, cancellation and generation changes.
+
 ## 5. seL4 precedent and a first translation check
 
 **Evidence** · Published prior art and a proposed experiment, reviewed against LLMLang baseline fe229c3215c42d8bded531d77bbef47761ac5770 on 2026-11-24.
