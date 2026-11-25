@@ -1592,6 +1592,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Estimated research complexity:** **10/10** — controlled comparative evaluation with real users/agents, correctness, repair effort, cost, and performance.
 
 - [ ] Define human-readable source and semantic review workflows.
+  - [ ] [WIP] Generate and check human-readable review packets bound to the same exact source, typed and observation inputs (#336).
 - [ ] Define diagnostics that explain semantic impact and failed contracts.
   - [x] Exercise versioned two-document repairs over LSP in 35 sessions. A stale version rejects the entire batch, but an unopened provider can change after server preflight and alter repair behavior. Scoped checking at application avoids the stale outcome and preserves unrelated edits in the fixture. General editor and Toolchain transaction integration remain open. [LSP repair application](research/toolchain-and-collaboration/RT-17/RT-17-LSP-REPAIR-APPLICATION-2026-11-24.md).
   - [x] Compare negotiated UTF-8, UTF-16 and UTF-32 positions and exact occurrence checks in 252 LSP sessions. Range-only application accepts 26 wrong edits. Token checks leave 12 wrong occurrences, and exact occurrence checks preserve all correct edits while rejecting those alternatives. Production editor and user evidence remain open. [LSP position encodings](research/toolchain-and-collaboration/RT-17/RT-17-LSP-POSITION-ENCODINGS-2026-11-25.md).
