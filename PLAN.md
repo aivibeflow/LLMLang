@@ -1107,6 +1107,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define capability and security model.
 - [ ] Define trusted low-level primitives and their contracts.
 - [ ] Define runtime versioning and its contribution to implementation identity.
+  - [ ] [WIP] Compare runtime interface identity, version labels and exact provider bytes against native call observations on `research/all`.
 
 **Status:** partially validated in bounded execution models. The atomic load and store fragment derives read-from and happens-before and checks all four coherence rules. An independent interleaving oracle agrees on global-order witnesses for 4,096 layouts. RMW predecessors, release sequences and three fence linkages were checked with complete finite outcome comparisons and two solvers. Broader mixed-order semantics, source correspondence and backend validation remain open. [RMW and fences](research/language-design/RT-04/RT-04-RMW-RELEASE-SEQUENCES-AND-FENCES-2026-11-24.md). [Coherence fixtures](research/language-design/RT-04/RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md) · [Execution relations](research/language-design/RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
 
