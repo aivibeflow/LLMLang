@@ -1736,7 +1736,7 @@ Research a typed, versioned object describing the task an agent is expected to p
 - [ ] Define the Knowledge Context ↔ Task Context relationship without making either the authority for the other's semantics.
 - [ ] Map both models onto RT-05/06 identity and dependency evidence, RT-02 requirements, RT-16 permissions, RT-19 workspaces/Change Sets, and RT-20 plan execution.
 - [ ] Validate that context manifests and task records are reproducible, inspectable, revision-bound, and fail closed on unknown completeness, stale baselines, or unauthorized reads/actions.
-  - [ ] [WIP] Connect exact Knowledge Context assembly, typed task completion evidence and separate publication authority (#341).
+  - [x] Check fourteen joint Knowledge/Task Context controls and 144 input permutations. Equal rendered prompts under changed scope or provenance cannot satisfy the old exact task binding. Four cases complete and two separately pass the grant gate. Production truth sources, workspace atomicity and controlled agent trials remain open. [Joint context validation](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-INTEGRATION-2026-11-25.md)
 - [ ] [WIP human] Compare agent performance with full-context, bounded-context, and deliberately incomplete-context conditions; measure task success, missed constraints, scope violations, token/context cost, review effort, and recovery behavior.
 - [ ] Record candidate schemas, lifecycle alternatives, invariants, falsifiers, compatibility dependencies, and a bounded prototype/test plan. Do not select language syntax or accept a normative architecture as a result of this planning entry.
 
