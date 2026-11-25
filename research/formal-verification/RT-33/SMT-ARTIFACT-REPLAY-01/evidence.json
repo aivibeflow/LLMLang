@@ -1,0 +1,167 @@
+{
+  "actual_stored_receipts": 6,
+  "binding_sources": {
+    "CpcNullaryAliases": "40e57e0d85784d8b8da06bc84e69135778729510726347abe4192a2b905654e0",
+    "LLMLangLogosBinding": "d97967f3743afce4e6c8d427e0fa9fed537a7d310ac8699b3745a12b598eea00",
+    "QfLiaQuery": "c170e2879925101292e4d58644a1af8c001d8b217110139fa034ff96171dd80d",
+    "SourceQuerySemantics": "d13ed2e95108aefe58dfc34bad79da83b187d5f12f64d8790a22ed77cd194ef3",
+    "SourceSyntax": "635b4b6599473a39f5cfab7779107e976ee052417fcd5fb608ac1d893651e080"
+  },
+  "controls": {
+    "alethe-changed-checker": "miss",
+    "alethe-invalid-rule": "refused",
+    "alethe-verdict-without-proof": "missing-alethe-certificate",
+    "alethe-with-hole": "holey",
+    "cpc-changed-checker": "miss",
+    "cpc-invalid-rule": "refused: Error: unknown rule unknown_fixture_rule\nError: failed to parse command (step @p3 false :rule unknown_fixture_rule :premises (@p1 @p2))",
+    "cpc-verdict-without-proof": "refused: missing-cpc-certificate",
+    "damaged-cache-payload": "damaged"
+  },
+  "initial_receipts": {
+    "alethe": "96c2f8f5d2b16e89f656ee0ccc1b46cdf4843ceba7831fc7a4ecc124c56af4a7",
+    "cpc": "575237505773acd1f31f0a39815bdfe412a503ef770632f71fae448bc40b1559"
+  },
+  "lean_shared": "e2c403b411497bbc325d0a26bf57ba0132271750bf6d84e32cd61a9db4777252",
+  "logos_modules": {
+    "Cpc/Api.olean": "dc2d0ffeb2e3e4bc3adf1e2346f69a8849ec0d55f65abf453d3ec93693fe07bf",
+    "Cpc/Logos.olean": "fad9d34bf90bbd902957c538ddd2bf656f199fc10db139ede633a982ca8a1490",
+    "Cpc/LogosTerm.olean": "1dc458a62e6111e9a78329dcc2c6a35d00e2c6f060c01414b3ebbd2a952aeca3",
+    "Cpc/LogosTermOrder.olean": "57f97d0d012ed7d97cb3ba187d14afb5e4783a8aac17e57b64367a80f9f376ad",
+    "Cpc/Parser.olean": "a68a528c16f11ab79eee9c1732f46732fa72afbb28b78eb9809a73184447b32b",
+    "Cpc/SmtEval.olean": "2332825b44ebc4532c55c4cf37aaee7b49d098b25e7336c5b77ccf0b7fea8687",
+    "Cpc/SmtSyntax.olean": "03b9f714b94765a1fef5111d22ea59b400f1d266057f172623c9f9461f2a4b4b",
+    "Cpc/SmtTranslate.olean": "82a5d9d77cca7f2f68055e28b762cf4412a311562e48f3bf5987ff1c7cd3160e",
+    "Cpc/SmtTyping.olean": "32d0e181da937e0413596839794c8dcacca81081c7949e6b24dfb0483808b0d1",
+    "Cpc/TranslationChecks.olean": "1b0128f38cb346384fc8e17260e52c9469a4e55e78215a5ebab249894b25fd49",
+    "Logos/Parser.olean": "052b268d5aaea8f53ce354c76482b7f4e7824109f388f527a0669ea59a2b8dc2",
+    "Logos/Parser/Core.olean": "7fe048ad89f7f6a67c26affef5ed2f73bd76041d12b4e0148f4cd628d324fe46",
+    "Logos/Parser/Datatypes.olean": "8bd4f901627a61849b70ffd7938e0821fdd2a2f3e21dae176d990bda737aee10",
+    "Logos/Sexp.olean": "daf34a071f7973eeed282c795bdaa5da31a6215c85e2f935e603efeb391efea7"
+  },
+  "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+  "scopes": {
+    "different-sat": {
+      "formats": {
+        "alethe": {
+          "exact_lookup": "miss",
+          "fresh_check": "missing-alethe-certificate",
+          "fresh_raw": "sat\n",
+          "generated_verdict": "sat",
+          "recheck_old": "refused"
+        },
+        "cpc": {
+          "exact_lookup": "miss",
+          "fresh_check": "refused: missing-cpc-certificate",
+          "fresh_raw": "sat\n",
+          "generated_verdict": "sat",
+          "recheck_old": "refused: assumptions-mismatch"
+        }
+      },
+      "independently_checked_model": 3,
+      "query_sha256": "22a26919101dfb3e60032f19ed90d983b7f94671c2c8baeef6406b74053589f5",
+      "source": {
+        "excluded": 7,
+        "required": 3,
+        "revision": "source-v4"
+      },
+      "source_digest": "f62e10596adba563431e68b96204c728f7871f2f565cc682ea7ace71573ec302",
+      "z3_verdict": "sat"
+    },
+    "different-unsat": {
+      "formats": {
+        "alethe": {
+          "exact_lookup": "miss",
+          "fresh_check": "checked",
+          "fresh_raw": "unsat\n(\n(assume a0 (! (= x 7) :named @p_1))\n(assume a1 (! (not @p_1) :named @p_2))\n(step t0 (cl) :rule resolution :premises (a0 a1) :args (@p_1 true))\n)\n",
+          "generated_verdict": "unsat",
+          "new_receipt": "49a4783cb98c59543bfbaba6427fffee16f2c16d13036083e8fda9c349921b97",
+          "recheck_old": "refused"
+        },
+        "cpc": {
+          "exact_lookup": "miss",
+          "fresh_check": "checked",
+          "fresh_raw": "unsat\n(\n(declare-const x Int)\n(define @t1 () (= x 7))\n(assume @p1 @t1)\n(assume @p2 (not @t1))\n(step @p3 false :rule contra :premises (@p1 @p2))\n)\n",
+          "generated_verdict": "unsat",
+          "new_receipt": "3145797eedb87fecafdc2d947bc32f8178fe70cdc68342d01181e52a3be1ef5d",
+          "recheck_old": "refused: assumptions-mismatch"
+        }
+      },
+      "query_sha256": "60a8e4eac532c7ee587806a7bdb5f7ad67f8f8933b2d801efabe864d5559510b",
+      "source": {
+        "excluded": 7,
+        "required": 7,
+        "revision": "source-v3"
+      },
+      "source_digest": "658603931e24b76e92ab9bc84b63f033d9ba4e79bb2224a8d7dbb04728af31ff",
+      "z3_verdict": "unsat"
+    },
+    "metadata-only": {
+      "formats": {
+        "alethe": {
+          "exact_lookup": "miss",
+          "fresh_check": "checked",
+          "fresh_raw": "unsat\n(\n(assume a0 (! (= x 3) :named @p_1))\n(assume a1 (! (not @p_1) :named @p_2))\n(step t0 (cl) :rule resolution :premises (a0 a1) :args (@p_1 true))\n)\n",
+          "generated_verdict": "unsat",
+          "new_receipt": "57098a2af56a60c3f94968ef5f0fd36bb7bba947b5771ca070309161db786771",
+          "recheck_old": "checked"
+        },
+        "cpc": {
+          "exact_lookup": "miss",
+          "fresh_check": "checked",
+          "fresh_raw": "unsat\n(\n(declare-const x Int)\n(define @t1 () (= x 3))\n(assume @p1 @t1)\n(assume @p2 (not @t1))\n(step @p3 false :rule contra :premises (@p1 @p2))\n)\n",
+          "generated_verdict": "unsat",
+          "new_receipt": "c62d6523daf3a6689c96e2bda6196660d01228d3b21bae3dc2d7c571e4f6a16f",
+          "recheck_old": "checked"
+        }
+      },
+      "query_sha256": "926b8d63f59cde13ec16dbaa6bf9de639bf49ad369f05cdf04f62679cd908302",
+      "source": {
+        "excluded": 3,
+        "required": 3,
+        "revision": "source-v2"
+      },
+      "source_digest": "9e527b209a951186cffae0dc480c49c454500f51a7c4c10aeb38f71230e1b3ba",
+      "z3_verdict": "unsat"
+    },
+    "original": {
+      "formats": {
+        "alethe": {
+          "exact_lookup": "hit",
+          "fresh_check": "checked",
+          "fresh_raw": "unsat\n(\n(assume a0 (! (= x 3) :named @p_1))\n(assume a1 (! (not @p_1) :named @p_2))\n(step t0 (cl) :rule resolution :premises (a0 a1) :args (@p_1 true))\n)\n",
+          "generated_verdict": "unsat",
+          "recheck_old": "checked"
+        },
+        "cpc": {
+          "exact_lookup": "hit",
+          "fresh_check": "checked",
+          "fresh_raw": "unsat\n(\n(declare-const x Int)\n(define @t1 () (= x 3))\n(assume @p1 @t1)\n(assume @p2 (not @t1))\n(step @p3 false :rule contra :premises (@p1 @p2))\n)\n",
+          "generated_verdict": "unsat",
+          "recheck_old": "checked"
+        }
+      },
+      "query_sha256": "926b8d63f59cde13ec16dbaa6bf9de639bf49ad369f05cdf04f62679cd908302",
+      "source": {
+        "excluded": 3,
+        "required": 3,
+        "revision": "source-v1"
+      },
+      "source_digest": "5c251dd6a1f2aab16d879a4f64d75cc284457b8ccc402bc8275476b1c2223927",
+      "z3_verdict": "unsat"
+    }
+  },
+  "source_revision": "481f748eed2ef3ba9057b014c8bc8706b9b846db",
+  "sqlite": "3.53.1",
+  "tool_hashes": {
+    "carcara": "8e4db8912497cd2b628c9d7f4f925b4601c2b9e4ffba91df5e980b61c70f2380",
+    "cvc5": "6aecddf466552b83bb5883756c7955e0c9d5ddcc6d7f45b48c2f6e06a741b102",
+    "lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+    "z3": "c28f5598836fe6312ed4b25a98525fb58e2800d4c4f8117a1daeb04e6327686c"
+  },
+  "tool_versions": {
+    "carcara": "carcara 1.1.0 [git none unknown]",
+    "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "z3": "Z3 version 4.13.3 - 64 bit"
+  }
+}
