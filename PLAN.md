@@ -2415,6 +2415,7 @@ After relevant research coverage is sufficient:
 ## 6.5 Synthesis status
 
 - [x] Enumerate and independently verify the bounded owned-result source-to-publication candidate space (#286). Python, Z3 and cvc5 agree on all 4,608 pairs. [Integrated candidate enumeration](research/research-management/planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
+- [ ] [WIP] Exercise native exact provider replacement through the scoped release admission interface on `research/all` (#286).
 
 The [scoped comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.md#52-comparisons-supported-by-the-november-24-reproductions) and [bounded toolchain route comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.md#53-bounded-toolchain-route-comparisons) record verified conditions for later whole-candidate comparison. The toolchain ledger checks shared integer source across three emitters and keeps measured JIT, verification, Git publication and runtime limits attached to their exact profiles.
 
