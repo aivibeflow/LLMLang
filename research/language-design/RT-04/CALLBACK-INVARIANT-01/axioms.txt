@@ -1,0 +1,4 @@
+'CallbackInvariant.endpointsPreserve' does not depend on any axioms
+'CallbackInvariant.preciseObserverCondition' depends on axioms: [propext]
+'CallbackInvariant.someSafeOrder' depends on axioms: [propext]
+'CallbackInvariant.rollbackKeepsEarlierExposure' does not depend on any axioms

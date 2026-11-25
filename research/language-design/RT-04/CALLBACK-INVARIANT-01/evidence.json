@@ -1,0 +1,63 @@
+{
+  "schema": "llmlang-callback-invariant/1",
+  "python": "3.12.14",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "sources_sha256": {
+    "run.py": "b5b8f457cd806bec297a3f6d5ed24a39b0f06629bc6ed17bd2e13d9950ac60cd",
+    "probe.c": "fe580d311a735274f68c0c126d24e330ef2dbdcf2173ec58f583541f2c7389f9",
+    "Bounds.lean": "7315e9d08ad30fcdc040dbfd43d66b19ce989708c5e6b55dc08f82d769552344",
+    "axioms.txt": "c0138168811727f0ec4ec26e1cf7bf9e99ad3eaad64aeb4e59cb19e515a1483c"
+  },
+  "native_rows_sha256": {
+    "-O0": "3d49447f09db8e136edcb3b68747a0905a75c6e1849af97bd7af9a8f7f84a525",
+    "-O2": "3d49447f09db8e136edcb3b68747a0905a75c6e1849af97bd7af9a8f7f84a525"
+  },
+  "counts": {
+    "valid_endpoint_pairs": 100,
+    "both_orders_safe": 70,
+    "exactly_one_order_safe": 30,
+    "profiles": 2048,
+    "admitted_profiles": 800,
+    "refused_profiles": 1248,
+    "final_only_false_admissions": 60,
+    "false_admissions_with_rollback": 30
+  },
+  "witnesses": {
+    "return_success": {
+      "before": [
+        0,
+        0
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "lower_first": true,
+      "observed": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    "rollback": {
+      "before": [
+        0,
+        0
+      ],
+      "target": [
+        1,
+        1
+      ],
+      "lower_first": true,
+      "observed": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ]
+    }
+  }
+}

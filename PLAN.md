@@ -383,8 +383,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 
 **Estimated research complexity:** **6/10** — requires formal compatibility/refinement criteria and evidence rules, integrated with identity and call binding.
 
-- [ ] Define contract structure and semantics: preconditions, postconditions, invariants, effects, errors, state transitions, and assumptions.
-  - [ ] [WIP] Compare boundary-only invariants with reentrant observer obligations and failure rollback in a two-cell state contract on `research/all`.
+- [x] Define contract structure and semantics: preconditions, postconditions, invariants, effects, errors, state transitions, and assumptions.
+  - [x] Define entry and result obligations, state-transition errors, declared callback effects and assumptions in a bounded two-cell contract. Both GCC profiles match 2,048 rows, endpoint-only checking falsely admits 60 invalid observations, and 30 remain visible after rollback. Lean checks the exact observer condition. [Callback contract invariant](research/language-design/RT-04/RT-04-CALLBACK-CONTRACT-INVARIANT-2026-11-25.md)
 - [ ] Define the difference between exact contract equality, refinement, substitutability, and behavioral equivalence.
   - [x] Compare refinement on 261,121 ordered finite contract pairs. The shared-domain shortcut accepts 19,110 pairs that fail full refinement. Two conforming bodies return the same value with different effect order. [RT-04 finite contract relations](research/language-design/RT-04/RT-04-CONTRACT-RELATIONS-FINITE-COMPARISON-2026-11-25.md)
 - [x] Define how one operation can have many implementations and how one implementation can satisfy multiple contracts.
