@@ -229,6 +229,8 @@ python3 -B "$study/check.py" --output /tmp/llmlang-toolchain-option-evidence.jso
 cmp "$study/evidence.json" /tmp/llmlang-toolchain-option-evidence.json
 ```
 
+[Configuration-bound caller coverage](../toolchain-and-collaboration/RT-24/RT-24-CONFIG-CALLER-COVERAGE-2026-11-25.md) compares caller-source, selected flag, all-profile union and exact build-profile coverage over 32 native builds. A changed header can alter the active target with identical caller bytes. Equal edges also leave the receipt tied to the original build profile.
+
 [Cross-map export proof](../toolchain-and-collaboration/RT-24/RT-24-CROSS-MAP-EXPORT-PROOF-2026-11-25.md) compares native Git success, reference closure, contract-level receipt presence and exact selected-tuple evidence. All 18 native candidates are clean, while six satisfy the exact operation, provider, ABI and input-scope check. Use the combined selection to validate export proof coverage before advancing a ref.
 
 [Versioned I64 Git merge](../toolchain-and-collaboration/RT-24/RT-24-VERSIONED-I64-GIT-MERGE-2026-11-25.md) compares a hard version cutover, ordinary JavaScript numbers, exact dual reads and exact dual reads with parent-root checks. The last policy admits all six unique bounded results and refuses all six invalid or unresolved histories. This separates a physical format upgrade from a semantic change.
