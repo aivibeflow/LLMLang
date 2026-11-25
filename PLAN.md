@@ -1089,7 +1089,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Estimated research complexity:** **6/10** — repository mapping and semantic versioning need consistency with SPG identity.
 
-- [ ] Define the canonical Git-visible representation of a semantic program.
+- [ ] [WIP] Define the canonical Git-visible representation of a semantic program.
   - [x] Check a versioned candidate with exact roots, canonical records and required reverse metadata in native SHA-1 and SHA-256 Git repositories. Canonical production identity and layout remain open. [Closed Git representation](research/toolchain-and-collaboration/RT-27/RT-27-GIT-CLOSED-REPRESENTATION-2026-11-25.md)
 - [x] Compare storing canonical serialized semantic objects directly in Git with storing KV-backed objects plus repository manifests.
   - [x] Compare 12 selected native commits across three layouts and two Git formats. Packed Git carries 43 graph objects in three tracked files. Manifest-only cases require the exact external KV bytes. [Closed Git representation](research/toolchain-and-collaboration/RT-27/RT-27-GIT-CLOSED-REPRESENTATION-2026-11-25.md)
