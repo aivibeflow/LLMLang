@@ -1,0 +1,381 @@
+{
+  "schema": "llmlang-rt02-scoped-provenance/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "research/language-design/RT-02/SCOPED-PROVENANCE-01/run.py": "e129da896612ee6b2547c4dd52742f85a5e46efea01f55f4c7d072a5afa3ffe8",
+    "research/language-design/RT-02/CLAUSE-PROVENANCE-01/run.py": "577d8c873c2762b844ba834db6f083fa2fdf19dd95811b5aa4e8699074091965",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "sources": {
+    "default": "Require confirmation within five seconds for every order with a successful reservation.",
+    "retail": "For successful retail reservations, use seven seconds.",
+    "prohibition": "Do not auto-confirm any order whose reservation failed."
+  },
+  "contexts": [
+    [
+      "retail",
+      "succeeded"
+    ],
+    [
+      "retail",
+      "failed"
+    ],
+    [
+      "wholesale",
+      "succeeded"
+    ],
+    [
+      "wholesale",
+      "failed"
+    ]
+  ],
+  "interpretations": {
+    "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0": {
+      "source": "default",
+      "revision": "6b5562cd88c8e73d1e7dcaa3013be00a3b272c395aed4713f227f901d33c3912",
+      "start": 21,
+      "end": 40,
+      "quote": "within five seconds",
+      "scope": "all-success",
+      "field": "deadline",
+      "value": "5",
+      "authority": "stakeholder",
+      "supersedes": null
+    },
+    "affa3fba8f0409fc02dd65a937103b4f7b5f36ef3eaede0e804e796629db5103": {
+      "source": "retail",
+      "revision": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+      "start": 36,
+      "end": 53,
+      "quote": "use seven seconds",
+      "scope": "retail-success",
+      "field": "deadline",
+      "value": "7",
+      "authority": "stakeholder",
+      "supersedes": null
+    },
+    "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0": {
+      "source": "prohibition",
+      "revision": "75084e6d6dd72528e7a98322c197582b6c6b0e9cce045f9a2028dfc78c69d0de",
+      "start": 0,
+      "end": 19,
+      "quote": "Do not auto-confirm",
+      "scope": "all-failure",
+      "field": "automatic-confirmation",
+      "value": "forbidden",
+      "authority": "stakeholder",
+      "supersedes": null
+    },
+    "be40765960d964d789fa649adfed320a2f4628a1508c1485fe3ff75f9f97b141": {
+      "source": "retail",
+      "revision": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+      "start": 36,
+      "end": 53,
+      "quote": "use seven seconds",
+      "scope": "retail-success",
+      "field": "deadline",
+      "value": "7",
+      "authority": "stakeholder",
+      "supersedes": "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0"
+    },
+    "837044ec2ead2d67ba3f3b88643a441e1a7cf91397cda38ed67d76116f5312e2": {
+      "source": "retail",
+      "revision": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+      "start": 36,
+      "end": 53,
+      "quote": "use seven seconds",
+      "scope": "all",
+      "field": "deadline",
+      "value": "7",
+      "authority": "stakeholder",
+      "supersedes": "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0"
+    },
+    "d616a776a50fd3316f91430c01464d1e6940e36d4c274871e013be5e4576166b": {
+      "source": "retail",
+      "revision": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+      "start": 36,
+      "end": 53,
+      "quote": "use seven seconds",
+      "scope": "retail-success",
+      "field": "deadline",
+      "value": "7",
+      "authority": "proposal-agent",
+      "supersedes": "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0"
+    },
+    "823b79b1e5a03f9659159a7fc7ce85e20a9a94a28bd85750b8f98739209d31b8": {
+      "source": "retail",
+      "revision": "0dd98033dc4b54fdf3aae5ff281fc1fee8f54f85ea79190db3daebefd6e05d8e",
+      "start": 36,
+      "end": 53,
+      "quote": "use seven seconds",
+      "scope": "international",
+      "field": "deadline",
+      "value": "7",
+      "authority": "stakeholder",
+      "supersedes": null
+    }
+  },
+  "cases": {
+    "complete_default": {
+      "status": "GROUNDED",
+      "defects": {},
+      "cells": {
+        "retail/succeeded": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "5"
+          ],
+          "current_support": [
+            "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0"
+          ],
+          "replaced_in_scope": []
+        },
+        "retail/failed": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "forbidden"
+          ],
+          "current_support": [
+            "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+          ],
+          "replaced_in_scope": []
+        },
+        "wholesale/succeeded": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "5"
+          ],
+          "current_support": [
+            "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0"
+          ],
+          "replaced_in_scope": []
+        },
+        "wholesale/failed": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "forbidden"
+          ],
+          "current_support": [
+            "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+          ],
+          "replaced_in_scope": []
+        }
+      },
+      "selected": [
+        "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0",
+        "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+      ]
+    },
+    "implicit_narrower_rule": {
+      "status": "UNKNOWN_EVIDENCE",
+      "defects": {},
+      "cells": {
+        "retail/succeeded": {
+          "status": "CONFLICT",
+          "alternatives": [
+            "5",
+            "7"
+          ],
+          "current_support": [
+            "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0",
+            "affa3fba8f0409fc02dd65a937103b4f7b5f36ef3eaede0e804e796629db5103"
+          ],
+          "replaced_in_scope": []
+        },
+        "retail/failed": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "forbidden"
+          ],
+          "current_support": [
+            "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+          ],
+          "replaced_in_scope": []
+        },
+        "wholesale/succeeded": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "5"
+          ],
+          "current_support": [
+            "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0"
+          ],
+          "replaced_in_scope": []
+        },
+        "wholesale/failed": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "forbidden"
+          ],
+          "current_support": [
+            "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+          ],
+          "replaced_in_scope": []
+        }
+      },
+      "selected": [
+        "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0",
+        "affa3fba8f0409fc02dd65a937103b4f7b5f36ef3eaede0e804e796629db5103",
+        "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+      ]
+    },
+    "exact_local_override": {
+      "status": "GROUNDED",
+      "defects": {},
+      "cells": {
+        "retail/succeeded": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "7"
+          ],
+          "current_support": [
+            "be40765960d964d789fa649adfed320a2f4628a1508c1485fe3ff75f9f97b141"
+          ],
+          "replaced_in_scope": [
+            "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0"
+          ]
+        },
+        "retail/failed": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "forbidden"
+          ],
+          "current_support": [
+            "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+          ],
+          "replaced_in_scope": []
+        },
+        "wholesale/succeeded": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "5"
+          ],
+          "current_support": [
+            "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0"
+          ],
+          "replaced_in_scope": []
+        },
+        "wholesale/failed": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "forbidden"
+          ],
+          "current_support": [
+            "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+          ],
+          "replaced_in_scope": []
+        }
+      },
+      "selected": [
+        "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0",
+        "be40765960d964d789fa649adfed320a2f4628a1508c1485fe3ff75f9f97b141",
+        "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+      ]
+    },
+    "override_exceeds_parent_scope": {
+      "status": "UNKNOWN_EVIDENCE",
+      "defects": {
+        "837044ec2ead2d67ba3f3b88643a441e1a7cf91397cda38ed67d76116f5312e2": "INVALID_OVERRIDE"
+      },
+      "cells": {},
+      "selected": [
+        "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0",
+        "837044ec2ead2d67ba3f3b88643a441e1a7cf91397cda38ed67d76116f5312e2",
+        "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+      ]
+    },
+    "uncovered_wholesale": {
+      "status": "UNKNOWN_EVIDENCE",
+      "defects": {},
+      "cells": {
+        "retail/succeeded": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "7"
+          ],
+          "current_support": [
+            "affa3fba8f0409fc02dd65a937103b4f7b5f36ef3eaede0e804e796629db5103"
+          ],
+          "replaced_in_scope": []
+        },
+        "retail/failed": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "forbidden"
+          ],
+          "current_support": [
+            "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+          ],
+          "replaced_in_scope": []
+        },
+        "wholesale/succeeded": {
+          "status": "UNCOVERED",
+          "alternatives": [],
+          "current_support": [],
+          "replaced_in_scope": []
+        },
+        "wholesale/failed": {
+          "status": "GROUNDED",
+          "alternatives": [
+            "forbidden"
+          ],
+          "current_support": [
+            "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+          ],
+          "replaced_in_scope": []
+        }
+      },
+      "selected": [
+        "affa3fba8f0409fc02dd65a937103b4f7b5f36ef3eaede0e804e796629db5103",
+        "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+      ]
+    },
+    "stale_override_source": {
+      "status": "UNKNOWN_EVIDENCE",
+      "defects": {
+        "be40765960d964d789fa649adfed320a2f4628a1508c1485fe3ff75f9f97b141": "STALE_SOURCE_REVISION"
+      },
+      "cells": {},
+      "selected": [
+        "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0",
+        "be40765960d964d789fa649adfed320a2f4628a1508c1485fe3ff75f9f97b141",
+        "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+      ]
+    },
+    "unauthorized_override": {
+      "status": "UNKNOWN_EVIDENCE",
+      "defects": {
+        "d616a776a50fd3316f91430c01464d1e6940e36d4c274871e013be5e4576166b": "UNAUTHORIZED"
+      },
+      "cells": {},
+      "selected": [
+        "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0",
+        "d616a776a50fd3316f91430c01464d1e6940e36d4c274871e013be5e4576166b",
+        "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+      ]
+    },
+    "unknown_scope": {
+      "status": "UNKNOWN_EVIDENCE",
+      "defects": {
+        "823b79b1e5a03f9659159a7fc7ce85e20a9a94a28bd85750b8f98739209d31b8": "UNKNOWN_SCOPE"
+      },
+      "cells": {},
+      "selected": [
+        "0553a0b62a1a5a775648ad1acaab7a311d7d77a7da06aef5ce3c27daa5dc5dd0",
+        "823b79b1e5a03f9659159a7fc7ce85e20a9a94a28bd85750b8f98739209d31b8",
+        "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+      ]
+    },
+    "override_missing_exact_parent": {
+      "status": "UNKNOWN_EVIDENCE",
+      "defects": {
+        "be40765960d964d789fa649adfed320a2f4628a1508c1485fe3ff75f9f97b141": "INVALID_OVERRIDE"
+      },
+      "cells": {},
+      "selected": [
+        "be40765960d964d789fa649adfed320a2f4628a1508c1485fe3ff75f9f97b141",
+        "505a8624eb4d18a35bd769dd4e7a534e7708ae035f6c08d315ffb0d40c8162c0"
+      ]
+    }
+  }
+}
