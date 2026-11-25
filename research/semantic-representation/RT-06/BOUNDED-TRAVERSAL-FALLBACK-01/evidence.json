@@ -1,0 +1,1455 @@
+{
+  "cases": 80,
+  "counts": {
+    "exact": 70,
+    "prefix_only_loses_outcomes": 44,
+    "revalidate-broader-scope": 45,
+    "unknown": 45
+  },
+  "profiles": {
+    "12/1/256": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 2,
+      "visits": 71
+    },
+    "12/1/4096": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 2,
+      "visits": 71
+    },
+    "12/1/64": {
+      "coarse_inventory_size": 2,
+      "complete": false,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 2,
+      "visits": 64
+    },
+    "12/1/65536": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 2,
+      "visits": 71
+    },
+    "12/12/256": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 60,
+      "visits": 256
+    },
+    "12/12/4096": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 1023,
+      "visits": 4096
+    },
+    "12/12/64": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 12,
+      "visits": 64
+    },
+    "12/12/65536": {
+      "coarse_inventory_size": 4096,
+      "complete": true,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 4096
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 4096,
+      "visits": 16381
+    },
+    "12/16/256": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 60,
+      "visits": 256
+    },
+    "12/16/4096": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 1023,
+      "visits": 4096
+    },
+    "12/16/64": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 12,
+      "visits": 64
+    },
+    "12/16/65536": {
+      "coarse_inventory_size": 65536,
+      "complete": true,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 4096
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 4096,
+      "visits": 16381
+    },
+    "12/4/256": {
+      "coarse_inventory_size": 16,
+      "complete": false,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 9,
+      "visits": 256
+    },
+    "12/4/4096": {
+      "coarse_inventory_size": 16,
+      "complete": true,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 16
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 16,
+      "visits": 445
+    },
+    "12/4/64": {
+      "coarse_inventory_size": 16,
+      "complete": false,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 2,
+      "visits": 64
+    },
+    "12/4/65536": {
+      "coarse_inventory_size": 16,
+      "complete": true,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 16
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 16,
+      "visits": 445
+    },
+    "12/8/256": {
+      "coarse_inventory_size": 256,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 15,
+      "visits": 256
+    },
+    "12/8/4096": {
+      "coarse_inventory_size": 256,
+      "complete": true,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 256
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 256,
+      "visits": 4093
+    },
+    "12/8/64": {
+      "coarse_inventory_size": 256,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 3,
+      "visits": 64
+    },
+    "12/8/65536": {
+      "coarse_inventory_size": 256,
+      "complete": true,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 256
+        }
+      },
+      "graph_nodes": 37,
+      "partial_outcomes": 256,
+      "visits": 4093
+    },
+    "16/1/256": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 2,
+      "visits": 95
+    },
+    "16/1/4096": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 2,
+      "visits": 95
+    },
+    "16/1/64": {
+      "coarse_inventory_size": 2,
+      "complete": false,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 1,
+      "visits": 64
+    },
+    "16/1/65536": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 2,
+      "visits": 95
+    },
+    "16/12/256": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 15,
+      "visits": 256
+    },
+    "16/12/4096": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 255,
+      "visits": 4096
+    },
+    "16/12/64": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 3,
+      "visits": 64
+    },
+    "16/12/65536": {
+      "coarse_inventory_size": 4096,
+      "complete": true,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 4096
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 4096,
+      "visits": 65533
+    },
+    "16/16/256": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 65536,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 58,
+      "visits": 256
+    },
+    "16/16/4096": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 65536,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 1020,
+      "visits": 4096
+    },
+    "16/16/64": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 65536,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 9,
+      "visits": 64
+    },
+    "16/16/65536": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 65536,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 16383,
+      "visits": 65536
+    },
+    "16/4/256": {
+      "coarse_inventory_size": 16,
+      "complete": false,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 6,
+      "visits": 256
+    },
+    "16/4/4096": {
+      "coarse_inventory_size": 16,
+      "complete": true,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 16
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 16,
+      "visits": 637
+    },
+    "16/4/64": {
+      "coarse_inventory_size": 16,
+      "complete": false,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 1,
+      "visits": 64
+    },
+    "16/4/65536": {
+      "coarse_inventory_size": 16,
+      "complete": true,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 16
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 16,
+      "visits": 637
+    },
+    "16/8/256": {
+      "coarse_inventory_size": 256,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 9,
+      "visits": 256
+    },
+    "16/8/4096": {
+      "coarse_inventory_size": 256,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 146,
+      "visits": 4096
+    },
+    "16/8/64": {
+      "coarse_inventory_size": 256,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 2,
+      "visits": 64
+    },
+    "16/8/65536": {
+      "coarse_inventory_size": 256,
+      "complete": true,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 256
+        }
+      },
+      "graph_nodes": 49,
+      "partial_outcomes": 256,
+      "visits": 7165
+    },
+    "20/1/256": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 2,
+      "visits": 119
+    },
+    "20/1/4096": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 2,
+      "visits": 119
+    },
+    "20/1/64": {
+      "coarse_inventory_size": 2,
+      "complete": false,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 1,
+      "visits": 64
+    },
+    "20/1/65536": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 2,
+      "visits": 119
+    },
+    "20/12/256": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 8,
+      "visits": 256
+    },
+    "20/12/4096": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 146,
+      "visits": 4096
+    },
+    "20/12/64": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 1,
+      "visits": 64
+    },
+    "20/12/65536": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 4096,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 2340,
+      "visits": 65536
+    },
+    "20/16/256": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 65536,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 14,
+      "visits": 256
+    },
+    "20/16/4096": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 65536,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 255,
+      "visits": 4096
+    },
+    "20/16/64": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 65536,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 2,
+      "visits": 64
+    },
+    "20/16/65536": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 65536,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 4095,
+      "visits": 65536
+    },
+    "20/4/256": {
+      "coarse_inventory_size": 16,
+      "complete": false,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 5,
+      "visits": 256
+    },
+    "20/4/4096": {
+      "coarse_inventory_size": 16,
+      "complete": true,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 16
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 16,
+      "visits": 829
+    },
+    "20/4/64": {
+      "coarse_inventory_size": 16,
+      "complete": false,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 1,
+      "visits": 64
+    },
+    "20/4/65536": {
+      "coarse_inventory_size": 16,
+      "complete": true,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 16
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 16,
+      "visits": 829
+    },
+    "20/8/256": {
+      "coarse_inventory_size": 256,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 6,
+      "visits": 256
+    },
+    "20/8/4096": {
+      "coarse_inventory_size": 256,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 102,
+      "visits": 4096
+    },
+    "20/8/64": {
+      "coarse_inventory_size": 256,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 1,
+      "visits": 64
+    },
+    "20/8/65536": {
+      "coarse_inventory_size": 256,
+      "complete": true,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 256
+        }
+      },
+      "graph_nodes": 61,
+      "partial_outcomes": 256,
+      "visits": 10237
+    },
+    "8/1/256": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 2,
+      "visits": 47
+    },
+    "8/1/4096": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 2,
+      "visits": 47
+    },
+    "8/1/64": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 2,
+      "visits": 47
+    },
+    "8/1/65536": {
+      "coarse_inventory_size": 2,
+      "complete": true,
+      "exact_outcomes": 2,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 2
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 2
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 2,
+      "visits": 47
+    },
+    "8/12/256": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 63,
+      "visits": 256
+    },
+    "8/12/4096": {
+      "coarse_inventory_size": 4096,
+      "complete": true,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 256
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 256,
+      "visits": 1021
+    },
+    "8/12/64": {
+      "coarse_inventory_size": 4096,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 4096
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 14,
+      "visits": 64
+    },
+    "8/12/65536": {
+      "coarse_inventory_size": 4096,
+      "complete": true,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 256
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 256,
+      "visits": 1021
+    },
+    "8/16/256": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 63,
+      "visits": 256
+    },
+    "8/16/4096": {
+      "coarse_inventory_size": 65536,
+      "complete": true,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 256
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 256,
+      "visits": 1021
+    },
+    "8/16/64": {
+      "coarse_inventory_size": 65536,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 65536
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 14,
+      "visits": 64
+    },
+    "8/16/65536": {
+      "coarse_inventory_size": 65536,
+      "complete": true,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 256
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 256,
+      "visits": 1021
+    },
+    "8/4/256": {
+      "coarse_inventory_size": 16,
+      "complete": true,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 16
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 16,
+      "visits": 253
+    },
+    "8/4/4096": {
+      "coarse_inventory_size": 16,
+      "complete": true,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 16
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 16,
+      "visits": 253
+    },
+    "8/4/64": {
+      "coarse_inventory_size": 16,
+      "complete": false,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 4,
+      "visits": 64
+    },
+    "8/4/65536": {
+      "coarse_inventory_size": 16,
+      "complete": true,
+      "exact_outcomes": 16,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 16
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 16
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 16,
+      "visits": 253
+    },
+    "8/8/256": {
+      "coarse_inventory_size": 256,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 63,
+      "visits": 256
+    },
+    "8/8/4096": {
+      "coarse_inventory_size": 256,
+      "complete": true,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 256
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 256,
+      "visits": 1021
+    },
+    "8/8/64": {
+      "coarse_inventory_size": 256,
+      "complete": false,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "revalidate-broader-scope",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "unknown",
+          "outcome_count": null
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 14,
+      "visits": 64
+    },
+    "8/8/65536": {
+      "coarse_inventory_size": 256,
+      "complete": true,
+      "exact_outcomes": 256,
+      "fallbacks": {
+        "checked": {
+          "decision": "exact",
+          "outcome_count": 256
+        },
+        "unavailable": {
+          "decision": "exact",
+          "outcome_count": 256
+        }
+      },
+      "graph_nodes": 25,
+      "partial_outcomes": 256,
+      "visits": 1021
+    }
+  },
+  "sources_sha256": {
+    "diamond_fixture": "aad6506dfb989c4c7a0a2cce03d750046883652dcfd794b04be8c556afb2392d",
+    "runner": "daf03631e974e3a0025985fb472d15682678276ad5d4448e78a971e0ef0079bc"
+  }
+}
