@@ -78,12 +78,12 @@ There are no missing upstream paths, unmanifested local snapshot files, or blob 
 GitHub reports valid verified signatures for all four upstream commits listed above. The local `SNAPSHOT-MANIFEST.json` is not itself signed; it records the pinned commits, trees, and blob identities but is not a signed provenance attestation.
 
 - **MCP:** the schema contains 155 top-level `$defs` and 277 local `$ref` references; all local references resolve. This is a JSON syntax/reference check, not full JSON Schema meta-schema validation.
-- **MCP documentation pages:** the global link audit found 44 unresolved root-absolute upstream-site path occurrences across `authorization.mdx` (11), `basic-index.mdx` (23), and `transports.mdx` (10), pointing to omitted pages under the pinned specification tree and `docs/draft`. This is separate from schema `$ref` closure; the selected documentation snapshot is not self-contained.
+- **MCP documentation pages:** the global link audit found 44 unresolved root-absolute upstream-site path occurrences across `authorization.mdx` (11), `basic-index.mdx` (23), and `transports.mdx` (10), pointing to upstream site routes under the pinned specification tree and `docs/draft`. Two routes reach existing local source copies under distinct local paths. The other occurrences target omitted pages. This is separate from schema `$ref` closure; the selected documentation snapshot is not self-contained.
 - **OCI:** the three copied specification documents contain 32 unresolved relative-link occurrences pointing to seven documents not included in this partial snapshot.
 - **Alive2:** the copied README contains six unresolved relative-link occurrences (five image assets and `BugList.md`). Only README and MIT license are copied; the Alive2 tool source is not.
 - **REAPI:** the copied `remote_execution.proto` imports eight other proto files. The local snapshot contains none of them; one is present in the pinned upstream repository and seven are external Google API/Protobuf files. This is a source-file reference, not a self-contained proto compilation closure.
 
-These completeness limits do not affect the verified 13/13 upstream/local blob identity. Do not treat a partial snapshot as a self-contained build or documentation bundle.
+The [pinned route check](../research-management/RT-00/RT-00-PINNED-SNAPSHOT-ROUTES-2026-11-25.md) resolves all 82 documentation failures to exact upstream files and documents the remaining MCP fragment ambiguity. These completeness limits do not affect the verified 13/13 upstream/local blob identity. Do not treat a partial snapshot as a self-contained build or documentation bundle.
 
 
 ### 6.2 Curated external-reference reachability check
