@@ -75,6 +75,7 @@ The [live frame lifecycle](RT-38-LIVE-FRAME-QUIESCENCE-2026-11-25.md) checks pub
 The [HAL lowering comparison](RT-38-RV64-HAL-AND-INTRINSICS-2026-11-25.md) checks three exact linked leaf operations and guest link closure.
 The [executable HAL comparison](RT-38-RV64-HAL-QEMU-2026-11-25.md) boots the exact assembly and LLVM leaves through local Sv39 remap and revocation.
 The [timer preemption pilot](RT-38-RV64-TIMER-PREEMPTION-2026-11-25.md) checks interrupt-driven context restoration and bounded progress for two user tasks.
+The [preemptive IPC pilot](RT-38-RV64-PREEMPTIVE-IPC-2026-11-25.md) checks blocked receivers, timer scheduling, generation revocation and private stack mappings in one guest.
 
 The [joint mapping and IPC model](RT-38-COMPOSED-MAPPING-AND-IPC-2026-11-25.md) checks admission and suspension over the existing frame and receiver proofs.
 

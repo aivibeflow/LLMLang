@@ -11,6 +11,7 @@ This direction groups related research studies without changing their RT identif
 - [Embedded systems and operating-system kernels](embedded-and-kernels/README.md) · RT-37, RT-38
 - [RT-38 executable HAL comparison](RT-38/RT-38-RV64-HAL-QEMU-2026-11-25.md) checks linked RV64 HAL observations through Sv39 remap and revocation in QEMU.
 - [RT-38 timer preemption](RT-38/RT-38-RV64-TIMER-PREEMPTION-2026-11-25.md) checks real machine timer delivery, task context and bounded runnable progress.
+- [RT-38 preemptive IPC](RT-38/RT-38-RV64-PREEMPTIVE-IPC-2026-11-25.md) checks wakeup and generation revocation across two live Sv39 roots.
 
 ## Studies
 
