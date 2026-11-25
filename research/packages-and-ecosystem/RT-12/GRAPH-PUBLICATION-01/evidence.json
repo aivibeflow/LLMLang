@@ -1,0 +1,89 @@
+{
+  "schema": "llmlang-rt12-graph-publication/1",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "journal_mode": "wal",
+  "runner_sha256": "b0d57c3672aa4eb8f9f69600feec9e35bf2cce8670cbdecc1ec08d8201950816",
+  "graphs": {
+    "old": {
+      "nodes": [
+        "caller",
+        "alpha"
+      ],
+      "edges": [
+        [
+          "caller",
+          "alpha",
+          "invoke"
+        ]
+      ]
+    },
+    "new": {
+      "nodes": [
+        "caller",
+        "beta"
+      ],
+      "edges": [
+        [
+          "caller",
+          "beta",
+          "invoke"
+        ]
+      ]
+    }
+  },
+  "roots": {
+    "old": "782831ff66e7506516441b825ad8b1996c915d1a9d0997aaab1329e6ae1fff45",
+    "new": "5fcc350004b10cac14d281fecb729edead05d260289947ce01d4ebf27344f859"
+  },
+  "results": {
+    "atomic_before_commit": {
+      "selected": "old",
+      "epoch": 0,
+      "selected_complete": true,
+      "candidate_present": false,
+      "candidate_complete": false,
+      "process_exit": 41
+    },
+    "atomic_after_commit": {
+      "selected": "new",
+      "epoch": 1,
+      "selected_complete": true,
+      "candidate_present": true,
+      "candidate_complete": true,
+      "process_exit": 42
+    },
+    "split_head_first": {
+      "selected": "new",
+      "epoch": 1,
+      "selected_complete": false,
+      "candidate_present": true,
+      "candidate_complete": false,
+      "process_exit": 43
+    },
+    "prepared_before_head": {
+      "selected": "old",
+      "epoch": 0,
+      "selected_complete": true,
+      "candidate_present": true,
+      "candidate_complete": true,
+      "process_exit": 44
+    },
+    "stale_epoch": {
+      "selected": "old",
+      "epoch": 1,
+      "selected_complete": true,
+      "candidate_present": false,
+      "candidate_complete": false,
+      "process_exit": 45
+    },
+    "wrong_receipt": {
+      "selected": "old",
+      "epoch": 0,
+      "selected_complete": true,
+      "candidate_present": false,
+      "candidate_complete": false,
+      "process_exit": 46
+    }
+  }
+}

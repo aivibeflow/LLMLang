@@ -16,3 +16,4 @@ This direction groups related research studies without changing their RT identif
 - [PROTOTYPES](PROTOTYPES/)
 - [examples](examples/)
 - [RT-12 snapshot-bound reverse index](RT-12/RT-12-SNAPSHOT-BOUND-REVERSE-INDEX-2026-11-25.md) — verifies indexed occurrence completeness and exact reader snapshot binding.
+- [RT-12 atomic graph publication](RT-12/RT-12-ATOMIC-GRAPH-PUBLICATION-2026-11-25.md) — checks graph, index and receipt consistency across actual process exits.

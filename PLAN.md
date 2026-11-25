@@ -880,7 +880,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define indexes for graph traversal, reverse dependencies, contracts, and implementation discovery.
   - [x] Compare eight SQLite reverse projections across six queries. Only exact typed occurrence inventories are admitted, and all 48 checked/fallback results agree. A WAL schedule shows why validation and lookup must share a read snapshot or immutable generation. [RT-12 snapshot-bound reverse index](research/packages-and-ecosystem/RT-12/RT-12-SNAPSHOT-BOUND-REVERSE-INDEX-2026-11-25.md)
 - [ ] Define transactions and atomic publication of graph revisions.
-  - [ ] [WIP] Compare atomic graph-root, index and receipt publication with split transactions under actual SQLite process exits on `research/all`.
+  - [x] Check six SQLite WAL writer-process exits. Atomic publication preserves a complete selected graph, reverse projection and receipt at both commit boundaries. A split head-first writer exposes an incomplete revision; a stale epoch and wrong-root receipt are withheld. [RT-12 atomic graph publication](research/packages-and-ecosystem/RT-12/RT-12-ATOMIC-GRAPH-PUBLICATION-2026-11-25.md)
 - [ ] Define garbage collection and reachability.
   - [x] Compare six real SQLite WAL schedules for stale mark/sweep, generation recheck, writer exclusion, multiple leases, cycles and incomplete closure. The unchecked plan loses a newly published root; the generation recheck preserves it after retry. External CAS lifetime and recovery remain open. [RT-12 reachability sweep](research/packages-and-ecosystem/RT-12/RT-12-REACHABILITY-SWEEP-2026-11-25.md)
 - [ ] Define crash recovery, corruption detection, backup, and replication.
