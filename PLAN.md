@@ -812,6 +812,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Establish the version-identity split for cache records: composite `LanguageVersion`, append-only component-registry digest, and separate `ToolchainIdentity`; record the candidate design in `research/LANGUAGE-VERSIONING.md`.
 - [x] Add an experimental version-bound cache-record validator and tests covering language-version, registry-digest, and toolchain changes to Action Key inputs. This remains a prototype, not a normative cache-index format.
 - [ ] Bind every cached result to exact Action Key inputs and complete dependency closure; define compatibility evidence for reuse across different language or toolchain identities.
+  - [ ] [WIP] Compare cross-toolchain observation compatibility, exact artifact reuse, and scoped evidence receipts for a finite native operation on `research/all`.
 - [ ] Define cache-index merge, conflict handling, artifact availability/eviction, and trust/evidence checks.
   - [x] Check 23 scoped index merge and lookup controls across the existing schema validator. All 24 contributing orders agree. Authorized result conflicts, missing/corrupt payloads, stale attestations and output shape block exact reuse separately. Durable publication and authentication remain open. [RT-11 cache-index admission](research/toolchain-and-collaboration/RT-11/RT-11-CACHE-INDEX-MERGE-ADMISSION-2026-11-25.md)
 
