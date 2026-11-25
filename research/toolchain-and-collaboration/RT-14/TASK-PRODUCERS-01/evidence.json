@@ -1,0 +1,33 @@
+{
+  "actions": {
+    "REBUILD": "07993da5a189f61c1262162a8cfc256c046c899376e245863e09a2f27f049eaa",
+    "RUN_TESTS": "71743284c402bb616bfe792ff0d755b2ff88484f9f166101e1d74de5b559a519"
+  },
+  "alternative_plan": "6b41e54a6a1f379b6b3d2235b1d62d3544aa584bf79920a629c2dfb862231841",
+  "baseline": "sha256:f17e49661aeb83aab770acb084f81941b186bc28eed587f5ec2c9629a61ac8fe",
+  "candidate": "sha256:d4c2d32309003d8f180f1912379960cce0b57315a371b9bdb3c7182c762a317b",
+  "cases": 1024,
+  "impact_plan": "3780b5560ba8e7a474a1b152d78c4f0f2c183750868bf63d2fb979e962e02e45",
+  "outcomes": {
+    "accept-refused": 2,
+    "accepted": 2,
+    "applied": 8,
+    "edit-refused": 8,
+    "knowledge-refused": 64,
+    "moved-baseline": 512,
+    "patch-refused": 16,
+    "pending-actions": 4,
+    "plan-refused": 128,
+    "requirement-refused": 256,
+    "workspace-refused": 32
+  },
+  "prose_pairs": 512,
+  "source_hashes": {
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/impact_planning.py": "0d76d5b7be22b2ebb7f8f4622e717f140871665784b3a644e1847e5ffb513d4b",
+    "research/toolchain-and-collaboration/PROTOTYPES/TOOLCHAIN-SERVER-01/toolchain.py": "94c6277697f872be4fcfc967f1ca80597027f82853b2ad4e03232ff4a664d167",
+    "research/toolchain-and-collaboration/RT-14/CONTEXT-INTEGRATION-01/run.py": "e473f140f7b5ba8c961233b4a1b8674aca6758cd79b1b81c7f61508d6b7312af",
+    "research/toolchain-and-collaboration/RT-14/KNOWLEDGE-CONTEXT-01/run.py": "38c8a8c9d04376f9df9264076a95d10e93d9642808754de3a09cdb392c848ba3",
+    "research/toolchain-and-collaboration/RT-14/TASK-CONTEXT-COMPLETION-01/run.py": "bfb00d4a6bd428d1cefde6906a0bf4a108f47693d7e69b6c6e58f2abb1aad63a"
+  },
+  "supporting_revision": "d8f4451f6b112113e709b1cbeab682a090381db1"
+}
