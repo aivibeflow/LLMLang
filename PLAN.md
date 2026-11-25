@@ -1465,6 +1465,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define concurrent graph edits and optimistic update rules.
 - [ ] Define stable identity under rename, split, and merge.
 - [ ] Define independent changes to contracts and implementations.
+  - [ ] [WIP] Check independently valid contract and implementation branch edits against their combined source and native observations on `research/all`.
 - [ ] Define conflict detection and safe automatic resolution.
 - [ ] Define reviewable semantic change sets.
 - [ ] Define provenance, authorship, approval, and audit trails.
