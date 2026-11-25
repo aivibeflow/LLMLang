@@ -1339,6 +1339,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Compare one ABI-bound checked-add fixture with Cranelift JIT and LLVM O0/O3. Across four profiles, 4,596 vectors each match the source evaluator. Record the target byte counts and six rejected mutants. Compilation latency, debug support and broader target coverage remain open. [Cranelift checked-add comparison](research/compiler-and-translation/RT-13/RT-13-CRANELIFT-CHECKED-ADD-2026-11-24.md).
 - [ ] Define the evidence threshold for considering a direct native backend; first identify a concrete unmet requirement and estimate the full implementation/maintenance cost.
 - [ ] Evaluate WebAssembly target profiles and whether LLVM or a dedicated toolchain provides the better fit.
+  - [ ] [WIP] Compare LLVM and direct Wasm host import effects and signed input admission at the JavaScript boundary on `research/all`.
   - A native-engine memory32 experiment verifies full-width arithmetic and logical view guards across 12,800 observations. [Wasm memory32 views](research/compiler-and-translation/RT-13/RT-13-WASM-MEMORY32-VIEWS.md)
 - [ ] Specify a reproducible comparative benchmark protocol and shared workload corpus for LLVM, Cranelift, and any justified prototype backend.
 - [ ] Measure cold and incremental compile latency/throughput, Debug and Release runtime performance, output size, peak memory, debug/diagnostic quality, target coverage, and toolchain/build complexity. Report distributions and workload-specific results; do not hide trade-offs in one aggregate score.
