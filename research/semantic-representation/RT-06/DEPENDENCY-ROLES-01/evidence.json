@@ -1,0 +1,409 @@
+{
+  "schema": "llmlang-dependency-role-closure/1",
+  "python": "3.12.14",
+  "archive_revision": "e32fd0697dfeca50052593077d507ef38bb0b3a4",
+  "store_sha256": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+  "sources_sha256": {
+    "run.py": "ea08cdb8b96972afaa9ee81deb6202f3a72c1a5924306f5b7d0b8d44f1ab7128",
+    "Observation.lean": "db53831f25bda924712ccdf9e8b8ffc90c2258dab6a116459ecbc8f32f158f76",
+    "axioms.txt": "05f617a1fac5c7b72ad94d797ec88ebd0e6ea7cb7e14d94886c94ec862641546"
+  },
+  "factor_order": [
+    "helper",
+    "literal",
+    "note",
+    "source_text",
+    "bound",
+    "verifier",
+    "uses_note"
+  ],
+  "profiles": 128,
+  "exact_closure_checks": 384,
+  "pairs": 8128,
+  "counts": {
+    "typed": {
+      "execution": {
+        "different": 7424,
+        "safe": 704
+      },
+      "verification": {
+        "different": 8000,
+        "safe": 128
+      },
+      "source_audit": {
+        "different": 7936,
+        "safe": 192
+      }
+    },
+    "full_snapshot": {
+      "execution": {
+        "different": 7424,
+        "missed_safe": 704
+      },
+      "verification": {
+        "different": 8000,
+        "missed_safe": 128
+      },
+      "source_audit": {
+        "different": 7936,
+        "missed_safe": 192
+      }
+    },
+    "runtime_only": {
+      "execution": {
+        "different": 7424,
+        "safe": 704
+      },
+      "verification": {
+        "different": 7424,
+        "stale": 576,
+        "safe": 128
+      },
+      "source_audit": {
+        "different": 7424,
+        "safe": 192,
+        "stale": 512
+      }
+    },
+    "skip_consumed_note": {
+      "execution": {
+        "different": 7168,
+        "safe": 704,
+        "stale": 256
+      },
+      "verification": {
+        "different": 7168,
+        "stale": 832,
+        "safe": 128
+      },
+      "source_audit": {
+        "different": 7168,
+        "safe": 192,
+        "stale": 768
+      }
+    }
+  },
+  "witnesses": {
+    "runtime_only/verification": {
+      "profiles": [
+        0,
+        2
+      ],
+      "observations": [
+        {
+          "execution": [
+            [
+              0,
+              1
+            ],
+            null
+          ],
+          "verification": [
+            [
+              0,
+              1
+            ],
+            null,
+            0,
+            0,
+            false
+          ],
+          "source_audit": [
+            [
+              0,
+              1
+            ],
+            null,
+            "fn x => helper(x) + 0\n",
+            0
+          ]
+        },
+        {
+          "execution": [
+            [
+              0,
+              1
+            ],
+            null
+          ],
+          "verification": [
+            [
+              0,
+              1
+            ],
+            null,
+            0,
+            1,
+            false
+          ],
+          "source_audit": [
+            [
+              0,
+              1
+            ],
+            null,
+            "fn x => helper(x) + 0\n",
+            0
+          ]
+        }
+      ]
+    },
+    "skip_consumed_note/verification": {
+      "profiles": [
+        0,
+        2
+      ],
+      "observations": [
+        {
+          "execution": [
+            [
+              0,
+              1
+            ],
+            null
+          ],
+          "verification": [
+            [
+              0,
+              1
+            ],
+            null,
+            0,
+            0,
+            false
+          ],
+          "source_audit": [
+            [
+              0,
+              1
+            ],
+            null,
+            "fn x => helper(x) + 0\n",
+            0
+          ]
+        },
+        {
+          "execution": [
+            [
+              0,
+              1
+            ],
+            null
+          ],
+          "verification": [
+            [
+              0,
+              1
+            ],
+            null,
+            0,
+            1,
+            false
+          ],
+          "source_audit": [
+            [
+              0,
+              1
+            ],
+            null,
+            "fn x => helper(x) + 0\n",
+            0
+          ]
+        }
+      ]
+    },
+    "runtime_only/source_audit": {
+      "profiles": [
+        0,
+        8
+      ],
+      "observations": [
+        {
+          "execution": [
+            [
+              0,
+              1
+            ],
+            null
+          ],
+          "verification": [
+            [
+              0,
+              1
+            ],
+            null,
+            0,
+            0,
+            false
+          ],
+          "source_audit": [
+            [
+              0,
+              1
+            ],
+            null,
+            "fn x => helper(x) + 0\n",
+            0
+          ]
+        },
+        {
+          "execution": [
+            [
+              0,
+              1
+            ],
+            null
+          ],
+          "verification": [
+            [
+              0,
+              1
+            ],
+            null,
+            0,
+            0,
+            false
+          ],
+          "source_audit": [
+            [
+              0,
+              1
+            ],
+            null,
+            "// presentation-only line\nfn x => helper(x) + 0\n",
+            0
+          ]
+        }
+      ]
+    },
+    "skip_consumed_note/source_audit": {
+      "profiles": [
+        0,
+        8
+      ],
+      "observations": [
+        {
+          "execution": [
+            [
+              0,
+              1
+            ],
+            null
+          ],
+          "verification": [
+            [
+              0,
+              1
+            ],
+            null,
+            0,
+            0,
+            false
+          ],
+          "source_audit": [
+            [
+              0,
+              1
+            ],
+            null,
+            "fn x => helper(x) + 0\n",
+            0
+          ]
+        },
+        {
+          "execution": [
+            [
+              0,
+              1
+            ],
+            null
+          ],
+          "verification": [
+            [
+              0,
+              1
+            ],
+            null,
+            0,
+            0,
+            false
+          ],
+          "source_audit": [
+            [
+              0,
+              1
+            ],
+            null,
+            "// presentation-only line\nfn x => helper(x) + 0\n",
+            0
+          ]
+        }
+      ]
+    },
+    "skip_consumed_note/execution": {
+      "profiles": [
+        1,
+        17
+      ],
+      "observations": [
+        {
+          "execution": [
+            [
+              0,
+              1
+            ],
+            0
+          ],
+          "verification": [
+            [
+              0,
+              1
+            ],
+            0,
+            0,
+            0,
+            false
+          ],
+          "source_audit": [
+            [
+              0,
+              1
+            ],
+            0,
+            "fn x => helper(x) + 0\n",
+            0
+          ]
+        },
+        {
+          "execution": [
+            [
+              0,
+              1
+            ],
+            1
+          ],
+          "verification": [
+            [
+              0,
+              1
+            ],
+            1,
+            0,
+            0,
+            false
+          ],
+          "source_audit": [
+            [
+              0,
+              1
+            ],
+            1,
+            "fn x => helper(x) + 0\n",
+            1
+          ]
+        }
+      ]
+    }
+  },
+  "ordered_rows_sha256": "89b84a785343f28653982f728d7e2142a1c03dc158587c68120e3909c8bdff19"
+}

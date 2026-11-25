@@ -833,10 +833,10 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Represent caller compatibility per exact call-site/target edge; require explicit evidence-backed migrate/preserve/adapt/fork decisions and resulting caller hashes; block plans with missing or unresolved decisions. Prototype coverage includes mixed old/new behavior and shared-caller version selection.
 - [x] Bind each call-site/target alternative to its exact caller-required Contract hash; keep the provided Contract reference solely on the callee and resolve it through the existing caller-to-callee edge in RT-20 planning, validation, and semantic diff. Do not duplicate provided-contract hashes in call edges, reverse-index edges, or CIP decisions (declaration schema v2; dependency-index schema v3; not yet normatively equated with glossary CCHash).
 - [ ] Reconcile the candidate subset with the canonical SPG schema and formal semantics before normative adoption.
-- [ ] Define semantic dependencies separately from provenance, audit observations, and traceability.
-  - [ ] [WIP] Compare exact semantic, verification and traceability dependency scopes, including when an observed metadata read becomes a real input on `research/all`.
-- [ ] Define hash-relevant dependency edges and dependency closure.
-  - [ ] [WIP] Check typed dependency projections and transitive hash closure for declared actions and evidence on `research/all`.
+- [x] Define semantic dependencies separately from provenance, audit observations, and traceability.
+  - [x] Check the role boundary in the pinned semantic and relation stores. Over 8,128 profile pairs, a runtime-only key falsely admits 576 verification and 512 audit reuses. Excluding a consumed note admits 256 stale executions. [Dependency role closures](research/semantic-representation/RT-06/RT-06-DEPENDENCY-ROLE-CLOSURE-2026-11-25.md)
+- [x] Define hash-relevant dependency edges and dependency closure.
+  - [x] Check all 384 execution, verification and audit closure digests against independent expected member sets. Typed keys admit every scoped reuse and no stale hit. Lean checks when a note becomes an observed dependency. [Dependency role closures](research/semantic-representation/RT-06/RT-06-DEPENDENCY-ROLE-CLOSURE-2026-11-25.md)
 - [ ] Define how dependencies are discovered from static analysis, typed IR, runtime observations, tests, and formal semantics.
 - [x] Define confidence/evidence classes for dependency edges.
   - Distinguish discovery candidates, positive witnesses, covered may-sets, exact absence and unresolved evidence. The 648-case comparison finds 84 stale reuses with sample-only absence. Exact scoped exclusion safely reuses 32 more cases than the covered whole-program bound. [RT-06 dependency evidence classes](research/semantic-representation/RT-06/RT-06-DEPENDENCY-EVIDENCE-CLASSES-2026-11-25.md)
