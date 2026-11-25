@@ -1,0 +1,258 @@
+{
+  "finite_temporal": [
+    {
+      "different_verdicts": 1,
+      "first_difference": {
+        "p0": false
+      },
+      "query_sha256": "ba3758fb74c7c629900bac2dbb06ae0f82ae9aa8132352a0bb6623b94b43fd46",
+      "rising_edge": false,
+      "smt_xor": "sat",
+      "ticks": 1,
+      "traces": 2
+    },
+    {
+      "different_verdicts": 1,
+      "first_difference": {
+        "a0": true,
+        "p0": false
+      },
+      "query_sha256": "a21e8e4329522c4781747ec993d60d0d9d8c1a0386f5d376d62a501b7bfe3bbc",
+      "rising_edge": true,
+      "smt_xor": "sat",
+      "ticks": 1,
+      "traces": 4
+    },
+    {
+      "different_verdicts": 1,
+      "first_difference": {
+        "p0": false,
+        "p1": false
+      },
+      "query_sha256": "81e483013298cff52d42ed1a73383c77693ed9c66819ff0cf4cc52fbd92b3d93",
+      "rising_edge": false,
+      "smt_xor": "sat",
+      "ticks": 2,
+      "traces": 4
+    },
+    {
+      "different_verdicts": 4,
+      "first_difference": {
+        "a0": false,
+        "a1": true,
+        "p0": false,
+        "p1": false
+      },
+      "query_sha256": "09024f846502b0f3c3e4f629e28cb6f4a81fb2a0209b40ebf24d24d4c945495e",
+      "rising_edge": true,
+      "smt_xor": "sat",
+      "ticks": 2,
+      "traces": 16
+    },
+    {
+      "different_verdicts": 0,
+      "first_difference": null,
+      "query_sha256": "52b36fc60198bc7377aa485cae87137d451eefc6b9b7708ed6cf007f65fc6924",
+      "rising_edge": false,
+      "smt_xor": "unsat",
+      "ticks": 3,
+      "traces": 8
+    },
+    {
+      "different_verdicts": 11,
+      "first_difference": {
+        "a0": false,
+        "a1": false,
+        "a2": true,
+        "p0": false,
+        "p1": false,
+        "p2": false
+      },
+      "query_sha256": "5f9f8f9442fdf0ee356763699da71a529de7096294d95f01d39656fa23151311",
+      "rising_edge": true,
+      "smt_xor": "sat",
+      "ticks": 3,
+      "traces": 64
+    },
+    {
+      "different_verdicts": 0,
+      "first_difference": null,
+      "query_sha256": "247616bc4d6700e4078ac689128f56cda93db452247f67d72ef484816ad83dca",
+      "rising_edge": false,
+      "smt_xor": "unsat",
+      "ticks": 4,
+      "traces": 16
+    },
+    {
+      "different_verdicts": 42,
+      "first_difference": {
+        "a0": false,
+        "a1": false,
+        "a2": false,
+        "a3": true,
+        "p0": false,
+        "p1": false,
+        "p2": false,
+        "p3": false
+      },
+      "query_sha256": "02158fcc4c7e7835081c97739dd52366dfdcba2ffe8de2590e4b2ba041fcb543",
+      "rising_edge": true,
+      "smt_xor": "sat",
+      "ticks": 4,
+      "traces": 256
+    },
+    {
+      "different_verdicts": 0,
+      "first_difference": null,
+      "query_sha256": "8a96c614800bc60d50329a7364022e8f0c8e273332bf89c93006d6187c2bb8ac",
+      "rising_edge": false,
+      "smt_xor": "unsat",
+      "ticks": 5,
+      "traces": 32
+    },
+    {
+      "different_verdicts": 165,
+      "first_difference": {
+        "a0": false,
+        "a1": false,
+        "a2": false,
+        "a3": false,
+        "a4": true,
+        "p0": false,
+        "p1": false,
+        "p2": false,
+        "p3": false,
+        "p4": false
+      },
+      "query_sha256": "c04902cfe066061fa4a8891fcd4d89851de355ea7a77be1dffe8416b25010cdb",
+      "rising_edge": true,
+      "smt_xor": "sat",
+      "ticks": 5,
+      "traces": 1024
+    }
+  ],
+  "fret": {
+    "deadline": {
+      "explanation": "SCOPE: in the interval defined by the entire execution.<br>TRIGGER: first point in the interval.<br>REQUIRED BEHAVIOR: for every trigger, <b><i>(posted)</i></b> must hold at some point with distance <= <b><i>2</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>2</i></b>). If the interval ends sooner than trigger+<b><i>2</i></b>, then <b><i>(posted)</i></b> need not hold.",
+      "finite": "((F[0,2] posted) | (F[0,1] LAST))",
+      "infinite": "(F[0,2] posted)",
+      "outcome": "formalized",
+      "variables": [
+        "posted"
+      ]
+    },
+    "failure_frame": {
+      "explanation": "SCOPE: in the interval defined by the entire execution.<br>TRIGGER: first point in the interval.<br>REQUIRED BEHAVIOR: for every trigger, <b><i>(! success -> ( new_balance = old_balance ))</i></b> must hold at all time points between (and including) the trigger and the end of the interval.",
+      "finite": "(LAST V ((! success) -> (new_balance = old_balance)))",
+      "infinite": "(G ((! success) -> (new_balance = old_balance)))",
+      "outcome": "formalized",
+      "variables": [
+        "success",
+        "new_balance",
+        "old_balance"
+      ]
+    },
+    "freeform": {
+      "outcome": "saved-without-formula",
+      "type": "freeForm"
+    },
+    "old_call": {
+      "explanation": "SCOPE: in the interval defined by the entire execution.<br>TRIGGER: first point in the interval.<br>REQUIRED BEHAVIOR: for every trigger, <b><i>(balance = old ( balance ) - amount)</i></b> must hold at some time point between (and including) the trigger and the end of the interval.",
+      "finite": "((! LAST) U (balance = (old(balance) - amount)))",
+      "infinite": "(F (balance = (old(balance) - amount)))",
+      "outcome": "formalized",
+      "variables": [
+        "balance",
+        "old",
+        "amount"
+      ]
+    },
+    "quantifier_spelling": {
+      "diagnostic": "Trailing unparsed input: ' account : balance(account) >= 0'",
+      "outcome": "parse-error"
+    },
+    "rising_deadline": {
+      "explanation": "SCOPE: in the interval defined by the entire execution.<br>TRIGGER: first point in the interval if <b><i>(approved)</i></b> is true and any point in the interval where <b><i>(approved)</i></b> becomes true (from false).<br>REQUIRED BEHAVIOR: for every trigger, <b><i>(posted)</i></b> must hold at some point with distance <= <b><i>2</i></b> from the trigger (i.e., at trigger, trigger+1, ..., or trigger+<b><i>2</i></b>). If the interval ends sooner than trigger+<b><i>2</i></b>, then <b><i>(posted)</i></b> need not hold.",
+      "finite": "((LAST V (((! approved) & ((! LAST) & (X approved))) -> (X ((F[0,2] posted) | (F[0,1] LAST))))) & (approved -> ((F[0,2] posted) | (F[0,1] LAST))))",
+      "infinite": "((G (((! approved) & (X approved)) -> (X (F[0,2] posted)))) & (approved -> (F[0,2] posted)))",
+      "outcome": "formalized",
+      "variables": [
+        "approved",
+        "posted"
+      ]
+    },
+    "success_equivalence": {
+      "explanation": "SCOPE: in the interval defined by the entire execution.<br>TRIGGER: first point in the interval.<br>REQUIRED BEHAVIOR: for every trigger, <b><i>(success <-> ( amount > 0 & amount <= old_balance ))</i></b> must hold at all time points between (and including) the trigger and the end of the interval.",
+      "finite": "(LAST V (success <-> ((amount > 0) & (amount <= old_balance))))",
+      "infinite": "(G (success <-> ((amount > 0) & (amount <= old_balance))))",
+      "outcome": "formalized",
+      "variables": [
+        "success",
+        "amount",
+        "old_balance"
+      ]
+    },
+    "success_update": {
+      "explanation": "SCOPE: in the interval defined by the entire execution.<br>TRIGGER: first point in the interval.<br>REQUIRED BEHAVIOR: for every trigger, <b><i>(success -> ( new_balance = old_balance - amount ))</i></b> must hold at all time points between (and including) the trigger and the end of the interval.",
+      "finite": "(LAST V (success -> (new_balance = (old_balance - amount))))",
+      "infinite": "(G (success -> (new_balance = (old_balance - amount))))",
+      "outcome": "formalized",
+      "variables": [
+        "success",
+        "new_balance",
+        "old_balance",
+        "amount"
+      ]
+    }
+  },
+  "fret_commit": "58db455be35182a015e607232d9f4e3c86731932",
+  "integer_contract": {
+    "matches_total_reference": {
+      "query_sha256": "ef38d932806f037023286a87dddd5f6709bf4c165eb48962c41b29db8acb904b",
+      "verdict": "unsat"
+    },
+    "missing_failure_frame_permits_mutation": {
+      "checked_model": "((before 0) (amount 0) (success false) (after (- 1)))",
+      "model_query_sha256": "13bad8d5ca4decb483285ade20cc5d90fe675d4f5622407bcbef785b3596b901",
+      "query_sha256": "e4d182fac8661984c8b34cd39a88eae87c68655fac6f31a18cf5768b4ffe1301",
+      "verdict": "sat"
+    },
+    "necessity_only_misses_valid_request": {
+      "checked_model": "((before 1) (amount 1) (success false) (after 1))",
+      "model_query_sha256": "20355e26cc99261dfcb000cfd6a7e4b969148d46b58d866591347d82bd723e03",
+      "query_sha256": "f28c7e353089b6fe9e7e3b1d2d6afb26fdeb61d4e8f89883bf01f2b185eb49fb",
+      "verdict": "sat"
+    },
+    "no_new_negative_balance_from_nonnegative": {
+      "query_sha256": "674b43637982f94c024e38e9620d0f76ce8e27ce0a74694bc4e8d8289e4d5dc8",
+      "verdict": "unsat"
+    },
+    "sufficiency_only_allows_invalid_request": {
+      "checked_model": "((before 0) (amount 0) (success true) (after 0))",
+      "model_query_sha256": "26ab572755095604d09f2bbcb36bf9bbf9abe5bb63792c97b52b18ffd232d6c8",
+      "query_sha256": "c77dfb4664ce40c38392b86791836cf160e602ab84ce638e23ac9aa9eec84c2b",
+      "verdict": "sat"
+    }
+  },
+  "lean_axiom_audit": [
+    "'acceptsValid' does not depend on any axioms",
+    "'preservesRejected' does not depend on any axioms",
+    "'preservesNonnegative' depends on axioms: [propext, Quot.sound]",
+    "'failureFrameMatters' depends on axioms: [propext, Quot.sound]"
+  ],
+  "schema": "rt02-requirement-backend-comparison-v1",
+  "source_sha256": {
+    "Withdrawal.lean": "ad5dd3c76d40528a4baeeba2ae257f73a93b95aa627d42e46466ea57cc7b52ea",
+    "fret.cjs": "13e3a1dfc762ed54fdb486ae9b50f1461b2afef82bf41215c6683c30ad1985f5",
+    "package-lock.json": "ffb47aefb41ecbb7323750527b81307b130d31174057f0231c0e3e122e8c1e76",
+    "package.json": "6757994e3c925587342183a7784dd2fab55d9c67547ae79a7d4357b092b04835",
+    "requirements.json": "7ad2eaff17802c3350894fc51e8903ebb0dd6732a3f220c037050d994eeb774a",
+    "run.py": "35b6bb0cae246cecbbeadf8b5f2167f6aa26ba209fa087bb30b2b8f888d7882e"
+  },
+  "tool_versions": {
+    "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "node": "v24.22.3",
+    "python": "3.12.14"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "deadline": "withdraw shall within 2 ticks satisfy posted",
+  "rising_deadline": "when approved, withdraw shall within 2 ticks satisfy posted",
+  "success_equivalence": "BankAccount shall always satisfy success <-> (amount > 0 & amount <= old_balance)",
+  "success_update": "BankAccount shall always satisfy success -> (new_balance = old_balance - amount)",
+  "failure_frame": "BankAccount shall always satisfy !success -> (new_balance = old_balance)",
+  "old_call": "withdraw shall satisfy balance = old(balance) - amount",
+  "quantifier_spelling": "withdraw shall satisfy forall account : balance(account) >= 0",
+  "freeform": "\"withdraw succeeds on commit\""
+}
