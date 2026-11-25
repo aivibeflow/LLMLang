@@ -1,0 +1,260 @@
+{
+  "builds": {
+    "abort": [
+      {
+        "body": "ok",
+        "cleanup_fails": false,
+        "events": [
+          "body-ok",
+          "inner-drop",
+          "outer-drop",
+          "result-ok"
+        ],
+        "mode": "implicit",
+        "returncode": 0
+      },
+      {
+        "body": "ok",
+        "cleanup_fails": true,
+        "events": [
+          "body-ok",
+          "inner-drop",
+          "hook-close"
+        ],
+        "mode": "implicit",
+        "returncode": -6
+      },
+      {
+        "body": "error",
+        "cleanup_fails": false,
+        "events": [
+          "body-error",
+          "inner-drop",
+          "outer-drop",
+          "result-body-error"
+        ],
+        "mode": "implicit",
+        "returncode": 0
+      },
+      {
+        "body": "error",
+        "cleanup_fails": true,
+        "events": [
+          "body-error",
+          "inner-drop",
+          "hook-close"
+        ],
+        "mode": "implicit",
+        "returncode": -6
+      },
+      {
+        "body": "panic",
+        "cleanup_fails": false,
+        "events": [
+          "body-panic",
+          "hook-body"
+        ],
+        "mode": "implicit",
+        "returncode": -6
+      },
+      {
+        "body": "panic",
+        "cleanup_fails": true,
+        "events": [
+          "body-panic",
+          "hook-body"
+        ],
+        "mode": "implicit",
+        "returncode": -6
+      },
+      {
+        "body": "ok",
+        "cleanup_fails": false,
+        "events": [
+          "body-ok",
+          "close-ok",
+          "outer-drop",
+          "result-ok"
+        ],
+        "mode": "explicit",
+        "returncode": 0
+      },
+      {
+        "body": "ok",
+        "cleanup_fails": true,
+        "events": [
+          "body-ok",
+          "close-error",
+          "outer-drop",
+          "result-close-error"
+        ],
+        "mode": "explicit",
+        "returncode": 0
+      },
+      {
+        "body": "error",
+        "cleanup_fails": false,
+        "events": [
+          "body-error",
+          "close-ok",
+          "outer-drop",
+          "result-body-error"
+        ],
+        "mode": "explicit",
+        "returncode": 0
+      },
+      {
+        "body": "error",
+        "cleanup_fails": true,
+        "events": [
+          "body-error",
+          "close-error",
+          "outer-drop",
+          "result-both-errors:body-error+close-error"
+        ],
+        "mode": "explicit",
+        "returncode": 0
+      }
+    ],
+    "unwind": [
+      {
+        "body": "ok",
+        "cleanup_fails": false,
+        "events": [
+          "body-ok",
+          "inner-drop",
+          "outer-drop",
+          "result-ok"
+        ],
+        "mode": "implicit",
+        "returncode": 0
+      },
+      {
+        "body": "ok",
+        "cleanup_fails": true,
+        "events": [
+          "body-ok",
+          "inner-drop",
+          "hook-close",
+          "outer-drop",
+          "caught-panic"
+        ],
+        "mode": "implicit",
+        "returncode": 0
+      },
+      {
+        "body": "error",
+        "cleanup_fails": false,
+        "events": [
+          "body-error",
+          "inner-drop",
+          "outer-drop",
+          "result-body-error"
+        ],
+        "mode": "implicit",
+        "returncode": 0
+      },
+      {
+        "body": "error",
+        "cleanup_fails": true,
+        "events": [
+          "body-error",
+          "inner-drop",
+          "hook-close",
+          "outer-drop",
+          "caught-panic"
+        ],
+        "mode": "implicit",
+        "returncode": 0
+      },
+      {
+        "body": "panic",
+        "cleanup_fails": false,
+        "events": [
+          "body-panic",
+          "hook-body",
+          "inner-drop",
+          "outer-drop",
+          "caught-panic"
+        ],
+        "mode": "implicit",
+        "returncode": 0
+      },
+      {
+        "body": "panic",
+        "cleanup_fails": true,
+        "events": [
+          "body-panic",
+          "hook-body",
+          "inner-drop",
+          "hook-close"
+        ],
+        "mode": "implicit",
+        "returncode": -6
+      },
+      {
+        "body": "ok",
+        "cleanup_fails": false,
+        "events": [
+          "body-ok",
+          "close-ok",
+          "outer-drop",
+          "result-ok"
+        ],
+        "mode": "explicit",
+        "returncode": 0
+      },
+      {
+        "body": "ok",
+        "cleanup_fails": true,
+        "events": [
+          "body-ok",
+          "close-error",
+          "outer-drop",
+          "result-close-error"
+        ],
+        "mode": "explicit",
+        "returncode": 0
+      },
+      {
+        "body": "error",
+        "cleanup_fails": false,
+        "events": [
+          "body-error",
+          "close-ok",
+          "outer-drop",
+          "result-body-error"
+        ],
+        "mode": "explicit",
+        "returncode": 0
+      },
+      {
+        "body": "error",
+        "cleanup_fails": true,
+        "events": [
+          "body-error",
+          "close-error",
+          "outer-drop",
+          "result-both-errors:body-error+close-error"
+        ],
+        "mode": "explicit",
+        "returncode": 0
+      }
+    ]
+  },
+  "cases_per_build": 10,
+  "matching_optimization_levels": [
+    0,
+    2
+  ],
+  "python": "3.12.14",
+  "rustc": [
+    "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "binary: rustc",
+    "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+    "commit-date: 2025-03-15",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.85.1",
+    "LLVM version: 19.1.7"
+  ]
+}

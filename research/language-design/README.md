@@ -38,6 +38,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-04 native cleanup failure](RT-04/RT-04-NATIVE-CLEANUP-FAILURE-2026-11-25.md) compares destructor panic, explicit errors and native process outcomes.
 - [RT-04 disjoint mutable borrows](RT-04/RT-04-DISJOINT-MUTABLE-BORROWS-2026-11-25.md) checks explicit runtime separation and static lifetime constraints.
 - [RT-04 typed state incarnation](RT-04/RT-04-TYPED-STATE-INCARNATION-2026-11-25.md) checks stale handles after retirement and reuse.
 - [RT-04 length refinement](RT-04/RT-04-LENGTH-REFINEMENT-AND-DEPENDENT-ZIP-2026-11-25.md) compares local bounds, runtime equality and dependent length checking.
