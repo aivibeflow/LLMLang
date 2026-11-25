@@ -1474,6 +1474,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 ## 7.1 Performance and scalability
 
 - [ ] Benchmark semantic graph size and traversal.
+  - [ ] [WIP] Measure the existing content graph's repeated reverse traversal with and without an immutable retained index across three synthetic topologies.
 - [ ] Benchmark canonicalization and hashing.
 - [ ] Benchmark dependency discovery and impact planning.
 - [ ] Benchmark compilation and cache performance.
