@@ -1511,20 +1511,20 @@ Vendor references: [STM32F1](https://www.st.com/en/microcontrollers-microprocess
   - [x] Compare 18 translation closure controls. Four cover both requested roots, thirteen retain only the independent root, and one admits neither. An emission-only gate overstates complete coverage ten times. Local status, edge evidence, runtime binding and approved restrictions remain exact inputs. [RT-09 translation outcome closure](research/compiler-and-translation/RT-09/RT-09-TRANSLATION-OUTCOME-CLOSURE-2026-11-25.md)
 - [x] Define runtime support as part of a target realization.
   - [x] Verify the unresolved runtime symbol, selected static archive member and resulting ELF. Builds without the provider fail, while a same-ABI provider changes the ordered effects in all 750 native comparisons. [RT-09 ordered runtime realization](research/compiler-and-translation/RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md)
-- [ ] Define generated artifact identity and reproducibility.
-  - [ ] [WIP] Check reproducible executable and debug artifacts across independent incremental build roots on `research/all` (#327).
+- [x] Define generated artifact identity and reproducibility.
+  - [x] Rebuild seven native phases in two independent roots. Release objects, linked libraries, exact receipt scopes and remapped debug bytes reproduce throughout. [RT-09 incremental translation closure](research/compiler-and-translation/RT-09/RT-09-INCREMENTAL-TRANSLATION-CLOSURE-2026-11-25.md)
   - [x] Compare five static archive links in two fresh roots. Reordering equal member bytes selects another provider and changes all 16 results. Changing unused members preserves the exact ELF. Forcing one unused symbol changes ELF bytes while preserving results. [RT-09 static link artifact identity](research/compiler-and-translation/RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md)
 - [x] Define verification independent of the code generator wherever practical.
   - [x] Compare 2,250 native observations with an independent oracle. The intended route matches all 750. Scalar outputs and state miss 1,300 changed traces across the two negative controls. [RT-09 ordered runtime realization](research/compiler-and-translation/RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md)
-- [ ] Define incremental translation and selective verification invalidation.
-  - [ ] [WIP] Run a persistent incremental translation cache with exact dependency, contract partition and evidence invalidation on `research/all` (#327).
+- [x] Define incremental translation and selective verification invalidation.
+  - [x] Run 896 fresh native calls per root. A source move rebuilds one debug object, contract widening checks one new partition, and the changed helper selectively relinks A and invalidates both A receipts. B reuses its artifact and evidence. [RT-09 incremental translation closure](research/compiler-and-translation/RT-09/RT-09-INCREMENTAL-TRANSLATION-CLOSURE-2026-11-25.md)
   - [x] Compare eight GCC builds and 2,048 native observations. A source-location change alters DWARF while preserving release bytes and validation scope. A wider contract preserves both binaries and requires fresh evidence. A body mutation changes machine text and fails all 128 required checks. Production dependency discovery and receipt reuse remain open. [Selective translation and verification](research/compiler-and-translation/RT-09/RT-09-SELECTIVE-TRANSLATION-2026-11-25.md)
 
 **Existing evidence:** [TRANSLATION-AND-TARGET-BACKENDS.md](research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md), [LLVM-BACKEND-ARCHITECTURE.md](research/compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md), and formal-verification research.
 
 **Research output (2026-11-21)** · Direct SPG execution and a lowered instruction stream agree with an independent oracle over 140 observations. An operation-binding change alters the reachable artifact while leaving the caller address fixed. [Ordered SPG lowering](research/compiler-and-translation/RT-09/RT-09-ORDERED-SPG-LOWERING.md)
 
-**Status:** partially validated for the scalar instruction fixture. External code generation, canonical IR and general preservation remain open.
+**Status:** bounded external lowering, runtime binding, independent verification and selective regeneration validated for the linked fixtures. Canonical IR selection and general preservation remain open.
 
 ### Required bidirectional translation study (RT-30)
 

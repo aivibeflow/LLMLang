@@ -63,6 +63,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-09 static link artifact identity](RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md) compares archive order, selected native members and exact executable bytes.
 - [RT-09 ordered runtime realization](RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md) binds native runtime providers and independently audits ordered effects.
 - [RT-09 checked Wasm division](RT-09/RT-09-WASM-CHECKED-DIVISION-2026-11-25.md) compares trap guards, host effect binding and scoped translation outcomes.
+- [RT-09 incremental translation closure](RT-09/RT-09-INCREMENTAL-TRANSLATION-CLOSURE-2026-11-25.md) checks exact artifacts and partitioned validation in two separate native build roots.
 - [RT-09 translation outcome closure](RT-09/RT-09-TRANSLATION-OUTCOME-CLOSURE-2026-11-25.md) composes scoped region decisions and required target evidence.
 - [RT-09 SSA parallel-copy lowering](RT-09/RT-09-SSA-PARALLEL-COPY-LOWERING-2026-11-25.md) checks scheduled sequential assignments against native LLVM phi traces.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.
