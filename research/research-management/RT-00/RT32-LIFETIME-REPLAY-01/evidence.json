@@ -1,0 +1,163 @@
+{
+  "checks": {
+    "bound_method_probe_vectors": 2592,
+    "caller_evidence_schedule_prefixes": 35280,
+    "cleanup_theorems": 20,
+    "exact_closed_proof_keys_after_edits": 4,
+    "record_archive_vectors": 2304,
+    "worker_archive_steps": 56,
+    "wrong_scope_planning_false_closures": 4704
+  },
+  "commit": "55d54059aa8ba1c18e047f491843e1e7d278d25d",
+  "host": {
+    "kernel": "6.18.57",
+    "machine": "x86_64"
+  },
+  "proof_replays": {
+    "BOUND-METHOD-OBSERVATIONS-01": {
+      "local_files_sha256": {
+        "Receiver.lean": "0b863d2785d52ff7623947c07fedd81fcd9450a03ee0daeadcd2779daacee772",
+        "chart.py": "3f6272959e8a2bec31b9309c8fd3821f2af2086003a500fbc4529b012dd64024",
+        "run.py": "d6fe8c5e20f6b4c0ac4ebc2a5f03ede6f9ded64911fc3afc7d2613be36db0ec7"
+      },
+      "path": "research/formal-verification/RT-32/BOUND-METHOD-OBSERVATIONS-01/evidence.json",
+      "sha256": "543ca1951e2b0f6c4ce1856ef66c87d3951878ec7aee67e03a56efa5f4f4cf20"
+    },
+    "CALLER-EVIDENCE-STATES-01": {
+      "local_files_sha256": {
+        "Discharge.lean": "e5a5a199aec959047e9472161b1e7062b41b69f06a0a521920711fa3ad97e514",
+        "axioms.txt": "366ae31410ba3b5a74a783aa6dcfaaa68004f012d13c6d587e002bd2a3062272",
+        "run.py": "a2b1e79b6bacb282fad651c0a17d334f1887a656a722c70628824fa5890196b5"
+      },
+      "path": "research/formal-verification/RT-32/CALLER-EVIDENCE-STATES-01/evidence.json",
+      "sha256": "5fb7283d6ce62bf3f1f863e11fa9cb81fa5906b971bd0df3c9ee056c3d85da0a"
+    },
+    "LEAN-ARTIFACT-REPLAY-01": {
+      "local_files_sha256": {
+        "Consume.lean": "fc8f0524fbcbb35ba5b4ae8e94c2a26db29f73153f5413dea4bf7a635566bc95",
+        "Defs.lean": "2e7e972f46fdb6d7336f31e98a971d4718d192c572383998d0c468ae904eeb53",
+        "Synth.lean": "2704c7c673441179cc9f2abb37564958d583698fe6fd3faa54b1a3271de966b6",
+        "run.py": "1d50e153492c9cdfabc730fa4ab01bcf3f79514981ea0d4228b5b0172b02d957"
+      },
+      "path": "research/formal-verification/RT-32/LEAN-ARTIFACT-REPLAY-01/evidence.json",
+      "sha256": "bd4a088348e1da44fe2faa54c4609ca77d82b82324da2726a1c0f69324fc2d4c"
+    },
+    "MUTABLE-RENAMING-01": {
+      "local_files_sha256": {
+        "Heap.lean": "c031aff79227e2d0958b89a4db756acbdedf5dc240140cf948cc4ee2922a7615",
+        "chart.py": "93494983b801b5cc703c09bbb129bf6fadafe4ef2b96ff4b6cd70e11ceffc331",
+        "run.py": "1d524792c7de720063e90f368121a3283140e6bf325c90fb72aab78254bfb843"
+      },
+      "path": "research/formal-verification/RT-32/MUTABLE-RENAMING-01/evidence.json",
+      "sha256": "373146da1f9215aa29d196462fb52c5c49865ad9212d28cecb12325f54d0f585"
+    },
+    "PROOF-CACHE-STORE-01": {
+      "local_files_sha256": {
+        "run.py": "bea457a0362c8ef8510ce39577241687a9c4f90f13912c026e902a1e9f07f571"
+      },
+      "path": "research/formal-verification/RT-32/PROOF-CACHE-STORE-01/evidence.json",
+      "sha256": "067d4b869677fade5212914a6ad26910eec2c1dfcb46a8df9f1777a087ef7cd0"
+    },
+    "RECORD-OWNERSHIP-01": {
+      "local_files_sha256": {
+        "Ownership.lean": "38f276cc0489df8380e88164b26bb8e0a11327304cecffdad4fdd3bea679ebad",
+        "chart.py": "477d6c2321a9fc8a69b6071daa33cfce288b40791c2388ca05abcb9af9671bd2",
+        "run.py": "da6b794ee4f6739d79289d0ad1c2d5c55bf335b005971ed6fe491fd040d91fbd"
+      },
+      "path": "research/formal-verification/RT-32/RECORD-OWNERSHIP-01/evidence.json",
+      "sha256": "b6f5d67c2c5443067af3cbacd2e4ce7512e4598c41f54eb1de6af4d0865b9265"
+    },
+    "SOURCE-CLEANUP-KERNEL-01": {
+      "local_files_sha256": {
+        "CleanupModel.lean": "bf08ed5140ac781eeb2c2544dd97c982ea2a826ffd8ecde90ae7c466196524f8",
+        "chart.py": "70599e6e814c39192b35214812278647418d615530a6f90fb2302492caa806a3",
+        "run.py": "a10c91274a0657e670bf1aeb74074c616a06cb31440c506de82232c6e5d14900"
+      },
+      "path": "research/formal-verification/RT-32/SOURCE-CLEANUP-KERNEL-01/evidence.json",
+      "sha256": "5114232b42d656c7184d3a4727a97af790e57e72c4e3feffa1295b25cd9d0f7f"
+    },
+    "WORKER-CANCEL-01": {
+      "local_files_sha256": {
+        "Worker.lean": "b74488cb3a3e60c6b3bfd394973a4fddad5c984a54beb7b51be0168719ac2339",
+        "chart.py": "e16da87c755a6c1a9df6751371557b14c3145bba5dd7baac3ebe661283705d29",
+        "run.py": "f3e94219bcd0d54a0a90a3f9e123666899992f2094abc917f6ace2a4c75e9ab1"
+      },
+      "path": "research/formal-verification/RT-32/WORKER-CANCEL-01/evidence.json",
+      "sha256": "150ba56b0b31685d03bbfd1d8731f6c27daa90009479ef18e9c26c9183038852"
+    }
+  },
+  "python": "3.12.14",
+  "python_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+  "source_replays": {
+    "BOUND-METHOD-OBSERVATIONS-01": {
+      "local_files_sha256": {
+        "chart.py": "82ab39dc2f13219c6e2d3dde9c756a213e577f3ec203467207fc5922add6b110",
+        "observe.c": "7bf2a016bdd044cd4525207e7c85309149068c5cb4b8577e08ce1d5719e2b754",
+        "observe.rs": "286a3a5559290fb81b533b81b7c41966e76410d1f45a72e6c9a5773fc98a6b72",
+        "run.py": "3a197266ef0e3843d66638c13938ee18dacc0ad92934b2aee9417304151893b2"
+      },
+      "path": "research/semantic-representation/RT-05/STATEFUL-BOUND-METHOD-01/evidence.json",
+      "sha256": "c8676019a02362fa156d2d1039b7a4281a1de586535b9b191ba1dc1d8e143abd"
+    },
+    "MUTABLE-RENAMING-01": {
+      "local_files_sha256": {
+        "chart.py": "68c18735ac87b2d50a1947846a97a766f116da5ad88c8b70b4ef2e7345098077",
+        "observe.js": "4545c0336cbd1440424ddfc23a07ef99039096c250de837632f2a8fd66f4b1ff",
+        "run.py": "0f53b1cfce1ad07677db6488f745aeeb9c5d2c638a212b6207fc1f3e8aa9c748"
+      },
+      "path": "research/semantic-representation/RT-05/MUTABLE-REFERENCE-TOPOLOGY-01/evidence.json",
+      "sha256": "f5cf419721818a2d256e1fbfbf12a8a8e3583349fc0fadf05f745e7378c25bf1"
+    },
+    "RECORD-OWNERSHIP-01": {
+      "local_files_sha256": {
+        "chart.py": "8a7d8b607cff9165dad56dbe010748a5ff273fde5b9be34743cc005a70c2945d",
+        "run.py": "7c679d05bd932da8c071f8da1cae8ff485d184be61fca05f5fc49229857a9cf1"
+      },
+      "path": "research/semantic-representation/RT-05/PARTIAL-RECORD-01/evidence.json",
+      "sha256": "74590da73dcb4216f0e9d14463362cc3059a1a810410f758a1fe0a0cde701336"
+    },
+    "SOURCE-CLEANUP-KERNEL-01": {
+      "local_files_sha256": {
+        "chart.py": "5a15de18f19f9c4ce3843487984c4a435c6c4db0f94ffb1d255eb0ab992061f0",
+        "flow.py": "6b2e052c617d16cd37e4d4fa55770351da299fb70fa3a340f441fa83d5ca768b",
+        "reference.py": "138915528f312e10b2d8939ba6e5b8c26cef70556cf54f68f1ac329bb55acce9",
+        "run.py": "b7fd11eddc9ef95e8084d7b9833632ea4b3b865f7193e533dea4d6a349a69002"
+      },
+      "path": "research/language-design/RT-03/SOURCE-CLEANUP-CFG-01/evidence.json",
+      "sha256": "0a93aefcbdd66f67cc2e9bbeedd7b1160764dc108a223d8a9f7d04624c2b2bac"
+    },
+    "WORKER-CANCEL-01": {
+      "local_files_sha256": {
+        "chart.py": "dce1fa71682eaf919b04440f2a54d3e4b2a0b3337bd1c96ab156f2c3c9df75fd",
+        "run.py": "f8b64039e47925235611f3acec02d70b69eec90c3c8e3e4e17fb6ea1887f7a6f",
+        "worker.py": "3387357818c676d1e2abfa76c13a67f1a1b539620da3db9a0b8ecac86b6424e9",
+        "worker.rs": "f97d05b92db3989f0f1efdabe5cd93930c90c881019efbdb496dc81f70324884"
+      },
+      "path": "research/language-design/RT-01/RESOURCE-WORKER-01/evidence.json",
+      "sha256": "5d77fb9ebff6a0ea83c2e1cc5f83acaea192c7a9066b46215b95e721c011d7cb"
+    }
+  },
+  "sqlite": "3.53.1",
+  "tools": {
+    "gcc": {
+      "banner": "gcc (Debian 14.2.0-19) 14.2.0",
+      "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+    },
+    "git": {
+      "banner": "git version 2.56.1",
+      "sha256": "64873200c15dcbcdfa54d9831b8b336bb57da7e661141b7f9ea04b6fe7f14515"
+    },
+    "lean": {
+      "banner": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+      "sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00"
+    },
+    "node": {
+      "banner": "v22.23.5",
+      "sha256": "2f822d544601dfff107f57d945b649d15c5bf6302595735a6bd9cdc7ee9669bd"
+    },
+    "rustc": {
+      "banner": "rustc 1.85.1 (4eb161250 2025-03-15)",
+      "sha256": "f8d033fd72e878ec60493788c8bffec2e6c154dcab6f0cb4c145af8ada26a7ed"
+    }
+  }
+}

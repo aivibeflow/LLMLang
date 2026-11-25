@@ -17,6 +17,8 @@ RT-00 replays the RT-38 emulator and conditional frame-reuse cohort from an exac
 
 RT-00 replays the RT-37 firmware and embedded model ledgers and records separate QEMU, linked instruction, Lean and physical-device scopes. [Cortex cohort replay](RT-00/RT-00-CORTEX-COHORT-REPLAY-2026-11-25.md)
 
+RT-00 reproduces eight RT-32 proof and lifetime ledgers and five named concrete antecedent ledgers. [RT-32 lifetime replay](RT-00/RT-00-RT32-LIFETIME-REPLAY-2026-11-25.md)
+
 Scenario 94 compares scheduler fairness and liveness: preemption, weak/strong/bounded runnable-task progress, priority starvation, resource fairness, and structured joining are distinct. The cited guarantees are runtime/profile-specific or conditional; no LLMLang policy is selected and no runtime experiment has been run.
 
 Scenario 95 compares compiler diagnostic models and repair channels for humans and agents. Structured records, text renderers, editor transport, suggested edits, and repair authority are separate; studies of novice humans and LLM-generated explanations do not establish autonomous agent repair quality. No LLMLang diagnostic policy is selected.
