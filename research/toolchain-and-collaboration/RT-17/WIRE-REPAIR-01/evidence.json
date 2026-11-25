@@ -1,0 +1,569 @@
+{
+  "format": "rt17-wire-repair/1",
+  "node": "v22.23.5",
+  "sdk": "3.17.5",
+  "python": "Python 3.12.14",
+  "summaries": {
+    "legacy": {
+      "staleApplications": 2,
+      "wrongBehavior": 3,
+      "unnecessaryRejections": 0
+    },
+    "versioned": {
+      "staleApplications": 0,
+      "wrongBehavior": 3,
+      "unnecessaryRejections": 0
+    },
+    "workspace": {
+      "staleApplications": 0,
+      "wrongBehavior": 1,
+      "unnecessaryRejections": 1
+    },
+    "preflight": {
+      "staleApplications": 0,
+      "wrongBehavior": 1,
+      "unnecessaryRejections": 0
+    },
+    "commit-bound": {
+      "staleApplications": 0,
+      "wrongBehavior": 0,
+      "unnecessaryRejections": 0
+    }
+  },
+  "results": [
+    {
+      "policy": "legacy",
+      "case": "baseline",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": false,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "legacy",
+      "case": "config-edit",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": false,
+      "clientBefore": [
+        1,
+        2
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": true,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "legacy",
+      "case": "config-restored",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": false,
+      "clientBefore": [
+        1,
+        3
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": true,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "legacy",
+      "case": "dependency-before",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": false,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [
+        4,
+        5
+      ],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "legacy",
+      "case": "dependency-during",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": false,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [
+        4,
+        5
+      ],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "legacy",
+      "case": "unrelated",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": false,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "legacy",
+      "case": "wrong-repair",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": false,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "versioned",
+      "case": "baseline",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "versioned",
+      "case": "config-edit",
+      "decision": "document-version",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        2
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "versioned",
+      "case": "config-restored",
+      "decision": "document-version",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        3
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "versioned",
+      "case": "dependency-before",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [
+        4,
+        5
+      ],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "versioned",
+      "case": "dependency-during",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [
+        4,
+        5
+      ],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "versioned",
+      "case": "unrelated",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "versioned",
+      "case": "wrong-repair",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "workspace",
+      "case": "baseline",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "workspace",
+      "case": "config-edit",
+      "decision": "document-version",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        2
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "workspace",
+      "case": "config-restored",
+      "decision": "document-version",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        3
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "workspace",
+      "case": "dependency-before",
+      "decision": "stale-scope",
+      "editRequests": 0,
+      "versioned": null,
+      "clientBefore": null,
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "workspace",
+      "case": "dependency-during",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [
+        4,
+        5
+      ],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "workspace",
+      "case": "unrelated",
+      "decision": "stale-scope",
+      "editRequests": 0,
+      "versioned": null,
+      "clientBefore": null,
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": true
+    },
+    {
+      "policy": "workspace",
+      "case": "wrong-repair",
+      "decision": "behavior-mismatch",
+      "editRequests": 0,
+      "versioned": null,
+      "clientBefore": null,
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "preflight",
+      "case": "baseline",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "preflight",
+      "case": "config-edit",
+      "decision": "document-version",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        2
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "preflight",
+      "case": "config-restored",
+      "decision": "document-version",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        3
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "preflight",
+      "case": "dependency-before",
+      "decision": "stale-scope",
+      "editRequests": 0,
+      "versioned": null,
+      "clientBefore": null,
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "preflight",
+      "case": "dependency-during",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [
+        4,
+        5
+      ],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "preflight",
+      "case": "unrelated",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "preflight",
+      "case": "wrong-repair",
+      "decision": "behavior-mismatch",
+      "editRequests": 0,
+      "versioned": null,
+      "clientBefore": null,
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "commit-bound",
+      "case": "baseline",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "commit-bound",
+      "case": "config-edit",
+      "decision": "document-version",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        2
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "commit-bound",
+      "case": "config-restored",
+      "decision": "document-version",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        3
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "commit-bound",
+      "case": "dependency-before",
+      "decision": "stale-scope",
+      "editRequests": 0,
+      "versioned": null,
+      "clientBefore": null,
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "commit-bound",
+      "case": "dependency-during",
+      "decision": "atomic-read-scope",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "commit-bound",
+      "case": "unrelated",
+      "decision": "applied",
+      "editRequests": 1,
+      "versioned": true,
+      "clientBefore": [
+        1,
+        1
+      ],
+      "behaviorDifferences": [],
+      "atomicRejection": false,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    },
+    {
+      "policy": "commit-bound",
+      "case": "wrong-repair",
+      "decision": "behavior-mismatch",
+      "editRequests": 0,
+      "versioned": null,
+      "clientBefore": null,
+      "behaviorDifferences": [],
+      "atomicRejection": true,
+      "staleApplication": false,
+      "unnecessaryRejection": false
+    }
+  ]
+}
