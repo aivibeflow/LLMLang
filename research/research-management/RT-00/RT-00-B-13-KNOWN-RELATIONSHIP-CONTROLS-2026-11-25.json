@@ -1,7 +1,8 @@
 {
   "schema_version": 1,
   "study": "RT-00 B13 known relationship controls recheck",
-  "baseline": "305bf66db5f93a0b6a4308f9c6099d2d888b75d2",
+  "baseline": "983b2e0e6ee25f53de40ad0a3b5035d584ae3799",
+  "source_identity_recheck": "305bf66db5f93a0b6a4308f9c6099d2d888b75d2",
   "baseline_ref": "origin/main",
   "source": "RT-00 B12 text-overlap screen known_relationship_controls",
   "result": "4/4 known missed controls rechecked; corpus-wide semantic review remains open",
@@ -61,10 +62,10 @@
   "exact_blob_scan": {
     "research_paths": 1722,
     "unique_blobs": 1711,
-    "repeated_blob_groups": 6,
+    "repeated_blob_groups": 7,
     "markdown_mdx_paths": 612,
     "unique_markdown_mdx_blobs": 612,
-    "interpretation": "Five groups are repeated lockfiles, solver output, or query-scoped fixtures; one is the shared OCI/REAPI Apache-2.0 license. Exact identity does not determine semantic duplication."
+    "interpretation": "Six groups are repeated lockfiles, solver output, or query-scoped fixtures; one is the shared OCI/REAPI Apache-2.0 license. Exact identity does not determine semantic duplication."
   },
   "open_dependencies": [
     "Corpus-wide content-level semantic pair and changed-family review",
