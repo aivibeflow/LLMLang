@@ -870,7 +870,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define canonical object encoding and immutable object lifecycle.
 - [ ] Define indexes for graph traversal, reverse dependencies, contracts, and implementation discovery.
 - [ ] Define transactions and atomic publication of graph revisions.
-- [ ] Define garbage collection and reachability. [WIP] — compare pinned reachability and concurrent publication against a stale storage sweep on `research/all`.
+- [ ] Define garbage collection and reachability.
+  - [x] Compare six real SQLite WAL schedules for stale mark/sweep, generation recheck, writer exclusion, multiple leases, cycles and incomplete closure. The unchecked plan loses a newly published root; the generation recheck preserves it after retry. External CAS lifetime and recovery remain open. [RT-12 reachability sweep](research/packages-and-ecosystem/RT-12/RT-12-REACHABILITY-SWEEP-2026-11-25.md)
 - [ ] Define crash recovery, corruption detection, backup, and replication.
 - [ ] Define local repository storage versus shared/global artifact storage.
 - [ ] Define portability without requiring a live external database.
