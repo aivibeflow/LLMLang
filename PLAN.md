@@ -1493,6 +1493,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Benchmark proof and test execution costs.
   - [x] Measure 60 proof and finite-oracle processes across three pinned models. Every receipt matches its archive. Recorded median inner phases range from 370.31 to 1,306.24 ms for the proof harnesses and from 9.34 to 123.79 ms for the finite tests. Coverage and peak process RSS are reported separately. [Proof and test execution costs](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-2026-11-25.md)
 - [ ] Benchmark storage, indexing, and garbage collection.
+  - [ ] [WIP] Measure SQLite reverse indexing, retained-root reachability, mark-and-sweep, and physical compaction on synthetic immutable objects.
 - [ ] Benchmark large repositories and highly connected graphs.
 - [ ] Benchmark concurrent edits and merge operations.
 - [ ] Compare with Rust, Go, and C++ workflows on representative projects.
