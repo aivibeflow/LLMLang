@@ -1,0 +1,1839 @@
+{
+  "schema": "llmlang-concurrent-grant-revocation/1",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "runner_sha256": "e33cd3d648eebadc3fd104b39953aaf7ad19de80475c2797eb4cdfa90d5cc90a",
+  "process_pairs": 45,
+  "counts": {
+    "cached": {
+      "committed": 6,
+      "false_admission": 3,
+      "false_refusal": 0,
+      "busy_snapshot": 0
+    },
+    "child_only": {
+      "committed": 5,
+      "false_admission": 2,
+      "false_refusal": 0,
+      "busy_snapshot": 0
+    },
+    "ancestors": {
+      "committed": 3,
+      "false_admission": 0,
+      "false_refusal": 0,
+      "busy_snapshot": 0
+    },
+    "global_epoch": {
+      "committed": 2,
+      "false_admission": 0,
+      "false_refusal": 1,
+      "busy_snapshot": 0
+    },
+    "wal_upgrade": {
+      "committed": 3,
+      "false_admission": 0,
+      "false_refusal": 0,
+      "busy_snapshot": 4
+    }
+  },
+  "runs": [
+    {
+      "scenario": "unchanged",
+      "policy": "cached",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_before",
+      "policy": "cached",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_during",
+      "policy": "cached",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": true,
+      "false_refusal": false
+    },
+    {
+      "scenario": "child_during",
+      "policy": "cached",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          2
+        ],
+        "epoch": 1,
+        "child_live": false
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          2
+        ],
+        "epoch": 1,
+        "child_live": false
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": true,
+      "false_refusal": false
+    },
+    {
+      "scenario": "unrelated_during",
+      "policy": "cached",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "reissued_during",
+      "policy": "cached",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          3,
+          1
+        ],
+        "epoch": 2,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          3,
+          1
+        ],
+        "epoch": 2,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": true,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_after",
+      "policy": "cached",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "wrong_issuer",
+      "policy": "cached",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "outside_scope",
+      "policy": "cached",
+      "target": "org/demo/src-other/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "unchanged",
+      "policy": "child_only",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_before",
+      "policy": "child_only",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_during",
+      "policy": "child_only",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": true,
+      "false_refusal": false
+    },
+    {
+      "scenario": "child_during",
+      "policy": "child_only",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          2
+        ],
+        "epoch": 1,
+        "child_live": false
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          2
+        ],
+        "epoch": 1,
+        "child_live": false
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "unrelated_during",
+      "policy": "child_only",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "reissued_during",
+      "policy": "child_only",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          3,
+          1
+        ],
+        "epoch": 2,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          3,
+          1
+        ],
+        "epoch": 2,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": true,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_after",
+      "policy": "child_only",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "wrong_issuer",
+      "policy": "child_only",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "outside_scope",
+      "policy": "child_only",
+      "target": "org/demo/src-other/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "unchanged",
+      "policy": "ancestors",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_before",
+      "policy": "ancestors",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_during",
+      "policy": "ancestors",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "child_during",
+      "policy": "ancestors",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          2
+        ],
+        "epoch": 1,
+        "child_live": false
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          2
+        ],
+        "epoch": 1,
+        "child_live": false
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "unrelated_during",
+      "policy": "ancestors",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "reissued_during",
+      "policy": "ancestors",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          3,
+          1
+        ],
+        "epoch": 2,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          3,
+          1
+        ],
+        "epoch": 2,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_after",
+      "policy": "ancestors",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "wrong_issuer",
+      "policy": "ancestors",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "outside_scope",
+      "policy": "ancestors",
+      "target": "org/demo/src-other/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "unchanged",
+      "policy": "global_epoch",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_before",
+      "policy": "global_epoch",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_during",
+      "policy": "global_epoch",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "child_during",
+      "policy": "global_epoch",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          2
+        ],
+        "epoch": 1,
+        "child_live": false
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          2
+        ],
+        "epoch": 1,
+        "child_live": false
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "unrelated_during",
+      "policy": "global_epoch",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": true
+    },
+    {
+      "scenario": "reissued_during",
+      "policy": "global_epoch",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          3,
+          1
+        ],
+        "epoch": 2,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          3,
+          1
+        ],
+        "epoch": 2,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_after",
+      "policy": "global_epoch",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "wrong_issuer",
+      "policy": "global_epoch",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "outside_scope",
+      "policy": "global_epoch",
+      "target": "org/demo/src-other/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "unchanged",
+      "policy": "wal_upgrade",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_before",
+      "policy": "wal_upgrade",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_during",
+      "policy": "wal_upgrade",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": true,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "child_during",
+      "policy": "wal_upgrade",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          2
+        ],
+        "epoch": 1,
+        "child_live": false
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          2
+        ],
+        "epoch": 1,
+        "child_live": false
+      },
+      "committed": false,
+      "busy_snapshot": true,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "unrelated_during",
+      "policy": "wal_upgrade",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": true,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "reissued_during",
+      "policy": "wal_upgrade",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          3,
+          1
+        ],
+        "epoch": 2,
+        "child_live": true
+      },
+      "final": {
+        "allowed": true,
+        "versions": [
+          3,
+          1
+        ],
+        "epoch": 2,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": true,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "ancestor_after",
+      "policy": "wal_upgrade",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": true,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          2,
+          1
+        ],
+        "epoch": 1,
+        "child_live": true
+      },
+      "committed": true,
+      "busy_snapshot": false,
+      "effects": [
+        [
+          "op-1",
+          "org/demo/src/file",
+          1,
+          1
+        ]
+      ],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "wrong_issuer",
+      "policy": "wal_upgrade",
+      "target": "org/demo/src/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    },
+    {
+      "scenario": "outside_scope",
+      "policy": "wal_upgrade",
+      "target": "org/demo/src-other/file",
+      "initial": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "before_publication": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "final": {
+        "allowed": false,
+        "versions": [
+          1,
+          1
+        ],
+        "epoch": 0,
+        "child_live": true
+      },
+      "committed": false,
+      "busy_snapshot": false,
+      "effects": [],
+      "false_admission": false,
+      "false_refusal": false
+    }
+  ]
+}

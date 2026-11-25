@@ -134,7 +134,7 @@ The graph is intentionally simplified. It omits feedback edges for readability; 
 | DEP-027 | RT-05 → RT-14 | Requires | Structured AI changes need stable graph entities, typed operations, and inspectable semantic context. | Strong hypothesis |
 | DEP-028 | RT-03 → RT-14 | Constrains | The change protocol must not allow an LLM to bypass language-level semantic validation. | Strong hypothesis |
 | DEP-029 | RT-08 → RT-14 | Enables | Independent validation/evidence services provide deterministic acceptance gates for model-proposed changes. | Strong hypothesis |
-| DEP-030 | RT-16 → RT-10 | Constrains | Runtime isolation, capability checks, and trusted low-level primitives depend on security policy. | Strong hypothesis |
+| DEP-030 | RT-16 → RT-10 | Constrains | Runtime isolation, capability checks, and trusted low-level primitives depend on security policy. A local SQLite effect can check exact grant ancestry within its transaction. Foreign effects need a distinct synchronization guarantee. [Concurrent grant revocation](../language-design/RT-04/RT-04-CONCURRENT-GRANT-REVOCATION-2026-11-25.md) | Strong hypothesis |
 | DEP-031 | RT-16 → RT-12 | Constrains | Artifact publication, dependency resolution, provenance, and registry trust depend on supply-chain policy. | Strong hypothesis |
 | DEP-032 | RT-16 → RT-14 | Constrains | Agent permissions, tool execution, approvals, and auditability depend on the security and authority model. | Strong hypothesis |
 | DEP-033 | RT-08 → RT-18 | Enables | Conformance and compatibility claims require reproducible tests, proofs, or other scoped evidence. | Strong hypothesis |
