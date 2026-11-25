@@ -1,0 +1,21 @@
+#include "public.h"
+
+uint32_t checked_add(uint64_t from, uint32_t enabled, slot_word *output) {
+    if (enabled == 0) {
+        *output = (slot_word)from;
+        return 0;
+    }
+    uint64_t value;
+#ifdef USE_BUILTIN
+    if (__builtin_add_overflow(from, (uint64_t)@STEP@, &value)) {
+        return @ERROR@;
+    }
+#else
+    if (UINT64_MAX - from < @STEP@) {
+        return @ERROR@;
+    }
+    value = from + @STEP@;
+#endif
+    *output = (slot_word)value;
+    return 0;
+}

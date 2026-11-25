@@ -69,6 +69,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-13 Windows COFF profiles](RT-13/RT-13-FFI-WINDOWS-COFF-PROFILES-2026-11-25.md) checks target-specific call lowering and import-library identity on two cross-builds.
 - [RT-13 Mach-O profiles](RT-13/RT-13-FFI-MACHO-PROFILES-2026-11-25.md) checks exact platform, architecture and minimum OS claims in three cross-builds.
 - [RT-13 Linux FFI triple replay](RT-13/RT-13-FFI-LINUX-TRIPLE-REPLAY-2026-11-25.md) checks the same provider and callback behavior on three CPU and runtime profiles.
+- [RT-13 versioned public export](RT-13/RT-13-FFI-SIX-LANGUAGE-EXPORT-2026-11-25.md) checks six independent consumers and exact ABI and contract upgrade admission.
 - [RT-13 Java cleanup occurrences](RT-13/RT-13-JAVA-CLEANUP-OCCURRENCES-2026-11-25.md) compares automatic suppression with separate typed failure occurrences.
 - [RT-09 static link artifact identity](RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md) compares archive order, selected native members and exact executable bytes.
 - [RT-09 ordered runtime realization](RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md) binds native runtime providers and independently audits ordered effects.
