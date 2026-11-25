@@ -1,0 +1,7 @@
+'ProofAdequacy.transfer' does not depend on any axioms
+'ProofAdequacy.exactTransfer' depends on axioms: [propext]
+'ProofAdequacy.transferWithCoverage' does not depend on any axioms
+'ProofAdequacy.weakProof' does not depend on any axioms
+'ProofAdequacy.narrowedProof' does not depend on any axioms
+'ProofAdequacy.intentFailure' does not depend on any axioms
+'ProofAdequacy.noImplementation' does not depend on any axioms

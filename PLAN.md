@@ -603,8 +603,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define exact binding between source-level assumptions, typed IR, serialized queries, and proof obligations.
 - [ ] Define fail-closed behavior for unsupported or ambiguous constructs.
 - [ ] Define how proof status is represented: candidate, unknown, checked, rejected, or proven.
-- [ ] Define the relationship between proof validity and specification adequacy; a proof cannot establish that the specification captures user intent.
-  - [ ] [WIP] Check proof validity, contract feasibility and adequacy relative to a recorded intent relation with Lean and finite countermodels on `research/all`.
+- [x] Define the relationship between proof validity and specification adequacy; a proof cannot establish that the specification captures user intent.
+  - [x] Distinguish proof validity, contract feasibility, functional transfer to a recorded intent relation and eligibility coverage. Lean proves exact transfer under feasibility. Among 4,096 Boolean contract pairs, 1,767 feasible pairs fail transfer, while 960 pairs with infeasible candidates give vacuous implication. Stakeholder validation remains a separate RT-02 gate. [Proof validity and adequacy](research/formal-verification/RT-07/RT-07-PROOF-VALIDITY-AND-ADEQUACY-2026-11-25.md)
 
 **Existing evidence:** scenarios 28–33, prototype 29, Lean CPC parser-state binding prototype, Logos integration, and `research/LLMLang-FORMAL-VERIFICATION.md`.
 

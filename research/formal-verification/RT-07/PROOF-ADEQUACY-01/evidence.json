@@ -1,0 +1,117 @@
+{
+  "schema": "llmlang-proof-adequacy/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "a8dc7b3c2299599613a29f970cbe36e7a7484e24c5bec679d868884d635174e4",
+    "Adequacy.lean": "9962053915010f527bde969b0ca283d5d2d041e7d970105f166c1b95e5fe7207",
+    "axioms.txt": "63f84553cb5e3550b6f579866c54170b195acb2e34ff48e841fd0c677dcee1cf"
+  },
+  "contracts": 64,
+  "total_implementations": 4,
+  "counts": {
+    "contract_pairs": 4096,
+    "candidate_valid_triples": 9216,
+    "candidate_valid_intent_false_triples": 4032,
+    "feasible_candidate_pairs": 3136,
+    "feasible_inadequate_pairs": 1767,
+    "inadequate_and_narrowed": 1256,
+    "adequate_without_admission_coverage": 280,
+    "infeasible_vacuous_implication_pairs": 960,
+    "infeasible_breaks_pointwise_equivalence": 304,
+    "inadequate_despite_coverage": 511
+  },
+  "witnesses": {
+    "weak_guarantee": {
+      "candidate": [
+        3,
+        15
+      ],
+      "intent": [
+        3,
+        9
+      ],
+      "implementation": [
+        0,
+        0
+      ],
+      "feasible": true,
+      "implementation_satisfies_candidate": true,
+      "implementation_satisfies_intent": false,
+      "all_valid_implementations_transfer": false,
+      "eligibility_coverage": true
+    },
+    "narrowed_precondition": {
+      "candidate": [
+        1,
+        9
+      ],
+      "intent": [
+        3,
+        9
+      ],
+      "implementation": [
+        0,
+        0
+      ],
+      "feasible": true,
+      "implementation_satisfies_candidate": true,
+      "implementation_satisfies_intent": false,
+      "all_valid_implementations_transfer": false,
+      "eligibility_coverage": false
+    },
+    "empty_precondition": {
+      "candidate": [
+        0,
+        0
+      ],
+      "intent": [
+        3,
+        9
+      ],
+      "implementation": [
+        0,
+        0
+      ],
+      "feasible": true,
+      "implementation_satisfies_candidate": true,
+      "implementation_satisfies_intent": false,
+      "all_valid_implementations_transfer": false,
+      "eligibility_coverage": false
+    },
+    "infeasible_contract": {
+      "candidate": [
+        3,
+        0
+      ],
+      "intent": [
+        3,
+        9
+      ],
+      "implementation": null,
+      "feasible": false,
+      "implementation_satisfies_candidate": null,
+      "implementation_satisfies_intent": null,
+      "all_valid_implementations_transfer": true,
+      "eligibility_coverage": true
+    },
+    "adequate_without_coverage": {
+      "candidate": [
+        1,
+        13
+      ],
+      "intent": [
+        3,
+        13
+      ],
+      "implementation": [
+        0,
+        0
+      ],
+      "feasible": true,
+      "implementation_satisfies_candidate": true,
+      "implementation_satisfies_intent": true,
+      "all_valid_implementations_transfer": true,
+      "eligibility_coverage": false
+    }
+  }
+}
