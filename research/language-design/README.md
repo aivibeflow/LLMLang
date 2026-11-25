@@ -40,6 +40,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-01 end-to-end examples](RT-01/RT-01-END-TO-END-EXAMPLES-2026-11-25.md) verifies the typed CLI and Toolchain lifecycle evidence.
 - [PROTOTYPES](PROTOTYPES/)
 
 ## Cross-direction evidence

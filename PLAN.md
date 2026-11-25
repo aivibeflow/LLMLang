@@ -1736,7 +1736,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Check native GNU Make and typed Python interop with three verified shared builds and 51 observations. Header content changes defeat timestamp-only freshness, while the exact current build receipt refuses stale bytes. Production dependency discovery and cutover remain open. [Native migration build handoff](research/compiler-and-translation/RT-28/RT-28-NATIVE-BUILD-HANDOFF-2026-11-25.md)
 - [ ] [WIP human] Evaluate learning curve and review quality for human developers.
 - [ ] [WIP human] Evaluate LLM authoring workflows without treating generated output as trusted. Supply a pinned live model runner and controlled workload for the comparative workflow. [Independent validation pilot](research/security/RT-16/RT-16-INDEPENDENT-VALIDATION-2026-11-25.md)
-- [ ] [WIP] Build representative end-to-end examples.
+- [x] Build representative end-to-end examples.
+  - [x] Verify archived coverage for a typed CLI and the Toolchain change lifecycle. The examples include 170 execution observations and 864 exact round trips. Real-project scale and participant outcomes remain open. [End-to-end examples](research/language-design/RT-01/RT-01-END-TO-END-EXAMPLES-2026-11-25.md)
   - Compare one exact three-entry CLI graph through interpretation and generated Rust O0/O3. Both paths and the existing C/Python baselines pass all 34 RT-01 cases. Separate mutations distinguish negative division, empty arguments and diagnostic channels. General language support, representative project scale and participant evaluation remain open. [Typed CLI vertical slice](research/language-design/RT-01/RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md)
 - [ ] Define practical adoption criteria and migration strategy.
 
