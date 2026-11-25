@@ -1,0 +1,27 @@
+{
+  "base": "39c96755626604fb1a67901d8b85ce231a994553",
+  "matrix": {
+    "control_without_explicit_migration": "migration-required",
+    "disjoint_combination_with_stale_bound_operation": "inconsistent",
+    "fieldwise_combination_of_two_valid_sides": "pending-evidence",
+    "outcomes": {
+      "bound": 10,
+      "inconsistent": 40,
+      "migration-required": 16,
+      "pending-evidence": 20,
+      "stale-index": 10
+    },
+    "reuse_on_bound_cases": {
+      "conditional-proof-invalidated": 6,
+      "conditional-proof-kept": 4,
+      "exact-execution-invalidated": 8,
+      "exact-execution-kept": 2
+    }
+  },
+  "prior_ledgers": {
+    "research/packages-and-ecosystem/RT-12/CONTRACT-PROVIDER-INDEX-01/evidence.json": "a2dc7cad258bb01f45afa12334361d299675538da770f4fc62c7fca2c836b955",
+    "research/semantic-representation/RT-05/PUBLIC-RESOLUTION-01/evidence.json": "2fec22a87e8195d6cb5488b6333ce21448aee8caafc72ce2236c00c3e80b6a35",
+    "research/toolchain-and-collaboration/RT-24/IDENTITY-LINEAGE-01/evidence.json": "5c0126baa4d2a8668ef5b49f93984c5403d7f64711fb3367654618f1020f5f1d"
+  },
+  "runner_sha256": "d5cd16651fa766c51dc01c63412397ab7567ead91f1842d7516a818f79a50caa"
+}
