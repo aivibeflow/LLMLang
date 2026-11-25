@@ -1,0 +1,72 @@
+{
+  "batches": 30,
+  "cpu": 4,
+  "cpu_limit": "400000 100000",
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "deltas": {
+    "burst_usec": 0,
+    "nice_usec": 0,
+    "nr_bursts": 0,
+    "nr_periods": 15,
+    "nr_throttled": 0,
+    "system_usec": 770060,
+    "throttled_usec": 0,
+    "usage_usec": 1414658,
+    "user_usec": 644597
+  },
+  "executables": {
+    "cranelift": {
+      "bytes": 3648328,
+      "dt_needed": [
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "sha256": "2c01e022deab75e4718c22a37ce750deed5d53e06a13a7f9f4421b93656d02e7"
+    },
+    "llvm-orc": {
+      "bytes": 56560,
+      "dt_needed": [
+        "libLLVM.so.19.1",
+        "libstdc++.so.6",
+        "libc.so.6"
+      ],
+      "sha256": "0ee7b9151ef046ff3ee97c399f6a56f8adda9012d6abd05a871b158a01501e2f"
+    },
+    "wrapper": {
+      "bytes": 16464,
+      "dt_needed": [
+        "libc.so.6"
+      ],
+      "sha256": "d0e4f515f7a2a8851a985e35f707c73812022104a19c52061abe0e0b9ed311ba"
+    }
+  },
+  "kernel": "6.18.57",
+  "load_average": [
+    0.18896484375,
+    0.10693359375,
+    0.08642578125
+  ],
+  "lowered_ir_sha256": "dc36aa363d263d610c16f655278279e236ec4c935027e63cedd17d50a42182ec",
+  "machine": "x86_64",
+  "oracle_rows_per_sample": 4,
+  "seed": 75,
+  "sources_sha256": {
+    "JIT-FRESH-PROCESS-01/measure.py": "42553c691b90d7751467a398c4c1b8b02ca1e36bde4c500ef9b63f33aed4ee3d",
+    "JIT-FRESH-PROCESS-01/process.c": "04a4e3e08a048d61f5413d7c85bb0a8662f452e6692f5b29501da46a7d186678",
+    "JIT-MATERIALIZATION-01/Cargo.lock": "a1e15c5bf9db982ca119a5837dd34e77c6377fa7725f1fee41300ecc6f7491b7",
+    "JIT-MATERIALIZATION-01/orc.cpp": "daafdd2597d2a23e7f3816b59b0f2a7bc7ed6c4bbc365ce7f83d0fb0afee0c23",
+    "JIT-MATERIALIZATION-01/run.py": "2809b03be696eade7080c268d73be42894d2de02faf40e13bebc9b90625f4414",
+    "JIT-MATERIALIZATION-01/src/main.rs": "a4000b59be7fb34ad913b4cdbefd5c54492ab4153cf64e746a78edd01fa4eaef",
+    "cranelift-checked-add/run.py": "1842048aaa533448861792b826fc380721fedd5910989dae15e15c24fb0aa730",
+    "cranelift-checked-add/src/main.rs": "01aa9fa2b764fbb31d254ede34df3d6d978aa3e7b218940fbafb853c084609e2"
+  },
+  "tools": {
+    "gcc": "14.2.0",
+    "glibc": "glibc 2.41",
+    "llvm": "19.1.7",
+    "python": "Python 3.12.14",
+    "rust": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  }
+}
