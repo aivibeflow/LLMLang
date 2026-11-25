@@ -8,6 +8,8 @@ Research documents are exploratory evidence and do not change the candidate or n
 
 ## Research directory layout
 
+The [multi-backend integration and verification artifact cache study](formal-verification/RT-33/VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) connects RT-33 adapters, RT-32 proof reuse, RT-11 semantic caching and RT-36 trust. Its VAC-01–15 tasks are proposed, not new experimental results. See [PLAN §3.5](../PLAN.md#35-verification-artifact-cache-and-incremental-proof-reuse-rt-11323336).
+
 The top level is organized by broad research **directions**, not individual RT identifiers. Each RT study has one primary location within a direction. Dedicated corpora, executable prototypes, benchmarks and associated results are colocated with their topic. Cross-direction work is linked rather than duplicated. The grouping is navigational; it does not change research scope, statuses, evidence, or the taxonomy. Historical revision-pinned paths and artifact identities remain unchanged.
 
 | Research direction | Studies |
