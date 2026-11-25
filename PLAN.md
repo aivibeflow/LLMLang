@@ -874,7 +874,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define transactions and atomic publication of graph revisions.
 - [ ] Define garbage collection and reachability.
   - [x] Compare six real SQLite WAL schedules for stale mark/sweep, generation recheck, writer exclusion, multiple leases, cycles and incomplete closure. The unchecked plan loses a newly published root; the generation recheck preserves it after retry. External CAS lifetime and recovery remain open. [RT-12 reachability sweep](research/packages-and-ecosystem/RT-12/RT-12-REACHABILITY-SWEEP-2026-11-25.md)
-- [ ] Define crash recovery, corruption detection, backup, and replication. [WIP] — compare index-only backup with a verified portable graph-closure restore on `research/all`.
+- [ ] Define crash recovery, corruption detection, backup, and replication.
+  - [x] Verify eight backup/restore controls. A valid SQLite index backup loses readability when the external closure is collected. A closed portable envelope reconstructs the exact root and bytes in an empty store, and a failed staged restore preserves the previous root. Power-loss durability and replication remain open. [RT-12 closed graph backup](research/packages-and-ecosystem/RT-12/RT-12-CLOSED-GRAPH-BACKUP-2026-11-25.md)
 - [ ] Define local repository storage versus shared/global artifact storage.
 - [ ] Define portability without requiring a live external database.
 
