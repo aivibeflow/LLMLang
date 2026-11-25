@@ -890,7 +890,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define local repository storage versus shared/global artifact storage.
   - [x] Compare two exact repository closures over three shared graph sizes and eleven controls per size. Shared storage deduplicates common objects, while a verified local pin preserves only its selected offline closure. Peer roots outside scope and corrupt shared bytes are refused. [RT-12 local and shared closures](research/packages-and-ecosystem/RT-12/RT-12-REPOSITORY-LOCAL-AND-SHARED-CLOSURES-2026-11-25.md)
 - [ ] Define portability without requiring a live external database.
-  - [ ] [WIP] Compare native offline Git clone reconstruction for manifest-only, closed and historical semantic object inventories on `research/all`.
+  - [x] Compare ten native offline Git clone and archive controls. Six restore exact semantic bytes. A pointer-only current tree fails even with complete history, while an explicit same-root historical carrier can restore it. A shallow closed bundle restores its current root and lacks the older revision. Production retention and authority remain open. [Offline semantic clone](research/packages-and-ecosystem/RT-12/RT-12-OFFLINE-SEMANTIC-CLONE-2026-11-25.md)
 
 **Existing evidence:** `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md` and the current Git representation research.
 
