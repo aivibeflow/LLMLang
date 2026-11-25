@@ -1,0 +1,4044 @@
+{
+  "baseline": "5ad921e8656559108ccd211f658704c89360d73f",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "source_sha256": "6826db81b30a7681d1982cd9fe399ced3e0daf614c79894d886570fbea9d2d71",
+  "runner_sha256": "66211c1e4f530607936b968baaf0e2f2e41eee728766693c10781a12ae2cb909",
+  "axioms": [
+    "'WriteSwap.sameHeap_iff' depends on axioms: [propext]",
+    "'WriteSwap.sameEvents_iff' depends on axioms: [propext]",
+    "'WriteSwap.swap_iff' depends on axioms: [propext]"
+  ],
+  "profile": "final-heap-and-ordered-visible-writes",
+  "ordered_write_pairs": 64,
+  "initial_heaps_per_pair": 4,
+  "guard_admits_swaps": 40,
+  "state_only_false_admissions": 8,
+  "drop_first_admissions": 16,
+  "drop_first_admissions_when_swap_unsafe": 8,
+  "wrong_target_control": {
+    "source": [
+      [
+        0,
+        1,
+        false
+      ],
+      [
+        1,
+        -1,
+        false
+      ]
+    ],
+    "checked_swap": [
+      [
+        1,
+        -1,
+        false
+      ],
+      [
+        0,
+        1,
+        false
+      ]
+    ],
+    "actual_target": [
+      [
+        1,
+        -1,
+        false
+      ]
+    ],
+    "source_target_receipt": "9ce16f0cc6a8871a58418d480ed7984bba93614eb65bf5211eca4e1da473bd4d",
+    "actual_target_receipt_key": "6b91ee2826e0ea7febd0df1e6ea01c7c194b1e21c72cadee0d42e90d2204cb6e",
+    "counterexample": {
+      "input_heap": [
+        -1,
+        -1
+      ],
+      "source": [
+        [
+          1,
+          -1
+        ],
+        []
+      ],
+      "target": [
+        [
+          -1,
+          -1
+        ],
+        []
+      ]
+    }
+  },
+  "comparisons": [
+    {
+      "source": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          []
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      },
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          []
+        ],
+        "target": [
+          [
+            1,
+            1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": true,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": true,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          []
+        ]
+      },
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          []
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            1
+          ],
+          []
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": true,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": true,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          []
+        ],
+        "target": [
+          [
+            1,
+            1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          []
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      },
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": true,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": true,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          []
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            1
+          ],
+          []
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          []
+        ]
+      },
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": null
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          0,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          false
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          0,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          -1,
+          true
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": true,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              0,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          0,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          false
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          0,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          0,
+          1,
+          true
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": true,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            1,
+            -1
+          ],
+          [
+            [
+              0,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          1,
+          -1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          false
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          1,
+          -1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          -1,
+          true
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": false,
+      "final_state_only_passes": false,
+      "swap_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      },
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              -1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            -1
+          ],
+          [
+            [
+              1,
+              -1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          1,
+          1,
+          false
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          false
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          []
+        ]
+      }
+    },
+    {
+      "source": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_target": [
+        [
+          1,
+          1,
+          true
+        ],
+        [
+          1,
+          1,
+          true
+        ]
+      ],
+      "swap_safe": true,
+      "final_state_only_passes": true,
+      "swap_counterexample": null,
+      "drop_first_counterexample": {
+        "input_heap": [
+          -1,
+          -1
+        ],
+        "source": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        ],
+        "target": [
+          [
+            -1,
+            1
+          ],
+          [
+            [
+              1,
+              1
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

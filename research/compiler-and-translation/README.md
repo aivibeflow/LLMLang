@@ -16,6 +16,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-13 rule proof and translation validation](RT-13/RT-13-RULE-PROOF-AND-TRANSLATION-VALIDATION-2026-11-25.md) — compares a checked store swap with validation of an exact emitted target.
 - [PROTOTYPES](PROTOTYPES/)
 
 ## Cross-direction evidence
