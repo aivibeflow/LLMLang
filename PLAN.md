@@ -827,7 +827,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define local, workspace, remote, and global cache layers.
   - [x] Compare 17 process, workspace, team and global content controls. Complete mirrored records permit an offline hit, while missing records and authorized disagreement prevent early local admission. Verified artifact promotion retains original authority and is rechecked after policy changes. Persistent storage and transport remain open. [Layered cache lookup](research/toolchain-and-collaboration/RT-11/RT-11-LAYERED-CACHE-LOOKUP-2026-11-25.md)
 - [ ] Define cache integrity, trust, provenance, and eviction.
-  - [ ] [WIP] Check byte-exact cache artifact consumption across native filesystem eviction, replacement and cooperative reader leases on `research/all`.
+  - [x] Compare 35 native cache reads around scheduled file maintenance. Retained descriptors survive unlink and replacement but observe in-place writes. Verified snapshots and cooperative leases retain all exact bytes in the valid-start controls. Network leases and persistent metadata remain open. [Cache artifact lifetime](research/toolchain-and-collaboration/RT-11/RT-11-CACHE-ARTIFACT-LIFETIME-2026-11-25.md)
 - [ ] Define test and proof evidence caching with exact subject and assumption binding.
 - [ ] Define behavior for incomplete dependency closure: invalidate conservatively or disable caching.
 - [ ] Define reproducibility requirements and cache poisoning defenses.

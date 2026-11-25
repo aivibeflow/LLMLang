@@ -1,0 +1,308 @@
+{
+  "schema": "llmlang-cache-artifact-lifetime/1",
+  "python": "3.12.14",
+  "host": {
+    "kernel": "6.18.57",
+    "machine": "x86_64",
+    "filesystem": "overlayfs"
+  },
+  "runner_sha256": "591048332bcc58121fb5950492c4a2c33137052ab3a8d25d54330542987740ff",
+  "expected_artifact_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8",
+  "cases": [
+    {
+      "policy": "pathname",
+      "initial": "valid",
+      "edit": "unchanged",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "pathname",
+      "initial": "valid",
+      "edit": "evict",
+      "outcome": "missing-after-check",
+      "maintenance": "applied"
+    },
+    {
+      "policy": "pathname",
+      "initial": "valid",
+      "edit": "replace-identical",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "pathname",
+      "initial": "valid",
+      "edit": "replace-other",
+      "outcome": "wrong-bytes",
+      "maintenance": "applied",
+      "observed_sha256": "f9168bfcb0a5c91cff940a9006a35f5c9ba39ebe544d628a24aab98e993250b1"
+    },
+    {
+      "policy": "pathname",
+      "initial": "valid",
+      "edit": "rewrite-in-place",
+      "outcome": "wrong-bytes",
+      "maintenance": "applied",
+      "observed_sha256": "f9168bfcb0a5c91cff940a9006a35f5c9ba39ebe544d628a24aab98e993250b1"
+    },
+    {
+      "policy": "pathname",
+      "initial": "corrupt",
+      "edit": "unchanged",
+      "outcome": "failed-initial-integrity"
+    },
+    {
+      "policy": "pathname",
+      "initial": "missing",
+      "edit": "unchanged",
+      "outcome": "missing-before-check"
+    },
+    {
+      "policy": "descriptor",
+      "initial": "valid",
+      "edit": "unchanged",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "descriptor",
+      "initial": "valid",
+      "edit": "evict",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "descriptor",
+      "initial": "valid",
+      "edit": "replace-identical",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "descriptor",
+      "initial": "valid",
+      "edit": "replace-other",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "descriptor",
+      "initial": "valid",
+      "edit": "rewrite-in-place",
+      "outcome": "wrong-bytes",
+      "maintenance": "applied",
+      "observed_sha256": "f9168bfcb0a5c91cff940a9006a35f5c9ba39ebe544d628a24aab98e993250b1"
+    },
+    {
+      "policy": "descriptor",
+      "initial": "corrupt",
+      "edit": "unchanged",
+      "outcome": "failed-initial-integrity"
+    },
+    {
+      "policy": "descriptor",
+      "initial": "missing",
+      "edit": "unchanged",
+      "outcome": "missing-before-check"
+    },
+    {
+      "policy": "snapshot",
+      "initial": "valid",
+      "edit": "unchanged",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "snapshot",
+      "initial": "valid",
+      "edit": "evict",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "snapshot",
+      "initial": "valid",
+      "edit": "replace-identical",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "snapshot",
+      "initial": "valid",
+      "edit": "replace-other",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "snapshot",
+      "initial": "valid",
+      "edit": "rewrite-in-place",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "snapshot",
+      "initial": "corrupt",
+      "edit": "unchanged",
+      "outcome": "failed-initial-integrity"
+    },
+    {
+      "policy": "snapshot",
+      "initial": "missing",
+      "edit": "unchanged",
+      "outcome": "missing-before-check"
+    },
+    {
+      "policy": "revalidate",
+      "initial": "valid",
+      "edit": "unchanged",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "revalidate",
+      "initial": "valid",
+      "edit": "evict",
+      "outcome": "missing-after-check",
+      "maintenance": "applied"
+    },
+    {
+      "policy": "revalidate",
+      "initial": "valid",
+      "edit": "replace-identical",
+      "outcome": "exact",
+      "maintenance": "applied",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8"
+    },
+    {
+      "policy": "revalidate",
+      "initial": "valid",
+      "edit": "replace-other",
+      "outcome": "failed-final-integrity",
+      "maintenance": "applied",
+      "observed_sha256": "f9168bfcb0a5c91cff940a9006a35f5c9ba39ebe544d628a24aab98e993250b1"
+    },
+    {
+      "policy": "revalidate",
+      "initial": "valid",
+      "edit": "rewrite-in-place",
+      "outcome": "failed-final-integrity",
+      "maintenance": "applied",
+      "observed_sha256": "f9168bfcb0a5c91cff940a9006a35f5c9ba39ebe544d628a24aab98e993250b1"
+    },
+    {
+      "policy": "revalidate",
+      "initial": "corrupt",
+      "edit": "unchanged",
+      "outcome": "failed-initial-integrity"
+    },
+    {
+      "policy": "revalidate",
+      "initial": "missing",
+      "edit": "unchanged",
+      "outcome": "missing-before-check"
+    },
+    {
+      "policy": "lease",
+      "initial": "valid",
+      "edit": "unchanged",
+      "outcome": "exact",
+      "maintenance": "deferred",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8",
+      "maintenance_after_reader_release": "applied"
+    },
+    {
+      "policy": "lease",
+      "initial": "valid",
+      "edit": "evict",
+      "outcome": "exact",
+      "maintenance": "deferred",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8",
+      "maintenance_after_reader_release": "applied"
+    },
+    {
+      "policy": "lease",
+      "initial": "valid",
+      "edit": "replace-identical",
+      "outcome": "exact",
+      "maintenance": "deferred",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8",
+      "maintenance_after_reader_release": "applied"
+    },
+    {
+      "policy": "lease",
+      "initial": "valid",
+      "edit": "replace-other",
+      "outcome": "exact",
+      "maintenance": "deferred",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8",
+      "maintenance_after_reader_release": "applied"
+    },
+    {
+      "policy": "lease",
+      "initial": "valid",
+      "edit": "rewrite-in-place",
+      "outcome": "exact",
+      "maintenance": "deferred",
+      "observed_sha256": "b8900e66d4d68be74efd7341b9d9fc15247c439587df53aade0f1535adab90c8",
+      "maintenance_after_reader_release": "applied"
+    },
+    {
+      "policy": "lease",
+      "initial": "corrupt",
+      "edit": "unchanged",
+      "outcome": "failed-initial-integrity"
+    },
+    {
+      "policy": "lease",
+      "initial": "missing",
+      "edit": "unchanged",
+      "outcome": "missing-before-check"
+    }
+  ],
+  "counts": {
+    "pathname": {
+      "exact": 2,
+      "missing-after-check": 1,
+      "wrong-bytes": 2,
+      "failed-initial-integrity": 1,
+      "missing-before-check": 1
+    },
+    "descriptor": {
+      "exact": 4,
+      "wrong-bytes": 1,
+      "failed-initial-integrity": 1,
+      "missing-before-check": 1
+    },
+    "snapshot": {
+      "exact": 5,
+      "failed-initial-integrity": 1,
+      "missing-before-check": 1
+    },
+    "revalidate": {
+      "exact": 2,
+      "missing-after-check": 1,
+      "failed-final-integrity": 2,
+      "failed-initial-integrity": 1,
+      "missing-before-check": 1
+    },
+    "lease": {
+      "exact": 5,
+      "failed-initial-integrity": 1,
+      "missing-before-check": 1
+    }
+  }
+}
