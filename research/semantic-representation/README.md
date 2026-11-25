@@ -43,6 +43,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [RT-05 typed SPG, layered judgments and artifact boundaries](RT-05/RT-05-LAYER-AUTHORITY-AND-ARTIFACT-BOUNDARIES-2026-11-25.md) specifies separate structural, refinement, source and generated-output evidence.
 - [RT-35 scoped response and automatic-resolution gates](RT-35/RT-35-RESPONSE-AND-RESOLUTION-GATES-2026-11-25.md) checks scoped field projection and exact evidence before binding.
 - [RT-35 retrieval corpus, channel costs and index lifecycle](RT-35/RT-35-CHANNEL-COST-AND-CORPUS-2026-11-25.md) compares five exact ranking projections, their costs and a separate persistent publication protocol.
 - [RT-35 hard compatibility and ambiguity](RT-35/RT-35-HARD-COMPATIBILITY-AND-AMBIGUITY-2026-11-25.md) checks seven typed obligations and keeps ranking separate from exact binding.
