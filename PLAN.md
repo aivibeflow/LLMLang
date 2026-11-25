@@ -744,8 +744,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 - [x] Define proof obligations for semantic graph rewrites, including correspondence with authoritative LLMLang semantics when Lean or another verifier is used as a target representation.
   - [x] Check reconstruction, relabeling and occurrence preservation for a typed acyclic graph. Lean checks graph and tree denotation. All 9,210 graph observations match both archived reference routes, while node/cell memoization changes 870 observations. Production SPG-to-model correspondence remains open. [Graph occurrence preservation](research/compiler-and-translation/RT-13/RT-13-GRAPH-OCCURRENCE-PRESERVATION-2026-11-25.md)
-- [ ] Define proof obligations for compiler optimizations.
-  - [ ] [WIP] Check preservation obligations across two optimization passes, including exact intermediate identity, guard transport and observation scope on `research/all`.
+- [x] Define proof obligations for compiler optimizations.
+  - [x] Define exact intermediate binding, domain, definedness and observation obligations for adjacent passes. Lean checks composition and a bridge rule. Across 57,132 locally valid chains, the exact route admits 340 and the bridge admits 1,442, all independently agreeing at the endpoints. Omitting any one gate causes false admissions. [Compiler pass composition](research/compiler-and-translation/RT-13/RT-13-COMPILER-PASS-COMPOSITION-2026-11-25.md)
   - Lean characterizes the exact agreement guard for seven binary64 extrema rules under normalized NaN outputs. All 1,024 archived native pair equations match, with 518 agreeing pairs and 506 disagreements. General LLVM/source correspondence and status flags remain open. [F64 extrema agreement guard](research/formal-verification/RT-32/RT-32-F64-EXTREMA-AGREEMENT-GUARD-2026-11-25.md)
   - Compare LLVM lowerings for checked binary64 to signed I64 conversion. Alive2 validates the ordered branch and the poison-masking select against a bit-based reference, including optimized O0/O3 variants. Native and bytecode Vellvm agree on all 1,304 supported assertions per extraction. The saturation intrinsic remains outside both validators. [LLVM checked F64 to I64 lowering](research/compiler-and-translation/RT-13/RT-13-LLVM-F64-I64-LOWERING-2026-11-25.md)
 - [x] Study translation validation versus proving the optimizer correct.
@@ -767,7 +767,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Research output (2026-11-21)** · Lean checks preservation of result, error and ordered trace by a bottom-up rewrite over a typed scalar expression grammar. [RT-07 observable rewrites](research/formal-verification/RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md)
 
-**Status:** partially validated for the expression model. Source, graph and backend correspondence remain open.
+**Status:** checked scoped studies cover the optimization and translation questions above. Source, graph and backend correspondence, integrated CI coverage and production proof-policy adoption remain open.
 
 **Exit criteria:** a small, executable reference semantics; at least one end-to-end, independently checked proof path with explicit assumptions; a documented trusted computing base; reproducible CI validation.
 
