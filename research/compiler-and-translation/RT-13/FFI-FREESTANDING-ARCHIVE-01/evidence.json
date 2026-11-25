@@ -1,0 +1,177 @@
+{
+  "profiles": {
+    "cortex-m3": {
+      "actual_machine": "lm3s6965evb",
+      "architecture_options": [
+        "-mcpu=cortex-m3"
+      ],
+      "elf_class": 1,
+      "machine": 40,
+      "missing_support": "link-refused",
+      "profiles": {
+        "omitted_event": {
+          "elf_sha256": "6db12f991d72c19470cce828ba2125baf3a1ecd8c76353167f6e382b08d27ae6",
+          "trace": "0B10E10P11P10W11W10\\1!"
+        },
+        "omitted_startup_zero": {
+          "elf_sha256": "dc7e94ada783fd965ed94a57838586473974eaf25c3c75aa6215220bba49bd14",
+          "trace": "X!"
+        },
+        "preserving": {
+          "elf_sha256": "d43cd2f450423efa727d366f598ad914ad20c79ca79e9c973acba7efa675d843",
+          "trace": "0B60E60P61P10W61W10\\6!"
+        }
+      },
+      "provider_archive_sha256": "8d6306b11778680002b66fa1433f1893a27b7fe2b617366ccc666a84149435ae",
+      "support_archive_sha256": "ecd1ce2345987042d36073f02f35dd802c7ed1f6faa0284eb98bf60f988acd0c",
+      "target": "thumbv7m-none-eabi"
+    },
+    "cortex-m4f": {
+      "actual_machine": "mps2-an386",
+      "architecture_options": [
+        "-mcpu=cortex-m4",
+        "-mfpu=fpv4-sp-d16",
+        "-mfloat-abi=hard"
+      ],
+      "elf_class": 1,
+      "machine": 40,
+      "missing_support": "link-refused",
+      "profiles": {
+        "omitted_event": {
+          "elf_sha256": "ca10c761e25ae83d6928b7cf283297decfd89502b0169861213aa5e71b46f32f",
+          "trace": "0B10E10P11P10W11W10\\1!"
+        },
+        "omitted_startup_zero": {
+          "elf_sha256": "7acab6ccf11bae4e1ac8fc5e21b9897f2d9fb68164b05720df596d7b0fb7328e",
+          "trace": "X!"
+        },
+        "preserving": {
+          "elf_sha256": "dde18fbd2b7a121bc5f2673ad0d210ea28d3311acd32956e51afd2e6d3cab156",
+          "trace": "0B60E60P61P10W61W10\\6!"
+        }
+      },
+      "provider_archive_sha256": "114b15b5dc2f20b17cf44f7bd2c136e72ac569cb00bd486aa63f31db9f94f490",
+      "support_archive_sha256": "05e1ababe0dfefdd196642e0594cf54d2557f0acdfd296284950c8b6485c2b2c",
+      "target": "thumbv7em-none-eabihf"
+    },
+    "rv32": {
+      "actual_machine": "virt",
+      "architecture_options": [
+        "-march=rv32imac",
+        "-mabi=ilp32"
+      ],
+      "elf_class": 1,
+      "machine": 243,
+      "missing_support": "link-refused",
+      "profiles": {
+        "omitted_event": {
+          "elf_sha256": "acaa518a647822f38a74231415fce27eeda05f1a9b84b61689623e883ae16588",
+          "trace": "0B10E10P11P10W11W10\\1!"
+        },
+        "omitted_startup_zero": {
+          "elf_sha256": "7a32fe2a9e423304f18dea10eafe9ec07e57fdba30eac28756fa3bfba7e9eee0",
+          "trace": "X!"
+        },
+        "preserving": {
+          "elf_sha256": "2d8f4dde85c94290b62f58f5b69c23a6218d89fe248993f26611af2b9c8a0b3a",
+          "trace": "0B60E60P61P10W61W10\\6!"
+        }
+      },
+      "provider_archive_sha256": "b6e198d8cb1f8d2dcf6a544c01adfb812daa60b2fc32ba3d18acc4dd88cc5a96",
+      "support_archive_sha256": "acee6e4d77708f7363a4be140c2c24fce4cc3447931e7ade6db513c6c65cd083",
+      "target": "riscv32-unknown-none-elf"
+    },
+    "rv64": {
+      "actual_machine": "virt",
+      "architecture_options": [
+        "-march=rv64imac",
+        "-mabi=lp64",
+        "-mcmodel=medany"
+      ],
+      "elf_class": 2,
+      "machine": 243,
+      "missing_support": "link-refused",
+      "profiles": {
+        "omitted_event": {
+          "elf_sha256": "e5f6a73251e8a9bf6d171f8ae1d04de71c83362b1ce7d692bbe774823259169b",
+          "trace": "0B10E10P11P10W11W10\\1!"
+        },
+        "omitted_startup_zero": {
+          "elf_sha256": "dff15fe22040b89180ff920c5834058e1c5c19a5f8b97f92de5ad8dd90a7369b",
+          "trace": "X!"
+        },
+        "preserving": {
+          "elf_sha256": "61342f08613354969dd0390254f0aabc91b7a16ab879e778be7c2185a5378d7a",
+          "trace": "0B60E60P61P10W61W10\\6!"
+        }
+      },
+      "provider_archive_sha256": "fd9cce5c59c0d1256a0e2a26b48379932f1628ea9d55583cbada0b3e24f2b334",
+      "support_archive_sha256": "e254e07cbfb0866528fd3fd9070555951996cd79d618a5f2fa404a88fdd72600",
+      "target": "riscv64-unknown-none-elf"
+    }
+  },
+  "sources": {
+    "arm.S": "9d970ca13ec9bdb63dbe11c4fc096a925d581a93f6c0392128bea19e549b8b3f",
+    "arm.ld": "ba2e9ebcb241bdfd9cd319833fe388007d8295e0fadb96eeecb03c100e77b81a",
+    "consumer.c": "ee20e7b6105fb8430e82895ae64915231a31742cbc6afbc4fb936b879eca8d6f",
+    "ffi.h": "51321acaf7d8fd420294f42b133bf9b830f5c53b61965f60d6d0bab0998b8c46",
+    "memory.c": "76df10118855bdf09d23724d55a8684ddfb5c5aebb2f6d5657ce74e40d81ccdb",
+    "provider.c": "1f1667202cdf5ca0944ecb640282615a438ffa7d2e31292c5efcc6278e5ab617",
+    "riscv.S": "0fe2e64360a86fbd3d669020d3349b70306b5c9c18a409d254bb33be390a4967",
+    "riscv.ld": "b76a80b9aa451a70819cca305d3a009fd23333dd29954bbdcc6a89ceb00a3a5e",
+    "run.py": "aab60d42ba92c54f7e89cb936ba8e7d5115d48aa48131b2dc29df582f0d57821",
+    "support.c": "5794084faa86f6a26753e4274ca644c9ca41162f2b4b00175ed640d041651e55",
+    "xtensa.s": "f13719b4bbda357fcb96ac3989247dcfb7bca1fc0da44c606b00df909c272246"
+  },
+  "tools": {
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "linker": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "qemu_arm": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+    "qemu_rv32": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+    "qemu_rv64": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+  },
+  "xtensa_object_only": {
+    "llvm_c_frontend_for_generic_target": "refused",
+    "llvm_generic_assembly_object_sha256": "169724c48ddd46316a707a74e428a0b8ba259a23770ce5675eeef6bd027ddcfa",
+    "mixed_vendor_call_conventions": {
+      "link": "accepted",
+      "mixed_object_sha256": "b49bb261a23bd2da67afc74b775444d8ad85dc1b600822a41782bddb557f4556",
+      "profile_gate": "refused"
+    },
+    "vendor_object_interchange": {
+      "call0": {
+        "archive_sha256": "cf9043679603dbce5d2eccf64bbd37249dab5f0a67d2be417a668759e2a2fbde",
+        "called_register_groups": [
+          "call0",
+          "callx0"
+        ],
+        "explicit_memory_support": "4b7a65f60f696f52a60142e941f1ee5eea0aad90dbe7f60b7f60586fcaf76086",
+        "linked_object_sha256": "f67478104c039526572dcb9032e233772598af7c7780d4b18f7f2436350610e8",
+        "object_sha256": {
+          "consumer": "5608c9cd1dff77e971f6571fd7300cd7e1d93779a0e9dadbb0a52b3d10ba98b0",
+          "provider": "bdd81279322432a829496580cd3deea312af3a35708d02bbb90d4ecf45433de5",
+          "support": "4dad1494c3ea3217ddc66a2632f7f035b8e5789276e0b85ba1fd1f81e5d67f60"
+        },
+        "remaining_startup_symbol": "marker",
+        "supported_object_sha256": "30616e2f378e6a1d86d85365440548899e4143f399830989a9e68b97d40a2722"
+      },
+      "windowed": {
+        "archive_sha256": "187af94d0048045730331ff60fd8f180c49383f75470bf59e3084efce8537079",
+        "called_register_groups": [
+          "call8",
+          "callx8"
+        ],
+        "explicit_memory_support": "cc35c73850c67750ff20baba3830b265fdc946f6ae24aa5eaa94230a459a73bd",
+        "linked_object_sha256": "3d38b575954a7768283697ced65fce1d40663c1bc8c4b0c183afa7c5e8b96c47",
+        "object_sha256": {
+          "consumer": "995ac3c9e801e7a3b998d23ac708e8e5e3235dfb721fbb38ae71693462f7ec3c",
+          "provider": "f89d12558b8165a486f341ebc04557f4c62605641d52b695199903613288abd6",
+          "support": "a0a129ba6e6c3322d56910de1bdbe3ed06f208cae3e6d55733d386b411fa66a4"
+        },
+        "remaining_startup_symbol": "marker",
+        "supported_object_sha256": "8dd40b08b6b396d6457ea30e5086e954951ab40c0b7470b4fd8d51e2a03cc6ab"
+      }
+    },
+    "vendor_toolchain": "xtensa-esp-elf-gcc (crosstool-NG esp-14.2.0_20251107) 14.2.0"
+  }
+}
