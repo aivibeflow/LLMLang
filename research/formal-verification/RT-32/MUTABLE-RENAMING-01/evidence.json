@@ -1,0 +1,610 @@
+{
+  "schema": "llmlang-rt32-mutable-renaming/1",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "sources": {
+    "Heap.lean": "c031aff79227e2d0958b89a4db756acbdedf5dc240140cf948cc4ee2922a7615",
+    "run.py": "1d524792c7de720063e90f368121a3283140e6bf325c90fb72aab78254bfb843"
+  },
+  "generated_replay_sha256": "1240fb276f7ecf8b0a89181916462ec7b605afb6030732aee86560d71f1a4779",
+  "native_archive_sha256": "f5cf419721818a2d256e1fbfbf12a8a8e3583349fc0fadf05f745e7378c25bf1",
+  "native_python": "3.12.14",
+  "native_node": "v22.23.5",
+  "native_v8": "12.4.254.21-node.57",
+  "model_theorem_axioms": {
+    "Renaming.same": [],
+    "lookup_forward": [
+      "propext"
+    ],
+    "rename_update": [
+      "propext",
+      "Quot.sound"
+    ],
+    "rename_follow": [
+      "propext"
+    ],
+    "rename_resolve": [
+      "propext"
+    ],
+    "rename_same": [
+      "propext"
+    ],
+    "rename_step": [
+      "propext",
+      "Quot.sound"
+    ],
+    "rename_run": [
+      "propext",
+      "Quot.sound"
+    ],
+    "same_observations": [
+      "propext",
+      "Quot.sound"
+    ],
+    "splitting_changes_trace": [
+      "propext"
+    ]
+  },
+  "archive_equalities": {
+    "0": [
+      "propext"
+    ],
+    "1": [
+      "propext"
+    ],
+    "2": [
+      "propext"
+    ],
+    "3": [
+      "propext"
+    ],
+    "4": [
+      "propext"
+    ],
+    "5": [
+      "propext"
+    ],
+    "6": [
+      "propext"
+    ],
+    "7": [
+      "propext"
+    ],
+    "8": [
+      "propext"
+    ],
+    "9": [
+      "propext"
+    ],
+    "10": [
+      "propext"
+    ],
+    "11": [
+      "propext"
+    ],
+    "12": [
+      "propext"
+    ],
+    "13": [
+      "propext"
+    ],
+    "14": [
+      "propext"
+    ],
+    "15": [
+      "propext"
+    ],
+    "16": [
+      "propext"
+    ],
+    "17": [
+      "propext"
+    ],
+    "18": [
+      "propext"
+    ],
+    "19": [
+      "propext"
+    ],
+    "20": [
+      "propext"
+    ],
+    "21": [
+      "propext"
+    ],
+    "22": [
+      "propext"
+    ],
+    "23": [
+      "propext"
+    ],
+    "24": [
+      "propext"
+    ],
+    "25": [
+      "propext"
+    ],
+    "26": [
+      "propext"
+    ],
+    "27": [
+      "propext"
+    ],
+    "28": [
+      "propext"
+    ],
+    "29": [
+      "propext"
+    ],
+    "30": [
+      "propext"
+    ],
+    "31": [
+      "propext"
+    ],
+    "32": [
+      "propext"
+    ],
+    "33": [
+      "propext"
+    ],
+    "34": [
+      "propext"
+    ],
+    "35": [
+      "propext"
+    ],
+    "36": [
+      "propext"
+    ],
+    "37": [
+      "propext"
+    ],
+    "38": [
+      "propext"
+    ],
+    "39": [
+      "propext"
+    ],
+    "40": [
+      "propext"
+    ],
+    "41": [
+      "propext"
+    ],
+    "42": [
+      "propext"
+    ],
+    "43": [
+      "propext"
+    ],
+    "44": [
+      "propext"
+    ],
+    "45": [
+      "propext"
+    ],
+    "46": [
+      "propext"
+    ],
+    "47": [
+      "propext"
+    ],
+    "48": [
+      "propext"
+    ],
+    "49": [
+      "propext"
+    ],
+    "50": [
+      "propext"
+    ],
+    "51": [
+      "propext"
+    ],
+    "52": [
+      "propext"
+    ],
+    "53": [
+      "propext"
+    ],
+    "54": [
+      "propext"
+    ],
+    "55": [
+      "propext"
+    ],
+    "56": [
+      "propext"
+    ],
+    "57": [
+      "propext"
+    ],
+    "58": [
+      "propext"
+    ],
+    "59": [
+      "propext"
+    ],
+    "60": [
+      "propext"
+    ],
+    "61": [
+      "propext"
+    ],
+    "62": [
+      "propext"
+    ],
+    "63": [
+      "propext"
+    ],
+    "64": [
+      "propext"
+    ],
+    "65": [
+      "propext"
+    ],
+    "66": [
+      "propext"
+    ],
+    "67": [
+      "propext"
+    ],
+    "68": [
+      "propext"
+    ],
+    "69": [
+      "propext"
+    ],
+    "70": [
+      "propext"
+    ],
+    "71": [
+      "propext"
+    ],
+    "72": [
+      "propext"
+    ],
+    "73": [
+      "propext"
+    ],
+    "74": [
+      "propext"
+    ],
+    "75": [
+      "propext"
+    ],
+    "76": [
+      "propext"
+    ],
+    "77": [
+      "propext"
+    ],
+    "78": [
+      "propext"
+    ],
+    "79": [
+      "propext"
+    ],
+    "80": [
+      "propext"
+    ],
+    "81": [
+      "propext"
+    ],
+    "82": [
+      "propext"
+    ],
+    "83": [
+      "propext"
+    ],
+    "84": [
+      "propext"
+    ],
+    "85": [
+      "propext"
+    ],
+    "86": [
+      "propext"
+    ],
+    "87": [
+      "propext"
+    ],
+    "88": [
+      "propext"
+    ],
+    "89": [
+      "propext"
+    ],
+    "90": [
+      "propext"
+    ],
+    "91": [
+      "propext"
+    ],
+    "92": [
+      "propext"
+    ],
+    "93": [
+      "propext"
+    ],
+    "94": [
+      "propext"
+    ],
+    "95": [
+      "propext"
+    ],
+    "96": [
+      "propext"
+    ],
+    "97": [
+      "propext"
+    ],
+    "98": [
+      "propext"
+    ],
+    "99": [
+      "propext"
+    ],
+    "100": [
+      "propext"
+    ],
+    "101": [
+      "propext"
+    ],
+    "102": [
+      "propext"
+    ],
+    "103": [
+      "propext"
+    ],
+    "104": [
+      "propext"
+    ],
+    "105": [
+      "propext"
+    ],
+    "106": [
+      "propext"
+    ],
+    "107": [
+      "propext"
+    ],
+    "108": [
+      "propext"
+    ],
+    "109": [
+      "propext"
+    ],
+    "110": [
+      "propext"
+    ],
+    "111": [
+      "propext"
+    ],
+    "112": [
+      "propext"
+    ],
+    "113": [
+      "propext"
+    ],
+    "114": [
+      "propext"
+    ],
+    "115": [
+      "propext"
+    ],
+    "116": [
+      "propext"
+    ],
+    "117": [
+      "propext"
+    ],
+    "118": [
+      "propext"
+    ],
+    "119": [
+      "propext"
+    ],
+    "120": [
+      "propext"
+    ],
+    "121": [
+      "propext"
+    ],
+    "122": [
+      "propext"
+    ],
+    "123": [
+      "propext"
+    ],
+    "124": [
+      "propext"
+    ],
+    "125": [
+      "propext"
+    ],
+    "126": [
+      "propext"
+    ],
+    "127": [
+      "propext"
+    ],
+    "128": [
+      "propext"
+    ],
+    "129": [
+      "propext"
+    ],
+    "130": [
+      "propext"
+    ],
+    "131": [
+      "propext"
+    ],
+    "132": [
+      "propext"
+    ],
+    "133": [
+      "propext"
+    ],
+    "134": [
+      "propext"
+    ],
+    "135": [
+      "propext"
+    ],
+    "136": [
+      "propext"
+    ],
+    "137": [
+      "propext"
+    ],
+    "138": [
+      "propext"
+    ],
+    "139": [
+      "propext"
+    ],
+    "140": [
+      "propext"
+    ],
+    "141": [
+      "propext"
+    ],
+    "142": [
+      "propext"
+    ],
+    "143": [
+      "propext"
+    ],
+    "144": [
+      "propext"
+    ],
+    "145": [
+      "propext"
+    ],
+    "146": [
+      "propext"
+    ],
+    "147": [
+      "propext"
+    ],
+    "148": [
+      "propext"
+    ],
+    "149": [
+      "propext"
+    ],
+    "150": [
+      "propext"
+    ],
+    "151": [
+      "propext"
+    ],
+    "152": [
+      "propext"
+    ],
+    "153": [
+      "propext"
+    ],
+    "154": [
+      "propext"
+    ],
+    "155": [
+      "propext"
+    ],
+    "156": [
+      "propext"
+    ],
+    "157": [
+      "propext"
+    ],
+    "158": [
+      "propext"
+    ],
+    "159": [
+      "propext"
+    ],
+    "160": [
+      "propext"
+    ],
+    "161": [
+      "propext"
+    ],
+    "162": [
+      "propext"
+    ],
+    "163": [
+      "propext"
+    ],
+    "164": [
+      "propext"
+    ],
+    "165": [
+      "propext"
+    ],
+    "166": [
+      "propext"
+    ],
+    "167": [
+      "propext"
+    ],
+    "168": [
+      "propext"
+    ],
+    "169": [
+      "propext"
+    ],
+    "170": [
+      "propext"
+    ],
+    "171": [
+      "propext"
+    ],
+    "172": [
+      "propext"
+    ],
+    "173": [
+      "propext"
+    ],
+    "174": [
+      "propext"
+    ],
+    "175": [
+      "propext"
+    ],
+    "176": [
+      "propext"
+    ],
+    "177": [
+      "propext"
+    ],
+    "178": [
+      "propext"
+    ],
+    "179": [
+      "propext"
+    ],
+    "180": [
+      "propext"
+    ],
+    "181": [
+      "propext"
+    ],
+    "182": [
+      "propext"
+    ],
+    "183": [
+      "propext"
+    ]
+  },
+  "archived_recipes": 6,
+  "archive_paths": [
+    "original",
+    "relabelled",
+    "shared_canonical",
+    "separate_roots"
+  ],
+  "incorrect_split_preservation_proof": "rejected"
+}
