@@ -213,6 +213,8 @@ python3 -B "$study/check.py" --output /tmp/llmlang-toolchain-option-evidence.jso
 cmp "$study/evidence.json" /tmp/llmlang-toolchain-option-evidence.json
 ```
 
+[Cross-map export proof](../toolchain-and-collaboration/RT-24/RT-24-CROSS-MAP-EXPORT-PROOF-2026-11-25.md) compares native Git success, reference closure, contract-level receipt presence and exact selected-tuple evidence. All 18 native candidates are clean, while six satisfy the exact operation, provider, ABI and input-scope check. Use the combined selection to validate export proof coverage before advancing a ref.
+
 ### 5.4 Owned-result provider binding on a common workload
 
 The [Owned-result provider binding](../compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md) fixture composes a checked COR-13 source caller, an immutable provider selection, two native routes and a separate Lean disposition model. It extends the bounded toolchain comparison to ordered recovery effects and live resource obligations.
