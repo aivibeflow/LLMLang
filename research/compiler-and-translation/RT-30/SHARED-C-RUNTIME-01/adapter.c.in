@@ -1,0 +1,4 @@
+#include "runtime.h"
+uint64_t probe(uint32_t receiver, uint32_t state, int32_t change, uint32_t grants) {
+    return rt_dispatch(receiver, state, change, grants);
+}

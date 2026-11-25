@@ -1,0 +1,14 @@
+package main
+
+/*
+#cgo LDFLAGS: -L${SRCDIR} -lreceiver
+#include "runtime.h"
+*/
+import "C"
+
+//export probe
+func probe(receiver C.uint32_t, state C.uint32_t, change C.int32_t, grants C.uint32_t) C.uint64_t {
+    return C.rt_dispatch(receiver, state, change, grants)
+}
+
+func main() {}
