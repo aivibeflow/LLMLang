@@ -90,6 +90,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-19 workspace arbitration](RT-19/RT-19-WORKSPACE-ARBITRATION-2026-11-25.md) checks local workspaces, shared-branch CAS and scoped durable retries.
 - [RT-19 interchange and publication contract](RT-19/RT-19-INTERCHANGE-AND-PUBLICATION-BOUNDARY-2026-11-25.md) checks import, checkout observations and leased export generations.
 - [RT-19 prepared multi-ref recovery](RT-19/RT-19-MULTIREF-TRANSACTION-RECOVERY-2026-11-25.md) checks logical observation rights and local native ref batch recovery.
+- [RT-19 publication and recovery contract](RT-19/RT-19-PUBLICATION-RECOVERY-CONTRACT-2026-11-25.md) integrates exact multi-ref and cross-repository recovery with current authority, immutable logical receipts and a finite TLC check.
 - [RT-17 editor and debug source scope](RT-17/RT-17-EDITOR-AND-DEBUG-SOURCE-SCOPE-2026-11-25.md) checks exact native debug artifact and source binding alongside editor requirements.
 - [RT-17 contract diagnostics and impact](RT-17/RT-17-CONTRACT-DIAGNOSTICS-AND-IMPACT-2026-11-25.md) checks exact receipt scope and explicit unavailable observations.
 - [RT-24 fork and registry handoff](RT-24/RT-24-FORK-AND-REGISTRY-HANDOFF-2026-11-25.md) checks exact fork origin, target, candidate, registry scope and ref publication.
