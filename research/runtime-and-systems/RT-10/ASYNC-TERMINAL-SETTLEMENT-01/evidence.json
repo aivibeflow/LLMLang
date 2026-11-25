@@ -1,0 +1,672 @@
+{
+  "format": "async-terminal-settlement-01",
+  "python": "3.12.14",
+  "schedules": [
+    {
+      "additional_cancellations": 0,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "close",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": false,
+      "primary": "returned",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "close",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": false,
+      "primary": "returned",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": false,
+      "primary": "returned",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": false,
+      "primary": "returned",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "interrupted",
+      "cleanup_error": false,
+      "early": true,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "close",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": false,
+      "primary": "returned",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "interrupted",
+      "cleanup_error": true,
+      "early": true,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": false,
+      "primary": "returned",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "interrupted",
+      "cleanup_error": false,
+      "early": true,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "cancel-during-cleanup",
+        "close",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": false,
+      "primary": "returned",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "interrupted",
+      "cleanup_error": true,
+      "early": true,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "cancel-during-cleanup",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "returned",
+      "open_at_terminal": false,
+      "primary": "returned",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "close",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": false,
+      "primary": "body-error",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "close",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": false,
+      "primary": "body-error",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": false,
+      "primary": "body-error",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": false,
+      "primary": "body-error",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "interrupted",
+      "cleanup_error": false,
+      "early": true,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "close",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": false,
+      "primary": "body-error",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "interrupted",
+      "cleanup_error": true,
+      "early": true,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": false,
+      "primary": "body-error",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "interrupted",
+      "cleanup_error": false,
+      "early": true,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "cancel-during-cleanup",
+        "close",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": false,
+      "primary": "body-error",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "interrupted",
+      "cleanup_error": true,
+      "early": true,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "performed",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "cancel-during-cleanup",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "P",
+      "mode": "failed",
+      "open_at_terminal": false,
+      "primary": "body-error",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "close",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": false,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "close",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": false,
+      "primary": "cancelled",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": false,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 0,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": false,
+      "primary": "cancelled",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "interrupted",
+      "cleanup_error": false,
+      "early": true,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "close",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": false,
+      "primary": "cancelled",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "interrupted",
+      "cleanup_error": true,
+      "early": true,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 1,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": false,
+      "primary": "cancelled",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "interrupted",
+      "cleanup_error": false,
+      "early": true,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "clean",
+      "cleanup_error": false,
+      "early": false,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "cancel-during-cleanup",
+        "close",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": false,
+      "primary": "cancelled",
+      "protected": true
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "interrupted",
+      "cleanup_error": true,
+      "early": true,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "cleanup-interrupted",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": true,
+      "primary": "cancelled",
+      "protected": false
+    },
+    {
+      "additional_cancellations": 2,
+      "cleanup": "fixture-cleanup-error",
+      "cleanup_error": true,
+      "early": false,
+      "events": [
+        "body-entered",
+        "cleanup-entered",
+        "cancel-during-cleanup",
+        "cancel-during-cleanup",
+        "close",
+        "cleanup-error",
+        "terminal"
+      ],
+      "file": "-",
+      "mode": "cancelled",
+      "open_at_terminal": false,
+      "primary": "cancelled",
+      "protected": true
+    }
+  ]
+}
