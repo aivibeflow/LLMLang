@@ -1,0 +1,101 @@
+{
+  "closure_sizes": [
+    3,
+    4,
+    3
+  ],
+  "format": "graph-replica-recovery-01",
+  "incremental_objects": [
+    2,
+    1
+  ],
+  "interrupted_child_exit": 24,
+  "revision_identities": [
+    "594328930d8fb65326c6c5e413622a77586dd03e2446511a35ef8a70ec64dcf6",
+    "1b3af149ae76a1de353df10385510735a5351e5a5bfb21a5224b0c33ac7caad9",
+    "1a32161be72b0f0026261148d0471d22ec2366174c27651fc17f509132405a60"
+  ],
+  "rows": [
+    {
+      "case": "empty replica",
+      "decision": "empty"
+    },
+    {
+      "case": "bootstrap from a complete verified view",
+      "decision": "published"
+    },
+    {
+      "case": "lagging replica reads its historical root",
+      "decision": "historical-only"
+    },
+    {
+      "case": "offer valid next manifest with missing blob",
+      "decision": "missing object"
+    },
+    {
+      "case": "offer bad bytes at known address",
+      "decision": "delta-digest-mismatch"
+    },
+    {
+      "case": "offer a structurally valid unrequested support blob",
+      "decision": "delta-outside-closure"
+    },
+    {
+      "case": "changed inventory even if supplied as trusted",
+      "decision": "inventory-mismatch"
+    },
+    {
+      "case": "process exit after CAS staging and before commit",
+      "decision": "historical-only"
+    },
+    {
+      "case": "retry recognizes exact staged bytes",
+      "decision": "published"
+    },
+    {
+      "case": "identical retransmission is idempotent",
+      "decision": "already-selected"
+    },
+    {
+      "case": "current selected graph has no writer fence",
+      "decision": "read-only"
+    },
+    {
+      "case": "writer fence for previous revision is inapplicable",
+      "decision": "read-only"
+    },
+    {
+      "case": "current verified graph with an external fence",
+      "decision": "eligible-with-external-fence"
+    },
+    {
+      "case": "detect corrupt retained dependency",
+      "decision": "unreadable"
+    },
+    {
+      "case": "exact same-revision repair restores resident closure",
+      "decision": "already-selected"
+    },
+    {
+      "case": "verify repaired root",
+      "decision": "exact-current-read"
+    },
+    {
+      "case": "reject unrequested fork at the next serial",
+      "decision": "revision-scope-mismatch"
+    },
+    {
+      "case": "apply exact next serial increment",
+      "decision": "published"
+    },
+    {
+      "case": "reject replayed predecessor",
+      "decision": "non-successor"
+    },
+    {
+      "case": "verify exact final closure",
+      "decision": "exact-current-read"
+    }
+  ],
+  "sqlite": "3.53.1"
+}
