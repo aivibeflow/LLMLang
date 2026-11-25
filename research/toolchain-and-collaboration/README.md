@@ -59,6 +59,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-19 boundary tests](RT-19/RT-19-BOUNDARY-TESTS-2026-11-25.md) checks independent edits, scoped approval, stale validation and export fault recovery.
 - [RT-19 workspace arbitration](RT-19/RT-19-WORKSPACE-ARBITRATION-2026-11-25.md) checks local workspaces, shared-branch CAS and scoped durable retries.
 - [RT-19 interchange and publication contract](RT-19/RT-19-INTERCHANGE-AND-PUBLICATION-BOUNDARY-2026-11-25.md) checks import, checkout observations and leased export generations.
 - [RT-19 prepared multi-ref recovery](RT-19/RT-19-MULTIREF-TRANSACTION-RECOVERY-2026-11-25.md) checks logical observation rights and local native ref batch recovery.
