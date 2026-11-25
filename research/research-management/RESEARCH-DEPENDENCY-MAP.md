@@ -642,6 +642,8 @@ These edges are research hypotheses, not implementation commitments. No backend 
 
 The [binary-search cost pilot](../formal-verification/RT-34/RT-34-BINARY-SEARCH-PROBE-BOUNDS-2026-11-25.md) gives scoped evidence for DEP-201 and DEP-204. A checked halving recurrence bounds probes. Sortedness and conditional-test cost belong to separate claims.
 
+The [balanced recursion pilot](../formal-verification/RT-34/RT-34-MERGE-RECURRENCE-2026-11-25.md) gives scoped DEP-201 and DEP-208 evidence for strict recursive progress and checked work recurrences. A separate native comparison tests their applicability to one merge implementation.
+
 ## 23. Semantic Function Discovery and Retrieval (RT-35)
 
 RT-35 studies semantic retrieval as a Toolchain capability. Approximate similarity may find candidates, but only explicit compatibility evidence can authorize a candidate binding; invocation remains bound to an exact immutable function hash.

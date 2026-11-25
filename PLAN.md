@@ -476,6 +476,8 @@ Dependencies: RT-03/04 semantics/types, RT-07/08 evidence, RT-05/11 identities/c
 
 The [binary-search cost pilot](research/formal-verification/RT-34/RT-34-BINARY-SEARCH-PROBE-BOUNDS-2026-11-25.md) proves the exact positive-size probe bound for the halving model and checks 13,354 sorted input pairs per native profile. A singleton stall falsifies a retained-midpoint update. Membership correctness and arbitrary compiler/source correspondence remain separate.
 
+The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RECURRENCE-2026-11-25.md) checks tight abstract comparison recurrences and exact writes at power-of-two sizes. The native corpus distinguishes input-dependent comparisons, an incorrect equal-floor recurrence and a split without progress. General recursion extraction and independent review remain open.
+
 ## 2.1 Formal semantics of the language
 
 **Estimated research complexity:** **8/10** — requires a precise executable semantics and correspondence with source programs.
