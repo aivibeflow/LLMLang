@@ -1490,6 +1490,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 ### Package indexes and dynamic package delivery
 - [ ] Define optional derived-result cache indexes in package archives and their integration with the semantic action cache; indexes must be independently omittable and must not affect logical package identity.
+  - [ ] [WIP] Compare detached and optional archive cache indexes with exact action, payload and package-root checks (#333).
 
 - [ ] Define the logical package-content model: roots, included objects, typed dependency edges, exports, modules, evidence, and provenance.
 - [x] Define compact canonical binary index tables and their key ordering; require binary-search and deterministic streaming-merge semantics.
