@@ -1426,6 +1426,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] Define the logical package-content model: roots, included objects, typed dependency edges, exports, modules, evidence, and provenance.
 - [ ] Define compact canonical binary index tables and their key ordering; require binary-search and deterministic streaming-merge semantics.
+  - [ ] [WIP] Compare binary encodings of the four package tables, exact lookup and deterministic streamed merge against the existing logical index on `research/all`.
 - [x] Compare whole-index compression with independently compressed blocks; measure codec, block-size, lookup, scan, and memory trade-offs.
   - Test nine layouts with 8,192 sorted rows, 64 point queries and exact full scans. The 64-row gzip layout grows the whole-stream archive by 5.8% while reading 163 KiB per batch versus 303 KiB for retained whole-stream lookup. Seven measured trials cover latency and separate allocation traces record peak memory. Representative workloads and a format decision remain open. [Package index compression](research/packages-and-ecosystem/RT-12/RT-12-INDEX-COMPRESSION-2026-11-25.md)
 - [x] Evaluate optional sparse and hierarchical sparse indexes; establish when their lookup benefit justifies their storage and maintenance cost.
