@@ -872,8 +872,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [x] Compare mixed dependency completeness across 576 action-graph profiles. Scoped fallback executes 568 fewer actions and admits 16 more packages than whole-graph recomputation with zero stale results. The optimistic control admits 120 stale packages. Production extraction and publication remain open. [Scoped dependency fallback](research/toolchain-and-collaboration/RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md)
 - [ ] Define impact planning and non-interference gates.
   - [x] Compare separate and composed non-interference checks across 6,144 truth-table edits. Independent baseline checks admit 768 changed outcomes despite disjoint writes. Lean checks a counterexample and composition under sequential or uniformly applicable premises. [RT-11 composed non-interference](research/toolchain-and-collaboration/RT-11/RT-11-COMPOSED-NONINTERFERENCE-2026-11-25.md)
-- [ ] Benchmark small local edits, shared component edits, and broad semantic changes.
-  - [ ] [WIP] Measure paired clean and exact incremental native builds for local, shared and broad edits with scoped action counts on `research/all`.
+- [x] Benchmark small local edits, shared component edits, and broad semantic changes.
+  - [x] Compare 21 paired full and incremental GCC builds. All outputs are byte-identical per pair. Incremental compiles 1, 4 or 16 units against 17 in the full route; paired median ratios are 8.31×, 3.41× and 1.13× on the shared host. Representative hardware and workloads remain open. [Native edit locality](research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-EDIT-LOCALITY-2026-11-25.md)
 
 **Existing evidence:** [SEMANTIC-COMPILATION-CACHE.md](research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), scenarios 18–28, and dependency graph prototypes.
 
