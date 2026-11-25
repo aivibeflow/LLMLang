@@ -1,0 +1,200 @@
+[
+  {
+    "compiler": "gcc",
+    "counts": [
+      1,
+      28672,
+      21326,
+      1
+    ],
+    "profile": "relaxed",
+    "trial": 1
+  },
+  {
+    "compiler": "gcc",
+    "counts": [
+      2,
+      26319,
+      23679,
+      0
+    ],
+    "profile": "relaxed",
+    "trial": 2
+  },
+  {
+    "compiler": "gcc",
+    "counts": [
+      2,
+      19314,
+      30680,
+      4
+    ],
+    "profile": "relaxed",
+    "trial": 3
+  },
+  {
+    "compiler": "gcc",
+    "counts": [
+      1,
+      25536,
+      24463,
+      0
+    ],
+    "profile": "release-acquire",
+    "trial": 1
+  },
+  {
+    "compiler": "gcc",
+    "counts": [
+      2,
+      19112,
+      30885,
+      1
+    ],
+    "profile": "release-acquire",
+    "trial": 2
+  },
+  {
+    "compiler": "gcc",
+    "counts": [
+      3,
+      26021,
+      23975,
+      1
+    ],
+    "profile": "release-acquire",
+    "trial": 3
+  },
+  {
+    "compiler": "gcc",
+    "counts": [
+      0,
+      20739,
+      29254,
+      7
+    ],
+    "profile": "seq-cst",
+    "trial": 1
+  },
+  {
+    "compiler": "gcc",
+    "counts": [
+      0,
+      32253,
+      17739,
+      8
+    ],
+    "profile": "seq-cst",
+    "trial": 2
+  },
+  {
+    "compiler": "gcc",
+    "counts": [
+      0,
+      24813,
+      25182,
+      5
+    ],
+    "profile": "seq-cst",
+    "trial": 3
+  },
+  {
+    "compiler": "clang",
+    "counts": [
+      1,
+      23450,
+      26549,
+      0
+    ],
+    "profile": "relaxed",
+    "trial": 1
+  },
+  {
+    "compiler": "clang",
+    "counts": [
+      26,
+      26275,
+      23699,
+      0
+    ],
+    "profile": "relaxed",
+    "trial": 2
+  },
+  {
+    "compiler": "clang",
+    "counts": [
+      0,
+      26370,
+      23630,
+      0
+    ],
+    "profile": "relaxed",
+    "trial": 3
+  },
+  {
+    "compiler": "clang",
+    "counts": [
+      1,
+      31744,
+      18253,
+      2
+    ],
+    "profile": "release-acquire",
+    "trial": 1
+  },
+  {
+    "compiler": "clang",
+    "counts": [
+      2,
+      33788,
+      16209,
+      1
+    ],
+    "profile": "release-acquire",
+    "trial": 2
+  },
+  {
+    "compiler": "clang",
+    "counts": [
+      17,
+      22707,
+      27275,
+      1
+    ],
+    "profile": "release-acquire",
+    "trial": 3
+  },
+  {
+    "compiler": "clang",
+    "counts": [
+      0,
+      25971,
+      24013,
+      16
+    ],
+    "profile": "seq-cst",
+    "trial": 1
+  },
+  {
+    "compiler": "clang",
+    "counts": [
+      0,
+      25539,
+      24460,
+      1
+    ],
+    "profile": "seq-cst",
+    "trial": 2
+  },
+  {
+    "compiler": "clang",
+    "counts": [
+      0,
+      24653,
+      25347,
+      0
+    ],
+    "profile": "seq-cst",
+    "trial": 3
+  }
+]
