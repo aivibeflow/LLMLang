@@ -29,6 +29,8 @@ RT-13 reconciles LLVM validator verdict scopes and checks refinement for stable 
 
 RT-32 compares proof candidate generation by tactics, reusable lemmas and SMT triage with kernel and axiom checks. [Generated proof route comparison](../formal-verification/RT-32/RT-32-PROOF-ROUTE-COMPARISON-2026-11-25.md)
 
+RT-32 derives typed proof dependency obligations from stored SPG occurrences before candidate receipts are admitted. [SPG proof dependency occurrences](../formal-verification/RT-32/RT-32-SPG-PDG-OCCURRENCES-2026-11-25.md)
+
 RT-32 replays generated caller proofs and tests exact cache invalidation for toolchain, provider, assumption and transitive receipt changes. [Incremental proof invalidation](../formal-verification/RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md)
 
 RT-07 now compares three semantic accounts for finite control, records seven declared observation axes, and specifies environmental snapshot assumptions. Source and runtime correspondence remain separate research obligations. [Finite control](../formal-verification/RT-07/RT-07-FINITE-CONTROL-SEMANTIC-ACCOUNTS-2026-11-25.md) · [Observation profiles](../formal-verification/RT-07/RT-07-DECLARED-OBSERVATION-PROFILE-2026-11-25.md) · [Coherent environment](../formal-verification/RT-07/RT-07-COHERENT-ENVIRONMENT-2026-11-25.md) · [Joint refinement](../formal-verification/RT-07/RT-07-JOINT-OBSERVATION-REFINEMENT-2026-11-25.md) · [Effectful call evaluation](../formal-verification/RT-07/RT-07-CALL-EVALUATION-2026-11-25.md) · [Per-branch composition coverage](../formal-verification/RT-07/RT-07-NONVACUOUS-CONTRACT-COMPOSITION-2026-11-25.md) · [Identical branch guard](../formal-verification/RT-07/RT-07-IDENTICAL-BRANCH-GUARD-2026-11-25.md)
