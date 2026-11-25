@@ -1,0 +1,5 @@
+'ReadContinuation.stepConserves' depends on axioms: [propext]
+'ReadContinuation.historyConserves' depends on axioms: [propext]
+'ReadContinuation.completeRecovers' depends on axioms: [propext]
+'ReadContinuation.zeroProgress' depends on axioms: [propext]
+'ReadContinuation.countAloneCanDisagree' does not depend on any axioms

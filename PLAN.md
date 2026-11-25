@@ -1189,7 +1189,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define the trusted low-level runtime boundary.
 - [ ] Compare behavior using conformance, differential, and contract-derived tests.
 - [ ] Define precisely what POSIX compatibility and formal verification claims cover.
-  - [ ] [WIP] Check a conditional proof of exact read continuation and identify the native premises needed to apply it on `research/all`.
+  - [x] Prove exact recovery for admissible read histories with Lean and audit the premises against 108 pinned Linux observations. Identical counts and an empty pipe cannot establish recovery when a full-vector retry overwrites the recorded prefix. Native scope and proof assumptions remain explicit. [RT-10 POSIX read continuation proof](research/runtime-and-systems/RT-10/RT-10-POSIX-READ-CONTINUATION-PROOF-2026-11-25.md)
 
 **Existing evidence:** `research/POSIX-RUNTIME-ARCHITECTURE.md`; related open questions LL-013–LL-019 in `TODO.md`.
 
