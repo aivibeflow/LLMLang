@@ -1836,8 +1836,8 @@ These are two separate research requirements. Do not collapse them into one gene
 Research a bounded, versioned, provenance-preserving description of the information available to an LLM agent for a task.
 
 - [ ] Define the boundary between Knowledge Context, free-form prompt text, runtime/execution context, semantic dependency closure, and Task Context.
-- [ ] Inventory eligible sources: Specification, Design, and Implementation objects; contracts; requirements; dependency records; diagnostics; tests and proof evidence; project documentation; approved external references.
-  - [ ] [WIP] Build a branch-pinned Knowledge Context inventory of eligible source classes, trust scopes and ineligible substitutions (#339).
+- [x] Inventory eligible sources: Specification, Design, and Implementation objects; contracts; requirements; dependency records; diagnostics; tests and proof evidence; project documentation; approved external references.
+  - [x] Bind 11 source classes to exact branch blobs and fragments. Verify 44 role-purpose combinations and ten refusal controls. The external fixture admits an edition-specific citation under simulated approval. [Knowledge Context source inventory](research/toolchain-and-collaboration/RT-14/RT-14-SOURCE-INVENTORY-2026-11-25.md)
 - [x] Compare exact snapshot-pinned object references with derived summaries, retrieved excerpts, and relevance-ranked material. Distinguish mandatory entries from optional supporting information.
   - [x] Verify 864 evidence classifications across two purposes. Original objects and approved checked excerpts satisfy 40 mandatory cases. Summaries and ranked candidates supply only supporting evidence. Source and request binding alone would admit 240 additional cases. [Knowledge Context evidence forms](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-PROJECTIONS-2026-11-25.md)
 - [x] Define provenance, source trust classes, revision freshness, conflict handling, unknown/missing sources, and evidence that a context is complete for a declared purpose.
