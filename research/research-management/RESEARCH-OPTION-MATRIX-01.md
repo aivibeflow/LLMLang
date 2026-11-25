@@ -219,6 +219,8 @@ The [Owned-result provider binding](../compiler-and-translation/RT-13/RT-13-BOUN
 | Generated Rust or configured C execution over the owned ABI, B-C and DEP-016 | Both native routes agree with the source and descriptor reference for the exact two provider objects. The same diagnostic category can carry different ownership outcomes under the admitted contract. | Extend to a general target emitter and distinct foreign implementations, concurrent cleanup, and independent review. |
 | Kernel-checked obligation model or native trace evidence, V-A/V-C | The model checks token decoding for both policies. Native validation supplies the tested source and descriptor observations. | Link typed source, provider contract, target artifacts and theorem through a checked correspondence. |
 
+For histories with multiple best common ancestors, the [native merge-base comparison](../toolchain-and-collaboration/RT-24/RT-24-MULTIPLE-MERGE-BASES-2026-11-25.md) separates exact Git virtual-base synthesis from the stricter agreement of all real bases. The base-resolution policy affects which clean trees can be published.
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.

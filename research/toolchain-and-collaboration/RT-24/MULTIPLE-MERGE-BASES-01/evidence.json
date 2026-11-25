@@ -1,0 +1,937 @@
+{
+  "schema": "llmlang-multiple-merge-bases/1",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "runner_sha256": "442b3c58de927b3bec5757bba0107c06b617680dc233df8941d7cfe8d35ca221",
+  "ref_backends": [
+    "files",
+    "reftable"
+  ],
+  "native_repositories": 28,
+  "counts": {
+    "cases": 14,
+    "native_clean": 10,
+    "ambiguous_native_clean": 6,
+    "consensus_published": 4,
+    "native_clean_real_bases_both_conflict": 2
+  },
+  "source_states": {
+    "convergent": [
+      [
+        0,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        1,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        0,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        3,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        3,
+        [
+          "b",
+          "a"
+        ]
+      ]
+    ],
+    "convergent_effects": [
+      [
+        0,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        0,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        0,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        2,
+        [
+          "d",
+          "a"
+        ]
+      ],
+      [
+        2,
+        [
+          "d",
+          "a"
+        ]
+      ]
+    ],
+    "ancestral_result_disagreement": [
+      [
+        0,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        1,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        2,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        1,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        2,
+        [
+          "a",
+          "b"
+        ]
+      ]
+    ],
+    "ancestral_trace_disagreement": [
+      [
+        0,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        0,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        0,
+        [
+          "c",
+          "b"
+        ]
+      ],
+      [
+        0,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        0,
+        [
+          "c",
+          "b"
+        ]
+      ]
+    ],
+    "synthetic_selects_new_result": [
+      [
+        0,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        1,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        0,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        1,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        2,
+        [
+          "b",
+          "a"
+        ]
+      ]
+    ],
+    "synthetic_selects_new_trace": [
+      [
+        0,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        0,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        1,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        1,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        1,
+        [
+          "c",
+          "b"
+        ]
+      ]
+    ],
+    "synthetic_with_two_refusals": [
+      [
+        0,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        1,
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        0,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        3,
+        [
+          "b",
+          "a"
+        ]
+      ],
+      [
+        1,
+        [
+          "d",
+          "a"
+        ]
+      ]
+    ]
+  },
+  "rows_per_backend": [
+    {
+      "case": "convergent",
+      "orientation": "left_first",
+      "real_bases": {
+        "A": "212e0dd548f1ac73dfdfc51196f7e3daa20f68b5",
+        "B": "bc13800a686ce4d9fc2b97019de88dfc571cdb4c"
+      },
+      "left": "8956f591b4eefdfea8e363cdb2f080cc21da4f51",
+      "right": "addf3b0f894f8e4b2a1a153f60cce9af4fc44ece",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "a4e54c6fe450fad85df4b12840490ad292cc224f",
+          "observation": [
+            3,
+            [
+              "b",
+              "a"
+            ]
+          ]
+        },
+        "B": {
+          "status": "clean",
+          "tree": "a4e54c6fe450fad85df4b12840490ad292cc224f",
+          "observation": [
+            3,
+            [
+              "b",
+              "a"
+            ]
+          ]
+        }
+      },
+      "base_pair_merge": {
+        "status": "clean",
+        "tree": "158ba6287740c3e51469696b4427d4ca209325a9",
+        "explicit_virtual_status": "clean"
+      },
+      "native": {
+        "status": "clean",
+        "tree": "a4e54c6fe450fad85df4b12840490ad292cc224f",
+        "observation": [
+          3,
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "all_real_bases_agree": true,
+      "published_commit": "6f631eef498e7ca7ada0393f7e21433a5b5ed0f8"
+    },
+    {
+      "case": "convergent",
+      "orientation": "right_first",
+      "real_bases": {
+        "A": "212e0dd548f1ac73dfdfc51196f7e3daa20f68b5",
+        "B": "bc13800a686ce4d9fc2b97019de88dfc571cdb4c"
+      },
+      "left": "addf3b0f894f8e4b2a1a153f60cce9af4fc44ece",
+      "right": "8956f591b4eefdfea8e363cdb2f080cc21da4f51",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "a4e54c6fe450fad85df4b12840490ad292cc224f",
+          "observation": [
+            3,
+            [
+              "b",
+              "a"
+            ]
+          ]
+        },
+        "B": {
+          "status": "clean",
+          "tree": "a4e54c6fe450fad85df4b12840490ad292cc224f",
+          "observation": [
+            3,
+            [
+              "b",
+              "a"
+            ]
+          ]
+        }
+      },
+      "base_pair_merge": {
+        "status": "clean",
+        "tree": "158ba6287740c3e51469696b4427d4ca209325a9",
+        "explicit_virtual_status": "clean"
+      },
+      "native": {
+        "status": "clean",
+        "tree": "a4e54c6fe450fad85df4b12840490ad292cc224f",
+        "observation": [
+          3,
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "all_real_bases_agree": true,
+      "published_commit": "366ec0e8b1bcb69bb96d8550f79b0e8934ce2cc6"
+    },
+    {
+      "case": "convergent_effects",
+      "orientation": "left_first",
+      "real_bases": {
+        "A": "28a3bc4a4cb17e64db9562b7ae8a598089172350",
+        "B": "5c2f3a772dba3a31dd01c0c88afaf575a4a13d51"
+      },
+      "left": "d5e8804ed0e3cadd57bfe527e60f4440396bd58b",
+      "right": "dd0442eeeea956a5beae6c06872b9b73274e9418",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "c44b4d530d1cce5f96c87ebb417a1f9584140f68",
+          "observation": [
+            2,
+            [
+              "d",
+              "a"
+            ]
+          ]
+        },
+        "B": {
+          "status": "clean",
+          "tree": "c44b4d530d1cce5f96c87ebb417a1f9584140f68",
+          "observation": [
+            2,
+            [
+              "d",
+              "a"
+            ]
+          ]
+        }
+      },
+      "base_pair_merge": {
+        "status": "clean",
+        "tree": "2f3609ae82d8186868864b571a9861d630589b6a",
+        "explicit_virtual_status": "clean"
+      },
+      "native": {
+        "status": "clean",
+        "tree": "c44b4d530d1cce5f96c87ebb417a1f9584140f68",
+        "observation": [
+          2,
+          [
+            "d",
+            "a"
+          ]
+        ]
+      },
+      "all_real_bases_agree": true,
+      "published_commit": "e99e5082f5b2f862cbcf705b18400be6e6faa634"
+    },
+    {
+      "case": "convergent_effects",
+      "orientation": "right_first",
+      "real_bases": {
+        "A": "28a3bc4a4cb17e64db9562b7ae8a598089172350",
+        "B": "5c2f3a772dba3a31dd01c0c88afaf575a4a13d51"
+      },
+      "left": "dd0442eeeea956a5beae6c06872b9b73274e9418",
+      "right": "d5e8804ed0e3cadd57bfe527e60f4440396bd58b",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "c44b4d530d1cce5f96c87ebb417a1f9584140f68",
+          "observation": [
+            2,
+            [
+              "d",
+              "a"
+            ]
+          ]
+        },
+        "B": {
+          "status": "clean",
+          "tree": "c44b4d530d1cce5f96c87ebb417a1f9584140f68",
+          "observation": [
+            2,
+            [
+              "d",
+              "a"
+            ]
+          ]
+        }
+      },
+      "base_pair_merge": {
+        "status": "clean",
+        "tree": "2f3609ae82d8186868864b571a9861d630589b6a",
+        "explicit_virtual_status": "clean"
+      },
+      "native": {
+        "status": "clean",
+        "tree": "c44b4d530d1cce5f96c87ebb417a1f9584140f68",
+        "observation": [
+          2,
+          [
+            "d",
+            "a"
+          ]
+        ]
+      },
+      "all_real_bases_agree": true,
+      "published_commit": "73ad25dd8065622aa17aa84930df336dfe38d1a0"
+    },
+    {
+      "case": "ancestral_result_disagreement",
+      "orientation": "left_first",
+      "real_bases": {
+        "A": "212e0dd548f1ac73dfdfc51196f7e3daa20f68b5",
+        "B": "4e0ceab8143fc4b6535c15734aea89760649cbff"
+      },
+      "left": "015112188f094d09eb5e626a4ec751e309e57bec",
+      "right": "01e7714a6ea71f874fabf5fd062007bcba00e657",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "6294a145c675230feef61a310d0adf368069fe8a",
+          "observation": [
+            2,
+            [
+              "a",
+              "b"
+            ]
+          ]
+        },
+        "B": {
+          "status": "clean",
+          "tree": "057a01d4644730003b4f1f9b349802170028f5f4",
+          "observation": [
+            1,
+            [
+              "a",
+              "b"
+            ]
+          ]
+        }
+      },
+      "base_pair_merge": {
+        "status": "conflict",
+        "tree": null,
+        "explicit_virtual_status": null
+      },
+      "native": {
+        "status": "conflict",
+        "tree": null,
+        "observation": null
+      },
+      "all_real_bases_agree": false,
+      "published_commit": null
+    },
+    {
+      "case": "ancestral_result_disagreement",
+      "orientation": "right_first",
+      "real_bases": {
+        "A": "212e0dd548f1ac73dfdfc51196f7e3daa20f68b5",
+        "B": "4e0ceab8143fc4b6535c15734aea89760649cbff"
+      },
+      "left": "01e7714a6ea71f874fabf5fd062007bcba00e657",
+      "right": "015112188f094d09eb5e626a4ec751e309e57bec",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "6294a145c675230feef61a310d0adf368069fe8a",
+          "observation": [
+            2,
+            [
+              "a",
+              "b"
+            ]
+          ]
+        },
+        "B": {
+          "status": "clean",
+          "tree": "057a01d4644730003b4f1f9b349802170028f5f4",
+          "observation": [
+            1,
+            [
+              "a",
+              "b"
+            ]
+          ]
+        }
+      },
+      "base_pair_merge": {
+        "status": "conflict",
+        "tree": null,
+        "explicit_virtual_status": null
+      },
+      "native": {
+        "status": "conflict",
+        "tree": null,
+        "observation": null
+      },
+      "all_real_bases_agree": false,
+      "published_commit": null
+    },
+    {
+      "case": "ancestral_trace_disagreement",
+      "orientation": "left_first",
+      "real_bases": {
+        "A": "28a3bc4a4cb17e64db9562b7ae8a598089172350",
+        "B": "b293e7541ee638f342a6257aca3902c6f1c2d421"
+      },
+      "left": "b4f43b29402e6b6c62b0b677a808d12baac00d2b",
+      "right": "a01a857b0e447803d41bb704ee2787e4ec22c298",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "b44b3da3eb10b57e391b131a546abcf8ae1085d3",
+          "observation": [
+            0,
+            [
+              "c",
+              "b"
+            ]
+          ]
+        },
+        "B": {
+          "status": "clean",
+          "tree": "2f3609ae82d8186868864b571a9861d630589b6a",
+          "observation": [
+            0,
+            [
+              "b",
+              "a"
+            ]
+          ]
+        }
+      },
+      "base_pair_merge": {
+        "status": "conflict",
+        "tree": null,
+        "explicit_virtual_status": null
+      },
+      "native": {
+        "status": "conflict",
+        "tree": null,
+        "observation": null
+      },
+      "all_real_bases_agree": false,
+      "published_commit": null
+    },
+    {
+      "case": "ancestral_trace_disagreement",
+      "orientation": "right_first",
+      "real_bases": {
+        "A": "28a3bc4a4cb17e64db9562b7ae8a598089172350",
+        "B": "b293e7541ee638f342a6257aca3902c6f1c2d421"
+      },
+      "left": "a01a857b0e447803d41bb704ee2787e4ec22c298",
+      "right": "b4f43b29402e6b6c62b0b677a808d12baac00d2b",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "b44b3da3eb10b57e391b131a546abcf8ae1085d3",
+          "observation": [
+            0,
+            [
+              "c",
+              "b"
+            ]
+          ]
+        },
+        "B": {
+          "status": "clean",
+          "tree": "2f3609ae82d8186868864b571a9861d630589b6a",
+          "observation": [
+            0,
+            [
+              "b",
+              "a"
+            ]
+          ]
+        }
+      },
+      "base_pair_merge": {
+        "status": "conflict",
+        "tree": null,
+        "explicit_virtual_status": null
+      },
+      "native": {
+        "status": "conflict",
+        "tree": null,
+        "observation": null
+      },
+      "all_real_bases_agree": false,
+      "published_commit": null
+    },
+    {
+      "case": "synthetic_selects_new_result",
+      "orientation": "left_first",
+      "real_bases": {
+        "A": "212e0dd548f1ac73dfdfc51196f7e3daa20f68b5",
+        "B": "bc13800a686ce4d9fc2b97019de88dfc571cdb4c"
+      },
+      "left": "59d189ef9f5c6b67f5e5dc867475e53f69ae66c2",
+      "right": "0a0287946fc28df552e4b92e6606cdae2fda0310",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "0ed8aa074ff62be23233f79a13828c3668671c3b",
+          "observation": [
+            2,
+            [
+              "b",
+              "a"
+            ]
+          ]
+        },
+        "B": {
+          "status": "conflict",
+          "tree": null,
+          "observation": null
+        }
+      },
+      "base_pair_merge": {
+        "status": "clean",
+        "tree": "158ba6287740c3e51469696b4427d4ca209325a9",
+        "explicit_virtual_status": "clean"
+      },
+      "native": {
+        "status": "clean",
+        "tree": "0ed8aa074ff62be23233f79a13828c3668671c3b",
+        "observation": [
+          2,
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "all_real_bases_agree": false,
+      "published_commit": null
+    },
+    {
+      "case": "synthetic_selects_new_result",
+      "orientation": "right_first",
+      "real_bases": {
+        "A": "212e0dd548f1ac73dfdfc51196f7e3daa20f68b5",
+        "B": "bc13800a686ce4d9fc2b97019de88dfc571cdb4c"
+      },
+      "left": "0a0287946fc28df552e4b92e6606cdae2fda0310",
+      "right": "59d189ef9f5c6b67f5e5dc867475e53f69ae66c2",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "0ed8aa074ff62be23233f79a13828c3668671c3b",
+          "observation": [
+            2,
+            [
+              "b",
+              "a"
+            ]
+          ]
+        },
+        "B": {
+          "status": "conflict",
+          "tree": null,
+          "observation": null
+        }
+      },
+      "base_pair_merge": {
+        "status": "clean",
+        "tree": "158ba6287740c3e51469696b4427d4ca209325a9",
+        "explicit_virtual_status": "clean"
+      },
+      "native": {
+        "status": "clean",
+        "tree": "0ed8aa074ff62be23233f79a13828c3668671c3b",
+        "observation": [
+          2,
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "all_real_bases_agree": false,
+      "published_commit": null
+    },
+    {
+      "case": "synthetic_selects_new_trace",
+      "orientation": "left_first",
+      "real_bases": {
+        "A": "28a3bc4a4cb17e64db9562b7ae8a598089172350",
+        "B": "c910e957e637bd7d3ab9bd43ff12f82fe4ecb621"
+      },
+      "left": "3c774f1cac4e3d442d82e782b164e9ad0c3ed9d8",
+      "right": "1cd696a94580606a8c25a80df1f9b657d907bdd0",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "1e9f2473ae629d534737bd101e8bc84da3f7b45e",
+          "observation": [
+            1,
+            [
+              "c",
+              "b"
+            ]
+          ]
+        },
+        "B": {
+          "status": "conflict",
+          "tree": null,
+          "observation": null
+        }
+      },
+      "base_pair_merge": {
+        "status": "clean",
+        "tree": "158ba6287740c3e51469696b4427d4ca209325a9",
+        "explicit_virtual_status": "clean"
+      },
+      "native": {
+        "status": "clean",
+        "tree": "1e9f2473ae629d534737bd101e8bc84da3f7b45e",
+        "observation": [
+          1,
+          [
+            "c",
+            "b"
+          ]
+        ]
+      },
+      "all_real_bases_agree": false,
+      "published_commit": null
+    },
+    {
+      "case": "synthetic_selects_new_trace",
+      "orientation": "right_first",
+      "real_bases": {
+        "A": "28a3bc4a4cb17e64db9562b7ae8a598089172350",
+        "B": "c910e957e637bd7d3ab9bd43ff12f82fe4ecb621"
+      },
+      "left": "1cd696a94580606a8c25a80df1f9b657d907bdd0",
+      "right": "3c774f1cac4e3d442d82e782b164e9ad0c3ed9d8",
+      "by_base": {
+        "A": {
+          "status": "clean",
+          "tree": "1e9f2473ae629d534737bd101e8bc84da3f7b45e",
+          "observation": [
+            1,
+            [
+              "c",
+              "b"
+            ]
+          ]
+        },
+        "B": {
+          "status": "conflict",
+          "tree": null,
+          "observation": null
+        }
+      },
+      "base_pair_merge": {
+        "status": "clean",
+        "tree": "158ba6287740c3e51469696b4427d4ca209325a9",
+        "explicit_virtual_status": "clean"
+      },
+      "native": {
+        "status": "clean",
+        "tree": "1e9f2473ae629d534737bd101e8bc84da3f7b45e",
+        "observation": [
+          1,
+          [
+            "c",
+            "b"
+          ]
+        ]
+      },
+      "all_real_bases_agree": false,
+      "published_commit": null
+    },
+    {
+      "case": "synthetic_with_two_refusals",
+      "orientation": "left_first",
+      "real_bases": {
+        "A": "212e0dd548f1ac73dfdfc51196f7e3daa20f68b5",
+        "B": "bc13800a686ce4d9fc2b97019de88dfc571cdb4c"
+      },
+      "left": "8956f591b4eefdfea8e363cdb2f080cc21da4f51",
+      "right": "40ae504ceea951deca34bbb3efaa736ee205e52d",
+      "by_base": {
+        "A": {
+          "status": "conflict",
+          "tree": null,
+          "observation": null
+        },
+        "B": {
+          "status": "conflict",
+          "tree": null,
+          "observation": null
+        }
+      },
+      "base_pair_merge": {
+        "status": "clean",
+        "tree": "158ba6287740c3e51469696b4427d4ca209325a9",
+        "explicit_virtual_status": "clean"
+      },
+      "native": {
+        "status": "clean",
+        "tree": "bf153b0d96727934aba6457c34b0074291f2e980",
+        "observation": [
+          3,
+          [
+            "d",
+            "a"
+          ]
+        ]
+      },
+      "all_real_bases_agree": false,
+      "published_commit": null
+    },
+    {
+      "case": "synthetic_with_two_refusals",
+      "orientation": "right_first",
+      "real_bases": {
+        "A": "212e0dd548f1ac73dfdfc51196f7e3daa20f68b5",
+        "B": "bc13800a686ce4d9fc2b97019de88dfc571cdb4c"
+      },
+      "left": "40ae504ceea951deca34bbb3efaa736ee205e52d",
+      "right": "8956f591b4eefdfea8e363cdb2f080cc21da4f51",
+      "by_base": {
+        "A": {
+          "status": "conflict",
+          "tree": null,
+          "observation": null
+        },
+        "B": {
+          "status": "conflict",
+          "tree": null,
+          "observation": null
+        }
+      },
+      "base_pair_merge": {
+        "status": "clean",
+        "tree": "158ba6287740c3e51469696b4427d4ca209325a9",
+        "explicit_virtual_status": "clean"
+      },
+      "native": {
+        "status": "clean",
+        "tree": "bf153b0d96727934aba6457c34b0074291f2e980",
+        "observation": [
+          3,
+          [
+            "d",
+            "a"
+          ]
+        ]
+      },
+      "all_real_bases_agree": false,
+      "published_commit": null
+    }
+  ]
+}
