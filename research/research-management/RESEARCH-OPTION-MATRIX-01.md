@@ -95,6 +95,8 @@ For a closed two-integer profile, [restricted affine certificates](../formal-ver
 
 [Signed I64 byte proof](../formal-verification/RT-32/RT-32-SIGNED-I64-BYTE-KERNEL-2026-11-25.md) establishes a reversible typed byte component and checks 181 native archive equations. Exact decimal and token routes still require their own parser correspondence.
 
+[Cross-runtime F64 identity](../semantic-representation/RT-05/RT-05-CROSS-RUNTIME-F64-IDENTITY-2026-11-25.md) compares exact bits, canonical NaNs, SameValueZero, and ordinary JSON. Exact bytes preserve all 210 words. NaN-only normalization preserves the measured numeric vector, while merging zeros changes signed reciprocal output and native Node arrays quiet signaling NaNs.
+
 [Cross-runtime I64 encoding](../semantic-representation/RT-05/RT-05-CROSS-RUNTIME-I64-ENCODING-2026-11-25.md) compares bare JSON number consumption, a safe-integer restriction, preserved numeric source tokens, canonical decimal text and fixed-width hexadecimal. The exact routes share the same typed graph root. Bare JavaScript numbers change 56 observed values. Payload size and parser compatibility remain separate from semantic identity.
 
 [Stateful bound method](../semantic-representation/RT-05/RT-05-STATEFUL-BOUND-METHOD-2026-11-25.md) compares code, captured values and explicit shared mutable cells in C and Rust. Identical method code remains reusable while the executable receiver descriptor retains the state its observations depend on.

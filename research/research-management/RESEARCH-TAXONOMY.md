@@ -179,6 +179,8 @@ RT-34 has a checked [binary-search cost pilot](../formal-verification/RT-34/RT-3
 
 RT-05 compares [physical storage for recursive groups](../semantic-representation/RT-05/RT-05-RECURSIVE-GROUP-STORAGE-2026-11-25.md) under one exact keyed semantic identity. It also compares [resolved macro bindings](../semantic-representation/RT-05/RT-05-MACRO-BINDING-IDENTITY-2026-11-25.md) with source and expanded text.
 
+RT-05 compares four binary64 identity and wire policies against exact bits, numeric observations and native representation changes. [Cross-runtime F64 identity](../semantic-representation/RT-05/RT-05-CROSS-RUNTIME-F64-IDENTITY-2026-11-25.md)
+
 ## 3. Required research artifact
 
 Every research report should identify:

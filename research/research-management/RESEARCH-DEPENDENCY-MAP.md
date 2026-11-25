@@ -468,7 +468,7 @@ RT-27 studies the physical repository representation for large SPG collections. 
 
 | Edge | From → to | Relation | Rationale / affected choices | Confidence |
 |---|---|---|---|---|
-| DEP-109 | RT-05 → RT-27 | Requires | Object identity, content addressing, lineage, and semantic-object granularity determine which records can be independently stored and reused. | Strong hypothesis |
+| DEP-109 | RT-05 → RT-27 | Requires | Object identity, content addressing, lineage, and semantic-object granularity determine which records can be independently stored and reused. Binary64 serialization requires an explicit literal bit or numerical quotient policy before computing typed object keys. [Cross-runtime F64 identity](../semantic-representation/RT-05/RT-05-CROSS-RUNTIME-F64-IDENTITY-2026-11-25.md) | Strong hypothesis |
 | DEP-110 | RT-11 → RT-27 | Influences | Cache keys, object reuse, invalidation, and access patterns determine metadata placement and payload read behavior. | Strong hypothesis |
 | DEP-111 | RT-15 → RT-27 | Constrains | Git object/delta storage, pack/repack, clone/fetch, and reviewable history constrain viable physical layouts. | Strong hypothesis |
 | DEP-112 | RT-19 → RT-27 | Constrains | Toolchain snapshots, repository operations, and concurrent access require durable, recoverable storage semantics. A scoped filesystem effect is recoverable from its exact prepared operation bytes under an immutable namespace. [External receipt recovery](../toolchain-and-collaboration/RT-19/RT-19-EXTERNAL-RECEIPT-RECOVERY-2026-11-25.md) | Strong hypothesis |
