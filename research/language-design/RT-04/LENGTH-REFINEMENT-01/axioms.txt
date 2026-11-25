@@ -1,0 +1,5 @@
+'LengthRefinement.packPresentIff' does not depend on any axioms
+'LengthRefinement.checkedPresentIff' depends on axioms: [propext]
+'LengthRefinement.checkedMatchesSized' depends on axioms: [propext, Quot.sound]
+'LengthRefinement.sizedLength' depends on axioms: [propext, Quot.sound]
+'LengthRefinement.boundedCounterexample' does not depend on any axioms
