@@ -1,7 +1,7 @@
 # LLMLang Research and Development Plan
 
 **Status:** living plan  
-**Updated:** 2026-11-23
+**Updated:** 2026-11-25
 **Restored baseline:** detailed plan from [`aa39c8f`](https://github.com/aivibeflow/LLMLang/commit/aa39c8fc2a611ae72ff85acff3de3c16fcc4eb39), reconciled with the current project plan and repository evidence  
 **PR #47 consolidation:** §5 maps the research in the merged snapshot at `73d37723e6a759159b354c2cd74327517c4036c4` to the current plan. PR #50 restored the text of `PLAN.md`. PR #51 incorporated the research from PR #47 into the plan. [Restoration commit `2c7f3d1`](https://github.com/aivibeflow/LLMLang/commit/2c7f3d1) · [Consolidation commit `7fd8eac`](https://github.com/aivibeflow/LLMLang/commit/7fd8eace9210dffdbdcd98302e19bf6bc18be756)<br>
 **Repository:** `aivibeflow/LLMLang`  
@@ -47,6 +47,7 @@ Status applies to the current evidence, not to how important the topic is. Where
 | 5 | Types, execution model, runtime, and POSIX | A small executable language/runtime slice with explicit platform boundaries | A vertical slice preserves its declared semantics on a selected target |
 | 6 | Translation, backends, and optimization | Multiple target realizations and evidence-backed implementation selection | Two backends agree with reference semantics for the selected subset |
 | 5–6 (cross-cutting) | RT-37 embedded firmware and RT-38 OS kernels | Freestanding profile and bootable bounded pilots | Explicit runtime closure, independent target evidence and trust boundaries; firmware precedes kernel |
+| 5–7 (cross-cutting) | Cross-platform native interoperability and bidirectional FFI | Target profiles, native library import/export and ABI/contract evidence | Per-target bidirectional conformance and explicit support/assumption matrix (§6.6) |
 | 7 | Scale, ecosystem, collaboration, and adoption | Measured feasibility and operational model for real projects | Performance, storage, collaboration, trust, and usability criteria are measured |
 
 ---
@@ -1546,6 +1547,72 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 **Dependencies:** RT-37 profile/pilot, RT-03/04/07/08/09/10/13/16/32/33/34/36 and Stage 6 lowering. **Exit:** reproducible feasible or falsified kernel profile and bounded pilot evidence, explicit proof/TCB gaps. No full-kernel verification or production readiness claim.
 
+## 6.6 Cross-platform native interoperability and bidirectional FFI (cross-cutting)
+
+**Status:** Planned; related bounded native ABI and POSIX experiments exist, but no complete cross-platform interoperability profile has been validated. **Priority:** P0 for the shared target/ABI model and first three hosted OS families; P1/P2 for additional target profiles as listed below.
+
+**Goal:** LLMLang programs must be able to consume operating-system APIs and third-party native libraries, and LLMLang must be able to produce native libraries consumable by programs written in other languages. Preserve public semantic contracts across implementations and platforms; check binary compatibility independently. POSIX is an optional system-library facade, not a requirement of the language or every target.
+
+### Target research matrix
+
+All listed OS/architecture pairs are in scope for research and eventual feasibility/conformance assessment, not claims of existing support. ARM64 means AArch64; x86-64 means AMD64; RISC-V 64 means RV64. Priorities order investigation, not exclusion. Record exact supported OS releases, SDKs, deployment constraints, architectures, ABI variants, and toolchains before claiming support.
+
+| OS | CPU architectures | Shared libraries | Static libraries | Object format | Research priority |
+|---|---|---|---|---|---|
+| Linux | x86-64, AArch64, RV64 | .so | .a | ELF | P0 |
+| macOS | AArch64, x86-64 | .dylib | .a | Mach-O | P0 |
+| Windows | x86-64, AArch64 | .dll (and import library) | .lib (MSVC), .a where applicable | PE/COFF | P0 |
+| FreeBSD | x86-64, AArch64 | .so | .a | ELF | P1 |
+| Android | AArch64, x86-64 | .so | .a | ELF | P1 |
+| iOS | AArch64 | dynamic frameworks / .dylib subject to platform packaging and loading rules | .a / static frameworks | Mach-O | P1 |
+| OpenBSD | x86-64, AArch64 | .so | .a | ELF | P2 |
+| NetBSD | x86-64, AArch64 | .so | .a | ELF | P2 |
+
+The hosted matrix contains 17 OS/CPU pairs. Existing freestanding research additionally covers ARM Cortex-M (initial Cortex-M3, Thumb) in [RT-37](research/runtime-and-systems/RT-37/README.md) and RV64 (initial RISC-V QEMU microkernel target) in [RT-38](research/runtime-and-systems/RT-38/README.md). For these targets, investigate static archives, object-level C ABI and explicit runtime closure; do not assume a host OS or dynamic loader. Keep hardware/privilege profiles and any later RTOS profiles separate from hosted targets.
+
+### Architecture and research vectors
+
+```mermaid
+flowchart TD
+    O[OS APIs and third-party native libraries] --> I[FFI import: declarations, contracts, ABI]
+    I --> S[LLMLang typed SPG and public interfaces]
+    S --> E[FFI export: checked adapters and C ABI]
+    E --> L[Static or shared native library and headers]
+    L --> C[External C, C++, Rust, Python, Go, Java consumers]
+    T[Target profile: OS, CPU, ABI, SDK, runtime] --> I
+    T --> E
+    P[Evidence and explicit trust premises] --> I
+    P --> E
+```
+
+The diagram describes proposed import and export paths, not an implemented pipeline. Both directions bind an exact target profile and evidence; external consumers need not understand LLMLang's internal SPG.
+
+- Compare a portable C ABI baseline with platform-native adapters (e.g. POSIX/libc, Windows API, Apple SDK, Android NDK); assess direct LLVM/native emission versus generated Rust/C shims and embedded runtimes. C ABI maximizes reach but cannot directly represent all semantic types or ownership; generated adapters add translation and runtime dependencies that must be explicit. Investigate language-specific bridges only where justified, without conflating C ABI compatibility with C++ ABI, JNI or other managed-runtime conventions.
+- Compare static linking, load-time shared linking and runtime symbol resolution where supported. Record symbol visibility, versions, loader/search policy, dependency closure, relocation and code-signing/package constraints. A platform restriction may make a particular mode unsupported without eliminating the entire OS target.
+- Compare header-driven binding generation with manually reviewed contracts: headers describe representation and declarations but do not by themselves establish behavioral guarantees. Keep externally supplied contracts, assumptions, provider identity and ABI descriptors separately versioned and auditable.
+
+### Work packages and acceptance gates
+
+- [ ] FFI-01 Target profiles: define target triples, OS and SDK versions, libc (e.g. glibc/musl, Bionic), object format, endianness, alignment, data models, calling conventions, toolchain/linker and runtime capabilities. Track each matrix cell separately, including unsupported or untested features.
+- [ ] FFI-02 Import: parse supported C header/IDL subsets, generate typed declarations and adapters, resolve system and third-party symbols; distinguish structural metadata from behavioral contracts. Include libc/POSIX, platform-specific APIs and representative third-party libraries such as SQLite and OpenSSL.
+- [ ] FFI-03 Export: compile selected stable public interfaces to static/shared libraries, generate C headers and import metadata, check implementation refinement of public contracts and target-specific ABI mapping. Test independent C/C++, Rust, Python, Go and Java consumers through appropriate adapters.
+- [ ] FFI-04 ABI: validate scalars, pointers, aggregate/sum layouts, alignment, by-value calls, return conventions, calling convention selection, variadic boundaries and callback signatures. Compare System V AMD64, Microsoft x64, AArch64 platform ABIs, RV64 and freestanding ARM ABI profiles where applicable. Reject incompatible or unknown layouts/call mappings.
+- [ ] FFI-05 Linking and loading: compare static, shared and dynamic loading, symbol lookup/versioning, dependency and transitive runtime closure, linker scripts, visibility, unloading, packaging and platform signing restrictions. Distinguish import libraries from static archives.
+- [ ] FFI-06 Callbacks and embedding: validate reentrancy, foreign threads, callback lifetimes, initialization/termination, panic/unwind containment, concurrency, runtime embedding and multiple library instances in a foreign process.
+- [ ] FFI-07 Ownership and effects: specify allocator pairing, allocation failure, aliasing, borrowing, lifetimes, buffer lengths, resource transfer, cleanup, cancellation, threading and synchronization across the boundary. Check errno, platform error state, return codes, exceptions and failure effects without assuming identical platform behavior.
+- [ ] FFI-08 API/ABI evolution: separate public semantic identity, contract compatibility, binary layout/calling compatibility, symbol versions and implementation identity. Generate contract/ABI manifests with exact artifact hashes and provenance; test compatible and incompatible library upgrades and stale evidence.
+- [ ] FFI-09 Formal verification: use scoped external contracts as explicit premises under RT-36, not unconditional proofs of external implementations. Check adapters, caller obligations and provider refinements; bind proof/test evidence to resolved library bytes, ABI, target and environment. Preserve UNKNOWN/conditional results when correspondence or premises are missing; invalidate dependent cache entries when relevant identities change.
+- [ ] FFI-10 Cross-compilation and build: generate target-specific outputs without conflating build host and target; pin SDKs, toolchains and linker inputs, audit final binaries and reproducibility, integrate with package manifests and semantic caches.
+- [ ] FFI-11 Conformance: for every hosted OS/CPU pair, independently build/link a consumer and provider in both directions, cover static/shared modes and runtime loading where supported, and compare results, ordered effects, errors, resource lifetimes and negative controls against independent reference semantics. Include wrong ABI, wrong symbol/version, stale provider, allocator mismatch and forbidden unwind/callback controls. Record native, emulator and cross-build evidence separately; a successful cross-build alone is not runtime validation.
+- [ ] FFI-12 Freestanding integration: reuse RT-37/38 target constraints for Cortex-M and RV64; verify static/object-level interchange, startup, memory layout, explicit support routines and absence of accidental hosted dependencies.
+- [ ] [WIP human] Review the resulting support matrix and select production profiles, availability of native runners/devices and required SDK access; record any platform restriction or unresolved target rather than silently dropping it.
+
+**Dependencies:** RT-03/04 (source semantics, effects, ownership), RT-05/20 (public interface identity and provider binding), RT-09 (C ABI/layout), RT-10 (OS/runtime boundary), RT-11 (cache identity/invalidation), RT-12 (libraries/packages), RT-13/29/30 (translation and backend alternatives), RT-16 (security), RT-18 (versioning), RT-32/33/36 (proof/evidence and foreign assumptions), RT-37/38 (freestanding profiles).
+
+**Existing evidence:** [C ABI/layout proposal](research/compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md), [POSIX runtime architecture](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [native owned-result ABI](research/compiler-and-translation/RT-13/RT-13-NATIVE-OWNED-ABI-2026-11-24.md), [by-value call conventions](research/compiler-and-translation/RT-13/RT-13-BY-VALUE-CALL-ABI-2026-11-25.md). The Microsoft calling-convention experiment runs on Linux; it is not Windows OS conformance.
+
+**Exit:** a reproducible, versioned support/evidence matrix covering every listed target pair and applicable interoperability mode; a bounded bidirectional native pilot on each admitted profile; explicit unsupported, unresolved and conditional cases; verified source/adapter obligations and audited artifact/ABI correspondence; independently reviewable reports with counterexamples and linked evidence. Before marking the research complete, update the taxonomy, dependency map and option matrix and include the results in the final compatibility audit. No production support or normative ABI is implied by this plan.
+
 ---
 
 # Stage 7 — Scale, ecosystem, collaboration, and adoption
@@ -2151,6 +2218,8 @@ The [Research State 2026-11-19](research/research-management/RESEARCH-STATE-2026
 6. **Continue package/cache validation without fixing speculative wire formats.** For RT-11/12/19/23, measure controlled cold/warm and scoped-change cases, implement a public immutable snapshot adapter and canonical dependency extraction against the SPG, and extend manifest/cache-index validation. Keep ZIP, binary index, codec, and provider choices provisional until the contracts and resource bounds are validated.
 7. **Refresh the option matrix and synthesis gates from results.** Record evidence class, assumptions, confidence, unknowns, compatibility constraints, and falsifiers for each surviving vector. Compare complete candidate specifications only after major criteria have evidence; publish workload-weight sensitivity and preserve failed or unknown cases.
    **Freestanding feasibility:** start RT-37 profile constraints alongside the shared semantics and backend gates, then run the embedded firmware pilot before RT-38 microkernel experiments; both contribute evidence to the final compatibility audit. [RT-37](research/runtime-and-systems/RT-37/README.md) · [RT-38](research/runtime-and-systems/RT-38/README.md).
+
+   **Native interoperability:** develop the shared target/ABI model and first Linux, macOS and Windows import/export pilots in parallel with Stage 6; extend to all 17 hosted OS/CPU pairs and the applicable freestanding profiles under [§6.6](#66-cross-platform-native-interoperability-and-bidirectional-ffi-cross-cutting) before the final compatibility audit.
 
 8. **[Run the final feature compatibility and feasibility audit after all other research is complete](https://github.com/aivibeflow/LLMLang/issues/370).** This is the final cross-cutting research activity, not an early filter for individual research proposals. Start it only after all other registered aspect research, required follow-up experiments, evidence reviews, and candidate-vector synthesis have reached their documented completion gates. Re-read the then-current feature registry and the relevant research, option-matrix, and dependency-map evidence; do not rely on earlier preliminary estimates or assume the registry's current feature count will remain unchanged.
 
