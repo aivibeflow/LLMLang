@@ -843,6 +843,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Define how missing or incomplete dependency evidence affects reuse.
   - [x] Compare 162 GCC header-search runs and prove the ordered selection rule in Lean. Prior positive depfiles alone admit 312 stale selections and 156 stale artifacts in 4,212 ordered comparisons. The exact prefix has zero stale reuse. [Negative header dependencies](research/toolchain-and-collaboration/RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md)
 - [ ] Define cycles and strongly connected components for analysis and scheduling.
+  - [ ] [WIP] Check deterministic strongly connected component schedules and changed-graph invalidation against a whole-graph dependency fixed point on `research/all`.
 - [ ] Define change-impact analysis for requirement, contract, design, implementation, and target changes.
 
 **Existing evidence:** scenarios 18–28 and prototypes 18–28 in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`.
