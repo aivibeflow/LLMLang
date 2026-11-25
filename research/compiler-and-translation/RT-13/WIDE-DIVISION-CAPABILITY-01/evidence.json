@@ -1,0 +1,158 @@
+{
+  "compilers": {
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "clang": "Debian clang version 19.1.7 (3+b1)"
+  },
+  "linker": "GNU ld (GNU Binutils for Debian) 2.44",
+  "link_driver_target": "x86_64-linux-gnu",
+  "runtime_archive": {
+    "file": "libgcc.a",
+    "sha256": "c53c33f587ceaf0fc9a4b6bb5c5437082068f64ac70eb3b7a0d899e7ac5ffd3d"
+  },
+  "source_sha256": {
+    "lowering.c": "02e6a9d7ceca6552af9ca3ac2b33a63da013b0784099a52955b68c3714277eda",
+    "run.py": "fcee641166a328a31234d991b9eef75844dd8108f5a8048a4be5dfd5f1274176"
+  },
+  "vectors_per_route": 1256,
+  "profiles": {
+    "gcc-O0-restricted": {
+      "object_sha256": "aa22d36be25681fd3d64b6cf554ad0029e596cb879fc5be867d025ffe1eae9f9",
+      "object_imports": [],
+      "link_without_runtime": true,
+      "runtime_archive_linked": false,
+      "artifact_sha256": "4bcffb4ff499985c2dc05901f0ad8d08923e2e26afd179d6bfbc347c9363499f",
+      "elf_needed": [],
+      "status_counts": {
+        "0": 90,
+        "1": 100,
+        "3": 1066
+      },
+      "trace_sha256": "5e99dd5faadf13c6fe6b65de9c6f588bcc319d42b5758ac97791da54e9546b56"
+    },
+    "gcc-O0-wide": {
+      "object_sha256": "012533aadabe647aabf56e68c44c6ba416280518569d514515d615e80385579f",
+      "object_imports": [
+        "__udivti3"
+      ],
+      "link_without_runtime": false,
+      "runtime_archive_linked": true,
+      "artifact_sha256": "81b5f72d484866fdd56b3bedd7b5784adbae9945ef83677112b7a5e3d793aa6e",
+      "elf_needed": [],
+      "status_counts": {
+        "0": 595,
+        "1": 100,
+        "2": 561
+      },
+      "trace_sha256": "e65807b8d9b3fd368d649aaa586095b62789fc8d7f11112b9238b639215fb354"
+    },
+    "gcc-O3-restricted": {
+      "object_sha256": "9ca49813477fa78d3dca67b67e34247ce8675c2f19c8f736b348b81ba33e0517",
+      "object_imports": [],
+      "link_without_runtime": true,
+      "runtime_archive_linked": false,
+      "artifact_sha256": "a0c01cd76b938e0f4b1f1cde9bfdc2c59409823391436805a441163c462aeb00",
+      "elf_needed": [],
+      "status_counts": {
+        "0": 90,
+        "1": 100,
+        "3": 1066
+      },
+      "trace_sha256": "5e99dd5faadf13c6fe6b65de9c6f588bcc319d42b5758ac97791da54e9546b56"
+    },
+    "gcc-O3-wide": {
+      "object_sha256": "e1a89fac977268a4b9e4cfba5879e0b34cb7e2b74708f2da06114541b2393245",
+      "object_imports": [
+        "__udivti3"
+      ],
+      "link_without_runtime": false,
+      "runtime_archive_linked": true,
+      "artifact_sha256": "b997ce9ab94c967ca6275e7bb874735cb822ebcc1c52d2e902c165a14ae2d3df",
+      "elf_needed": [],
+      "status_counts": {
+        "0": 595,
+        "1": 100,
+        "2": 561
+      },
+      "trace_sha256": "e65807b8d9b3fd368d649aaa586095b62789fc8d7f11112b9238b639215fb354"
+    },
+    "clang-O0-restricted": {
+      "object_sha256": "9ea6ac0d4f7396dae332ee532b76ffc0ec2dbcaef1f91a5542530d5b66699448",
+      "object_imports": [],
+      "link_without_runtime": true,
+      "runtime_archive_linked": false,
+      "artifact_sha256": "9bd8317c91f627c28706ea3c9afd333d9aa7a657cd5a403a8f2b90a18aaa9caf",
+      "elf_needed": [],
+      "status_counts": {
+        "0": 90,
+        "1": 100,
+        "3": 1066
+      },
+      "trace_sha256": "5e99dd5faadf13c6fe6b65de9c6f588bcc319d42b5758ac97791da54e9546b56"
+    },
+    "clang-O0-wide": {
+      "object_sha256": "f02039ff617c28c7fc5f5278e3bfc3f01d55af19619c5cc1ed9a85e0a65afe31",
+      "object_imports": [
+        "__udivti3"
+      ],
+      "link_without_runtime": false,
+      "runtime_archive_linked": true,
+      "artifact_sha256": "9645ff7acf079a5a5d8b342388de85b4dc58944fea5a5b93b0e44ba58701d420",
+      "elf_needed": [],
+      "status_counts": {
+        "0": 595,
+        "1": 100,
+        "2": 561
+      },
+      "trace_sha256": "e65807b8d9b3fd368d649aaa586095b62789fc8d7f11112b9238b639215fb354"
+    },
+    "clang-O3-restricted": {
+      "object_sha256": "ef3f4cbb6ab6b81acce0869542254b9e130489f9a9c5d482e96ef34086ffc390",
+      "object_imports": [],
+      "link_without_runtime": true,
+      "runtime_archive_linked": false,
+      "artifact_sha256": "3168931b791e08fd4651c28f108a3ccf67e46e516b5624b4d764a6309fc93377",
+      "elf_needed": [],
+      "status_counts": {
+        "0": 90,
+        "1": 100,
+        "3": 1066
+      },
+      "trace_sha256": "5e99dd5faadf13c6fe6b65de9c6f588bcc319d42b5758ac97791da54e9546b56"
+    },
+    "clang-O3-wide": {
+      "object_sha256": "270fc73a5d515c4604e1360ca00b4671518825178f1f6d826fe927728f001b1e",
+      "object_imports": [
+        "__udivti3"
+      ],
+      "link_without_runtime": false,
+      "runtime_archive_linked": true,
+      "artifact_sha256": "34f40ad61db2e1a238879f469991c13a66d9b3bf2962300651b5d528dc5a6f2d",
+      "elf_needed": [],
+      "status_counts": {
+        "0": 595,
+        "1": 100,
+        "2": 561
+      },
+      "trace_sha256": "e65807b8d9b3fd368d649aaa586095b62789fc8d7f11112b9238b639215fb354"
+    }
+  },
+  "negative_control": {
+    "vector": [
+      1,
+      2,
+      8
+    ],
+    "silent_narrowing": [
+      0,
+      0
+    ],
+    "wide": [
+      0,
+      2305843009213693952
+    ],
+    "restricted": [
+      3,
+      7721859175172764882
+    ]
+  }
+}

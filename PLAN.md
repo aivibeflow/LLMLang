@@ -1188,7 +1188,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Decide whether backends consume typed SPG directly or a normalized target-independent semantic IR.
 - [ ] Define the lowering pipeline and preservation obligations.
 - [ ] Define target capability declarations and unsupported constructs.
-  - [ ] [WIP] Check declared native and runtime-supported lowering for wide integer division through an exact freestanding link audit on `research/all`.
+  - [x] Audit GCC and Clang freestanding links for two division routes and compare all 10,048 calls with the source oracle. The full route requires the pinned static `__udivti3` provider. The helper-free route enforces an explicit high-word restriction, and silent narrowing changes the witness. General target capability declarations remain open. [Wide division capability](research/compiler-and-translation/RT-13/RT-13-WIDE-DIVISION-CAPABILITY-2026-11-25.md)
 - [ ] Define explicit translation outcomes: exact under assumptions, preserved with runtime support, restricted, unsupported, and unverified.
 - [ ] Define runtime support as part of a target realization.
 - [ ] Define generated artifact identity and reproducibility.
