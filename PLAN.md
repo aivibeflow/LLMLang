@@ -1423,12 +1423,12 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Prove abstract-state preservation and equal future traces across representation changes. All 18,724 finite sequences agree. A migration reset differs in 8,524 traces, including a delayed refusal after matching initial replies. Concurrent or crash-safe migration remains open. [RT-13 stateful implementation change](research/compiler-and-translation/RT-13/RT-13-STATEFUL-IMPLEMENTATION-CHANGE-2026-11-25.md)
 - [x] Measure dispatch and adaptation overhead.
   - [x] Measure five native routes and two workloads with 70 checked trials. C, C++ and Rust medians are within one ns per call of direct C in this fixture. Go cgo medians are 84.6 and 77.3 ns per call for the two workloads. Shared traces, raw samples and chart reproduce the measurement procedure. Hosted deployment and representative workloads remain open. [Dispatch timing](research/compiler-and-translation/RT-13/RT-13-DISPATCH-TIMING-2026-11-25.md)
-- [ ] Define optimization across semantic nodes while preserving contracts.
-  - [ ] [WIP] Verify state forwarding across two semantic nodes with an intervening callback, including partial effects on failure.
+- [x] Define optimization across semantic nodes while preserving contracts.
+  - [x] Prove conditional state forwarding across a callback and preservation of earlier effects on failure. Guarded forwarding matches 1,024 cases per compiler profile. The unconditional route differs in 336 mutating cases, and premature failure differs in 224 read-only cases. Concurrent contexts and proof transport remain open. [RT-13 cross-node state forwarding](research/compiler-and-translation/RT-13/RT-13-CROSS-NODE-STATE-FORWARDING-2026-11-25.md)
 
 **Existing evidence:** global semantic artifact store and POSIX runtime architecture.
 
-**Status:** partially researched; selection semantics and policy remain open.
+**Status:** All nine §6.4 research items have linked bounded results. Production policy adoption, broader workloads and composition with concurrent lifecycle handling remain open.
 
 **Exit criteria:** two backends preserve the same reference semantics for a defined subset; target limitations are explicit; implementation selection never bypasses operation identity or compatibility evidence.
 

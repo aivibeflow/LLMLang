@@ -1,0 +1,117 @@
+{
+  "compilers": {
+    "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+  },
+  "confirmed_profiles": [
+    "clang/-O0",
+    "clang/-O2",
+    "gcc/-O0",
+    "gcc/-O2"
+  ],
+  "lean": {
+    "axioms": [
+      "'exact_slot_guard_suffices' depends on axioms: [propext]",
+      "'rejects_after_retaining_callback' depends on axioms: [propext]"
+    ],
+    "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "observations_per_profile": {
+    "cases": 1024,
+    "policies": {
+      "forward": {
+        "differing_rows": {
+          "mutates": 336,
+          "read-only": 0
+        },
+        "first_witnesses": {
+          "mutates": {
+            "actual": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "input": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "reference": [
+              1,
+              1,
+              0,
+              1
+            ]
+          }
+        },
+        "rows_sha256": "51a15be3c6157062f206de24d828ea6c0a1f4de1a5eb589d86f071790852bf81"
+      },
+      "guarded": {
+        "differing_rows": {
+          "mutates": 0,
+          "read-only": 0
+        },
+        "first_witnesses": {},
+        "rows_sha256": "d2ea71afc541089ca6337260e91004078b55c38bb30ecdc7ab31690ff40bd7d7"
+      },
+      "premature": {
+        "differing_rows": {
+          "mutates": 224,
+          "read-only": 224
+        },
+        "first_witnesses": {
+          "mutates": {
+            "actual": [
+              0,
+              2880246324
+            ],
+            "input": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "reference": [
+              0,
+              0,
+              0
+            ]
+          },
+          "read-only": {
+            "actual": [
+              0,
+              2880246324
+            ],
+            "input": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "reference": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "rows_sha256": "77aa6bfbc8d75f302b7874b6c6ce965be2cac06b499bf49f9ff7bd8b3f465df5"
+      },
+      "reload": {
+        "differing_rows": {
+          "mutates": 0,
+          "read-only": 0
+        },
+        "first_witnesses": {},
+        "rows_sha256": "d2ea71afc541089ca6337260e91004078b55c38bb30ecdc7ab31690ff40bd7d7"
+      }
+    }
+  },
+  "sources_sha256": {
+    "Forward.lean": "d83d77979792f3738ab8739789315ecd49d19a63a787f26fe657420269bae3ac",
+    "probe.c": "f6850d6c0ccdd02aa9f6fa6217d8d9ff70ed987b6b96af881a3b9bef5a7afa49",
+    "run.py": "e44512f4882cd6f85e15eaa6518719caafa69c7ee12d1dcc32abf42021dd4e8f"
+  }
+}

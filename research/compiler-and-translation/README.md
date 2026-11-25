@@ -22,6 +22,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-13 cross-node state forwarding](RT-13/RT-13-CROSS-NODE-STATE-FORWARDING-2026-11-25.md) verifies an intervening callback and preserved prefix effects on failure.
 - [RT-13 stateful implementation change](RT-13/RT-13-STATEFUL-IMPLEMENTATION-CHANGE-2026-11-25.md) checks state preservation and future traces across provider changes.
 - [RT-13 profile-guided cost ranking](RT-13/RT-13-PROFILE-GUIDED-COST-RANKING-2026-11-25.md) checks scope-bound cost intervals and switching thresholds on synthetic workload mixes.
 - [RT-13 multiversion guards](RT-13/RT-13-MULTIVERSION-GUARDS-2026-11-25.md) checks overlapping specialized routes, candidate priority and refusal without eligible coverage.
