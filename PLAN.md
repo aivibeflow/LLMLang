@@ -446,7 +446,7 @@ Research the complete path from a user's request to an accepted, traceable busin
   - [x] Specify scoped catalog records and immutable operation revisions using OpHash. Check 20 exact name/scope/catalog cases. [Public exports and bindings](research/semantic-representation/RT-05/RT-05-PUBLIC-EXPORTS-AND-BINDING-MODES-2026-11-25.md)
 - [x] Define operation/group signatures, public contracts, provider-owned contracts and explicit bindings; distinguish direct and operation calls, external symbol/ABI mappings and runtime dispatch.
   - [x] Specify typed operation and group records and separate provider, binding and native mappings. Check 60 call-form cases. [Public exports and bindings](research/semantic-representation/RT-05/RT-05-PUBLIC-EXPORTS-AND-BINDING-MODES-2026-11-25.md)
-- [ ] Generate separate body-correctness and contract-refinement obligations, including state/protocol, effect, authority, ownership, progress and resource guarantees; reject vacuity and unsupported proof claims.
+- [ ] [WIP] Generate separate body-correctness and contract-refinement obligations, including state/protocol, effect, authority, ownership, progress and resource guarantees; reject vacuity and unsupported proof claims.
 - [ ] Specify reproducible resolution, authorized publication, absence/ambiguity handling, exact evidence, conditional caller proofs and independent verification.
 - [ ] Test compatible evolution, breaking revisions, explicit migration, scoped invalidation, package export/index consistency, merge and cache soundness.
 - [ ] Implement finite oracle and independent backend/source correspondence benchmarks before selecting normative semantics.
