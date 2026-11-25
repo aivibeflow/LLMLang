@@ -1,0 +1,719 @@
+{
+  "actions": {
+    "c-saturate": {
+      "closure": {
+        "compiler_parts": [
+          {
+            "artifact": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "name": "gcc"
+          },
+          {
+            "artifact": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291",
+            "name": "cc1"
+          },
+          {
+            "artifact": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+            "name": "as"
+          }
+        ],
+        "linked_object": "51552253daf105d153aef7d93680922ec6ff2fbf5c9f8921a510f925ad413cea",
+        "linker_parts": [
+          {
+            "artifact": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "name": "gcc"
+          },
+          {
+            "artifact": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "name": "ld"
+          },
+          {
+            "artifact": "4a387d80a70e6e97ef940a666fab59d5c38e7cf19ff907192fa983cb8505a7de",
+            "name": "readelf"
+          },
+          {
+            "artifact": "ddb55c0685721bf494aa2d090056b8b32a40614ad4464b305896f527d882c3c1",
+            "name": "nm"
+          }
+        ],
+        "native_imports": [],
+        "observer_parts": [
+          {
+            "artifact": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+            "name": "python"
+          }
+        ],
+        "source": "2a0e90d82fbaba164339dac6e7c6da84681062e9f4e9cd344701c9db0c3608eb"
+      },
+      "descriptor": {
+        "build_environment": {
+          "LANG": "C",
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "compile_args": [
+          "gcc",
+          "-std=c11",
+          "-O2",
+          "-Werror",
+          "-fPIC",
+          "-c",
+          "step.c",
+          "-o",
+          "step.o"
+        ],
+        "link_args": [
+          "gcc",
+          "-shared",
+          "-nostdlib",
+          "step.o",
+          "-o",
+          "step.so"
+        ],
+        "profile": "c11-u8/saturate",
+        "target": "x86_64-linux-gnu",
+        "tool_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "view": "fde876f262d14fffd7114ac43b9525166b5662c2c5e757fd14326db8e00753aa"
+      },
+      "key": "b158b0d71f3e17152c9ec476a3fc68ae7660df67c812c7fd0d546f2458899297",
+      "subject": "fcd2f5edeb8e2d4fcd98eaedef6d7b3b3a1d1c7e4ad1bad6bd87677e5eef2489",
+      "values": "91a6f0cf907ba90fb024a4b3e668d8427de0a73c8b8323aee1dd084b608a19b7"
+    },
+    "c-wrap": {
+      "closure": {
+        "compiler_parts": [
+          {
+            "artifact": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "name": "gcc"
+          },
+          {
+            "artifact": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291",
+            "name": "cc1"
+          },
+          {
+            "artifact": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9",
+            "name": "as"
+          }
+        ],
+        "linked_object": "38aa928535680480c933bf70a3214ceb9129478426266f6af0522b96bd896b45",
+        "linker_parts": [
+          {
+            "artifact": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "name": "gcc"
+          },
+          {
+            "artifact": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "name": "ld"
+          },
+          {
+            "artifact": "4a387d80a70e6e97ef940a666fab59d5c38e7cf19ff907192fa983cb8505a7de",
+            "name": "readelf"
+          },
+          {
+            "artifact": "ddb55c0685721bf494aa2d090056b8b32a40614ad4464b305896f527d882c3c1",
+            "name": "nm"
+          }
+        ],
+        "native_imports": [],
+        "observer_parts": [
+          {
+            "artifact": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+            "name": "python"
+          }
+        ],
+        "source": "cd8383956bb81839002f65744d6907cde1548e8859a9f4746be10b533d74bd3e"
+      },
+      "descriptor": {
+        "build_environment": {
+          "LANG": "C",
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "compile_args": [
+          "gcc",
+          "-std=c11",
+          "-O2",
+          "-Werror",
+          "-fPIC",
+          "-c",
+          "step.c",
+          "-o",
+          "step.o"
+        ],
+        "link_args": [
+          "gcc",
+          "-shared",
+          "-nostdlib",
+          "step.o",
+          "-o",
+          "step.so"
+        ],
+        "profile": "c11-u8/wrap",
+        "target": "x86_64-linux-gnu",
+        "tool_version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "view": "8b5fedfa0096235998e76b6328d785331f5a01e6a4218eab7657abe8da9facd1"
+      },
+      "key": "40cf6c9daaad8479c6d1d0858c9b2a80023b6357ee582cc934df533ff57b35b8",
+      "subject": "5c271e70dc5db863285d83ba1b408675cf7203b5338e4f071531c3d5914c94de",
+      "values": "a36958842984b0d29adefce000204dc92a318102b0b1a710418d42588753f548"
+    },
+    "rust-saturate": {
+      "closure": {
+        "compiler_parts": [
+          {
+            "artifact": "f8d033fd72e878ec60493788c8bffec2e6c154dcab6f0cb4c145af8ada26a7ed",
+            "name": "rustc"
+          },
+          {
+            "artifact": "3917ae1f0e97125cbc0a0091a19a2ee3a5f3cdd9c056b74367e39f90b7e76cf3",
+            "name": "libcore-919178916a309d3e.rlib"
+          },
+          {
+            "artifact": "f8b79892c8c57a2844a4aa8b7dd6a1648e6f82ddb7789daaff6b9c6b22715152",
+            "name": "libLLVM-19-rust-1.85.1-stable.so"
+          },
+          {
+            "artifact": "a4e70289926f6e51b16df71ece479e6417e1d787b5fbd3edf56b9f9aed138a72",
+            "name": "libLLVM.so.19.1-rust-1.85.1-stable"
+          },
+          {
+            "artifact": "188d0a5fea089ec6f982713821ec25de50e02214f9d7285f4499988c6b1c69fb",
+            "name": "librustc_driver-fdfc7fb14758cf9e.so"
+          }
+        ],
+        "linked_object": "88c2916c71e4b2ac55c72f1f7e3e8d2603bb1c9c8ede7a3a0be09d0b6bf1cc1e",
+        "linker_parts": [
+          {
+            "artifact": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "name": "gcc"
+          },
+          {
+            "artifact": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "name": "ld"
+          },
+          {
+            "artifact": "4a387d80a70e6e97ef940a666fab59d5c38e7cf19ff907192fa983cb8505a7de",
+            "name": "readelf"
+          },
+          {
+            "artifact": "ddb55c0685721bf494aa2d090056b8b32a40614ad4464b305896f527d882c3c1",
+            "name": "nm"
+          }
+        ],
+        "native_imports": [],
+        "observer_parts": [
+          {
+            "artifact": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+            "name": "python"
+          }
+        ],
+        "source": "30f2bc94cf0f1d081bc584b325161f8ae507f7374a0c4cab9b1135f46420f429"
+      },
+      "descriptor": {
+        "build_environment": {
+          "LANG": "C",
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "compile_args": [
+          "rustc",
+          "--edition=2021",
+          "--crate-type=lib",
+          "--emit=obj",
+          "-C",
+          "opt-level=2",
+          "-C",
+          "relocation-model=pic",
+          "-C",
+          "panic=abort",
+          "--target",
+          "x86_64-unknown-linux-gnu",
+          "step.rs",
+          "-o",
+          "step.o"
+        ],
+        "link_args": [
+          "gcc",
+          "-shared",
+          "-nostdlib",
+          "step.o",
+          "-o",
+          "step.so"
+        ],
+        "profile": "rust2021-u8/saturate",
+        "target": "x86_64-unknown-linux-gnu",
+        "tool_version": "rustc 1.85.1 (4eb161250 2025-03-15)",
+        "view": "b44a3ba1807cbe43233c2d25b8096ece32e1dfafc1eacda6f4dfee7deb5745b8"
+      },
+      "key": "f696e0046510a99f11791957e4298dbab0122ceefb98999d4720c850acc0fb05",
+      "subject": "589321e6f38e716be1bdb241432668e6542f44b47d3e4301a89ba9fe0197798e",
+      "values": "879b9d8f47c5ac3c30e6316425ce724940c8e85a0417a1efd325ea0c62840daa"
+    },
+    "rust-wrap": {
+      "closure": {
+        "compiler_parts": [
+          {
+            "artifact": "f8d033fd72e878ec60493788c8bffec2e6c154dcab6f0cb4c145af8ada26a7ed",
+            "name": "rustc"
+          },
+          {
+            "artifact": "3917ae1f0e97125cbc0a0091a19a2ee3a5f3cdd9c056b74367e39f90b7e76cf3",
+            "name": "libcore-919178916a309d3e.rlib"
+          },
+          {
+            "artifact": "f8b79892c8c57a2844a4aa8b7dd6a1648e6f82ddb7789daaff6b9c6b22715152",
+            "name": "libLLVM-19-rust-1.85.1-stable.so"
+          },
+          {
+            "artifact": "a4e70289926f6e51b16df71ece479e6417e1d787b5fbd3edf56b9f9aed138a72",
+            "name": "libLLVM.so.19.1-rust-1.85.1-stable"
+          },
+          {
+            "artifact": "188d0a5fea089ec6f982713821ec25de50e02214f9d7285f4499988c6b1c69fb",
+            "name": "librustc_driver-fdfc7fb14758cf9e.so"
+          }
+        ],
+        "linked_object": "5b20b88eecbc9bbb9226e50343d621fc56a42c3660890b5eea69ff804e2cd18f",
+        "linker_parts": [
+          {
+            "artifact": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+            "name": "gcc"
+          },
+          {
+            "artifact": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+            "name": "ld"
+          },
+          {
+            "artifact": "4a387d80a70e6e97ef940a666fab59d5c38e7cf19ff907192fa983cb8505a7de",
+            "name": "readelf"
+          },
+          {
+            "artifact": "ddb55c0685721bf494aa2d090056b8b32a40614ad4464b305896f527d882c3c1",
+            "name": "nm"
+          }
+        ],
+        "native_imports": [],
+        "observer_parts": [
+          {
+            "artifact": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+            "name": "python"
+          }
+        ],
+        "source": "6fa36322562ce53c3e7751092ad96397bc9ecf85b245c14b534b30ba93262408"
+      },
+      "descriptor": {
+        "build_environment": {
+          "LANG": "C",
+          "LC_ALL": "C",
+          "PATH": "/usr/bin:/bin"
+        },
+        "compile_args": [
+          "rustc",
+          "--edition=2021",
+          "--crate-type=lib",
+          "--emit=obj",
+          "-C",
+          "opt-level=2",
+          "-C",
+          "relocation-model=pic",
+          "-C",
+          "panic=abort",
+          "--target",
+          "x86_64-unknown-linux-gnu",
+          "step.rs",
+          "-o",
+          "step.o"
+        ],
+        "link_args": [
+          "gcc",
+          "-shared",
+          "-nostdlib",
+          "step.o",
+          "-o",
+          "step.so"
+        ],
+        "profile": "rust2021-u8/wrap",
+        "target": "x86_64-unknown-linux-gnu",
+        "tool_version": "rustc 1.85.1 (4eb161250 2025-03-15)",
+        "view": "9f74bbd0a5a773ee6a2ac810bf92969145e21a5118a772b3133fb983bfa660b5"
+      },
+      "key": "949a99fdb669918d5eca6b8717f43a38789d3f7fdbfa3e92f4030579093735b1",
+      "subject": "7d22a8c8a9da3dabb071495ee70335b393810afd2990ae671196c6b1881f0a28",
+      "values": "173b14b834dae6079c4ae869b833f8b3edb829d11c75e02486c4e6b76e7369c3"
+    }
+  },
+  "format": "cross-language-receipts-01",
+  "incomplete_closure": "closure-refused",
+  "native_observations": 1024,
+  "object_request": "exact-miss",
+  "rekeyed_incomplete_closure": "closure-refused",
+  "removed_field_controls": {
+    "checker": "bridge-refused",
+    "destination": "bridge-refused",
+    "destination_closure": "bridge-refused",
+    "destination_subject": "bridge-refused",
+    "direction": "bridge-refused",
+    "domain": "bridge-refused",
+    "origin": "bridge-refused",
+    "projection": "bridge-refused",
+    "results": "bridge-refused",
+    "scheme": "bridge-refused",
+    "source_closure": "bridge-refused",
+    "source_subject": "bridge-refused"
+  },
+  "rows": [
+    {
+      "destination": "c-saturate",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "c-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "c-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "c-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "c-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "c-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "scoped-hit",
+      "inputs": 256,
+      "origin": "c-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 255,
+      "origin": "c-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "c-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "c-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "c-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 255,
+      "origin": "c-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "c-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "c-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "c-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "c-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "c-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "c-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "c-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 255,
+      "origin": "c-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "c-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "c-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "scoped-hit",
+      "inputs": 256,
+      "origin": "c-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 255,
+      "origin": "c-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "c-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "rust-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "scoped-hit",
+      "inputs": 256,
+      "origin": "rust-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 255,
+      "origin": "rust-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "rust-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "rust-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "rust-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 255,
+      "origin": "rust-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "rust-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "rust-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "rust-wrap",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "rust-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "rust-wrap",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "rust-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "rust-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 255,
+      "origin": "rust-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "rust-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "rust-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "scoped-hit",
+      "inputs": 256,
+      "origin": "rust-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 255,
+      "origin": "rust-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "c-saturate",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "rust-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "rust-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "rust-saturate",
+      "projection": "return-u8"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "scoped-hit",
+      "inputs": 255,
+      "origin": "rust-saturate",
+      "projection": "return-and-provider-marker"
+    },
+    {
+      "destination": "rust-wrap",
+      "disposition": "bridge-refused",
+      "inputs": 256,
+      "origin": "rust-saturate",
+      "projection": "return-and-provider-marker"
+    }
+  ],
+  "sample_receipt": {
+    "checker": "independent-native-calls-and-oracle/1",
+    "destination": "949a99fdb669918d5eca6b8717f43a38789d3f7fdbfa3e92f4030579093735b1",
+    "destination_closure": "9f74bbd0a5a773ee6a2ac810bf92969145e21a5118a772b3133fb983bfa660b5",
+    "destination_subject": "7d22a8c8a9da3dabb071495ee70335b393810afd2990ae671196c6b1881f0a28",
+    "direction": "origin-to-destination",
+    "domain": [
+      0,
+      255
+    ],
+    "origin": "40cf6c9daaad8479c6d1d0858c9b2a80023b6357ee582cc934df533ff57b35b8",
+    "projection": "return-u8",
+    "results": "21bd524b2be9d9ee524cd4e0e6af5b5e0d5de11a4dcbba0354b9b97b0cf80818",
+    "scheme": "exact-finite-compatibility/1",
+    "source_closure": "8b5fedfa0096235998e76b6328d785331f5a01e6a4218eab7657abe8da9facd1",
+    "source_subject": "5c271e70dc5db863285d83ba1b408675cf7203b5338e4f071531c3d5914c94de"
+  },
+  "wrong_direction": "bridge-refused"
+}

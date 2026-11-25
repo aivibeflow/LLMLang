@@ -84,3 +84,4 @@ See [shared executable research prototypes](../PROTOTYPES/README.md) for integra
 - [Three-edit non-interference](RT-11/RT-11-THREE-EDIT-INTERFERENCE-2026-11-25.md) — pairwise controls and composition at exact intermediate states.
 - [RT-11 debug column reuse](RT-11/RT-11-DEBUG-COLUMN-REUSE-2026-11-25.md) — tests exact DWARF column evidence when code and line/address observations remain equal.
 - [RT-11 cross-toolchain cache compatibility](RT-11/RT-11-CROSS-TOOLCHAIN-CACHE-COMPATIBILITY-2026-11-25.md) — tests exact artifact identity and finite compatibility evidence under different native compilers.
+- [Cross-language closure receipts](RT-11/RT-11-CROSS-LANGUAGE-RECEIPTS-2026-11-25.md) — C and Rust exact action manifests, finite directional compatibility and artifact refusal.
