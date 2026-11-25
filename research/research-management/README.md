@@ -23,6 +23,7 @@ This direction groups related research studies without changing their RT identif
 ## Audits and evidence maps
 
 - [Draft evidence crosswalk](RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md) — checks the current glossary and accepted architecture decision against their linked RT/Scenario research, and records where the linked work remains proposal-level or bounded.
+- [RT-19/RT-23 recovery evidence and claim lineage](RT-00/RT-00-RT19-RT23-RECOVERY-RELATIONSHIPS-2026-11-25.md)
 - [Binary64 claim relationships and observation boundaries](RT-00/RT-00-B-15-F64-RELATIONSHIP-REVIEW-2026-11-25.md)
 - [Corpus-wide text overlap and relationship adjudication](RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.md)
 - [SQLite and generated-Rust lifecycle replay](RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.md)
