@@ -51,3 +51,4 @@ See [shared executable research prototypes](../PROTOTYPES/README.md) for integra
 - [RT-04 joint contract conformance](RT-04/RT-04-JOINT-CONTRACT-CONFORMANCE-2026-11-25.md) — checks simultaneous conformance, feasibility and different observable conforming providers.
 - [RT-04 callback contract invariant](RT-04/RT-04-CALLBACK-CONTRACT-INVARIANT-2026-11-25.md) — checks observer-visible state during public transitions and rollback.
 - [RT-04 analogue ranking and dispatch](RT-04/RT-04-ANALOGUE-RANKING-AND-DISPATCH-2026-11-25.md) — compares structural retrieval with exact refinement and fixed call bindings.
+- [RT-04 contract inference boundary](RT-04/RT-04-CONTRACT-INFERENCE-BOUNDARY-2026-11-25.md) — compares automatic consequence, independent checking and exact approval.

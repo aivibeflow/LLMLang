@@ -402,8 +402,8 @@ Research the complete path from a user's request to an accepted, traceable busin
   - [x] Compare seven candidate providers and six receipt controls for exact operation substitution. Observation alone misses four violations of coverage, progress or resource bounds. A scoped context edit invalidates just the affected receipt in the declared model. [RT-04 property-scoped substitution](research/language-design/RT-04/RT-04-PROPERTY-SCOPED-OPERATION-SUBSTITUTION-2026-11-25.md)
 - [ ] Define verified adapters for compatible but non-identical contracts.
   - [x] Verify a bounded unit-conversion adapter under the exact provider assumption. Lean checks all natural inputs in the model and four counterexamples. The executable comparison agrees on all 65 directed inputs and distinguishes wrong scaling, wrapping and trace changes. General adapter admission and native correspondence remain open. [RT-04 checked unit adapter](research/language-design/RT-04/RT-04-VERIFIED-UNIT-ADAPTER-2026-11-25.md)
-- [ ] Define what may be inferred automatically and what requires proof or explicit approval.
-  - [ ] [WIP] Check what partial and projected observations can establish about an implementation contract, with independent proof and approval gates on `research/all`.
+- [x] Define what may be inferred automatically and what requires proof or explicit approval.
+  - [x] Prove exact consequences of recorded inputs and projections. The direct rule and exhaustive provider enumeration agree across 49,152 claims. Existential choice falsely admits 29,696, and nine scoped controls keep proof and approval independent. [Contract inference boundary](research/language-design/RT-04/RT-04-CONTRACT-INFERENCE-BOUNDARY-2026-11-25.md)
 - [ ] Define evidence binding to exact semantic inputs, assumptions, target profile, and tool versions.
 
 **Existing evidence:** global semantic artifact store research; operation identity and analogue-discovery questions LL-001–LL-003; requirement/contract work in scenarios 15–19.
