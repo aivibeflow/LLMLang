@@ -59,6 +59,7 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-24 safe merge resolution](RT-24/RT-24-SAFE-MERGE-RESOLUTION-BOUNDARY-2026-11-25.md) reconciles pending evidence, semantic conflicts, Git fallback and exact scope.
 - [RT-24 caller contract composition](RT-24/RT-24-CALLER-CONTRACT-COMPOSITION-2026-11-25.md) checks exact evidence for a separately selected callee after an implementation edit.
 - [RT-24 identity lineage and caller rebinds](RT-24/RT-24-IDENTITY-LINEAGE-AND-REBIND-2026-11-25.md) checks exact identity and call-site scope across rename, split and merge.
 - [RT-24 optimistic edit retries](RT-24/RT-24-OPTIMISTIC-RETRY-AND-RECEIPTS-2026-11-25.md) checks durable receipts and optimistic retry across native SQLite process exits.
