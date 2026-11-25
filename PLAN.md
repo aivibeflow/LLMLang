@@ -572,8 +572,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 - [ ] Compare operational, denotational, and axiomatic semantics for the initial LLMLang core.
   - [x] Compare operational, denotational and weakest-precondition accounts for a closed state/Result fragment. All 8,210 observations and 57,470 predicate comparisons agree. A restored cell preserves the final value while violating the no-write property. [RT-07 three-semantics pilot](research/formal-verification/RT-07/RT-07-THREE-SEMANTICS-STATE-RESULT-2026-11-25.md)
-- [ ] Define an executable reference semantics for a deliberately small subset.
-  - [ ] [WIP] Package and check an executable reference entry for the closed state/Result subset with strict program admission on `research/all`.
+- [x] Define an executable reference semantics for a deliberately small subset.
+  - [x] Publish a reference entry for the closed state/Result fragment. All 8,210 typed wire observations agree with the recursive and small-step evaluators. Three process-level positives and 12 admission refusals pass. The executable subset leaves production syntax and source correspondence open. [State/Result reference entry](research/formal-verification/RT-07/RT-07-STATE-RESULT-REFERENCE-ENTRY-2026-11-25.md)
 - [ ] Define observable behavior: return values, errors, state changes, I/O, resource behavior, concurrency, and declared effects.
 - [ ] Define semantic equivalence and refinement.
   - [x] Prove nondeterministic inclusion equivalent to preservation of universal postconditions and the dual may observation property. Over 262,144 graph pairs, terminal-only projection admits 47,628 pairs rejected by explicit divergence/deadlock observations. Fairness, general traces and source correspondence remain open. [Nondeterministic refinement](research/formal-verification/RT-07/RT-07-NONDETERMINISTIC-REFINEMENT-2026-11-25.md)
