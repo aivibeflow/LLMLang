@@ -1551,7 +1551,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Define optional derived-result cache indexes in package archives and their integration with the semantic action cache; indexes must be independently omittable and must not affect logical package identity.
   - [x] Verify optional cache transport across thirteen configurations. Twelve retain exact package identity, with three verified cache hits. The same Action Key can carry a different result, so reuse also checks trusted output identity and actual payload bytes. Production encoding, network fetch and authority remain open. [Optional package cache](research/packages-and-ecosystem/RT-12/RT-12-OPTIONAL-ACTION-CACHE-2026-11-25.md)
 
-- [ ] Define the logical package-content model: roots, included objects, typed dependency edges, exports, modules, evidence, and provenance.
+- [ ] [WIP] Define the logical package-content model: roots, included objects, typed dependency edges, exports, modules, evidence, and provenance.
 - [x] Define compact canonical binary index tables and their key ordering; require binary-search and deterministic streaming-merge semantics.
   - [x] Define a candidate binary format for all four existing logical tables. All six provider orders produce one exact result, 1,224 lookups match, and malformed tables and conflicting merge rows are refused. Binary tables use 13,820 bytes versus 34,852 compact JSONL bytes. Stable wire selection remains open. [Binary index tables](research/packages-and-ecosystem/RT-12/RT-12-BINARY-INDEX-TABLES-2026-11-25.md)
 - [x] Compare whole-index compression with independently compressed blocks; measure codec, block-size, lookup, scan, and memory trade-offs.
