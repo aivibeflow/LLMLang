@@ -76,6 +76,7 @@ See [shared executable research prototypes](../PROTOTYPES/README.md) for integra
 - [Native runtime closure](RT-11/RT-11-NATIVE-RUNTIME-CLOSURE-2026-11-25.md) — loader-order, transitive runtime bytes, missing inputs and policy controls.
 - [Package cache delivery](RT-11/RT-11-PACKAGE-CACHE-DELIVERY-2026-11-25.md) — five result families with measured ZIP and detached bytes, selective reads and offline controls.
 - [Signed cache admission](RT-11/RT-11-SIGNED-REBUILD-ADMISSION-2026-11-25.md) — Ed25519 authorization, conflict, artifact availability and native rebuild controls.
+- [Persistent cache layers](RT-11/RT-11-PERSISTENT-LAYERED-CACHE-2026-11-25.md) — SQLite promotion, provenance, offline restart and artifact eviction.
 - [ELF metadata reuse](RT-11/RT-11-ELF-METADATA-REUSE-2026-11-25.md) — loads, exact artifacts and runtime self-inspection.
 - [Negative header dependencies](RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md) — exact positive and absent inputs in ordered compiler search.
 - [Native edit locality](RT-11/RT-11-NATIVE-EDIT-LOCALITY-2026-11-25.md) — paired action counts, artifact equality and exploratory rebuild time.

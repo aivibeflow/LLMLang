@@ -1,0 +1,130 @@
+{
+  "format": "persistent-layered-cache-01",
+  "interrupted_promotion": {
+    "exit": 23,
+    "new_attestation": "absent",
+    "new_payload": "absent",
+    "prior_commit": "intact"
+  },
+  "layer_order": [
+    "local",
+    "workspace",
+    "remote",
+    "global"
+  ],
+  "rows": [
+    {
+      "case": "unknown-view",
+      "decision": "view-unavailable"
+    },
+    {
+      "case": "online-promote-workspace",
+      "decision": "exact-hit",
+      "output": "8fa156f9d8ba26dffe29555860982c668f84957847d172387c6b6473de6cfbf4",
+      "payload_source": "global",
+      "record_sources": [
+        "remote",
+        "remote"
+      ]
+    },
+    {
+      "case": "offline-reopen-and-promote-local",
+      "decision": "exact-hit",
+      "output": "8fa156f9d8ba26dffe29555860982c668f84957847d172387c6b6473de6cfbf4",
+      "payload_source": "workspace",
+      "record_sources": [
+        "workspace",
+        "workspace"
+      ]
+    },
+    {
+      "case": "offline-local-first",
+      "decision": "exact-hit",
+      "output": "8fa156f9d8ba26dffe29555860982c668f84957847d172387c6b6473de6cfbf4",
+      "payload_source": "local",
+      "record_sources": [
+        "local",
+        "local"
+      ]
+    },
+    {
+      "case": "fresh-process-offline",
+      "decision": "exact-hit",
+      "output": "8fa156f9d8ba26dffe29555860982c668f84957847d172387c6b6473de6cfbf4",
+      "payload_source": "local",
+      "record_sources": [
+        "local",
+        "local"
+      ]
+    },
+    {
+      "case": "promoted-does-not-amplify-authority",
+      "decision": "no-authorized-result",
+      "record_sources": [
+        "local",
+        "local"
+      ]
+    },
+    {
+      "case": "corrupt-near-copy-falls-through",
+      "decision": "exact-hit",
+      "output": "8fa156f9d8ba26dffe29555860982c668f84957847d172387c6b6473de6cfbf4",
+      "payload_source": "workspace",
+      "record_sources": [
+        "local",
+        "local"
+      ]
+    },
+    {
+      "case": "verified-promotion-repairs-copy",
+      "decision": "exact-hit",
+      "output": "8fa156f9d8ba26dffe29555860982c668f84957847d172387c6b6473de6cfbf4",
+      "payload_source": "local",
+      "record_sources": [
+        "local",
+        "local"
+      ]
+    },
+    {
+      "case": "evicted-offline",
+      "decision": "payload-missing",
+      "record_sources": [
+        "local",
+        "local"
+      ]
+    },
+    {
+      "case": "global-byte-rematerialization",
+      "decision": "exact-hit",
+      "output": "8fa156f9d8ba26dffe29555860982c668f84957847d172387c6b6473de6cfbf4",
+      "payload_source": "global",
+      "record_sources": [
+        "local",
+        "local"
+      ]
+    },
+    {
+      "case": "global-bytes-do-not-supply-action-authority",
+      "decision": "record-missing"
+    },
+    {
+      "case": "missing-disputed-output-is-still-conflict",
+      "decision": "authorized-conflict",
+      "record_sources": [
+        "local",
+        "remote"
+      ]
+    },
+    {
+      "case": "earlier-tier-cannot-hide-remote-view-gap",
+      "decision": "record-missing"
+    }
+  ],
+  "snapshot_eviction": {
+    "attestation": "retained",
+    "fresh_reader": "no bytes",
+    "old_reader": "exact bytes",
+    "wal_mode": true
+  },
+  "sqlite": "3.53.1"
+}
