@@ -133,7 +133,8 @@ def verify(go, directory):
     if version != GO_VERSION:
         raise ValueError(version)
     binary = directory / "candidate"
-    command([go, "build", "-mod=readonly", "-trimpath", "-o", str(binary), "."], HERE, environment)
+    command([go, "build", "-mod=readonly", "-buildvcs=false", "-trimpath", "-o", str(binary), "."],
+            HERE, environment)
 
     data = {}
     expected = {}

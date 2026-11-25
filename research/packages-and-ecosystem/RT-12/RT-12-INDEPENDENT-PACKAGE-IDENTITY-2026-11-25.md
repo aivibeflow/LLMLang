@@ -35,7 +35,7 @@ Require an explicit integer type for manifest versions in the candidate schema. 
 
 ## Reproduction
 
-Run from the repository root with Go 1.27.4 and CPython 3.12.14. The module lock checks the pinned TOML dependency and the runner builds its helper with the network disabled for module retrieval after download. [Go reader](INDEPENDENT-PACKAGE-IDENTITY-01/main.go) · [Python comparison runner](INDEPENDENT-PACKAGE-IDENTITY-01/run.py)
+Run from the repository root with Go 1.27.4 and CPython 3.12.14. The module lock checks the pinned TOML dependency and the runner builds its helper offline after download and disables automatic VCS stamping so a tracked archive can reproduce the result. [Go reader](INDEPENDENT-PACKAGE-IDENTITY-01/main.go) · [Python comparison runner](INDEPENDENT-PACKAGE-IDENTITY-01/run.py)
 
 ```sh
 set -eu
