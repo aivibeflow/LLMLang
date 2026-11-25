@@ -138,4 +138,4 @@ No candidate policy is chosen, no LL-021 TODO item is closed, and no LLMLang cac
 - [GitHub Actions dependency caching security concepts](https://docs.github.com/en/actions/concepts/workflows-and-actions/dependency-caching)
 - [Scenario 92 — Operation Identity and Implementation Binding](../../semantic-representation/RT-05/RESEARCH-SCENARIO-92-OPERATION-IDENTITY-AND-IMPLEMENTATION-BINDING.md)
 - [Semantic Compilation Cache proposal](SEMANTIC-COMPILATION-CACHE.md)
-- [LL-021](../../../TODO.md#ll-021--define-semantic-action-caching-and-incremental-compilation)
+- [LL-021](../../../PLAN.md#ll-021--define-semantic-action-caching-and-incremental-compilation)

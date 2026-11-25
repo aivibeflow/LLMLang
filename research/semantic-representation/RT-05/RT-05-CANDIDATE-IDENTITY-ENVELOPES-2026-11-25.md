@@ -51,4 +51,4 @@ PYTHONHASHSEED=37 python3 -B "$fixture/check.py" > /tmp/llmlang-candidate-envelo
 cmp "$fixture/evidence.json" /tmp/llmlang-candidate-envelopes.json
 ```
 
-The precise ABI, runtime, target and native-toolchain field projections require separate comparisons. Open decisions include the portable canonical wire format, trust and revocation handling, and adoption of the operation envelope after cross-aspect synthesis. [LL-001](../../../TODO.md#ll-001--define-the-canonical-ophash-envelope) · [LL-003](../../../TODO.md#ll-003--specify-contract-based-analogue-discovery-and-substitution)
+The precise ABI, runtime, target and native-toolchain field projections require separate comparisons. Open decisions include the portable canonical wire format, trust and revocation handling, and adoption of the operation envelope after cross-aspect synthesis. [LL-001](../../../PLAN.md#ll-001--define-the-canonical-ophash-envelope) · [LL-003](../../../PLAN.md#ll-003--specify-contract-based-analogue-discovery-and-substitution)

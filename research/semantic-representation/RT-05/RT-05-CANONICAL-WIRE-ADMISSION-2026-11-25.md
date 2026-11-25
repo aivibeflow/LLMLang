@@ -2,7 +2,7 @@
 
 ## Question and method
 
-How should a receiving store verify an advertised typed address when multiple serialized inputs decode to the same value? The [portable identity fixture](RT-05-PORTABLE-IDENTITY-BYTES.md) compares encoding from typed values. This replay starts with raw bytes and checks both strict byte admission and normalization at ingestion. It reuses the existing Python and JavaScript encoders, with new independent byte decoders and admission logic in each runtime. [PLAN §1.2](../../../PLAN.md#12-semantic-identity-hashes-and-canonical-encoding) · [#289](https://github.com/aivibeflow/LLMLang/issues/289) · [LL-004](../../../TODO.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy)
+How should a receiving store verify an advertised typed address when multiple serialized inputs decode to the same value? The [portable identity fixture](RT-05-PORTABLE-IDENTITY-BYTES.md) compares encoding from typed values. This replay starts with raw bytes and checks both strict byte admission and normalization at ingestion. It reuses the existing Python and JavaScript encoders, with new independent byte decoders and admission logic in each runtime. [PLAN §1.2](../../../PLAN.md#12-semantic-identity-hashes-and-canonical-encoding) · [#289](https://github.com/aivibeflow/LLMLang/issues/289) · [LL-004](../../../PLAN.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy)
 
 The tested frame carries an expected domain, algorithm and digest separately from its raw UTF-8 JSON bytes. The profile admits a tagged array envelope with an exact version marker, domain, and typed value. Its typed map keys sort by UTF-8 bytes. Scalar text retains exact Unicode scalar spelling. The tested address format uses lowercase 64-digit hexadecimal SHA-256.
 

@@ -12,7 +12,7 @@ from typing import Iterable
 REQUIRED_FILES = {
     "README.md",
     "PLAN.md",
-    "TODO.md",
+    "RESEARCH.md",
     "research/README.md",
     "examples/README.md",
     "examples/TEMPLATE.md",

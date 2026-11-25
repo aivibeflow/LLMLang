@@ -78,7 +78,7 @@ SPG может быть полезен не как доказательство 
 2. Вычислить последствия изменения и указать устаревшие проверки/evidence.
 3. Сохранить путь от требования к реализации и исходному источнику/решению.
 
-Это нужно сравнить с комбинацией Dafny, Git, CI и трассируемой документации. Фундаментальные открытые вопросы LLMLang включают стабильную идентичность при переименовании/разделении/слиянии, каноникализацию, hash-relevant edges, циклы, инвалидацию, merge, соответствие графа и текста и полноту dependency extraction ([TODO](../TODO.md), [план](../PLAN.md)). До их решения нельзя обещать точную инкрементальную проверку.
+Это нужно сравнить с комбинацией Dafny, Git, CI и трассируемой документации. Фундаментальные открытые вопросы LLMLang включают стабильную идентичность при переименовании/разделении/слиянии, каноникализацию, hash-relevant edges, циклы, инвалидацию, merge, соответствие графа и текста и полноту dependency extraction ([TODO](../PLAN.md#open-design-questions), [план](../PLAN.md)). До их решения нельзя обещать точную инкрементальную проверку.
 
 ## 6. Где Dafny сильнее сегодня
 
@@ -157,7 +157,7 @@ Dafny — конкретный и сильный ориентир для фор�
 - [Research Scenario 14: Formal Behavioral Contracts and Refinement](language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md)
 - [Research Scenario 15: From Business Intent to Formal Behavioral Contracts](language-design/RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md)
 - [Project plan](../PLAN.md)
-- [Open questions](../TODO.md)
+- [Open questions](../PLAN.md#open-design-questions)
 
 ### Dafny primary sources
 

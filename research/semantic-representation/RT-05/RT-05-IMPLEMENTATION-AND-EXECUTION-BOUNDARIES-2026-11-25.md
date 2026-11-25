@@ -50,4 +50,4 @@ PYTHONHASHSEED=37 python3 -B "$fixture/check.py" > /tmp/llmlang-implementation-b
 cmp "$fixture/evidence.json" /tmp/llmlang-implementation-boundaries.json
 ```
 
-The separation gives implementation authors an exact rule for the studied call modes. Production closure extraction, general dynamic loaders, runtime substitutions, portability and an approved implementation envelope remain open. [LL-005](../../../TODO.md#ll-005--define-hash-relevant-dependency-edges-and-cycles) · [LL-007](../../../TODO.md#ll-007--separate-target-profile-semantics-from-implementation-identity)
+The separation gives implementation authors an exact rule for the studied call modes. Production closure extraction, general dynamic loaders, runtime substitutions, portability and an approved implementation envelope remain open. [LL-005](../../../PLAN.md#ll-005--define-hash-relevant-dependency-edges-and-cycles) · [LL-007](../../../PLAN.md#ll-007--separate-target-profile-semantics-from-implementation-identity)

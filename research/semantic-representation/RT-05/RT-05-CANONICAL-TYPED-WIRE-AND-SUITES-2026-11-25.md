@@ -50,4 +50,4 @@ LC_ALL=C PYTHONHASHSEED=37 python3 -B "$fixture/check.py" > /tmp/llmlang-wire-su
 cmp "$fixture/evidence.json" /tmp/llmlang-wire-suite.json
 ```
 
-The scope is a closed typed identity profile. Production parser resource limits, complete scalar and composite schemas, authenticated digest registry transitions, operational migration and performance need separate evidence or approval. [LL-004](../../../TODO.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy)
+The scope is a closed typed identity profile. Production parser resource limits, complete scalar and composite schemas, authenticated digest registry transitions, operational migration and performance need separate evidence or approval. [LL-004](../../../PLAN.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy)

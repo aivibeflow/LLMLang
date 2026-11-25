@@ -1,6 +1,6 @@
 # Compare digest migration with exact references and collision quarantine
 
-**Scope:** PLAN §1.2, [#289](https://github.com/aivibeflow/LLMLang/issues/289) and [LL-004](../../../TODO.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy). Closed candidate fixture at `2a780731513f21c0028bf43e94bfae9d37041ac5` on `research/all`.
+**Scope:** PLAN §1.2, [#289](https://github.com/aivibeflow/LLMLang/issues/289) and [LL-004](../../../PLAN.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy). Closed candidate fixture at `2a780731513f21c0028bf43e94bfae9d37041ac5` on `research/all`.
 
 ## Question and candidate rules
 

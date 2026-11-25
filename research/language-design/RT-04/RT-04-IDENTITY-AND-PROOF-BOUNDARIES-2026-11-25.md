@@ -48,4 +48,4 @@ PYTHONHASHSEED=37 python3 -B "$fixture/check.py" > /tmp/llmlang-rt04-identities.
 cmp "$fixture/evidence.json" /tmp/llmlang-rt04-identities.json
 ```
 
-General ownership and protocol observations, exact producer authority, full lowering correspondence, and an agreed field registry remain open. Production selection requires project approval. [LL-008](../../../TODO.md#ll-008--define-compatibility-evidence-and-evidence-reuse-rules)
+General ownership and protocol observations, exact producer authority, full lowering correspondence, and an agreed field registry remain open. Production selection requires project approval. [LL-008](../../../PLAN.md#ll-008--define-compatibility-evidence-and-evidence-reuse-rules)

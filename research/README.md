@@ -195,7 +195,7 @@ Start with [Research State 2026-11-19](research-management/RESEARCH-STATE-2026-1
 - A temporary Git repository tests exact call resolution after merge, independent source coverage, and replay of tree-bound evidence. [RT-24 merged-tree source completeness](toolchain-and-collaboration/RT-24/RT-24-MERGED-TREE-SOURCE-COMPLETENESS.md)
 - [Runtime and backend proposals](runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [translation/backends](compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md), and [LLVM architecture](compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md) are analytical until tested against shared semantics.
 - [RT-16 threat model](security/RT-16/RT-16-THREAT-MODEL-01.md) covers agent authority and bounded authorization experiments.
-- [TODO](../TODO.md) remains the authoritative register of unresolved project decisions.
+- [RESEARCH.md](../RESEARCH.md) records completed studies and accepted decisions. [PLAN.md](../PLAN.md) tracks upcoming work and [unresolved project decisions](../PLAN.md#open-design-questions).
 
 Keep conclusions scoped to the fixtures and assumptions actually checked. A passing test suite, prototype, or proof in a restricted fragment is not evidence that the full language profile is complete or selected.
 

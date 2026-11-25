@@ -51,4 +51,4 @@ PYTHONHASHSEED=37 python3 -B "$fixture/check.py" > /tmp/llmlang-evolution-bounda
 cmp "$fixture/evidence.json" /tmp/llmlang-evolution-boundary.json
 ```
 
-The transition matrix covers one event at a time. Production validation also requires checks for overlaps between events, whole-inventory completeness, trusted issuers, multi-parent registration and transactional publication. Final lifetime allocation and retirement choices remain tracked by LL-002. [Stable-ID lifecycle question](../../../TODO.md#ll-002--define-operation-stable-id-lifecycle)
+The transition matrix covers one event at a time. Production validation also requires checks for overlaps between events, whole-inventory completeness, trusted issuers, multi-parent registration and transactional publication. Final lifetime allocation and retirement choices remain tracked by LL-002. [Stable-ID lifecycle question](../../../PLAN.md#ll-002--define-operation-stable-id-lifecycle)

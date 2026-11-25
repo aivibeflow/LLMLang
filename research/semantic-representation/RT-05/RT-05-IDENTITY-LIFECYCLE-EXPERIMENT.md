@@ -41,7 +41,7 @@ For the bounded comparison, global IDs reduce the amount of explicit lineage nee
 
 The cases narrow what a future RFC must specify for LL-002 and LL-006. A managed selector needs a scope, a lifetime, and a rule for when it may be carried across edits. A historical lineage record needs stronger endpoint evidence than a digest of the selected data when equal states can recur. The follow-on experiment uses exact caller obligations in extraction, inlining, split, and a changed import parent. [Call site refactoring experiment](RT-05-RT-20-CALL-SITE-REFACTOR-EXPERIMENT.md)
 
-The fixture uses experimental JSON-based hashes from the existing prototype. The cases do not establish a canonical SPG, a typed hash envelope for `OpHash` or `ImplHash`, general behavioral equivalence, Git import/export, or graph-wide semantic merge. The identity candidates remain open for those comparisons. [Open decisions](../../../TODO.md) · [Glossary](../../../draft/GLOSSARY.md)
+The fixture uses experimental JSON-based hashes from the existing prototype. The cases do not establish a canonical SPG, a typed hash envelope for `OpHash` or `ImplHash`, general behavioral equivalence, Git import/export, or graph-wide semantic merge. The identity candidates remain open for those comparisons. [Open decisions](../../../PLAN.md#open-design-questions) · [Glossary](../../../draft/GLOSSARY.md)
 
 ## 5. Reproduction
 

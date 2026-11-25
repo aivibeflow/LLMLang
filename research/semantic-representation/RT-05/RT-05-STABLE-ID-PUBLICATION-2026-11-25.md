@@ -39,4 +39,4 @@ PYTHONHASHSEED=37 python3 -B "$fixture/check.py" > /tmp/llmlang-stable-id.json
 cmp "$fixture/evidence.json" /tmp/llmlang-stable-id.json
 ```
 
-Distributed allocation, authenticated retirement authority, alias reservation, historical retention and evidence revocation remain open. The final allocator, namespace and retirement policy require a project decision. [LL-002](../../../TODO.md#ll-002--define-operation-stable-id-lifecycle)
+Distributed allocation, authenticated retirement authority, alias reservation, historical retention and evidence revocation remain open. The final allocator, namespace and retirement policy require a project decision. [LL-002](../../../PLAN.md#ll-002--define-operation-stable-id-lifecycle)

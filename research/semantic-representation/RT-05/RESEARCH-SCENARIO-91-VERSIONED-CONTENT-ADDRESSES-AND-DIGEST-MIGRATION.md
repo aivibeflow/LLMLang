@@ -8,7 +8,7 @@
 
 How should a persistent content address communicate its digest algorithm and artifact representation, and how can a store move to a new digest without confusing byte identity, semantic identity, or logical lineage?
 
-[Scenario 90](RESEARCH-SCENARIO-90-RUNTIME-HASHING-DETERMINISM-AND-PERSISTENT-IDENTITY.md) separates runtime table hashes, iteration order, stable fingerprints, and secure digests. This scenario narrows the persistent-addressing question. [LL-004](../../../TODO.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy) owns encoding, domain separation, digest representation, and migration. [LL-005](../../../TODO.md#ll-005--define-hash-relevant-dependency-edges-and-cycles) owns semantic dependency edges and recursive components. [RT-24](../../toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) explicitly leaves the canonical schema and hash envelope unresolved.
+[Scenario 90](RESEARCH-SCENARIO-90-RUNTIME-HASHING-DETERMINISM-AND-PERSISTENT-IDENTITY.md) separates runtime table hashes, iteration order, stable fingerprints, and secure digests. This scenario narrows the persistent-addressing question. [LL-004](../../../PLAN.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy) owns encoding, domain separation, digest representation, and migration. [LL-005](../../../PLAN.md#ll-005--define-hash-relevant-dependency-edges-and-cycles) owns semantic dependency edges and recursive components. [RT-24](../../toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) explicitly leaves the canonical schema and hash envelope unresolved.
 
 This comparison does not select a canonical SPG encoding, hash algorithm, identity model, SCC construction, signature system, or migration schedule. It distinguishes existing systems' representations and migration choices from LLMLang's unresolved semantic requirements.
 
@@ -100,8 +100,8 @@ Before RFC drafting, LL-004 needs fixtures for canonical bytes, domain separatio
 - [Git hash-function transition](https://git-scm.com/docs/hash-function-transition.html)
 - [OCI Image Specification — descriptor and digest](https://github.com/opencontainers/image-spec/blob/main/descriptor.md)
 - [IPFS CID specification](https://specs.ipfs.tech/cid/)
-- [LL-004 — canonical encoding and hash algorithm policy](../../../TODO.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy)
-- [LL-005 — hash-relevant dependency edges and cycles](../../../TODO.md#ll-005--define-hash-relevant-dependency-edges-and-cycles)
+- [LL-004 — canonical encoding and hash algorithm policy](../../../PLAN.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy)
+- [LL-005 — hash-relevant dependency edges and cycles](../../../PLAN.md#ll-005--define-hash-relevant-dependency-edges-and-cycles)
 - [Scenario 90 — runtime hashing and persistent identity](RESEARCH-SCENARIO-90-RUNTIME-HASHING-DETERMINISM-AND-PERSISTENT-IDENTITY.md)
 - [RT-05 recursive identity experiment](RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md)
 - [RT-24 canonical representation and merge](../../toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md)

@@ -60,7 +60,7 @@ Regular expressions can miss valid differently worded reports or accept misleadi
 
 - **Draft impact:** None; `draft/` unchanged by this study.
 - **Research area:** RT-08 (verification/evidence process); Stage 0.2.
-- **Relevant open design questions:** [TODO LL-008](../../../TODO.md#ll-008--define-compatibility-evidence-and-evidence-reuse-rules) and LL-019/020 on evidence scope (not resolved here).
+- **Relevant open design questions:** [TODO LL-008](../../../PLAN.md#ll-008--define-compatibility-evidence-and-evidence-reuse-rules) and LL-019/020 on evidence scope (not resolved here).
 - **Process proposal:** [Quality Review Protocol](../QUALITY-REVIEW-PROTOCOL.md) and [templates](../../templates/REPORT-TEMPLATE.md).
 - **Unresolved dependencies:** maintainer acceptance, representative human-review pilot, full claim-by-claim corpus audit, foundational experiment reproduction, and validated spec-change crosswalk.
 

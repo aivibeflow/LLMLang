@@ -1,0 +1,3228 @@
+# LLMLang Research Register
+
+This register records completed studies, experiments, audits and accepted decisions from the research plan and the former design-question register. Each result carries the scope and limitations of its source. A completed experiment may still leave broader validation or a design decision open.
+
+The [research corpus index](research/README.md) lists reports and artifacts by direction. The [development plan](PLAN.md) records outstanding work and acceptance gates. The [draft](draft/README.md) records candidate specification material and explicitly accepted decisions.
+
+The register is textual because its primary purpose is to locate evidence by workstream. Models, diagrams and reproducible measurements are linked in the underlying reports.
+
+## Provenance
+
+**Restored baseline:** detailed plan from [`aa39c8f`](https://github.com/aivibeflow/LLMLang/commit/aa39c8fc2a611ae72ff85acff3de3c16fcc4eb39), reconciled with the current project plan and repository evidence
+
+**PR #47 consolidation:** The [historical baseline](#historical-research-baseline) maps the research in the merged snapshot at `73d37723e6a759159b354c2cd74327517c4036c4` to the current plan. PR #50 restored the text of `PLAN.md`. PR #51 incorporated the research from PR #47 into the plan. [Restoration commit `2c7f3d1`](https://github.com/aivibeflow/LLMLang/commit/2c7f3d1) · [Consolidation commit `7fd8eac`](https://github.com/aivibeflow/LLMLang/commit/7fd8eace9210dffdbdcd98302e19bf6bc18be756)
+
+**Repository:** `aivibeflow/LLMLang`
+
+**Research corpus at plan creation:** 102 files under `research/`
+
+## Stage 0 — Research inventory and evidence hygiene
+
+### 0.1 Reconcile the research corpus
+
+- Enumerate every tracked file under `research/` from the recursive Git tree; record its path, Git blob SHA, byte size, coarse artifact category, and path-based research-item traceability in [the corpus inventory snapshot](research/research-management/RESEARCH-CORPUS-INVENTORY-2026-11-20.json).
+- Perform first-pass content/heading/reference triage of all 36 previously low-confidence root-level entries; add explicit RT/Stage 0 mappings, candidate plan-stage metadata, and review basis in the inventory and [semantic traceability report](research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md). This is triage, not full claim-level validation.
+- Map 63 Scenario reports from explicit links/ranges in `RESEARCH-TAXONOMY.md`.
+- Complete first-pass crosswalk for all 136 strict `RESEARCH-SCENARIO-<number>` report files: the remaining 73 use report header/scope review. Record Scenario 91's RT-24 cross-reference (now registered), Scenario 134's prior-art-only applicability, Scenario 95's supplemental execution report, and the absent Scenario 16 number without renumbering; Scenario 58 is consistently mapped to RT-10. The 137 broad filename count included the RT-00 Scenario 130 claim-traceability pilot, not an omitted report; see [Scenario crosswalk reconciliation](research/research-management/RT-00/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md). Scenario 16 intent remains unresolved.
+- Complete per-path prototype-family role review. The 2026-11-23 content review maps all 289 current prototype paths individually, including the 36 paths outside the previous 253-file total. This is file-role/traceability triage only; it does not establish claim validation, test execution, or reproduction. See [RT-00 A prototype role review](research/research-management/RT-00/RT-00-A-PROTOTYPE-ROLE-REVIEW-2026-11-23.md).
+- A bounded current-main audit of the RT-03 one-query solver worker rechecks real SAT/UNSAT/timeout cases and nine protocol outcomes with CPython 3.12.14 and SymPy 1.14.0. It is evidence for this prototype only; the corpus-wide claim/reproduction audit remains open. [RT-00 solver-worker protocol audit](research/research-management/RT-00/RT-00-C-SOLVER-WORKER-PROTOCOL-AUDIT-2026-11-25.md)
+- A fresh native CI replay of Scenario 133 on current `main` checked 125,952 generated-Rust observations against the Python reference with Rust 1.85.1 / LLVM 19.1.7; all ten native commands passed. This is bounded current-source reproduction, not original-run attestation or corpus-wide validation. [RT-00 Scenario 133 replay](research/research-management/RT-00/RT-00-C-SCENARIO-133-CURRENT-MAIN-REPLAY-2026-11-25.md)
+- Recheck the exact current-main verification-key prototype against the three focused suites and compare exact execution identity with subject-only and policy/applicability separation; 26/26 tests passed. See [RT-00 C verification reuse identity recheck](research/research-management/RT-00/RT-00-C-VERIFICATION-REUSE-IDENTITY-RECHECK-2026-11-24.md). This is a bounded prototype evidence audit, not proof of production dependency/environment completeness.
+- Record three explicit section-level supersession cases (Scenario 31 query representation; Scenario 32 parser-state bridge sketch; embedded ADR-0001 proposal); no whole document is marked superseded.
+- Scan inline relative Markdown links in the 233-file historical baseline (1,330 relative-link occurrences; PR #80 and PR #82 Markdown changes were rechecked). This remains a historical result; the full current-main scan is recorded below.
+- Run the offline Markdown/MDX local-path and available-anchor scan against the historical 256-file PR #160 merge checkout. At baseline `3643ea099bdd89c64e9fa468bddbc3ad29e80155`, 2,891 link occurrences (1,318 unique) produced 1,641 accepted, 82 unresolved, and 1,168 excluded. All 82 unresolved occurrences were confined to copied upstream MCP/OCI/Alive2 snapshots. The archived workflow run #44942704138 preserves artifact #14721739745. This is historical scope; the [current-main scan](research/research-management/RT-00/RT-00-A-CURRENT-MAIN-LINK-ANCHOR-AUDIT-2026-11-25.md) covers all current research Markdown/MDX. External URL availability and fragments on missing snapshot targets remain unverified.
+- Scan all current-main research Markdown/MDX files offline with the pinned Lychee 0.24.2 image. At main `c06ad1b9c30c806dea0fddb8c362322f8587a5b3`, 600 Markdown plus 3 MDX files produced 5,580 links: 3,878 accepted, 82 errors, and 1,620 excluded. All 82 errors originate in seven copied upstream MCP/OCI/Alive2 snapshot documents; no LLMLang-authored source was an error origin. Lychee exited 2 on these known missing snapshot targets. External URL reachability and exact omitted upstream content remain outside the offline scan. [RT-00 current-main link/anchor audit](research/research-management/RT-00/RT-00-A-CURRENT-MAIN-LINK-ANCHOR-AUDIT-2026-11-25.md)
+- Preserve historical findings; the inventory classifies historical scenarios and prototypes without deleting or rewriting them.
+- Review the 23 zero-inbound candidates at the B8 baseline and the newly surfaced current-main Russian concept companion as a 24th candidate; classify it as an intentional translation companion, add reciprocal navigation, and keep translation parity unverified. See [RT-00 B8](research/research-management/RT-00/RT-00-B-08-ZERO-INBOUND-CANDIDATE-REVIEW-2026-11-23.md) and [RT-00 B9 current-main relationship delta](research/research-management/RT-00/RT-00-B-09-CURRENT-MAIN-CORPUS-RELATIONSHIP-DELTA-2026-11-24.md). The 58 documents without a designated-index link remain review candidates, not proven orphans.
+- Classify every tracked file into a coarse artifact category (research document, scenario result, prototype implementation/test/report, preparation material, reference snapshot, structured fixture, index, or other).
+- Refresh the exact path/blob/size inventory and first-pass content-role mappings against main `a396e2709c811ffb1810e2e62d93849c890d8ca6`. Main contains 904 artifacts: 20 paths absent from the 884-record manifest and nine existing records with stale Git metadata. The new RT-07 scalar-preservation, valuation-binding, program-assumptions, upstream-model, single-kernel composition and model-extension paths have individual role entries; changed files were individually reviewed. The refreshed manifest recorded all 904 paths on that baseline; the RT-11 PR branch adds its report and raw timing evidence and refreshes the exact PR-tree metadata. See [RT-00 A current-main reconciliation](research/research-management/RT-00/RT-00-A-POST-THEMATIC-INVENTORY-REFRESH-2026-11-24.md).
+
+**Post-evidence current-main inventory refresh (2026-11-24):** The exact recheck at main `a396e2709c811ffb1810e2e62d93849c890d8ca6` found 904 research artifacts, 20 paths absent from the 884-record manifest and nine stale blob/size entries. The additions and changed files received individual role review. The refreshed manifest records all paths on that baseline; the RT-11 direct-child timing PR updates the manifest for its two additional report/evidence files and carries forward the three individually role-reviewed RT-07/32 proof artifacts merged in #480 on current main `7dd68a30fd720c750f052ab745e4478d42bd76f0`. Historical navigation scan at that baseline: 435 research Markdown/MDX and 3,113 local links, with 18 zero-inbound candidates, 52 without a direct designated-index link, and 38 unresolved local snapshot targets. The RT-11 PR-tree rerun on main `7dd68a30fd720c750f052ab745e4478d42bd76f0` scanned 437 research Markdown/MDX and 3,126 local links; it found the same 18/52 candidates and 38 unresolved targets (775 existing non-Markdown targets). See [RT-00 A current-main reconciliation](research/research-management/RT-00/RT-00-A-POST-THEMATIC-INVENTORY-REFRESH-2026-11-24.md). External URL reachability and partial snapshot completeness remain unverified. The RT-00 B10 reachability report establishes zero unreachable artifacts under its linked-directory model at its pinned baseline. B12's selected lexical candidates were reviewed, but four known controls escaped its filter; semantic supersession, contradiction and cross-document claim review remain open. Scenario 16 remains unresolved pending author/archive evidence. Historical run provenance and fresh reproduction remain experiment-specific.
+
+**Post-relocation inventory audit (2026-11-24):** The [exact-tree migration comparison](research/research-management/RT-00/RT-00-A-CORPUS-RELOCATION-2026-11-24.md) reconciles 318 path moves in merged PR #444 and checks 522 exact-blob moves in the intermediate commit of PR #446. After both mappings, main `1a59724` has 47 unrepresented paths and 227 stale blob or size records against the archived 786-record inventory. Role and identity reconciliation, claim-level reproducibility, and review of changed content remain open.
+
+**Thematic inventory refresh (2026-11-24):** The [current-tree reconciliation](research/research-management/RT-00/RT-00-A-THEMATIC-INVENTORY-REFRESH-2026-11-24.md) maps all 786 archived records through three moves and reviews the roles of all newly inventoried paths and the 24 previously pending role records. The result pins exact research path, blob and size metadata. Review the remaining changes and experiment evidence before using them for specification synthesis.
+
+**Research navigation reachability (2026-11-24):** The [RT-00 B10 audit](research/research-management/RT-00/RT-00-B-10-INDEX-REACHABILITY-2026-11-24.md) reaches all 849 tracked research files from the research index or this plan through local links and explicitly linked directory listings. The prior tree had 65 unreachable paths under the same model. Structural discoverability is verified for this tree. External snapshot completeness, semantic review and underlying claims remain open.
+
+**Changed-artifact role review (2026-11-24):** The [RT-00 B11 ledger](research/research-management/RT-00/RT-00-B-11-CHANGED-ARTIFACT-ROLES-2026-11-24.md) classifies all 95 deltas left by the first navigation projection. Thirty additional records are equal under the broader command-path projection. The report records the RT-36 translation coverage gap and the remaining semantic, experimental and independent review obligations.
+
+**Corpus text-overlap screen (2026-11-24):** The [RT-00 B12 screen](research/research-management/RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.md) checks all 87,990 Markdown/MDX pairs and reviews the 18 selected candidates. Four known translation or supersession controls escape the filter. Retain explicit claim lineage and manual semantic review. The Scenario 16 numbering gap needs author or archive evidence.
+
+**Known semantic-relation controls (2026-11-25):** The [RT-00 B13 recheck](research/research-management/RT-00/RT-00-B-13-KNOWN-RELATIONSHIP-CONTROLS-2026-11-25.md) revalidates B12's four missed controls against exact current-main document blobs and scoped source relationships. It closes only those four controls. Full corpus semantic-pair review, paragraph/claim lineage, orphan adjudication, cross-cutting contradiction reconciliation, and Scenario 16's external archive/author dependency remain open.
+
+**Previous inventory snapshot:** 462 tracked research artifacts (excluding the inventory manifest itself) at revision `f560d0f9893f882a6756f1f0a3b070ea7ba1a09f`: 234 Markdown/MDX files, 194 Python files, 22 Lean source files, 240 files under `PROTOTYPES/`, and 136 scenario-named documents. This historical snapshot has been superseded by the refreshed inventory at the current main revision below. The taxonomy contains 24 research areas (RT-01–RT-24); the dependency map contains 94 registered edges (DEP-001–DEP-094).
+
+**Current-main inventory refresh:** PR #100 refreshed the inventory against a reviewed tree based on main `47ec6e26ca12e615283d02393656bc0b3e9f656f` and merged as `422f77d5340ffbfeb1f00d301f8ba1bc86760070`; PR #102 added the scenario relationship review, and PR #104 added the RT-04-01 evidence graph review. PR #107 adds the Dependency Graph/Logos evidence review and refreshes the inventory to 471 research artifacts: 240 Markdown/MDX files, 197 Python files, 22 Lean source files, 243 prototype-tree files, and 136 scenario-named documents. PR #105 and PR #109 also added the package-index test-timing and Provider-profiling diagnostics after the 471-record inventory snapshot. This cross-cutting alignment review indexes both diagnostics and adds one further report, refreshing the inventory to 474 artifacts: 241 Markdown/MDX files, 199 Python files, 22 Lean source files, and 245 prototype-tree files. The earlier inventory refresh found 17 changed existing blobs and six added research files; no previous paths were deleted. The three new prototype files received individual role mappings. The [Dependency Graph evidence review](research/research-management/RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-DEPENDENCY-GRAPH-01-2026-11-20.md) reconciles SCW-04's historical finding and marks the scoped SCW-05 declaration-context work complete; SCW-32 source-derived CPC binding and subsequent JSON/parser-state correspondence remain open. The [cross-cutting alignment review](research/research-management/RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md) confirms 24 RT areas/94 DEP edges, preserves the explicit `ImpHash`/`ImplHash` terminology issue as unresolved, corrects semantic-index section numbering, and records the two package-index diagnostic scripts added by PRs #105 and #109.
+
+**Post-batch evidence reconciliation:** The published #648 tree retains all 87 dedicated files with exact modes and Git object IDs and all 35 checked registry links across 18 pull requests. Four controls show that file presence misses substitution and exact file identity misses removed or retargeted links. Claim-level verification, corpus-wide semantic relationship checks and independent review remain open. [Batch evidence reconciliation](research/research-management/RT-00/RT-00-BATCH-EVIDENCE-RECONCILIATION-2026-11-25.md)
+
+**Status:** partially validated. Historical inventory and link checks remain pinned to their recorded revisions; current-main artifacts and metadata are reconciled at `f1401e8` in the post-evidence refresh above. Structural discoverability has since been checked with a directory-link graph and corpus lexical candidates were adjudicated, but B12 missed four known relationship controls. The full semantic duplicate/supersession/orphan/contradiction review, translation parity, external URL validation, source snapshot completeness, exact run provenance for some historic experiments, and independent claim review remain open. RT-24 and other architectural proposals remain proposals; no architecture decision is implied.
+
+**Public-interface evidence reconciliation (2026-11-24):** The [RT-00 B audit](research/research-management/RT-00/RT-00-B-PUBLIC-INTERFACE-EVIDENCE-AUDIT-2026-11-24.md) compares the integrated proposal against 63 reproduced prototype tests. A binding declaration admits an observed out-of-contract trace, and positive-only resolution keys produce false reuse in the scoped fixture. Public-interface refinement, name identity policy and source/backend correspondence remain open.
+
+**Evidence-audit progress (2026-11-20; refreshed 2026-11-23):** the first bounded claim/evidence passes cover Scenarios 1–15 and 17–134 (Scenario 16 is absent), with linked prototypes/tests, specification-level prior art, historical LLVM preservation experiments, and native-probe boundaries checked. It records finite-fixture support and explicit limitations, confirms the full RT-04-01 test-discovery step passed in Required CI run 44767733362, and identifies an integration boundary: the exploratory SymPy path adapter prunes raw UNSAT results directly, while the separate conservative result mapper requires an explicit accepted evidence basis. These components are not yet integrated. The current eight-test result-policy file passed a fresh CPython 3.12.14 run with exact hashes; the file is the same blob present in Required CI commit `b808c3a8f984bbc5c175ecf45d61e0e8db7a00bb`. See [RT-00 C Scenario 102 reproduction](research/research-management/RT-00/RT-00-C-SCENARIO-102-RESULT-POLICY-REPRO-2026-11-23.md). The historical seven-test focused run's exact source revision remains unknown; do not equate it with either current result-policy or DPLL test files.
+
+**Post-relocation backend preservation replay (2026-11-24):** The [RT-00 C replay](research/research-management/RT-00/RT-00-C-BACKEND-PRESERVATION-REPLAY-2026-11-24.md) reproduced the exact LLVM integer and view input identities, O0/O3 native outcomes and negative controls, and the published LLVM-to-Wasm module and handwritten WAT hashes. The Wasm observations matched on two Node releases. Broader source correspondence and cross-engine evidence remain open.
+
+**Package Provider evidence replay (2026-11-24):** The [paired queue comparison](research/research-management/RT-00/RT-00-C-PROVIDER-QUEUE-REPLAY-2026-11-24.md) reproduced 130 focused tests and verified identical archive hashes in 20 pairs. At 1,000 synthetic objects the indexed queue lowered median build time on four shapes, with overlapping observed times. Controlled hardware and representative storage workloads remain required for §7.2 decisions.
+
+**Exact-current RT-04 native lifecycle replay (2026-11-24):** The [RT-00 C replay](research/research-management/RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.md) passed all ten native commands and 364 model tests. All ten stdout sections match the prior CI job log, including 125,952 generated-Rust observations. The recorded SQLite build identities cover these reruns. Original Scenario 130 provenance and general foreign/provider correspondence remain open.
+
+**Native reproduction preparation (2026-11-20):** the manual and focused-PR [RT-04 Native Reproduction workflow](.github/workflows/rt04-native-reproduction.yml) and [reproduction protocol](research/language-design/RT-04/RT-04-NATIVE-REPRODUCTION.md) execute the SQLite C-API probes, durable-receipt recovery, and generated-Rust comparison while preserving machine-readable environment metadata and per-command output. Successful run 44771268838 passed all ten commands with zero failures/skips: C SQLite 3.46.1 with the exact scenario distro source ID, Python 3.12.14 with SQLite 3.53.1 for Scenario 130, and Rust 1.85.1. Per-case outputs for Scenarios 120–128, 130, and 133 match the reports; the 364-test Required CI run also covers the finite models in Scenarios 109–118. Scenario 134 is prior-art/reference material under the accepted same-build compatibility decision. Scenarios 96A/96B were freshly reproduced by LLVM job 44773422416 with matching package hash, toolchain versions, input IR hashes, comparison counts, and negative controls; artifact 14647744441. See audit §§2.13–2.16 and §2.20 and the linked reproduction artifacts/protocols. The final PR validation run 44774296240 also passed all ten RT-04 native commands and both LLVM preservation probes (artifacts 14650095720 and 14650040345); Required CI on main merge commit b808c3a8 passed in run 44774552406. The historical Scenario 130 report did not preserve its SQLite source ID, so only version-level equivalence is established. The [RT-04-01 prototype evidence graph review](research/research-management/RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md) records the runner/test/workflow links, current 45-module/364-test suite, artifact hashes, and remaining provenance limits. This is a reproduced bounded slice, not completion of prototype validation.
+
+**Current-main reconciliation (2026-11-21):** The inventory manifest revision b118346ecd499d7962a6ac546fb1031bc7e2bc26 records 488 research artifacts and 248 prototype files, but it is stale relative to current main at b0142c27f5632a859c379b78a10cb22f500ebfd8. The recursive inventory audit in PR #146 scanned main at 017e64b87c87371309197a392165258b8b088dd1 and measured 490 research artifacts excluding the manifest, 250 Markdown files, 3 MDX files, 202 Python files, 23 Lean files, 249 prototype files, and 136 Scenario-named documents. Exact comparison to b52ba2f adds the two RT-23 report/test paths; comparison from b52ba2f to b0142c2 adds the B4 report. This yields 493 research artifacts, 252 Markdown, 3 MDX, 203 Python, 23 Lean, and 250 prototype files. The manifest at current main has five missing paths (RT-24 report/test, RT-23 report/test, and B4 audit report), zero extra paths, and five stale SHA/size records (Dependency Graph README, research README, dependency map, RT-24 canonical report, and RT-23 worktree contract). PR #149 proposes the correction and remains unmerged. PR #160 scanned 253 Markdown and 3 MDX files (256 total) on current main plus the E report: 2,891 occurrences, 1,318 unique, 1,641 accepted, 82 upstream-snapshot errors, 1,168 excluded. Final validation run #44942704138 and artifact #14721739745 preserve the evidence (merge checkout `3643ea099bdd89c64e9fa468bddbc3ad29e80155`).
+
+The 26/108 taxonomy/dependency register was structurally checked: all 108 DEP IDs are unique, all endpoints resolve to one of the 26 RT IDs, there are no self-loops, and the two non-trivial strongly connected components are RT-05/RT-12 and RT-14/RT-19/RT-20, both documented in the dependency-map prose. The high-level Mermaid diagram is explicitly simplified and does not depict RT-21–RT-26; the detailed register does contain them. The current research README already labels the 24/94 figures in the older alignment review as superseded.
+
+Prototype role-review counts are not reconciled: the inventory aggregate says 242; the previous PLAN statement says 245; the previous inventory per-file traceability covers 248 paths; current main has 250 prototype paths. Current family path counts are 3/108/4/7/17/106/2/3. Do not infer equivalent content-review depth for every current file from path or traceability metadata.
+
+**Current-main inventory freshness addendum (2026-11-22):** A fresh recursive-tree comparison at `fc717d9c5a69085d7a524fd6dfc27145f0c35a1c` found 578 research files excluding the manifest: 297 Markdown, 3 MDX, 226 Python, 33 Lean, 289 prototype-tree paths, and 137 Scenario-named documents. The manifest has 554 records, 24 missing paths, 20 stale blob SHA/size records, and no extra paths. 11 prototype paths are absent from the manifest; represented-path traceability metadata is not equivalent to content review or reproduced evidence. The manifest records a historical aggregate of 242 individually role-triaged prototype files in `semantic_traceability_review.prototype_family_review`; this is 47 below the current 289 prototype paths. The per-family review ledger must be reconciled against exact current paths before assigning review status to individual files. See [RT-00 A current-main inventory freshness reconciliation](research/research-management/RT-00/RT-00-A-CURRENT-MAIN-INVENTORY-FRESHNESS-RECONCILIATION-2026-11-22.md). Stage 0.1 remains open: the manifest refresh and content-role triage of the 24 previously absent paths are complete on PR #234's branch, while 36 prototype paths remain outside individual role review and claim-level/reproducibility validation remains open. This exact-tree count supersedes older numeric snapshots for the named commit only.
+
+**Content-role triage follow-up (2026-11-22):** The 24 paths absent from the previous manifest were individually reviewed by content, paired tests/imports, and explicit scope. Eleven prototype files received individual role mappings: eight in DEPENDENCY-GRAPH-01, two in LLVM-PRESERVATION-01, and one in ALLOCATOR-COMPAT-01. The historical prototype role-review total is now 253/289 current prototype paths; 36 remain outside the individually reviewed total. This is role triage only, not execution or claim validation. See [RT-00 A content-role triage](research/research-management/RT-00/RT-00-A-CONTENT-ROLE-TRIAGE-2026-11-22.md). The inventory manifest has been refreshed against the exact PR tree and validated by the inventory freshness workflow.
+
+**Current-main A refresh (2026-11-23):** PR #234 is merged. PR #237 subsequently changed only one research-tree file, RT-19, while adding the scoped accepted ADR-017 outside `research/`. The follow-up review individually classified the 36 prototype paths outside the prior total and refined three related Lean source-role records. The resulting PR branch records 289/289 prototype paths with individual content-role triage and refreshes the RT-19 blob metadata. It adds this A report, so the branch inventory target is 581 research artifacts excluding the inventory manifest. The final exact recursive-tree check is pending; do not treat the branch count as verified until that workflow passes. The 137-versus-136 filename-count discrepancy is reconciled in [the Scenario crosswalk report](research/research-management/RT-00/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md); Scenario 16 intent and claim-level/reproducibility validation remain open. See [RT-00 A prototype role review](research/research-management/RT-00/RT-00-A-PROTOTYPE-ROLE-REVIEW-2026-11-23.md).
+
+**Current-main freshness reconciliation (2026-11-23):** At main `5662fab189d357cd88037726f05d9ec1dcbb13d8`, the exact tree contains 589 research artifacts excluding the manifest. The prior 587 records omit the Git binary-storage study and quality-rules rollout comparison; the taxonomy record also has a stale SHA/size pair. The refreshed PR inventory adds those records, refreshes taxonomy and README metadata, and is checked against the exact PR tree. RT-27 taxonomy/dependency-map registration was completed in PR #251; the post-merge exact inventory reconciliation is recorded in [RT-00 A RT-28 inventory freshness](research/research-management/RT-00/RT-00-A-RT28-INVENTORY-FRESHNESS-2026-11-23.md). This closes only the named-tree inventory freshness delta. Stage 0.1 remains open for claim/reproducibility validation, full semantic duplicate/supersession/orphan/contradiction review, Scenario 16 intent, and external snapshot/index completeness.
+
+**Current-main duplicate/index recheck (2026-11-23):** [RT-00 B7](research/research-management/RT-00/RT-00-B-07-CURRENT-MAIN-EXACT-CONTENT-AND-INDEX-RECHECK-2026-11-23.md) re-enumerates main `02d0c3d065e160277b498e106646e8a02f2a43fd`: 607 research paths, 606 unique blobs, and only the intentional shared OCI/REAPI license duplicate. The index auditor found and the report corrects one broken LLMLang-authored RT-24 taxonomy link. After correction, 38 unresolved local targets are all in partial upstream OCI/Alive2 snapshots; 23 documents have no inbound links and 57 lack designated-index inbound links. These remain candidates for full content review, not automatic orphan findings. Claim/toolchain reproduction, semantic paragraph-level overlap review, those candidate files, Scenario 16, and external snapshot completeness remain open dependencies.
+### 0.2 Establish research quality and decision rules
+
+**Research output (2026-11-20):** [Research Quality and Decision Rules](research/research-management/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) proposes a claim-level evidence vocabulary, report structure, traceability fields, and five review gates. This is a partial result; conventions are not yet accepted and existing artifacts have not been fully audited.
+
+**Research output (2026-11-23):** [Quality Rules Rollout Options](research/research-management/RT-00/RT-00-QUALITY-RULES-ROLLOUT-OPTIONS-2026-11-23.md) compares corpus-wide retrofit, priority-ordered manual audit, and staged hybrid rollout against three current-main reports. It provisionally recommends a warning-first hybrid, but does not measure reviewer outcomes or migration cost. Maintainer adoption, corpus-wide audit, reproducibility reruns, and any CI pilot remain external dependencies; §0.2 remains open.
+
+**Research output (2026-11-23):** [Quality Rules Evidence-Shape Recheck](research/research-management/RT-00/RT-00-QUALITY-RULES-EVIDENCE-SHAPE-RECHECK-2026-11-23.md) compares an exact-main rerun of RT-11's synthetic C benchmark, the pinned Lean/Lake Logos proof project, and Scenario 118's bounded model report. It provisionally favors a shared metadata/scope/decision-boundary minimum with evidence-type-specific reproduction pointers; the local benchmark reproduced its 12 cases, while this environment lacks Lean/Lake and the current Required CI build is referenced. No policy is adopted; maintainer approval, corpus audit, pilot, and reviewer-effort measurements remain external dependencies.
+
+**Implementation pilot (2026-11-23, issue #285):** The [proposed Quality Review Protocol](research/research-management/QUALITY-REVIEW-PROTOCOL.md) consolidates claim classes, report structure, reproducibility variants, negative-result handling, decision gating, and an exact claim-to-draft crosswalk. A [report template](research/templates/REPORT-TEMPLATE.md), [claim register](research/templates/CLAIM-REGISTER-TEMPLATE.md), [bounded checker test report](research/research-management/RT-00/RT-00-QUALITY-RULES-PILOT-2026-11-23.md), and [warning-only pilot workflow](.github/workflows/research-quality-pilot.yml) provide concrete implementations. Six synthetic unit tests passed locally (CPython 3.13.5); no corpus-wide validation, reviewer trial, maintained policy adoption, clean foundational reproduction, or normative specification change is claimed. The six checkboxes remain open pending project-wide adoption and validation.
+
+**Real-report pilot (2026-11-23, issue #285):** [Ten-report quality audit](research/research-management/RT-00/RT-00-QUALITY-RULES-REAL-REPORT-PILOT-2026-11-23.md) checks 10 pinned existing report blobs. The original checker produced 65 structural warnings; 3 metadata punctuation warnings were corrected, leaving 62. A manual, line-grounded review identified 29 more layout-only warnings; the other 33 are not adjudicated as defects. None of the 10 triggered executable-evidence checks due to the absent exact evidence-type field. A [machine-readable sample](research/quality-audit/2026-11-23-sample.json) and warning-only replay workflow are provided. This is not a representative corpus audit, does not reproduce the reports’ experiments, and does not adopt the research policy. All §0.2 completion checks remain open.
+
+**Adjudication follow-up (2026-11-23):** [33-warning review](research/research-management/RT-00/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md) now classifies all 33 previously unadjudicated warnings from the exact ten-report pilot: 16 further layout-only cases and 17 documentation/traceability gaps, including eight missing complete baseline-revision records. The [machine-readable register](research/quality-audit/2026-11-23-adjudication.json) maps each warning to source lines, rationale and next action; the [validator](.github/scripts/validate_research_quality_adjudication.py) tests completeness and line-range bounds, not the correctness of scientific claims. Three scoped claim/evidence/proof examples preserve negative and unproved source-correspondence boundaries. This closes only the bounded warning-triage queue, **not** the full research-quality acceptance criteria; §0.2 remains open pending explicit adoption, broad claim-level auditing, and clean foundational reruns.
+
+**Historical source provenance (2026-11-23, issue #285):** [Eight-report publication snapshot audit](research/research-management/RT-00/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md) pins earliest report commits and corresponding committed source blobs. [Five bounded historical reruns](.github/workflows/research-historical-rechecks.yml) test publication snapshots, not necessarily the original author workspace. An archived Git tree does not establish historical experiment provenance; the associated §0.2 evidence gates remain open until original run inputs are attested, critical results reproduced, corpus claims reviewed, and maintainers approve conventions.
+
+**Nine evidence-navigation corrections (2026-11-23):** [Stage 0.2 supplementary report](research/research-management/RT-00/RT-00-QUALITY-RULES-NAVIGATION-REMEDIATION-2026-11-23.md) documents completed *metadata/traceability* crosswalks on Scenarios 98/103/118/29 and DEP-007. The previous eight original-execution attestations, independent claim review and maintainer policy adoption remain open. The frozen 10-report sample now replays exact historic Git bytes instead of assuming current reports have not been edited.
+
+**Stage 0.2 second claim audit (2026-11-23):** [24 source-bound claims across 12 further reports](research/research-management/RT-00/RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md) are documented with exact Git object IDs, evidence types, statement/limitation line bounds and downstream decision caveats. [Machine-readable register](research/quality-audit/2026-11-23-claim-cohort2.json) plus optional [CI source validator](.github/workflows/research-claim-cohort-audit.yml) test link integrity and bookkeeping, **not** underlying scientific correctness. This remains a purposive small cohort, not full corpus coverage or formal process adoption; section 0.2 exit gates remain open.
+
+**Stage 0.2 reproducibility continuation (2026-11-23):** [Three archived-source second-cohort rerun cases](research/research-management/RT-00/RT-00-QUALITY-RULES-CLAIM-COHORT2-RERUN-2026-11-23.md) now pin the Scenario 110/112 and RT-24 merge test inputs, provide Python 3.12.14 Ubuntu execution commands and preserve exact output/environment through [GitHub Actions](.github/workflows/research-claim-cohort2-reruns.yml). Passing these tests would corroborate those bounded fixtures, **not** the general language, scheduler or production semantic merge policy. Issue #285 exit criteria remain open.
+
+**Additional Stage 0.2 falsification control (2026-11-23):** [Orthogonal finite-model oracle experiment](research/research-management/RT-00/RT-00-QUALITY-RULES-ORTHOGONAL-ORACLES-2026-11-23.md) compares the archived JSON-decoder and fairness models to separately authored reference tables, plus a Git-source-inventory negative fixture. This goes beyond re-running the author tests but remains bounded model evidence, not an independently peer-reviewed protocol or accepted `draft/` rule. Reviewer/maintainer adoption and broad corpus/attestation obligations remain open.
+
+**Source-pinned second-oracle observations (2026-11-23):** [CI #45261537559](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559) passed seven fresh checks: 3,456 JSON-policy combinations (504 accepted/2,952 rejected), 21,840 fairness-action words (138 valid cycles, 114 weak-but-not-strong), and a clean-Git-merge/absent-declared-file counterexample. [Result register](research/quality-audit/2026-11-23-orthogonal-oracle-results.json) stores exact model/test blobs, CI, host and limits; [independent human-review handoff](research/quality-audit/2026-11-23-independent-review-handoff.md) is **pending (0/8)**, not a completed scientific review. Historical execution attestations, representative corpus validation and maintainer rule adoption remain open.
+
+**Root research structural census (2026-11-23):** [Stage 0.2 corpus census report](research/research-management/RT-00/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md) defines an immutable 309-document root Markdown/MDX scope, a warning-only checker sweep and a 24-document SHA-256-selected review queue across Scenario, RT and other root reports. This is structural *coverage*, not an audited 309-document claim register or a representative statistical validity estimate; individual review, original-run provenance and process adoption are still open.
+
+**Source-bound symbolic proof evidence replay (2026-11-24):** The [RT-33 source-bound quality check](research/research-management/RT-00/RT-00-QUALITY-RULES-PROOF-CHAIN-REPLAY-2026-11-24.md) rebuilt the pinned LLMLang Lean binding, reproduced 16 exact SMT and CPC outputs, passed 14 focused tests, and confirmed that a final-only certificate cannot establish an all-boundary claim. General source correspondence, independent scientific review and maintainer rules approval remain open.
+
+**Finite three-backend reproduction (2026-11-24):** The [RT-00 evidence composition replay](research/research-management/RT-00/RT-00-QUALITY-RULES-THREE-BACKEND-REPLAY-2026-11-24.md) regenerated cvc5, Lean and TLC artifacts for 798 fixed claims and reproduced all 2,394 scoped receipts, with 712 bounded agreements and 86 refutations. Shared source assumptions, general correspondence and independent review remain open.
+
+**Verified root census result (2026-11-23):** [Pinned CI #45263179285](https://github.com/aivibeflow/LLMLang/actions/runs/45263179285) inspected all 309 root research Markdown/MDX documents at commit `627c708`; 2,035 **surface-only** warnings occurred across 308 files, and only 7 exact evidence-type metadata fields were found (67 unvalidated executable-status hints). The [24-item SHA-256 selected review queue](research/quality-audit/2026-11-23-root-census-observations.json) remains entirely **NOT REVIEWED** by a second person. This does not fulfill corpus-wide claim validation or justify blocking CI; no method-policy adoption is recorded.
+
+**Stage 0.2 proof-source provenance continuation (2026-11-23):** [Lean 4.36.0 archival proof recheck](research/research-management/RT-00/RT-00-QUALITY-RULES-PINNED-LEAN-PROOF-2026-11-23.md) proposes exact Git/SHA-256 source identity validation, source-pinned kernel checking and saved actual `#print axioms` output. This improves the boundary between *formal bounded proof* and *reported executable test*, but does not prove source-to-SPG/backend semantics, validate all corpus claims, reconstruct eight historical runs, or adopt Stage 0.2 policy.
+
+**Pinned formal proof recheck observed (2026-11-23):** [Lean CI #45264153180](https://github.com/aivibeflow/LLMLang/actions/runs/45264153180) checked the exact archived `ObservableRewrite.lean` SHA-256 with Lean 4.36.0 and preserved the actual axioms `propext`, `Classical.choice`, `Quot.sound`. See [proof source/host outcome ledger](research/quality-audit/2026-11-23-pinned-lean-proof-observations.json). This establishes a *bounded model theorem check*, not production optimizer correctness, comprehensive research claim review, or maintainer acceptance of §0.2 rules.
+
+**Stage 0.2 review after report relocation (2026-11-24):** The [source-bound queue comparison](research/research-management/RT-00/RT-00-QUALITY-RULES-QUEUE-RELOCATION-2026-11-24.md) reproduces the historical census and 24-document review queue and finds 13 exact historical blobs in the pinned post-PR-#444 tree. Current links locate 24 candidates, including 11 with revised bytes. Preserve the archived claim inputs for review. External dependencies are independent human adjudication of the 24-document queue and the separate eight-claim handoff, original-run attestations where recoverable, and maintainer approval of Stage 0.2 rules. Broader claim verification remains open.
+
+**Historical citation replay after both moves (2026-11-24):** The [adjudication follow-up](research/research-management/RT-00/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md#archival-citation-check-after-directory-moves-2026-11-24) reproduces all 33 archived warning adjudications by checking their citation ranges on the original Git blobs. Independent adjudication, technical claim review and maintainer adoption remain open.
+
+- Compare five recent RT-19/25/32/13 reports to the proposed minimum structure by content rather than heading names. Core information is present under varied headings; metadata and claim-level traceability remain uneven. [Report structure recheck (2026-11-24)](research/research-management/RT-00/RT-00-REPORT-STRUCTURE-RECHECK-2026-11-24.md)
+- Recheck the three newest merged comparison reports by content. Each gives enough design/model, methods, results, limitations and decision boundaries for its scoped comparison; explicit hypothesis, claim-ID, and draft-impact fields remain uneven. [Current-main report structure recheck](research/research-management/RT-00/RT-00-C-REPORT-STRUCTURE-CURRENT-MAIN-RECHECK-2026-11-25.md)
+- Recheck this distinction across four recent implementation-relevant reports (RT-19 transaction and publication boundaries, RT-25 workload fit, RT-32 Lean observation binding). All preserve scope and decision boundaries; stable claim IDs and per-claim confidence/falsifier/impact fields are not yet uniform. [Recent evidence-class recheck (2026-11-24)](research/research-management/RT-00/RT-00-RECENT-EVIDENCE-CLASS-RECHECK-2026-11-24.md)
+- Classify the latest RT-23, RT-13 and RT-07 reports claim-by-claim across bounded model results, experiments, explicit assumptions, and conditional proofs. None records an accepted LLMLang architecture decision; the proof and native observations stay scoped to their named fixture or foreign-contract boundary. [Current-main evidence-class recheck](research/research-management/RT-00/RT-00-C-EVIDENCE-CLASS-CURRENT-MAIN-RECHECK-2026-11-25.md)
+- Cross-check reproduction routes for recent RT-19/25/32 implementation studies and rerun the RT-19 Toolchain suite (9/9, Python 3.12.14); added its missing command and expected output to the publication report. [Reproduction boundary recheck (2026-11-24)](research/research-management/RT-00/RT-00-REPRODUCTION-BOUNDARY-RECHECK-2026-11-24.md)
+- Cross-check reproduction routes for the same four recent reports and rerun the RT-19 Toolchain suite to verify the command; corrected the publication report's missing command/expected result. Archived RT-25 summary recomputation is not a fresh benchmark, and broader candidate environments remain external. [Recent evidence-class recheck, reproduction boundary](research/research-management/RT-00/RT-00-RECENT-EVIDENCE-CLASS-RECHECK-2026-11-24.md#reproduction-boundary-crosswalk)
+- Recheck five recent RT-19/25/32/13 studies: distinguish model counterexamples/unsupported inputs, recommendation-scoped exclusions, neutral measurements, and unavailable candidates. No negative result is treated as an accepted project decision. [Negative-result boundary recheck (2026-11-24)](research/research-management/RT-00/RT-00-NEGATIVE-RESULT-BOUNDARY-RECHECK-2026-11-24.md)
+- Recheck the three newest merged comparison reports against their machine-readable result ledgers: bounded Git journal lookup exhaustion, LLVM conversion routes rejected by counterexamples or unsupported validator intrinsics, and Dafny proof results conditional on foreign C/ABI contracts. Preserve these as scope-bound findings, not global implementation decisions. [Current-main negative-result recheck](research/research-management/RT-00/RT-00-C-NEGATIVE-RESULT-CURRENT-MAIN-RECHECK-2026-11-25.md)
+- Link the current proposed glossary sections and accepted architecture decision to their supporting research. The glossary now has a section-level crosswalk for type/ABI, Contract/Operation/conformance, public-interface, and assumption terminology; this validates traceability, not the underlying claims. Future proposals must keep their exact evidence links and limits current. [RT-00 draft evidence crosswalk](research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md)
+- Cross-check the draft index, accepted compatibility decision, proposed review protocol, and three recent evidence reports. The selected files keep scoped research recommendations separate from accepted rules; no empirical report silently amends the accepted decision. [Research-to-draft boundary recheck (2026-11-24)](research/research-management/RT-00/RT-00-RESEARCH-DRAFT-BOUNDARY-RECHECK-2026-11-24.md)
+- Recheck the post-review draft delta and three newest current-main comparisons. The only changed draft file adds explicitly non-normative evidence links; RT-23, RT-13 and RT-07 preserve conditional/research boundaries and do not amend the accepted decision. [Current-main research-to-draft boundary recheck](research/research-management/RT-00/RT-00-C-DRAFT-BOUNDARY-CURRENT-MAIN-RECHECK-2026-11-25.md)
+## Stage 1 — Semantic foundation and identity
+
+### 0.3 Research taxonomy and cross-aspect dependency map
+
+- Define the research taxonomy and identify the major LLMLang research areas.
+- Establish an initial directed dependency map with relationship types and confidence levels.
+- Identify feedback loops, foundational topics, and opportunities for parallel research.
+
+**Evidence:** [Research taxonomy](research/research-management/RESEARCH-TAXONOMY.md) currently enumerates 24 research areas (RT-01–RT-24); [cross-aspect dependency map](research/research-management/RESEARCH-DEPENDENCY-MAP.md) currently records 94 dependency edges (DEP-001–DEP-094), research waves, and feedback loops. These are live register counts, not fixed architectural limits.
+
+**Status:** initial taxonomy and dependency map completed; ongoing validation remains part of each research task.
+### 1.0 Intent, requirements, and human-validated formalization (RT-02)
+
+**Existing evidence:** [Scenario 15 — Business Intent to Formal Contracts](research/language-design/RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md), [Scenario 17 — Typed Requirement IR](research/language-design/RT-02/RESEARCH-SCENARIO-17-TYPED-REQUIREMENT-IR.md), [Scenario 18 — Requirement Evolution and Semantic Impact](research/language-design/RT-02/RESEARCH-SCENARIO-18-REQUIREMENT-EVOLUTION-AND-SEMANTIC-IMPACT.md), and the [Requirement Reconstruction and Human Semantic Validation research proposal](research/language-design/RT-02/RT-02-REQUIREMENT-RECONSTRUCTION-AND-HUMAN-VALIDATION.md). Existing prototypes demonstrate bounded intent/clarification/provenance and typed-IR analysis; they do not implement a complete conversational elicitation or reconstruction workflow.
+
+- Check assignment-budget `UNKNOWN` in the finite requirement analyzer against both completed consistency and contradiction. Twelve cases separate exhausted budgets from complete enumeration, and the scenario helper returns no rows on exhaustion. [Finite requirement assignment bound](research/language-design/RT-02/RT-02-REQUIREMENT-ASSIGNMENT-BOUND-2026-11-24.md).
+
+**Status:** partially researched. The existing Scenario 15/17/18 work supplies important building blocks, but reconstruction fidelity, semantic-difference detection, and human-review effectiveness have not yet been experimentally validated. The linked research proposal includes a worked order-confirmation example and an experiment plan; it is not a normative architecture decision.
+### 1.1 Semantic Program Graph and program representation
+
+- Compare pinned active requirements, per-edge witnesses and composed refinement. A finite sweep finds 462 locally witnessed designs with no common allowed outcome. Lean checks coverage composition and the missing-requirement counterexample. Production applicability, feasibility and authorization remain open. [Multiple requirement coverage](research/semantic-representation/RT-05/RT-05-MULTI-REQUIREMENT-COVERAGE-2026-11-24.md).
+- Compare exact cross-layer hashing and scoped checked judgments on a closed approval rule. Scoped evidence preserves two values and one judgment on a compatible requirement edit. Stale or missing evidence blocks release, and a trace-only control admits three incompatible cases. Multi-requirement coverage and production release policy remain open. [Layered refinement evidence](research/semantic-representation/RT-05/RT-05-LAYERED-REFINEMENT-EVIDENCE-2026-11-24.md).
+- Compare a typed mutable-array graph, generated Dafny contracts and 5,663 executions per source profile. Snapshot and directional routes preserve all final arrays but differ in 1,505 ordered traces. A coarse object frame allows an extra indexed write in 4,045 cases. General graph and effect semantics remain open. [Dafny mapping for overlapping copy and frames](research/semantic-representation/RT-05/RT-05-DAFNY-SPG-COPY-FRAME-2026-11-25.md)
+- Compare native fallible record construction and later field transfer over 4,608 Rust observations. Separate acquisition, rollback and completed ownership orders preserve every vector. Declaration-order rollback changes 144 early-exit vectors. Reusing the initializer order for completed drops changes 168 completed vectors. User-defined destructors, aliasing and cross-language coverage remain open. [Partial record ownership](research/semantic-representation/RT-05/RT-05-PARTIAL-RECORD-OWNERSHIP-2026-11-25.md)
+- Compare mutable reference topology on 184 closed graph classes. The shared canonical table preserves all 11,688 of its recipe vectors per runtime across relabeling and cycles. Separate-root reconstruction changes 4,758 vectors and physical identifiers change all 1,948 renamed keys. General alias analysis and persistent identity remain open. [Mutable reference topology](research/semantic-representation/RT-05/RT-05-MUTABLE-REFERENCE-TOPOLOGY-2026-11-25.md)
+- Compare receiver binding identity over 108 mutable contexts and 8,640 native C and Rust vectors. Code alone collapses all 5,778 distinct context pairs. Receiver values without shared references collapse 27 pairs and change 135 recipe vectors. The explicit shared table preserves every observed trace. General lifetime and source correspondence remain open. [Stateful bound method](research/semantic-representation/RT-05/RT-05-STATEFUL-BOUND-METHOD-2026-11-25.md)
+- Compare source, expanded syntax, and compiler-resolved bindings on 48 native Rust macro programs. Expanded tokens without definitions collapse eight pairs with distinct effects. The scoped SPG projection preserves all 144 observations and groups the 264 equivalent pairs. General macro provenance and source reconstruction remain open. [Macro binding identity](research/semantic-representation/RT-05/RT-05-MACRO-BINDING-IDENTITY-2026-11-25.md)
+- Compare Unicode names and captured values across 52 native Python, Rust and JavaScript observations. A source-profile-aware graph preserves all results. A shared cell alters six Rust observations per configuration despite correct name normalization. Literal bytes and source provenance remain separate. [Unicode source binding](research/semantic-representation/RT-05/RT-05-UNICODE-SOURCE-BINDING-2026-11-25.md)
+- Compare three expression profiles on one typed SPG fragment. Within each of 32 configurations all nine conversions preserve canonical graph bytes, including call binding and observable evaluation order. Whole-program frontends remain open. [Cross-profile SPG](research/language-design/RT-31/RT-31-CROSS-PROFILE-SPG-2026-11-24.md).
+- Resolve qualified, named and open source imports to exact SPG operation references. Five source forms share one baseline caller. Across 972 catalog transitions, successful-only lookups give 248 unsafe reuses and complete scoped reads give zero. Production namespace and visibility rules remain open. [Scoped import resolution](research/semantic-representation/RT-05/RT-05-IMPORT-RESOLUTION-INVALIDATION-2026-11-24.md).
+- Compare full source order, ordered observable operands and field-map-only hashing for named records in Rust and Python. All 3,888 native observations support preserving an explicit order for trace and failure effects while omitting sequencing for closed total literals. The field map alone collapses 228 distinct case pairs. General effects, defaults, partial initialization and frontend correspondence remain open. [Named record evaluation](research/semantic-representation/RT-05/RT-05-NAMED-RECORD-EVALUATION-2026-11-25.md)
+- Compare canonical ownership and cleanup in a two-scope COR-13 fragment. The 900 input pairs preserve exact roots and 8,192 result/trace observations. Erasing transfer timing, branch order or close-contract roles hides semantic differences. Broader aliasing, effects and full frontend extraction remain open. [Owned SPG normalization](research/semantic-representation/RT-05/RT-05-OWNED-SPG-NORMALIZATION-2026-11-24.md).
+- Compare review reuse over 12 native Git selection histories with exact commit-bound lineage. Endpoint IDs and unrestricted reachability overgrant across splits, merges and restored scopes even when the final tree equals the baseline. Exact one-to-one continuation preserves the four declared grants and keeps two incomplete histories unknown. Issuer authority and Git multi-parent lineage remain open. [Composed lineage](research/semantic-representation/RT-05/RT-05-COMPOSED-LINEAGE-AUTHORITY-2026-11-24.md).
+- Compare review transfer at a real two-parent Git merge. Two pairs share exact merge commits and require different decisions under the selected-parent policy. Exact Ed25519 fixture receipts preserve the three authorized continuations and leave six missing, stale or unverifiable cases pending. Production resolution issuers and general ancestry remain open. [Multi-parent lineage](research/semantic-representation/RT-05/RT-05-MULTI-PARENT-LINEAGE-2026-11-24.md).
+- Compare snapshot, value and expression storage layouts on the same acyclic SPG. All 54 archives restore exact graph bytes and agree with 5,832 result and trace observations. At 64 entries a local edit writes 27,076 per-value bytes, 27,153 expression-layout bytes or 139,101 whole-snapshot bytes. Context-free expression reuse is refuted, and workload and other artifact choices remain open. [SPG object granularity](research/semantic-representation/RT-05/RT-05-SPG-OBJECT-GRANULARITY-2026-11-24.md).
+- Compare whole, flat and blocked storage of an exact keyed recursive group. At 256 members, a local edit writes 44,495, 17,692 or 2,688 new bytes while changing the same 257 semantic addresses. Exact admission and a body-only cache control distinguish physical reuse from executable identity. [Recursive group storage](research/semantic-representation/RT-05/RT-05-RECURSIVE-GROUP-STORAGE-2026-11-25.md)
+- Compare structural unfolding equality with finite declaration graph equality and nominal identity on guarded recursive types. A direct paired-path oracle matches all 8,256 comparisons over 128 rooted fixtures, and invalid by-value cycles fail admission. Nominal wrappers and immutable shape versions stay distinct. Broader type semantics and a canonical format remain open. [Guarded recursive types](research/semantic-representation/RT-05/RT-05-GUARDED-RECURSIVE-TYPE-IDENTITY-2026-11-24.md).
+- Compare root traversal, exhaustive permutation and explicit keys on ordered recursive definitions. The traversal matches 52 small isomorphism classes and scales to the tested 128 members. An 11-member witness rules out assuming byte compatibility with exhaustive ordering. Recursive types, unordered edges and the canonical format remain open. [Ordered SCC canonical traversal](research/semantic-representation/RT-05/RT-05-ORDERED-SCC-CANONICAL-TRAVERSAL-2026-11-24.md).
+- Compare stable refinement with exact canonicalization for symmetric unordered components. Exact search matches the exhaustive classification of 772 small graphs, while two connected graph pairs collide under refinement. Directed edge roles and production bounds remain open. [Unordered recursive canonicalization](research/semantic-representation/RT-05/RT-05-UNORDERED-RECURSIVE-CANONICALIZATION-2026-11-24.md).
+- Compare exact directed, role-labeled recursive component identity on 2,496 components and 14,976 relabelings. Erasing direction, roles or multiplicity collapses distinct classes. Typed refinement still admits a symmetric collision. Keep ordered occurrence semantics, larger bounds and canonical bytes open. [Directed recursive roles](research/semantic-representation/RT-05/RT-05-DIRECTED-RECURSIVE-ROLES-2026-11-24.md).
+- Compare ordered executable occurrences with role-local order, unique steps and unordered call operands in a closed recursive fragment. Exact lowering preserves all 6,048 source observations and all 2,016 renamed or reordered surface keys. Every projection collapses behaviorally distinct sources. Keep general frontend correspondence, recursion policy and production bytes open. [Ordered recursive occurrences](research/semantic-representation/RT-05/RT-05-ORDERED-RECURSIVE-OCCURRENCES-2026-11-24.md).
+
+**Existing evidence:** `research/LLMLang-CONCEPT.md` describes the SPG and the three logical graph layers; dependency-graph scenarios 18–28 explore requirement evolution, dependency discovery, and formal dependency analysis.
+
+**Research output (2026-11-21)** · The typed SPG study proposes nodes, edges, layer boundaries, lifecycle and granularity. In a closed fixture, 32 pairs of source bodies produce byte-identical graphs and match an independent trace oracle on 224 paired inputs. The experiment also distinguishes exact calls from operation bindings, validates typed recursion in two group encodings, and checks lineage across equal-value selections. [Typed Semantic Program Graph](research/semantic-representation/RT-05/RT-05-TYPED-SEMANTIC-PROGRAM-GRAPH.md)
+
+**Research output (2026-11-21)** · Independent graph admission distinguishes persistence integrity from typed executable structure. Nine rehashed invalid graphs pass persistence and fail the new checker. [Typed SPG import validation](research/semantic-representation/RT-05/RT-05-TYPED-SPG-IMPORT-VALIDATION.md)
+
+**Repository representation evidence (2026-11-24)** · The closed declaration fixture preserves semantic roots and exact selections under 24 physical layouts. Packed and per-slot canonical export give different blob and byte costs for scoped updates. [Canonical Git layouts](research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-GIT-LAYOUTS-2026-11-24.md).
+
+**Status** · Partially validated for the closed scalar and ordered-event fixture. The canonical schema, wider language and repository correspondence, and identity rules remain open.
+### 1.2 Semantic identity, hashes, and canonical encoding
+
+- Compare guarded execution keys across 19,200 scope and edit pairs. The exact possible-provider set still allows 1,708 stale reuses when the selection relation changes. A per-state projection preserves all scoped observations in the fixture and permits 3,187 safe reuses. General guards and identity envelopes remain open. [Guarded dispatch identity](research/semantic-representation/RT-05/RT-05-GUARDED-DISPATCH-IDENTITY-2026-11-25.md).
+- Compare five native adapters for 181 I64 literals. Ordinary JavaScript Number changes 56 accepted values and collapses 46 distinct pairs before hashing. Exact numeric lexemes, decimal text and fixed-width hexadecimal preserve every input and the complete typed graph root. General canonical formats and other scalar types remain open. [Cross-runtime I64 encoding](research/semantic-representation/RT-05/RT-05-CROSS-RUNTIME-I64-ENCODING-2026-11-25.md)
+- Compare four F64 identity and wire policies over 210 binary words in five native settings. Tagged exact bits preserve every word. Canonical NaN preserves the tested numeric vector, while merging signed zeros changes a reciprocal observation. Ordinary JSON refuses 28 nonfinite cases. Whole-language floating-point semantics and target coverage remain open. [Cross-runtime F64 identity](research/semantic-representation/RT-05/RT-05-CROSS-RUNTIME-F64-IDENTITY-2026-11-25.md)
+
+**Existing evidence:** `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, `research/LLMLang-CONCEPT.md`, and the open questions LL-001–LL-008 in [open design questions](PLAN.md#open-design-questions).
+
+**Status:** researched; decision pending on canonical envelopes, dependency boundaries, stable-ID lifecycle, and exact `OpHash`/`ImpHash` payloads. The current project plan explicitly defers locking identity choices until cross-aspect synthesis.
+
+**Research output (2026-11-21)** · Python and Node agree on a typed UTF-8 identity fixture across 127 cases. The corpus distinguishes exact integers, Unicode, map order and identity domains. [Portable identity bytes](research/semantic-representation/RT-05/RT-05-PORTABLE-IDENTITY-BYTES.md)
+### 1.3 Contracts and compatible implementations
+
+**Existing evidence:** global semantic artifact store research; operation identity and analogue-discovery questions LL-001–LL-003; requirement/contract work in scenarios 15–19.
+
+**Status:** researched; decision pending on formal compatibility, refinement/substitution criteria, and the evidence needed for implementation selection.
+
+**Research output (2026-11-23):** [Contract versus implementation identity recheck](research/language-design/RT-04/RT-04-CONTRACT-VS-IMPLEMENTATION-IDENTITY-RECHECK-2026-11-23.md) reran the synthetic binding fixture on current main. It demonstrates two observably different implementations satisfying the same bounded contract, while caller compilation remains reusable only across a stable separately linked boundary. This supports separating OpHash from ImplHash and using explicit BindingHash when exact execution must be pinned; it does not prove general refinement/substitutability or settle the OpHash envelope.
+#### 1.3.1 Public interfaces and verified provider binding (RT-05/20; proposed)
+
+**Bounded refinement pilot (2026-11-24):** The [finite Python/Lean comparison](research/semantic-representation/RT-05/PUBLIC-INTERFACE-FINITE-REFINEMENT-PILOT-2026-11-24.md) checks 15 fixtures and distinguishes a direct public-body judgment from separate body and refinement obligations. The finite case theorem is kernel checked. Source-to-observation correspondence, independent review and the broader profiles remain open.
+
+**Observed scalar provider calls (2026-11-24):** The [typed-SPG observation pilot](research/semantic-representation/RT-05/PUBLIC-INTERFACE-SPG-OBSERVATION-PILOT-2026-11-24.md) compares two fixture source surfaces across 42 observations and checks 21 Python/Lean verdicts. Exact rebinds, stale provider promises, reordered effects and budget exhaustion discriminate the admission methods. Full source-to-contract correspondence and owned-runtime integration remain open.
+
+**Comparison result:** The finite pilot narrows admission-policy choices: signature-only admission is insufficient for the observed effect, error and ownership cases; direct checking against the public contract and separate checking of a provider-owned contract plus refinement each catch fixture violations, but the latter adds a distinct provider-claim obligation and rejects narrower or overbroad claims. Both preserve `unknown` for missing observations. Distinct conforming bodies may still produce different allowed outputs, so admission does not prove substitutability or justify cache reuse. Remaining external dependencies are actual-source lowering into the finite observations, a pinned Lean 4.36.0 fresh rerun, independent checker review, richer protocol/liveness/resource semantics, authorization and package-publication integration, ABI/runtime conformance, and workload-based comparison. No implementation choice is selected.
+
+**Exact receipt applicability after rebinding (2026-11-24):** The [rebind pilot](research/semantic-representation/RT-05/PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md) composes the reproduced scalar observations in six evidence submissions. A stable caller claim has a new exact verification key when its provider premise changes. Fresh evidence for only one obligation leaves the aggregate insufficient, and a failed provider promise refutes the aggregate. Production receipt authorization remains open.
+
+**Modular scalar caller theorem (2026-11-24):** The [Lean pilot](research/semantic-representation/RT-05/PUBLIC-INTERFACE-MODULAR-CALLER-2026-11-24.md) proves a caller contract from the abstract provider contract for every integer in a handwritten model. Two provider witnesses discharge the same theorem and three controls fail conformance. The 100 typed-SPG observations check finite source correspondence. General source correspondence, failure and ownership semantics, and authorization remain open.
+### 1.4 Core language semantics (RT-03)
+
+- Survey the principal semantic dimensions: value/computation model, evaluation strategy, purity and state, errors and cancellation, determinism, effects and observations, concurrency, termination/resources, and module composition.
+- Compare four coherent candidate profiles: pure functional (A), imperative/linear (B), concurrent/actor (C), and effectful functional (D).
+- Record major compatibility tensions and cross-aspect implications for types, SPG/identity, dependency analysis, proofs, compiler/IR, runtime, cache, semantic merge, security, and conformance.
+- Define an initial shared observable-behavior vocabulary and finite representative corpus for pure results, explicit errors, ordered effects, handler outcomes, and final fixture state; broader language coverage remains open.
+- Implement a bounded executable reference-semantics slice for RT-03 candidates A and D over the shared fragment; it is an exploratory interpreter, not a complete semantics or profile selection.
+- Implement a second RT-03 evaluator using an independent small-step control/value-stack algorithm and differentially compare complete traces/results/final fixture state against the recursive evaluator, including nine generated two-write cases. This is algorithmic independence, not independent specification review.
+- Add an explicit `result_sequence` construct to both RT-03 evaluators: propagate the first Result error unchanged, skip later expressions, return the final success when all items succeed, and reject non-Result items. Differential tests also prove ordinary `sequence` remains strict and unchanged. This is an explicit prototype construct, not implicit call propagation, exceptions, cancellation, or cleanup semantics.
+- Add a distinct terminal `cancel` outcome to both RT-03 evaluators. Cancellation discards pending continuations, preserves already completed effects, and is observably distinct from a Result error even with the same reason payload. Differential tests cover cancellation inside nested Result/ordinary sequences. This is a synchronous control-flow slice only; async/concurrent cancellation, call boundaries, resource unwinding, and cleanup remain open.
+- Add a structured `with_resource` scope to both RT-03 evaluators. It records acquisition/use/release, releases after success and Result error, unwinds nested scopes LIFO on cancellation, preserves primary plus cleanup failures, and exposes unreleased resources when release fails. Differential tests cover acquisition failure, cleanup after errors/cancellation, nested unwind order, and cleanup failure aggregation. This is a fixture-level structured resource protocol, not an ownership/borrow checker; branching, transfer/return, async behavior, and source-to-scope completeness remain open.
+- Add a bounded boolean `if` expression to both RT-03 evaluators. Only the selected branch executes; malformed non-boolean conditions fail closed. Differential scenarios verify that enclosing resource scopes release after branch Result errors and cancellation. This covers concrete execution paths only; symbolic/path-sensitive completeness and independent path-model review remain open.
+- Add a third RT-03 structural path model that imports neither evaluator and independently enumerates bounded branch/resource paths. It forks non-literal conditions, respects literal booleans, models cancellation during condition evaluation, LIFO cleanup, cleanup failures, active-resource leftovers, and explicit Result-sequence short-circuiting. Tests compare predicted resource event sequences and final active-resource sets against both evaluators over a finite corpus. This is not a source-level CFG extractor or proof of branch completeness; symbolic path feasibility, source-to-expression completeness, and independent human/formal review remain open. Extend the cross-check with an exhaustive 72-case matrix over branch choice, two nested release success/failure flags, and selected/unselected normal, Result-error, and cancellation expressions. Tighten the analysis vocabulary so unknown conditions require an explicit `unknown_bool` marker, reject literal non-boolean conditions, and traverse nested addition/Result wrappers without missing cancellation paths. Add a fourth, independently derived resource outcome-algebra model that computes exact acquire/release traces, cleanup-error precedence, cancellation cleanup aggregation, and retained resources. Compare its exact outputs against both evaluators and projections against the path model over 144 generated cases (scope depths 1–3, all release flags, normal/Result-error/cancellation outcomes, and each acquisition-failure position). This validates only the bounded fixture protocol; it does not settle ownership/borrowing/transfer semantics.
+- Extend the bounded reference corpus with Result propagation, resource acquire/use/release, cleanup, cancellation, branching, an independent structural path model, and an independent resource outcome-algebra model. The latter compares exact traces/results/final resources against both evaluators over a 144-case generated matrix. These are finite executable cross-checks, not a formal proof or external review; broader observations and independent review remain open.
+- Compare seven binary64 extrema rules on 1,024 ordered pairs across glibc, SSE2, Rust, Node and CPython. The observed families require five distinct numeric rules for NaN selection and equal-operand ties. Target-wide semantics, status flags and lowering proofs remain open. [Native F64 minimum and maximum](research/semantic-representation/RT-05/RT-05-NATIVE-F64-MINMAX-2026-11-25.md)
+- Compare five binary64-to-integer conversion policies across 216 words and seven native configurations. Checked truncation and integral-only conversion differ on 85 words. Every configuration rounds `INT64_MAX` to `+2^63`, which an inclusive check wrongly admits. Cross-target lowering and the operation contract remain open. [Cross-runtime F64 to I64 conversion](research/semantic-representation/RT-05/RT-05-F64-I64-CONVERSION-2026-11-25.md)
+- Extend the bounded experiment set with typed calls, owned-resource return and cleanup alternatives, recursion/fuel, and actor blocking/progress; record the limits in Scenarios 35–41 and the RT-03/04 shared corpus. These are comparative probes, not selected language rules.
+- Execute Scenario 97's six cleanup-error composition candidates over its 12 discriminators and a 13,230-case valid outcome/ownership product; cross-check resource obligations with a separate audit projection. This distinguishes cause carriers while leaving policy choice and source-level completeness open.
+- Exhaust all 128 concrete assignments of a seven-condition RT-03 AST fixture and compare them with eight structural paths and both evaluators; record the parser/source-extraction limits in Scenario 98. This is finite AST-path evidence, not source-language completeness.
+- Constrain repeated occurrences of the same `unknown_bool` marker to reuse their earlier path choice; compare both concrete assignments against the two feasible paths in Scenario 99. This is marker-identity correlation only, not general symbolic feasibility or source value-identity evidence.
+- Exhaust all four assignments in a two-variable Boolean predicate IR for sequential `x` and `x or y` branches; compare the three feasible path vectors and concrete witnesses with both evaluators and resource traces in Scenario 100. This is an exponential finite truth-table model, not a solver or source-CFG completeness result.
+- Cross-check Scenario 100 route sets and replayable witnesses with pinned SymPy 1.14.0 DPLL2; compare truth-table and solver medians on a conjunction family through 18 Boolean inputs in Scenario 101. The performance result covers one easy family only; solver trust, hard formulas, a real timeout boundary, and source correspondence remain open.
+- Compare exact finite, tri-state, bounded-hybrid, and proof-carrying path-pruning policies in Scenario 102. Eight result-policy fixtures verify that replayable witnesses establish feasibility and that timeout/UNKNOWN/errors or untrusted UNSAT do not prune a possible path; 128 fixed-seed formulas cross-check route sets and witnesses against exhaustive enumeration. This does not exercise a real solver timeout or establish source correspondence.
+- Exercise one real solver wall-clock limit through a per-query worker; a hard pigeonhole query is killed/reaped and remains UNKNOWN in Scenario 103. This is one pinned-backend case, not a performance distribution or general worker architecture validation.
+- Exhaust a two-state mutable Boolean fixture across name-conflated, unlinked versions, and transition-constrained versions in Scenario 104; name reuse across a write loses both reachable routes, while correct transition constraints recover the concrete route set. Aliasing and source/IR extraction remain open.
+- Compare pure, known-toggle, and unknown/may-write call summaries over the exhaustive Boolean state-pair domain in Scenario 105; incomplete summaries must havoc caller-visible state in the bounded model or they can drop reachable routes. Source-derived effect and alias summaries remain open.
+- Exhaust the two-field call-site alias domain for exact, disjoint, may-alias, and unknown points-to cases in Scenario 106; field-sensitive precise aliases preserve routes while incomplete alias sets broaden them conservatively. General source-derived points-to analysis remains open; Scenario 107 covers only a tiny AST subset.
+- Derive a toggle summary and branch-joined call alias sets from a bounded Python-shaped AST subset in Scenario 107; eight cases preserve all concrete routes, while non-relational joins can add infeasible routes. General parsing, source/CFG completeness, and path-sensitive alias analysis remain open.
+- Compare joined may-alias analysis with finite path-sensitive summary execution in Scenario 108; enumerating 16 fixture valuations removes two infeasible routes from a correlated-alias case and preserves all routes for independent alias choices. This is a bounded exact enumerator, not a scalable symbolic analysis.
+- A restricted source-derived CFG reproduces 128 CPython executions over effectful guards, nested cleanup, pending handle return and error causes. Executions cover all 84 source call spans in the generated corpus. LLMLang source typing, asynchronous unwinding and general source correspondence remain open. [Source cleanup CFG](research/language-design/RT-03/RT-03-SOURCE-CLEANUP-CFG-2026-11-25.md)
+
+**Evidence:** [RT-03 — Core Language Semantics](research/language-design/RT-03/CORE-LANGUAGE-SEMANTICS.md).
+
+**Status:** researched at the candidate-survey level; partially validated only as a map of options and trade-offs. No semantic profile, evaluation strategy, effect model, or complete observation model has been accepted. The existing QF_LIA/Lean/Logos work covers a narrow relational fragment and is not a complete language semantics.
+#### 1.4.1 Type, effect, ownership, and capability alternatives (RT-04)
+
+- Survey type identity/compatibility, refinement and typestate, inference, effect representations/handlers, ownership/borrowing/lifetimes, capabilities, concurrency/memory models, and error/resource outcomes.
+- Cross-map candidate RT-04 mechanisms against RT-03 profiles A–D without selecting a profile.
+- Record candidate hash-boundary questions for operation contracts, implementations, conformance classes, and verification evidence.
+- Implement the first executable RT-04 declaration-level comparison for refinement, transitive effect summaries, capabilities, and affine resource consumption; add 12 focused unit tests and record the limits. This is one exploratory checker model, not two complete reference semantics.
+- Extend Profile B with a finite CFG resource-flow experiment and tests for branch-consistent joins, inconsistent joins, repeated consumption, loops, and malformed CFG references. This validates only the supplied CFG model, not source-to-CFG completeness.
+- Add direct/transitive effect-bound validation and fixtures requiring UNKNOWN for missing call-graph completeness or unresolved callees; retain definite rejection when a known effect already exceeds the bound. The completeness list is fixture-level asserted metadata, not authenticated source-analysis evidence.
+- Extend the executable corpus with typed call-site arity, argument-type, and expected-result checks plus a structural `Result<Ok, Err>` type-constructor experiment. Typed call-site targets must also occur in the coarse call graph; missing callee signatures yield UNKNOWN. This remains a declaration-level experiment, not source type inference or a selected ADT semantics.
+- Add a Profile B scoped-capability grant experiment: hierarchical POSIX path scopes, parent-child attenuation, explicit call-site grant delegation, recipient acceptance, and ancestor revocation propagation. Missing delegation yields UNKNOWN; malformed or over-broad grants fail closed. This is fixture-level static checking, not runtime token authentication or revocation.
+- SQLite WAL checks grant ancestry across concurrent revoke, reissue and effect publication in 45 process-pair runs. Leaf-only validation admits two stale effects, and a global epoch refuses one unaffected operation. An exact-chain writer transaction and checked snapshot retry agree in this local effect scope. [Concurrent grant revocation](research/language-design/RT-04/RT-04-CONCURRENT-GRANT-REVOCATION-2026-11-25.md)
+- The Cortex-M3 ISR fixture derives direct call and tail-branch coverage from the exact linked artifact and pins primitive effects to body bytes. It preserves `UNKNOWN` for indirect targets and stale effects. Source-level completeness remains open. [Transitive ISR effects](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-TRANSITIVE-ISR-EFFECTS-2026-11-24.md).
+- Add a first shared observable-trace fixture oracle for RT-03 profiles A and D and cross-check it against RT-04 checker vectors A and B; cover pure return, declared filesystem read, ordered writes, and undeclared effects. This is a finite compatibility oracle, not a second complete reference semantics. See [cross-profile trace report](research/language-design/RT-04/RT-04-RT-03-CROSS-PROFILE-TRACES.md).
+- Implement a second independently derived resource outcome-algebra model and compare its exact resource traces/results/final maps against both RT-03 evaluators, plus the structural path model's resource projections, over 144 generated cases. This is independent corroboration only for the bounded resource-scope outcome rules; it is not a second complete cross-aspect semantics model.
+- Derive ownership obligations at a named call from a bounded callee AST and declared close contracts. Across 4,096 concrete inputs, the inferred result shapes match the disposition model. The checker detects dropped obligations and caller matches that become incomplete after a close contract changes. [Scenario 119](research/language-design/RT-04/RESEARCH-SCENARIO-119-OWNED-RESULT-MATCHING.md)
+- Probe errors with retention, errors with consumption, and successful deferred destruction on a versioned SQLite library. An outstanding statement changes the valid recovery path. [Scenario 120](research/language-design/RT-04/RESEARCH-SCENARIO-120-SQLITE-CLEANUP-DEPENDENCIES.md)
+- Compare a close precondition, busy recovery, and deferred destruction on 510 bounded plans. SQLite agrees with all 356 admitted traces. Local recovery and forwarding differ when an outside owner retains a dependent statement. [Scenario 121](research/language-design/RT-04/RESEARCH-SCENARIO-121-SQLITE-LOCAL-CLOSE-RECOVERY.md)
+- Derive close preconditions from a source fragment and compare complete source proof with snapshot freshness over 4,116 executions. A native SQLite probe confirms that an intervening prepare invalidates an empty observation. [Scenario 122](research/language-design/RT-04/RESEARCH-SCENARIO-122-CLOSE-EVIDENCE-FRESHNESS.md)
+- Compare four close policies on a shared workload with local cleanup, an outside owner, and a foreign call. SQLite agrees at 114 call boundaries. Guard refusal and busy retain the connection, while deferred close can return before destruction. [Scenario 123](research/language-design/RT-04/RESEARCH-SCENARIO-123-CLOSE-CALL-BOUNDARY.md)
+- Compare version validation and guarded close across 11 schedules on serialized SQLite. A shared lock excludes an intervening prepare when the producer uses that lock. A producer through an alias with a different lock can still make close busy. [Scenario 124](research/language-design/RT-04/RESEARCH-SCENARIO-124-CLOSE-SYNCHRONIZATION.md)
+- Check reentry under a recursive guard and compare statement enumeration against distinct dependent kinds. SQLite matches 12 callback cases and 8 close calls. A source backup can make close busy with an empty statement list. [Scenario 125](research/language-design/RT-04/RESEARCH-SCENARIO-125-CLOSE-REENTRY-AND-COVERAGE.md)
+- Compare identity-aware roles and reservation policies for an FFI operation with two resources. Across 432 plans, acquisition in role order admits deadlock, while identity order and all-or-none reservation avoid it in the fixture. SQLite checks source sharing, rejection, and retry after failed initialization. [Scenario 126](research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-126-MULTI-RESOURCE-FFI-ROLES.md)
+- Derive correlated resource identities and a conditional release across two FFI calls. An independent oracle checks 147,456 inputs. Complete routes certify 232 programs, versus 214 with independent call pairs and 156 with separate role sets. [Scenario 127](research/language-design/RT-04/RESEARCH-SCENARIO-127-SOURCE-ROLE-CORRELATION.md)
+- Compare outcome types after admitted multi-resource FFI calls. Release on every error admits 288 conflicts in 1,728 inputs. Bounded reconciliation obligations preserve compatible shared roles. SQLite confirms that `backup_finish` consumes the backup when reporting a prior step error. [Scenario 128](research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md)
+- Compare cancellation evidence keyed to an invocation with an acknowledgment policy and a role-pair key. Each weaker policy admits 96 conflicts in 5,376 inputs. A scheduled worker reproduces acknowledgment before completion. [Scenario 129](research/runtime-and-systems/RT-10/RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md)
+- Recover terminal evidence after process interruption on a durable journal. Ten SQLite traces distinguish an atomic effect and result from two commits. A committed generation survives fresh allocator processes and fences delayed old results. [Scenario 130](research/runtime-and-systems/RT-10/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md)
+- Run the COR-13 ownership and cleanup workload through two execution models. They agree on 5,184 inputs including aliased later calls, and the observed result shapes match static inference. [Scenario 131](research/language-design/RT-04/RESEARCH-SCENARIO-131-SHARED-OWNED-RESULT-WORKLOAD.md)
+- Compare typed forwarding and recovery at the COR-13 caller. The model and oracle agree on 20,736 inputs per fixture. Recovery enables 1,380 additional starts, with release effects and diagnostics recorded separately. [Scenario 132](research/language-design/RT-04/RESEARCH-SCENARIO-132-TYPED-CALLER-RECOVERY.md)
+- Run the checked COR-13 caller through generated Rust under both transfer rules. Two optimization levels match the reference on 62,976 traces each, including a changed alias binding. [Scenario 133](research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
+- The Linux descriptor-transfer comparison finds false admission after successful send and sender close, before any receive receipt. A replay that tracks queued and received references matches 696 lock observations. General source binding, aliased endpoints and authenticated release remain open. [Queued foreign ownership](research/language-design/RT-04/RT-04-QUEUED-FOREIGN-OWNERSHIP-2026-11-25.md)
+
+**Evidence:** [RT-04 alternatives report](research/language-design/RT-04/RT-04-TYPE-EFFECT-OWNERSHIP-AND-CAPABILITY-ALTERNATIVES.md); [Prototype 01 implementation and tests](research/PROTOTYPES/RT-04-01/README.md); [Prototype 01 results](research/language-design/RT-04/RT-04-PROTOTYPE-01-RESULTS.md); [scenario matrix](research/language-design/RT-04/RT-04-PROTOTYPE-01-SCENARIOS.md).
+
+**Status:** comparative survey and bounded prototypes are in place, but no type/effect/ownership/capability architecture is selected. The corpus now includes typed calls, owned-resource returns, cleanup dispositions/composition, effect-bound and capability checks, shared RT-03/RT-04 trace fixtures, and independent resource outcome/obligation projections. New studies include [COR-13](research/language-design/RT-04/RESEARCH-COR-13-TYPED-OWNERSHIP-ACROSS-CALLS.md), [Scenario 35](research/language-design/RT-04/RESEARCH-SCENARIO-35-RESOURCE-RETURN-AND-CLEANUP.md), and [Scenario 97](research/language-design/RT-04/RESEARCH-SCENARIO-97-CLEANUP-ERROR-COMPOSITION-AND-OWNERSHIP.md). The call-graph completeness metadata remains fixture asserted rather than source/snapshot-bound; source-to-CFG and path-condition completeness, ordered effect summaries, row unification/handler coverage, trusted capability evidence, and concurrent revocation remain open. Independent review and reconciliation with RT-05 identity and RT-07 proof boundaries are required before hash-boundary or architecture decisions.
+
+**Research output (2026-11-21)** · Valuation-indexed ordered effect summaries match 128 executions. Combining independent callee summaries introduces 28 impossible traces across 16 programs. [Ordered call effects](research/language-design/RT-04/RT-04-ORDERED-CALL-EFFECT-SUMMARIES.md)
+
+**Owned-return contract discriminator (2026-11-24):** The [RT-04 native comparison](research/language-design/RT-04/RT-04-OWNED-PROVIDER-CONTRACT-REPLAY-2026-11-24.md) reproduces 256 traces and separates early and staged transfer in 24 failed-cleanup pairs. An error flag alone loses the ownership and subsequent-admission distinctions. General source, foreign-resource and public-binding integration remain open.
+
+**Foreign cleanup and descriptor aliases (2026-11-24):** The [Linux FFI probe](research/language-design/RT-04/RT-04-LINUX-OWNED-CLEANUP-2026-11-24.md) checks 64 native traces with a real `fclose` error and an independently opened lock contender. A surviving duplicate can preserve the underlying lock after staged cleanup closes the original descriptor. General source correspondence, cross-platform behavior and concurrent alias reconciliation remain open.
+### 1.5 Prior-art study for semantic representation and identity
+
+- Compare Unison's content-addressed code identity and codebase model.
+- Compare Git's object model and DAG with semantic object identity.
+- Compare LLVM IR identity and canonicalization limits.
+- Compare content-addressed artifact stores and package registries.
+- Identify which ideas can be reused without making a target IR or source syntax the semantic authority.
+
+**Research output (2026-11-23):** [RT-15 prior-art identity and storage comparison](research/toolchain-and-collaboration/RT-15/RT-15-PRIOR-ART-IDENTITY-AND-STORAGE-COMPARISON-2026-11-23.md) reviews primary sources for Unison, Git, LLVM, Nix, Bazel, OCI, and Maven. Candidate synthesis keeps semantic objects, Git history, ActionKeys, artifact bytes, package references, and authenticated evidence as distinct layers. This closes the comparative survey only; the semantic object model, canonical identity payloads, dependency closure, compatibility rules, and trust policy remain open under §§1.1–1.3, 3.1–3.3, and 7.4.
+## Stage 2 — Formal semantics and verification foundation
+
+**RT-36 — Formal verification assumptions, trust boundaries and conditional proof management (P0; research proposed).** [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](research/formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md); [Issue #436](https://github.com/aivibeflow/LLMLang/issues/436). Exit: typed premise and authorization model, status/closure semantics, independently checked conditional/discharge pilot, exact binding and revocation tests, adversarial benchmark, reproducible evidence and independent review. Keep local theorem checks, system closure and policy admission distinct.
+
+**RT-33 — Proof backend selection and verification orchestration (P0; comparative experiments in progress).** Investigate a backend-independent Contract IR / proof-obligation pipeline that classifies obligations and selects or combines Lean, SMT, TLA+, or other engines using explicit capability profiles. Define conservative abstention, translation correspondence, trust boundaries, cross-backend evidence composition, result states, provenance, and incremental invalidation. Evaluate using the contract formalization corpus plus state-transition/concurrency cases. This generalizes RT-32; it does not make Lean the universal verifier or select any backend as normative. See [RT-33](research/formal-verification/RT-33/RT-33-PROOF-BACKEND-SELECTION-AND-ORCHESTRATION.md) and [issue #390](https://github.com/aivibeflow/LLMLang/issues/390). The [kernel-checked symbolic correspondence](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/SYMBOLIC-TRANSITION-CORRESPONDENCE.md) covers every register-state boundary in the Lean transition model for arbitrary integer inputs. The [Lean-owned SMT query experiment](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/SYMBOLIC-SMT-QUERY.md) emitted the proved typed mismatch predicate as SMT-LIB for three controls and replayed the solver model. Source representation, general SMT-LIB denotation, and checked certificates remain open.
+
+The [RT-33 bounded Lean comparison](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/LEAN-TRANSITION-STATE.md) checked all 798 finite state claims against cvc5 on matching fixture scope. Lean checked 712 equalities and 86 inequalities. TLC, translation correspondence outside the sampled cases and evidence composition remain open.
+
+The [RT-33 evidence composition experiment](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/EVIDENCE-COMPOSITION.md) admitted 2,394 pinned receipts for 798 exact finite obligations. Its controls reject stale premise closure and weakened observation scope, and preserve conflicts and conditional results. Production artifact trust and persistent dependency invalidation remain open under [#397](https://github.com/aivibeflow/LLMLang/issues/397).
+
+**RT-33 research output:** the [cvc5 state experiment](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/SMT-TRANSITION-STATE.md) recorded 86 replayed counterexamples across 798 fixed transition cases. The [three-backend comparison](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/TLC-TRANSITION-STATE.md) also checked 2,778 distinct trace-prefix states in TLC and reproduced its counterexample. A final-state-only control missed a transient mismatch. General translation correspondence, symbolic inputs, effects, temporal obligations, and SMT certificates remain open under [#395](https://github.com/aivibeflow/LLMLang/issues/395).
+
+The [symbolic CPC experiment](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/SYMBOLIC-CPC-CERTIFICATES.md) checked two cvc5 certificates against their exact archived source assertions in Logos. The final-boundary certificate was rejected for the all-boundary query. Complete checker soundness verification and general correspondence across the text boundary remain open.
+### 2.0 Automatic complexity inference and resource verification (RT-34)
+
+**Priority:** P0 foundations/pilot, P1 advanced domains. **Status:** Research brief and benchmark plan established. The nested-loop pilot checks a scoped cost model; general inference and other benchmark cases remain open. [RT-34](research/formal-verification/RT-34/RT-34-AUTOMATIC-COMPLEXITY-INFERENCE.md) · [Benchmark plan](research/formal-verification/RT-34/RT-34-COMPLEXITY-BENCHMARK.md) · [Issue #412](https://github.com/aivibeflow/LLMLang/issues/412).
+
+- A scoped affine call proof binds the selected provider, event weights, size domain and exact budget. Reusing a functional contract certifies five false budgets in 11 snapshots, while exact rebinding resolves seven and leaves four unknown. General resource Contract IR and authenticated provider evidence remain open. [Call-cost proof binding](research/formal-verification/RT-34/RT-34-CALL-COST-BINDING-2026-11-25.md)
+- The nested-loop pilot proves exact abstract event counts and sound dependent and rectangular envelopes over natural sizes. It checks 536 generated-C observations and detects guard omission and added work. General extraction, recursion, foreign cost and independent adjudication remain open. [Nested-loop cost](research/formal-verification/RT-34/RT-34-NESTED-LOOP-COST-2026-11-25.md)
+
+The [binary-search cost pilot](research/formal-verification/RT-34/RT-34-BINARY-SEARCH-PROBE-BOUNDS-2026-11-25.md) proves the exact positive-size probe bound for the halving model and checks 13,354 sorted input pairs per native profile. A singleton stall falsifies a retained-midpoint update. Membership correctness and arbitrary compiler/source correspondence remain separate.
+
+The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RECURRENCE-2026-11-25.md) checks tight abstract comparison recurrences and exact writes at power-of-two sizes. The native corpus distinguishes input-dependent comparisons, an incorrect equal-floor recurrence and a split without progress. General recursion extraction and independent review remain open.
+### 2.1 Formal semantics of the language
+
+**Existing evidence:** `research/LLMLang-FORMAL-VERIFICATION.md`, `research/LLMLang-CONCEPT.md`, typed requirement IR and formal dependency scenarios 25–33.
+
+**Status:** partially researched; a complete language semantics is not yet established.
+### 2.2 Proof architecture and proof boundary
+
+**Existing evidence:** scenarios 28–33, prototype 29, Lean CPC parser-state binding prototype, Logos integration, and `research/LLMLang-FORMAL-VERIFICATION.md`.
+
+**Status** — Partially validated. The pinned Lean 4.34.0 and Logos CI run validated the parser-state bridge, typed renderer and JSON decoder. Scenario 34 proves source-to-query preservation in the independent Lean IR for the finite Int/Bool fragment, including paired command executions. The connection from the proved formula to serialized queries and CPC assumptions remains open. [CI run 44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422) · [Scenario 34](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md)
+### 2.3 Lean, Logos, SMT, and solver integration
+
+- Complete explicit Lean build and test validation for the pinned Lean 4.34.0 environment and pinned Logos revision; CI run [44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422) passed all build and test steps.
+- Implement the CPC parser-state bridge and exact symbol identity binding; obtain a successful pinned CI build and adversarial validation (CI run 44175854422 passed the existing parser-state tests).
+- Implement construction of expected `Eo.Term` values from the canonical typed Relational Query IR; the pinned CI renderer and AST-equivalence tests pass. Full end-to-end validation against source-derived CPC assumptions remains open.
+- Implement strict versioned JSON decoding and rejection of malformed or unsupported input; the full pinned CI test step, including adversarial decoder tests, passes.
+- Kernel-check expression-level source-to-query preservation for the typed Int/Bool expression fragment. [CI run 44175854422](https://github.com/aivibeflow/LLMLang/actions/runs/44175854422)
+- Verify the CPC parser-state bridge and exact assumption-list binding adversarially for the version-2 relational-query envelope; pinned Lean CI run [44185102839](https://github.com/aivibeflow/LLMLang/actions/runs/44185102839) passed parser-state binding and factor-pair fixtures. This binds the CPC assumptions to the decoded query; it does not prove the decoded query is semantically derived from source.
+- Prove that the canonical Lean formula is satisfiable exactly when admissible paired executions differ at the selected input and in the return or selected state. Bind every formula symbol to its source declaration and sort (SCW-26–28). [Scenario 34](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#75-paired-execution-and-relational-query)
+- Prove that lowering the formula from each admitted program, contract and factor produces a term in the strict QF_LIA profile (SCW-29). [Scenario 34](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
+- Prove that every symbol in the lowered solver term has exactly one declaration of the right sort and resolves to its original source binding (SCW-30). [Scenario 34](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
+- Prove that an accepted version-2 JSON envelope carries the exact Lean-generated declarations and typed terms, and check Int and Bool fixtures (SCW-31). [Typed JSON correspondence](research/formal-verification/RT-07/RT-07-TYPED-JSON-CORRESPONDENCE.md)
+- Carry the supported Lean formula and exact declarations through Logos rendering and CPC assumptions, and document the checked boundary (SCW-32–34). [Scenario 34](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
+- Test SAT/UNSAT/UNKNOWN handling and one-query worker protocol failures (startup timeout, invalid handshake, crash, malformed response, mismatched request ID, backend error, and late response). The current Python/SymPy worker preserves UNKNOWN for incomplete outcomes; this does not validate other solvers, persistent pools, or Lean/Logos/CPC production integration. [RT-00 solver-worker protocol audit](research/research-management/RT-00/RT-00-C-SOLVER-WORKER-PROTOCOL-AUDIT-2026-11-25.md)
+
+**SCW-32 sort and finite denotation evidence:** [Logos sort preservation](research/formal-verification/RT-07/RT-07-LOGOS-RENDERED-SORTS.md) proves the pinned Logos type function agrees with every successfully rendered typed query term. The [finite denotation comparison](research/formal-verification/RT-07/RT-07-LOGOS-SCALAR-DENOTATION-2026-11-24.md) agrees on 1,536 expression evaluations and both assumptions for each of 96 concrete pairs through the actual Logos SMT translation. Same-sort controls distinguish type checking from interpretation. General interpretation preservation remains open.
+
+**SCW-32 scalar preservation:** The [kernel theorem](research/formal-verification/RT-07/RT-07-LOGOS-SCALAR-PRESERVATION-2026-11-24.md) proves preservation for arbitrary typed source expressions under related constant valuations through the actual Logos SMT translation into the restricted evaluator. Establishing the relation for arbitrary wire/parser program bindings and connecting the evaluator to upstream model semantics remain open.
+
+**SCW-32 exact constant valuations:** The [valuation proof](research/formal-verification/RT-07/RT-07-LOGOS-VALUATION-BINDING-2026-11-24.md) proves that successful table construction realizes the typed values of every resolved parser constant. The same check rejects identity aliases before evaluation. Relating arbitrary paired program inputs to the wire valuation and connecting the restricted evaluator to upstream semantics remain open.
+
+**SCW-32–33 program assumption meaning:** The [program bridge theorem](research/formal-verification/RT-07/RT-07-LOGOS-PROGRAM-ASSUMPTIONS-2026-11-24.md) relates the two exact parsed assumptions at any successfully constructed wire valuation to dependence in the corresponding pair of source executions. Existing example envelopes retain their exact bytes. The [concrete-pair lifting theorem](research/formal-verification/RT-07/RT-07-LOGOS-CONCRETE-PAIR-LIFTING-2026-11-24.md) proves the reverse direction after a successful validation of the parser table shape.
+
+**SCW-32/34 upstream scalar model semantics:** The [upstream model proof](research/formal-verification/RT-07/RT-07-LOGOS-UPSTREAM-SCALAR-MODEL-2026-11-24.md) proves agreement with the pinned `Cpc.SmtModel` for every successfully evaluated restricted term when constant valuations agree. The two verification toolchains compile the same evaluator source. Existence of a well-formed upstream model for each accepted valuation, compatibility of proof artifacts and complete checker soundness composition remain open.
+
+**SCW-34 single-kernel program composition:** The [Lean 4.34 composition](research/formal-verification/RT-07/RT-07-LOGOS-SINGLE-KERNEL-PROGRAM-2026-11-24.md) compiles the LLMLang source theorem and upstream model proof in the same verification kernel, then proves the meaning of the ordered CPC assumptions for related models. The usual Lean 4.36 path still passes. Concrete-pair lifting and application of complete checker soundness remain open.
+
+**SCW-34 well-formed model extension:** The [model extension proof](research/formal-verification/RT-07/RT-07-LOGOS-MODEL-EXTENSION-2026-11-24.md) extends each scalar valuation by overriding exact constant names and sorts. The overlay preserves a provided well-formed model with standard Lean axioms. Unconditional existence uses one additional upstream `native_decide` axiom. The trust disposition and complete checker composition remain open.
+
+**SCW-34 kernel model witness:** The [isolated Logos rebuild](research/formal-verification/RT-07/RT-07-LOGOS-KERNEL-MODEL-WITNESS-2026-11-24.md) replaces the empty-language canonicity proof with `rfl` and checks unconditional model existence using standard Lean axioms. The pinned dependency retains the published axiom until a dependency decision. The completed verdict proof audit below establishes its wider native computation boundary.
+
+**SCW-34 conditional source refutation:** The [composition theorem](research/formal-verification/RT-07/RT-07-LOGOS-SOURCE-REFUTATION-COMPOSITION-2026-11-24.md) proves equal observations for any admitted source pair with distinct selected inputs from the exact runtime certificate, a validated binding table, a well-formed base model and the typed Logos verdict soundness premise. The full upstream proof is supplied in the following audit. The native computation trust decision remains open.
+
+**SCW-34 pinned verdict proof audit:** The [complete rule build and source composition](research/formal-verification/RT-07/RT-07-LOGOS-VERDICT-PROOF-2026-11-25.md) checks the conditional source claim with the actual upstream verdict theorem in Lean 4.34. The four verdict and composed claims have the same 2,118 native computation axioms. Explicit acceptance of that boundary or an admissible replacement remains external.
+
+**Existing evidence:** scenarios 29–33; `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/`; Lean QF_LIA profile/admissibility modules and focused tests; CI workflow.
+
+**Restricted affine proof route:** The [Lean certificate checker](research/formal-verification/RT-07/RT-07-RESTRICTED-AFFINE-CERTIFICATES-2026-11-25.md) refutes two exact archived QF_LIA assertions and a weighted control using standard Lean axioms. It checks coverage of all branches and abstains on a satisfiable control and an integer-only contradiction. General SMT-LIB correspondence, stronger proof rules and routing policy remain open.
+
+**Direct CPC evidence (2026-11-21)** · A source-derived flat CPC refutation passes the assumption and verdict gates. A refutation of a substituted query passes standalone Logos and fails source binding. [Source-bound CPC refutation](research/formal-verification/RT-07/RT-07-SOURCE-BOUND-CPC-REFUTATION.md)
+
+**Solver worker protocol evidence (2026-11-25)** · The bounded one-shot worker recheck distinguishes startup timeout and process exit from malformed protocol data, and keeps incomplete SAT/UNSAT results UNKNOWN at the path-classifier boundary. Other backends, persistent workers, production resource isolation, and the source/Lean/JSON/Logos/CPC integration remain unvalidated; see [the protocol audit](research/research-management/RT-00/RT-00-C-SOLVER-WORKER-PROTOCOL-AUDIT-2026-11-25.md).
+
+**CPC alias evidence (2026-11-21)** · A closed proof profile can admit disjoint nullary abbreviations while checking actual top-level constant declarations separately. [CPC alias binding](research/formal-verification/RT-07/RT-07-CPC-NULLARY-ALIAS-BINDING.md)
+
+**SCW-33 acceptance evidence:** [Exact CPC binding and verdict](research/formal-verification/RT-07/RT-07-BOUND-CPC-VERDICT.md) ties every accepted source-wire query to the ordinary parser's ordered assumptions and exact command stream used by Logos. Interpretation of rendered terms and the wider checker trust boundary remain open.
+
+**Status** — Partially validated. Pinned CI passed the version-2 CPC parser-state and factor-pair tests in run 44185102839. SCW-06–31 connect the checked Int/Bool AST to the typed JSON query. The source-wire checker binds parsed assumptions and commands to the exact query at runtime. The supported source implication composes with the full pinned upstream verdict proof relative to its audited axioms. Wider source correspondence, certificate profile admission and upstream trust disposition remain open. [Scenario 34 proof boundary](research/formal-verification/RT-07/RESEARCH-SCENARIO-34-SOURCE-TO-QUERY-SEMANTIC-CORRESPONDENCE.md#76-qf_lia-admissibility-and-external-wirechecker-boundary)
+
+**SCW-34 trust boundary:** [Logos runtime verdicts and soundness](research/formal-verification/RT-07/RT-07-LOGOS-CHECKER-TRUST-BOUNDARY.md) records the kernel-checked runtime conditions under Lean 4.36 and the separate upstream verification build under Lean 4.34. The [full rule build and verdict proof audit](research/formal-verification/RT-07/RT-07-LOGOS-VERDICT-PROOF-2026-11-25.md) records the completed single-kernel proof path and the native computation assumptions still required.
+### 2.4 Verified SPG-to-Lean pipeline (RT-32)
+
+- Lean kernel-checks all 128 observations of eight source-derived RT-03 cleanup graphs, a separate resource completion property, and four mutation witnesses. The claims depend on the pinned source extraction and CPython oracle; general LLMLang SPG/source correspondence remains open. [Source cleanup kernel replay](research/formal-verification/RT-32/RT-32-SOURCE-CLEANUP-KERNEL-2026-11-25.md)
+- Lean proves the equivalence between admitted signed I64 values and ordered eight-octet words. All 181 exact native hexadecimal archive observations match the Lean model. JSON admission and production SPG extraction remain open. [Signed I64 byte proof](research/formal-verification/RT-32/RT-32-SIGNED-I64-BYTE-KERNEL-2026-11-25.md)
+- Lean proves that bijective mutable location renaming preserves observations and relates the final heaps for arbitrary admitted action lists. All 184 native class equations match across 4,416 selected vectors. General importer and source correspondence remain open. [Mutable renaming kernel](research/formal-verification/RT-32/RT-32-MUTABLE-RENAMING-KERNEL-2026-11-25.md)
+- Lean proves that six fixed observation sequences determine the exact two-receiver context and all admitted traces. Check 108 exact archive equations and 2,592 fresh C/Rust probe vectors, with nine observed signature collapses after omitting the sixth probe. Wider method and source correspondence remain open. [Bound-method observation completeness](research/formal-verification/RT-32/RT-32-BOUND-METHOD-OBSERVATION-COMPLETENESS-2026-11-25.md)
+- Generate and kernel-check initialization, preservation, exit and termination for two stride variants of a typed natural-number countdown with an ordered trace. Six controls distinguish missing invariants, early exit, failed decrease, value and event-order violations. General SPG source binding and broader control flow remain open. [Countdown loop obligations](research/formal-verification/RT-32/RT-32-COUNTDOWN-LOOP-OBLIGATIONS-2026-11-24.md).
+- Generate mutual termination measures and a checked parity recurrence from two exact SPG group encodings. Both members agree with Lean on 64 observations across the encodings. Zero decrease and a changed base result fail separate checks. Signed inputs outside the natural-number proof and general source correspondence remain open. [Generated mutual termination](research/formal-verification/RT-32/RT-32-GENERATED-MUTUAL-TERMINATION-2026-11-24.md).
+- Generate and check natural-number termination, ordered traces and length for two mutually recursive SPG members. Both group encodings agree with Lean and a separate oracle on 80 observations. Event reorder, failed decrease and changed finite contract fail at distinct gates. General recursive admission and source correspondence remain open. [Mutual recursive effects](research/formal-verification/RT-32/RT-32-MUTUAL-RECURSIVE-EFFECTS-2026-11-24.md).
+- Generate actual conditional and closed Lean proofs from unary typed SPG calls. Seven closed cases agree with 35 SPG observations. Late rebinding reuses the caller proof; an edited direct pin changes its identity. A stale provider identity, reversed effects and a broadened assumption are rejected. General source extraction and trusted closure admission remain open. [Generated call contracts](research/formal-verification/RT-32/RT-32-GENERATED-CALL-CONTRACTS-2026-11-24.md).
+- Compare transitive closure of exact claim receipts with immediate-edge admission. The traversal agrees with a least-fixed-point oracle on 12,288 root cases, while immediate-edge admission produces 2,577 false closures. Provider rebinding reuses the modular theorem and refreshes exact closure evidence. Source-derived inventory completeness and genuine receipt admission remain open. [Transitive proof closure](research/formal-verification/RT-32/RT-32-TRANSITIVE-PROOF-CLOSURE-2026-11-24.md).
+- Kernel-check unbounded prefix and transfer conservation for record ownership, and 72 exact archive equations covering 2,304 Rust vectors. Release uniqueness needs distinct roles and completed declaration/acquisition correspondence needs an exact permutation. Incorrect owner and transfer proof applications are rejected. General source extraction and independent review remain open. [Record ownership proof](research/formal-verification/RT-32/RT-32-RECORD-OWNERSHIP-PROOF-2026-11-25.md)
+- Compare typed deep interpretation with generated shallow mutual recursion over the same effectful SPG bodies. Lean proves the exact fuel threshold for natural inputs and exhaustion at every finite budget for signed negative inputs. Compare 1,088 SPG observations across both encodings and reject trace-order and budget mutations. A verified decoder and wider correspondence remain open. [Deep recursive fuel](research/formal-verification/RT-32/RT-32-DEEP-RECURSION-FUEL-2026-11-24.md).
+- Compare shallow, deep and hybrid checks on two exact call-free scalar SPG bodies. Check canonical body and trace-contract bytes, prove preservation of whole observations across the Lean lowering and check both generated trace contracts. Four observation paths agree at 14 points. Keep SPG extraction and Python-to-Lean semantic correspondence explicit. [Exact SPG observation binding](research/formal-verification/RT-32/RT-32-SPG-LEAN-OBSERVATION-BINDING-2026-11-24.md).
+- Check native worker cancellation with ten general Lean properties, two policy counterexamples and eight exact guarded schedule equations. At most one close and no post-revocation write hold over arbitrary command lists in the model. The 56 observed handoffs and 16 terminal outcomes match the archived projection. Source correspondence, uncontrolled scheduling and independent review remain open. [Worker kernel replay](research/formal-verification/RT-32/RT-32-WORKER-CANCEL-KERNEL-2026-11-25.md)
+- Compare local and imported Lean 4.36.0 dependency views. Public imports retain exact axiom summaries while hiding proof terms. A private relay changes the dependency graph and provider sidecar without changing the public provider artifact or any caller artifact. Bind direct proof-path evidence to the exact provider bundle. [Compiled Lean dependencies](research/formal-verification/RT-32/RT-32-LEAN-COMPILED-DEPENDENCIES-2026-11-24.md).
+- Check signed compiled Lean claims against exact SPG subjects, the expected proposition and transitive axioms. Two valid bundles pass and eight controls fail. An authorized signature alone admits a wrong theorem, a foreign premise and a mismatched compiled context. Production issuer governance and general proof admission remain open. [Compiled claim admission](research/formal-verification/RT-32/RT-32-COMPILED-CLAIM-ADMISSION-2026-11-24.md).
+### 2.5 Correctness of optimization and translation
+
+- Lean characterizes the exact agreement guard for seven binary64 extrema rules under normalized NaN outputs. All 1,024 archived native pair equations match, with 518 agreeing pairs and 506 disagreements. General LLVM/source correspondence and status flags remain open. [F64 extrema agreement guard](research/formal-verification/RT-32/RT-32-F64-EXTREMA-AGREEMENT-GUARD-2026-11-25.md)
+- Compare LLVM lowerings for checked binary64 to signed I64 conversion. Alive2 validates the ordered branch and the poison-masking select against a bit-based reference, including optimized O0/O3 variants. Native and bytecode Vellvm agree on all 1,304 supported assertions per extraction. The saturation intrinsic remains outside both validators. [LLVM checked F64 to I64 lowering](research/compiler-and-translation/RT-13/RT-13-LLVM-F64-I64-LOWERING-2026-11-25.md)
+- Cross-check five LLVM 19 modules in the structural verifier, Alive2 and the extracted Vellvm interpreter. Alive2 confirms identity and refutes incorrect signed-overflow metadata and a store reorder. Unsupported atomic and fence cases need separate concurrent evidence. [LLVM validation coverage](research/compiler-and-translation/RT-13/RT-13-ALIVE2-VELLVM-COVERAGE-2026-11-24.md). [Stock replay](research/compiler-and-translation/RT-13/RT-13-STOCK-ALIVE2-LLVM-EH-2026-11-24.md) confirms the same verdicts using unmodified Alive2 and exception-enabled LLVM 19.1.7.
+- Check whole-domain status, output stores and ordered callbacks for the exact Scenario 96A checked signed-add LLVM IR at O0 and O3. Two solvers reject mismatch formulas and find three verifier-accepted counterexamples, each replayed natively. Unsupported flags stay outside the claim. [Checked-add observation validation](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-OBSERVATIONS-2026-11-24.md).
+- Bind two cvc5 CPC refutations to those exact checked-add formulas and replay both in Logos. Check declaration names and sorts before aligning parser IDs, then check the ordered assumptions and actual proof commands. Swapped or renamed certificates fail binding. [Checked-add certificate binding](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-CPC-BINDING-2026-11-24.md).
+- Replay the exact checked-add formulas in Lean for O0 and O3, with 12 LRAT certificates and eight normalization proofs. Each LRAT theorem has one native reflection axiom; the offline route rejects a certificate for a different goal. General LLVM/source correspondence remains open. [Lean bit-vector replay](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-LEAN-2026-11-25.md)
+- Prove the same checked-add claims with symbolic signed arithmetic and normalization in Lean. All 20 claims and three arithmetic lemmas use only standard axioms, and three false preservation claims are refused. This covers the exact fixture without changing the general LRAT assumption. [Symbolic checked-add proof](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-SYMBOLIC-2026-11-25.md)
+
+**Research output (2026-11-21)** · Lean checks preservation of result, error and ordered trace by a bottom-up rewrite over a typed scalar expression grammar. [RT-07 observable rewrites](research/formal-verification/RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md)
+### Dafny language and verification transfer study (cross-cutting; Stage 2)
+
+- Compare source-level modular verification and the Boogie/SMT workflow with LLMLang's Lean/Logos/SMT work. Record what to reuse, wrap, translate, independently check, or reject, including trust boundaries and `UNKNOWN`/timeout behavior.
+- Compare caller-only and closed Dafny/Boogie proofs on the same interval contract. The wrong provider keeps the caller proof and fails closure. Lean discharges the interval contract with standard axioms. Logos accepts the fine-grained CPC proof and rejects changed assumptions. Separate resource exhaustion, a host deadline and provider failure in the evidence. [Dafny modular proof closure](research/formal-verification/RT-07/RT-07-DAFNY-MODULAR-PROOF-CLOSURE-2026-11-25.md)
+- Specify a small Dafny-informed LLMLang contract subset for an experiment; do not adopt Dafny syntax or semantics by default. Include pre/postconditions, loop invariants, frame/effect bounds, termination, and explicit assumptions.
+- Prototype a bounded mapping in either direction and bind generated obligations/results to exact source, SPG, contract, verifier, and assumption identities. Include negative/unsupported cases; make no soundness claim without a correctness argument.
+- Render typed span bounds, pre-state values, final-state frame, loop invariants and termination into Dafny. Two source name profiles and two bundled Z3 versions verify the supported mapping. Exact receipts bind source, graph, verifier, assumptions and results. Removing the forward overlap premise or strengthening an incompatible frame fails verification. [Dafny mapping for overlapping copy and frames](research/semantic-representation/RT-05/RT-05-DAFNY-SPG-COPY-FRAME-2026-11-25.md)
+- Characterize Dafny's heap/frame model and concurrency boundary: distinguish sequential `reads`/`modifies` reasoning, restricted `{:concurrent}` empty-frame declarations, and general concurrent-algorithm verification. Compare these with LLMLang's proposed effects, ownership, synchronization, and history semantics.
+- Check empty, fresh, nonempty and assumed frames with two bundled Z3 versions. Both audit findings for assumed shared frames remain explicit. A native split counter loses increments in 440 of 480 histories per optimization level. Atomic fetch-add satisfies the scoped complete-history check in all 480. General concurrency semantics and lowering remain open. [Dafny concurrent frames and native histories](research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md)
+- Use seL4 as a high-assurance case study: distinguish Dafny contract expressiveness from proof coverage of low-level C, ABI/extern boundaries, hardware assumptions, compiler translation, and binary-level refinement. Assess a bounded kernel-like example; do not treat it as a direct seL4 rewrite estimate.
+- Verify a bounded table lookup in Dafny with two Z3 versions and compare its generated caller with four native C/ABI routes on 1,836 input triples per configuration. The exact bridge matches all inputs. Three incompatible providers or bindings leave the Dafny verification result unchanged and alter native observations. Production C and binary correspondence, hardware assumptions and adoption remain open. [Dafny kernel-style lookup and foreign boundary](research/formal-verification/RT-07/RT-07-DAFNY-KERNEL-FOREIGN-BOUNDARY-2026-11-25.md)
+
+**Status:** scoped experiments cover a foreign-provider boundary, an SPG-to-Dafny copy contract, concurrent frames and observed histories, and modular source proof closure with Lean and Logos comparisons. The broader construct mapping, candidate source syntax, general translation validation and transfer decision remain open.
+## Stage 3 — Dependency graph, incremental computation, and cache
+
+### 3.1 Semantic dependency model
+
+- Synthesize Scenarios 19, 20, 25 and RT-19/20/23 into a candidate Semantic Dependency Index contract; keep it explicitly non-canonical pending SPG schema decisions.
+- Define and implement an executable candidate SPG subset and typed dependency extractor; this is a research prototype, not the canonical language schema.
+- Specify candidate stable call-site identity, conditional target representation, and source/target relation constraints; validate them with focused tests.
+- Add a snapshot-scoped dependency-index projection so RT-20 reverse lookup excludes historical caller versions and remains pinned to one exact Semantic Snapshot.
+- Bind snapshot-scoped reverse lookup to explicit completeness evidence, exact snapshot/target/scope, extractor/schema identity, and the digest of the returned edge set; fail closed to UNKNOWN or NOT_CHECKED when evidence is absent or mismatched.
+- Connect the reverse-query result to impact-planning completeness audits; require Snapshot-bound evidence by default, preserve every evidence binding in the plan identity, and force full revalidation on missing or mismatched bindings. The research prototype does not authenticate the producer or prove its observation model complete.
+- Add a differential Snapshot payload-scan audit for reverse-index edge coverage and bind its evidence to the exact query.
+- Represent caller compatibility per exact call-site/target edge; require explicit evidence-backed migrate/preserve/adapt/fork decisions and resulting caller hashes; block plans with missing or unresolved decisions. Prototype coverage includes mixed old/new behavior and shared-caller version selection.
+- Bind each call-site/target alternative to its exact caller-required Contract hash; keep the provided Contract reference solely on the callee and resolve it through the existing caller-to-callee edge in RT-20 planning, validation, and semantic diff. Do not duplicate provided-contract hashes in call edges, reverse-index edges, or CIP decisions (declaration schema v2; dependency-index schema v3; not yet normatively equated with glossary CCHash).
+- Compare finite guard-sensitive may-dependency closure against 16,384 explicit queries. Location-only traversal misses targets in 3,408 queries. State-aware closure matches the known-table oracle, and local unknown expansion avoids misses with measurable loss of precision. Exhausted queries return unknown. Source extraction, wider effects and snapshot binding remain open. [Conditional dependency closure](research/semantic-representation/RT-06/RT-06-CONDITIONAL-DEPENDENCY-CLOSURE-2026-11-25.md).
+
+**Existing evidence:** scenarios 18–28 and prototypes 18–28 in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`.
+
+**Status:** extensively researched and prototyped in Scenarios 18–28 and dependency-graph prototypes 18–28. A candidate index contract and executable typed extractor now exist in `research/SEMANTIC-DEPENDENCY-INDEX.md` and `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`. The candidate schema is not canonical; reconciliation with the accepted SPG model, formal soundness, and Toolchain integration remain open.
+
+**Research output (2026-11-21)** · A closed scoped-lookup fixture distinguishes absent and present binding reads. Per-key projection reuses 216 results with zero observed false reuse, conditional on whole-layer admission. [Negative binding reads](research/semantic-representation/RT-06/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md)
+### 3.2 Incremental analysis and invalidation
+
+**Existing evidence:** `research/SEMANTIC-COMPILATION-CACHE.md`, scenarios 18–28, and dependency graph prototypes.
+
+**Status:** researched and prototyped in parts; full compiler integration and empirical validation are not implemented.
+
+**Research output (2026-11-23):** [RT-32 incremental invalidation recheck](research/formal-verification/RT-32/RT-32-INCREMENTAL-INVALIDATION-RECHECK-2026-11-23.md) compares global invalidation, complete-dependency ActionKeys, timestamp/dirty hints, and fail-closed behavior for unknown closure. A focused suite passed 72 tests on CPython 3.12.14. The result supports content-addressed reuse conditionally on complete dependencies and distinct evidence freshness; it does not establish compiler integration or workload performance. Integration across real stages, metadata projection, source-derived completeness/non-interference, representative benchmarks, and production identity/trust decisions remain open.
+### 3.3 Semantic build and cache graph
+
+- Establish the version-identity split for cache records: composite `LanguageVersion`, append-only component-registry digest, and separate `ToolchainIdentity`; record the candidate design in `research/LANGUAGE-VERSIONING.md`.
+- Add an experimental version-bound cache-record validator and tests covering language-version, registry-digest, and toolchain changes to Action Key inputs. This remains a prototype, not a normative cache-index format.
+- Compare the generated RT-01 CLI with a separately linked native division object. The scoped action key plans nine compilations across six edits, versus 18 under whole-input invalidation. Entry and semantic snapshot keys retain stale artifacts and hide two failures of a requested replacement. General closure extraction and controlled timing remain open. [CLI action keys](research/language-design/RT-01/RT-01-CLI-ACTION-KEYS-2026-11-25.md)
+
+**Existing evidence:** `research/SEMANTIC-COMPILATION-CACHE.md`, `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, `research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`, [Language Versioning](research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md), and the exploratory [Package Identity Prototype 01](research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/README.md).
+
+**Status:** researched; the version-binding design and a first experimental cache-record validator now exist. The initial component registry is `language-components.toml` and is append-only. The candidate validator keeps LanguageVersion, registry digest, and ToolchainIdentity distinct and includes them in Action Key construction. The cache-index wire format, compatibility declarations, complete dependency-closure model, merge/conflict policy, and broader implementation validation remain open.
+
+**Research output (2026-11-23):** [RT-33 build graph/cache options recheck](research/formal-verification/RT-33/RT-33-BUILD-GRAPH-CACHE-OPTIONS-RECHECK-2026-11-23.md) compares package-embedded cache data, optional package index references with separate CAS payloads, local/workspace cache, and team/remote cache. A 36-test focused suite passed. Current evidence favors local-first experimentation and optional cache metadata outside package semantic identity; remote trust, result-fetch lifecycle, cache-index merge/eviction and production dependency completeness remain external dependencies. No production format or layer is selected.
+### 3.4 Quantify compilation speedup
+
+**Status:** analytical estimate researched in `research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`; empirical benchmark results still required.
+
+**Research output (2026-11-23):** [RT-11 cache speedup model recheck](research/toolchain-and-collaboration/RT-11/RT-11-CACHE-SPEEDUP-MODEL-RECHECK-2026-11-23.md) reran the synthetic binding experiment on CPython 3.12.14 / Debian GCC 14.2.0. Clean-build outputs matched; action-count reuse patterns were reproduced, including a counterexample showing caller compile identity is not a safe executable-verification key. No durations or representative workloads were measured, so the analytical speedup ratios remain hypotheses and every empirical-performance checkbox above remains open.
+
+**Research output (2026-11-23):** [RT-11 benchmark measurement boundary recheck](research/toolchain-and-collaboration/RT-11/RT-11-BENCHMARK-MEASUREMENT-BOUNDARY-RECHECK-2026-11-23.md) recorded that one current-main run executes 467 incremental cache actions plus 12 clean oracles and compared instrumentation-only, larger synthetic workload, real Rust/Go/C++ workload, and premature product-prototype options. It recommends instrumentation-only as the lowest-dependency next experiment; a repeated timing attempt was stopped without retaining partial values. No latency or speedup claim is made; all §3.4 empirical-performance checkboxes remain open.
+
+**Research output (2026-11-24):** [RT-11 instrumented binding action timing](research/toolchain-and-collaboration/RT-11/RT-11-ACTION-TIMING-INSTRUMENTATION-2026-11-24.md) adds opt-in per-miss wall/child-CPU/output samples and records two paired runs with raw JSON. A separate-link implementation edit executed 45 misses versus 53 for exact linkage in this synthetic fixture. The measurement wrapper itself added about 935 ms on those 45 actions while measured child wall sums were 234 ms, so the current instrumentation is too intrusive for absolute speedup claims. Replace it with lower-overhead measurement before timing broader workloads; representative LLMLang and real-project comparisons remain open.
+
+**Research output (2026-11-24):** [RT-11 direct-child timing recheck](research/toolchain-and-collaboration/RT-11/RT-11-DIRECT-CHILD-TIMING-RECHECK-2026-11-24.md) replaces the per-command Python helper with direct parent-side subprocess/RUSAGE_CHILDREN timing. Two paired synthetic runs retain clean-oracle agreement and repeat 53 exact-link versus 45 separate-link implementation misses; two whole-experiment timings (16.291 s without timing, 16.534 s with timing) are too few and unpinned for performance conclusions. A post-rebase current-source rerun at main `264c97b` again passed the clean oracles and reproduced the 53/45 action counts; its direct child sums were 297.08/290.52 ms exact and 189.82/182.66 ms separate, kept as a distinct recheck rather than pooled with the archived run. This compares direct timing with the former helper instrumentation but does not estimate a controlled overhead effect. Representative projects, separately measured hashing/dependency/scheduling cost, and controlled repetitions remain open.
+## Stage 4 — Semantic storage, versioning, and Git integration
+
+**Current workstream status:** Git representation and semantic merge research is completed at concept level. The full report is [Git semantic repository research](research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md); [ADR-014](docs/adr/014-git-semantic-merge.md) records a **Proposed** direction, not an irreversible accepted architecture. Implementation and benchmarking are deferred until cross-aspect synthesis.
+### 4.1 Semantic object storage
+
+**Existing evidence:** `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md` and the current Git representation research.
+
+**Status:** researched at architectural level; storage prototype and recovery tests remain open.
+### 4.2 Git representation and repository model
+
+- Native Git LFS 3.6.1 distinguishes the committed pointer, local media and filtered checkout or archive. Across fourteen settings, exact manifest, pointer, size and SHA-256 checks reconstruct seven available artifacts and refuse seven others. Path-based reuse accepts six wrong snapshots. External media retention and production transport remain open. [Git LFS object admission](research/toolchain-and-collaboration/RT-24/RT-24-LFS-OBJECT-ADMISSION-2026-11-25.md)
+- Compare cache-first reads for a sequential container, indexed independent records and ZIP from a clean Git clone. All layouts skip payload on a full hit. At half coverage, indexed and ZIP readers decode 128 records while the sequential reader decodes all 256. Exact Git metadata and content checks reject misplaced or mismatched values. Broader format workloads remain open. [Metadata-first cache reads](research/toolchain-and-collaboration/RT-27/RT-27-METADATA-FIRST-CACHE-READS-2026-11-24.md).
+- Compare four physical layouts over 24 native Git histories at 0.01%, 1% and 10% replacement. Module shards preserve concentrated locality while hash shards spread the two larger edits. Segments minimize new payload bytes, and a compaction reduces the active checkout while retaining a larger Git pack. Clean clones reconstruct both roots. Longer and representative histories remain open. [Sharded Git history](research/toolchain-and-collaboration/RT-27/RT-27-SHARDED-GIT-HISTORY-2026-11-24.md).
+- Compare fixed and content-defined chunk boundaries in ten native Git histories. Content anchors localize the unaligned insertion and deletion. Fixed boundaries write fewer new bytes in the aligned insertion and same-rank replacement. Neither layout reuses chunks on the anchor-free insertion. Clean clones restore both revisions. Long histories and resource measurements remain open. [Chunk boundaries](research/toolchain-and-collaboration/RT-27/RT-27-CHUNK-BOUNDARIES-2026-11-25.md).
+- Compare 22 native full, shallow, sparse and partial Git settings in SHA-1 and SHA-256 repositories. Exact tree and verified blob-cache admission reconstructs all 12 available graphs, distinctly refusing ten unavailable, corrupt or invalid cases. A path cache accepts eight incorrect snapshots. General remote recovery and repository closure remain open. [Partial and sparse Git reconstruction](research/toolchain-and-collaboration/RT-24/RT-24-PARTIAL-SPARSE-RECONSTRUCTION-2026-11-25.md)
+
+**Existing evidence:** `research/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md`.
+
+**Status:** researched at architectural level; binary-container efficiency is under investigation. The benchmark and physical-layout decision remain open.
+
+**Binary storage efficiency research (2026-11-23)** · The SPG storage workload adds/removes immutable payloads. The five-run reference microbenchmark (30,000 × 192-byte high-entropy records; 1% changes; Git 2.47.3) found only negligible pack-plus-index differences between mutable-container and immutable-segment variants: 240 bytes on append and under 0.012% on deletion. It does not select a layout. The earlier exploratory measurements remain unverified and are not acceptance evidence. [Research report](research/toolchain-and-collaboration/RT-27/GIT-BINARY-SPG-STORAGE-EFFICIENCY.md) · [Harness and instructions](research/toolchain-and-collaboration/benchmarks/git_binary_spg/README.md) · [Five-run results](research/toolchain-and-collaboration/benchmarks/git_binary_spg/results-2026-11-23.json)
+
+- Execute and preserve a five-run fixed-size baseline for append, compact deletion, and tombstone deletion across mutable-container and immutable-segment layouts; validate retained repositories with `git fsck --full`.
+
+**Research output (2026-11-23):** [RT-27 SPG Repository Storage Format Requirements](research/toolchain-and-collaboration/RT-27/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md) records mandatory reconstruction, cache-first metadata, determinism, merge-safety, and workload-evaluation requirements without selecting a format. RT-27 is now registered as a standalone research area in the taxonomy and dependency map. RT-28 also depends on RT-27's storage requirements; this dependency does not select a physical storage format. Format comparison/benchmarks also depend on stabilized SPG identity, import/export, semantic merge, and representative workloads.
+### 4.3 Semantic diff, merge, and conflict resolution
+
+**Mapping reconciliation evidence (2026-11-21)** · Disjoint interface keys can claim the same export. Revision and catalog checks reject stale publication even when logical entries repeat. [RT-23/24 mapping merge](research/toolchain-and-collaboration/RT-23/RT-23-INTERFACE-MAPPING-MERGE.md)
+### 4.4 Git integration workflow
+
+- Compare a native file driver, explicit-context refusal and textual fallback across 12 temporary-repository cases. Merge, cherry-pick and rebase each report success for a pair with identical driver observations and different graph closure. Only the full pinned trees expose all three missing exact callees. [Native merge driver experiment](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-GIT-MERGE-DRIVER-2026-11-24.md).
+- Compare native Git mergetool exit status with a repository-context adapter in 12 cases. Exact inputs and staged semantic reconstruction preserve an ordinary conflict and reject a stale index, a wrong input blob and two semantic conflicts. Native Git can leave no conflict stages despite a broken call. Missing tools and unsupported replay operations preserve the stages. General interactive resolution and publication still require their own gates. [Native mergetool experiment](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-GIT-MERGETOOL-2026-11-24.md).
+- Sixteen native Git histories isolate two ordinary conflicts and eight declared profile collisions in otherwise clean Linux merges. Checking all prefixes catches the eight profile collisions while two Git configuration values still restore all fourteen clean trees on Linux. Native filesystem coverage on other profiles remains open. [Profile-bound Git paths](research/toolchain-and-collaboration/RT-24/RT-24-PROFILE-BOUND-GIT-PATHS-2026-11-25.md)
+### 4.5 End-to-end semantic merge and synchronized commit lifecycle
+
+- Reconcile RT-24 against the current identity/SPG research and executable subset; record the competing Stable Entity ID versus content-addressed-value models, occurrence/selection and lineage boundary, current prototype fields/limitations, hash-layer distinctions, and dependency-completeness gap in RT-24 Identity and SPG Reconciliation. No identity architecture or canonical SPG schema was selected.
+- Compare Studies 05–08 against rename, identical-value/different-occurrence, split/merge, move, call-site, and branch-merge scenarios in RT-24 Identity Architecture Decision Matrix. This completes the comparison, not the architecture decision.
+- Compare 32 native builds across a header edit, eight feature profiles and two optimization levels. Source and flags alone omit 24 call edges, and a profile union adds 80 excess edges. Exact profile binding supplies all active caller obligations and rejects all 64 stale receipt swaps. General frontend coverage and audit governance remain open. [Configuration-bound caller coverage](research/toolchain-and-collaboration/RT-24/RT-24-CONFIG-CALLER-COVERAGE-2026-11-25.md)
+- Compare exact query binding, Ed25519 audit authorization and independent source reconciliation in twelve explicit-call cases. A signed empty projection suppresses RT-20 full revalidation unless reconciled against source. Production observation coverage and authority policy remain open. [Reverse audit authority](research/toolchain-and-collaboration/RT-24/RT-24-REVERSE-AUDIT-AUTHORITY-2026-11-24.md).
+- Compare two canonical Git exports for the existing closed-inventory fixture. Twenty-four physical input trees reach one semantic root and one exact artifact per layout. Verify round-trip identity, ordered payload changes and five rejected inputs. [Canonical Git layouts](research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-GIT-LAYOUTS-2026-11-24.md).
+- Closed-inventory evidence covers exact retargets, conditions, physical moves and missing input. [Typed tree diff](research/toolchain-and-collaboration/RT-24/RT-24-TYPED-TREE-DIFF.md)
+- Compare equal-root histories against occurrence continuity on native Git. Twelve cases distinguish value evidence, retained linear history, a real shallow clone and a squash that erases the intervening deletion. Authorized lifetime records and general merge lineage remain open. [Git selection lifetimes](research/toolchain-and-collaboration/RT-24/RT-24-GIT-SELECTION-LIFETIMES-2026-11-24.md).
+- The exact-tree fixture connects one source-audited caller migration to Git publication and receipt recovery. [Tree-bound CIP](research/toolchain-and-collaboration/RT-24/RT-24-TREE-BOUND-CIP-PUBLICATION.md)
+- Compare local CIP checks and source-derived consumer paths for a shared-caller split through native two-parent merges. Exact tree and edge checks accept four incorrect path plans. The rooted check rejects all four and preserves aligned publication, retry and clean-clone recovery. General path coverage and migration authority remain open. [Split caller paths](research/toolchain-and-collaboration/RT-24/RT-24-SPLIT-CALLER-PATHS-2026-11-24.md).
+- Compare 18 native clean merges of independently valid binding, name and export changes. Reference or contract-only checking accepts 16. Checking the selected operation, contract, provider, ABI and input scope publishes six and distinguishes unresolved evidence from incompatible data. Production authority, real ABI semantics and concurrent integration remain open. [Cross-map export proof](research/toolchain-and-collaboration/RT-24/RT-24-CROSS-MAP-EXPORT-PROOF-2026-11-25.md)
+- A coordinated Git generation detects an intervening change even when the branch returns to the same OID. [Ref generation experiment](research/toolchain-and-collaboration/RT-23/RT-23-COORDINATED-REF-GENERATION.md)
+
+**Research output (2026-11-21)** · A three-way selector composes independent declarations across a textual conflict. Rebuilding the candidate from selected rows detects an exact callee lost across disjoint slot edits. The positive export reconstructs the same selections. [RT-24 closed-inventory merge](research/toolchain-and-collaboration/RT-24/RT-24-CLOSED-THREE-WAY-MERGE.md)
+
+- Compare 13 native submodule cases with independent manifest, gitlink, origin and object checks. Exact admission reconstructs all seven available dependencies and refuses six others. Working file, nested HEAD and origin tip can diverge with the same committed root. Production origin governance and object retention remain open. [Pinned gitlink reconstruction](research/toolchain-and-collaboration/RT-24/RT-24-PINNED-GITLINK-RECONSTRUCTION-2026-11-25.md)
+- Rebuild an exact typed CLI from four independent clean Git clones in packed and per-entry layouts. Both restore the same semantic roots and native binaries across 272 observations and refuse ten invalid clones. A local Echo edit adds 1,397 or 1,017 uncompressed blob bytes respectively. General dependency and package closure remain open. [Executable clean clone](research/toolchain-and-collaboration/RT-24/RT-24-CLEAN-CLONE-CLI-2026-11-25.md)
+- Compare four admission policies across twelve mixed-version native Git histories. Exact dual read with parent-root checks reconstructs all six valid merges and refuses the other six. JavaScript number consumption produces four invalid candidates, and exact reads without root checks produce two. Production schema evolution and general graph closure remain open. [Versioned I64 Git merge](research/toolchain-and-collaboration/RT-24/RT-24-VERSIONED-I64-GIT-MERGE-2026-11-25.md)
+- The closed fixture composes independent exact call retargets under a fixed selector policy and rejects a missing upstream branch-version pin. [Call-target merge](research/toolchain-and-collaboration/RT-24/RT-24-CALL-TARGET-MERGE.md)
+- Compare slot, caller-scope, semantic-root, tree and commit-bound conflict decision replay. Eight native Git cases include a changed affected caller in a still-closed candidate, a metadata-only edit and equal trees reached through different commits. Production review and publication policy remain open. [Conflict resolution replay](research/toolchain-and-collaboration/RT-24/RT-24-CONFLICT-RESOLUTION-REPLAY-2026-11-24.md).
+- Compare 48 native Git ref schedules over separately mutable bindings and exports. Own-ref CAS publishes six ineligible combinations. Fresh validation without verifying the peer publishes two. A fresh exact tuple check with transactional peer verification publishes all six valid proposals and rejects the rest. Production concurrency, recovery and authorization remain open. [Cross-map ref revalidation](research/toolchain-and-collaboration/RT-24/RT-24-CROSS-MAP-REFS-2026-11-25.md)
+- A Git publication fixture binds the materialized mapping bytes to the exact semantic catalog and branch commit. [Mapping tree publication](research/toolchain-and-collaboration/RT-23/RT-23-MAPPING-TREE-PUBLICATION.md)
+- Compare native conflict-cache reuse across 20 recreated merges. Git reapplies one cached text resolution in every case. Eight select the wrong exact caller target after a policy or parent-role change. An exact scoped approval preserves eight reuses and requires a new decision for 12. General impact closure, issuer trust and publication remain open. [Scoped rerere reuse](research/toolchain-and-collaboration/RT-24/RT-24-RERERE-SCOPED-RESOLUTION-2026-11-25.md)
+- A closed replay fixture detects a missing semantic patch even when the candidate tree imports and its parent matches. [Semantic patch reconciliation](research/toolchain-and-collaboration/RT-24/RT-24-SEMANTIC-PATCH-RECONCILIATION.md)
+- Compare local Git hook coverage across eight workflow variants with valid and invalid exact staged graphs. Five reject the invalid candidate before its branch changes. Cherry-pick, merge-backend rebase and merge with verification disabled install it despite post-hook failure. An apply-backend rejection leaves the branch unchanged and HEAD detached at the onto commit. [Native Git hook boundary](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-GIT-HOOKS-2026-11-24.md).
+- Native one-commit replay demonstrates that textual success and correct ancestry still need source closure and typed patch correspondence. [Git replay closure](research/toolchain-and-collaboration/RT-24/RT-24-GIT-REPLAY-SOURCE-CLOSURE.md)
+- Compare multi-commit rebase, cherry-pick and explicit squash. Nine candidates share one terminal tree. Two retained chains contain an unclosed prefix and two have closed but unapproved prefix roots. One terminal check cannot certify retained history. [Multi-commit replay prefixes](research/toolchain-and-collaboration/RT-24/RT-24-MULTI-COMMIT-REPLAY-PREFIXES-2026-11-24.md).
+- Compare 14 native histories with recreated merges. All close, but two expected final roots hide an intermediate merge-only caller change. Checking the caller before and after reconstructs six exact replays and refuses four conflicting or unsupported changes. Originally conflicted merges and production publish policy remain open. [Merge-only changes after rebase](research/toolchain-and-collaboration/RT-24/RT-24-REBASE-MERGE-RESIDUALS-2026-11-25.md)
+- Compare five publication policies over nine native Git histories with independently passing parent builds. Parent-only checks publish three invalid candidates, and provider-name reuse publishes one. Fresh exact checking publishes all five valid candidates and rebuilds each from a clean clone. General authority, concurrency and whole-SPG closure remain open. [Configured native merge](research/toolchain-and-collaboration/RT-24/RT-24-CONFIGURED-MERGE-PUBLICATION-2026-11-25.md)
+- Compare state-bound and provider-only evidence across native merges of a guarded routing edit and a provider edit. Both branches pass in all three cases. Provider-only coverage misses the invalid combination, while state-bound coverage identifies two gaps that fresh validation resolves. General source/authority and production integration remain open. [Guarded merge evidence](research/toolchain-and-collaboration/RT-24/RT-24-GUARDED-MERGE-EVIDENCE-2026-11-25.md).
+- Compare native Git per-ref, transaction-tip and newly reachable history gates in ten local receives. The tip gate accepts a closed tip with an unclosed ancestor. The incremental history gate rejects it when newly reachable and depends on the receiver baseline for existing history. Per-ref rejection can still update a different branch on a non-atomic push. [Receive gate evidence](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-RECEIVE-GATE-2026-11-24.md).
+- Interleave two native Git receives across dependent program and catalog refs. Both pass against the old peer even with a validator lock and separate atomic pushes. A lock spanning receive and commit rejects the second writer until it can revalidate the changed peer. An atomic compatible batch succeeds. Enforcement against all ref writers remains required. [Concurrent receive validation](research/toolchain-and-collaboration/RT-23/RT-23-CONCURRENT-RECEIVE-VALIDATION-2026-11-24.md).
+- Exercise dependent Git ref verification inside exact native transactions on files and reftable. Both reject a stale peer when the dependency is verified. Files also adds the peer lock explicitly while reftable serializes the compared prepared cases. A verified retry fails after the original baseline changes. [Dependent ref verification](research/toolchain-and-collaboration/RT-23/RT-23-DEPENDENT-REF-VERIFICATION-2026-11-24.md).
+- Compare exact-tree publication and checkout synchronization across linked worktrees. Eight cases show scoped preflight catches existing edits and a shared lock defers a cooperating writer. An ordinary edit during ref prepare can still change the checkout while the correct commit and receipt are published. Enforceable writer boundaries and filesystem synchronization remain open. [Linked-worktree publication](research/toolchain-and-collaboration/RT-23/RT-23-LINKED-WORKTREE-PUBLICATION-2026-11-24.md).
+- Compare native multi-file readers across pointer switches, Git ref updates, mutation and reclamation. Three mixed reads pass closed import and reconstruct a third root. Pinned Git and retained immutable directories preserve the original view, and a pinned manifest rejects mixed bytes. Acquisition races, writer enforcement and storage durability remain open. [Pinned generation reads](research/toolchain-and-collaboration/RT-23/RT-23-NATIVE-GENERATION-READS-2026-11-25.md).
+- Compare 42 native recovery calls when an append and its SQLite receipt are separated by process termination. The exact framed-operation policy gives eight correct successes and six refusals. Blind retry and latest payload report 11 and nine wrong successes. Stable namespace, write interruption, durable storage and production integration remain open. [Mutable log recovery](research/toolchain-and-collaboration/RT-19/RT-19-MUTABLE-LOG-RECOVERY-2026-11-25.md)
+- Interrupt native Git after ref prepare on files and reftable. Both preserve the old branch and absent receipt, but abandoned locks block immediate retry. The reftable lock also blocks an unrelated ref write. Production lock ownership, commit-phase observation and power-loss durability remain open. [Prepared ref crash](research/toolchain-and-collaboration/RT-23/RT-23-GIT-PREPARED-REF-CRASH-2026-11-24.md).
+- Compare commit-phase observation in the files and reftable backends. A stopped files writer exposes the new branch without its receipt, even to one Git enumeration. A reftable table-list switch exposes both in the tested cut. Multi-call readers, recovery policy and power-loss durability remain open. [Ref commit visibility](research/toolchain-and-collaboration/RT-23/RT-23-REF-COMMIT-VISIBILITY-2026-11-24.md).
+- Compare paired ref recovery with one protected journal ref and delayed branch projection at native Git process stops. Both backends recover the exact journal decision and idempotent projection. A conflicting branch move is preserved, and default clones need an explicit fetch of the journal. Trust, remote visibility, lock recovery, worktree state and power-loss durability remain open. [Single-ref journal recovery](research/toolchain-and-collaboration/RT-23/RT-23-SINGLE-JOURNAL-REF-2026-11-24.md).
+- Compare full Git journal search, an eight-entry limit and an index in the authoritative commit tree. Full and indexed lookup agree across 11 cases on each backend, including clean-clone recovery and scoped key conflicts. The index reads one oldest receipt where full scan reads 65 and retains 131 more Git trees. Authorization, receipt compaction and durability remain open. [Indexed Git journal recovery](research/toolchain-and-collaboration/RT-23/RT-23-INDEXED-JOURNAL-RECOVERY-2026-11-25.md)
+- Compare Git snapshot retention after a branch rewrite on files and reftable. OID-only reads lose the old root after collection. Reader refs and journal ancestry retain it, and explicit fetch recovers it in clean clones. Verified current-read acquisition rejects a moved branch. Lease ownership, expiry, maintenance and remote policy remain open. [Pinned Git retention](research/toolchain-and-collaboration/RT-23/RT-23-PINNED-GIT-RETENTION-2026-11-25.md).
+- Compare explicit and virtual bases in 28 native criss-cross repositories. Six clean default merges per backend lack agreed real-base observations. A candidate all-base gate publishes four convergent cases and preserves the old ref in every refusal. General ancestry, authorization and synthesis policy remain open. [Multiple merge bases](research/toolchain-and-collaboration/RT-24/RT-24-MULTIPLE-MERGE-BASES-2026-11-25.md)
+
+**Status:** architecture research exists and is cross-linked; RT-24 records a candidate technical contract, and its bounded source-closure/merge-tree fixture is reproduced on Git 2.52.0/CPython 3.12.14 (workflow #45072410771, 11/11 tests). Canonical representation, identity/schema reconciliation, a general semantic diff/merge implementation, multi-commit replay/conflict handling, and concurrent Git publication remain open. ADR-014 remains Proposed.
+## Stage 5 — Types, execution model, runtime, and POSIX
+
+### 5.1 Type system and data model
+
+- Compare inlined and separately linked static specializations, Rust trait objects and explicit dictionaries across 18 native links and 18,432 results. Cross-linking stale caller objects changes 1,024 inlined results while the other three routes use the linked provider throughout. A nondependent edit changes the provider archive but preserves the caller object bytes. Generic SPG lowering, ABI policy and representative measurements remain open. [Generic provider binding](research/semantic-representation/RT-05/RT-05-GENERIC-PROVIDER-BINDING-2026-11-25.md)
+- Compare 9,216 Rust and C++ runs of staged record construction and transfer. Implicit teardown agrees on 1,008 early-exit pairs but differs on all 144 completed pairs. An explicit release sequence yields equal graphs for all 36 paired sources and equal behavior in every tested input. Destructors that fail, ABI, other profiles and independent review remain open. [Cross-profile record cleanup](research/semantic-representation/RT-05/RT-05-CROSS-PROFILE-RECORD-CLEANUP-2026-11-25.md)
+
+**Existing evidence:** concept and formal-verification research; typed requirement and typed relational IR prototypes.
+
+**Status:** partially researched; complete language type-system design remains open.
+### 5.2 Execution semantics and runtime architecture
+
+- Compare a two-client native worker in CPython and Rust O0/O3 across 72 controlled runs. Checking only at admission permits three revoked write attempts. Immediate terminal cancellation reports six apparently completed results while a handle is open. A fresh effect gate and post-close terminal settlement preserve all expected outcomes. Uncontrolled scheduling and runtime integration remain open. [Native worker settlement](research/language-design/RT-01/RT-01-RESOURCE-WORKER-SETTLEMENT-2026-11-25.md)
+- Compare a native blocked Linux pipe read with cooperative eventfd cancellation. Closing and reusing a descriptor leaves an existing read pinned to the original pipe. Six cases distinguish EOF, cancellation and delivery, including two-ready outcome priority and terminal byte settlement. Foreign I/O, portability and controlled timing remain open. [Linux read cancellation](research/runtime-and-systems/RT-26/RT-26-LINUX-READ-CANCELLATION-2026-11-24.md).
+- Check task CPU attribution across two native pthread workers, including cleanup after cancellation. Per-dispatch sums follow the migrating task. Origin-thread spans undercount without a peer and overcount with a peer, while cross-clock subtraction can be negative. Production overhead and enforcement remain open. [Migrating task CPU](research/runtime-and-systems/RT-26/RT-26-MIGRATING-TASK-CPU-2026-11-24.md).
+- Compare delivered and dequeued bytes on native TCP and UDP. A four-byte buffer preserves the stream tail but consumes a full 16-byte datagram. A second receiver can invalidate a previously admitted datagram length. Wire counters, portable settlement and coordinated socket access remain open. [Linux socket byte settlement](research/runtime-and-systems/RT-26/RT-26-LINUX-SOCKET-BYTE-SETTLEMENT-2026-11-24.md).
+- Compare Linux address-space admission with native residency sampling. Discarding all 768 touched pages leaves an additional mapping denied until unmap, and two locally admitted workers exceed the corresponding shared virtual-length bound. Physical charging, cgroups and portable group accounting remain open. [Linux mapping residency](research/runtime-and-systems/RT-26/RT-26-LINUX-MAPPING-RESIDENCY-2026-11-24.md).
+- Compare spanning and dispatch-based CPU attribution on one asyncio thread. The spanning totals double-charge a 60 ms sibling interval; three dispatch segments include the reader’s cleanup even on cancellation. Production scheduler, migration and hardware counters remain open. [Coroutine CPU attribution](research/runtime-and-systems/RT-26/RT-26-COROUTINE-CPU-ATTRIBUTION-2026-11-24.md).
+- Compare summed RSS and PSS for two processes mapping shared and copy-on-write pages. Summed RSS stays at 4 MiB after writing half the mapping in either profile, while PSS rises from 2 to 3 MiB only in the copy-on-write case. Outside-owner charging and cgroups remain open. [Linux shared-memory attribution](research/runtime-and-systems/RT-26/RT-26-LINUX-SHARED-MEMORY-ATTRIBUTION-2026-11-24.md).
+- Check Linux perf availability for two hardware and three software events on the current thread. All five return EPERM in the measured environment. Native thread CPU and getrusage counters pass independent controls. PMU and cross-target evidence need a supported environment. [Linux performance counters](research/runtime-and-systems/RT-26/RT-26-LINUX-PERFORMANCE-COUNTER-BOUNDARY-2026-11-24.md).
+- Compare native Linux process CPU limits with cumulative child usage. Soft and hard limits yield distinct termination evidence. Two individually admitted workers exceed a one-second group budget, and reaping preserves both charges. Live group enforcement and portable accounting remain open. [Linux CPU budgets](research/runtime-and-systems/RT-26/RT-26-LINUX-PROCESS-CPU-BUDGET-2026-11-24.md).
+- In a closed task tree, cancellation can stop new admissions immediately. Releasing existing capacity requires terminal settlement. [Cancellation accounting](research/runtime-and-systems/RT-26/RT-26-CANCELLATION-ACCOUNTING.md)
+- Compare Linux file-size enforcement and a shared live-byte reservation. Two files can exceed a 4,096-byte group limit by 2,048 even when each child obeys its file limit. Serialized admission and terminal file-length settlement respect the fixture cap and retain charges for surviving files. [Linux file budget settlement](research/runtime-and-systems/RT-26/RT-26-LINUX-FILE-BUDGET-SETTLEMENT-2026-11-24.md).
+- Compare the same sequential increment contract against native atomic-load/store and atomic fetch-add histories. Sequential verification or a declared concurrency assumption does not certify shared interleavings. [Dafny concurrent frames and native histories](research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md)
+
+**Status:** partially validated in bounded execution models. The atomic load and store fragment derives read-from and happens-before and checks all four coherence rules. An independent interleaving oracle agrees on global-order witnesses for 4,096 layouts. RMW predecessors, release sequences and three fence linkages were checked with complete finite outcome comparisons and two solvers. Broader mixed-order semantics, source correspondence and backend validation remain open. [RMW and fences](research/language-design/RT-04/RT-04-RMW-RELEASE-SEQUENCES-AND-FENCES-2026-11-24.md). [Coherence fixtures](research/language-design/RT-04/RESEARCH-SCENARIO-117-ATOMIC-WRITE-READ-COHERENCE.md) · [Execution relations](research/language-design/RT-04/RESEARCH-SCENARIO-118-ATOMIC-EXECUTION-RELATIONS.md)
+
+**Resource accounting evidence (2026-11-21)** · A bounded RT-26 model compares separate checks with serialized hierarchical reservation. Separate checks overshoot in four of six schedules. The serialized ledger matches direct subtree accounting across 4,320 transitions. Runtime and OS enforcement measurements remain open. [Cooperative budget reservation](research/runtime-and-systems/RT-26/RT-26-COOPERATIVE-BUDGET-RESERVATION.md)
+
+**Research output (2026-11-21)** · Across 1,260 orderings of nested task events, a transitive join matches the lifetime oracle. Publishing after direct task bodies leaves live loans in 198 schedules. [RT-10 structured scope join](research/runtime-and-systems/RT-10/RT-10-STRUCTURED-SCOPE-JOIN.md)
+### 5.3 POSIX architecture and conformance
+
+- A blocking pipe probe distinguishes returned EINTR from a handled signal followed by a restarted read. [POSIX read interruption](research/runtime-and-systems/RT-10/RT-10-POSIX-READ-INTERRUPTION.md)
+
+**Existing evidence:** `research/POSIX-RUNTIME-ARCHITECTURE.md`; related open questions LL-013–LL-019 in [open design questions](PLAN.md#open-design-questions).
+
+**Research output (2026-11-21)** · Libc and raw Linux x86-64 adapters match 112 expected nonblocking pipe observations, including short transfer, would-block, EOF and SIGPIPE. [RT-10 pipe I/O](research/runtime-and-systems/RT-10/RT-10-POSIX-NONBLOCKING-PIPE-IO.md)
+
+**Status:** partially validated for the bounded POSIX pipe fixture. The overall profile, wider conformance, and runtime integration remain open.
+### 5.4 Freestanding embedded and real-time firmware (RT-37)
+
+**Status:** Bounded Cortex-M3 startup and timer/GPIO slices validated in QEMU. **Priority:** P0 shared foundation; P1 pilot. [Research brief](research/runtime-and-systems/RT-37/README.md) · [Issue #440](https://github.com/aivibeflow/LLMLang/issues/440).
+
+- Compare statically sized slots and a checked linear cursor in a linked 64-byte Cortex-M3 arena. Four LLVM/Rust images reproduce 2,704 reservation observations. Fixed slots admit four small requests where the linear policy admits sixteen, and an omitted-size-guard control wraps the cursor. [Cortex-M3 bounded allocator](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-BOUNDED-ALLOCATOR-2026-11-24.md).
+- Compare Cortex-M3 reset, data/BSS initialization, fixed-width controller execution and ELF runtime closure on direct LLVM and freestanding Rust. Five images reproduce 14 UART steps each. A bootable image with an undefined unwind symbol and two other unresolved-runtime controls distinguish closure from functional replay. [Cortex-M3 closure](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md).
+- Compare DMA handback under endpoint-only, wrapping, retiring and natural-number lease identities. Lean checks ownership, device bounds, matching completion/quiescence and synchronized acquire. A 5,628-transition replay and stale-reuse controls distinguish the policies. Concrete descriptor, queue drain and cache evidence remain open. [DMA lease ownership](research/runtime-and-systems/RT-37/RT-37-DMA-LEASE-OWNERSHIP-2026-11-24.md).
+- Compare layout-only, direction-only and protocol-aware admission on 33 Cortex-M3 MMIO requests. Exact SVD and header import supply structural data, while explicit clear/read effects, masked aliases and a checked device profile distinguish 14 over-admissions from access direction alone. Keep physical LM3S metadata and general volatile lowering open. [MMIO metadata and capabilities](research/runtime-and-systems/RT-37/RT-37-MMIO-METADATA-AND-CAPABILITIES-2026-11-24.md).
+- Check read-to-clear SysTick access preservation in seven Cortex-M3 builds. LLVM and Rust volatile paths retain two word loads and observe `10`. Ordinary LLVM O0 retains both IR loads and executes one linked load, observing `11`. A nonzero write to `VAL` confirms the reset effect. [Cortex-M3 volatile COUNTFLAG](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-VOLATILE-COUNTFLAG-2026-11-24.md).
+- Compare root-only, supplied and linked call graphs for transitive ISR effects. Exact Cortex-M3 vector and leaf binding admits two acknowledgement paths, rejects three blocking/allocation artifacts, and retains `UNKNOWN` for unresolved or stale evidence. [Transitive ISR effects](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-TRANSITIVE-ISR-EFFECTS-2026-11-24.md).
+- Compare stack bounds for the bounded Cortex-M3 timer workload. Twelve QEMU images match the static direct-control model with 8 B for polling, 32 B for aligned SysTick and 40 B for the alignment control. A phase-independent bound is 40 B for either interrupt image under the single basic exception assumption. [Cortex-M3 stack](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-STACK-BOUND-2026-11-24.md).
+- Produce a pinned Cortex-M bootable timer/GPIO firmware pilot with independent reference traces, negative controls and separately scoped functional/static resource evidence. Four LLVM and Rust images reproduce 14 duty and GPIO steps each. SysTick pending-state and GPIO masking controls distinguish outcomes hidden by the application trace. [Cortex-M3 timer and GPIO](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-SYSTICK-GPIO-2026-11-24.md).
+## Stage 6 — Translation, backends, implementation selection, and optimization
+
+### 6.1 Translation architecture
+
+**Existing evidence:** `research/TRANSLATION-AND-TARGET-BACKENDS.md`, `research/LLVM-BACKEND-ARCHITECTURE.md`, and formal-verification research.
+
+**Research output (2026-11-21)** · Direct SPG execution and a lowered instruction stream agree with an independent oracle over 140 observations. An operation-binding change alters the reachable artifact while leaving the caller address fixed. [Ordered SPG lowering](research/compiler-and-translation/RT-09/RT-09-ORDERED-SPG-LOWERING.md)
+
+**Status:** partially validated for the scalar instruction fixture. External code generation, canonical IR and general preservation remain open.
+### 6.2 Backend selection and cross-backend validation
+
+- Generate Go for the same checked integer fixture and replay 197,440 observations in each of two hosted forms. The cgo library exposes all 64 C ABI entries and needs libc. The standalone executable has no ELF needed libraries. Broader hosted capabilities and target selection remain open. [Generated Go integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-GO-INTEGER-LOWERING-2026-11-24.md).
+- Link generated COR-13 Rust callers to a separately compiled C provider that uses Linux event descriptors. Two profiles match 125,952 traces and physical audits each. Indeterminate outcomes keep role obligations in both physical states, while collapsing foreign errors changes 9,680 rows in the control. Foreign provider contracts and concurrent reconciliation remain open. [Native owned-result ABI](research/compiler-and-translation/RT-13/RT-13-NATIVE-OWNED-ABI-2026-11-24.md).
+- Compare two exact native provider bindings on one checked COR-13 recovery caller, in an independent C route and generated Rust. Across both routes all 167,936 source and descriptor observations match. Rebinding at the same caller and contract changes 5,720 rows per transfer order. The disposition decoding model is checked separately in Lean. General source correspondence, FFI policy and portability remain open. [Bound owned providers](research/compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md).
+- Compile the same 64 integer programs as C++20 with GCC and Clang at O0 and O3. All profiles match 197,440 status, slot and callback observations and link all C ABI entries without undefined object symbols. Further platform, ownership and native C++ API coverage remain open. [Generated C++ integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-CPP-INTEGER-LOWERING-2026-11-24.md).
+- Generate Java 21 class files from the shared integer fixture. Interpreted and compiled HotSpot profiles each match 197,440 observations. The compilation log confirms all 64 entry methods. JVM deployment, native ABI and resource lifetime coverage remain separate gates. [Generated Java integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-JAVA-INTEGER-LOWERING-2026-11-24.md).
+- Compare generated Rust and direct LLVM over all 64 integer fixture programs at O0 and O3. Each profile matches 197,440 status, output and callback observations. Rust O0 with debug assertions needs a panic symbol absent from the four successful objects. Both routes use an LLVM compiler family, and broader backend evidence remains open. [Generated Rust integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-RUST-INTEGER-LOWERING-2026-11-24.md).
+- Compare generated Go and Rust on the same checked COR-13 owned-result sources. Each of four compiled profiles matches 62,976 complete traces, including cleanup failure, caller release, aliased role checks and terminal obligations. General source lowering and native resource correspondence remain open. [Generated Go owned outcomes](research/compiler-and-translation/RT-13/RT-13-GENERATED-GO-OWNED-OUTCOMES-2026-11-24.md).
+- Compare native record layouts over 2,048 C calls and 16 exact ELF artifacts. Symbol plus size/alignment admits 478 incorrect vectors. DWARF/ELF comparison detects inaccurate field locations and widths. Matching layout with changed behavior still fails the exact output check. Eight artifacts satisfy both within the fixture. By-value and cross-target ABI remain open. [Native record layout](research/compiler-and-translation/RT-13/RT-13-NATIVE-RECORD-LAYOUT-2026-11-25.md)
+
+**Existing evidence:** target selection recommendation in `research/TRANSLATION-AND-TARGET-BACKENDS.md`.
+
+**Research output (2026-11-21)** · Direct LLVM and C++ realizations of one checked mutable byte-view operation match a Python oracle over 470,400 comparisons. An invalid LLVM alias annotation changes an ordered observation under O3 while preserving the final slab. [RT-09/13 mutable byte views](research/compiler-and-translation/RT-09/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md)
+
+**Status:** partially validated for this sequential mutable byte-view fixture. Broader cross-backend validation and initial target selection remain open.
+### 6.3 LLVM backend
+
+- Compare split and fused binary64 rounding over 6,859 triples in C, Rust and Java. GCC contraction emits FMA and changes 77 outcomes. Explicit FMA matches the value oracle in all six profiles, while raw NaN bits differ in 114 cases. IR flags, exception modes, other architectures and broad lowering remain open. [Binary64 contraction](research/compiler-and-translation/RT-13/RT-13-BINARY64-CONTRACTION-2026-11-25.md).
+- Compare verifier-admitted LLVM `contract`, `nsz` and `nnan` on matched binary64 inputs. O3 contraction changes 77 outcomes, `nsz` changes the result for the negative-zero input, and `nnan` folds the classifier within its checked input domain. Strict and explicit fused operations match their oracles. Dynamic rounding, broader flags and source proofs remain open. [LLVM floating-point flags](research/compiler-and-translation/RT-13/RT-13-LLVM-FP-FLAGS-2026-11-25.md).
+- Compare byte and word atomic lowering at O0/O3 for RV64, AArch64 and x86-64. RV64 with and without Zabha passes the two-hart fixture, while RV64 without native atomic support requires runtime helpers. An x86-64 text comparison cannot distinguish the moved-fence control. [Atomic lowering comparison](research/compiler-and-translation/RT-13/RT-13-ATOMIC-BYTE-WORD-LOWERING-2026-11-24.md).
+- Compare dynamic binary64 rounding and sticky exception flags under ordinary, literal constrained and parameterized LLVM operations. Two LLVM 19.1.7 optimizer builds fold constrained literal cancellation to positive zero under downward rounding. The parameterized route matches all 80 cases per pipeline. Version fixes, LTO and broader semantics remain open. [Dynamic rounding](research/compiler-and-translation/RT-13/RT-13-LLVM-DYNAMIC-ROUNDING-2026-11-25.md).
+- Compare native, full LTO and ThinLTO links across three pinned LLVM versions. Both LTO modes fold the inlined literal cancellation to positive zero. Retaining the call or loading operands dynamically preserves the downward negative zero in all nine profiles. Broader operations, portability and costs remain open. [Dynamic rounding through LTO](research/compiler-and-translation/RT-13/RT-13-LLVM-DYNAMIC-ROUNDING-LTO-2026-11-25.md).
+- The signed-add fixture checks the exact optimized IR under a source observation model, including no store on overflow and ordered callbacks. Native evidence confirms the selected counterexamples. [Checked-add observation validation](research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-OBSERVATIONS-2026-11-24.md).
+- Record bounded applicability on scalar, poison, alias, local atomics and fences. Vellvm passes 18 concrete checks and fails a false assertion. Alive2 explicitly reports unsupported atomics and fences. Stock Alive2 with exception-enabled LLVM reproduces the results with packaged or upstream LLVM verification tools. Broader concurrency and source-to-LLVM semantics remain open. [LLVM validation coverage](research/compiler-and-translation/RT-13/RT-13-ALIVE2-VELLVM-COVERAGE-2026-11-24.md) · [Stock replay](research/compiler-and-translation/RT-13/RT-13-STOCK-ALIVE2-LLVM-EH-2026-11-24.md).
+- Alive2 and both Vellvm extraction modes expose poison at the inclusive positive conversion bound. Guarded saturation agrees with all 216 native vectors per profile but remains unsupported by these validators. [LLVM checked F64 to I64 lowering](research/compiler-and-translation/RT-13/RT-13-LLVM-F64-I64-LOWERING-2026-11-25.md)
+- Reproduce the constrained downward cancellation discrepancy on exact LLVM 19.1.7, 22.1.4 and 23.1.1 drivers. Forced inlining changes negative zero even at O0. Retaining the call preserves all four cancellation modes in the witness. LTO, wider targets and the version policy remain open. [Dynamic rounding across LLVM versions](research/compiler-and-translation/RT-13/RT-13-LLVM-DYNAMIC-ROUNDING-VERSIONS-2026-11-25.md).
+- Debian LLVM/lld 19.1.7 emits working Wasm at O0 and O3 for the read-only view corpus. [LLVM to Wasm byte views](research/compiler-and-translation/RT-13/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md)
+- Compare aggregate-by-value System V and Microsoft x64 conventions on Linux. Equal record layout and symbol names admit four incompatible direct proposals. Explicit declarations and a fixed pointer bridge each preserve all 1,024 native results in their route. Windows, other aggregates and production ABI evidence remain open. [By-value call conventions](research/compiler-and-translation/RT-13/RT-13-BY-VALUE-CALL-ABI-2026-11-25.md)
+- Compare one ABI-bound checked-add fixture with Cranelift JIT and LLVM O0/O3. Across four profiles, 4,596 vectors each match the source evaluator. Record the target byte counts and six rejected mutants. Compilation latency, debug support and broader target coverage remain open. [Cranelift checked-add comparison](research/compiler-and-translation/RT-13/RT-13-CRANELIFT-CHECKED-ADD-2026-11-24.md).
+- A native-engine memory32 experiment verifies full-width arithmetic and logical view guards across 12,800 observations. [Wasm memory32 views](research/compiler-and-translation/RT-13/RT-13-WASM-MEMORY32-VIEWS.md)
+- Compare linked callback source origins using direct LLVM DWARF and generated Rust DWARF with a line map. Both O0/O3 routes recover the two exact source locations. Two attribution controls leave native behavior intact and fail the origin comparison. Debugger stepping and broader Debug coverage remain open. [DWARF callback origins](research/compiler-and-translation/RT-13/RT-13-DWARF-CALLBACK-SOURCE-ORIGINS-2026-11-24.md).
+- Compare first and repeated in-process JIT materialization on one checked-add workload. With other builds paused, median Cranelift `none` is 277.0/101.5 µs and LLVM ORC O0 is 2,405.3/840.5 µs. Four profiles report distributions and independently checked results. Process startup, incremental and representative workload measurements remain open. [JIT materialization latency](research/compiler-and-translation/RT-13/RT-13-JIT-MATERIALIZATION-LATENCY-2026-11-24.md).
+
+**Existing evidence:** `research/LLVM-BACKEND-ARCHITECTURE.md`; Scenarios 96, 96A, and 96B provide bounded source-to-LLVM preservation evidence, not a general backend validation.
+
+**Status:** architectural recommendation exists; backend selection, comparative measurements, full target matrix, lowering validation, and target-specific correctness evidence remain open.
+### 6.4 Implementation discovery, selection, and optimization
+
+**Existing evidence:** global semantic artifact store and POSIX runtime architecture.
+
+**Status:** partially researched; selection semantics and policy remain open.
+### 6.5 OS kernels and verified microkernel feasibility (RT-38)
+
+**Status:** Bounded RV64 boot, scheduling, local Sv39 visibility and isolated IPC checked in QEMU. **Priority:** P1. [Research brief](research/runtime-and-systems/RT-38/README.md) · [Issue #441](https://github.com/aivibeflow/LLMLang/issues/441).
+
+- Compare RV64 bare PMP and Sv39 protections in five exact single-hart QEMU images. The same U-mode code distinguishes a protected read, a store to an RX page and trap recovery. Split PMP and correct Sv39 deny both accesses. An exposed Sv39 leaf restores the protected read. [RV64 PMP and Sv39 isolation](research/runtime-and-systems/RT-38/RT-38-RV64-PMP-SV39-TRAP-ISOLATION-2026-11-24.md).
+- Compare Sv39 remap and revoke with full, correct-address, wrong-address and missing translation fences. Ordinary memory ordering leaves stale reads in QEMU. Pinned QEMU overinvalidates, so exact linked operand checking distinguishes the wrong-address control. Selective hardware behavior and remote shootdown remain open. [Sv39 remap and revocation](research/runtime-and-systems/RT-38/RT-38-SV39-REMAP-REVOKE-2026-11-24.md).
+- Compare zero-on-allocation and zero-on-release using a three-frame RV64 Sv39 fixture, a separate ownership proof model and an independent operation trace. Dirty publication, leaked reservation and aliased mapping controls diverge. The checked allocation transactions run before translation is enabled. [RV64 frame ownership and rollback](research/runtime-and-systems/RT-38/RT-38-RV64-FRAME-ALLOCATOR-2026-11-24.md).
+- Compare cooperative round-robin and run-to-completion across four two-task RV64 workloads. Linked integer context checks and three QEMU controls distinguish a broken saved-register restore, a wrong stack and a repeated trap PC. [RV64 cooperative scheduling](research/runtime-and-systems/RT-38/RT-38-RV64-COOPERATIVE-SCHEDULER-2026-11-24.md).
+- Compare slot-only and generation-checked capability admission for one RV64 IPC endpoint. The slot-only control admits stale sends after regrant, while a bounded generation with retirement denies use after exhaustion. [RV64 IPC capability revocation](research/runtime-and-systems/RT-38/RT-38-RV64-IPC-REVOCATION-2026-11-24.md).
+- Replayed upstream RISCV64 ASpec and ExecSpec, then checked one separately exported capability lookup wrapper and a behavior-preserving refactor against the original design in Isabelle/HOL. Three checked generic refutations distinguish wrong fault, slot and state effects. Reachable control witnesses, automatic counterexample search and checked LLMLang source binding remain open. [Capability lookup proof and replay](research/runtime-and-systems/RT-38/RT-38-SEL4-CAPABILITY-LOOKUP-ISABELLE-2026-11-24.md).
+- Replayed upstream RISCV64 AInvs with one proof thread and checked four abstract lookup wrapper propositions, including capability, slot and fault validity under the original premises. Generated-source binding and the C link remain open. [Abstract lookup invariants](research/runtime-and-systems/RT-38/RT-38-SEL4-ABSTRACT-LOOKUP-INVARIANTS-2026-11-24.md).
+- Replay official RISCV64 BaseRefine and Refine, then transfer the checked capability-lookup correspondence to both exported and refactored design wrappers. Both retain the original state, input, result and failure relations. Checked LLMLang source binding, reachable negative cases, automatic counterexample search and the C/binary link remain open. [Refined capability lookup](research/runtime-and-systems/RT-38/RT-38-SEL4-REFINED-LOOKUP-2026-11-24.md).
+- Check the exact byte grammar of a bounded lookup wrapper and transfer the Isabelle correspondence to every admitted input. Two stored variants pass and five invalid inputs fail admission. The checked profile delegates the lookup primitives. General LLMLang grammar, a checked frontend, reachable semantic counterexamples and C/binary correspondence remain open. [Lookup source decoder](research/runtime-and-systems/RT-38/RT-38-SEL4-LOOKUP-SOURCE-DECODER-2026-11-25.md).
+- Run the bounded RV64 QEMU single-core pilot with two Sv39 address spaces and a generation-checked endpoint. Independent IPC traces and stack/page-fault controls detect two incorrect mappings. The missing shared-ASID fence passes in QEMU and is identified by exact linked inspection. [RV64 isolated IPC pilot](research/runtime-and-systems/RT-38/RT-38-RV64-ISOLATED-IPC-PILOT-2026-11-24.md).
+## Stage 7 — Scale, ecosystem, collaboration, and adoption
+
+### 7.1 Performance and scalability
+
+- The first graph-shaped Rust workload compares glibc and jemalloc on one pinned configuration. [Allocator benchmark](research/runtime-and-systems/RT-25/RT-25-DEPENDENCY-GRAPH-ALLOCATOR-BENCHMARK.md)
+- Cross-check existing results against RT-01 workload coverage and RT-25 acceptance gates; the bounded comparison does not select an allocator. [Workload-fit recheck (2026-11-24)](research/runtime-and-systems/RT-25/RT-25-WORKLOAD-FIT-RECHECK-2026-11-24.md)
+### 7.2 Libraries, packages, templates, and artifact ecosystem
+
+#### Package indexes and dynamic package delivery
+
+- Draft a human-readable TOML manifest schema candidate and an illustrative manifest fixture; keep binary encoding for machine indexes and object payloads where their formats require it.
+- Draft the Package Content Root Hash projection, identity exclusions, and validation invariants independently of raw TOML bytes and physical archive encoding.
+- Implement an exploratory executable package-identity model and focused fixtures for PMI-001–PMI-014; record its limits and test evidence.
+- Add a reproducible Provider benchmark harness for chain, diamond, high-fan-out, and many-dependency graphs; report time, throughput, Python allocation peak, process RSS, temporary-directory disk high-water, and archive size.
+- Add CI stress coverage for 1,200-object chain and high-fan-out dependency closures.
+
+**Existing evidence:** [Package System: Static and Dynamic Packages](research/packages-and-ecosystem/RT-12/PACKAGE-SYSTEM.md), extending the earlier [Libraries and Templates](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md) and [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md) proposals.
+
+**Status:** researched and prototyped at an exploratory level. A candidate TOML manifest schema, example fixture, Package Content Root Hash projection, identity exclusions, and PMI invariants are documented. The logical index, external-memory validation, streaming archive writer/verifier, exact dependency-policy resolver, and disk-backed Provider-to-archive pipeline have executable prototypes and CI coverage. The Provider uses SQLite for graph traversal state and streams sorted index rows plus one object payload at a time. A reproducible benchmark harness and 1,200-object chain/high-fan-out stress tests are implemented; CI records exploratory measurements, but controlled-hardware baselines and large-scale acceptance criteria remain open. The Toolchain Server Prototype 01 currently has only an in-memory lifecycle model and does not expose the public snapshot enumeration, dependency-edge, or streaming-payload API needed by Provider; no adapter is added against its private state. A persistent immutable-object backend and public snapshot read contract remain open. No normative wire format, codec policy, provider protocol, cache-index schema, final manifest schema, canonical hash encoding, or digest algorithm has been accepted.
+
+**Existing evidence:** `research/LIBRARIES-AND-TEMPLATES.md` and `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`; related TODO items LL-006–LL-012.
+
+**Status:** researched in `research/LIBRARIES-AND-TEMPLATES.md`, `research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md`, and `research/PACKAGE-SYSTEM.md`; package/index/provider design is proposed but not accepted, and operational policy, benchmarks, and trust implementation remain open.
+### 7.3 Parallel development and collaboration
+
+**Existing evidence:** requirement evolution and semantic impact scenarios 18–19; Git semantic merge research.
+### 7.4 Security, trust, and reproducibility
+
+- A native cross-store experiment separates stale grant admission, scope-aware serialization and external-effect recovery. In a 45-case matrix the SQLite writer gate has no stale rename, while a process stop after rename leaves a file without a receipt under every tested policy. General external and issuer guarantees remain open. [External-effect revocation](research/language-design/RT-04/RT-04-EXTERNAL-EFFECT-REVOCATION-2026-11-25.md)
+
+**Status:** an initial threat model and tested authorization-policy experiment now exist in [RT-16 Threat Model 01](research/security/RT-16/RT-16-THREAT-MODEL-01.md). They cover scope binding, human approval, replay, evidence identity, and fail-closed checks at fixture level. A complete security architecture remains open; persistent multi-client authorization, concurrency/crash injection, sandbox testing, signed/authenticated evidence, and operational approval policy are high-priority gaps.
+
+**Research output (2026-11-23):** [RT-16 authorization and evidence-policy recheck](research/security/RT-16/RT-16-POLICY-RECHECK-2026-11-23.md) reran the current-main policy suite: 24/24 passed on CPython 3.12.14 with source hashes recorded. This closes the fixture reproducibility gap, not production security. Exact scope binding is supported by the model; digest-only evidence does not authenticate its producer, and persistent nonce handling, signatures/trust roots, sandboxing, maintainers' approval policy, and Toolchain integration remain external dependencies.
+### 7.5 Developer experience and adoption
+
+- Exercise versioned two-document repairs over LSP in 35 sessions. A stale version rejects the entire batch, but an unopened provider can change after server preflight and alter repair behavior. Scoped checking at application avoids the stale outcome and preserves unrelated edits in the fixture. General editor and Toolchain transaction integration remain open. [LSP repair application](research/toolchain-and-collaboration/RT-17/RT-17-LSP-REPAIR-APPLICATION-2026-11-24.md).
+- Compare negotiated UTF-8, UTF-16 and UTF-32 positions and exact occurrence checks in 252 LSP sessions. Range-only application accepts 26 wrong edits. Token checks leave 12 wrong occurrences, and exact occurrence checks preserve all correct edits while rejecting those alternatives. Production editor and user evidence remain open. [LSP position encodings](research/toolchain-and-collaboration/RT-17/RT-17-LSP-POSITION-ENCODINGS-2026-11-25.md).
+- Exercise LSP push, pull, refresh and watched-file messages in 18 client/server sessions. A document version and document-bound result ID preserve four wrong results in each delivery style. A complete read projection rejects all four and avoids one whole-workspace refresh after an unrelated edit. Editor behavior and participant evaluation remain open. [LSP diagnostic freshness](research/toolchain-and-collaboration/RT-17/RT-17-LSP-DIAGNOSTIC-FRESHNESS-2026-11-24.md).
+- Compare one exact three-entry CLI graph through interpretation and generated Rust O0/O3. Both paths and the existing C/Python baselines pass all 34 RT-01 cases. Separate mutations distinguish negative division, empty arguments and diagnostic channels. General language support, representative project scale and participant evaluation remain open. [Typed CLI vertical slice](research/language-design/RT-01/RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md)
+
+**Status:** initial workload acceptance criteria and an executable CLI corpus with C and Python host references are recorded in [RT-01 Reference Workloads](research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md). [Scenario 95 execution](research/toolchain-and-collaboration/RT-17/RESEARCH-SCENARIO-95-EXECUTION-2026-11-20.md) adds an evidence-linked diagnostic/repair contract candidate, 12 structural discriminators, and a controlled evaluation protocol. These are analytical outputs only: LLMLang implementation behavior, human/agent usability, review quality, context/token use, repair effort, scope violations, and adoption criteria still need implementation and controlled study.
+
+**Publication evidence (2026-11-21)** · Across 50 schedules, a complete read projection matches the diagnostic oracle. Entry-only publication accepts stale reports after external changes, while workspace-wide validation also discards unchanged results. [Diagnostic publication](research/toolchain-and-collaboration/RT-17/RT-17-DIAGNOSTIC-PUBLICATION.md)
+### 7.6 Toolchain Server and semantic development API (RT-19)
+
+- Identify the architectural gap between the existing Development Engine RFC and an operational agent-facing Toolchain API.
+- Draft a research proposal for a transport-neutral domain API with MCP, CLI, IDE, and CI adapters.
+- Define candidate Workspace, Change Set, immutable Snapshot, and typed mutation-envelope responsibilities.
+- Draft ADR-015 as a Proposed decision record with explicit non-decisions and validation gates.
+- Implement Prototype 01 for in-memory immutable objects/snapshots, isolated workspaces, typed changes, optimistic checks, acceptance, and single-file import/export.
+- Add a focused Python test suite and GitHub Actions workflow for the prototype.
+- Record the Git-authoritative/reconstructible-store boundary from Proposed ADR-014; do not silently change the ADR.
+- Compare the bounded transaction/recovery protocol choices using existing implementations: single embedded DB coordinator, object store plus workspace journal/outbox, and Git commit as acceptance. The state-machine comparison favors separate logical object/workspace contracts coordinated by one embedded DB transaction, with a durable outbox and Git as reconstructible authority. This closes only the comparative-analysis checkbox; no crash recovery or backend has been implemented or selected. See [RT-19 transaction/recovery protocol comparison](research/toolchain-and-collaboration/RT-19/RT-19-TRANSACTION-RECOVERY-PROTOCOL-COMPARISON-2026-11-24.md).
+- Replay a bounded SQLite acceptance/outbox and exact Git tree publication across eight process crashes. Fresh processes recover the exact root and original outcome after divergence, preserve the live index, and adjudicate duplicate and competing requests. [RT-19 process crash recovery](research/toolchain-and-collaboration/RT-19/RT-19-SQLITE-GIT-PROCESS-RECOVERY-2026-11-24.md).
+- Compare recovery rights in 48 native SQLite/file schedules. Observation permission can authorize reconciliation of an already visible exact record after append revocation. Resuming a missing or partial record requires current append rights. A fenced split prevents two late effect races and one disclosure missed by fresh checks alone. Remote delivery and production authority remain open. [Recovery authority](research/toolchain-and-collaboration/RT-19/RT-19-RECOVERY-AUTHORITY-2026-11-25.md)
+- A SQLite/filesystem fixture uses exact prepared operation bytes to recover an already visible immutable effect after process termination. Filename-only recovery produces three false receipts. The exact recovery path retains both correct interrupted outcomes and one receipt under concurrent retry. Production namespace, authority and crash durability remain open. [External receipt recovery](research/toolchain-and-collaboration/RT-19/RT-19-EXTERNAL-RECEIPT-RECOVERY-2026-11-25.md)
+- Compare per-file replacement with generation-manifest, generation-pointer, and exact Git-tree/ref publication boundaries; the bounded result favors validating a private complete tree before publishing its Git ref, while keeping durable accepted-pending state distinct. [Multi-file publication boundary recheck (2026-11-24)](research/toolchain-and-collaboration/RT-19/RT-19-MULTIFILE-PUBLICATION-BOUNDARY-RECHECK-2026-11-24.md)
+- Recheck current workspace revision CAS against two workspaces on one base and repeated Change Set IDs. Local CAS permits competing same-base acceptance; retries return `StaleRevision`, not a stored result. Shared-head arbitration and durable idempotency remain separate unresolved contracts. [Concurrent workspace CAS recheck (2026-11-24)](research/toolchain-and-collaboration/RT-19/RT-19-CONCURRENT-WORKSPACE-CAS-RECHECK-2026-11-24.md)
+- The shared-head fixture now has a persistent request/outcome and Git receipt record with process crash and race checks. Branch-based acceptance, complete semantic merge/conflict discovery and maintainer choice of acceptance semantics remain open.
+- Specify candidate MCP Tools, Resources and Prompts schemas for the in-memory lifecycle. The upstream SDK passed 42 assertions over MCP stdio, including scoped resources, rejected stale mutations and atomic Change Sets. Production authorization, payload schema and persistence integration remain open. [Independent MCP client experiment](research/toolchain-and-collaboration/RT-19/RT-19-MCP-STDIO-SCHEMA-INTEROPERABILITY-2026-11-24.md).
+
+**Existing evidence:** [RT-19 research proposal](research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md) builds on [Development Engine RFC](research/toolchain-and-collaboration/RT-14/RFC-DEVELOPMENT-ENGINE.md), [Git semantic repository research](research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md), and [ADR-014](docs/adr/014-git-semantic-merge.md).
+
+**Status:** proposal and Proposed ADR-015 drafted; a narrow in-memory lifecycle prototype and focused CI test workflow are present. No API contract, persistent storage backend, multi-file synchronization algorithm, MCP surface, or ADR has been accepted. The prototype is evidence for workflow mechanics only, not implementation completion.
+
+**Research output (2026-11-23):** [RT-19 storage backend contract recheck](research/toolchain-and-collaboration/RT-19/RT-19-STORAGE-BACKEND-CONTRACT-RECHECK-2026-11-23.md) compared the in-memory workspace lifecycle with the SQLite Content Store. Their current APIs are not interchangeable: one owns atomic workspace Change Sets, the other exposes opaque immutable-object snapshot reads. The proposed next experiment separates object-store and workspace-transaction contracts; persistent acceptance/recovery and adapter integration remain open.
+
+**Research output (2026-11-23):** [RT-19 workspace persistence transaction boundary recheck](research/toolchain-and-collaboration/RT-19/RT-19-WORKSPACE-PERSISTENCE-TRANSACTION-BOUNDARY-RECHECK-2026-11-23.md) reran both focused suites (9/9 each), confirmed that the SQLite schema has no workspace-head API, and compared one embedded transaction coordinator, a journal/outbox over a separate immutable object contract, and Git-commit-coupled acceptance. It provisionally recommends testing a journal/outbox coordinator first, with one embedded DB as the physical engine and Git remaining the reconstruction authority. Process crash injection, multi-file/Git reconciliation, and durable recovery remain open.
+
+**Research output (2026-11-24):** [RT-19 transaction and recovery protocol comparison](research/toolchain-and-collaboration/RT-19/RT-19-TRANSACTION-RECOVERY-PROTOCOL-COMPARISON-2026-11-24.md) re-ran the in-memory lifecycle and SQLite Content Store suites (9/9 each) and compared eight failure points across the three protocol candidates. It distinguishes the single embedded DB as physical coordinator from object-store/workspace-journal logical contracts, and Git commit as a receipt/reconstruction oracle rather than sole pre-commit workspace state. The comparison favors that bounded next experiment; it does not test crashes or establish production durability. Crash injection, source/SPG binding, atomic multi-file/Git reconciliation, MCP/authorization, workload measurements, and maintainer approval remain open.
+### 7.7 LLM patch planning, caller migration, hash propagation, and verified commit (RT-20)
+
+- Capture the requirement that the complete function-change plan must be established before implementation.
+- Separate upward contract propagation from hash/reference propagation through callers.
+- Record per-call-site compatibility decisions: migrate to a new callee version, preserve the old immutable version, adapt, fork, or remain unresolved.
+- Preserve the caller-required contract hash and exact callee identity in each call-site decision; resolve the callee-provided contract through the callee declaration rather than storing a duplicate reference. Require PROVEN compatibility status plus evidence identity for resolved decisions and verify the bindings against materialized baseline/candidate objects.
+- Require shared-caller version-split analysis when different consumers need old and new behavior.
+- Define a candidate Change Impact Plan (CIP), plan-completeness checks, and mandatory plan execution.
+- Specify the proposed completion gate: freeze candidate, verify plan coverage, validate and audit exact hashes, then create a Git commit only on success.
+- Prototype a candidate Snapshot materialization check for planned call-site decisions: bind exact baseline/candidate roots, verify selected caller/callee membership and stored hashes, and inspect the actual candidate call-site target.
+- Audit the complete candidate dependency closure: recompute Snapshot root, traverse transitive typed references, verify object hashes and target kinds, and compare payload-derived edges with stored dependency metadata.
+- Extend CIP-to-diff enforcement with versioned output slots, exact typed-reference/call-target edge deltas (including call-site Contract bindings), post-materialization output-hash bindings, and consumer-path-specific shared-caller forks. The current implementation tests declaration add/remove/replace, typed-reference additions/rewrites, call-target add/remove/rewrite/condition changes, required-Contract migration, caller deletion, and a branching/converging caller split. Action-kind/prerequisite/evidence sufficiency, dynamic dependency completeness, behavioral compatibility, and commit authorization remain open.
+
+**Evidence:** [RT-20 — LLM Patch Planning, Caller Migration, Hash Propagation, and Verified Commit](research/toolchain-and-collaboration/RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md) records the proposed workflow and invariants. It is a research proposal, not an accepted identity or Toolchain decision.
+
+**Executable caller refactor:** [Calculator call-site split](research/language-design/RT-01/RT-01-CLI-CALL-SITE-REFACTOR-2026-11-25.md) compares eight Git candidates and 192 native subprocess observations. Exact per-call preservation and migration admits six. A warm store produces correct outputs for both removed-source candidates, which fail source closure. General caller inventory, language integration and independent review remain open.
+
+**Status:** RT-20 remains a research proposal. The dependency-graph prototype includes Snapshot-scoped reverse lookup, differential payload-scan auditing, per-call-site compatibility planning, candidate call-site materialization checks, and a complete explicit-declaration dependency-closure audit. The candidate declaration schema is v2: each call-site alternative pins its required Contract hash, each callable callee owns one provided-Contract reference, and RT-20 decisions preserve the caller requirement plus exact callee identity without duplicating the provided-Contract reference. The dependency-index edge projection is v3. The graph audit checks exact object hashes, transitive target resolution/kinds, and consistency between payload-derived edges and stored dependency metadata. CIP schema v2 adds exact output slots, typed-reference/call-target edge deltas, materialized output-hash bindings, and consumer-path-specific shared-caller forks. PR #24 is merged. Post-merge workflows on `cf51c15a34cee14a8b0390322be0a15d9ee85559` passed: semantic dependency 101 tests + compilation, repository structure 6 + 78 tests, and strict QF_LIA 30 tests + compileall. Action-kind/prerequisite/evidence sufficiency, dynamic dependency completeness, behavioral compatibility, and a validation-gated commit remain open.
+
+**Evidence:** [RT-20 Candidate Call-Site Validation](research/toolchain-and-collaboration/RT-20/RT-20-CANDIDATE-CALL-SITE-VALIDATION.md), [RT-20 Candidate Graph Audit](research/toolchain-and-collaboration/RT-20/RT-20-CANDIDATE-GRAPH-AUDIT.md), and tests under `research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/`.
+### 7.9 AI-oriented syntax experimentation and MCP session observability (RT-31)
+
+- Implement three versioned expression parsers and generators and check all nine conversions against an independent value/trace oracle on 4,032 observations. Frontend, binding, typing and trace controls distinguish validation stages. Broader syntax coverage and human/model evaluation remain open. [Cross-profile SPG](research/language-design/RT-31/RT-31-CROSS-PROFILE-SPG-2026-11-24.md).
+
+**Status:** research required; three-level semantic/abstract/concrete separation is the agreed research direction, but the exact IR/AST boundary, profile design, logging schema, retention policy, and optimization process remain open. No concrete syntax or unrestricted session-content capture is selected.
+### 7.10 Semantic Function Discovery and Retrieval (RT-35)
+
+**Bounded evidence:** [Scoped retrieval and exact function binding](research/semantic-representation/RT-35/RT-35-SCOPED-RETRIEVAL-2026-11-25.md) compares five ranking channels in 36 contexts. Lexical and multi-aspect recover 42/48 compatible pairs, yet shortlist-only checking falsely binds 18/36 contexts for either channel. Complete authorized selection gives 12 bound, 12 ambiguous and 12 pending decisions. Stale roots, mismatched rows, prior-root receipts and omitted compatible rows distinguish exact binding from derived-index retrieval. Real workload labels, production embedding and ANN comparisons, index lifecycle measurements and independent review remain open.
+
+**Persistent index evidence:** [SQLite index generations](research/semantic-representation/RT-35/RT-35-PERSISTENT-INDEX-GENERATIONS-2026-11-25.md) compare four freshness gates across 28 protocol schedules and seven split-publication controls. Full-key revalidation returns 10 exact results and refuses 18 when the writer publishes index rows and the ready key atomically. A premature ready marker allows five incomplete results. Rebuild and delta have identical projections across 24 maintenance measurements, with fewer writes but full comparison and validation scans in the delta. Production latency, distributed isolation, workload coverage and independent review remain open.
+
+**Status:** research required. Semantic fingerprints and KNN/ANN are proposed discovery mechanisms, not selected architecture or language semantics. Exact function hashes remain authoritative for calls.
+
+## Historical research baseline
+
+The following is a snapshot of known work, not a claim that all corresponding questions are resolved.
+
+| Area | Existing artifacts / evidence | Current assessment |
+|---|---|---|
+| Core concept and SPG | `LLMLang-CONCEPT.md` | Researched; semantic model still evolving |
+| Comparative language design space | Scenarios 35 onward and `RESEARCH-OPTION-MATRIX-01.md` | Evidence covers semantics, types and resources, syntax, runtime, identity, verification, cache trust, diagnostics, scheduling, backend preservation, cleanup composition, AST path analysis, optional values, bounded serialization probes (Scenarios 109–111 and reference-only cross-format Scenario 134; no current cross-version wire-compatibility requirement), fairness, and atomic memory orders. Experimental coverage varies by option. |
+| RT-03/RT-04 semantics and resource boundaries | `CORE-LANGUAGE-SEMANTICS.md`, RT-04 report, shared corpus, COR-13, Scenarios 35–41, 97–112 | Bounded evaluators and focused checks cover Scenario 97 cleanup outcome/ownership audits; Scenarios 98–103 finite paths, solver outcomes, and worker timeout; Scenarios 104–108 mutation identity, call summaries, and alias precision; Scenario 109 optional-presence JSON round trip; Scenario 110 producer/consumer version skew and defaults; Scenario 111 unknown wire variants with Protobuf/Avro/CBOR prior-art; and Scenario 112 weak/strong fairness cycles with a conditional two-task round-robin bound. Broader timeout distributions, negative-result verification, parser/source completeness, general alias analysis, external-wire/ABI policies if such boundaries are introduced, call/cleanup integration, async/concurrent cases, independent review, and cross-aspect compatibility remain open |
+| Identity and call binding | RT-05 lifecycle/recursive/call-site experiments; RT-24 decision matrix | Candidate lifecycle/address models compared on finite fixtures; exact OpHash/ImplHash and contract boundaries, source correspondence, branch conflicts, and canonical SPG integration remain undecided |
+| Reference workloads and agent tasks | `RT-01-REFERENCE-WORKLOADS.md`; `PROTOTYPES/CLI-WORKLOADS-01/` | Shared acceptance criteria and C/Python CLI host references exist; LLMLang candidate execution, controlled human/agent evaluation, and workload-weight calibration remain open |
+| Formal verification architecture | `LLMLang-FORMAL-VERIFICATION.md` | Researched; complete formal semantics not finished |
+| Typed requirements and contracts | Scenarios 15–19; prototypes 16–19 | Prototyped; broader language integration remains |
+| Dependency discovery and impact | Scenarios 20–28; prototypes 20–28 | Extensively prototyped; sound end-to-end completeness remains |
+| SMT/proof boundary | Scenarios 29–34; Logos/Lean binding prototype; QF_LIA profile and typed query IR | Partially validated; pinned Lean CI build and current tests pass; QF_LIA path remains restricted/candidate and source-to-query/program-level correspondence remains unproved |
+| Semantic compilation cache | `SEMANTIC-COMPILATION-CACHE.md` | Researched; implementation and empirical validation remain |
+| Cache speedup estimate | `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md` | Analytical estimate exists; controlled runtime benchmarks remain |
+| Binding and invalidation measurements | `RT-11-BINDING-INVALIDATION-BENCHMARK.md`; `PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding_build_benchmark.py` | Synthetic C experiment records compile/link/verification action counts for exact versus separate linkage; production dependency discovery, remote trust, and controlled-hardware timing remain open |
+| POSIX runtime | `POSIX-RUNTIME-ARCHITECTURE.md` | Researched; profile and vertical slice remain open |
+| Translation/backends | `TRANSLATION-AND-TARGET-BACKENDS.md` | Researched; backend implementation remains |
+| LLVM backend | `LLVM-BACKEND-ARCHITECTURE.md` | Researched; lowering and validation remain |
+| Source-to-LLVM semantic preservation | Scenarios 96, 96A and 96B; LL-020; `LLVM-BACKEND-ARCHITECTURE.md` | LLVM 19.1.7 matches 41,956 integer and 19,600 byte-view observations across two optimization levels. Negative controls lose overflow, bounds or origin checks. General allocation provenance and cross-target validation remain open |
+| Libraries and templates | `LIBRARIES-AND-TEMPLATES.md` | Researched; detailed decisions remain |
+| Global artifact store | `GLOBAL-SEMANTIC-ARTIFACT-STORE.md` | Researched; store and trust implementation remain |
+| Git representation and semantic merge | `GIT-SEMANTIC-REPOSITORY.md`; ADR-014 | Research completed at concept level; ADR-014 is Proposed; implementation and merge evaluation deferred |
+| Toolchain Server and semantic development API | `RT-19-TOOLCHAIN-SERVER-AND-SEMANTIC-DEVELOPMENT-API.md`; Development Engine RFC | Proposal drafted; API, storage, synchronization, MCP adapter, and failure semantics remain unvalidated |
+| Security and trust | `RT-16-THREAT-MODEL-01.md`; RT-16 authorization prototype | Initial threat model and 24-fixture policy experiment exist; persistent concurrent authorization, crash recovery, sandbox attacks, authenticated evidence, and operational policy remain open |
+| Developer experience and adoption | `RT-01-REFERENCE-WORKLOADS.md`; Development Engine RFC | Initial workload criteria and authoring protocol exist; controlled human/agent usability, diagnostics, review quality, and adoption research remain open |
+
+### PR #47 cumulative research scope
+
+PR #47 merged the cumulative research snapshot `73d37723e6a759159b354c2cd74327517c4036c4`. Its base `eed5f5e` contains valid UTF-8 in `PLAN.md`. The first branch commit `adab2e8` replaced it with binary blob `73dc25c`, which is present in all 99 branch commits and the squash commit `b0638a1`. GitHub records the file as modified with no text patch and zero line counts. The subsequent text consolidation in PR #51 drew on the research mapped below. [PR #47 file changes](https://github.com/aivibeflow/LLMLang/pull/47/files) · [First branch commit](https://github.com/aivibeflow/LLMLang/commit/adab2e860581a3ddf43f6aa87014e6d5221b3f84)
+
+| Snapshot scope | Research in the cumulative snapshot | Plan follow-through |
+|---|---|---|
+| Core outcomes and resource boundaries | Scenarios 35–41; COR-13; RT-03/04 shared corpus and prototypes for typed calls, owned-resource returns, cleanup dispositions, recursion/fuel, and actor progress | Continue Stage 1.4/1.4.1 with source-to-model/path completeness, ordered effects, call/return/cleanup integration, and independent review. Keep each result bounded to its fixture. |
+| Language feature space | Scenarios 42–76, covering generics and dispatch, modules and initialization, compile-time and macro boundaries, numeric/string behavior, API evolution, concurrency, errors, ownership, mutability, initialization, subtyping, interfaces, layouts, disposal, and regex resource bounds | Keep alternatives in the option matrix; add discriminating executable corpora and cross-aspect checks before proposing a coherent profile. The scenario fixtures are bounded comparative probes, not a complete semantic model or a selected feature policy. No feature policy is selected by a prior-art survey. |
+| Syntax, evaluation, and API surface | Scenarios 77–89, covering call argument order, floating-point behavior, literal/comment/import/file/numeric/signature/binding/async syntax, defaults, and automatic semicolon insertion | Treat syntax/parser acceptance separately from runtime semantics and API compatibility. Pin source modes and toolchain versions when turning proposed cases into runnable comparisons. |
+| Identity and digest lifecycle | Scenarios 90–91; RT-05 lifecycle, recursive identity, and call-site refactor experiments; RT-24 decision matrix | Continue Stage 1.2/1.3 and Stage 4 identity work with rename/move, recursion, call-site changes, migration, and branch-conflict cases. Do not finalize hash payloads or canonical SPG fields by implication. |
+| Workloads, measurement, and trust | RT-01 CLI reference workloads, RT-11 binding/invalidation benchmark, RT-16 threat model and authorization prototype, and `RESEARCH-OPTION-MATRIX-01.md` | Continue Stage 3/7 measurements on controlled workloads and hardware, and extend security lifecycle tests. Preserve the current limits: host references are not LLMLang evaluations, synthetic action counts are not production timings, and policy fixtures are not a complete security architecture. |
+
+Subsequent Scenarios 92–122 extend the coverage through atomic execution, typed ownership across calls, and completeness and freshness of close evidence. The research index tracks the full numbered corpus and its prototypes across RT-03/04, RT-05/11/16, and dependency analysis. The dated research register records the evidence, open questions, and next experiments. [Research index](research/README.md) · [Research State](research/research-management/RESEARCH-STATE-2026-11-19.md)
+
+---
+
+## Specification synthesis evidence
+
+The [scoped comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.md#52-comparisons-supported-by-the-november-24-reproductions) and [bounded toolchain route comparisons](research/research-management/RESEARCH-OPTION-MATRIX-01.md#53-bounded-toolchain-route-comparisons) record verified conditions for later whole-candidate comparison. The toolchain ledger checks shared integer source across three emitters and keeps measured JIT, verification, Git publication and runtime limits attached to their exact profiles.
+
+| Activity | Status | Exit condition |
+|---|---|---|
+| Define research taxonomy and initial dependency map | **Completed** | 18 research areas and 35 initial dependency edges are documented; ongoing updates remain required |
+
+## Evidence behind immediate work and external gates
+
+Scenarios 119–130 cover returned ownership, native cleanup outcomes, scoped role and alias checks, concurrent and reentrant guards, cancellation, and durable results. Scenarios 131–133 check a bounded common source workload with two transfer rules, typed caller arms, and a second foreign operation through aliases. Extend source and runtime correspondence and compare full profiles using static admission, ordered effects, live capabilities, and completion evidence. [COR-13 follow-up](research/language-design/RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md#cor-13-follow-up-on-foreign-resource-lifetimes)
+
+Scenario 133 supplies a pinned Rust result for COR-13 under ADR-016. General translation, native foreign effects, and the stage 0–2 bootstrap chain still need separate conformance evidence. [Generated Rust probe](research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-133-GENERATED-RUST-OWNED-RESULTS.md)
+
+Scenario 96A runs wrapping and checked integer operations through generated LLVM IR with ordered effect payloads. The finite corpus matches under O0 and O3. A verifier-accepted mutation demonstrates the need for a separate source observation check. [LLVM integer corpus](research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-96A-LLVM-INTEGER-PRESERVATION.md)
+
+Scenario 96B compares one-past formation, byte reads and view identity across adjacent and overlapping ranges. Two verifier-accepted controls violate the source contract while accessing the same live allocation. [LLVM byte-view corpus](research/compiler-and-translation/RT-13/RESEARCH-SCENARIO-96B-LLVM-BYTE-VIEW-PRESERVATION.md)
+
+The [RT-19 process crash experiment](research/toolchain-and-collaboration/RT-19/RT-19-SQLITE-GIT-PROCESS-RECOVERY-2026-11-24.md) checks a persistent journal, eight abrupt process exits, exact Git-tree/root recovery, and idempotent outcomes for one closed source profile. The broader gate still needs source/SPG/dependency/authorization binding and production Git/filesystem recovery. An [independent MCP client](research/toolchain-and-collaboration/RT-19/RT-19-MCP-STDIO-SCHEMA-INTEROPERABILITY-2026-11-24.md) covers the in-memory lifecycle. Persistent integration and an authenticated multi-client environment remain external to that fixture. Maintainer approval of ADR-015 and any production backend selection remains an external decision. These gates do not prevent further contract-level comparisons, but they prevent treating the proposed protocol as implementation-complete.
+
+## Research quality and decision-register evidence
+
+**Stage 0.2 research-process tracking:** [quality review protocol](research/research-management/QUALITY-REVIEW-PROTOCOL.md) and [warning-only pilot results](research/research-management/RT-00/RT-00-QUALITY-RULES-PILOT-2026-11-23.md) are proposals, not accepted governance decisions. Maintainer acceptance, corpus-wide claim audit, pilot reviewer measurements, and foundational experiment reruns remain open under [PLAN.md §0.2](PLAN.md#02-establish-research-quality-and-decision-rules) / [issue #285](https://github.com/aivibeflow/LLMLang/issues/285). No new LL design-question ID is created for this process implementation task.
+
+**Pilot follow-up:** [Ten-report current-main audit](research/research-management/RT-00/RT-00-QUALITY-RULES-REAL-REPORT-PILOT-2026-11-23.md) records known heading/metadata false alarms and a reproducible pinned structural sample. It does not select the process policy or resolve technical evidence identity LL-008; maintainer approval and corpus/experiment audits remain open.
+
+The [Stage 0.2 warning adjudication](research/research-management/RT-00/RT-00-QUALITY-RULES-ADJUDICATION-2026-11-23.md) resolves the *documentation triage classification* of 33 historical warnings (16 layout-only; 17 documentation gaps). It does not decide evidence validity, select any LLMLang semantics or satisfy open LL evidence-identity questions. The eight provenance gaps and nine other process gaps are tracked by [issue #285](https://github.com/aivibeflow/LLMLang/issues/285), rather than creating unrelated LL design-question IDs.
+
+**Stage 0.2 provenance distinction:** [Pinned eight-report publication-history report](research/research-management/RT-00/RT-00-QUALITY-RULES-PROVENANCE-RECHECK-2026-11-23.md) finds recoverable Git tree snapshots but does not authenticate original uncommitted run sources. The five-workload [historical recheck workflow](.github/workflows/research-historical-rechecks.yml) is a new bounded execution, not proof of historical experiment/toolchain identity. Keep the missing original-run attestations and other nine documentation crosswalk gaps tracked in [issue #285](https://github.com/aivibeflow/LLMLang/issues/285).
+
+**Research evidence-navigation progress (2026-11-23):** [Nine supplementary report crosswalks](research/research-management/RT-00/RT-00-QUALITY-RULES-NAVIGATION-REMEDIATION-2026-11-23.md) document the nine non-baseline process gaps classified in the Stage 0.2 pilot. This is a retrospective documentary correction, not a claim of originally-attested experimental runs or a normative specification. Keep eight original-run provenance/host gaps and the remaining research-quality policy adoption / corpus validation work under [issue #285](https://github.com/aivibeflow/LLMLang/issues/285).
+
+**Stage 0.2 claim-level follow-up:** [Second 12-report/24-claim review](research/research-management/RT-00/RT-00-QUALITY-RULES-CLAIM-COHORT2-2026-11-23.md) records eight local *interpretation risks* (not eight newly proven defects): Lean source/back-end correspondence, historical RT-05 unsuccessful tests, SAT sample bias, wire-runtime extrapolation, prospective SQLite provenance, stale RT-00 counts, RT-24 proposal/approval distinction, and finite FFI alias coverage. Machine-verified exact source pointers are insufficient for research correctness. Keep issue #285 open for independent technical review, representative corpus sampling, original-run attestations and maintainer policy adoption; no LL semantic decision is made here.
+
+**Research quality technical validity follow-up:** [Orthogonal falsification controls](research/research-management/RT-00/RT-00-QUALITY-RULES-ORTHOGONAL-ORACLES-2026-11-23.md) are source-pinned independent-code cross-checks for Scenario 110/112 and the RT-24 Git-tree counterexample. They do not establish an independent second **human** scientific review, a complete serializer, full-language scheduler semantics or original execution provenance. Continue [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) for all remaining acceptance/maintainer authority checks.
+
+**Stage 0.2 independent review handoff (pending):** [Eight diverse claim IDs](research/quality-audit/2026-11-23-independent-review-handoff.md) have a ready-to-use human Q1–Q5 reviewer protocol, but **no independent reviewer has completed it**. Separate [orthogonal model CI #45261537559](https://github.com/aivibeflow/LLMLang/actions/runs/45261537559) passed seven tests on 3,456 JSON and 21,840 fairness inputs plus a Git-negative control; this is experimental corroboration in restricted models, not source-to-compiler correctness or accepted language policy. Keep [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) open for original-run provenance, independent claim review, generalization and maintainer quality-process adoption.
+
+**Stage 0.2 corpus sampling task:** the [root research census and 24-document independent-review queue](research/research-management/RT-00/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md) is a fixed Git-tree structural sweep with per-file warnings and source identity. Every queued document initially has `NOT REVIEWED`; an independent human must inspect actual claims and evidence, including zero-warning reports, before correctness/false-negative judgments or policy decisions. Continue [issue #285](https://github.com/aivibeflow/LLMLang/issues/285) without treating structural metrics as full research acceptance.
+
+**Observed Stage 0.2 root census:** [309-file/2,035-warning summary](research/quality-audit/2026-11-23-root-census-observations.json) is a reproducible *heading/metadata* scan of one pinned Git tree, not a defect count. The [24 selected reviewer candidates](research/research-management/RT-00/RT-00-QUALITY-RULES-ROOT-CORPUS-CENSUS-2026-11-23.md) include 8 Scenario, 8 RT and 8 other root research documents; all remain unreviewed. Ask independent human reviewers to identify real claim-quality gaps and false negatives before applying required quality gates. Keep issue #285 open for scientific verification and maintainer adoption.
+
+## Accepted decisions
+
+### LL-025 — Define cross-version component and wire compatibility
+
+- **Tracking:** Resolved; no open issue. The accepted decision is recorded below.
+
+- **Status:** Resolved
+- **Priority:** P2
+- **Question:** Must immutable LLMLang components interoperate across toolchain versions, and is a general wire-schema evolution protocol required?
+- **Decision (2026-11-20):** Published components are read-only/immutable. Compatibility is required only within a coherent build performed by one toolchain version. The toolchain statically checks caller arguments against the callee's declared callable prototype; mismatches fail the build. The current architecture does not require cross-version wire compatibility, schema negotiation, or persisted-message migration.
+- **Boundary:** This does not resolve behavioral Contract refinement, cross-version ABI, dynamic loading, external RPC, or persistence formats. Callable type compatibility and behavioral contract compatibility remain distinct.
+- **Reconsideration trigger:** Independently built component exchange, cross-toolchain linking, dynamic loading, external RPC, persisted serialized messages, or a separately versioned binary/plugin ABI.
+- **Related:** [Architecture Decision — Immutable Components and Single-Version Toolchain Compatibility](draft/ARCHITECTURE-DECISIONS.md), [Scenario 134](research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md).
+
+## Historical prototype failures
+
+The canonical query semantics module is a failed Lean experiment. Its repair remains [deferred](PLAN.md#deferred-001--repair-canonical-query-semantics-lean-module).
+
+- **Observed failure modes (Lean 4.34.0, pinned Logos revision):**
+  - Lean's termination checker could not establish structural/decreasing recursion for the evaluator over the sort-indexed dependent `QueryTerm`; one nested recursive call remained unproven.
+  - The source semantic IR's `and`/`or` constructors did not match the canonical IR's list-valued operands. A correct translation must explicitly account for the representation difference and its identity/empty-list semantics, or initially exclude these operators.
+  - A trailing documentation comment introduced additional parser errors during the attempted repair.
+  - The attempted `partial` workaround was not an acceptable basis for a kernel-checked semantic-preservation theorem; the theorem was removed rather than weakening the proof obligation.
+- **Recovery:** The failing module was removed from `lakefile.lean` roots and deleted. The previously validated roots remain `LLMLangLogosBinding` and `SourceQuerySemantics`. Do not restore the failed implementation verbatim.
+- **Related:** `research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/LLMLangLogosBinding.lean`, `SourceQuerySemantics.lean`, and Scenarios 29–33.
+
+## Results reconciled from main
+
+The entries below incorporate the completed work recorded on the main branch through commit `cbc55052`. The workstream titles match the development plan.
+
+### 0.1 Reconcile the research corpus
+
+- Validate prototype claims, test evidence, generated outputs, exact tool versions, and reproducibility at content/experiment level for the named source-bound cohorts below. [Current corpus synthesis](research/research-management/RT-00/RT-00-CORPUS-SYNTHESIS-2026-11-25.md)
+
+- Run both shared research prototype families from a tracked archive. All 836 selected tests from 92 files pass, with zero skips. Dependency-graph root discovery selects zero; explicit tests/ discovery succeeds. Scenario 102 has eight original declarations and eight fresh passes, while the historical report records seven executed. [Shared prototype replay](research/research-management/RT-00/RT-00-SHARED-PROTOTYPE-ARCHIVE-2026-11-25.md)
+
+- Replay the RV64 freestanding, HAL, timer, IPC and frame-reuse cohort (#284). Six ledgers match byte-for-byte from the tracked archive, covering 25 fresh single-hart QEMU configurations and 11 Lean theorem outputs. Independent checks recover the scheduler traces and receipt admission counts. [RT-00 RV64 cohort replay](research/research-management/RT-00/RT-00-RV64-COHORT-REPLAY-2026-11-25.md)
+
+- Replay the tracked Cortex-M3 firmware and related embedded models (#284). All 12 ledgers match. Independent controls distinguish stack depth, pending-bit semantics, linked loads and abstract DMA scope. [RT-00 Cortex cohort replay](research/research-management/RT-00/RT-00-CORTEX-COHORT-REPLAY-2026-11-25.md)
+
+- Replay the tracked RT-32 proof lifetime cohort (#284). All eight proof and lifecycle ledgers and five antecedent execution ledgers match byte-for-byte. The exact antecedent digests agree with the proof requests. [RT-00 RT-32 lifetime replay](research/research-management/RT-00/RT-00-RT32-LIFETIME-REPLAY-2026-11-25.md)
+
+- Reproduce five Git publication, recovery and dependency bootstrap ledgers from pinned `research/all`. Verify 308 native read schedules, 13 fault exits, 24 delivery trials, a 4,032-state model and 16,468 bootstrap cases per native route. [RT-00 Git archive replay](research/research-management/RT-00/RT-00-GIT-ARCHIVE-REPLAY-2026-11-25.md)
+
+- Reproduce eight FFI lifecycle, header, ABI, loader, package-cache and conditional-receipt ledgers from a pinned `research/all` archive. Both passes match each tracked ledger byte for byte and preserve the native, emulated and formal scopes. [RT-00 FFI archive replay](research/research-management/RT-00/RT-00-FFI-ARCHIVE-REPLAY-2026-11-25.md)
+
+- Replay 26 full evidence receipts and three figures byte for byte from the tracked archive at `efbcf8e`. Validate 70 archived dispatch intervals, 140 compression intervals and 20 allocation traces. The replay found and corrected implicit Go VCS stamping. Other corpus-wide verification remains open. [Cross-stage archive replay](research/research-management/RT-00/RT-00-TRACKED-ARCHIVE-REPLAY-2026-11-25.md)
+
+- Replay the RT-13 checked-add CPC certificate binding. The full two-certificate and four-control ledger matches byte for byte. Five additional controls distinguish valid source declaration reordering from changed sorts and extra proof declarations. [RT-00 CPC replay](research/research-management/RT-00/RT-00-C-RT13-CPC-BINDING-REPLAY-2026-11-25.md)
+
+- Replay the RT-13 symbolic checked-add proof. The archived ledger matches byte for byte, and 12 additional ground proofs confirm three model counterexamples and their preserving controls at O0 and O3. [RT-00 symbolic checked-add replay](research/research-management/RT-00/RT-00-C-RT13-SYMBOLIC-CHECKED-ADD-REPLAY-2026-11-25.md)
+
+- Replay native RT-05 binary64 literal, extrema and checked conversion probes plus RT-13 contraction. All four ledgers reproduce byte for byte from pinned sources with matching native tools. [RT-00 binary64 native replay](research/research-management/RT-00/RT-00-C-BINARY64-NATIVE-REPLAY-2026-11-25.md)
+
+- Replay the pinned Dafny concurrent-frame and native-history comparison (#284). Both exact solvers reproduce the proof and refusal cases, and the complete 1,920-execution ledger matches byte-for-byte. An independent interval oracle agrees on all 960 unique route-history outcomes. [Dafny frame replay](research/research-management/RT-00/RT-00-DAFNY-FRAME-REPLAY-2026-11-25.md)
+
+- Replay the exact LLVM floating-point flag experiment with separate path and digest identities for its runner and numeric helper. Debian LLVM 19.1.7 reproduced both 6,859-row profiles and the complete archived ledger byte for byte. [RT-00 LLVM flag replay](research/research-management/RT-00/RT-00-C-LLVM-FP-FLAGS-REPLAY-2026-11-25.md)
+
+- Replay the pinned Dafny typed overlapping-copy and foreign C boundary comparisons on `research/all`. Both complete ledgers match byte for byte, including observations for 5,663 copy cases per source profile and 1,836 foreign-lookup inputs per route and compiler setting. [RT-00 Dafny contract boundary replays](research/research-management/RT-00/RT-00-C-DAFNY-CONTRACT-BOUNDARIES-REPLAY-2026-11-25.md)
+
+- Replay the RT-06 path-analysis sequence (Scenarios 98–108). All 55 tests pass. Fourteen independent conditional-call controls show that the joined alias model can drop routes when a call is skipped. [RT-00 path-analysis replay and scope check](research/research-management/RT-00/RT-00-C-RT06-PATH-COMPLETENESS-REPLAY-2026-11-25.md)
+
+- Replay the pinned Dafny modular proof closure comparison on `research/all`. The ten Dafny/Z3 cases, five Lean theorem axiom lists, cvc5/Logos controls, and fresh Logos executable hash match the published ledger byte for byte. This closes the replay for this fixture. [RT-00 Dafny proof closure replay](research/research-management/RT-00/RT-00-C-DAFNY-MODULAR-PROOF-REPLAY-2026-11-25.md)
+
+- Complete the corpus-wide semantic duplicate, superseded-version, orphan, and contradiction screen and the scoped candidate review. [Current relationship coverage](research/research-management/RT-00/RT-00-RELATIONSHIP-COVERAGE-2026-11-25.md) records the current population and remaining diagnostic limits. The current-main exact-blob scan at `983b2e0e6ee25f53de40ad0a3b5035d584ae3799` found seven repeated-blob groups among 1,722 research paths: six groups are lockfiles, solver outputs, or query-scoped fixtures, and one is the expected shared OCI/REAPI Apache-2.0 license. No Markdown/MDX files are byte-identical. The bounded [B12 control recheck](research/research-management/RT-00/RT-00-B-13-KNOWN-RELATIONSHIP-CONTROLS-2026-11-25.md) confirms four previously missed relationships against current blobs; it does not review all content-level relationships, new/modified families, or cross-cutting contradictions. See also [RT-00 B9](research/research-management/RT-00/RT-00-B-09-CURRENT-MAIN-CORPUS-RELATIONSHIP-DELTA-2026-11-24.md).
+
+- Verify all 4,116 artifacts are discoverable from the plan or index through links and directory browsing. Repair the only authored path error, a syscall report citation to the ppoll study. Preserve the exact path, blob, size and navigation ledger with the prototype, relationship and provenance crosswalk. [Current corpus synthesis](research/research-management/RT-00/RT-00-CORPUS-SYNTHESIS-2026-11-25.md)
+
+- Refresh the relationship screen across 1,208 research documents and scope all 566 candidates by review or cue. Read all 31 additions, recheck nine pairs with changed document blobs, and resolve the sole title collision as separate dated results. Exact and normalized duplicate controls find no whole-document matches. [Current relationship coverage](research/research-management/RT-00/RT-00-RELATIONSHIP-COVERAGE-2026-11-25.md)
+
+- Adjudicate 95 replacement- or conflict-cue pairs from the 535-pair screen. Six have scoped supersession and one updates execution status. The remaining cues refer to different claims or contextual citations. [Replacement and conflict review](research/research-management/RT-00/RT-00-REPLACEMENT-AND-CONFLICT-CUE-REVIEW-2026-11-25.md)
+
+- Screen 1,187 pinned research documents, rank 535 candidate pairs and recheck four known control relationships. Both shared-paragraph pairs have scoped explanations. All seven Markdown traversal gaps are explicitly named reference snapshots. Remaining candidate-level semantic review stays open. [Current corpus relationships](research/research-management/RT-00/RT-00-CURRENT-CORPUS-RELATIONSHIPS-2026-11-25.md)
+
+- Check navigation across 2,591 artifacts and repair 24 moved research references in PLAN plus one first-party report link. The designated future audit output and unresolved copied-reference paths remain recorded. [Plan paths and navigation replay](research/research-management/RT-00/RT-00-B-19-PLAN-PATHS-AND-NAVIGATION-2026-11-25.md)
+
+- Recheck 2,080 tracked artifacts and 711 research Markdown/MDX documents on a pinned shared-branch tree. Every artifact remains navigable with directory browsing. The corrected dependency-map path removes the sole authored error from the 6,459-link offline scan. The 82 remaining errors are in copied upstream snapshots. [Shared-branch navigation delta](research/research-management/RT-00/RT-00-B-18-NAVIGATION-DELTA-2026-11-25.md)
+
+- Compare immutable published components, candidate runtime structure commits, and Toolchain/Git publication at exact source blobs. They address distinct state and identity boundaries. Two worked cases expose premature visibility and the insufficiency of disjoint writes for cross-structure invariants. [RT-00 component and runtime state boundary](research/research-management/RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md)
+
+- Compare English and Russian concept §18A at exact blobs. Shared proof status, property scope, invalidation and trust boundaries agree. Two clauses differ in apparent obligation strength, and the proposed RT-36 lifecycle model in §18A.9 is present only in English. [RT-00 scoped concept translation review](research/research-management/RT-00/RT-00-B-CONCEPT-TRANSLATION-PROOF-BOUNDARY-2026-11-25.md)
+
+- Recheck index reachability on a pinned `research/all` tree. All 1,793 artifacts are discoverable through linked directories, and four curated indexes add direct routes to all 13 first-party documents that previously required browsing. Correct 18 unresolved first-party path occurrences and one misdirected index fragment. [RT-00 shared-branch navigation audit](research/research-management/RT-00/RT-00-B-17-RESEARCH-ALL-NAVIGATION-2026-11-25.md)
+
+- Reconcile the missing upstream snapshot paths against their exact source revisions. All 82 archived occurrences resolve to 30 exact upstream files. [Pinned snapshot routes](research/research-management/RT-00/RT-00-PINNED-SNAPSHOT-ROUTES-2026-11-25.md)
+
+- Verify 39 fragments, identify the MCP #meta heading normalization gap, and identify two MCP root-absolute routes to existing local copies.
+
+- Screen 628 pinned research Markdown/MDX documents for explicit direct-link relationships. The filter recovered two of the four lexical-screen controls. Manual review of eight candidates confirmed three scoped relationships and found five context-only matches. [RT-00 B16 direct relationship screen](research/research-management/RT-00/RT-00-B-16-EXPLICIT-RELATIONSHIP-SCREEN-2026-11-25.md)
+
+- Review eight RT-19/RT-23 recovery reports and replay seven native ledgers byte for byte. The bounded results distinguish local acceptance, exact historical publication, branch projection, retention and the authority to observe or append. [RT-00 recovery lineage and replay](research/research-management/RT-00/RT-00-RT19-RT23-RECOVERY-RELATIONSHIPS-2026-11-25.md)
+
+- Review seven binary64 reports for semantic relationships, supersession, and reachability. Exact archive checks bind the two downstream studies to their inputs. Canonicalizing NaN operands changes 216 of 1,024 glibc extrema pairs even with normalized outputs. The scoped reports have distinct claims and are reachable. [RT-00 binary64 relationship review](research/research-management/RT-00/RT-00-B-15-F64-RELATIONSHIP-REVIEW-2026-11-25.md)
+
+- Review the four Dafny contract/proof studies and their synthesis together. The scoped evidence separates source-provider closure, foreign/ABI conformance, final-state versus access framing, and shared histories. All five reports are reachable. [RT-00 B14 relationship review](research/research-management/RT-00/RT-00-B-14-DAFNY-RELATIONSHIP-REVIEW-2026-11-25.md)
+
+- Record and verify available exact revisions, tool versions and execution environments for the pinned research populations below. Archive identity, current reproduction, and original-run attestations have separate evidence. Unrecorded original-run context remains in the human provenance gate. [Current corpus synthesis](research/research-management/RT-00/RT-00-CORPUS-SYNTHESIS-2026-11-25.md)
+
+- Run the exact-name, nested-source, tool/host and companion-report provenance checks through local Git and Node.js. All four CLI outputs match the committed Git API audit receipts byte for byte. [Exact-name replay and tool pins](research/research-management/RT-00/RT-00-EXACT-LEDGER-REFRESH-2026-11-25.md)
+
+- Resolve all 100 non-exact-name labels from the structured census. Verify 88 tracked inputs, eight upstream bytes and four regenerated source payloads. Repair the CMSIS 5.9.0 source link to its peeled commit. [Producer alias verification](research/research-management/RT-00/RT-00-PRODUCER-ALIAS-PROVENANCE-2026-11-25.md)
+
+- Check exact archive identity for 894 JSON, JSON Lines and CSV artifacts. Resolve and verify 702 named source digests, including four initial path mismatches. The ledger preserves the 209 producer labels outside the direct-path check and records tool, host and revision field locations. [Structured provenance census](research/research-management/RT-00/RT-00-STRUCTURED-PROVENANCE-CENSUS-2026-11-25.md)
+
+- Reproduce the seven-source RT-37 target-closure crosswalk on CPython 3.12.14 from two clean-archive hash-seed runs. The original Python execution version remains an archival provenance gap. [Version-pinned crosswalk](research/runtime-and-systems/RT-37/RT-37-EXECUTION-CLOSURE-AND-ALLOCATION-PROFILES-2026-11-25.md#version-pinned-archival-crosswalk-check)
+
+- Reconstruct the RT-37 target-closure crosswalk from seven pinned inputs. The independent archive derivation matches the published bytes, and four controls verify content and scope. The historical Python version remains unknown. [RT-37 crosswalk recheck](research/research-management/RT-00/RT-00-RT37-CROSSWALK-RECHECK-2026-11-25.md)
+
+- Resolve 12 of 13 remaining tool-version questions through producer-specific fields or command-linked reports. The RT-37 target-closure crosswalk's Python version is absent from the checked records. [Remaining tool provenance](research/research-management/RT-00/RT-00-RESIDUAL-TOOL-PROVENANCE-2026-11-25.md)
+
+- Scan 712 nearby reports for exact links to 69 ledgers without selected embedded metadata. Companion reports document replay-tool versions for 56 ledgers and host data for 20. Thirteen have no versioned replay tool in the scanned companions. [Companion report provenance](research/research-management/RT-00/RT-00-COMPANION-PROVENANCE-2026-11-25.md)
+
+- Verify the selected tool and host fields in all 207 added exact-name ledgers without a matched flat source field. 133 include a version, 15 an artifact fingerprint, and 22 executing-host details. [Tool and host metadata](research/research-management/RT-00/RT-00-EXACT-LEDGER-METADATA-2026-11-25.md)
+
+- Verify all 36 nested source entries deferred by the 638-ledger refresh. Across four producer schemas, 52 path and revision bindings, 37 SHA-256 values, 26 Git blob IDs and 11 anchors match. [Nested evidence provenance](research/research-management/RT-00/RT-00-NESTED-LEDGER-REFRESH-2026-11-25.md)
+
+- Refresh the exact-name evidence ledger census from 205 to 638 on pinned `research/all`. All 205 earlier blobs remain exact, and 714 declared source and runner identities match across 433 added ledgers. [Exact-ledger provenance refresh](research/research-management/RT-00/RT-00-EXACT-LEDGER-REFRESH-2026-11-25.md)
+
+- Census 20 observation-suffixed ledgers on pinned `research/all`. Verify 14 named input identities and 24 historical document blobs. Eighteen ledgers have tool identity fields and four have dedicated host fields. [Observation provenance](research/research-management/RT-00/RT-00-OBSERVATION-PROVENANCE-2026-11-25.md)
+
+- Compare six pinned timing ledgers against their runners, verifying 595 archived observations and 22 recorded source/input digests. Clarify that RT-11 records a CPU count rather than a pinned CPU identifier. [Timing provenance and units](research/research-management/RT-00/RT-00-C-TIMING-PROVENANCE-2026-11-25.md)
+
+- Reconcile 67 newly added exact-name ledgers against the prior 138-ledger tree. All 167 resolved tracked-file identities and 17 embedded source records match. Original runs, uninspected fields and broader corpus coverage remain open. [Evidence identity delta](research/research-management/RT-00/RT-00-C-EVIDENCE-IDENTITY-DELTA-2026-11-25.md)
+
+- Reconcile 19 exact-name RT-13 evidence ledgers and their 20 documented replay routes on a pinned tree. An offline LRAT control identifies inherited tool metadata. Exact host evidence and some symbol-tool versions remain unavailable. [RT-00 RT-13 replay metadata](research/research-management/RT-00/RT-00-C-RT13-REPLAY-METADATA-2026-11-25.md)
+
+- Check the named source and runner identities recorded by the exact-name evidence ledgers on the pinned `research/all` tree. Across 138 ledgers, 120 entries match tracked bytes after explicit path resolution. Generated inputs, nested metadata and original execution remain separate checks. [RT-00 evidence-ledger identity audit](research/research-management/RT-00/RT-00-C-EVIDENCE-LEDGER-IDENTITIES-2026-11-25.md)
+
+- Regenerate all 25 source digests deferred by the exact-name evidence-ledger audit. The generated bytes agree across five fixtures, and the RT-32 Lean proof ledger replays byte for byte. [RT-00 generated-source replay](research/research-management/RT-00/RT-00-C-GENERATED-SOURCE-REPLAY-2026-11-25.md)
+
+- Verify all seven nested RT-38 source records deferred by the exact-name evidence-ledger audit. Literal bytes, file digests and the regenerated theory match; Isabelle and upstream Refine were outside this replay. [RT-00 nested source identity check](research/research-management/RT-00/RT-00-C-NESTED-SOURCE-IDENTITIES-2026-11-25.md)
+
+### 0.2 Establish research quality and decision rules
+
+- Use a consistent research structure: problem, hypotheses, prior art, alternatives, formal model, experiments, results, limitations, decision, and draft impact.
+
+- Replay the archived ten-report structure sample and test selection on a pinned post-relocation diff. Automatic selection checked zero of 18 nested additions, while explicit selection emitted 152 structural warnings. A placeholder control emitted zero warnings with no experimental evidence. [RT-00 structural warning coverage](research/research-management/RT-00/RT-00-C-QUALITY-WARNING-COVERAGE-2026-11-25.md)
+
+- Distinguish observations, assumptions, conjectures, experimental results, proofs, and accepted decisions.
+
+- Check decision authority for all 143 registry rows and five decision files on a pinned `research/all` tree. F-PORT-002 and F-TOOL-003 both resolve to accepted decisions. The MCP acceptance applies to agent-facing SPG JSON exchange; the Toolchain API and Git representation remain proposed. [RT-00 accepted feature authority](research/research-management/RT-00/RT-00-C-ACCEPTED-FEATURE-AUTHORITY-2026-11-25.md)
+
+- Require reproducible commands, fixtures, tool versions, and expected outputs for executable experiments.
+
+- Replay the pinned RT-25 dependency graph under four verified allocator libraries. All 48 runs reproduce the graph checksum and each library passes the 3,200-sequence compatibility probe. Representative workloads and target coverage remain open. [RT-25 four-provider reproduction](research/runtime-and-systems/RT-25/RT-25-FOUR-PROVIDER-ALLOCATOR-REPLAY-2026-11-25.md)
+
+- Record negative results and rejected alternatives.
+
+- Adjudicate all seven missing-negative-result warnings in the pinned nested cohort. Exact source citations locate five counterexamples or missed controls, one unsupported route, and one scoped search with zero instances. [RT-00 negative-result warning adjudication](research/research-management/RT-00/RT-00-C-NEGATIVE-RESULT-WARNING-ADJUDICATION-2026-11-25.md)
+
+- Check how incomplete and negative outcomes survive proof receipt projection. Two pinned Z3 profiles demonstrate exit-code ambiguity, and all 128 RT-33 model configurations preserve scoped decisions while collapsing repeated attempt identities in the projection. [RT-00 proof receipt status audit](research/research-management/RT-00/RT-00-C-PROOF-RECEIPT-STATUS-2026-11-25.md)
+
+- Ensure that `research/` remains exploratory and `draft/` remains the candidate specification.
+
+- Audit 21 first-parent draft-affecting trees in the ancestry of `research/all`. The early staging layout predates the candidate boundary. After explicit acceptance, the architecture decision text through its reconsideration trigger has the same digest across all four file versions. [RT-00 historical draft boundary](research/research-management/RT-00/RT-00-C-DRAFT-BOUNDARY-HISTORY-2026-11-25.md)
+
+- Review every direct research citation across all eight tracked draft files on the pinned `research/all` tree. All 18 occurrences resolve, with the one index fragment providing navigation to the three cited scenarios. The links serve as navigation, background, or support for candidate terminology. [RT-00 draft citation audit](research/research-management/RT-00/RT-00-C-DRAFT-CITATION-RESEARCH-ALL-AUDIT-2026-11-25.md)
+
+- Verify the proposed methodology, negative-result accounting and authority separation against the pinned template and five archived result ledgers. [RT-00 evidence protocol and authority](research/research-management/RT-00/RT-00-EVIDENCE-PROTOCOL-AND-AUTHORITY-2026-11-25.md)
+
+### 0.3 Research taxonomy and cross-aspect dependency map
+
+- Validate and revise dependency edges as research produces evidence; the current map is an initial hypothesis, not a settled architecture. [DEP-005 was rechecked on current main](research/research-management/RT-00/RT-00-DEP-005-EVIDENCE-RECHECK-2026-11-23.md): the typed-SPG fixture falsifies unordered treatment of the tested observable effects, while leaving several valid order-preserving representations open. [DEP-006 was also rechecked](research/research-management/RT-00/RT-00-DEP-006-TYPE-IDENTITY-EVIDENCE-RECHECK-2026-11-23.md): scalar signature and ownership-obligation changes affect represented contract/dependency identity in bounded fixtures; inline versus referenced type identity remains open. [DEP-007 has a checked proof on the current proof blob](research/research-management/RT-00/RT-00-DEP-007-OBSERVATION-MODEL-RECHECK-2026-11-23.md): an observation model with ordered traces distinguishes rewrites that value-only checks accept; full-language source/backend correspondence remains open. [DEP-009 was rechecked on current main](research/research-management/RT-00/RT-00-DEP-009-SPG-ADMISSION-RECHECK-2026-11-23.md): rehashed missing-edge graphs pass persistence but fail independent typed admission; source completeness remains a separate dependency. [DEP-012 was also rechecked](research/research-management/RT-00/RT-00-DEP-012-CACHE-IDENTITY-RECHECK-2026-11-23.md): caller-only caching is falsified for a rebound operation call; exact dependency closure is supported, but the production granularity/performance trade-off remains open. [DEP-008 was rechecked](research/research-management/RT-00/RT-00-DEP-008-TYPED-PROOF-BOUNDARY-RECHECK-2026-11-23.md): typed trace proofs and ownership models support a layered fail-closed boundary, but their composition and source binding remain unproved.
+
+- Check 264 edge rows and 223 relative evidence links. Reconcile the bounded DEP-094 bootstrap and the native admission evidence for DEP-012, DEP-043, DEP-048 and DEP-054. Keep limitations and unlinked hypotheses in the register. [Integrated dependency crosswalk](research/research-management/RT-00/RT-00-DEPENDENCY-INTEGRATION-CROSSWALK-2026-11-25.md)
+
+- Revise five verification dependencies after all five RT-33 ledgers reproduce byte for byte. Boundedness, fairness, typed coverage, proof checking, closure and abstention require distinct exact records. [Verification dependency recheck](research/research-management/RT-00/RT-00-VERIFICATION-DEPENDENCIES-2026-11-25.md)
+
+- Revise DEP-047, DEP-048, DEP-058, DEP-263 and DEP-264 after matching seven pinned ledgers. Scoped results separate physical checkout, fenced authority, accepted intent, exact Git receipt and live ref visibility. [Toolchain publication dependency recheck](research/research-management/RT-00/RT-00-TOOLCHAIN-PUBLICATION-DEPENDENCIES-2026-11-25.md)
+
+- Recheck DEP-007, DEP-013 and DEP-014. Five exact-tree ledgers replay byte for byte. Ordered effects, error inputs and exact emitted targets constrain when proofs and tests apply. [Observation evidence dependency recheck](research/research-management/RT-00/RT-00-OBSERVATION-EVIDENCE-DEPENDENCY-RECHECK-2026-11-25.md)
+
+- Check current register structure and the path-completeness evidence for DEP-010, DEP-053 and DEP-060. Verified 38 areas and 264 edges. The path studies demonstrate skipped-call and location-only omissions and distinguish them from inconclusive solver evidence. [Register and path-boundary audit](research/research-management/RT-00/RT-00-DEPENDENCY-REGISTER-AND-PATH-BOUNDARY-2026-11-25.md)
+
+### 1.0 Intent, requirements, and human-validated formalization (RT-02)
+
+- Define the end-to-end lifecycle and artifact boundaries: immutable Human Intent, elicitation questions, clarification decisions, typed Requirement IR, formal candidates, analysis results, reconstructed explanation, human approval, accepted contract, component contracts, tests, implementation, and verification evidence.
+
+- Model the typed artifact lifecycle from immutable intent to a reviewed contract and separately scoped execution evidence. Twelve controls distinguish review-package freshness from receipt applicability, and six malformed chains are refused. This is bounded exploratory evidence. [RT-02 lifecycle binding](research/language-design/RT-02/RT-02-ARTIFACT-LIFECYCLE-BINDING-2026-11-25.md)
+
+- Define clause-level provenance from every IR/formal clause and reconstructed statement to original source fragments and authorized clarification decisions; detect dangling, unsupported, or conflicting provenance.
+
+- Define exact clause support and scoped authorized overrides in the bounded provenance model. Nine controls distinguish local supersession, unresolved conflicting values, uncovered cells and invalid source or override evidence. [RT-02 scoped clarification overrides](research/language-design/RT-02/RT-02-SCOPED-CLARIFICATION-OVERRIDES-2026-11-25.md)
+
+- Distinguish exact source spans and authorized typed support for one clause field. Fourteen source controls distinguish stale, unsupported, conflicting and explicitly superseded evidence, and five typed-chain controls distinguish identity from semantic preservation. [RT-02 clause provenance authority](research/language-design/RT-02/RT-02-CLAUSE-PROVENANCE-AUTHORITY-2026-11-25.md)
+
+- Compare checked deterministic rendering, independent checking and checked fallback on ten seeded source-blind draft inputs. A parse-only check accepts six ineligible drafts. Checked fallback recovers five draft failures and preserves blockers for wrong or unsupported typed inputs and unresolved provenance. Actual model comparison remains open. [RT-02 reconstruction routing controls](research/language-design/RT-02/RT-02-SOURCE-BLIND-RECONSTRUCTION-ROUTING-2026-11-25.md)
+
+- Define reconstruction outputs: human-readable contract, business-rule table, temporal/scenario explanations, counterexamples, semantic differences, unresolved questions, and provenance links.
+
+- Define and exercise all seven reconstruction output roles in the bounded source-blind package. Five controls distinguish review eligibility, changed behavior or rendering, and unsupported or unresolved inputs. [RT-02 reconstruction package](research/language-design/RT-02/RT-02-RECONSTRUCTION-PACKAGE-OUTPUTS-2026-11-25.md)
+
+- Define how to detect omitted, added, weakened, strengthened, polarity-flipped, temporally shifted, or scope-shifted semantics, including exceptions and negative obligations.
+
+- Compare typed edits and trace-set inclusion over 484 traces. Twelve complete-domain and two incomplete-domain controls distinguish strengthened, weakened, equivalent and incomparable changes, preserve witnesses and flag a contradictory context. [RT-02 semantic difference direction](research/language-design/RT-02/RT-02-SEMANTIC-DIFFERENCE-DIRECTION-2026-11-25.md)
+
+- Define fail-closed handling for unsupported constructs, unresolved assumptions, missing provenance, incomplete source coverage, analyzer UNKNOWN, and reconstruction failure.
+
+- Define fail-closed composition of exact intent, formal-contract and implementation evidence. All 64 combinations of the six required blockers and eight independent evidence controls preserve scoped outcomes and withhold admission when a required gate is open. [RT-02 fail-closed evidence gates](research/language-design/RT-02/RT-02-FAIL-CLOSED-EVIDENCE-GATES-2026-11-25.md)
+
+- Compare [FRET/FRETISH](https://github.com/NASA-SW-VnV/fret) and other formal backends for supported requirement classes; do not make FRET mandatory or assume that a FRET explanation proves intent correctness.
+
+- Define the human review protocol and exact approval binding: ACCEPT, REVISE, CLARIFY, or REJECT against a specific immutable semantic revision and evidence package.
+
+- Define revision/impact behavior: semantic changes regenerate affected reconstructions and invalidate affected approvals; provenance-only changes must remain distinguishable from semantic changes.
+
+- Define property-level revision impact and exact package review renewal. Seven controls distinguish semantic, provenance, wording and unrelated changes. An omitted dependency edge produces false key reuse unless the separate coverage check withholds it. [RT-02 property revision impact](research/language-design/RT-02/RT-02-PROPERTY-REVISION-IMPACT-2026-11-25.md)
+
+- Build clause-level round-trip and seeded-mutation experiments; measure semantic fidelity, provenance coverage, false acceptance, and unknown handling.
+
+- Run a source-blind deterministic pilot on an order confirmation contract. Across 484 complete traces per interpretable case, all eight model mutations and one rendering-only mutation are detected. Four unchanged controls remain eligible and six incomplete controls remain unknown. [RT-02 clause round-trip and mutation pilot](research/language-design/RT-02/RT-02-CLAUSE-ROUNDTRIP-AND-MUTATION-2026-11-25.md)
+
+- Freeze the four-arm protocol and scoring thresholds. Generate 304 balanced packet assignments and check the scorer with synthetic complete, partial and mismatched inputs. Human responses are pending. [RT-02 controlled review protocol](research/language-design/RT-02/RT-02-CONTROLLED-REVIEW-PROTOCOL-2026-11-25.md)
+
+- Keep intent correctness, formal-contract correctness, and implementation correctness as separate claims with separate evidence and acceptance gates.
+
+- Validate the workflow on representative requirement classes and risk levels; record limits before transferring any result into `draft/`.
+
+- Check 2,145 finite decisions, five axiom-free Lean theorems and two rejected kernel claims for revocable release and exact retry. Five semantic mutants, six epoch controls and nine evidence requests distinguish current authority, proof and scope. Together with the earlier temporal, numeric and state cases this checks the bounded workflow. Human and deployment gates remain open. [Proof-required release validation](research/language-design/RT-02/RT-02-PROOF-REQUIRED-RELEASE-2026-11-25.md)
+
+- Compare temporal, numeric and relational-state requirements against independent bounded references over 484, 72 and 900 observations. Each seeded defect is detected; finite agreement remains insufficient for the illustrative proof-required policy and unrestricted liveness is unknown. [RT-02 requirement class and risk coverage](research/language-design/RT-02/RT-02-REQUIREMENT-CLASS-AND-RISK-COVERAGE-2026-11-25.md)
+
+### 1.1 Semantic Program Graph and program representation
+
+- Define the Semantic Program Graph (SPG) as a typed semantic representation.
+
+- Specify a typed exact-value store, immutable selections and independently checked structural admission for the candidate representation. [Representation boundaries](research/semantic-representation/RT-05/RT-05-LAYER-AUTHORITY-AND-ARTIFACT-BOUNDARIES-2026-11-25.md#typed-representation)
+
+- Define the relationship between Specification Graph, Design Graph, and Implementation Graph.
+
+- Specify exact layer endpoints, independent required scope and coverage-bearing refinement. Reconcile 2,304 cases and five prior checked propositions. [Representation boundaries](research/semantic-representation/RT-05/RT-05-LAYER-AUTHORITY-AND-ARTIFACT-BOUNDARIES-2026-11-25.md#typed-representation)
+
+- Compare per-input layered refinement on 2,304 finite cases and five axiom-free Lean theorems. Only 49 cases meet exact coverage and both refinement relations. Projected outcomes miss 928 pointwise violations, and pointwise inclusion alone admits 176 uncovered cases. [RT-05 per-input layered refinement](research/semantic-representation/RT-05/RT-05-PER-INPUT-LAYERED-REFINEMENT-2026-11-25.md)
+
+- Define semantic nodes, edges, ownership, references, and graph boundaries.
+
+- Define typed value and occurrence roles, physical versus selected boundaries, and separate runtime ownership and alias topology. Reconcile four pinned ledgers and check 108 scope and occurrence cases. [Nodes, references and selection](research/semantic-representation/RT-05/RT-05-NODES-REFERENCES-AND-SELECTION-2026-11-25.md)
+
+- Compare 14 persisted acyclic graphs. Persistence accepts 13, and typed admission accepts seven. Deselecting an exactly reachable provider fails both binding and direct-call controls. Removing unreachable archived bytes preserves selected root and behavior. Recursive, source and production selection rules remain open. [SPG selection boundary](research/semantic-representation/RT-05/RT-05-SPG-SELECTION-BOUNDARY-2026-11-25.md)
+
+- Separate syntax trees, source text, semantic representation, provenance, and generated artifacts.
+
+- Specify separate source, typed graph, action and correspondence claims. Reconcile three pinned ledgers and enumerate 128 evidence states. [Representation boundaries](research/semantic-representation/RT-05/RT-05-LAYER-AUTHORITY-AND-ARTIFACT-BOUNDARIES-2026-11-25.md#source-and-generated-evidence)
+
+- Compare guarded shared instructions across 160 source/target observations and three source revisions. Lazy sharing preserves the tested pure partial case; observable effects and mutable reads need additional boundaries. Exact maps retain both occurrences, reject stale source evidence, and require a separate transformation check. [RT-05 shared instruction provenance](research/semantic-representation/RT-05/RT-05-SHARED-INSTRUCTION-PROVENANCE-2026-11-25.md)
+
+- Compare source-location evidence across six formatting variants sharing an exact typed SPG. All 30 cross-revision pairs share the executable graph, while 28 change source ranges. Matching source and text digests still admit an intentionally swapped map for identical calls. Checking ordered occurrences rejects it. [Source occurrence evidence](research/semantic-representation/RT-05/RT-05-SOURCE-OCCURRENCE-EVIDENCE-2026-11-25.md)
+
+- Determine whether multiple source syntaxes can represent the same semantic graph.
+
+- Define canonicalization and normalization rules.
+
+- Define separate structural rules and checked semantic rewrite guards. Verify 1,296 record observations and 162 idempotence checks, then reconcile typed arithmetic and ownership limits. [Normalization boundaries](research/semantic-representation/RT-05/RT-05-NORMALIZATION-BOUNDARIES-2026-11-25.md)
+
+- Compare wrapping and checked reassociation across 4,096 signed triples. Checked grouping changes 672 value-or-overflow outcomes and another 688 operand traces. Lean checks exact equality conditions for the scoped model. [RT-05 checked reassociation](research/semantic-representation/RT-05/RT-05-CHECKED-REASSOCIATION-2026-11-25.md)
+
+- Define semantic graph evolution, node replacement, splitting, merging, and lineage.
+
+- Define immutable transitions with exact endpoints, scoped lineage and independent reuse. Check 864 combinations and reconcile two pinned 12-history Git ledgers. [Evolution and lineage boundaries](research/semantic-representation/RT-05/RT-05-EVOLUTION-AND-LINEAGE-BOUNDARIES-2026-11-25.md)
+
+- Compare three evidence layouts for four through 256 exact claims. At 256 claims a subject edit writes 188,959 bundle bytes, 17,934 embedded-receipt bytes or 17,384 shared-payload bytes. Identical certificate bytes require a current exact receipt; six controls check applicability. [RT-05 verification evidence granularity](research/semantic-representation/RT-05/RT-05-VERIFICATION-EVIDENCE-GRANULARITY-2026-11-25.md)
+
+- Define how recursive and mutually dependent structures are represented.
+
+- Specify typed mutual groups, local member selectors, exact external references, guarded layout and independent progress checks. Verify 19,683 layouts and 11,904 member edits. [Recursive representation boundaries](research/semantic-representation/RT-05/RT-05-RECURSIVE-REPRESENTATION-BOUNDARIES-2026-11-25.md)
+
+**Existing evidence:** [LLMLang-CONCEPT.md](research/language-design/RT-01/LLMLang-CONCEPT.md) describes the SPG and the three logical graph layers; dependency-graph scenarios 18–28 explore requirement evolution, dependency discovery, and formal dependency analysis.
+
+### 1.2 Semantic identity, hashes, and canonical encoding
+
+- Define the distinct roles of logical/stable IDs, semantic hashes, operation identity, implementation identity, action keys, artifact hashes, and evidence identity.
+
+- Define the candidate identity roles and check their change boundaries. Eleven ledgers and four Lean axiom outputs reproduce byte for byte, and 13 crosswalk controls agree with the reported distinctions. The production envelopes remain open. [Identity roles crosswalk](research/semantic-representation/RT-05/RT-05-IDENTITY-ROLES-CROSSWALK-2026-11-25.md)
+
+- Specify the exact semantic payload committed by `OpHash`.
+
+- Define the candidate interface, contract and call-context fields and check exact transitive address changes. [Candidate identity envelopes](research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md)
+
+- Compare contract-addressed and body-qualified operation identity across ten native profiles and 2,560 observations. Six conforming provider pairs share the scoped contract address and have distinct traces or values. Separate value and trace projections give 511 false admissions. Lean checks the model boundaries without axioms. The production envelope remains open. [Permissive operation identity](research/semantic-representation/RT-05/RT-05-PERMISSIVE-OPERATION-IDENTITY-2026-11-25.md)
+
+- Specify `ImplHash` and the identity of a concrete implementation.
+
+- Define the candidate body, typed dependency, provided-contract and execution-profile fields. [Candidate identity envelopes](research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md)
+
+- Compare real provider artifacts under six declared contracts and two public requirements. Executable plus public identity merges 29 pairs with opposite two-stage admission. The exact provider declaration separates them, and Lean checks the composition theorem. The production implementation envelope remains open. [Provided contract identity](research/semantic-representation/RT-05/RT-05-PROVIDED-CONTRACT-IDENTITY-2026-11-25.md)
+
+- Define the contract identity and the identity of a class of compatible implementations.
+
+- Define exact contract, class predicate, finite discovery and evidence domains and check 153 single or paired edits. [Candidate identity envelopes](research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md)
+
+- Recheck conformance class, interpreted contract and discovery identities using four classes and 120 source-bound evidence requests. Discovery changes the snapshot without changing the class. Class-and-implementation reuse confuses 100 request pairs with different dispositions, while exact evidence requests separate them. General evidence authority and canonical format remain open. [Conformance class identity](research/semantic-representation/RT-05/RT-05-CONFORMANCE-CLASS-IDENTITY-2026-11-25.md)
+
+- Define canonical typed serialization, domain separation, digest encoding, and hash algorithm agility.
+
+- Specify a bounded typed wire, exact locator and independent digest-suite policy. Verify 224 requests and three controls, with prior scalar and migration evidence. [Typed wire and suites](research/semantic-representation/RT-05/RT-05-CANONICAL-TYPED-WIRE-AND-SUITES-2026-11-25.md)
+
+- Compare strict, normalizing and raw-digest admission on 31 byte inputs in Python and JavaScript. Normalization accepts seven alternate canonical spellings and raw digest alone accepts 11 inputs refused by strict typed admission. The production schema and digest registry remain open. [Canonical wire admission](research/semantic-representation/RT-05/RT-05-CANONICAL-WIRE-ADMISSION-2026-11-25.md)
+
+- Define hash-relevant versus descriptive, provenance, and evidentiary graph edges.
+
+- Define five purpose-specific exact projections and verify the role of reverse-edge changes. [Hash edges and cycles](research/semantic-representation/RT-05/RT-05-HASH-EDGE-AND-CYCLE-BOUNDARIES-2026-11-25.md)
+
+- Compare typed implementation, verification and source-navigation edges on all 2,016 pairs of 64 profiles. Typed projections match all three reuse oracles. The single implementation key admits 384 stale verification and 256 stale navigation reuses. General edge extraction and semantic cycles remain open. [Typed edge projections](research/semantic-representation/RT-05/RT-05-TYPED-EDGE-PROJECTIONS-2026-11-25.md)
+
+- Define cycle handling in hash dependencies.
+
+- Apply component formation to the exact semantic projection. Compare 46,656 role assignments and reconcile exact closure behavior after group splits and merges. [Hash edges and cycles](research/semantic-representation/RT-05/RT-05-HASH-EDGE-AND-CYCLE-BOUNDARIES-2026-11-25.md)
+
+- Compare 23,040 exact-root selections across one-edge edits in 512 recursive graphs. Keyed and structural SCC addresses match the independent closure oracle through 720 merges and 720 splits. Local bodies hide 9,216 changed traces and whole snapshots overinvalidate 9,216 roots. Publication and scoping beyond the fixture remain open. [Recursive topology edits](research/semantic-representation/RT-05/RT-05-RECURSIVE-TOPOLOGY-EDITS-2026-11-25.md)
+
+- Define which target, ABI, runtime, toolchain, and configuration properties affect implementation identity.
+
+- Define exact typed, build, resolved execution and evidence inputs. Recompute 28 archived native profile pairs and check 210 candidate field edits. [Implementation and execution boundaries](research/semantic-representation/RT-05/RT-05-IMPLEMENTATION-AND-EXECUTION-BOUNDARIES-2026-11-25.md)
+
+- Compare build actions, caller bytes, resolved provider and native ABI identities on 64 Linux observations. Caller bytes alone merge eight pairs with distinct outputs. Four build-action changes preserve caller bytes and resolved identity. Exact runtime variation and production envelope selection remain open. [Native implementation identity](research/semantic-representation/RT-05/RT-05-NATIVE-IMPLEMENTATION-IDENTITY-2026-11-25.md)
+
+- Define stable-ID lifecycle, including rename, split, merge, deprecation, and replacement.
+
+- Specify exact publication, terminal retirement and fresh successor allocation. Verify 36 ordered publication cases and 20 retry controls. [Stable-ID publication](research/semantic-representation/RT-05/RT-05-STABLE-ID-PUBLICATION-2026-11-25.md)
+
+- Compare 112 historical call lookups across rename, revision, deprecation, reactivation and retirement. Exact publication preserves both archive-execution policies. Current alias, latest stable ID and equal value produce stale or misdirected admissions. Forty-eight retired-ID mutations are refused. Production catalog authority and retention remain open. [Operation lifetime](research/semantic-representation/RT-05/RT-05-OPERATION-LIFETIME-2026-11-25.md)
+
+- Define collision handling and migration policy.
+
+- Specify verified dual locators, closed graph rewriting, exact evidence and persistent quarantine. Check six local SQLite WAL publication cases and a restart control. [Durable digest migration](research/semantic-representation/RT-05/RT-05-DURABLE-DIGEST-MIGRATION-2026-11-25.md)
+
+- Compare dual digest locators and closed graph rewriting in 20 controls. Byte-preserving aliases leave the embedded legacy dependencies intact. A rewritten graph can drop that reader dependency, but changes exact conformance bindings. The synthetic collision quarantines the name. Production migration and evidence transfer remain open. [RT-05 collision and migration study](research/semantic-representation/RT-05/RT-05-DIGEST-MIGRATION-AND-COLLISION-2026-11-25.md)
+
+- Specify the invariant that a semantic change affecting an implementation changes its `ImplHash`; determine the exact dependency propagation rules that make this automatic.
+
+- Specify preimage propagation through direct calls and recursive groups, and exact consulted bindings for abstract calls. Reconcile the scoped Lean proof and 2,016 observations. [Implementation and execution boundaries](research/semantic-representation/RT-05/RT-05-IMPLEMENTATION-AND-EXECUTION-BOUNDARIES-2026-11-25.md)
+
+- Check direct reference propagation in Lean and compare 2,016 profile pairs for abstract-call reuse. The exact implementation subject eliminates direct-child omissions but allows 128 stale execution reuses when the selected binding is omitted. The consulted binding closes this fixture. Production hash admission and dependency extraction remain open. [Exact dependency propagation](research/semantic-representation/RT-05/RT-05-EXACT-DEPENDENCY-PROPAGATION-2026-11-25.md)
+
+**Existing evidence:** [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [LLMLang-CONCEPT.md](research/language-design/RT-01/LLMLang-CONCEPT.md), and the open questions LL-001–LL-008 in [open design questions](PLAN.md#open-design-questions).
+
+### 1.3 Contracts and compatible implementations
+
+- Define contract structure and semantics: preconditions, postconditions, invariants, effects, errors, state transitions, and assumptions.
+
+- Define entry and result obligations, state-transition errors, declared callback effects and assumptions in a bounded two-cell contract. Both GCC profiles match 2,048 rows, endpoint-only checking falsely admits 60 invalid observations, and 30 remain visible after rollback. Lean checks the exact observer condition. [Callback contract invariant](research/language-design/RT-04/RT-04-CALLBACK-CONTRACT-INVARIANT-2026-11-25.md)
+
+- Define the difference between exact contract equality, refinement, substitutability, and behavioral equivalence.
+
+- Compare exact declaration bytes, effective equality, directional refinement and client-visible substitution. Lean proves pointwise projected agreement equivalent to equality for all modeled clients, and all 16,896 finite comparisons agree. Same-contract providers can drive different adaptive branches. [Contextual provider substitution](research/language-design/RT-04/RT-04-CONTEXTUAL-PROVIDER-SUBSTITUTION-2026-11-25.md)
+
+- Compare refinement on 261,121 ordered finite contract pairs. The shared-domain shortcut accepts 19,110 pairs that fail full refinement. Two conforming bodies return the same value with different effect order. [RT-04 finite contract relations](research/language-design/RT-04/RT-04-CONTRACT-RELATIONS-FINITE-COMPARISON-2026-11-25.md)
+
+- Define how one operation can have many implementations and how one implementation can satisfy multiple contracts.
+
+- Prove joint conformance for applicable contracts. Among 1,048,576 finite pairs, 93,600 are individually feasible and have no common provider. Both GCC profiles match the 32-row native observation reference, and 385 contracts allow equal results with different effects. [Joint contract conformance](research/language-design/RT-04/RT-04-JOINT-CONTRACT-CONFORMANCE-2026-11-25.md)
+
+- Define contract-based analogue discovery separately from call identity and dispatch.
+
+- Separate Jaccard analogue ranking, exact refinement and explicit operation/provider binding. Of 864 catalogs, 660 rank an incompatible contract first, including 73 with a refining alternative. Exact lookup remains fixed and refuses five mismatched identity or receipt controls. [Analogue ranking and dispatch](research/language-design/RT-04/RT-04-ANALOGUE-RANKING-AND-DISPATCH-2026-11-25.md)
+
+- Define the evidence required before substituting an implementation for a specific `OpHash`.
+
+- Require exact operation, authorized binding, own-contract conformance and refinement receipts. Among 192 native/WebAssembly cases, all 100 modular admissions conform directly. Seventy-six direct positives lack a modular obligation, and five stale or mismatched binding controls refuse. [Modular operation substitution](research/language-design/RT-04/RT-04-MODULAR-OPERATION-SUBSTITUTION-2026-11-25.md)
+
+- Compare seven candidate providers and six receipt controls for exact operation substitution. Observation alone misses four violations of coverage, progress or resource bounds. A scoped context edit invalidates just the affected receipt in the declared model. [RT-04 property-scoped substitution](research/language-design/RT-04/RT-04-PROPERTY-SCOPED-OPERATION-SUBSTITUTION-2026-11-25.md)
+
+- Define verified adapters for compatible but non-identical contracts.
+
+- Verify the Euclidean-to-truncating adapter, uniqueness and signed adjustment bounds in Lean. Three GCC profiles match 11,076 rows each, including 1,136 refusals before the provider call. Each incorrect or stale variant differs on 1,097 signed inputs. [Euclidean division adapter](research/language-design/RT-04/RT-04-EUCLIDEAN-DIVISION-ADAPTER-2026-11-25.md)
+
+- Verify a bounded unit-conversion adapter under the exact provider assumption. Lean checks all natural inputs in the model and four counterexamples. The executable comparison agrees on all 65 directed inputs and distinguishes wrong scaling, wrapping and trace changes. General adapter admission and native correspondence remain open. [RT-04 checked unit adapter](research/language-design/RT-04/RT-04-VERIFIED-UNIT-ADAPTER-2026-11-25.md)
+
+- Define what may be inferred automatically and what requires proof or explicit approval.
+
+- Prove exact consequences of recorded inputs and projections. The direct rule and exhaustive provider enumeration agree across 49,152 claims. Existential choice falsely admits 29,696, and nine scoped controls keep proof and approval independent. [Contract inference boundary](research/language-design/RT-04/RT-04-CONTRACT-INFERENCE-BOUNDARY-2026-11-25.md)
+
+- Define evidence binding to exact semantic inputs, assumptions, target profile, and tool versions.
+
+- Bind native and WebAssembly receipts to exact sources, contract relation, assumption, target, artifact and toolchain. Across 128 observations, twelve scopes conform and four refute the marker-erasing provider. Only 12 of 192 reuse pairs admit, and all ten single-field changes refuse. [Cross-target conformance receipts](research/language-design/RT-04/RT-04-CROSS-TARGET-CONFORMANCE-RECEIPTS-2026-11-25.md)
+
+### 1.3.1 Public interfaces and verified provider binding (RT-05/20; proposed)
+
+- Specify stable qualified public names, scoped export catalogs, aliases/lineage and exact immutable interface revisions; reconcile OpHash rather than assume a new hash.
+
+- Specify scoped catalog records and immutable operation revisions using OpHash. Check 20 exact name/scope/catalog cases. [Public exports and bindings](research/semantic-representation/RT-05/RT-05-PUBLIC-EXPORTS-AND-BINDING-MODES-2026-11-25.md)
+
+- Define operation/group signatures, public contracts, provider-owned contracts and explicit bindings; distinguish direct and operation calls, external symbol/ABI mappings and runtime dispatch.
+
+- Specify typed operation and group records and separate provider, binding and native mappings. Check 60 call-form cases. [Public exports and bindings](research/semantic-representation/RT-05/RT-05-PUBLIC-EXPORTS-AND-BINDING-MODES-2026-11-25.md)
+
+- Generate separate body-correctness and contract-refinement obligations, including state/protocol, effect, authority, ownership, progress and resource guarantees; reject vacuity and unsupported proof claims.
+
+- Generate and check 84 exact scoped obligations across six properties and seven controls. Preserve coverage, feasibility and unsupported dispositions. [Public body and refinement obligations](research/semantic-representation/RT-05/RT-05-PUBLIC-BODY-AND-REFINEMENT-OBLIGATIONS-2026-11-25.md)
+
+- Specify reproducible resolution, authorized publication, absence/ambiguity handling, exact evidence, conditional caller proofs and independent verification.
+
+- Verify 96 exact resolution and 768 publication/caller states, separating eligibility, publication authority and closed proof applicability. [Public resolution and caller admission](research/semantic-representation/RT-05/RT-05-PUBLIC-RESOLUTION-AND-CALLER-ADMISSION-2026-11-25.md)
+
+- Test compatible evolution, breaking revisions, explicit migration, scoped invalidation, package export/index consistency, merge and cache soundness.
+
+- Verify 96 revision/binding cases and separate migration and merge controls. Preserve conditional proof reuse only for unchanged public premises and exact cache reuse only for an unchanged resolved subject. [Public evolution and reuse](research/semantic-representation/RT-05/RT-05-PUBLIC-EVOLUTION-AND-REUSE-2026-11-25.md)
+
+- Implement finite oracle and independent backend/source correspondence benchmarks before selecting normative semantics.
+
+- Compare 320 bounded source observations to 640 native observations, with an independent public contract oracle and 56 seeded refutations. [Public backend correspondence](research/semantic-representation/RT-05/RT-05-PUBLIC-BACKEND-CORRESPONDENCE-2026-11-25.md)
+
+### 1.4 Core language semantics (RT-03)
+
+- Validate RT-03 dependency-map edges through concrete downstream research and experiments.
+
+- Check DEP-094 with a structured dependency tool, an admitting interpreter and generated C. All 16,468 observations match an independent traversal, including 12 pinned register projections. Three source defects produce checked counterexamples and eight invalid controls refuse. General self-development stays open. [Structured dependency bootstrap](research/toolchain-and-collaboration/RT-21/RT-21-STRUCTURED-DEPENDENCY-BOOTSTRAP-2026-11-25.md)
+
+- Reconcile all 24 outgoing edges against exact downstream reports. Twenty-three had scoped checks in the initial crosswalk. DEP-094 now also has a bounded structured bootstrap study. [RT-03 downstream edge evidence](research/language-design/RT-03/RT-03-DOWNSTREAM-EDGE-EVIDENCE-2026-11-25.md)
+
+- Check 1,000 RT-03 handler observations for DEP-036–DEP-039. Identical static projections hide 1,256 cross-profile observation changes. Equal scalars hide 214 composition-order distinctions, and a rejected write stops the next call in 200 comparisons. General cache, merge, security and conformance integration remain open. [Handler downstream dependencies](research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md)
+
+- Exercise broader resource limits and difficult formula families; authenticate or check negative-result evidence before solver-based path pruning; bind immutable predicate versions and source CFG extraction to route constraints.
+
+- Compose exact restricted source routes, independent witnesses and checked negative walks across 108 cvc5/Z3 runs. Prune 36 exact outcomes and retain all bare or stale receipts. Broader theories and production extraction stay open. [Source route resource gate](research/language-design/RT-03/RT-03-SOURCE-ROUTE-RESOURCE-GATE-2026-11-25.md)
+
+- Compare cvc5 and Z3 work limits on 192 QF_LIA invocations across three families. All completed results match the fixture oracle, and all 36 raw UNSAT responses remain unprunable without accepted evidence. Typed route binding, certificate admission and production resource policy remain open. [RT-03 QF_LIA budget comparison](research/language-design/RT-03/RT-03-QFLIA-RESOURCE-COMPARISON-2026-11-25.md)
+
+- Check exact-query negative-cycle certificates before classifying routes as infeasible. Lean checks the mathematical refutation rule, and 25 two-edge cases plus a three-edge case distinguish checked refutations from bare UNSAT. Eight controls retain stale, malformed or incomplete evidence. Source CFG and general proof correspondence remain open. [RT-03 exact difference certificates](research/language-design/RT-03/RT-03-EXACT-DIFFERENCE-CERTIFICATES-2026-11-25.md)
+
+- Bind a restricted immutable-argument source CFG to exact revisioned guard queries. Lean checks integer branch complementation. Across three source revisions, 1,029 finite assignments and 12 solver queries distinguish exact, stale, feasible and unsupported routes. General parser/CFG correspondence remains open. [RT-03 source route binding](research/language-design/RT-03/RT-03-SOURCE-DIFFERENCE-ROUTES-2026-11-25.md)
+
+- Normalize the surviving vectors for whole-specification synthesis; do not select a profile or transfer it into `draft/` by implication.
+
+- Align all four surviving profiles over nine common coordinates and pin their supporting evidence and unresolved premises. [Semantic profiles for synthesis](research/language-design/RT-03/RT-03-SEMANTIC-PROFILES-FOR-SYNTHESIS-2026-11-25.md)
+
+### 1.4.1 Type, effect, ownership, and capability alternatives (RT-04)
+
+- Replace fixture-level call-graph completeness assertions with source/snapshot-bound evidence; extend resource analysis with symbolic path conditions, transfer/return, and cleanup; define runtime capability issuer/trust and concurrent revocation semantics.
+
+- Check exact restricted CFG coverage, 64 ownership observations and 32 coverage or authority states. Reconcile native scoped ancestor validation and derive finite path conditions. [Source ownership and grant boundaries](research/language-design/RT-04/RT-04-SOURCE-OWNERSHIP-AND-GRANT-BOUNDARIES-2026-11-25.md)
+
+- Compare reconciliation across independent providers, concurrent delivery, and restored snapshots. Validate guard coverage across alias escape, reentry, and wider effects.
+
+- Check 12 concurrent SQLite delivery cases after restoration, 27 coverage states, and the pinned native provider, reentry and queued-ownership evidence. [Reconciliation and guard coverage](research/language-design/RT-04/RT-04-RECONCILIATION-AND-GUARD-COVERAGE-2026-11-25.md)
+
+- Reconcile RT-04 semantic distinctions with RT-05 identity and RT-07 proof boundaries before selecting hash-bearing fields.
+
+- Reconcile public, provider and proof roles. Check 15 field edits and 72 applicability states under exact observation scopes. [Identity and proof boundaries](research/language-design/RT-04/RT-04-IDENTITY-AND-PROOF-BOUNDARIES-2026-11-25.md)
+
+- Replay the Rust and Lean cleanup ledgers and compare receipt scope. Cleanup-error flags agree on all 24 selected pairs while caller-owned observations differ on all 24. Exact provider and projection changes alter the tested verification keys. Production field selection and general correspondence remain open. [RT-04 cleanup identity](research/language-design/RT-04/RT-04-CLEANUP-OBSERVATION-IDENTITY-2026-11-25.md)
+
+### 2.0 Automatic complexity inference and resource verification (RT-34)
+
+- Define cost profiles, size domains, resource Contract IR and proof/evidence identity (CX-01–03).
+
+- Check a versioned affine resource IR with two size measures, distinct work and peak units, 2,145 size pairs and ten generated Lean goals. Ten schema substitutions and ten receipt controls refuse invalid use. [Typed resource contracts](research/formal-verification/RT-34/RT-34-RESOURCE-CONTRACT-IR-2026-11-25.md)
+
+- Pilot loop, recursion and call analysis, source correspondence and independent checking (CX-04–07).
+
+- Check 1,056 generated-native observations and five Lean propositions for a loop over decreasing mutual recursion. An exact evidence graph detects omitted dependencies and stale provider binding. A new provider can violate the previous symbolic budget at unchanged caller bytes. [Loop and call correspondence](research/formal-verification/RT-34/RT-34-LOOP-CALL-CORRESPONDENCE-2026-11-25.md)
+
+- Compare 14 provisional cases across manual, finite, symbolic and kernel-checked evidence. Nine eligible claims or counterexamples check, one remains conditional on a foreign summary, and one violation only appears beyond the finite window. [Resource inference vectors](research/formal-verification/RT-34/RT-34-INFERENCE-VECTORS-2026-11-25.md)
+
+- Study problem lower bounds, optimality, amortization, memory, parallel/probabilistic and multivariate complexity (CX-08–14).
+
+- Check six Lean propositions, 10,235 parallel DAG executions, 8,384 scan observations and 612 materialized outputs for CX-12–14. Work, span, communication, distribution and width each affect the declared bounds. [Parallel, expected and output costs](research/formal-verification/RT-34/RT-34-PARALLEL-EXPECTED-OUTPUT-2026-11-25.md)
+
+- Check eight Lean propositions, 45,057 indistinguishable query pairs and 1,912 FIFO histories for CX-08–11. The exact worst-case coordinate bound, amortized charge with initial potential and logical memory peaks have separate model assumptions. [Read lower bound and FIFO cost](research/formal-verification/RT-34/RT-34-READ-LOWER-AND-QUEUE-2026-11-25.md)
+
+- Investigate resource-preserving lowering, synthesis, incremental invalidation, regression gates and external calls (CX-15–18, CX-20).
+
+- Check 3,072 native observations, 1,024 regression decisions and seven Lean propositions. Scalar equality permits budget regressions and removed logical work. Exact resource evidence invalidates across eight changed inputs, and missing foreign cost remains unknown. [Resource-aware lowering](research/formal-verification/RT-34/RT-34-RESOURCE-AWARE-LOWERING-2026-11-25.md)
+
+### 2.1 Formal semantics of the language
+
+- Compare operational, denotational, and axiomatic semantics for the initial LLMLang core.
+
+- Compare the three accounts for finite nondeterministic control. All 98,304 observations and 786,432 predicates per mode agree. Liberal satisfaction admits 239,631 judgments with possible divergence that total satisfaction rejects. Lean checks the finite unfolding laws. Source correspondence and scheduler policy remain open. [Finite control semantic accounts](research/formal-verification/RT-07/RT-07-FINITE-CONTROL-SEMANTIC-ACCOUNTS-2026-11-25.md)
+
+- Compare operational, denotational and weakest-precondition accounts for a closed state/Result fragment. All 8,210 observations and 57,470 predicate comparisons agree. A restored cell preserves the final value while violating the no-write property. [RT-07 three-semantics pilot](research/formal-verification/RT-07/RT-07-THREE-SEMANTICS-STATE-RESULT-2026-11-25.md)
+
+- Define an executable reference semantics for a deliberately small subset.
+
+- Publish a reference entry for the closed state/Result fragment. All 8,210 typed wire observations agree with the recursive and small-step evaluators. Three process-level positives and 12 admission refusals pass. The executable subset leaves production syntax and source correspondence open. [State/Result reference entry](research/formal-verification/RT-07/RT-07-STATE-RESULT-REFERENCE-ENTRY-2026-11-25.md)
+
+- Define observable behavior: return values, errors, state changes, I/O, resource behavior, concurrency, and declared effects.
+
+- Define a candidate profile covering all seven observation axes. Lean checks the projection and required-field rules. Replay six ledgers and 279,936 profile comparisons. A terminal-only check misses 211 definite differences and a shared-fields-only check falsely admits 61,741 incomplete observations. Production correspondence and integration remain open. [Declared observation profile](research/formal-verification/RT-07/RT-07-DECLARED-OBSERVATION-PROFILE-2026-11-25.md)
+
+- Check output coalescing with short writes and bounded sink failure. All 996 split/coalesced pairs preserve accepted bytes and status, and all change the adapter-call trace. Dropping unwritten suffixes falsely reports success in 384 cases. Lean proves the accepted-prefix law and both GCC profiles match 2,316 rows. [Partial-output observations](research/formal-verification/RT-07/RT-07-PARTIAL-OUTPUT-OBSERVATIONS-2026-11-25.md)
+
+- Define semantic equivalence and refinement.
+
+- Define joint outcome inclusion and mutual inclusion, with an exact Lean condition for preserving observations after projection. Over 65,536 ordered pairs, separate marginals falsely admit 20,912 joint refinements. The finite comparison checks 256 Boolean observers. Concrete higher-order contexts and source correspondence remain open. [Joint observation refinement](research/formal-verification/RT-07/RT-07-JOINT-OBSERVATION-REFINEMENT-2026-11-25.md)
+
+- Prove nondeterministic inclusion equivalent to preservation of universal postconditions and the dual may observation property. Over 262,144 graph pairs, terminal-only projection admits 47,628 pairs rejected by explicit divergence/deadlock observations. Fairness, general traces and source correspondence remain open. [Nondeterministic refinement](research/formal-verification/RT-07/RT-07-NONDETERMINISTIC-REFINEMENT-2026-11-25.md)
+
+- Kernel-check that one-way preservation of all postconditions is equivalent to equality of complete observations in the total deterministic state/Result fragment. Replay 8,210 pinned finite rows in Lean and reject the trace-erasure control. [RT-07 observation equivalence proof](research/formal-verification/RT-07/RT-07-STATE-RESULT-OBSERVATIONAL-EQUIVALENCE-2026-11-25.md)
+
+- Define evaluation order, effects, error propagation, and state transitions.
+
+- Compare ordered and unspecified sequential operand evaluation, including failed state updates. All six Rust and C++20 profiles match their permitted observations on 128 cases each. The orders differ in 64 cases, with 20 trace-only changes and 16 changes to the selected error stage. Lean proves the pure total operand rule. [Effectful call evaluation](research/formal-verification/RT-07/RT-07-CALL-EVALUATION-2026-11-25.md)
+
+- Compare eager and short-circuit Boolean execution with state and errors. Two GCC profiles match every one of 588 observations per profile. The modes differ in 75 cases, including 37 visible only in the trace. Lean checks the exact determining-branch equivalence condition. Broader effects and compiler correspondence remain open. [Boolean effect order](research/formal-verification/RT-07/RT-07-BOOLEAN-EFFECT-ORDER-2026-11-25.md)
+
+- Define semantics of contracts and their composition.
+
+- Specify nonempty declared behavior and coverage for every admitted handoff. Lean checks composition and the missing-branch witness. In 32,768 profiles, 13,719 uncovered compositions still have an outcome. Explicit divergence can supply coverage while failing a termination requirement. [Per-branch composition coverage](research/formal-verification/RT-07/RT-07-NONVACUOUS-CONTRACT-COMPOSITION-2026-11-25.md)
+
+- Prove universal handoff and refinement for tagged recovery. A one-suitable-outcome rule falsely admits 11,136 of 65,536 profiles. Both finite relation implementations agree on 4,096 ordered observations, and all 157,464 inclusion comparisons pass. General cleanup, asynchronous behavior and source correspondence remain open. [Recovery contract composition](research/formal-verification/RT-07/RT-07-RECOVERY-CONTRACT-COMPOSITION-2026-11-25.md)
+
+- Prove sequential contract satisfaction under a universal successful-state handoff. Across 60 declared pairs, accepting one suitable success gives eight false admissions. All 972 concrete refinement cases preserve exact composed observations. Divergence, recovery and source correspondence remain open. [Sequential contract composition](research/formal-verification/RT-07/RT-07-SEQUENTIAL-CONTRACT-COMPOSITION-2026-11-25.md)
+
+- Define semantics-preserving transformations and compiler correctness boundaries.
+
+- Verify identical-branch elimination and the exact guard-erasure condition in Lean. Retaining the guard once passes all 900 comparisons, and erasure changes 792 observations. The O0 and O3 exact native IR modules each match 3,600 rows. General lowering, scheduling and source correspondence remain open. [Identical branch guard](research/formal-verification/RT-07/RT-07-IDENTICAL-BRANCH-GUARD-2026-11-25.md)
+
+- Prove the exact criterion for removing an overwritten store with an optional intervening alias read and declared visibility. Final-cell equality falsely admits 297 of 486 candidates. Both GCC profiles match all 972 oracle rows each. General alias analysis and compiler correspondence remain open. [Dead-store alias boundary](research/formal-verification/RT-07/RT-07-DEAD-STORE-ALIAS-BOUNDARY-2026-11-25.md)
+
+- Define assumptions and environmental boundaries explicitly.
+
+- Specify environmental pair coherence under ordered immutable publication. Both GCC profiles match all 71,680 rows. A modulo-4 stability check admits 1,080 values absent from the publication history. Lean proves the exact nonreused generation rule. Runtime publication and source correspondence remain open. [Coherent environmental observations](research/formal-verification/RT-07/RT-07-COHERENT-ENVIRONMENT-2026-11-25.md)
+
+- Compare a conditional POSIX environment read with an explicit observation model. Two native profiles agree on 144 cases each. Successful-only input footprints merge 64 distinct outcomes, while an exact read or checked projection prevents stale reuse in 1,224 comparisons. Lean checks the conditional assumptions. General environment extraction remains open. [Explicit environment boundary](research/formal-verification/RT-07/RT-07-EXPLICIT-ENVIRONMENT-BOUNDARY-2026-11-25.md)
+
+**Existing evidence:** [LLMLang-FORMAL-VERIFICATION.md](research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md), [LLMLang-CONCEPT.md](research/language-design/RT-01/LLMLang-CONCEPT.md), typed requirement IR and formal dependency scenarios 25–33.
+
+### 2.2 Proof architecture and proof boundary
+
+- Determine which claims belong in Lean, SMT, specialized checkers, testing, or trusted runtime code.
+
+- Compare evidence routes on checked signed-byte addition. Lean checks range and endpoint lemmas, two SMT engines each produce five validated mismatch witnesses, the partition checker requires exact branch changes, and two GCC profiles match 393,216 observations each. Trusted host and instrumentation correspondence are explicit. [Checked-byte proof routes](research/formal-verification/RT-07/RT-07-CHECKED-BYTE-PROOF-ROUTES-2026-11-25.md)
+
+- Define the trusted computing base for each proof claim.
+
+- Record exact trust bases for seven scoped claims, with separate proof axioms, explicit premises and checker components. Two exact ledgers replay, eight scope or trust mutations are refused, and the archived Logos source result still requires acceptance of its 2,118 native axioms. [Claim trust crosswalk](research/formal-verification/RT-07/RT-07-CLAIM-TRUST-CROSSWALK-2026-11-25.md)
+
+- Audit transitive assumptions and exact types across six Lean declarations. Identical closed statements distinguish kernel reduction, an imported premise and native evaluation. A conditional type with an empty axiom set fails the closed request, and all policies refuse the placeholder. [Per-claim Lean trust](research/formal-verification/RT-07/RT-07-PER-CLAIM-LEAN-TRUST-2026-11-25.md)
+
+- Define proof object formats, proof checking, provenance, and evidence reuse.
+
+- Define a versioned receipt for Lean source and CPC text. Four exact claims pass their format-specific checks and four switched subjects fail. Both exact reuse controls preserve the recorded evidence kind, while eight malformed, stale or unrecorded paths withhold reuse. [Proof format receipts](research/formal-verification/RT-07/RT-07-PROOF-FORMAT-RECEIPTS-2026-11-25.md)
+
+- Separate solver answers from independently checked proofs.
+
+- Preserve distinct raw verdict, validated-model and Lean-refutation evidence in an incremental QF_LIA fixture. Two solvers agree on 192 incremental and 160 fresh queries each. Lean checks all 58 distinct refutations. Matching session and command still admit 938 wrong-context pairs with satisfying witnesses. [Incremental solver evidence](research/formal-verification/RT-07/RT-07-INCREMENTAL-SOLVER-EVIDENCE-2026-11-25.md)
+
+- Define exact binding between source-level assumptions, typed IR, serialized queries, and proof obligations.
+
+- Rebuild and replay the source-owned wire and CPC gate. Three source edits regenerate the same typed wire and recheck the same proof. Five changed wires reject the old proof under fresh binding, three rebuilt proofs pass, and three invalid sources are refused at admission. [Source and CPC proof rebinding](research/formal-verification/RT-07/RT-07-SOURCE-CPC-PROOF-REBINDING-2026-11-25.md)
+
+- Define fail-closed behavior for unsupported or ambiguous constructs.
+
+- Withhold evidence on failed typed admission or ambiguous solver context. The evidence gate withholds seven injected faults per solver and recovers six from explicit repairs. Four blind Z3 answers disagree with fresh replay, and Z3 silently accepts one mixed-sort profile violation. Missing repair stays unresolved. [Solver session recovery](research/formal-verification/RT-07/RT-07-SOLVER-SESSION-RECOVERY-2026-11-25.md)
+
+- Define how proof status is represented: candidate, unknown, checked, rejected, or proven.
+
+- Derive candidate, unknown, checked, proven, refuted and conflict status from exact eligible receipt history, with rejection retained on the attempt. All 4,162 ordered profiles match a set oracle. Latest-arrival status hides 364 closed proofs. Lean checks merge laws and the open-premise boundary. [Proof status history](research/formal-verification/RT-07/RT-07-PROOF-STATUS-HISTORY-2026-11-25.md)
+
+- Define the relationship between proof validity and specification adequacy; a proof cannot establish that the specification captures user intent.
+
+- Distinguish proof validity, contract feasibility, functional transfer to a recorded intent relation and eligibility coverage. Lean proves exact transfer under feasibility. Among 4,096 Boolean contract pairs, 1,767 feasible pairs fail transfer, while 960 pairs with infeasible candidates give vacuous implication. Stakeholder validation remains a separate RT-02 gate. [Proof validity and adequacy](research/formal-verification/RT-07/RT-07-PROOF-VALIDITY-AND-ADEQUACY-2026-11-25.md)
+
+**Existing evidence:** scenarios 28–33, prototype 29, Lean CPC parser-state binding prototype, Logos integration, and [LLMLang-FORMAL-VERIFICATION.md](research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md).
+
+### 2.3 Lean, Logos, SMT, and solver integration
+
+- Keep QF_LIA as a conservative profile; reject unsupported strings, nonlinear arithmetic, and constructs outside the profile.
+
+- Record what is checked by Lean, what is trusted in Logos, and what remains outside the proof boundary.
+
+### 2.4 Verified SPG-to-Lean pipeline (RT-32)
+
+- Compare shallow, deep, and hybrid Lean embeddings; identify which claims each can establish and where semantic correspondence is required.
+
+- Compare structured deep interpretation, generated shallow functions and a checked hybrid bridge on 12 typed effectful conditionals. The kernel checks 168 ground observations. Reordered guard effects and an eagerly evaluated second arm fail exact trace claims. [Conditional embedding correspondence](research/formal-verification/RT-32/RT-32-CONDITIONAL-EMBEDDING-CORRESPONDENCE-2026-11-25.md)
+
+- Define the admitted SPG/verification-IR subset and deterministic mapping from versioned LLMLang functions, contracts, invariants, calls, and effects to Lean definitions and theorem statements.
+
+- Record admitted profile boundaries, deterministic generators and exact versioned identities for typed conditionals, countdown, mutual recursion and modular SPG calls. Separate source, verifier and compiled claim admission. [Admitted profiles and obligation corpus](research/formal-verification/RT-32/RT-32-CORE-OBLIGATION-CORPUS-2026-11-25.md)
+
+- Generate proof obligations from contracts and control flow: preconditions, postconditions, branch conditions, loop invariant initialization/preservation/exit, recursive obligations, and termination measures.
+
+- Replay six exact fixture ledgers. The corpus checks 12 structured conditional proofs, two countdowns, two encodings per recursive fixture, and seven closed caller claims. Domain and correspondence limits remain explicit. [Admitted profiles and obligation corpus](research/formal-verification/RT-32/RT-32-CORE-OBLIGATION-CORPUS-2026-11-25.md)
+
+- Define compositional caller proofs from version-bound callee contracts, preserving exact function, contract, assumption, and dependency identities; allow explicitly conditional proofs when callee proof evidence is absent, but never report them as proven.
+
+- Require the exact modular theorem, versioned provider contract and transitive proof before closure. Lean checks composition under the callee premise and blocks mismatched import/version discharge. [Exact caller evidence states](research/formal-verification/RT-32/RT-32-CALLER-EVIDENCE-STATES-2026-11-25.md)
+
+- Define a typed Proof Dependency Graph (PDG), distinct from and linked to SPG, for proof artifacts, contract theorems, assumptions, call-site dependencies, transitive proof closure, and provenance.
+
+- Derive the expected proof inventory from six compiled SPGs and match 30 observations. Repeated call sites keep separate discharges even when they share a provider proof. Exact inventory rejects missing occurrences and transitive or stale evidence. Lean checks ordered trace composition. Receipt authenticity remains open. [SPG proof dependency occurrences](research/formal-verification/RT-32/RT-32-SPG-PDG-OCCURRENCES-2026-11-25.md)
+
+- Define assumption-discharge and proof-state transitions: conditional/pending dependencies → closed/proven only after compatible checked callee evidence and all other obligations are bound.
+
+- Model the exact proof state across 729 assignments and 35,280 arrival-order prefixes. Checking roles alone falsely closes 4,704 prefixes. A latest-job rule discards 3,360 applicable closed results after an unknown response. [Exact caller evidence states](research/formal-verification/RT-32/RT-32-CALLER-EVIDENCE-STATES-2026-11-25.md)
+
+- Compare recursive assumption discharge in 384 finite cases. Immediate receipt presence falsely closes 92 root claims. Lean checks three joint induction rules and two countermodels without axioms; source measure evidence remains open. [RT-32 recursive proof discharge](research/formal-verification/RT-32/RT-32-RECURSIVE-PROOF-DISCHARGE-2026-11-25.md)
+
+- Validate incremental reuse/invalidation: callee body change with unchanged contract, contract change, caller change, stale proof artifact, changed assumptions/toolchain, and transitive dependency closure.
+
+- Replay ten generated Lean cases and 12,288 transitive closure cases. Compare 8,192 explicit identity and status changes. Reusing modular evidence as closed falsely admits 31 late and 15 direct profiles. Controlled artifact, toolchain and transitive omissions expose separate stale hits. Native extraction and production cache admission remain open. [Incremental proof invalidation](research/formal-verification/RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md)
+
+- Prove or explicitly bound source-to-Lean correspondence for the admitted subset; a theorem about generated Lean code alone is not a proof about LLMLang source.
+
+- Compare both exact source notations for 84 program/input pairs. Lean proves the structured SPG decode and conditioning correspondence for every integer on 12 bodies, with 16 separate runtime JSON checks and four decoder refusals. The source compiler and JSON byte parser remain explicit trust boundaries. [Conditional embedding correspondence](research/formal-verification/RT-32/RT-32-CONDITIONAL-EMBEDDING-CORRESPONDENCE-2026-11-25.md)
+
+- Evaluate Lean tactics, SMT-assisted discharge, reusable lemmas, and optional LLM-generated proof candidates, while requiring independent Lean-kernel checking.
+
+- Compare 38 Lean candidates for ten exact integer obligations. Direct `omega`, reusable lemmas and SMT triage followed by Lean close the same six. Both solvers provide four independently checked witnesses. The trust gate excludes an injected axiom and Lean rejects the placeholder. A selected-model experiment remains optional and unrun. [Generated proof route comparison](research/formal-verification/RT-32/RT-32-PROOF-ROUTE-COMPARISON-2026-11-25.md)
+
+- Define the TCB, axiom/import policy, unsupported/unknown behavior, proof provenance, evidence states, and fail-closed rules.
+
+- Specify the kernel, exact compiled context, independent inventory, authorized receipt and transitive axiom boundary. Reconcile ten compiled admission cases, and verify scope mismatch, unapproved provenance and conflicting results fail closed in the state model. Production issuer governance remains open. [Exact caller evidence states](research/formal-verification/RT-32/RT-32-CALLER-EVIDENCE-STATES-2026-11-25.md)
+
+- Define incremental proof caching and invalidation for SPG, contracts, dependencies, assumptions, generator/compiler versions, and Lean toolchain changes.
+
+- Define separate SQLite modular and closed keys with exact dependency payloads. Nine input mutations miss, a late rebind reuses the modular theorem conditionally, and a changed receipt or policy invalidates closed reuse. Reader isolation, interrupted writer recovery and corrupt dependency refusal are checked. [Persistent proof cache](research/formal-verification/RT-32/RT-32-PERSISTENT-PROOF-CACHE-2026-11-25.md)
+
+- Build positive and adversarial fixtures, including incorrect implementations, weakened contracts, missing invariants, invalid termination measures, mismatched translations, stale callee proofs, and unsupported effects.
+
+- Reproduce all seven requested refusal classes. Add a kernel-checked unknown foreign-effect input control and independently verify exact archived negative results before reconciling them. [Admitted profiles and obligation corpus](research/formal-verification/RT-32/RT-32-CORE-OBLIGATION-CORPUS-2026-11-25.md)
+
+### 2.5 Correctness of optimization and translation
+
+- Define proof obligations for semantic graph rewrites, including correspondence with authoritative LLMLang semantics when Lean or another verifier is used as a target representation.
+
+- Check reconstruction, relabeling and occurrence preservation for a typed acyclic graph. Lean checks graph and tree denotation. All 9,210 graph observations match both archived reference routes, while node/cell memoization changes 870 observations. Production SPG-to-model correspondence remains open. [Graph occurrence preservation](research/compiler-and-translation/RT-13/RT-13-GRAPH-OCCURRENCE-PRESERVATION-2026-11-25.md)
+
+- Define proof obligations for compiler optimizations.
+
+- Define exact intermediate binding, domain, definedness and observation obligations for adjacent passes. Lean checks composition and a bridge rule. Across 57,132 locally valid chains, the exact route admits 340 and the bridge admits 1,442, all independently agreeing at the endpoints. Omitting any one gate causes false admissions. [Compiler pass composition](research/compiler-and-translation/RT-13/RT-13-COMPILER-PASS-COMPOSITION-2026-11-25.md)
+
+- Study translation validation versus proving the optimizer correct.
+
+- Evaluate Alive2 and related LLVM validation techniques.
+
+- Reconcile three archive-pinned validator ledgers and rerun LLVM structural validation on all six modules. Refuted and unsupported cases retain distinct dispositions. A separate freeze fixture checks 12 native memberships per profile and Lean proves strict one-way refinement for two choice reductions. [LLVM validator and choice scope](research/compiler-and-translation/RT-13/RT-13-LLVM-VALIDATOR-CHOICE-SCOPE-2026-11-25.md)
+
+- Define differential and property-based testing against reference semantics.
+
+- Specify typed seeded generation and claim-preserving reduction. All four seeds find six deliberate faults in 3,072 generated rows. All 28 witnesses reach their exhaustive minimum size and pass independent small-step replay, with order-only cases retaining that property. [Differential shrinking](research/compiler-and-translation/RT-13/RT-13-DIFFERENTIAL-SHRINKING-2026-11-25.md)
+
+- Compare six rewrite mutations across 77,376 finite observations. Final Result and cell hide all 240 overwritten-write mismatches in the exhaustive corpus. An event multiset hides 16 order mismatches, and success-only generation misses two error mutations. [State/Result mutation coverage](research/compiler-and-translation/RT-13/RT-13-STATE-RESULT-MUTATION-COVERAGE-2026-11-25.md)
+
+- Define when testing is sufficient evidence and when formal proof is required.
+
+- Specify exact-domain, complete-observation and correspondence obligations. Lean checks the exhaustion and observation-lifting rules. The 128-case corpus detects four defects under full scope, and single-schedule, success-only and weakened observation controls miss defects. Three archived ledgers retain their recorded claim scope. [Exhaustive evidence boundary](research/compiler-and-translation/RT-13/RT-13-EXHAUSTIVE-EVIDENCE-BOUNDARY-2026-11-25.md)
+
+- Establish reproducible §2.5 fixture checks for graph correspondence, exhaustive evidence, differential witnesses and pass composition. The CI command reproduced all three Lean axioms transcripts and four result ledgers locally. [Optimization research replay](research/compiler-and-translation/RT-13/RT-13-OPTIMIZATION-REPLAY-2026-11-25.md)
+
+- Confirm GitHub-hosted execution of the exact `research/all` replay workflow. After correcting runner-context placement, run 45609190644 reproduces three Lean axiom transcripts and four JSON ledgers at `f4d6de0`. [Hosted replay and diagnosis](research/compiler-and-translation/RT-13/RT-13-OPTIMIZATION-REPLAY-2026-11-25.md#hosted-execution)
+
+### Dafny language and verification transfer study (cross-cutting; Stage 2)
+
+- Study Dafny's specification language: `requires`/`ensures`, loop invariants, `reads`/`modifies` frames, `decreases`, ghost state, lemmas, assertions, opacity, modules, traits, and proof structuring. Map each construct to LLMLang requirements and identify semantic mismatches.
+
+- Map thirteen constructs against five pinned chapters of Dafny 4.11.0 and check exact contract, scope and assumption mismatches. [Dafny construct transfer](research/formal-verification/RT-07/RT-07-DAFNY-CONSTRUCT-TRANSFER-2026-11-25.md#construct-matrix)
+
+- Evaluate candidate contract and language syntax against Dafny on common examples, including readability for people and LLMs, proof guidance, explicit effects/failures/termination, and lossless mapping to typed SPG.
+
+- Compare two bounded contract surface renderings and check their exact typed reconstruction, explicit effects, failure and termination. [Syntax and invariant receipts](research/formal-verification/RT-07/RT-07-DAFNY-SYNTAX-AND-INVARIANT-RECEIPTS-2026-11-25.md)
+
+- Compare invariant discovery, proof failures, solver variability, incremental re-verification, and evidence invalidation after specification or implementation edits.
+
+- Check affine invariant proposals under two bundled Z3 versions. Fourteen native verifier invocations distinguish failures and work exhaustion, and two exact repeats hit reusable receipts. [Syntax and invariant receipts](research/formal-verification/RT-07/RT-07-DAFNY-SYNTAX-AND-INVARIANT-RECEIPTS-2026-11-25.md)
+
+- Check four-participant native counter histories and an independent interval oracle (#294). Both checkers agree on 30,240 histories. Fetch-add preserves every scoped history, and the split route preserves only the serial schedules. [Four-participant histories](research/formal-verification/RT-07/RT-07-FOUR-COUNTER-HISTORIES-2026-11-25.md)
+
+- Record transfer decisions as candidates with evidence, limitations, and open questions. See [Dafny Transfer Analysis](research/DAFNY-TRANSFER-ANALYSIS.md) and [Dafny–LLMLang comparison](research/COMPARISON-DAFNY-LLMLANG.md).
+
+- Record candidate reuse of explicit obligations and bounded Dafny adapters with independent semantic and receipt checks. [Dafny construct transfer](research/formal-verification/RT-07/RT-07-DAFNY-CONSTRUCT-TRANSFER-2026-11-25.md#candidate-transfer-decisions)
+
+### 3.1 Semantic dependency model
+
+- Recheck the candidate boundaries and all 104 tests in eight archived suites. Declaration v2, index v3 and plan v5 have checked scoped evidence. Five relevant decision records remain open and both architecture records remain proposed in the checked archive. [SPG index reconciliation](research/semantic-representation/RT-06/RT-06-SPG-INDEX-RECONCILIATION-2026-11-25.md)
+
+- Define semantic dependencies separately from provenance, audit observations, and traceability.
+
+- Check the role boundary in the pinned semantic and relation stores. Over 8,128 profile pairs, a runtime-only key falsely admits 576 verification and 512 audit reuses. Excluding a consumed note admits 256 stale executions. [Dependency role closures](research/semantic-representation/RT-06/RT-06-DEPENDENCY-ROLE-CLOSURE-2026-11-25.md)
+
+- Define hash-relevant dependency edges and dependency closure.
+
+- Check all 384 execution, verification and audit closure digests against independent expected member sets. Typed keys admit every scoped reuse and no stale hit. Lean checks when a note becomes an observed dependency. [Dependency role closures](research/semantic-representation/RT-06/RT-06-DEPENDENCY-ROLE-CLOSURE-2026-11-25.md)
+
+- Define how dependencies are discovered from static analysis, typed IR, runtime observations, tests, and formal semantics.
+
+- Compare 100 call occurrences across 25 exact typed SPGs. All 250 runtime and Lean rows agree with the independent guards. Sample-only discovery misses required providers in 1,310 requests. [Guarded SPG dependency discovery](research/semantic-representation/RT-06/RT-06-SPG-GUARDED-DEPENDENCY-DISCOVERY-2026-11-25.md)
+
+- Define confidence/evidence classes for dependency edges.
+
+- Define sound conservative may-depend graphs.
+
+- Check local unknown expansion and guarded provider sets on 2,325 requests. The exact guarded result agrees with full replay. The static bound has zero misses and 2,090 excess cases, while assuming an unknown gate false misses providers in 420 cases. [Guarded SPG dependency discovery](research/semantic-representation/RT-06/RT-06-SPG-GUARDED-DEPENDENCY-DISCOVERY-2026-11-25.md)
+
+- Define how missing or incomplete dependency evidence affects reuse.
+
+- Compare 162 GCC header-search runs and prove the ordered selection rule in Lean. Prior positive depfiles alone admit 312 stale selections and 156 stale artifacts in 4,212 ordered comparisons. The exact prefix has zero stale reuse. [Negative header dependencies](research/toolchain-and-collaboration/RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md)
+
+- Define cycles and strongly connected components for analysis and scheduling.
+
+- Check reproducible provider-first SCC schedules on all 512 directed graphs and 4,096 fact assignments. Across 36,864 edited cases, stale plans omit required facts in 4,448 cases if unresolved inputs default to empty. Lean checks propagation along finite dependency paths. [SCC dependency scheduling](research/semantic-representation/RT-06/RT-06-SCC-DEPENDENCY-SCHEDULING-2026-11-25.md)
+
+- Define change-impact analysis for requirement, contract, design, implementation, and target changes.
+
+- Check all 992 change profiles against independently reconstructed candidate identities. The pinned planner matches 8,896 typed actions. Every stale or missing audit requires review and full revalidation. [Typed change-impact planning](research/semantic-representation/RT-06/RT-06-TYPED-CHANGE-IMPACT-2026-11-25.md)
+
+### 3.2 Incremental analysis and invalidation
+
+- Define invalidation for type checking, contract checking, optimization, code generation, tests, and proofs.
+
+- Check six exact stage keys on two native call modes and 238 admitted calls. Equivalent provider edits change type, conformance, optimization and proof keys while retaining code and tests. Both modes refuse the ill-typed provider. [Six-stage native propagation](research/toolchain-and-collaboration/RT-11/RT-11-SIX-STAGE-PROPAGATION-2026-11-25.md)
+
+- Compare six exact action keys across eight directed edits and an ill-typed body. Formatting invalidates source-map evidence alone. Equivalent source trees require fresh source checks while retaining exact optimized code and test inputs. A signature-only type key collides with the ill-typed body. [RT-11 typed pipeline invalidation](research/toolchain-and-collaboration/RT-11/RT-11-TYPED-PIPELINE-INVALIDATION-2026-11-25.md)
+
+- Define the difference between semantic impact and evidence staleness.
+
+- Compare proof freshness with checked semantic impact across five source variants and Lean 4.34/4.36. Whitespace preserves the exact check request while changing its source receipt. An equivalent refactor changes the request, and a semantic change can still satisfy the same property. Same-version compiled imports succeed and both cross-version loads fail. [Semantic impact and proof freshness](research/toolchain-and-collaboration/RT-11/RT-11-SEMANTIC-IMPACT-AND-PROOF-FRESHNESS-2026-11-25.md)
+
+- Compare exact evidence applicability across 160 graph, projection, scope, verifier, policy and receipt cases. In 52 cases the receipt was stale with no observed behavior change. In 24 cases behavior changed with no receipt present. [RT-11 observational impact and evidence applicability](research/toolchain-and-collaboration/RT-11/RT-11-OBSERVATIONAL-IMPACT-AND-EVIDENCE-APPLICABILITY-2026-11-25.md)
+
+- Define how an `ImplHash` change propagates through dependent semantic nodes and action results.
+
+- Trace the candidate implementation edit through direct and abstract subjects. The exact direct caller changes. The contract-bound caller object survives a changed provider, while linking, testing and proof evidence bind the new selection. Lean checks exact bounded claims and the endpoint refutation. [Six-stage native propagation](research/toolchain-and-collaboration/RT-11/RT-11-SIX-STAGE-PROPAGATION-2026-11-25.md)
+
+- Define safe reuse when only non-semantic metadata changes.
+
+- Compare equal-length non-allocated ELF metadata on two native profiles. All 30 variant pairs keep identical loadable bytes and ordinary observations, yet exact file digests and native self-inspection all change. Reuse requires the scoped execution observation and unchanged inputs. [ELF metadata reuse](research/toolchain-and-collaboration/RT-11/RT-11-ELF-METADATA-REUSE-2026-11-25.md)
+
+- Independently check the column-only boundary with four GCC builds and 40 native calls. Executable text and decoded line/address pairs are unchanged, while raw DWARF column updates and the exact debug object change. [RT-11 debug column reuse](research/toolchain-and-collaboration/RT-11/RT-11-DEBUG-COLUMN-REUSE-2026-11-25.md)
+
+- Compare 16 native builds and 240 outputs under source-only edits. Leading blank lines change exact debug objects and mapped locations without changing the constant-function executable observations. A location-dependent expression makes the same edit observable at runtime. General projection certification remains open. [Native source metadata reuse](research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-SOURCE-METADATA-REUSE-2026-11-25.md)
+
+- Define conservative fallback when dependency completeness cannot be established.
+
+- Rebuild when an earlier header absence or selected payload is unknown. Across 33,696 availability cases, scoped reuse preserves every admitted artifact and unknown fallback avoids 984 false hits from checking the previous winning file alone. [Negative header dependencies](research/toolchain-and-collaboration/RT-11/RT-11-HEADER-LOOKUP-FALLBACK-2026-11-25.md)
+
+- Compare mixed dependency completeness across 576 action-graph profiles. Scoped fallback executes 568 fewer actions and admits 16 more packages than whole-graph recomputation with zero stale results. The optimistic control admits 120 stale packages. Production extraction and publication remain open. [Scoped dependency fallback](research/toolchain-and-collaboration/RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md)
+
+- Define impact planning and non-interference gates.
+
+- Compare three disjoint edits over 2,048 profiles and 12,288 schedules. Pairwise checks falsely admit 16 changed combined results. The exact scope gate agrees with all prefixes, and Lean checks composition under a preserved invariant. [Three-edit non-interference](research/toolchain-and-collaboration/RT-11/RT-11-THREE-EDIT-INTERFERENCE-2026-11-25.md)
+
+- Compare separate and composed non-interference checks across 6,144 truth-table edits. Independent baseline checks admit 768 changed outcomes despite disjoint writes. Lean checks a counterexample and composition under sequential or uniformly applicable premises. [RT-11 composed non-interference](research/toolchain-and-collaboration/RT-11/RT-11-COMPOSED-NONINTERFERENCE-2026-11-25.md)
+
+- Benchmark small local edits, shared component edits, and broad semantic changes.
+
+- Compare 21 paired full and incremental GCC builds. All outputs are byte-identical per pair. Incremental compiles 1, 4 or 16 units against 17 in the full route; paired median ratios are 8.31×, 3.41× and 1.13× on the shared host. Representative hardware and workloads remain open. [Native edit locality](research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-EDIT-LOCALITY-2026-11-25.md)
+
+**Existing evidence:** [SEMANTIC-COMPILATION-CACHE.md](research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), scenarios 18–28, and dependency graph prototypes.
+
+### 3.3 Semantic build and cache graph
+
+- Define optional package-distributed cache-index files for validation, compilation, analysis, tests, and proofs; decide whether indexes and result payloads are embedded or separately fetched.
+
+- Verify five result families across 20 layout and request combinations plus ten refusal controls. Detached index and payloads preserve package-only transfer size. Embedding both enables self-contained offline exports. [Package cache delivery](research/toolchain-and-collaboration/RT-11/RT-11-PACKAGE-CACHE-DELIVERY-2026-11-25.md)
+
+- Establish the version-identity split for cache records: composite `LanguageVersion`, append-only component-registry digest, and separate `ToolchainIdentity`; record the candidate design in [LANGUAGE-VERSIONING.md](research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md).
+
+- Bind every cached result to exact Action Key inputs and complete dependency closure; define compatibility evidence for reuse across different language or toolchain identities.
+
+- Check 1,024 native calls, 48 directional C/Rust comparisons and 16 refusal controls. Agreement depends on exact scope and projection, an omitted closure role refuses reuse, and the bridge cannot supply an exact artifact. [Cross-language closure receipts](research/toolchain-and-collaboration/RT-11/RT-11-CROSS-LANGUAGE-RECEIPTS-2026-11-25.md)
+
+- Compare four GCC and Clang artifacts and 1,024 native returns. Equal wrapping observations admit an exact return-only compatibility receipt while action keys and full objects differ. The wrapping-to-saturation receipt over inputs 0–254 is refused for the full domain. [RT-11 cross-toolchain cache compatibility](research/toolchain-and-collaboration/RT-11/RT-11-CROSS-TOOLCHAIN-CACHE-COMPATIBILITY-2026-11-25.md)
+
+- Define cache-index merge, conflict handling, artifact availability/eviction, and trust/evidence checks.
+
+- With real Ed25519 signatures, all 120 insertion orders preserve the authorized conflict. Missing payloads do not erase conflict, and revoked signers lose eligibility. [Signed cache admission](research/toolchain-and-collaboration/RT-11/RT-11-SIGNED-REBUILD-ADMISSION-2026-11-25.md)
+
+- Check 23 scoped index merge and lookup controls across the existing schema validator. All 24 contributing orders agree. Authorized result conflicts, missing/corrupt payloads, stale attestations and output shape block exact reuse separately. Durable publication and authentication remain open. [RT-11 cache-index admission](research/toolchain-and-collaboration/RT-11/RT-11-CACHE-INDEX-MERGE-ADMISSION-2026-11-25.md)
+
+- Define typed build actions and their inputs/outputs.
+
+- Check 20 compile, link, test and proof results across five variants, plus an exact driver compilation. A byte-identical output preserves downstream action keys. Wrong roles, input order and output payloads are refused. [Typed action receipts](research/toolchain-and-collaboration/RT-11/RT-11-TYPED-ACTION-RECEIPTS-2026-11-25.md)
+
+- Keep Semantic Hash, Action Key, and Artifact Hash distinct.
+
+- Include tool identity, tool version, configuration, target, environment, runtime, and policy inputs whenever they can affect a result.
+
+- Check 14 native test requests. Changing the directory order or filling a previously absent candidate changes output at identical executable bytes. Exact environment, loader mappings, negative lookups and policy constrain reuse. [Native runtime closure](research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-RUNTIME-CLOSURE-2026-11-25.md)
+
+- Define deterministic versus nondeterministic action handling for exact artifacts, declared observations and effectful execution.
+
+- Compare downstream result roles across 72 ELF pairs, 1,024 native returns, 14 loader/cache requests and five typed build variants. Pure projection can cover a scoped result while an exact artifact or broader observation requires separate evidence. Unknown closure skips lookup and publication. [Downstream determinism](research/toolchain-and-collaboration/RT-11/RT-11-DOWNSTREAM-DETERMINISM-2026-11-25.md)
+
+- Compare byte-deterministic, semantic-deterministic and non-cacheable results with exact package artifacts and ordered events. Six canonical builds match exactly, four alternate carriers match the package observation, and artifact-only reuse drops seven of nine required writes. [Package action determinism](research/toolchain-and-collaboration/RT-11/RT-11-PACKAGE-ACTION-DETERMINISM-2026-11-25.md)
+
+- Verify the stream record-limit controls, reject altered package payload bytes, and retain order and multiplicity in the append receipt.
+
+- Compare exact compile artifacts under ambient path and fixed-clock changes. Across 32 builds, requests keyed without relevant path or clock inputs can hit incorrect artifacts. Keys using the declared inputs prevent every tested false hit, while unavailable relevant inputs block lookup. General action determinism and environment discovery remain open. [RT-13 compile action inputs](research/compiler-and-translation/RT-13/RT-13-COMPILE-ACTION-DETERMINISM-2026-11-25.md)
+
+- Define local, workspace, remote, and global cache layers.
+
+- Check 13 lookups across four persistent roles. Offline restart succeeds with a complete mirror. Global content restores evicted bytes with existing provenance, while an incomplete view prevents an early hit. [Persistent cache layers](research/toolchain-and-collaboration/RT-11/RT-11-PERSISTENT-LAYERED-CACHE-2026-11-25.md)
+
+- Compare 17 process, workspace, team and global content controls. Complete mirrored records permit an offline hit, while missing records and authorized disagreement prevent early local admission. Verified artifact promotion retains original authority and is rechecked after policy changes. Persistent storage and transport remain open. [Layered cache lookup](research/toolchain-and-collaboration/RT-11/RT-11-LAYERED-CACHE-LOOKUP-2026-11-25.md)
+
+- Define cache integrity, trust, provenance, and eviction.
+
+- Check a SQLite WAL reader across eviction and an independent writer stopped before commit. Verified promotion repairs corrupt local content and preserves original issuer authority. [Persistent cache layers](research/toolchain-and-collaboration/RT-11/RT-11-PERSISTENT-LAYERED-CACHE-2026-11-25.md)
+
+- Compare 35 native cache reads around scheduled file maintenance. Retained descriptors survive unlink and replacement but observe in-place writes. Verified snapshots and cooperative leases retain all exact bytes in the valid-start controls. Network leases and persistent metadata remain open. [Cache artifact lifetime](research/toolchain-and-collaboration/RT-11/RT-11-CACHE-ARTIFACT-LIFETIME-2026-11-25.md)
+
+- Define test and proof evidence caching with exact subject and assumption binding.
+
+- Match 15 native test observations and five Lean propositions. Different executable bytes, test cases, premises or source applicability invalidate the corresponding receipt. A test receipt cannot be admitted as a proof. [Typed action receipts](research/toolchain-and-collaboration/RT-11/RT-11-TYPED-ACTION-RECEIPTS-2026-11-25.md)
+
+- Define behavior for incomplete dependency closure: invalidate conservatively or disable caching.
+
+- Skip lookup and publication for two unknown required closures. Two missing-library runs and two policy refusals also create no record. Four complete requests reuse observations equal to independent executions. [Native runtime closure](research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-RUNTIME-CLOSURE-2026-11-25.md)
+
+- Define reproducibility requirements and cache poisoning defenses.
+
+- Compare three exact object rebuilds and 18 trust, scope and availability controls. Actual payload bytes are checked, and an authorized result is refused if it disagrees with the independent rebuild. [Signed cache admission](research/toolchain-and-collaboration/RT-11/RT-11-SIGNED-REBUILD-ADMISSION-2026-11-25.md)
+
+**Existing evidence:** [SEMANTIC-COMPILATION-CACHE.md](research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md), [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md), [COMPILATION-CACHE-SPEEDUP-ESTIMATE.md](research/toolchain-and-collaboration/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md), [Language Versioning](research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md), and the exploratory [Package Identity Prototype 01](research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/README.md).
+
+### 3.4 Quantify compilation speedup
+
+- Validate the analytical model in `COMPILATION-CACHE-SPEEDUP-ESTIMATE.md`.
+
+- Verify the serial work equation on 1,024 action-graph cases. Independent span calculation finds 160 cases where improved work still lengthens the ideal critical path. [Cache work and span](research/toolchain-and-collaboration/RT-11/RT-11-CACHE-WORK-AND-SPAN-2026-11-25.md)
+
+- Recompute the published analytical table and compare an equal-cost compile-action approximation with 35 archived paired C++ blocks. The cold residual spans −37.951 to 41.548 ms. Representative calibration remains open. [Paired cache speedups](research/toolchain-and-collaboration/RT-11/RT-11-PAIRED-CACHE-SPEEDUP-2026-11-25.md)
+
+- Implement reproducible benchmarks for cold, warm, local-edit, component-edit, and broad-change builds.
+
+- Replay the pinned five-stage benchmark in fresh directories. All 45 rows across three new trials reproduce exact object manifests, tool fingerprints, edit-stage order and action counts. Fresh timings are recorded separately. [Five-stage build replay](research/toolchain-and-collaboration/RT-11/RT-11-BUILD-STAGE-REPLAY-2026-11-25.md)
+
+- Run 105 timed synthetic C++ builds across three methods and five stages. All 35 trial/stage artifact manifests agree. Content-keyed and incremental Make execute the same compiler counts and their observed time ranges overlap. Representative workloads and controlled hardware remain open. [RT-11 synthetic C++ cache timings](research/toolchain-and-collaboration/RT-11/RT-11-SYNTHETIC-CXX-CACHE-TIMINGS-2026-11-25.md)
+
+- Measure cache hit rates by action type.
+
+- Measure 70 native build actions across seven stages. Exact-payload keys hit 20/28 compiles, 9/14 archives, 9/14 links and 8/14 verifications, with every artifact matching forced rebuild. Propagated producer keys cause three extra misses and a policy-blind key returns one stale acceptance. Representative workload distributions remain open. [Multi-action cache hits](research/toolchain-and-collaboration/RT-11/RT-11-MULTI-ACTION-CACHE-HITS-2026-11-25.md)
+
+- Measure hashing, dependency discovery, scheduling, storage, and verification overhead.
+
+- Record 17 isolated samples per phase at 2, 8 and 24 native components. At 24, discovery has median 210.992 ms, hashing 2.097 ms, scheduling 0.091 ms, verified restoration 4.233 ms and executable checks 24.395 ms. All manifests and observations agree. Controlled hardware and integrated overhead remain open. [Build phase overhead](research/toolchain-and-collaboration/RT-11/RT-11-BUILD-PHASE-OVERHEAD-2026-11-25.md)
+
+- Compare against clean and conventional incremental builds in representative Rust, Go, and C++ projects.
+
+- Compare fresh, conventional incremental and whole-project content reuse for pinned memchr, pflag and fmt. All 108 probes and 36 exact artifact comparisons pass. The cache hits on all 18 warm and reverted stages. Warm memchr is slower than Cargo in every paired trial. Project coverage and transfer to LLMLang remain open. [Upstream content cache](research/toolchain-and-collaboration/RT-11/RT-11-UPSTREAM-CONTENT-CACHE-2026-11-25.md)
+
+- Measure clean and conventional incremental builds of pinned memchr, pflag and fmt on a shared x86-64 host. All 54 probe executions return the expected values and all 27 paired binaries agree byte for byte. Warm reuse and library-edit costs vary across the three projects. A representative LLMLang cache comparison remains open. [Upstream build baselines](research/toolchain-and-collaboration/RT-11/RT-11-UPSTREAM-BUILD-BASELINES-2026-11-25.md)
+
+- Report speedup distributions and workload assumptions rather than a single headline number. All 35 blocks have exact output agreement. The warm median is 337.856× against forced rebuild and 1.281× against incremental Make. [Paired cache speedups](research/toolchain-and-collaboration/RT-11/RT-11-PAIRED-CACHE-SPEEDUP-2026-11-25.md)
+
+- Identify workloads where caching is neutral or slower. Cold and broad edit each lose to forced rebuild in five of seven blocks, and component edits are near parity with incremental Make in the sample. [Paired cache speedups](research/toolchain-and-collaboration/RT-11/RT-11-PAIRED-CACHE-SPEEDUP-2026-11-25.md)
+
+### 3.5 Verification artifact cache and incremental proof reuse (RT-11/32/33/36)
+
+- Compare versioned subprocess/CLI, protocol and native-library adapters for Lean/Pantograph, Z3/cvc5 (SMT-LIB and API), TLC/Apalache and selected Why3/Boogie routes. Validate capability reporting, exact input/correspondence, cancellation, failures, and independently checkable evidence (RT-33, §2.3).
+
+- Compare 18 named TLC CLI, TLC Java, Apalache CLI and Shai gRPC checks. Independently validate finite safety and fairness, bounded prefixes and typed witnesses. Six unsupported requests refuse. Three subprocess cancellations and an RPC deadline produce no usable result. [TLC and Apalache adapters](research/formal-verification/RT-33/RT-33-TEMPORAL-ADAPTERS-2026-11-25.md)
+
+- Compare 14 Why3 and Boogie CLI outcomes, including named decoys, missing coverage, type errors, resource limits and host cancellation. Replay six native queries and verify the independent integer fixture with Carcara and checked SAT witnesses. [Why3 and Boogie adapters](research/formal-verification/RT-33/RT-33-WHY3-BOOGIE-ADAPTER-2026-11-25.md)
+
+- Compare Lean CLI, Pantograph REPL and library on six propositions and 17 controls. Kernel rechecks the extracted terms. Typed mismatch, sorry, reset-reused IDs, changed imports and damaged states refuse. CLI termination and REPL interruption yield no proof. [Lean and Pantograph adapters](research/formal-verification/RT-33/RT-33-PANTOGRAPH-ADAPTER-2026-11-25.md)
+
+- Compare 56 CLI and native solver checks, four push/pop/reset sessions, four resource limits and four cancellation paths. Carcara checks both cvc5 certificate routes. Z3 accepts a raw mixed-sort coercion that the shared typed guard refuses, and its native context returns UNKNOWN on interrupt. [SMT adapter comparison](research/formal-verification/RT-33/RT-33-SMT-ADAPTER-COMPARISON-2026-11-25.md)
+
+- VAC-01/05: extend the existing ActionKey and CAS model with exact typed obligation, execution, check, closure and admission identities; validate complete property-specific dependencies, canonicalization, policy/revocation and forged or stale evidence rejection.
+
+- Verify 65,536 identity changes across two property scopes plus 12 real Ed25519 admission controls. Generic cache shape validation misses a declared role omission. Exact checking refuses incomplete inventory, signed replacement bytes without matching evidence, stale policy and revocation. [Typed proof identities](research/formal-verification/RT-33/RT-33-TYPED-PROOF-KEYS-2026-11-25.md)
+
+- VAC-02/03: persist actual source-bound SMT certificates and Lean proof artifacts; compare certificate checking, kernel proof-term replay, tactic replay and module reuse against fresh generation with pinned imports, checker, axioms and semantics.
+
+- Verify six persisted CPC/Alethe receipts across four source subjects and eight controls. Logos and Carcara check fresh certificates for the two contradictory formulas and refuse stale assumptions, holes and verdict-only records. Z3 agrees on every verdict and supplies the validated SAT model. [SMT artifact replay](research/formal-verification/RT-33/RT-33-SMT-ARTIFACT-REPLAY-2026-11-25.md)
+
+- Persist five actual Lean artifact roles and compare stored term, tactic, fresh generation and compiled imports under four dependency states plus five controls. The changed meaning defeats all three fresh declaration checks. Exact artifact binding refuses stale compiled reuse before import. [Lean artifact replay](research/formal-verification/RT-32/RT-32-LEAN-ARTIFACT-REPLAY-2026-11-25.md)
+
+- VAC-04: generalize existing fixed-role SQLite prototype to occurrence-sensitive PDG closure, conditional proofs, exact provider rebinds, recursion and transactional publication/recovery.
+
+- Check five derived SPG inventories, conditional admission, provider rebinds and native SQLite WAL recovery. An uncommitted process exit preserves the old closure, and retry publishes the exact new closure. Lean checks one axiom-free simultaneous recursion group while circular receipts refuse. [Durable proof dependency closure](research/formal-verification/RT-32/RT-32-PDG-PERSISTENCE-2026-11-25.md)
+
+- VAC-06/07/08: investigate proof-mediated implication/refinement, typed alpha-equivalence, independently checked UNSAT-core transfer and revalidated SAT/counterexample replay; never admit approximate matches without checking.
+
+- Check three axiom-free Lean declarations, two Carcara-checked cvc5 cores and ten cvc5/Z3 comparisons. An exact old core transfers to four requests, and a complete old witness validates three. Capture, changed stable roles, stale models and missing proof are refused. [Checked evidence transfer](research/formal-verification/RT-33/RT-33-CHECKED-TRANSFER-2026-11-25.md)
+
+- VAC-09: compare TLC checkpoint recovery with changed-model verification and Apalache bounded/inductive obligations; retain exact bounds, fairness and correspondence.
+
+- Resume 120,001 TLC states under the original inputs. Fresh checking detects a changed initial state that raw recovery skips. Exact checkpoint binding and eight Apalache obligations distinguish bounds, induction and temporal fairness. [Temporal checkpoint recovery](research/formal-verification/RT-33/RT-33-TEMPORAL-CHECKPOINT-2026-11-25.md)
+
+- VAC-10/11/12: test cross-worktree, cross-project, remote CAS and version migration, authenticated provenance, safe decoding, conflicts, garbage collection, concurrency and revocation; local correctness precedes distributed reuse.
+
+- Verify 24 VAC-10 controls across actual Git worktrees and native Lean replay. An unrelated commit preserves the proof scope, a same-commit foreign project needs new authorization, and a new signature is required after strict envelope migration. Remote lifecycle and concurrency remain below. [Cross-worktree proof reuse](research/formal-verification/RT-33/RT-33-CACHE-WORKSPACE-REUSE-2026-11-25.md)
+
+- Verify 27 VAC-11/12 observations through HTTP, SQLite and Ed25519. Conflicts invalidate discovered leases, live leases retain bytes through concurrent collection, and a delivery recheck prevents disclosure after revocation. Production multi-replica coordination remains open. [Remote proof CAS](research/formal-verification/RT-33/RT-33-REMOTE-PROOF-CAS-2026-11-25.md)
+
+- VAC-13/14: run paired cold/warm/forced-oracle and edit/revert benchmarks with stage timing, memory, storage, cost-weighted hit rate, LLM tokens and false-admission controls; retain JSON/CSV and reproducible charts. Treat proof-search hints and solver sessions as non-authoritative.
+
+- Record 693 measurements across 11 paired blocks with fresh native cvc5/Carcara checks. Warm and revert hit all 132 requests each, and edits hit 99/132 with 75.09% median cost-weighted reuse. Six exact controls and all fresh artifact comparisons pass. The offline fixture uses zero model requests or tokens. [Paired proof-cache benchmark](research/formal-verification/RT-33/RT-33-PROOF-CACHE-BENCHMARK-2026-11-25.md)
+
+- VAC-15: establish scoped formal soundness of cache admission and connect it to typed query generation, exact certificate checking, dependency completeness and current policy. Test missing/forged/corrupted dependencies, altered semantics, bounds, revoked assumptions, unsupported rules, and publication races.
+
+- Check eight axiom-free Lean declarations, three native query cases, ten refusals, 64 finite preflights and both SQLite publication orders. A genuinely checked certificate for an out-of-bound observation cannot authorize the source claim. [Scoped admission soundness](research/formal-verification/RT-33/RT-33-CACHE-ADMISSION-SOUNDNESS-2026-11-25.md)
+
+### 4.1 Semantic object storage
+
+- Compare KV databases, content-addressed object stores, relational indexes, and filesystem layouts.
+
+- Compare filesystem CAS, stdlib DBM KV, SQLite KV and SQLite with reverse index across 32, 256 and 1,024 objects. All recover the exact closure and answer the selected reverse queries. At 1,024 objects the SQLite reverse projection adds 487,424 persisted regular-file bytes. [RT-12 concrete storage layouts](research/packages-and-ecosystem/RT-12/RT-12-CONCRETE-STORAGE-LAYOUTS-2026-11-25.md)
+
+- Define canonical object encoding and immutable object lifecycle.
+
+- Check 31 wire and nine lifecycle controls with Python, Node and filesystem CAS. Physical envelope revisions preserve exact inner identity. Stale references, unsupported reader versions and corrupt occupied paths are refused. [Typed object lifecycle](research/packages-and-ecosystem/RT-12/RT-12-TYPED-OBJECT-LIFECYCLE-2026-11-25.md)
+
+- Check exact filesystem CAS insertion with two concurrent writers and three process exits. No-replace publication preserves exact bytes across retries, while a direct interrupted rewrite corrupts the address. Full SPG encoding and power-loss durability remain open. [RT-12 immutable object insertion](research/packages-and-ecosystem/RT-12/RT-12-IMMUTABLE-OBJECT-INSERTION-2026-11-25.md)
+
+- Define indexes for graph traversal, reverse dependencies, contracts, and implementation discovery.
+
+- Check 96 queries across eight indexed views. Exact admission or a source scan preserves traversal, typed reverse occurrences, contract metadata and scoped providers. A mixed generation can return results belonging to neither revision. [Integrated graph index](research/packages-and-ecosystem/RT-12/RT-12-INTEGRATED-GRAPH-INDEX-2026-11-25.md)
+
+- Compare 54 generation-bound contract and target queries against the exact inventory. A WAL schedule distinguishes a pinned reader from an unscoped latest projection. Replacing a provider without changing the count fails exact admission. [RT-12 snapshot-bound discovery](research/packages-and-ecosystem/RT-12/RT-12-SNAPSHOT-CONTRACT-PROVIDER-INDEX-2026-11-25.md)
+
+- Compare eight SQLite reverse projections across six queries. Only exact typed occurrence inventories are admitted, and all 48 checked/fallback results agree. A WAL schedule shows why validation and lookup must share a read snapshot or immutable generation. [RT-12 snapshot-bound reverse index](research/packages-and-ecosystem/RT-12/RT-12-SNAPSHOT-BOUND-REVERSE-INDEX-2026-11-25.md)
+
+- Define transactions and atomic publication of graph revisions.
+
+- Check three process exit boundaries and actual competing writers. The exact local closure precedes publication of the root and reverse rows. The stale writer is refused after lock contention. [Portable graph publication](research/packages-and-ecosystem/RT-12/RT-12-PORTABLE-GRAPH-PUBLICATION-2026-11-25.md)
+
+- Check six SQLite WAL writer-process exits. Atomic publication preserves a complete selected graph, reverse projection and receipt at both commit boundaries. A split head-first writer exposes an incomplete revision; a stale epoch and wrong-root receipt are withheld. [RT-12 atomic graph publication](research/packages-and-ecosystem/RT-12/RT-12-ATOMIC-GRAPH-PUBLICATION-2026-11-25.md)
+
+- Define garbage collection and reachability.
+
+- Check 12 filesystem CAS and SQLite controls. Exact heads and leases protect full closures, catalog changes invalidate stale marks, and recovery can restore checked quarantined bytes after interruption. [External CAS collection](research/packages-and-ecosystem/RT-12/RT-12-EXTERNAL-CAS-COLLECTION-2026-11-25.md)
+
+- Compare six real SQLite WAL schedules for stale mark/sweep, generation recheck, writer exclusion, multiple leases, cycles and incomplete closure. The unchecked plan loses a newly published root; the generation recheck preserves it after retry. External CAS lifetime and recovery remain open. [RT-12 reachability sweep](research/packages-and-ecosystem/RT-12/RT-12-REACHABILITY-SWEEP-2026-11-25.md)
+
+- Define crash recovery, corruption detection, backup, and replication.
+
+- Check 20 incremental replica controls. A follower process exit leaves the old graph visible, exact retries and corruption repair succeed, and current verified read authority remains distinct from writer takeover. [Graph replica recovery](research/packages-and-ecosystem/RT-12/RT-12-GRAPH-REPLICA-RECOVERY-2026-11-25.md)
+
+- Verify eight backup/restore controls. A valid SQLite index backup loses readability when the external closure is collected. A closed portable envelope reconstructs the exact root and bytes in an empty store, and a failed staged restore preserves the previous root. Power-loss durability and replication remain open. [RT-12 closed graph backup](research/packages-and-ecosystem/RT-12/RT-12-CLOSED-GRAPH-BACKUP-2026-11-25.md)
+
+- Define local repository storage versus shared/global artifact storage.
+
+- Promote verified shared objects into repository-local exact closure before selecting a revision. The selected root and reverse index remain readable with shared storage unavailable. [Portable graph publication](research/packages-and-ecosystem/RT-12/RT-12-PORTABLE-GRAPH-PUBLICATION-2026-11-25.md)
+
+- Compare two exact repository closures over three shared graph sizes and eleven controls per size. Shared storage deduplicates common objects, while a verified local pin preserves only its selected offline closure. Peer roots outside scope and corrupt shared bytes are refused. [RT-12 local and shared closures](research/packages-and-ecosystem/RT-12/RT-12-REPOSITORY-LOCAL-AND-SHARED-CLOSURES-2026-11-25.md)
+
+- Define portability without requiring a live external database.
+
+- Verify a database-free Git archive restores the same root, reachable bytes and derived index. Wrong-root lookup and a partial archive are refused. [Portable graph publication](research/packages-and-ecosystem/RT-12/RT-12-PORTABLE-GRAPH-PUBLICATION-2026-11-25.md)
+
+- Compare ten native offline Git clone and archive controls. Six restore exact semantic bytes. A pointer-only current tree fails even with complete history, while an explicit same-root historical carrier can restore it. A shallow closed bundle restores its current root and lacks the older revision. Production retention and authority remain open. [Offline semantic clone](research/packages-and-ecosystem/RT-12/RT-12-OFFLINE-SEMANTIC-CLONE-2026-11-25.md)
+
+**Existing evidence:** [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md) and the current Git representation research.
+
+### 4.2 Git representation and repository model
+
+- Define the canonical Git-visible representation of a semantic program.
+
+- Specify a versioned logical envelope, exact Git closure and independent review/merge projections. Verify 24 logical encodings and reconcile five native repository studies. [Git logical program envelope](research/toolchain-and-collaboration/RT-27/RT-27-GIT-LOGICAL-PROGRAM-ENVELOPE-2026-11-25.md)
+
+- Check a versioned candidate with exact roots, canonical records and required reverse metadata in native SHA-1 and SHA-256 Git repositories. Canonical production identity and layout remain open. [Closed Git representation](research/toolchain-and-collaboration/RT-27/RT-27-GIT-CLOSED-REPRESENTATION-2026-11-25.md)
+
+- Compare storing canonical serialized semantic objects directly in Git with storing KV-backed objects plus repository manifests.
+
+- Compare 12 selected native commits across three layouts and two Git formats. Packed Git carries 43 graph objects in three tracked files. Manifest-only cases require the exact external KV bytes. [Closed Git representation](research/toolchain-and-collaboration/RT-27/RT-27-GIT-CLOSED-REPRESENTATION-2026-11-25.md)
+
+- Define the mapping between Git commits/trees and semantic graph snapshots.
+
+- Preserve ordinary Git clone, fetch, push, branch, tag, and history behavior.
+
+- Verify ordinary clone, push, fetch, fast-forward branch and tag transport over 21 selected commits. Git refuses a divergent stale push and the observer restores the accepted history offline. [Segmented Git transport](research/toolchain-and-collaboration/RT-27/RT-27-SEGMENTED-GIT-TRANSPORT-2026-11-25.md)
+
+- Verify ordinary ref transport in two Git object formats. Clone, push, fetch, branch promotion, explicit tag fetch and prune preserve exact snapshot reconstruction. A stale push is refused, and the retained tag still resolves to the intermediate revision after branch deletion. Hosted and external-dependency behavior remain open. [Native Git ref transport](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-REF-TRANSPORT-2026-11-25.md)
+
+- Define readable textual representation, diff strategy, and generated metadata.
+
+- Check five exact Git revisions. Physical repacking changes six paths without changing review text. A provider rebind appears in the ordinary Git diff, and two stale metadata variants are refused. [Typed SPG review projection](research/toolchain-and-collaboration/RT-27/RT-27-SPG-REVIEW-PROJECTION-2026-11-25.md)
+
+- Compare raw patches, Git text conversion and independent metadata checks in five clean clones. The configured projection suppresses formatting and shows provider changes. Missing registration or attributes fall back to raw patches, and two stale root records are refused independently. Canonical format and hosting integration remain open. [Git review projection](research/toolchain-and-collaboration/RT-24/RT-24-GIT-REVIEW-PROJECTION-2026-11-25.md)
+
+- Define how large objects and binary artifacts are handled.
+
+- Compare two 3,170,080-byte ELF images across whole blobs, ordered chunks and detached storage. Chunk transport shares two exact parts. Missing, reordered or corrupt inputs are refused. [Large binary closure](research/toolchain-and-collaboration/RT-27/RT-27-LARGE-BINARY-CLOSURE-2026-11-25.md)
+
+- Satisfy the mandatory RT-27 repository constraints: reconstruct the complete committed SPG state from Git alone (including required metadata/indexes), and avoid one tracked file per SPG object ([R-STORE-001](research/toolchain-and-collaboration/RT-27/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#r-store-001--complete-reconstruction-from-git), [R-STORE-002](research/toolchain-and-collaboration/RT-27/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#r-store-002--no-one-file-per-object-layout)).
+
+- Restore both exact typed SPG prototype revisions, relation rows and reverse indexes in an offline Git clone. A fixed four-container profile uses seven tracked files for 18 values per revision. [Typed SPG records from Git](research/toolchain-and-collaboration/RT-27/RT-27-SPG-PROFILED-RECORDS-2026-11-25.md)
+
+- Specify and test cache-first record metadata, including integrity/trust checks and a cache-hit path that skips payload reads/deserialization; require deterministic serialization ([R-STORE-003](research/toolchain-and-collaboration/RT-27/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#r-store-003--cache-lookup-before-payload-deserialization), [R-STORE-004](research/toolchain-and-collaboration/RT-27/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#r-store-004--deterministic-physical-serialization)).
+
+- Verify pinned Git metadata and typed object locations. The prior revision supplies 17 of 18 exact hits, and complete hits read and decode zero payload records. One, two and four serializer threads agree on all bytes. [Typed SPG records from Git](research/toolchain-and-collaboration/RT-27/RT-27-SPG-PROFILED-RECORDS-2026-11-25.md)
+
+- Prohibit ordinary text merge as a correctness mechanism for SPG containers; integrate only through complete-state semantic merge and whole-graph validation ([R-STORE-005](research/toolchain-and-collaboration/RT-27/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#r-store-005--no-ordinary-text-merge-of-spg-containers)).
+
+- Check 24 canonical clean Git trees across two object formats and binary attributes. The whole-graph gate refuses 16 candidates with jointly invalid numeric, effect or ABI requirements. [Whole-graph merge gate](research/toolchain-and-collaboration/RT-27/RT-27-TEXT-MERGE-GATE-2026-11-25.md)
+
+- Define explicit add/update/delete semantics, keep physical placement separate from semantic identity, bound active storage/compaction growth, and make indexes recoverable from Git ([R-STORE-009–012](research/toolchain-and-collaboration/RT-27/RT-27-SPG-REPOSITORY-STORAGE-FORMAT-REQUIREMENTS.md#4-semantic-and-operational-constraints)).
+
+- Check addressed additions and retirements at every revision. Ten compactions preserve selected graph roots with active payloads within 105% of live bytes. A historical tag restores an omitted reverse index. [Segmented Git transport](research/toolchain-and-collaboration/RT-27/RT-27-SEGMENTED-GIT-TRANSPORT-2026-11-25.md)
+
+- Restore seven selected revisions from a Git clone with its origin removed. Five journal events compact to two with the same logical root. Missing and incomplete derived indexes rebuild exactly, and three inconsistent journals are refused. Production encoding and growth bounds remain open. [RT-27 Git journal compaction](research/toolchain-and-collaboration/RT-27/RT-27-GIT-JOURNAL-COMPACTION-2026-11-25.md)
+
+- Measure Git packfile delta-compression efficiency for immutable SPG object containers under add/remove-only workloads; compare bounded stable shards, immutable segments, and chunking before selecting a layout.
+
+- Compare final pack and index, delta bytes and depth for all three layouts on real prototype records. Stable shards have the smallest compacted pack in this cohort, while segments have the smallest in the longer synthetic cohort. [Prototype SPG packs](research/toolchain-and-collaboration/RT-27/RT-27-PROTOTYPE-SPG-PACKS-2026-11-25.md)
+
+- Define repository portability and reproducibility from a clean clone.
+
+- Recover and execute both artifacts from each closed clean clone after disconnecting its source. Detached transport requires the exact external bytes. Exact semantic and binary identities remain separately checked. [Large binary closure](research/toolchain-and-collaboration/RT-27/RT-27-LARGE-BINARY-CLOSURE-2026-11-25.md)
+
+**Existing evidence:** [GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md](research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md).
+
+- Extend the benchmark to realistic variable-size SPG payloads and references, bounded multi-shard placement, long histories, branch divergence, compaction, clone/fetch, and KV-independent reconstruction.
+
+- Check 48 selected commits across three layouts using actual typed SPG payloads, divergent revisions, compaction and offline fetch. The cohort contains 172–186 semantic values per graph with variable lengths and exact typed references. [Prototype SPG packs](research/toolchain-and-collaboration/RT-27/RT-27-PROTOTYPE-SPG-PACKS-2026-11-25.md)
+
+- Extend the scoped benchmark to 34 retained commits with 401 initial objects, typed edges, variable sizes, divergence, compaction and offline recovery. Representative real SPG workloads remain open. [Divergent Git histories](research/toolchain-and-collaboration/RT-27/RT-27-DIVERGENT-GIT-HISTORY-2026-11-25.md)
+
+- Compare bounded stable shards, immutable segments, and chunked containers; measure packfile size, delta depth/size, CPU, memory, read/checkout/reconstruction time, and history growth.
+
+- Compare nine measured Git histories and reconstruct all 306 commits. Record pack growth, delta depth and bytes, command CPU and RSS, and clone, fetch, checkout, read and reconstruction timings. Segments save active bytes after compaction while retained pack size grows. [Divergent Git histories](research/toolchain-and-collaboration/RT-27/RT-27-DIVERGENT-GIT-HISTORY-2026-11-25.md)
+
+### 4.3 Semantic diff, merge, and conflict resolution
+
+- Define semantic diff independently of textual diff and AST diff.
+
+- Specify exact typed selections, bindings, contracts and lineage as semantic delta fields. [Diff and merge classification](research/toolchain-and-collaboration/RT-24/RT-24-SEMANTIC-DIFF-AND-MERGE-CLASSIFICATION-2026-11-25.md#semantic-delta)
+
+- Compare eight committed candidates against one baseline. Equivalent prefix and infix bodies change surface trees while retaining typed addresses. A provider retarget keeps the entry AST and changes the exact binding and observations. Adding zero changes the graph while retaining the five observed outcomes. One invalid binding is refused. General lineage and graph completeness remain open. [Diff and observation layers](research/toolchain-and-collaboration/RT-24/RT-24-DIFF-OBSERVATION-LAYERS-2026-11-25.md)
+
+- Define three-way merge over semantic graph snapshots.
+
+- Specify exact base and parent scopes, closed candidate construction and immutable typed alternatives. Reconcile the 4,096-case core. [Diff and merge classification](research/toolchain-and-collaboration/RT-24/RT-24-SEMANTIC-DIFF-AND-MERGE-CLASSIFICATION-2026-11-25.md#three-way-candidate)
+
+- Define conflict classes: same-node edits, contract/implementation divergence, identity collisions, dependency conflicts, split/merge conflicts, and metadata-only conflicts.
+
+- Define six structured conflict subjects and check 128 combined finding and completeness states. [Diff and merge classification](research/toolchain-and-collaboration/RT-24/RT-24-SEMANTIC-DIFF-AND-MERGE-CLASSIFICATION-2026-11-25.md#typed-conflict-classes)
+
+- Define automatic merge when changes are provably independent.
+
+- Specify exact footprint independence and separately required joint invariants. [Merge validation and resolution protocol](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-VALIDATION-AND-RESOLUTION-PROTOCOL-2026-11-25.md#independence-and-conservative-handling)
+
+- Check a sufficient read/write independence rule in Lean and 3,888 finite patch/state cases. All 1,458 admitted compositions commute, but 24 cases with valid independent parent edits still violate the merged capacity invariant. Full graph completeness and merge policy remain open. [RT-24 independent merge gate](research/toolchain-and-collaboration/RT-24/RT-24-INDEPENDENT-MERGE-GATE-2026-11-25.md)
+
+- Define conservative conflict behavior when independence cannot be established.
+
+- Keep missing independence and missing scope non-admissible and distinguish definite joint failures. [Merge validation and resolution protocol](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-VALIDATION-AND-RESOLUTION-PROTOCOL-2026-11-25.md#independence-and-conservative-handling)
+
+- Check eleven finite merge decisions and replay both retained alternatives. Missing, incomplete and stale checks remain pending. Fresh checks distinguish order-dependent conflict, invariant failure and an eligible candidate. General SPG completeness and publication remain open. [Conservative merge decisions](research/toolchain-and-collaboration/RT-24/RT-24-CONSERVATIVE-MERGE-2026-11-25.md)
+
+- Define interactive conflict resolution and preservation of both alternatives.
+
+- Specify exact scoped choices or synthesis and retain both parent alternatives in blocked audit records. [Merge validation and resolution protocol](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-VALIDATION-AND-RESOLUTION-PROTOCOL-2026-11-25.md#independence-and-conservative-handling)
+
+- Define post-merge validation: graph integrity, type checking, contract checking, dependency completeness, tests, and proofs.
+
+- Require six independent current validation roles and check 5,832 composed decision states. [Merge validation and resolution protocol](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-VALIDATION-AND-RESOLUTION-PROTOCOL-2026-11-25.md#post-merge-validation-and-reproducibility)
+
+- Define merge reproducibility and audit history.
+
+- Bind ordered parent roles, policy, resolution and complete validation, including failures, to a reproducible audit. [Merge validation and resolution protocol](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-VALIDATION-AND-RESOLUTION-PROTOCOL-2026-11-25.md#post-merge-validation-and-reproducibility)
+
+- Compare eleven replays of the same merged candidate. All reproduce the graph, while only three reproduce the exact validation audit, including one blocked decision. Policy changes, missing failures and mixed receipts invalidate replay. [RT-24 merge validation audit](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-VALIDATION-AUDIT-REPLAY-2026-11-25.md)
+
+### 4.4 Git integration workflow
+
+- Prototype a Git merge driver that invokes the LLMLang semantic merge tool.
+
+- Replay the scoped native driver and original ledger from the tracked archive. Two fresh runs reproduce all twelve cases, and all thirteen core/rebuild tests pass. The adapter invokes the fixture slot rule, while only the explicit repository context detects every cross-file failure. [Native driver replay](research/toolchain-and-collaboration/RT-24/RT-24-NATIVE-MERGE-DRIVER-REPLAY-2026-11-25.md)
+
+- Prototype a Git mergetool integration for interactive conflicts.
+
+- Verify the existing adapter and its pinned 12-case ledger satisfy the prototype gate. The coordinator resolves one semantic path in both successful cases, preserving the ordinary conflict where present. All seven failed invocations preserve their exact stages. This prototype supports a regular two-parent merge with one base and one conflicted semantic path. [Adapter](research/toolchain-and-collaboration/RT-24/NATIVE-MERGETOOL-01/mergetool.py) · [Recorded evidence](research/toolchain-and-collaboration/RT-24/NATIVE-MERGETOOL-01/evidence.json)
+
+- Define clean fallback behavior when the tool is unavailable.
+
+- Test merges in normal Git workflows and across operating systems.
+
+- Test 36 native Linux merge, cherry-pick and rebase cases across two Git formats and line-ending settings. [Native Git conflict gate](research/toolchain-and-collaboration/RT-24/RT-24-GIT-WORKFLOW-CONFLICT-GATE-2026-11-25.md)
+
+- Verify that merge drivers do not silently discard unresolved semantic conflicts.
+
+- Verify exact preserved conflict stages and show that all 12 Git-clean incompatible candidates require a separate semantic refusal. [Native Git conflict gate](research/toolchain-and-collaboration/RT-24/RT-24-GIT-WORKFLOW-CONFLICT-GATE-2026-11-25.md)
+
+- Test five native attribute combinations. Two preserve exact conflict stages and three produce a clean invalid tree. Local attributes affect even the HEAD-source query, while an untracked nested override changes only the worktree query. The whole-graph gate refuses all invalid candidates. [RT-24 effective merge attributes](research/toolchain-and-collaboration/RT-24/RT-24-EFFECTIVE-MERGE-ATTRIBUTES-2026-11-25.md)
+
+- Document repository setup and team workflows.
+
+- Document the tested Linux Git workflow for setup, candidate inspection, conflict preservation, publication and recovery. Git 2.56.1 checks cover pending stage-0 and unmerged outcomes. Production deployment and other filesystem profiles remain open. [RT-24 team Git workflow](research/toolchain-and-collaboration/RT-24/RT-24-TEAM-GIT-WORKFLOW-2026-11-25.md)
+
+### 4.5 End-to-end semantic merge and synchronized commit lifecycle
+
+- Integrate the existing ReverseLookupEvidence/query_snapshot_incoming completeness gate with RT-20 CIP and the semantic merge coordinator; define the independent audit producer, observation coverage, evidence trust policy, and end-to-end fail-closed tests. The prototype already binds evidence to snapshot, target, scope, extractor/schema, and exact edge-set digest, but does not authenticate the producer or prove its observation model complete.
+
+- Compose the actual reverse-query and RT-20 APIs with independent scoped source coverage and a producer-authority gate. [Whole-graph reverse and CIP gate](research/toolchain-and-collaboration/RT-24/RT-24-WHOLE-GRAPH-REVERSE-AND-CIP-GATE-2026-11-25.md)
+
+- Select the smallest supported SPG subset and specify its textual source inventory/manifest fixture. Keep the repository source textual; treat local stores, caches, and indexes as reconstructible derived state.
+
+- Specify a closed typed entry, checked arithmetic, exact dependency lock and textual source inventory. [Textual SPG clean clone](research/toolchain-and-collaboration/RT-24/RT-24-TEXTUAL-SPG-CLEAN-CLONE-2026-11-25.md)
+
+- Extend the importer/exporter experiment to the selected SPG and repository schema, including its broader syntax, dependencies and portability contracts.
+
+- Add admitted typed source calls and bounded checked I64 semantics. Refuse the six exact inventory, source and lock controls. [Textual SPG clean clone](research/toolchain-and-collaboration/RT-24/RT-24-TEXTUAL-SPG-CLEAN-CLONE-2026-11-25.md)
+
+- Implement typed SemanticDiff with exact snapshot binding, per-call-site reference changes, root/dependency changes, lineage records, and deterministic output.
+
+- Check exact selection, call alternative, dependency, entrypoint and declared lineage deltas in a closed inventory. All 48 input order controls agree. Six malformed or stale inputs fail without a diff ID, and equal values do not imply lineage. Authority and broader source coverage remain open. [Typed semantic diff core](research/toolchain-and-collaboration/RT-24/RT-24-TYPED-SEMANTIC-DIFF-2026-11-25.md)
+
+- Implement a pure three-way merge core over pinned base/ours/theirs snapshots. Apply only unambiguous rules; emit structured conflicts for update/update, delete/update, identity/lineage, retarget, dependency, root, and unsupported-context cases.
+
+- Check 4,096 finite two-slot cases, both side orders and seven exact conflict controls. The closed-inventory core agrees with the oracle on 1,369 candidates and 2,727 conflicts, including a missing selected callee despite available cached bytes. General lineage, dynamic coverage and Git coordination remain open. [Pure three-way merge](research/toolchain-and-collaboration/RT-24/RT-24-PURE-MERGE-CORE-2026-11-25.md)
+
+- Validate the entire merged graph, not just merged files/entities; prove that incomplete source inventory or reverse-reference context cannot yield a clean result.
+
+- Check exact whole-graph admission and reconcile the existing 165-case matrix and Lean omission witnesses. [Whole-graph reverse and CIP gate](research/toolchain-and-collaboration/RT-24/RT-24-WHOLE-GRAPH-REVERSE-AND-CIP-GATE-2026-11-25.md)
+
+- Check 165 whole-graph admissions and three axiom-free Lean omission statements. Structural checks form 110 candidates, while exact source and reverse coverage admit one. Self-issued source coverage falsely approves an omitted caller. Independent source extraction and general dynamic coverage remain open. [Merge admission coverage](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-ADMISSION-COVERAGE-2026-11-25.md)
+
+- Integrate RT-20 CIP as a mandatory gate: preserve/migrate/adapt/fork per call site, support mixed old/new callers and shared-caller splits, and rebuild the candidate whenever planned changes alter it.
+
+- Verify eight exact call-site decisions over four consumer paths in twelve native merge cases. Only the original and separately rebuilt, reapproved two-parent candidates publish. Ten stale, absent or mismatched inputs leave the branch unchanged. Production evidence and dynamic paths remain open. [Mandatory merge CIP gate](research/toolchain-and-collaboration/RT-24/RT-24-CIP-COORDINATOR-2026-11-25.md)
+
+- Integrate Interface Mapping Revision merge separately under RT-23 parent-revision/CAS/scope rules; test disjoint keys, same-key conflicts, delete/update, and stale baselines.
+
+- Check twelve native mapping cases. Disjoint scopes publish one exact mapping revision while preserving the semantic root and ordinary source blob. Same-key edits, delete/update, invalid parents, changed catalogs and stale refs refuse. A fresh clone reconstructs both identities. General ABI authority remains open. [Git mapping coordination](research/toolchain-and-collaboration/RT-24/RT-24-GIT-MAPPING-COORDINATION-2026-11-25.md)
+
+- Only after the pure core passes, build a Git repository coordinator with explicit base/ours/theirs trees; then test merge, rebase, and cherry-pick against real temporary repositories. Keep per-file merge driver as an adapter, not a whole-graph correctness boundary.
+
+- Check 24 native coordination cases and three textual conflict controls. The structural coordinator publishes the exact rebuilt tree for merge, single-step rebase and cherry-pick. Stale refs, incomplete source and graph conflicts refuse. General Git workflow, CIP authority and durable recovery remain open. [Exact-tree Git coordinator](research/toolchain-and-collaboration/RT-24/RT-24-GIT-CORE-COORDINATOR-2026-11-25.md)
+
+- Finally integrate RT-23 exact-tree synchronized commit and idempotent crash/timeout recovery; test clone reconstruction without the original local semantic database.
+
+- Compose exact CIP admission with native Git branch and receipt publication. Process exits, a lost response and an intervening branch move preserve exact retry behavior. Three fresh clones recover the exact tree, semantic root and plan. Durable remote operation and internal ref-store interruption remain open. [CIP publication recovery](research/toolchain-and-collaboration/RT-24/RT-24-CIP-RECOVERY-2026-11-25.md)
+
+- Reconcile the canonical textual repository representation, manifests/roots, external dependency pins, and deterministic import/export; prove clean-clone reconstruction and round-trip equivalence.
+
+- Check identical canonical round trips in four available offline Git clones and 28 exact observations. Retain separate external Gitlink and mixed-version comparisons. [Textual SPG clean clone](research/toolchain-and-collaboration/RT-24/RT-24-TEXTUAL-SPG-CLEAN-CLONE-2026-11-25.md)
+
+- Define semantic diff over stable semantic identities, separating Git object identity, semantic identity, and action/evidence identity.
+
+- Verify four exact identity-edit controls and record typed occurrence, edge and lock deltas. [Merge identities, locks and mappings](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-IDENTITY-LOCKS-AND-MAPPING-2026-11-25.md#exact-delta-and-result-records)
+
+- Specify deterministic three-way SPG merge over exact base/ours/theirs snapshots, including independent add/add, same-entity update/update, delete/update, rename/move, split/merge, replacement, and dependency/lock changes.
+
+- Check twelve transition cases and both parent orders, including lineage and dependency lock changes. [Merge identities, locks and mappings](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-IDENTITY-LOCKS-AND-MAPPING-2026-11-25.md#candidate-deterministic-rules)
+
+- Define a structured conflict/result model with provenance, exact input roots, merge policy/tool versions, resolution decisions, and explicit clean/conflict/invalid/insufficient-context outcomes.
+
+- Bind exact input roots, provenance, closures and policy to clean, conflict, invalid or insufficient-context results. [Merge identities, locks and mappings](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-IDENTITY-LOCKS-AND-MAPPING-2026-11-25.md#exact-delta-and-result-records)
+
+- Specify merge rules for versioned Interface Mapping Revisions separately from immutable semantic objects; use revision/CAS baselines and fail on same-key or otherwise ambiguous conflicts.
+
+- Check stale and same-key mapping controls and reconcile native transactional peer-ref verification. [Merge identities, locks and mappings](research/toolchain-and-collaboration/RT-24/RT-24-MERGE-IDENTITY-LOCKS-AND-MAPPING-2026-11-25.md#candidate-deterministic-rules)
+
+- Design a repository-level merge coordinator with complete tree context. Do not treat independent per-file merge-driver success as proof of whole-SPG consistency.
+
+- Define exact ordered trees, closed source import, typed candidate reconstruction and a separate publication gate. Reconcile 24 native coordinator cases. [Git coordinator and doctor](research/toolchain-and-collaboration/RT-24/RT-24-GIT-COORDINATOR-AND-DOCTOR-2026-11-25.md)
+
+- Integrate the semantic engine with ordinary Git merge/rebase/cherry-pick. Prototype the custom merge driver and interactive mergetool, explicit local setup/doctor behavior, and fail-closed behavior when the coordinator or required context is unavailable.
+
+- Test 18 read-only setup and availability controls. Link ordinary native operations, preserved interactive stages and retained-prefix verification. [Git coordinator and doctor](research/toolchain-and-collaboration/RT-24/RT-24-GIT-COORDINATOR-AND-DOCTOR-2026-11-25.md)
+
+- After Git creates a candidate merged tree, import/reconcile the complete LLMLang representation into the shared semantic state; run repository-wide graph/reference/contract checks and RT-20 caller-impact, per-call-site migration, hash-propagation, and evidence checks.
+
+- Check the closed candidate and all 16 source, reverse, authority and call-decision combinations. Reconcile the native coordinator and independent auditor evidence. [Whole-graph reverse and CIP gate](research/toolchain-and-collaboration/RT-24/RT-24-WHOLE-GRAPH-REVERSE-AND-CIP-GATE-2026-11-25.md)
+
+- Verify exact synchronized finalization in native Git. The candidate binds the semantic snapshot, mapping, worktree generation, selected files, expected parent and evidence. Six successful publications materialize and commit exact worktree bytes and the receipt together. [Synchronized worktree and recovery](research/toolchain-and-collaboration/RT-24/RT-24-SYNCHRONIZED-WORKTREE-AND-RECOVERY-2026-11-25.md).
+
+- Specify native idempotent recovery across process interruption, uncertain reply, stale ref and checkout, partial export and repeated completion. The reachable receipt resolves six successful cases without duplicate commits. Eight rejected inputs never publish. Linked-worktree isolation and durability remain open. [Synchronized worktree and recovery](research/toolchain-and-collaboration/RT-24/RT-24-SYNCHRONIZED-WORKTREE-AND-RECOVERY-2026-11-25.md).
+
+- Verify real temporary-repository end-to-end coverage for clone reconstruction, parallel branches, merge/rebase/cherry-pick, cross-file and mapping conflicts, RT-20 caller splits, successful and failed validation, crash recovery and duplicate retry. The report links the native fixtures per obligation. [Synchronized worktree and recovery](research/toolchain-and-collaboration/RT-24/RT-24-SYNCHRONIZED-WORKTREE-AND-RECOVERY-2026-11-25.md).
+
+- Benchmark native repository merge, typed import/export, incremental checkout writes, and SQLite reconstruction. All 54 runs reproduce the exact graph across 32 to 1,024 tracked files with 4 to 256 changed files. Timings cover each stage separately and disclose shared overlayfs and known-change assumptions. [Repository lifecycle benchmark](research/toolchain-and-collaboration/RT-24/RT-24-REPOSITORY-LIFECYCLE-COST-2026-11-25.md)
+
+### 5.1 Type system and data model
+
+- Define primitive and algebraic data types.
+
+- Check five Lean propositions and 1,048,576 native decoder results across primitive and distributive sum/product encodings. The 514 logical values round-trip under each encoding, while 256 overlapping words change meaning. [Primitive and algebraic encodings](research/language-design/RT-04/RT-04-PRIMITIVE-ALGEBRAIC-ENCODINGS-2026-11-25.md)
+
+- Compare closed and extensible Rust outcome types across 40 compile decisions and 6,144 native observations. Extensible types preserve wildcard client admission; an explicit unknown branch refuses the new case while a success wildcard incorrectly classifies 340 controls. Binary and wire compatibility remain open. [Sum extension](research/semantic-representation/RT-05/RT-05-SUM-EXTENSION-2026-11-25.md)
+
+- Compare explicit-tag and dense native encodings of 258 nested optional byte values. All four compiler builds match both exhaustive inventories over 65,536 words each. The two layouts share two valid words and disagree on one of them. Other payloads, targets and ABI evolution remain open. [RT-04 nested optional byte ABI](research/language-design/RT-04/RT-04-NESTED-OPTIONAL-BYTE-ABI-2026-11-25.md)
+
+- Compare structural and nominal typing.
+
+- Research generic and polymorphic types.
+
+- Check 24 separate-client compilation decisions and 1,024 Rust observations. Lifetime-polymorphic and bounded erased interfaces preserve scoped access while allowing different behavior. Static-only and incompatible generic operations are refused in the requested interfaces. [Polymorphic lifetimes](research/language-design/RT-04/RT-04-POLYMORPHIC-LIFETIMES-2026-11-25.md)
+
+- Compare three output type relationships across fifteen separately compiled Rust clients and 2,304 native results. Output-parameter selection is ambiguous without caller type information. Input-indexed association fixes the output for the selected input, including through a correctly bound trait object. Coherence, ABI and LLMLang inference remain open. [Generic output type relationships](research/language-design/RT-04/RT-04-GENERIC-OUTPUT-KEYS-2026-11-25.md)
+
+- Evaluate refinement types and dependent types.
+
+- Check 35,100 Rust transition outcomes and four axiom-free Lean propositions. A dependent size index covers mathematical results that a fixed-width representation rejects. Wrapping would falsely accept 863 overflows per build. [Dependent boundary values](research/language-design/RT-04/RT-04-DEPENDENT-BOUNDARY-VALUES-2026-11-25.md)
+
+- Compare local bounds, checked refinement and dependent length indices for exact zip. Local bounds admit 620 truncating pairs out of 961. The relational check admits all 341 exact pairs. The checked declaration gate admits only 341 of 4,805 combinations, and Lean checks length preservation and agreement of the two exact interfaces. Broader typing and elaboration remain open. [RT-04 length refinement](research/language-design/RT-04/RT-04-LENGTH-REFINEMENT-AND-DEPENDENT-ZIP-2026-11-25.md)
+
+- Define typed states, state transitions, and constrained values.
+
+- Check 15 durable state controls with process exits and real writer contention. Exact state and receipt publish together, stale incarnations and generations are refused, and an old retry only returns historical evidence. [Durable typed transitions](research/language-design/RT-04/RT-04-DURABLE-TYPED-STATE-2026-11-25.md)
+
+- Compare native typestate admission with live owner and generation checks. Rust rejects four statically invalid controls; 1,024 runtime cases match the range, owner, stale and exhaustion oracle. Two well-typed permits can share one generation, so the second must still be refused after a successful transition. General LLMLang rules and durable ownership remain open. [Native typestate](research/semantic-representation/RT-05/RT-05-NATIVE-TYPESTATE-2026-11-25.md)
+
+- Compare phase-only, wrapping and exact incarnation checks over 33,012 cases. They admit 16,380, 378 and zero invalid uses respectively. Lean checks rejection after any positive advance for the exact gate and proves a wrap collision. Native lifetime and synchronization rules remain open. [RT-04 state incarnation](research/language-design/RT-04/RT-04-TYPED-STATE-INCARNATION-2026-11-25.md)
+
+- Define ownership, borrowing, lifetimes, references, and aliasing.
+
+- Check 7,944 Rust outcomes across checked subregions and scoped worker writes. Four static controls reject alias, escape and thread-transfer violations. Three Lean propositions check the interval conditions. [Scoped mutable regions](research/language-design/RT-04/RT-04-SCOPED-MUTABLE-REGIONS-2026-11-25.md)
+
+- Compare static field separation, raw index borrowing and checked disjoint slices with Rust 1.85.1. The compiler rejects direct paired indexing and escaped borrows. Two native builds agree over 180 cases each; the checked adapter admits exactly 20 disjoint pairs and makes no writes in the other 160. General ownership, foreign memory and async remain open. [RT-04 disjoint borrows](research/language-design/RT-04/RT-04-DISJOINT-MUTABLE-BORROWS-2026-11-25.md)
+
+- Define mutability and resource management.
+
+- Check 192 Rust schedules through suspension, cancellation, acquisition and finalization. Every held guard releases once. An explicit result can carry both cleanup diagnostics, while cancelled pending work exposes them in the lifecycle trace. [Async resource cancellation](research/language-design/RT-04/RT-04-ASYNC-RESOURCE-CANCELLATION-2026-11-25.md)
+
+- Compare 40 native Rust runs across explicit fallible cleanup, destructor panics, unwind and abort. In the unwind build a destructor panic during a body panic stops before outer drop. The explicit ordinary-error path returns both original errors in both strategies. Resource reclamation and foreign ABI behavior remain open. [RT-04 native cleanup failure](research/language-design/RT-04/RT-04-NATIVE-CLEANUP-FAILURE-2026-11-25.md)
+
+- Define effects, capabilities, and error types.
+
+- Check 432 Rust outcomes and five static controls. Attenuated permits cannot substitute for other effects, handled absence stays distinct from residual errors, and an already produced audit remains visible. [Typed capability errors](research/language-design/RT-04/RT-04-TYPED-CAPABILITY-ERRORS-2026-11-25.md)
+
+- Compare outward errors and reachable capability requirements across 48 recovery cases in each of four C builds. A read-only summary misses three incomplete grant sets. One refusal follows a completed audit. The exact path gate matches every result, while the handled missing variant never escapes. [RT-04 recovery effects](research/language-design/RT-04/RT-04-RECOVERY-EFFECTS-AND-CAPABILITIES-2026-11-25.md)
+
+- Define type inference and explicit annotations.
+
+- Check 18 Rust and Go compilation decisions. Expected return or assignment types infer a generic result in Rust. Both infer it in the typed function-value control, and explicit API annotations survive a private type edit. [Generic context inference](research/language-design/RT-04/RT-04-GENERIC-CONTEXT-INFERENCE-2026-11-25.md)
+
+- Compile seven matched Rust and Go inference cases. A later argument changes one Rust local from i32 to u64 and is rejected against the default Go int. Explicit local types preserve both earlier types when the new use converts explicitly. Both signature controls require a concrete result declaration for the tested API. [RT-04 native inference boundaries](research/language-design/RT-04/RT-04-NATIVE-INFERENCE-BOUNDARIES-2026-11-25.md)
+
+- Define compatibility between types exposed by different implementations.
+
+- Compile a typed consumer against four compatible result types and refuse a fifth provider whose unit differs at the same native representation. Compare 4,608 typed and raw native observations across two optimization levels. [Type, contract and relational evidence](research/language-design/RT-04/RT-04-TYPE-CONTRACT-RELATION-2026-11-25.md)
+
+- Compile eight provider variants and twelve separate clients for opaque and erased Rust results. The six admitted providers agree on the method result, while one opaque replacement changes native size and breaks Send clients without a signature edit. Explicit Send rejects that provider at definition. Binary compatibility and LLMLang policy remain open. [RT-04 opaque provider compatibility](research/language-design/RT-04/RT-04-OPAQUE-PROVIDER-COMPATIBILITY-2026-11-25.md)
+
+- Determine which guarantees are enforced by types, contracts, or proofs.
+
+- Check a pointwise range contract and separate monotonicity across calls. One typed provider passes every pointwise check and violates 753 ordered pairs per build. Seven Lean propositions check the respective obligations. [Type, contract and relational evidence](research/language-design/RT-04/RT-04-TYPE-CONTRACT-RELATION-2026-11-25.md)
+
+- Compare type, pairwise contract and global law admission over 216 equality/hash models and 1,296 insertion-order trials. Nine models satisfy every pairwise hash check yet are order-dependent. Lean checks projection-derived equivalence and compatible hashing, plus the transitivity counterexample. General collection and custom-equality policy remain open. [Collection key laws](research/language-design/RT-04/RT-04-EQUALITY-KEY-LAWS-2026-11-25.md)
+
+### 5.2 Execution semantics and runtime architecture
+
+- Define interpreter/reference execution.
+
+- Compare 14,580 exact reference and bytecode outcomes. Ordered effects, failures, cancellation and fuel match. Default replies also reproduce 3,645 results from the existing direct evaluator. [Resumable reference and VM execution](research/runtime-and-systems/RT-10/RT-10-RESUMABLE-EXECUTION-2026-11-25.md)
+
+- Define VM requirements, if a VM is needed.
+
+- Restore 13,319 exact VM checkpoints and refuse 4,023 reused receipts at later requests. Stored budget, bytecode, policy and execution identity each participate in checkpoint admission. [Resumable reference and VM execution](research/runtime-and-systems/RT-10/RT-10-RESUMABLE-EXECUTION-2026-11-25.md)
+
+- Compare reference and stack VM fuel across 5,265 cases. Source-node charges preserve result, ordered trace, terminal state and budget throughout. Executable opcode charges differ on result, trace or terminal state in 1,280 cases. Production VM choice and broader effects remain open. [RT-10 stack VM fuel correspondence](research/runtime-and-systems/RT-10/RT-10-STACK-VM-FUEL-CORRESPONDENCE-2026-11-25.md)
+
+- Define runtime representation of values and semantic calls.
+
+- Decode 2,048 native results under two declared tag profiles and both optimization levels. Equal machine signatures carry distinct representations. The legacy decoder refuses all 256 words from the alternate layout. [Tagged runtime bindings](research/runtime-and-systems/RT-10/RT-10-TAGGED-RUNTIME-BINDING-2026-11-25.md)
+
+- Compare 16 byte payloads across native byte spans, C strings and checked UTF-8. Byte spans preserve all payloads, C strings shorten five, and UTF-8 rejects seven full spans. All 196 copy-capacity controls agree at both optimization levels. [RT-10 native byte and text values](research/runtime-and-systems/RT-10/RT-10-NATIVE-BYTE-AND-TEXT-VALUES-2026-11-25.md)
+
+- Define explicit call binding to immutable operation identity.
+
+- Check 32 requested and supplied native provider pairs. Operation, exact provider bytes, ABI, encoding, release and slot each qualify admission. [Tagged runtime bindings](research/runtime-and-systems/RT-10/RT-10-TAGGED-RUNTIME-BINDING-2026-11-25.md)
+
+- Compare four native call closures with identical wrapper bytes. The exact wrapper check admits all four, while the declared closure admits only the selected helper. A changed helper produces sixteen different results, another preserves the sample with different bytes, and an absent helper fails loading. [RT-10 exact native call closure](research/runtime-and-systems/RT-10/RT-10-EXACT-NATIVE-CALL-CLOSURE-2026-11-25.md)
+
+- Define error propagation, cancellation, and resource cleanup.
+
+- Check 36 real asyncio schedules with native file ownership. Twelve unprotected terminal results leave the descriptor open. Protected cleanup always closes it and preserves primary and cleanup errors in separate fields. [Async terminal resource settlement](research/runtime-and-systems/RT-10/RT-10-ASYNC-TERMINAL-SETTLEMENT-2026-11-25.md)
+
+- Research first-class resource accounting and enforcement for task hierarchies. Reconcile measured memory, CPU, disk, network and performance-counter scopes with delegated admission. In 36 native coroutine schedules dispatch, suspension and logical owner change remain distinct from kernel switching and match the scoped hierarchy oracle. [Task-switch accounting](research/runtime-and-systems/RT-26/RT-26-TASK-SWITCH-ACCOUNTING-2026-11-25.md)
+
+- Check 36 native phases in two batches. Cache and sparse reads charge logical bytes without storage reads. Repeated writes and truncation distinguish logical bytes, kernel storage charges and cancelled writes. Hardware-counter measurement still requires an eligible environment. [Native disk accounting](research/runtime-and-systems/RT-26/RT-26-NATIVE-DISK-ACCOUNTING-2026-11-25.md)
+
+- Check 64 TCP connections and 512 exact native phases. Duplicated descriptors expose one socket's identical transport counters, while peeks add task-visible copies without consumption. Summing aliases doubles transport bytes. [TCP transport accounting](research/runtime-and-systems/RT-26/RT-26-TCP-TRANSPORT-ACCOUNTING-2026-11-25.md)
+
+- Define real-time resource limits, quotas, budgets, rate limits, and throttlers, including hierarchical aggregation, inheritance, delegation, and contention between parent/child tasks.
+
+- Check an actual competing SQLite writer, child and parent hard limits, logical reopen ticks, and one exact native four-byte settlement. Cancellation keeps reserved capacity until terminal accounting. [Durable limit handlers](research/runtime-and-systems/RT-26/RT-26-DURABLE-LIMIT-HANDLERS-2026-11-25.md)
+
+- Check 18 Linux timer reads and 104,976 order-labelled refill cases. Delayed reads count multiple expirations. One-wakeup and uncapped refill differ from the reference in 17,652 and 29,880 model cases. Lean checks batched refill without intervening spending and the shared-parent cap after serialized admission. Production enforcement remains open. [Periodic resource refill](research/runtime-and-systems/RT-26/RT-26-TIMER-REFILL-2026-11-25.md)
+
+- Compare 19,291 delegated quota requests and 68,067 settlements. Whole-grant return admits 8,736 requests that can oversubscribe the budget, while unused-only reclaim admits none. Lean checks conservation, idempotence and exact settlement assumptions. Production observation and concurrent enforcement remain open. [RT-26 delegated quota reclamation](research/runtime-and-systems/RT-26/RT-26-DELEGATED-QUOTA-RECLAMATION-2026-11-25.md)
+
+- Define limit-exceeded events and typed handlers/policies that can decide whether to continue, throttle, pause, cancel, retry, degrade, shed work, escalate, or terminate; specify overshoot, race, and handler-failure behavior.
+
+- Check 26 event outcomes for continue, throttle, pause, cancel, retry, degrade, shed, escalate, terminate and handler failure. Exact replay holds once and an interrupted transaction leaves neither receipt nor hold. [Durable limit handlers](research/runtime-and-systems/RT-26/RT-26-DURABLE-LIMIT-HANDLERS-2026-11-25.md)
+
+- Compare three limit-handler policies across 84 finite schedules and fifteen targeted controls. Live hard-limit and cancellation checks prevent overshoot but still reserve twice in three cases. Event and generation binding prevent all duplicate holds, while exhaustion terminates the event without reentry. Native scheduling and atomic receipt storage remain open. [Limit handler settlement](research/runtime-and-systems/RT-26/RT-26-LIMIT-HANDLER-SETTLEMENT-2026-11-25.md)
+
+- Determine which resource controls belong in high-level language semantics and APIs versus runtime, OS/container, and deployment integrations; preserve explicit capability and portability boundaries.
+
+- Check 48 delegated disk budget histories. Substituting kernel storage charges would exceed a logical quota in 42 histories. Enforce task logical budgets with exact operation settlement and expose distinct platform counters by scope. [Native disk accounting](research/runtime-and-systems/RT-26/RT-26-NATIVE-DISK-ACCOUNTING-2026-11-25.md)
+
+- Check exact metric, scope, effect domain, mode, epoch and capability across 16,200 resource admission cases with five pinned Linux witnesses. Each omitted check permits extra grants. Explicit CPU-time fallback cannot satisfy a cycle limit. Cross-target integration and production enforcement remain open. [Resource authority boundary](research/runtime-and-systems/RT-26/RT-26-RESOURCE-AUTHORITY-BOUNDARY-2026-11-25.md)
+
+- Define memory model and concurrency semantics.
+
+- Check six total orders in Lean and 1.8 million native trials across two compilers. Both-old reads occur under release/acquire and relaxed ordering. The checked sequential order excludes that outcome. [Atomic store buffering](research/runtime-and-systems/RT-10/RT-10-ATOMIC-STORE-BUFFERING-2026-11-25.md)
+
+- Derive release-sequence membership in 360 selected read-from cases over 60 flag modification orders. C++17 derives 150 edges and C++20 derives 90. Equal numeric values cannot establish the required edge. Complete memory-model and target conformance remain open. [RT-10 release sequence membership](research/runtime-and-systems/RT-10/RT-10-RELEASE-SEQUENCE-MEMBERSHIP-2026-11-25.md)
+
+- Define threads, synchronization, atomics, signals, blocking I/O, and scheduling boundaries.
+
+- Check 40 directed signals while workers block in observed native calls. SA_RESTART resumes the checked pipe read, while poll interrupts under either signal policy. [Native signal and primitive contracts](research/runtime-and-systems/RT-10/RT-10-NATIVE-SIGNAL-PRIMITIVES-2026-11-25.md)
+
+- Compare six native wait schedules in two Rust builds. A one-shot waiter reports work on an empty notification, while a predicate waiter re-enters waiting and observes already published work without relying on a notification. Simultaneous work and cancellation require explicit precedence. [RT-10 native wait predicates](research/runtime-and-systems/RT-10/RT-10-WAIT-PREDICATES-AND-CANCELLATION-2026-11-25.md)
+
+- Define capability and security model.
+
+- Check 15 mediated native authority controls. Exact grants bind actor, operation and epoch and also need matching native file identity and rights. Revocation blocks future mediated use while a prior raw descriptor keeps its native lifetime. [Mediated native descriptors](research/runtime-and-systems/RT-10/RT-10-MEDIATED-DESCRIPTORS-2026-11-25.md)
+
+- Define trusted low-level primitives and their contracts.
+
+- Check 70 calls across interruption, positive completion, would-block, EOF and invalid descriptors. Positive completion and EOF preserve a stale errno, while actual errors retain distinct dispositions. [Native signal and primitive contracts](research/runtime-and-systems/RT-10/RT-10-NATIVE-SIGNAL-PRIMITIVES-2026-11-25.md)
+
+- Check 336 native observations under glibc and musl using primitive-specific error channels. Generic negative-result and errno rules disagree 216 and 240 times. The two libcs expose different incidental errno for the same EAI result. Wider primitive contracts remain open. [Primitive error domains](research/runtime-and-systems/RT-10/RT-10-PRIMITIVE-ERROR-DOMAINS-2026-11-25.md)
+
+- Define runtime versioning and its contribution to implementation identity.
+
+- A same-label replacement changes 86 results or changes their raw layout, depending on the variant. A version-only change preserves all decoded observations while changing exact runtime identity. [Tagged runtime bindings](research/runtime-and-systems/RT-10/RT-10-TAGGED-RUNTIME-BINDING-2026-11-25.md)
+
+- Compare interface, release label and provider bytes across six native selections and 180 calls. A same-label replacement changes 24 observations; metadata-only and label-only rebuilds change bytes while preserving all observed behavior. Verified load-time binding and a runtime version policy remain open. [Runtime version identity](research/runtime-and-systems/RT-10/RT-10-RUNTIME-VERSION-IDENTITY-2026-11-25.md)
+
+### 5.3 POSIX architecture and conformance
+
+- Compare 24 header probes and 14 native static runs across two Linux libc profiles. Both baseline versions report 200809. GNU mode exposes pipe2 and dup3 on both, POSIX flags expose them on musl only, and neither profile declares close-on-fork flags. Edition selection remains open. [RT-10 POSIX edition descriptors](research/runtime-and-systems/RT-10/RT-10-POSIX-EDITION-DESCRIPTORS-2026-11-25.md)
+
+- Define LLMLang-facing API: close POSIX mapping versus safer typed facade.
+
+- Check 16 native vector trials. Typed cursor resume reconstructs 8,192 bytes, while full raw reissue duplicates 4,096 bytes. Two Lean propositions check the prefix contract. [Typed POSIX vector output](research/runtime-and-systems/RT-10/RT-10-POSIX-WRITEV-TYPED-PROGRESS-2026-11-25.md)
+
+- Compare 108 native vector reads. Zero-length requests and EOF both return zero but have distinct typed meanings. A retry from the exact cursor preserves all seven bytes, while reissuing the full vector overwrites its completed prefix. [RT-10 typed readv progress](research/runtime-and-systems/RT-10/RT-10-POSIX-READV-TYPED-PROGRESS-2026-11-25.md)
+
+- Define a shared contract for multiple POSIX implementations.
+
+- Check 72 native rows in glibc and musl with exact archive identities. Descriptor-relative effects and the checked error variants agree across both profiles. [Descriptor-relative POSIX](research/runtime-and-systems/RT-10/RT-10-DIRECTORY-RELATIVE-POSIX-2026-11-25.md)
+
+- Replay both native probes with statically linked glibc 2.41 and musl 1.2.5. The exact linker-selected archives are distinct, and all 464 file fields and startup case outcomes match. Other kernels and POSIX profiles remain open. [POSIX cross-libc contract](research/runtime-and-systems/RT-10/RT-10-POSIX-CROSS-LIBC-2026-11-25.md)
+
+- Separate portable runtime implementation from native Linux syscall implementation.
+
+- Check 140 native observations. Libc preserves the input timeout on expiry. Linux updates the native pointer to zero and uses an eight-byte kernel signal mask. [POSIX ppoll ABI](research/runtime-and-systems/RT-10/RT-10-PPOLL-FFI-BOUNDARY-2026-11-25.md)
+
+- Compare 16 glibc, musl and raw-syscall read cases with a queued deferred cancellation. Libc cancels before consuming the byte. The raw syscall consumes it before the next cancellation check, although both handlers run and both joins report cancellation. Blocking cancellation races remain open. [RT-10 libc and syscall cancellation](research/runtime-and-systems/RT-10/RT-10-LIBC-SYSCALL-CANCELLATION-2026-11-25.md)
+
+- Define conformance evidence, optional features, and implementation-defined behavior.
+
+- Separate four header probes from Linux capacity behavior. Shrink succeeds after draining the pipe and leaves the observable atomic write limit unchanged. [POSIX pipe claim scope](research/runtime-and-systems/RT-10/RT-10-PIPE-CONFORMANCE-SCOPE-2026-11-25.md)
+
+- Define scoped POSIX conformance receipts and check seventeen controls over 46 exact observations. Header availability, runtime evidence, contradiction and unknown coverage remain distinct across profiles and entry points. A changed receipt is refused. Full conformance inventory and edition choice remain open. [RT-10 POSIX profile evidence](research/runtime-and-systems/RT-10/RT-10-POSIX-PROFILE-EVIDENCE-2026-11-25.md)
+
+- Define error, resource, process, file, and descriptor semantics.
+
+- An opened and duplicated directory remains tied to the original inode across rename and replacement. Closed descriptor, regular file and missing entry produce distinct native errors. [Descriptor-relative POSIX](research/runtime-and-systems/RT-10/RT-10-DIRECTORY-RELATIVE-POSIX-2026-11-25.md)
+
+- Compare 80 native writes across glibc, musl, overlayfs and memfd. With append enabled, pwrite appends without moving the cursor. The raw RWF_NOAPPEND call honors the explicit position on memfd and appends on the tested overlayfs despite success. Alias flag updates affect the shared description. Other kernels, backings and concurrent updates remain open. [Positional and append writes](research/runtime-and-systems/RT-10/RT-10-POSIX-APPEND-WRITES-2026-11-25.md)
+
+- Check 168 native observations across hard links, independent opens, duplicate descriptors, positional reads, replacement, unlink and descriptor rebinding. The fixture distinguishes namespace, object, descriptor slot and shared-offset identity. Broader POSIX conformance remains open. [RT-10 POSIX file identity](research/runtime-and-systems/RT-10/RT-10-POSIX-FILE-IDENTITY-2026-11-25.md)
+
+- Define concurrency and environment-dependent behavior.
+
+- A peer's cwd change redirects ambient lookup during a synchronized schedule. Both exact directory descriptors preserve the original data throughout. [Descriptor-relative POSIX](research/runtime-and-systems/RT-10/RT-10-DIRECTORY-RELATIVE-POSIX-2026-11-25.md)
+
+- Compare 16 native file-creation schedules across glibc and musl. A temporary process umask changes a concurrent peer and a spawned child from mode 0644 to 0600. A per-call restriction preserves both peer modes while creating the worker file as 0600. ACLs and other profiles remain open. [RT-10 POSIX umask context](research/runtime-and-systems/RT-10/RT-10-POSIX-UMASK-CONTEXT-2026-11-25.md)
+
+- Define initial vertical slice, such as process startup, basic file I/O, and errors.
+
+- Define and validate a bounded process-to-file candidate. All 24 glibc and musl cases agree on descriptor mapping, progress including a short read, EOF, startup errors, child I/O errors and shared file offset. General POSIX conformance remains open. [RT-10 startup and file I/O slice](research/runtime-and-systems/RT-10/RT-10-POSIX-STARTUP-IO-SLICE-2026-11-25.md)
+
+- Check 64 native startup case outcomes. Fork retains marked slots, exec closes them, ordered spawn mapping moves a live description, and same-slot spawn clears the flag that raw same-slot `dup2` preserves. Other libc error and process profiles remain open. [POSIX spawn descriptors](research/runtime-and-systems/RT-10/RT-10-POSIX-SPAWN-DESCRIPTORS-2026-11-25.md)
+
+- Isolate the scoped Linux syscall ABI across separate x86-64, AArch64 and RV64 adapters. Twelve new RV64 QEMU observations match the archived native and AArch64 contract outcomes. The adapter owns syscall entry, register assignment, numbers and target-specific conventions. Physical cross-architecture evidence and initial target choice remain open. [Linux syscall ABI isolation](research/runtime-and-systems/RT-10/RT-10-LINUX-SYSCALL-ABI-ISOLATION-2026-11-25.md)
+
+- Check one freestanding read/write contract across 24 cases with distinct x86-64 and AArch64 syscall adapters. Native x86-64 and QEMU Linux user AArch64 agree on bad descriptors, zero request, short progress, exact bytes and EOF. Physical AArch64 and initial architecture selection remain open. [RT-10 Linux syscall architectures](research/runtime-and-systems/RT-10/RT-10-LINUX-SYSCALL-ARCHITECTURES-2026-11-25.md)
+
+- Define how existing C libraries and external ABI boundaries are called.
+
+- Verify exact static glibc and musl profiles. Passing a 128-byte libc mask size to the native eight-byte Linux ABI fails. Readiness, timeout, restored mask and error disposition remain distinct. [POSIX ppoll ABI](research/runtime-and-systems/RT-10/RT-10-PPOLL-FFI-BOUNDARY-2026-11-25.md)
+
+- Compare six native error-carrier observations across glibc and musl at two optimization levels. Try-lock returns EBUSY without replacing a prior errno, a successful read keeps stale errno, and delayed capture observes the next failure. Two synchronized threads retain distinct error values. [RT-10 libc error carriers](research/runtime-and-systems/RT-10/RT-10-LIBC-ERROR-CARRIERS-2026-11-25.md)
+
+- Define the trusted low-level runtime boundary.
+
+- Scope trusted admission to exact primitive, descriptor, request and progress. Static glibc, musl and Linux syscall adapters agree on distinct would-block, zero-request, progress and peer-closed dispositions. [Typed POSIX vector output](research/runtime-and-systems/RT-10/RT-10-POSIX-WRITEV-TYPED-PROGRESS-2026-11-25.md)
+
+- Compare behavior using conformance, differential, and contract-derived tests.
+
+- Check 16 glibc and musl observations. A blocked 4,096-byte nonblocking write commits zero bytes, while a larger request on an empty pipe commits the exact 4,096-byte prefix. [POSIX pipe claim scope](research/runtime-and-systems/RT-10/RT-10-PIPE-CONFORMANCE-SCOPE-2026-11-25.md)
+
+- Check 416 native child wait observations across glibc and musl. Repeated peeks preserve stop, continue and terminal statuses. Consumption drains the requested status, and terminal reaping makes the child unavailable. Exit 143 and SIGTERM share a scalar projection while their typed outcomes differ. Multiple waiters and other kernels remain open. [POSIX child wait status](research/runtime-and-systems/RT-10/RT-10-POSIX-WAIT-STATUS-2026-11-25.md)
+
+- Define precisely what POSIX compatibility and formal verification claims cover.
+
+- Check 15 evidence admission controls. Exact libc observations, GNU header visibility and the Lean prefix theorem each admit their own claim scope. [POSIX pipe claim scope](research/runtime-and-systems/RT-10/RT-10-PIPE-CONFORMANCE-SCOPE-2026-11-25.md)
+
+- Prove exact recovery for admissible read histories with Lean and audit the premises against 108 pinned Linux observations. Identical counts and an empty pipe cannot establish recovery when a full-vector retry overwrites the recorded prefix. Native scope and proof assumptions remain explicit. [RT-10 POSIX read continuation proof](research/runtime-and-systems/RT-10/RT-10-POSIX-READ-CONTINUATION-PROOF-2026-11-25.md)
+
+**Existing evidence:** [POSIX-RUNTIME-ARCHITECTURE.md](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md); related open questions LL-013–LL-019 in [open design questions](PLAN.md#open-design-questions).
+
+### 5.4 Freestanding embedded and real-time firmware (RT-37)
+
+- Define vendor-pinned candidate manifests for STM32F103, STM32F407 and ESP32-WROOM-32E. Fourteen pinned source files and five compiled objects check the selected startup, layout, clock and ABI boundaries, including Cortex-M4 hard versus softfp and Xtensa windowed versus call0. Physical board inspection and pilot execution remain separately scoped. [MCU manifests](research/runtime-and-systems/RT-37/RT-37-MCU-TARGET-MANIFESTS-2026-11-25.md)
+
+- Build a common static GPIO, timer and UART pilot with STM32F103/F407 vendor LL/CMSIS and ESP32 ESP-IDF/FreeRTOS. All three emulated ports match the independent six-record C trace. STM32 link controls reject missing and foreign archive members, and ESP-IDF refuses output on GPIO34. Physical timing, deployment and board traces remain separately scoped. [Cross-MCU pilot](research/runtime-and-systems/RT-37/RT-37-CROSS-MCU-GPIO-TIMER-UART-2026-11-25.md)
+
+- Compare single- and dual-core ESP32 scheduler modes and independent ESP32-C3 RV32 lowering. Three ESP-IDF/QEMU profiles distinguish split atomic updates from critical-section increments. Two SDK-independent arithmetic artifacts have no runtime imports, and optional Wi-Fi selects 70 members across five exact vendor archives. Bootable bare metal, physical radio and timing remain separately scoped. [ESP32 scheduling and radio](research/runtime-and-systems/RT-37/RT-37-ESP32-SCHEDULING-AND-RADIO-2026-11-25.md)
+
+- Compare OS-independent closure, startup, memory layouts and allocation against seven pinned ledgers. The crosswalk distinguishes linked and booted artifacts, three same-layout startup failures, and fixed-slot versus cursor behavior across 2,704 observations. [Execution closure and allocation profiles](research/runtime-and-systems/RT-37/RT-37-EXECUTION-CLOSURE-AND-ALLOCATION-PROFILES-2026-11-25.md)
+
+- Compare four Cortex-M3 ELF profiles and two explicit initialization calls per image. Exact ranges restore .data and clear .bss while preserving .noinit. Extending the clear into the retained section erases it despite the same NOBITS layout. Physical reset retention remains open. [RT-37 startup RAM retention](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-STARTUP-RETENTION-2026-11-25.md)
+
+- Specify typed device-effect admission over SVD structure, volatile register protocols, interrupt effect closure, DMA lease and capabilities. The composition fixture checks 2,304 inputs. Relaxing register, interrupt or DMA evidence admits 2, 2 or 15 invalid or unknown cases. Physical controller and compiler evidence stay separately scoped. [Composed device boundary](research/runtime-and-systems/RT-37/RT-37-COMPOSED-DEVICE-BOUNDARY-2026-11-25.md)
+
+- Compare eight QEMU Cortex-M3 NVIC pending-bit cases. A direct write-one-to-clear mask preserves its peer bit. Read-OR clears both, read-AND clears the peer, and the set alias clears neither. Physical and compiler-lowering evidence remain open. [RT-37 NVIC pending clear](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-NVIC-PENDING-CLEAR-2026-11-25.md)
+
+- Cross-check the LM3S6965 register effects with TI SPMS144I and four exact emulator/metadata ledgers (#440). SysTick, NVIC and GPIO data effects match the declared observations. Debugger reads, GPIO edge acknowledgment and physical execution retain separate scopes. [Part register evidence](research/runtime-and-systems/RT-37/RT-37-LM3S6965-PART-REGISTER-2026-11-25.md)
+
+- Compare GPIO edge-latch acknowledgment and NVIC pending clearance in QEMU (#440). Sixteen port, pin and policy configurations agree on 68 register tuples. Masking and acknowledgment have distinct raw-latch effects. [GPIO edge acknowledgment](research/runtime-and-systems/RT-37/RT-37-GPIO-EDGE-ACK-2026-11-25.md)
+
+- Compare exact linked flash/RAM extents, Cortex-M3 stack observations and RTOS scheduling evidence with conditional deadlines. A response-time model matches 1,200 independent dispatch scenarios. Cost-only admission misses 11,845 deadline violations or saturation outcomes. Physical target WCET and latency remain human-gated. [Resource and deadline bounds](research/runtime-and-systems/RT-37/RT-37-RESOURCE-AND-DEADLINE-BOUNDS-2026-11-25.md)
+
+- Compare four QEMU Cortex-M3 priority and masking profiles. Nested exception entries use 64 B and deferred ones use 32 B. Two profiles have identical marker order but different stack displacement. Physical timing and wider stack bounds remain open. [RT-37 nested exception stack](research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-NESTED-EXCEPTION-STACK-2026-11-25.md)
+
+### 6.1 Translation architecture
+
+- Define the lowering pipeline and preservation obligations.
+
+- Check typed division through WAT, binary validation and two Node/V8 versions. The guarded route preserves 5,041 ordered observations per engine. Raw division traps in 72 cases. [RT-09 checked Wasm division](research/compiler-and-translation/RT-09/RT-09-WASM-CHECKED-DIVISION-2026-11-25.md)
+
+- Compare parallel LLVM phis, scheduled copies and direct sequential copies over 3,645 traces at each of two optimization levels. Scheduled copies match throughout. Direct sequential copies differ in 1,050 traces and 888 final states. General CFG lowering remains open. [RT-09 SSA parallel copy lowering](research/compiler-and-translation/RT-09/RT-09-SSA-PARALLEL-COPY-LOWERING-2026-11-25.md)
+
+- Define target capability declarations and unsupported constructs.
+
+- Check Wasm multi-value and exact audit binding. Disabling multi-value prevents structural admission, an omitted audit import prevents instantiation, and a same-signature replacement changes all 5,041 traces per engine. [RT-09 checked Wasm division](research/compiler-and-translation/RT-09/RT-09-WASM-CHECKED-DIVISION-2026-11-25.md)
+
+- Audit GCC and Clang freestanding links for two division routes and compare all 10,048 calls with the source oracle. The full route requires the pinned static `__udivti3` provider. The helper-free route enforces an explicit high-word restriction, and silent narrowing changes the witness. General target capability declarations remain open. [Wide division capability](research/compiler-and-translation/RT-13/RT-13-WIDE-DIVISION-CAPABILITY-2026-11-25.md)
+
+- Define explicit translation outcomes: exact under assumptions, preserved with runtime support, restricted, unsupported, and unverified.
+
+- Check all five outcome classes with 12 controls per engine. The approved restricted route preserves all 4,969 admitted input pairs. A weakened gate lets an overflowing input trap. [RT-09 checked Wasm division](research/compiler-and-translation/RT-09/RT-09-WASM-CHECKED-DIVISION-2026-11-25.md)
+
+- Compare 18 translation closure controls. Four cover both requested roots, thirteen retain only the independent root, and one admits neither. An emission-only gate overstates complete coverage ten times. Local status, edge evidence, runtime binding and approved restrictions remain exact inputs. [RT-09 translation outcome closure](research/compiler-and-translation/RT-09/RT-09-TRANSLATION-OUTCOME-CLOSURE-2026-11-25.md)
+
+- Define runtime support as part of a target realization.
+
+- Verify the unresolved runtime symbol, selected static archive member and resulting ELF. Builds without the provider fail, while a same-ABI provider changes the ordered effects in all 750 native comparisons. [RT-09 ordered runtime realization](research/compiler-and-translation/RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md)
+
+- Define generated artifact identity and reproducibility.
+
+- Rebuild seven native phases in two independent roots. Release objects, linked libraries, exact receipt scopes and remapped debug bytes reproduce throughout. [RT-09 incremental translation closure](research/compiler-and-translation/RT-09/RT-09-INCREMENTAL-TRANSLATION-CLOSURE-2026-11-25.md)
+
+- Compare five static archive links in two fresh roots. Reordering equal member bytes selects another provider and changes all 16 results. Changing unused members preserves the exact ELF. Forcing one unused symbol changes ELF bytes while preserving results. [RT-09 static link artifact identity](research/compiler-and-translation/RT-09/RT-09-STATIC-LINK-ARTIFACT-IDENTITY-2026-11-25.md)
+
+- Define verification independent of the code generator wherever practical.
+
+- Compare 2,250 native observations with an independent oracle. The intended route matches all 750. Scalar outputs and state miss 1,300 changed traces across the two negative controls. [RT-09 ordered runtime realization](research/compiler-and-translation/RT-09/RT-09-RUNTIME-ORDERED-REALIZATION-2026-11-25.md)
+
+- Define incremental translation and selective verification invalidation.
+
+- Run 896 fresh native calls per root. A source move rebuilds one debug object, contract widening checks one new partition, and the changed helper selectively relinks A and invalidates both A receipts. B reuses its artifact and evidence. [RT-09 incremental translation closure](research/compiler-and-translation/RT-09/RT-09-INCREMENTAL-TRANSLATION-CLOSURE-2026-11-25.md)
+
+- Compare eight GCC builds and 2,048 native observations. A source-location change alters DWARF while preserving release bytes and validation scope. A wider contract preserves both binaries and requires fresh evidence. A body mutation changes machine text and fails all 128 required checks. Production dependency discovery and receipt reuse remain open. [Selective translation and verification](research/compiler-and-translation/RT-09/RT-09-SELECTIVE-TRANSLATION-2026-11-25.md)
+
+**Existing evidence:** [TRANSLATION-AND-TARGET-BACKENDS.md](research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md), [LLVM-BACKEND-ARCHITECTURE.md](research/compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md), and formal-verification research.
+
+### Required bidirectional translation study (RT-30)
+
+- Research automated LLMLang → C, C++, Go, and Rust translation and C/C++/Go/Rust → LLMLang import as separate directions.
+
+- Replay 20 native routes and four restricted importer profiles. Separate forward, reverse, same-language and cross-target claims. Four experiment ledgers reproduce, including 1,406,760 combined native observations and 37 importer refusals. [RT-30 directional replay](research/compiler-and-translation/RT-30/RT-30-DIRECTIONAL-REPLAY-2026-11-25.md)
+
+- Define a source/target matrix, semantic observation model, preservation contracts, and explicit exact/runtime-supported/restricted/partial/unverified/unsupported outcomes.
+
+- Define and exercise the restricted wrapping matrix: four exact imports into the checked model and 20 native routes with 740,400 matching observations. Record the shared observation contract and six evidence-dependent outcome classes. The matrix records restricted support; additional language semantics and general translator obligations remain open. [Wrapping translation matrix](research/compiler-and-translation/RT-30/RT-30-WRAPPING-TRANSLATION-MATRIX-2026-11-25.md)
+
+- Compare canonical semantic IR, direct SPG lowering, and hybrid representations; preserve source provenance without conflating it with semantic identity.
+
+- Compare direct, normalized and hybrid scalar routes over 148,080 observations per route. The selected direct emitter generates 48 source artifacts and normalized lowering shares 12. Semantic-key-only origin lookup admits 144 wrong presentations while exact source receipts admit only the 48 correct pairings. General architecture and provenance production remain open. [Translation provenance routes](research/compiler-and-translation/RT-30/RT-30-PROVENANCE-ROUTES-2026-11-25.md)
+
+- Evaluate whether a dedicated C runtime can implement high-level LLMLang features while keeping LLMLang—not C—as the semantic source of truth; compare runtime requirements and costs for all four targets.
+
+- Compare serialized ownership through all four adapters. All 12,672 mixed-language steps and 131,072 generation checks agree with the source contract. Record exact ELF footprint and seven exploratory boundary-latency rounds for each adapter. [RT-30 shared ownership runtime](research/compiler-and-translation/RT-30/RT-30-SHARED-OWNERSHIP-RUNTIME-2026-11-25.md)
+
+- Compare one exact C receiver runtime through all four adapters. The original and debug-stripped modules match 13,440 observations, all four missing-runtime links fail, and the receipt records ELF and text size with dynamic dependencies. Scope is checked serialized dispatch. Object lifecycle and dispatch latency remain open. [Shared C runtime](research/compiler-and-translation/RT-30/RT-30-SHARED-C-RUNTIME-2026-11-25.md)
+
+- Cover same-language round trips, cross-target migration, mixed-language modules, ABI/FFI, source-language undefined/implementation-defined behavior, and incremental regeneration.
+
+- Build four cross-linked adapters and selectively rebuild C++ while preserving the other ELF artifacts and the shared provider. The same-ABI mutation changes 2,304 complete observations. The baseline produces exact release and state observations. [RT-30 shared ownership runtime](research/compiler-and-translation/RT-30/RT-30-SHARED-OWNERSHIP-RUNTIME-2026-11-25.md)
+
+- Compare 3,072 native observations for signed and unsigned plain char in C17 and C++20, with fixed-width re-exports to C, C++, Rust and Go. Re-export matches each exact source profile, including with opposite target char flags. Choosing the wrong source profile changes 128 of 256 inputs. Wider imports and mixed-language integration remain open. [Plain char translation](research/compiler-and-translation/RT-30/RT-30-PLAIN-CHAR-TRANSLATION-2026-11-25.md)
+
+- Build differential conformance fixtures for both directions and a bounded bidirectional vertical slice with pinned compilers, runtimes, and platform profiles.
+
+- Import, re-export and reimport 12 closed Go wrapping programs. Original and generated executables each match 37,020 source observations. Ten refusal cases distinguish directives, malformed or ill-typed input and unsupported behavior; two are confirmed by native divergence. Broader Go and cross-language imports remain open. [Go wrapping round trip](research/compiler-and-translation/RT-30/RT-30-GO-WRAPPING-ROUNDTRIP-2026-11-25.md)
+
+- Check typed C17 and C++20 import and cross-target re-export of 12 wrapping programs each. All eight Clang profiles match 37,020 source observations each, 24 cross-target reimports preserve the semantic programs and 17 unsupported forms are refused. Macros, linkage portability and richer C-family semantics remain open. [C and C++ wrapping translation](research/compiler-and-translation/RT-30/RT-30-C-FAMILY-WRAPPING-CROSS-TARGET-2026-11-25.md)
+
+- Compare Rust wrapping import and re-export in eight native builds. All 296,160 observations agree with the common scalar evaluator and C-family trace digest. Ten refusal controls include an ordinary addition that panics or returns zero as the native overflow policy changes. This completes the bounded wrapping slice across C, C++, Go and Rust. Broader translation remains open. [Rust wrapping round trip](research/compiler-and-translation/RT-30/RT-30-RUST-WRAPPING-ROUNDTRIP-2026-11-25.md)
+
+### 6.2 Backend selection and cross-backend validation
+
+- Define the minimal common semantic subset for backend experiments.
+
+- Specify the shared checked scalar contract for 64 programs and independently replay 197,440 reference observations with ten admission refusals. Status-only comparison misses 51,392 wrong stores, and status plus slot misses 137,992 reversed traces. Wider effects and production language selection remain open. [Common checked scalar subset](research/compiler-and-translation/RT-13/RT-13-COMMON-SCALAR-SUBSET-2026-11-25.md)
+
+- Evaluate Python as an experimental/reference target.
+
+- Evaluate Go as the first serious compiled target.
+
+- Compare 40 native Go deferred-close cases across language modes 1.21 and 1.22. Declared loop capture changes slot identity under 1.22, while assignment to an existing variable continues to repeat one close. Explicit snapshots and deferred arguments close every reader once in reverse order. [RT-13 Go deferred resource capture](research/compiler-and-translation/RT-13/RT-13-GO-DEFERRED-RESOURCE-CAPTURE-2026-11-25.md)
+
+- Evaluate Rust for ownership and systems-language coverage.
+
+- Check a documented Rust nonzero optional C ABI and an explicit tagged carrier. Two builds agree on 260 niche input words and 1,040 tagged calls each. The explicit carrier preserves present zero. rustc refuses direct unrestricted and nested Option signatures. Other ABIs and resource policy remain open. [RT-13 Rust optional ABI](research/compiler-and-translation/RT-13/RT-13-RUST-NONZERO-OPTIONAL-ABI-2026-11-25.md)
+
+- Evaluate C++ for ABI and platform coverage.
+
+- Compare 128 calls across equal-layout C++ record variants. Nontrivial destruction changes the by-value return from direct i64 to a hidden sret pointer despite an unchanged symbol. The explicit C facade preserves the pointer signature and scalar results. Other ABIs and wider platform coverage remain open. [RT-13 C++ destructor ABI](research/compiler-and-translation/RT-13/RT-13-CPP-DESTRUCTOR-ABI-2026-11-25.md)
+
+- Consider Java as an alternative compiled target.
+
+- Compare 27 resource cases in two Java 21 execution modes. Try-with-resources replaces the leading throwable in six self-suppression cases. Explicit typed occurrence capture preserves each failure and its stage. Java remains a hosted candidate with native ABI and broader runtime obligations open. [RT-13 Java cleanup occurrences](research/compiler-and-translation/RT-13/RT-13-JAVA-CLEANUP-OCCURRENCES-2026-11-25.md)
+
+- Implement two backends for the same subset.
+
+- Verify C++, Go, Java, Rust and direct LLVM delivery for the same checked scalar fixture. Four exact ledgers share the source and comparison harness hashes, with 197,440 matched observations in each of twelve archived profiles. Wider coverage and target selection remain open. [RT-13 common backend receipts](research/compiler-and-translation/RT-13/RT-13-COMMON-SUBSET-BACKEND-RECEIPTS-2026-11-25.md)
+
+- Compare each backend against the same reference semantics and scenario corpus.
+
+- Compare 6,272 complete observations across eight profiles covering GCC C++, Clang LLVM, Go, Rust, Java and CPython. Each profile matches the same independent source corpus. [RT-13 cross-backend rollback](research/compiler-and-translation/RT-13/RT-13-ORDERED-ROLLBACK-CROSS-BACKEND-2026-11-25.md)
+
+- Compare return values, errors, state changes, and declared observable effects.
+
+- Check return values, primary and cleanup errors, final state, remaining ownership and ordered events for success, partial failure, rollback and release. [RT-13 cross-backend rollback](research/compiler-and-translation/RT-13/RT-13-ORDERED-ROLLBACK-CROSS-BACKEND-2026-11-25.md)
+
+- Reject silent semantic weakening; report restrictions explicitly.
+
+- Detect 392 omitted release effects, 196 omitted cleanup errors and 40 missing state restorations. Record the bounded provider-disposition and platform scope. [RT-13 cross-backend rollback](research/compiler-and-translation/RT-13/RT-13-ORDERED-ROLLBACK-CROSS-BACKEND-2026-11-25.md)
+
+**Existing evidence:** target selection recommendation in [TRANSLATION-AND-TARGET-BACKENDS.md](research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md).
+
+### 6.3 LLVM backend
+
+- Preserve the LLMLang-owned semantic source of truth and replaceable backend boundary; do not make LLVM IR the canonical semantic IR.
+
+- Check an LLMLang-owned Boolean observation relation with independent portable C and LLVM realizations. The source admits one stable choice and permits different valid refinements. [RT-13 LLVM correlated choice](research/compiler-and-translation/RT-13/RT-13-LLVM-CORRELATED-FREEZE-2026-11-25.md)
+
+- Define a conservative LLVM IR subset and source-to-LLVM lowering contract.
+
+- Check a conservative select, freeze, extension and callback subset. One frozen representative preserves both observations. Independently frozen values can violate source correlation. [RT-13 LLVM correlated choice](research/compiler-and-translation/RT-13/RT-13-LLVM-CORRELATED-FREEZE-2026-11-25.md)
+
+- Compare four LLVM progress profiles and eight terminating native calls. O3 turns two silent promised loops into assumptions of the returning input. The unannotated loop and the promised volatile loop keep their back edges. General source progress proofs remain open. [RT-13 LLVM progress and divergence](research/compiler-and-translation/RT-13/RT-13-LLVM-PROGRESS-AND-DIVERGENCE-2026-11-25.md)
+
+- Research poison, undef, overflow flags, pointer provenance, aliasing, floating-point flags, atomics, and memory ordering.
+
+- Check undef and poison at the exact noundef boundary. Each optimizer profile withholds 520 out-of-domain calls. Native correlation samples for two freezes leave source refinement unverified. [RT-13 LLVM correlated choice](research/compiler-and-translation/RT-13/RT-13-LLVM-CORRELATED-FREEZE-2026-11-25.md)
+
+- Compare five checked byte-load lowerings over 264 index words and two native LLVM builds. Branch and pre-load pointer or index selection agree with the oracle throughout. Late selection and freezing fail definedness for 256 words each, including a defined one-past pointer that cannot be loaded. Unsupported native inputs were withheld. [LLVM inbounds loads](research/compiler-and-translation/RT-13/RT-13-LLVM-INBOUNDS-LOAD-2026-11-25.md)
+
+- Compare six LLVM shift and division policies. Guarded, poison-masked shift and divisor-sanitized routes cover all 65,536 pairs each. Two unguarded division routes leave 256 zero-divisor cases outside the defined IR even with later masking or freeze. Both native builds match 392,704 defined calls each. [RT-13 LLVM eager definedness](research/compiler-and-translation/RT-13/RT-13-LLVM-EAGER-DEFINEDNESS-2026-11-25.md)
+
+- Define how LLVM optimization passes and target code generation are validated against LLMLang semantics.
+
+- Run 9,360 LLVM native observations across O0, O2 and O3 and 520 independent C observations. Each pipeline detects all 520 inverted controls, and five Lean propositions check the finite source relation. [RT-13 LLVM correlated choice](research/compiler-and-translation/RT-13/RT-13-LLVM-CORRELATED-FREEZE-2026-11-25.md)
+
+- Evaluate Alive2 and Vellvm and their applicability/limitations.
+
+- Verify the exact shared fixture bytes and archived verdicts. Alive2 distinguishes valid, refuted and unsupported transformations. Vellvm records 18 concrete assertions and rejects the false control, with sequential atomic and fence scope. Both leave tested saturation cases unsupported. Production coverage and general source-to-IR proof remain open. [Validator ledger](research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/evidence.json) · [Cross-check ledger](research/compiler-and-translation/RT-13/LLVM-F64-I64-LOWERING-01/evidence.json)
+
+- Define supported LLVM versions and reproducible toolchain identity.
+
+- Compare 18 Clang and LLD combinations over two modules with exact tool identities. LLD 19 accepts all scalar inputs but refuses two newer pointer modules with a capture attribute. Sixteen matched baseline cells and two annotation controls cover 4,698 native observations. [RT-13 LLVM bitcode toolchain](research/compiler-and-translation/RT-13/RT-13-LLVM-BITCODE-TOOLCHAIN-2026-11-25.md)
+
+- Build a target support matrix: architecture/CPU features, OS, ABI/calling convention, object format, linker, sysroot/system libraries, runtime, and required toolchain components.
+
+- Build an 11-profile evidence matrix and check five pinned ledgers and nine scope controls. Native, user and machine emulation, host-engine, object-only, unresolved runtime and unknown profiles stay distinct. Broader operation coverage and production target selection remain open. [RT-13 target support evidence matrix](research/compiler-and-translation/RT-13/RT-13-TARGET-SUPPORT-EVIDENCE-MATRIX-2026-11-25.md)
+
+- Evaluate Cranelift as a candidate for fast Debug compilation and/or JIT; compare its supported targets, ABI/runtime integration, debug information, optimization behavior, and maintenance burden. Do not presume it should replace LLVM.
+
+- Check 2,080 Cranelift native results across two optimization modes. The direct route rebuilds the call and provider. An explicit relay retains the caller and builds only the provider. Exact receipts refuse stale and released generations. [RT-13 incremental Cranelift provider](research/compiler-and-translation/RT-13/RT-13-CRANELIFT-INCREMENTAL-PROVIDER-2026-11-25.md)
+
+- Compare native JIT stack unwinding and source attribution across nine callback profiles. LLVM ORC traverses the generated frame with an emitted unwind table. Cranelift requires explicit registration in both tested modes. A wrong DWARF origin leaves the machine code and traversal intact. Debugger stepping and other targets remain open. [RT-13 JIT unwind and callback origins](research/compiler-and-translation/RT-13/RT-13-JIT-UNWIND-AND-CALLBACK-ORIGINS-2026-11-25.md)
+
+- Define the evidence threshold for considering a direct native backend and estimate delivery and recurring maintenance for one scoped profile.
+
+- Check the dynamic-rounding inlining gap. The direct x86-64 template and an LLVM inline operation have identical code and pass all 24 observations per route across three link modes. The six seeded downward failures are detected. The tested requirement has an existing-backend route. [RT-13 direct native backend threshold](research/compiler-and-translation/RT-13/RT-13-DIRECT-NATIVE-BACKEND-THRESHOLD-2026-11-25.md)
+
+- Evaluate WebAssembly target profiles and whether LLVM or a dedicated toolchain provides the better fit.
+
+- Check two Node WASI Preview 1 versions and three module builds. A 283-byte WAT leaf and 839- and 467-byte LLVM modules match exact reactor output. Missing import and command startup are refused. [RT-13 WASI reactor output](research/compiler-and-translation/RT-13/RT-13-WASI-REACTOR-WRITE-2026-11-25.md)
+
+- Compare LLVM wasm64 and direct WAT memory64 across 5,832 inputs per build and engine. The three preserving builds agree in two Node profiles. Two wrapping controls produce 472 and 456 wrong results per engine. WABT needs explicit feature admission, and raw JS BigInt conversion can alias a low address. Memory growth and WASI remain open. [RT-13 Wasm memory64 profiles](research/compiler-and-translation/RT-13/RT-13-WASM-MEMORY64-PROFILES-2026-11-25.md)
+
+- Compare direct WAT and two LLVM Wasm builds across 4,698 calls in two Node profiles. An identical import shape and return can hide missing or changed effects. Raw i64 conversion narrows an out-of-range BigInt to zero, while an explicit host check refuses it before any effect. [RT-13 Wasm host effect boundary](research/compiler-and-translation/RT-13/RT-13-WASM-HOST-EFFECT-BOUNDARY-2026-11-25.md)
+
+- Specify a reproducible comparative benchmark protocol and initial shared workload corpus for LLVM, Cranelift, and applicable prototype backends.
+
+- Define seven measurement boundaries and verify 22 artifact pins across four workload fixtures. Sixteen comparison controls check workload and target identity, cache and edit scope, artifact binding, and conformance before interpreting performance. Representative workload expansion remains open. [RT-13 backend benchmark protocol](research/compiler-and-translation/RT-13/RT-13-BACKEND-BENCHMARK-PROTOCOL-2026-11-25.md)
+
+- Measure bounded Debug and Release native AOT compilation, incremental relink, runtime, ELF size, RSS and diagnostics across three workload families. The 180 checked builds retain raw distributions and distinguish the native x86-64 AOT boundary from archived JIT and target evidence. Representative comparisons remain human-gated. [Native AOT costs](research/compiler-and-translation/RT-13/RT-13-NATIVE-AOT-BUILD-COST-2026-11-25.md)
+
+- Measure fresh-process JIT through checked-add output and exit. Across 240 processes, every observation matches the reference. Median process latency and peak RSS are 1.42 ms and 3.23 MiB for Cranelift `none`, and 18.21 ms and 30.86 MiB for LLVM ORC O0 on the recorded runner. Executable dependency layouts and larger workload gaps are recorded. [RT-13 fresh-process JIT pilot](research/compiler-and-translation/RT-13/RT-13-JIT-FRESH-PROCESS-2026-11-25.md)
+
+- Compare first and repeated in-process JIT materialization on one checked-add workload. With other builds paused, median Cranelift `none` is 277.0/101.5 µs and LLVM ORC O0 is 2,405.3/840.5 µs. Four profiles report distributions and independently checked results. Incremental and representative workload measurements remain open. [JIT materialization latency](research/compiler-and-translation/RT-13/RT-13-JIT-MATERIALIZATION-LATENCY-2026-11-24.md).
+
+- Validate every candidate against the same reference semantics and adversarial conformance corpus; performance results do not waive semantic-correctness gates.
+
+- Compare 3,528 real WASI and 7,056 simulated host observations with the common source write contract. Short progress matches the exact prefix and over-reported progress is refused. The selected JIT and Wasm fixtures record separate scopes. [RT-13 WASI reactor output](research/compiler-and-translation/RT-13/RT-13-WASI-REACTOR-WRITE-2026-11-25.md)
+
+- Check the same reference and three adversarial controls across four JIT profiles and 4,596 vectors per artifact. All preserving observations agree. Omitting callback order admits 3,661 faulty rows per profile, and omitting final slot bits admits 885 erroneous stores. Wider workloads and whole-domain correspondence remain open. [RT-13 shared JIT conformance](research/compiler-and-translation/RT-13/RT-13-SHARED-JIT-CONFORMANCE-2026-11-25.md)
+
+**Existing evidence:** [LLVM-BACKEND-ARCHITECTURE.md](research/compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md); Scenarios 96, 96A, and 96B provide bounded source-to-LLVM preservation evidence, not a general backend validation.
+
+### 6.4 Implementation discovery, selection, and optimization
+
+- Separate discovery of contract-compatible implementations from selection of a concrete implementation.
+
+- Prove exact discovery membership and current catalog, artifact and target binding. All 2,400 finite comparisons match the independent oracle. Reusing discovery without a freshness check admits 76 invalid cases. Authenticated indexes, nonidentical refinement and invocation races remain open. [RT-13 catalog discovery and binding](research/compiler-and-translation/RT-13/RT-13-CATALOG-DISCOVERY-AND-BINDING-2026-11-25.md)
+
+- Define selection constraints: target, ABI, capabilities, runtime, security, performance, and deployment environment.
+
+- Prove profile identity, capability/feature inclusion and exact matching receipts for mandatory bounds. A 4,200-cell matrix matches the independent oracle. Overlap and number-only checks each admit 18 invalid cases. Runtime identity and policy authority remain explicit inputs. [RT-13 typed selection constraints](research/compiler-and-translation/RT-13/RT-13-TYPED-SELECTION-CONSTRAINTS-2026-11-25.md)
+
+- Define static binding versus runtime dispatch.
+
+- Exercise a linked provider and runtime replacement with a retained worker invocation in 32 GCC and Clang processes. Fresh calls use the replacement, stale or retired bindings are refused, and the old loader handle drains after invocation. Concurrent admission and forced revocation remain open. [RT-13 static and runtime binding](research/compiler-and-translation/RT-13/RT-13-STATIC-AND-RUNTIME-BINDING-2026-11-25.md)
+
+- Define specialization and multi-versioning.
+
+- Prove the reference outcome for eligible variants, invariance under priority changes with preserved coverage, and refusal without an eligible route. All 19,602 finite decisions agree. Omitting an applicability guard selects 8,170 ineligible routes. Production evidence and runtime costs remain open. [RT-13 multiversion guards](research/compiler-and-translation/RT-13/RT-13-MULTIVERSION-GUARDS-2026-11-25.md)
+
+- Prove guarded division equivalence in Lean and match 56,304 observations across GCC and Clang. The specialized route requires checked evidence and an exact power-of-two divisor. Omitting that condition changes 1,506 results. General multi-version policy remains open. [Guarded specialization](research/compiler-and-translation/RT-13/RT-13-GUARDED-SPECIALIZATION-2026-11-25.md)
+
+- Define cost models and profile-guided selection.
+
+- Compare exact scoped cost intervals, workload weights, a switching charge and a stable tie policy. All 2,592 synthetic cases match exhaustive endpoint checks, including 114 bounded switches. Production measurements and selection policy remain open. [RT-13 profile-guided cost ranking](research/compiler-and-translation/RT-13/RT-13-PROFILE-GUIDED-COST-RANKING-2026-11-25.md)
+
+- Define safe fallback when no compatible implementation is available.
+
+- Prove that ordered fallback selects only a materialized candidate bound by exact checked evidence and returns unavailable iff none qualifies. Across 9,216 pairs the gate rejects 9,025 and selects 191 correctly. ABI-only admits 4,698 incorrect dispatches. Production evidence authority and runtime races remain open. [Evidence-gated fallback](research/compiler-and-translation/RT-13/RT-13-IMPLEMENTATION-FALLBACK-2026-11-25.md)
+
+- Define whether and how implementation choice can change without changing operation semantics.
+
+- Prove abstract-state preservation and equal future traces across representation changes. All 18,724 finite sequences agree. A migration reset differs in 8,524 traces, including a delayed refusal after matching initial replies. Concurrent or crash-safe migration remains open. [RT-13 stateful implementation change](research/compiler-and-translation/RT-13/RT-13-STATEFUL-IMPLEMENTATION-CHANGE-2026-11-25.md)
+
+- Measure dispatch and adaptation overhead.
+
+- Measure five native routes and two workloads with 70 checked trials. C, C++ and Rust medians are within one ns per call of direct C in this fixture. Go cgo medians are 84.6 and 77.3 ns per call for the two workloads. Shared traces, raw samples and chart reproduce the measurement procedure. Hosted deployment and representative workloads remain open. [Dispatch timing](research/compiler-and-translation/RT-13/RT-13-DISPATCH-TIMING-2026-11-25.md)
+
+- Define optimization across semantic nodes while preserving contracts.
+
+- Prove conditional state forwarding across a callback and preservation of earlier effects on failure. Guarded forwarding matches 1,024 cases per compiler profile. The unconditional route differs in 336 mutating cases, and premature failure differs in 224 read-only cases. Concurrent contexts and proof transport remain open. [RT-13 cross-node state forwarding](research/compiler-and-translation/RT-13/RT-13-CROSS-NODE-STATE-FORWARDING-2026-11-25.md)
+
+### 6.5 OS kernels and verified microkernel feasibility (RT-38)
+
+- Reuse RT-37 freestanding profile; specify privileged target capabilities, physical/virtual memory, MMU/TLB, trap/syscall ABI and context switching.
+
+- Define the pinned single-hart RV64 QEMU profile and check seven archives, five source pins and ten scope controls. The six RV64 archives record 33 ELF digests. RT-37 startup evidence transfers as a method. Physical hardware and source-to-linked refinement remain open. [RT-38 privileged freestanding profile](research/runtime-and-systems/RT-38/RT-38-RV64-FREESTANDING-PROFILE-2026-11-25.md)
+
+- Extend allocator and address-space contracts to live mappings, blocking and preemptive scheduling, and concurrent IPC and capability lifecycle, with global invariants and conditional hardware proofs.
+
+- Check revocation and live frame replacement while the receiver waits. The peer faults under its own root, the resumed receiver checks all 512 new words, and the stale sender is refused. [RT-38 live frame replacement](research/runtime-and-systems/RT-38/RT-38-RV64-LIVE-FRAME-IPC-2026-11-25.md)
+
+- Boot exact delivery and revocation schedules with a blocked receiver and real timer interrupts. Controls distinguish running a blocked task and returning success for a stale generation. [RT-38 preemptive IPC](research/runtime-and-systems/RT-38/RT-38-RV64-PREEMPTIVE-IPC-2026-11-25.md)
+
+- Check eight QEMU timer schedules and two saved-context controls with identical user bytes. Four Lean theorems check progress under explicit delivery premises. Blocking IPC with timer interrupts, SMP and physical timing remain open. [RT-38 RV64 timer preemption](research/runtime-and-systems/RT-38/RT-38-RV64-TIMER-PREEMPTION-2026-11-25.md)
+
+- Prove one-frame publication, detached ownership and reuse conditions under scoped translation premises. An independent state table agrees with 5,400 transitions. The controls distinguish early publication, unacknowledged quiescence and early reuse. Live composition and linked correspondence remain open. [RT-38 live frame quiescence](research/runtime-and-systems/RT-38/RT-38-LIVE-FRAME-QUIESCENCE-2026-11-25.md)
+
+- Prove waiter invariants, cancellation, stale-generation refusal and one wakeup in a serialized single-receiver model. The finite checker confirms 462 transitions across 53 states and distinguishes three lifecycle faults. Concrete interrupt scheduling, live mappings and SMP remain open. [RT-38 blocking endpoint lifecycle](research/runtime-and-systems/RT-38/RT-38-BLOCKING-ENDPOINT-LIFECYCLE-2026-11-25.md)
+
+- Reconcile pinned seL4 ASpec, ExecSpec, AInvs, BaseRefine and Refine receipts and the scoped LLMLang lookup decoder. Regenerate both local theory inputs and the upstream CSpace design. Stock Isabelle checks the independent safe-lookup transfer model, three exhaustive Quickcheck controls and one genuine Nitpick control. General LLMLang source and physical kernel obligations remain scoped separately. [Lookup proof transfer and controls](research/runtime-and-systems/RT-38/RT-38-SEL4-LOOKUP-TRANSFER-AND-CONTROLS-2026-11-25.md)
+
+- Compare minimal HAL/assembly assumptions with checked intrinsics; validate source-to-binary preservation and no hosted imports.
+
+- Boot assembly and three LLVM HAL images in one single-hart Sv39 profile. Each preserves stack identity, fresh frame visibility, revoked-access fault and recovery. The stack and incorrect-fence controls diverge while ELF closure remains valid. [RT-38 executable HAL comparison](research/runtime-and-systems/RT-38/RT-38-RV64-HAL-QEMU-2026-11-25.md)
+
+- Check three RV64 HAL leaf bodies in assembly and LLVM O0/O2/O3. The 12 linked symbol checks agree, including distinct data and translation fences. The closure gate rejects an unresolved host dependency. Machine execution and general source-to-binary correspondence remain open. [RT-38 HAL and intrinsics](research/runtime-and-systems/RT-38/RT-38-RV64-HAL-AND-INTRINSICS-2026-11-25.md)
+
+- Compose allocation, mapping, scheduling and IPC evidence with conditional SMP/DMA completion. The crosswalk reconciles the original Lean and RV64 scopes and checks 367,920 ordered schedule permutations. Missing remote completion, device visibility and early wake each admit invalid cases. Concrete SMP/DMA validation remains human-gated. [Composed wakeup and reuse](research/runtime-and-systems/RT-38/RT-38-COMPOSED-WAKEUP-AND-REUSE-2026-11-25.md)
+
+- Check seven Lean theorems, 5,184 receipt combinations and 10,080 ordered histories. Exact CPU, device drain and visibility acknowledgments govern frame reuse. Matching only the frame admits 795 invalid combinations. Hardware completion and timing remain open. [RT-38 scoped SMP and DMA reuse](research/runtime-and-systems/RT-38/RT-38-SCOPED-SMP-DMA-REUSE-2026-11-25.md)
+
+- Check four exact QEMU images with identical user bytes. Dirty replacement, publication of the old frame and wakeup before mapping reach three distinct failures. Physical ordering, remote shootdown and DMA remain open. [RT-38 live frame replacement](research/runtime-and-systems/RT-38/RT-38-RV64-LIVE-FRAME-IPC-2026-11-25.md)
+
+- Check both live Sv39 roots, exact runnable dispositions and private stack canaries across wakeup. The shared-frame control fails after matching the early output. Allocator mutation during blocked IPC and physical hardware remain open. [RT-38 preemptive IPC](research/runtime-and-systems/RT-38/RT-38-RV64-PREEMPTIVE-IPC-2026-11-25.md)
+
+- Compose the frame and blocking receiver models. Lean checks joint invariants, stale lease refusal and atomic detach/cancel. The oracle agrees with 20,976 transitions and finds faults when ignoring frame generation, suspension or mapping admission. Concrete SMP and DMA proof remain open. [RT-38 composed mapping and IPC](research/runtime-and-systems/RT-38/RT-38-COMPOSED-MAPPING-AND-IPC-2026-11-25.md)
+
+### Work packages and acceptance gates
+
+- FFI-01 Define all 16 hosted target cells, declared deployment, ABI, data layout, system library and toolchain boundary. Exact cross-builds check each object and refuse all 16 wrong data models. The matrix records native, user-emulated, cross-linked and object-only scopes with SDK and execution gaps. [Hosted FFI profile matrix](research/compiler-and-translation/RT-13/RT-13-FFI-HOSTED-PROFILE-MATRIX-2026-11-25.md)
+
+- Record native Linux x86-64 and QEMU Linux-user AArch64 and RV64 LP64D with exact glibc, interpreter, startup and provider identities. Physical cross-target execution remains open. [RT-13 Linux FFI triple replay](research/compiler-and-translation/RT-13/RT-13-FFI-LINUX-TRIPLE-REPLAY-2026-11-25.md)
+
+- Record exact macOS ARM64, macOS x86-64 and iOS ARM64 cross-build evidence. Mach-O target and deployment receipts are separate from Apple SDK and native support claims. [RT-13 Mach-O profiles](research/compiler-and-translation/RT-13/RT-13-FFI-MACHO-PROFILES-2026-11-25.md)
+
+- Record two LLVM Windows cross profiles. Equal 16-byte record layout lowers to x64 sret and ARM64 register pairs. Native Windows and SDK closure remain open. [RT-13 Windows COFF profiles](research/compiler-and-translation/RT-13/RT-13-FFI-WINDOWS-COFF-PROFILES-2026-11-25.md)
+
+- FFI-02 Check real C header imports for POSIX, SQLite, OpenSSL and Win32. Three generated Win32 declarations resolve in the linked DLL, the wrong error width refuses, and eight independent mock observations verify typed failure capture and scoped cleanup. Native Windows and general IDL coverage remain separate. [Win32 header import](research/compiler-and-translation/RT-13/RT-13-FFI-WIN32-HEADER-IMPORT-2026-11-25.md)
+
+- Resolve 19 Clang-imported POSIX, SQLite and OpenSSL declarations and check 40 calls per consumer. Equal signatures hide 16 of 20 paired lifetime differences. Three unsupported or missing symbols refuse, and 18 mutations change exact contract binding. [FFI header and lifetime import](research/compiler-and-translation/RT-13/RT-13-FFI-HEADER-IMPORT-2026-11-25.md)
+
+- Parse three real headers into a bounded LP64 type profile and compare 454 native POSIX, SQLite and OpenSSL observations. The wrong width refuses to compile. A same-ABI changed digest fails all 27 semantic cases. Other OS APIs and general IDL support remain open. [RT-13 typed header imports](research/compiler-and-translation/RT-13/RT-13-FFI-TYPED-HEADER-IMPORT-2026-11-25.md)
+
+- FFI-03 Export: compile selected stable public interfaces to static/shared libraries, generate C headers and import metadata, check implementation refinement of public contracts and target-specific ABI mapping. Test independent C/C++, Rust, Python, Go and Java consumers through appropriate adapters.
+
+- Generate a versioned public header and static and shared exports. C, C++, Rust, CPython, Go and Java each match the independent result and output-slot oracle across 1,008 preserving calls. [RT-13 versioned public export](research/compiler-and-translation/RT-13/RT-13-FFI-SIX-LANGUAGE-EXPORT-2026-11-25.md)
+
+- FFI-04 Check native tagged sums, scalar/pointer carriers and wrong-convention refusal in 40 observations. Reconcile by-value, return, variadic and callback evidence across native System V/MS x64, emulated AArch64/RV64 and freestanding ARM scopes. [Tagged sums and calling ABI](research/compiler-and-translation/RT-13/RT-13-FFI-TAGGED-SUM-AND-CALL-ABI-2026-11-25.md)
+
+- Check 480 C and assembly variadic calls across five native or emulated ABI profiles. All 240 wrong floating placements fail, and bypassing source binary32 conversion changes 90 results. The MS x64 control distinguishes valid XMM contents from mandatory integer duplication. [Variadic FFI conventions](research/compiler-and-translation/RT-13/RT-13-FFI-VARIADIC-ABI-2026-11-25.md)
+
+- Check 288 positive AArch64, RV64 LP64D and RV64 LP64 aggregate calls under QEMU user mode. All 144 wrong mixed-register controls fail with equal layouts and matching ELF flags, while LLD separately refuses hard/soft object mismatches. [AArch64 and RV64 aggregate ABI](research/compiler-and-translation/RT-13/RT-13-FFI-AGGREGATE-CROSS-ABI-2026-11-25.md)
+
+- FFI-05 Reconcile static, shared and runtime loader evidence across ELF, PE/COFF and Mach-O. Six new Mach-O links check ad-hoc signing metadata and detect each changed text page. The comparison separates actual symbol/loader closure from import archive, packaging and signing authority. [Link, load and signature boundaries](research/compiler-and-translation/RT-13/RT-13-FFI-LINK-LOAD-AND-SIGNATURE-BOUNDARIES-2026-11-25.md)
+
+- Audit static and dynamic consumer load commands, install names and chained fixups in each profile. The x64 client can link an ARM64 provider with a matching name, while the package gate rejects the actual CPU mismatch. [RT-13 Mach-O profiles](research/compiler-and-translation/RT-13/RT-13-FFI-MACHO-PROFILES-2026-11-25.md)
+
+- Distinguish DLL import and static .lib archives by final PE closure. An ordinary call linked with an import library still requires the DLL. Wrong cross-architecture import archives can produce byte-identical EXEs, so exact package identity remains a separate gate. [RT-13 Windows COFF profiles](research/compiler-and-translation/RT-13/RT-13-FFI-WINDOWS-COFF-PROFILES-2026-11-25.md)
+
+- Check 126 native ELF processes and 21 linked/archive pairs. Base-namespace loads reuse the first transitive leaf in 84 later bindings even with identical plug-in bytes. Twenty-eight wrong identities match the behavior. Separate namespaces resolve exact leaves, and close snapshots distinguish unload and NODELETE. [Versioned ELF loader scope](research/compiler-and-translation/RT-13/RT-13-FFI-LOADER-SCOPE-2026-11-25.md)
+
+- FFI-06 Reconcile foreign-thread and multi-provider callback evidence with native CPython embedding. Two native builds check 36 interpreter lifecycle events, including separate state, contained failure, stale generation refusal and repeat runtime finalization. General extension and cross-platform behavior remain separate. [Embedded CPython callbacks](research/compiler-and-translation/RT-13/RT-13-FFI-EMBEDDED-CPYTHON-2026-11-25.md)
+
+- Replay 168 managed callback lifecycles and 672 upcalls across Go cgo, cgocheck2 and interpreted/compiled Java FFM. All match the native C ledger. Four uncaught failures terminate the hosted processes, and Go requires an explicit native stdout flush in this fixture. [Go and JVM callbacks](research/compiler-and-translation/RT-13/RT-13-FFI-MANAGED-CALLBACKS-2026-11-25.md)
+
+- Check 96 scenarios across C++, Rust and CPython callback bridges. A foreign worker reenters the exact loaded provider. Each bridge catches its own failure before returning through the C ABI. [RT-13 loaded-provider callbacks](research/compiler-and-translation/RT-13/RT-13-FFI-LOADED-CALLBACK-2026-11-25.md)
+
+- Compare 126 native C, CPython and Rust callback lifecycles. Two worker instances, join order, reentry and generation retirement agree for all 504 upcalls, including 72 typed failures. Rust panic=abort terminates both failure controls. [Foreign-thread FFI callbacks](research/compiler-and-translation/RT-13/RT-13-FFI-CALLBACK-LIFETIME-2026-11-25.md)
+
+- FFI-07 Check native heap/mapping ownership, checked byte ranges, exact exclusive borrow settlement, cancellation and provider-specific errors. The shared-library fixture matches 48 observations and refuses mismatched providers, stale loans and release during cancellation. Cross-reference foreign-thread and Win32/POSIX error evidence. [FFI allocator leases](research/compiler-and-translation/RT-13/RT-13-FFI-ALLOCATOR-LEASES-2026-11-25.md)
+
+- Observe 72 completions, 24 pre-delivery cancellations and 94 stale requests after opening a successor. Pending close and repeat finish fail explicitly. Equal tokens in two loaded instances do not establish callback authority. [RT-13 loaded-provider callbacks](research/compiler-and-translation/RT-13/RT-13-FFI-LOADED-CALLBACK-2026-11-25.md)
+
+- FFI-08 API/ABI evolution: separate public semantic identity, contract compatibility, binary layout/calling compatibility, symbol versions and implementation identity. Generate contract/ABI manifests with exact artifact hashes and provenance; test compatible and incompatible library upgrades and stale evidence.
+
+- Check compatible provider replacement with a fresh receipt, same-ABI contract drift in 33 rows per language, and compile-time refusal of the narrowed output slot. Bind exact provider bytes, header, ABI, consumer and contract. [RT-13 versioned public export](research/compiler-and-translation/RT-13/RT-13-FFI-SIX-LANGUAGE-EXPORT-2026-11-25.md)
+
+- FFI-09 Formal verification: use scoped external contracts as explicit premises under RT-36, not unconditional proofs of external implementations. Check adapters, caller obligations and provider refinements; bind proof/test evidence to resolved library bytes, ABI, target and environment. Preserve UNKNOWN/conditional results when correspondence or premises are missing; invalidate dependent cache entries when relevant identities change.
+
+- Check four Lean caller propositions under explicit provider and storage premises, replay 1,440 native observations and check 15 exact eligibility controls. Stale or incomplete evidence stays unknown. A same-ABI behavioral contradiction remains explicit. [RT-13 conditional FFI receipts](research/compiler-and-translation/RT-13/RT-13-FFI-CONDITIONAL-RECEIPTS-2026-11-25.md)
+
+- FFI-10 Bind actual ELF, Mach-O and PE/COFF cross-builds to the existing package manifest and semantic cache. All 32 delivery checks preserve the exact core package. Four exact actions hit, 20 changed keys miss and eight artifact controls refuse. SDK and native runtime admission stay separately scoped. [FFI target package cache](research/compiler-and-translation/RT-13/RT-13-FFI-TARGET-PACKAGE-CACHE-2026-11-25.md)
+
+- Verify 12 byte-reproduced cross-builds, 36 artifact roles, 288 emulated calls and six exact cache reuses after reconnection. Host-only and triple-only keys admit five and two false hits. Exact manifests and ELF evidence refuse wrong ABI, format, bytes and same-ABI substitutions. [Cross-ABI package and cache](research/compiler-and-translation/RT-13/RT-13-FFI-CROSS-BUILD-CACHE-2026-11-25.md)
+
+- Reproduce Linux provider archives, shared libraries and exact consumer links for all three CPU profiles. The wrong-architecture object link is refused. [RT-13 Linux FFI triple replay](research/compiler-and-translation/RT-13/RT-13-FFI-LINUX-TRIPLE-REPLAY-2026-11-25.md)
+
+- Reproduce three pairs of native-format library artifacts. The linker refuses mismatched Apple platforms and warns on all three newer-minimum providers while still linking them. The package gate withholds those deployments. [RT-13 Mach-O profiles](research/compiler-and-translation/RT-13/RT-13-FFI-MACHO-PROFILES-2026-11-25.md)
+
+- Rebuild exact x64 and ARM64 DLL, EXE and archive artifacts with deterministic COFF object and link timestamps. Both wrong static architectures fail and both wrong import-record architectures are refused by the artifact gate. [RT-13 Windows COFF profiles](research/compiler-and-translation/RT-13/RT-13-FFI-WINDOWS-COFF-PROFILES-2026-11-25.md)
+
+- FFI-11 Verify independent C/LLVM providers and consumers in both directions across 16 hosted target cells and both static/shared link modes. All 64 artifacts pass inspection and 16 missing symbols refuse. Native Linux x86-64 reproduces 96 effects/results, with archived Linux user-mode and separate loader, ownership and exception controls. [Bidirectional hosted FFI matrix](research/compiler-and-translation/RT-13/RT-13-FFI-BIDIRECTIONAL-HOSTED-CONFORMANCE-2026-11-25.md)
+
+- Check 1,344 preserving C ABI observations across the static-provider and shared-provider routes. Same-ABI omitted effects change 92 rows per CPU while preserving every scalar result. [RT-13 Linux FFI triple replay](research/compiler-and-translation/RT-13/RT-13-FFI-LINUX-TRIPLE-REPLAY-2026-11-25.md)
+
+- FFI-12 Freestanding integration: reuse RT-37/38 target constraints for Cortex-M, Xtensa, RV32 candidate profiles and RV64; cover STM32F1, STM32F4 and ESP32 vendor SDK/static library interoperability; verify static/object-level interchange, startup, memory layout, explicit support routines and absence of accidental hosted dependencies.
+
+- Replay Cortex-M3, Cortex-M4F, RV32 and RV64 guests with exact static support and callback traces. Two ESP32 LX6 object modes require explicit memcpy, and the package gate refuses mixed call0 and windowed conventions despite linker success. RT-37 supplies separate vendor SDK execution evidence. [RT-13 freestanding archive FFI](research/compiler-and-translation/RT-13/RT-13-FFI-FREESTANDING-ARCHIVE-2026-11-25.md)
+
+**Existing evidence:** [C ABI/layout proposal](research/compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md), [POSIX runtime architecture](research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md), [native owned-result ABI](research/compiler-and-translation/RT-13/RT-13-NATIVE-OWNED-ABI-2026-11-24.md), [by-value call conventions](research/compiler-and-translation/RT-13/RT-13-BY-VALUE-CALL-ABI-2026-11-25.md). The Microsoft calling-convention experiment runs on Linux; it is not Windows OS conformance.
+
+### 7.1 Performance and scalability
+
+- Benchmark semantic graph size and traversal.
+
+- Compare repeated reverse-index construction with a retained immutable index across 60 trials and three graph shapes. All 360 query results match the oracle. At 8,192 nodes the retained route takes 5.25–24.26 ms per six-query batch including setup, with 1.82–5.82 MiB of extra index allocations. Persistent and representative workloads remain open. [RT-05 reverse traversal benchmark](research/semantic-representation/RT-05/RT-05-REVERSE-TRAVERSAL-BENCHMARK-2026-11-25.md)
+
+- Benchmark canonicalization and hashing.
+
+- Measure separate encoding and SHA-256 phases over 60 trials. For nested 512-entry payloads the medians are 461.78 and 27.61 µs per object, and retained lookup plus hashing with setup takes 56.38 µs. All byte and digest observations agree across repeated exact keys. Representative payload distributions and persistent caching remain open. [RT-05 canonical hash cost](research/semantic-representation/RT-05/RT-05-CANONICAL-HASH-COST-2026-11-25.md)
+
+- Benchmark dependency discovery and impact planning.
+
+- Measure discovery, independent payload audit and plan generation in 60 trials. Grouped decision lookup preserves every complete plan ID and conservative control, reducing median hot 1,024-caller planning from 76.28 to 18.95 ms. Persistent indexes, mixed actions and representative workloads remain open. [RT-06 impact planning benchmark](research/semantic-representation/RT-06/RT-06-IMPACT-PLANNING-BENCHMARK-2026-11-25.md)
+
+- Benchmark compilation and cache performance.
+
+- Measure a persistent native cache across ten trials. Fresh processes restore 10/10 artifacts, a verifier-only edit restores 9/10, and a damaged entry is refused before use. Median full-process warm restore is 47.05 ms versus 147.02 ms forced. Concurrent and distributed caching remain open. [RT-11 persistent build cache](research/toolchain-and-collaboration/RT-11/RT-11-PERSISTENT-BUILD-CACHE-BENCHMARK-2026-11-25.md)
+
+- Benchmark proof and test execution costs.
+
+- Measure 60 proof and finite-oracle processes across three pinned models. Every receipt matches its archive. Recorded median inner phases range from 370.31 to 1,306.24 ms for the proof harnesses and from 9.34 to 123.79 ms for the finite tests. Coverage and peak process RSS are reported separately. [Proof and test execution costs](research/formal-verification/PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-2026-11-25.md)
+
+- Benchmark storage, indexing, and garbage collection.
+
+- Measure 40 SQLite trials with exact dependency and retained-root checks. At 8,192 objects the indexed layout reduces median mark-and-sweep from 2,666.57 to 37.55 ms. VACUUM reduces physical size without changing survivors. Concurrent root publication, crash recovery and representative storage remain open. [RT-27 SQLite retention benchmark](research/toolchain-and-collaboration/RT-27/RT-27-SQLITE-RETENTION-BENCHMARK-2026-11-25.md)
+
+- Benchmark large repositories and highly connected graphs.
+
+- Check 14 fresh clones of two 65,536-node, three-commit synthetic repositories. All 70 closure queries match. From 130,944 to 2,095,104 edges, medians rise from 57.72 to 351.01 ms for read/verification and from 29.90 to 161.18 ms for five traversals. Long and representative histories remain open. [RT-27 large Git graph benchmark](research/toolchain-and-collaboration/RT-27/RT-27-LARGE-GIT-GRAPH-BENCHMARK-2026-11-25.md)
+
+- Benchmark concurrent edits and merge operations.
+
+- Measure 120 WAL-backed batches with two, four or eight simultaneous proposals. All 560 proposals produce the expected outcomes and equal final graphs. Exact projection avoids stale-head refreshes. The eight-writer independent median remains about 81 ms under both routes. Representative and distributed merges remain open. [RT-24 concurrent publication costs](research/toolchain-and-collaboration/RT-24/RT-24-CONCURRENT-PUBLICATION-COST-2026-11-25.md)
+
+- Report memory, latency, throughput, cache hit rates, and confidence intervals.
+
+- Verify eight raw benchmark ledgers and derive 11 scoped resource and latency medians with seed-pinned 95% bootstrap intervals. Exact cache counts are 0/100 cold, 100/100 restored and 90/100 after a verifier-policy edit. Generalization to representative projects remains open. [Stage 7 scalability metrics](research/research-management/SCALABILITY-METRICS-2026-11-25.md)
+
+- Identify pathological workloads and fallback strategies.
+
+- Check 80 bounded traversal profiles with observed history. Exact coalescing still exhausts its budget in 45 cases. Checked wider inventories preserve every outcome, while unavailable inventories yield UNKNOWN. Forty-four incomplete prefixes omit outcomes. Production state sufficiency and resource bounds remain open. [RT-06 bounded traversal fallback](research/semantic-representation/RT-06/RT-06-BOUNDED-TRAVERSAL-FALLBACK-2026-11-25.md)
+
+- Measure 90 traversal batches over five synthetic diamond depths. At depth 20, exact state coalescing preserves both outcomes with 119 visits versus 4,194,301, and medians of 25.29 µs versus 546.10 ms on one pinned CPU. Node-only coalescing loses one outcome. General state sufficiency and representative workloads remain open. [Diamond traversal benchmark](research/semantic-representation/RT-06/RT-06-DIAMOND-TRAVERSAL-2026-11-25.md)
+
+- **Mandatory research RT-25:** Compare per-executable, process-wide and per-component allocator integration. Six pinned studies and 280 new concurrent pressure processes distinguish startup refusal, payload admission, retry and selection scope across five allocator providers. Representative conditions and production choice remain human-gated. [Concurrent pressure and selection scopes](research/runtime-and-systems/RT-25/RT-25-CONCURRENT-PRESSURE-AND-SELECTION-SCOPES-2026-11-25.md)
+
+- Compare static mimalloc 3.7.1 as a named Rust allocator, public C override and explicit component provider. All 108 layout rows match across the three scopes, and every wrong-component release is refused. The separately pinned 2.0.9 component path fails its alignment guard. Representative workloads and policy selection remain open. [RT-25 static allocator selection](research/runtime-and-systems/RT-25/RT-25-STATIC-ALLOCATOR-SELECTION-2026-11-25.md)
+
+- Build pinned modern Google TCMalloc under Bazel 9.3.0 and check Rust System with exact shared symbols. Both providers pass 3,200 allocation sequences and all 24 graph processes match the checksum. Google TCMalloc has similar median traversal and larger retained RSS in this fixture. Other integration modes remain open. [Modern Google TCMalloc](research/runtime-and-systems/RT-25/RT-25-MODERN-GOOGLE-TCMALLOC-2026-11-25.md)
+
+- Measure the same synthetic graph under glibc, jemalloc, TCMalloc minimal and mimalloc (12 fresh processes per provider). The last two reduce observed traversal time and retain more RSS after graph drop in this series. [Four-provider allocator replay](research/runtime-and-systems/RT-25/RT-25-FOUR-PROVIDER-ALLOCATOR-REPLAY-2026-11-25.md)
+
+- Reproduce 128 native Rust–C buffer transfers across glibc and named mimalloc. Foreign release and short-copy requests fail without consuming the allocation, and exact caller-owned copies survive source release. Both optimized profiles match. Static linkage and runtime integration remain open. [Allocator ownership over FFI](research/runtime-and-systems/RT-25/RT-25-FFI-BUFFER-OWNERSHIP-2026-11-25.md)
+
+- Verify concurrent cross-thread ownership transfer across five Linux allocators in 100 processes. All ten separate address-space cases report a fallible refusal and a successful retry after release. Time intervals overlap at both producer counts, and representative workload and concurrent pressure coverage remain open. [Concurrent allocator evidence](research/runtime-and-systems/RT-25/RT-25-ALLOCATOR-CONCURRENT-AND-ADDRESS-LIMIT-2026-11-25.md)
+
+- Verify explicit component allocator ownership alongside glibc and jemalloc process profiles. The 1,080 cases preserve bytes and reject all 720 wrong-component release attempts. Rust also rejects retiring the provider while a borrowing block is live. Static linkage and production integration remain open. [Allocator scope and ownership](research/runtime-and-systems/RT-25/RT-25-COMPONENT-ALLOCATOR-OWNERSHIP-2026-11-25.md)
+
+- **Mandatory research RT-26:** Reconcile the runtime/OS scope and typed hierarchical reservation, enforcement and settlement rules. Seventy-two native Linux processes check 92,160 read-admission decisions and record overhead and refusal tails. Archived memory, CPU, scheduling, disk, network, quota and handler evidence supports the scoped contract. Platform timing and authorized counters remain human-gated. [Read admission and resource synthesis](research/runtime-and-systems/RT-26/RT-26-NATIVE-READ-ADMISSION-AND-RESOURCE-SYNTHESIS-2026-11-25.md)
+
+- Check 120 native Linux CPU timer trials. Process-wide timers expire under peer activity while worker CPU stays below budget. Exact worker timers wait for local CPU and still overshoot before observation. Archive individual host measurements. [RT-26 CPU timer scope](research/runtime-and-systems/RT-26/RT-26-CPU-TIMER-SCOPE-2026-11-25.md)
+
+- **Mandatory research RT-28:** Reconcile exact source occurrences, mirror binding, real upstream zlib releases and mixed-language differential controls. Forty-eight new local Git/WAL cases distinguish contribution dispositions, transactional shadow, guarded cutover and idempotent rollback. Two exact compatible cases cut over and retain the settled effect after rollback. Live contribution and production decisions remain human-gated. [Local contribution and cutover](research/compiler-and-translation/RT-28/RT-28-LOCAL-CONTRIBUTION-AND-CUTOVER-2026-11-25.md)
+
+- Reconcile three exact zlib releases and a Rust mirror over 848 preserving checksum rows. The prototype rewrite preserves both the projected C body and ELF, while the new source receipt differs. The altered mirror fails 124 rows and exact original rollback succeeds. [RT-28 zlib release mirror](research/compiler-and-translation/RT-28/RT-28-ZLIB-RELEASE-MIRROR-2026-11-25.md)
+
+- Reconcile 14 pinned C and Python source revisions. Formatting preserves the binding and extracted facts, an enrolled rename changes only the leaf binding, and five revisions trigger scoped rechecks. Eight incomplete or unsupported revisions block all three units. Real repository and executable correspondence remain open. [Source occurrences and mirror bindings](research/compiler-and-translation/RT-28/RT-28-SOURCE-OCCURRENCE-AND-MIRROR-BINDING-2026-11-25.md)
+
+- Check a C-to-Python migration unit in 4,356 baseline observations. Tags and caller-owned output match the contract. Three single-fault controls distinguish source, adapter and mirror divergences across all four compiler profiles. Actual LLMLang interop and production attribution remain open. [Mixed-language settlement](research/compiler-and-translation/RT-28/RT-28-MIXED-LANGUAGE-SETTLEMENT-2026-11-25.md)
+
+### Package indexes and dynamic package delivery
+
+- Define optional derived-result cache indexes in package archives and their integration with the semantic action cache; indexes must be independently omittable and must not affect logical package identity.
+
+- Verify optional cache transport across thirteen configurations. Twelve retain exact package identity, with three verified cache hits. The same Action Key can carry a different result, so reuse also checks trusted output identity and actual payload bytes. Production encoding, network fetch and authority remain open. [Optional package cache](research/packages-and-ecosystem/RT-12/RT-12-OPTIONAL-ACTION-CACHE-2026-11-25.md)
+
+- Define the logical package-content model: roots, included objects, typed dependency edges, exports, modules, evidence, and provenance.
+
+- Verify 14 archives and six refusal cases. Contents commit to selected roots, typed relationships and included evidence. Provenance binds the root and archive separately. Production wire, closure policy and signed carrier remain open. [Logical package content](research/packages-and-ecosystem/RT-12/RT-12-LOGICAL-PACKAGE-CONTENT-2026-11-25.md)
+
+- Define compact canonical binary index tables and their key ordering; require binary-search and deterministic streaming-merge semantics.
+
+- Define a candidate binary format for all four existing logical tables. All six provider orders produce one exact result, 1,224 lookups match, and malformed tables and conflicting merge rows are refused. Binary tables use 13,820 bytes versus 34,852 compact JSONL bytes. Stable wire selection remains open. [Binary index tables](research/packages-and-ecosystem/RT-12/RT-12-BINARY-INDEX-TABLES-2026-11-25.md)
+
+- Compare whole-index compression with independently compressed blocks; measure codec, block-size, lookup, scan, and memory trade-offs.
+
+- Evaluate optional sparse and hierarchical sparse indexes; establish when their lookup benefit justifies their storage and maintenance cost.
+
+- Check 2,064 candidate routes across four scales, three query distributions and four directory policies. At 4,096 blocks, clustered queries favor the hierarchy in bytes and calls, while dispersed results depend on relative request cost. At 65,536 blocks the hierarchy adds 1.56% storage and reduces a stable-length replacement from 4,980,736 to 82,688 bytes. Physical workload thresholds remain open. [Hierarchical directory](research/packages-and-ecosystem/RT-12/RT-12-HIERARCHICAL-DIRECTORY-2026-11-25.md)
+
+- Define index integrity, corruption detection, sparse-index reconstruction, and logical-versus-physical index identity.
+
+- Check 54 scoped lookups with a signed projection record. Six exact sparse results and nine canonical rebuilds match the oracle. All 39 unauthorized or unresolved cases remain unavailable. Production enrollment and wire selection remain open. [Authorized index reconstruction](research/packages-and-ecosystem/RT-12/RT-12-AUTHORIZED-INDEX-RECONSTRUCTION-2026-11-25.md)
+
+- Compare sparse-directory self-checking and exact layout pins across 33 lookups. Self-checking admits two false misses and one wrong row. Pinning and canonical rebuild preserve 27 exact results and refuse six unresolved lookups. Three projections share one logical table digest with distinct directory digests. Pin authority and production parsing remain open. [Package index integrity](research/packages-and-ecosystem/RT-12/RT-12-INDEX-INTEGRITY-2026-11-25.md)
+
+- Review and validate the manifest schema, canonical typed hash encoding, and digest algorithm with independent implementations and adversarial fixtures before treating them as stable.
+
+- Check 41 manifest cases using independent readers. The strict Python gate matches Go on 20 accepted receipts and 21 refusals. Four version-type and five integer-range disagreements in the earlier Python behavior close under this candidate. Stable acceptance remains a human gate. [Portable manifest scalars](research/packages-and-ecosystem/RT-12/RT-12-PORTABLE-MANIFEST-SCALARS-2026-11-25.md)
+
+- Compare independent Go and Python readers over 30 manifest/index cases and 16 standalone values. All common acceptances match canonical bytes and scoped hashes. Five admission gaps distinguish Boolean and float versions and the TOML integer range. Stable schema and range policy remain open. [Independent package identity](research/packages-and-ecosystem/RT-12/RT-12-INDEPENDENT-PACKAGE-IDENTITY-2026-11-25.md)
+
+- Define static package archive and optional generated human-readable index (for example, `INDEX.md`) derived from the machine index.
+
+- Reproduce six static archive variants and derive an optional detached index from verified machine tables. Descriptive and layout changes preserve the package root and document. Export changes invalidate stale documents, and the strict archive refuses undeclared embedded entries and damaged payloads. [Static and human index](research/packages-and-ecosystem/RT-12/RT-12-STATIC-INDEX-2026-11-25.md)
+
+- Define Dynamic Package requests by exact root Content Hash values and explicit dependency policies.
+
+- Define and verify a typed request with exact roots, policy and resolution inputs. Ten admission controls refuse malformed envelopes. A roots-only control shows that equal closure can hide a stale manifest profile unless the request gate checks it. [Exact Dynamic Package request](research/packages-and-ecosystem/RT-12/RT-12-DYNAMIC-REQUEST-2026-11-25.md)
+
+- Define exact-hash transitive dependency closure, optional/target/feature dependency semantics, and fail-closed missing-dependency behavior.
+
+- Compare two typed target edge policies in 1,296 outcomes. Active target traversal changes 258 requests. Unknown eligible conditions and missing exact objects return distinct refusal, while inactive edges can remain external. Production policy and broader compatibility remain open. [Typed target closure](research/packages-and-ecosystem/RT-12/RT-12-TYPED-TARGET-CLOSURE-2026-11-25.md)
+
+- Compare exact feature and target decisions in 3,840 resolver cases. Unbound Boolean reuse yields 1,846 incorrect memberships or outcomes. A snapshot-, root-, policy- and profile-bound gate matches all 240 current decisions and rejects the stale inputs. General target-kind and provider policies remain open. [Conditional package closure](research/packages-and-ecosystem/RT-12/RT-12-CONDITIONAL-CLOSURE-2026-11-25.md)
+
+- Define provider snapshot consistency, deterministic logical package roots, and separation of content from delivery metadata.
+
+- Compare 36 exact archives across 12 request profiles, two SQLite Providers and an independently built Static Package. Delivery snapshots and insertion order do not change matched archive bytes. Active missing data refuses publication while an inactive edge permits it. Distributed policy remains open. [Pinned Provider views](research/packages-and-ecosystem/RT-12/RT-12-DYNAMIC-REQUEST-2026-11-25.md)
+
+- Define multi-provider index merge, availability metadata, selective retrieval, and trust/provenance boundaries.
+
+- Define and check logical catalog merge and selective retrieval in 13 native SQLite scenarios and 25 offer orders. Availability-only selection errs 19 times. Exact checks bind catalog membership, authority, snapshot and streamed bytes. An exact retained old view remains admissible. Remote offer authentication remains open. [Multi-Provider retrieval](research/packages-and-ecosystem/RT-12/RT-12-MULTI-PROVIDER-RETRIEVAL-2026-11-25.md)
+
+- Retain 60 verified Provider samples over four shapes and 128, 1,200 and 4,096 objects on one pinned logical CPU. At 4,096 objects, median build time is 2.866–3.198 s for sparse shapes and 30.710 s for the 65,400-edge workload. Dedicated hardware and representative Store workloads remain open. [Single-core Provider baseline](research/packages-and-ecosystem/RT-12/RT-12-PROVIDER-BASELINE-2026-11-25.md)
+
+- Define a public immutable snapshot read API that can expose exact object metadata, dependency edges, and streaming payloads without private storage access; then implement a Provider adapter for a persistent backend.
+
+- Verify the public metadata, dependency and payload-stream API and the existing SQLite Provider adapter. Pinned, reopened and in-memory views produce the same verified archive with 131 edges and 2,099,220 streamed bytes. A stale view refuses missing data and preserves the destination. Distributed lease and retention policy remain open. [Public snapshot replay](research/packages-and-ecosystem/RT-12/RT-12-PUBLIC-SNAPSHOT-REPLAY-2026-11-25.md)
+
+- Define Package versus Library boundaries.
+
+- Verify eight packages with independently addressed library layers, including two libraries sharing one exact specification. Descriptive repacking preserves the package root and library identities. [Package and library contracts](research/packages-and-ecosystem/RT-12/RT-12-PACKAGE-AND-LIBRARY-CONTRACTS-2026-11-25.md)
+
+- Define library identity and public machine-readable contracts.
+
+- Check 96 typed library admissions plus a wrong-ABI control. Specification inspection and implementation eligibility use distinct exact checks. The public record includes conditions, effects, errors, state and ownership. Production conformance remains open. [Machine-readable contract model](research/packages-and-ecosystem/RT-12/RT-12-PACKAGE-AND-LIBRARY-CONTRACTS-2026-11-25.md#results)
+
+- Define dependency resolution and versioning.
+
+- Compare 126 exact request profiles and 16,038 provider orderings. Immutable locks replay on their retained catalog, shared release labels cannot identify differing bodies, and new selections bind their own request and snapshot. General version solving and production lock authority remain open. [Exact dependency locks](research/packages-and-ecosystem/RT-12/RT-12-EXACT-DEPENDENCY-LOCKS-2026-11-25.md)
+
+- Define template instantiation, customization, detachment, and migration.
+
+- Verify 648 prospective migrations across typed expansions and local changes. The 280 admitted proposals preserve lineage and stable identity, 333 report conflict, and 35 refuse invalid graphs. Detached and stale instances retain their local state. General structural migrations remain open. [Template lifecycle](research/packages-and-ecosystem/RT-12/RT-12-TEMPLATE-LIFECYCLE-2026-11-25.md)
+
+- Define global semantic artifact store and registry interfaces.
+
+- Check 24 scoped discoveries, 216 exact reads and four rejected publications against the shared SQLite Content Store. Two scope bindings reuse one immutable provider while retained registry generations preserve exact bindings. Distributed authority and retention remain open. [Shared Store and scoped registry](research/packages-and-ecosystem/RT-12/RT-12-SHARED-STORE-AND-SCOPED-REGISTRY-2026-11-25.md)
+
+- Define artifact publication, signing, mirroring, licensing, revocation, retention, and garbage collection.
+
+- Compare 256 delivery profiles and 48 local collection profiles against pinned signing and retention evidence. Revocation refuses exact mirror delivery, independently approved leases preserve historical access, and stale marks require retry. Remote lifecycle and policy remain open. [Publication and retention lifecycle](research/packages-and-ecosystem/RT-12/RT-12-PUBLICATION-RETENTION-LIFECYCLE-2026-11-25.md)
+
+- Separate content integrity from publisher trust and licensing rights.
+
+- Compare verified bytes, publication signatures and exact declared-use scope across 192 native Ed25519 cases. Integrity alone accepts 128, publisher authority accepts 16, and the full check admits two. Repacking preserves root-bound declared use while requiring a new exact archive statement. Production license and authority policy remain open. [Declared package rights](research/packages-and-ecosystem/RT-12/RT-12-DECLARED-PACKAGE-RIGHTS-2026-11-25.md)
+
+- Define opaque implementation evidence and verification limitations.
+
+- Compare two stripped providers at two optimization levels. All 28 sample observations match, but both changed builds diverge at the same unsampled input. Receipts refuse scope expansion and mismatched artifact, contract, target, toolchain or observation context. [Opaque implementation evidence](research/packages-and-ecosystem/RT-12/RT-12-OPAQUE-IMPLEMENTATION-EVIDENCE-2026-11-25.md)
+
+**Existing evidence:** [LIBRARIES-AND-TEMPLATES.md](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md) and [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md); related TODO items LL-006–LL-012.
+
+### 7.3 Parallel development and collaboration
+
+- Define concurrent graph edits and optimistic update rules.
+
+- Check 24 native WAL retry schedules and concurrent duplicate submission. Process exit before commit preserves neither mutation nor receipt, exit after commit preserves both, and retries revalidate an uncommitted projection or return the durable result. Distributed and general graph projections remain open. [Optimistic edit retries](research/toolchain-and-collaboration/RT-24/RT-24-OPTIMISTIC-RETRY-AND-RECEIPTS-2026-11-25.md)
+
+- Reproduce 144 two-writer SQLite WAL schedules with exact graph projections. Write-only CAS admits 24 invalid graphs. Whole-head CAS refuses 16 safe edits. Transactional checks of write targets, endpoint states, incident-edge presence and reverse reachability match the independent oracle in all 48 exact-gate schedules. General graph edit and retry rules remain open. [Concurrent graph writes](research/toolchain-and-collaboration/RT-24/RT-24-CONCURRENT-GRAPH-2026-11-25.md)
+
+- Define stable identity under rename, split, and merge.
+
+- Compare 704 rename, split and merge transitions. Five exact profiles accept. Changed public calls require scoped receipts, and equal semantic content cannot substitute a different managed occurrence. Production identity selection and dynamic routing remain open. [Identity lineage and caller rebinds](research/toolchain-and-collaboration/RT-24/RT-24-IDENTITY-LINEAGE-AND-REBIND-2026-11-25.md)
+
+- Define independent changes to contracts and implementations.
+
+- Check exact caller and callee bound composition in Lean and 10,530 contexts. Caller-body-only reuse falsely accepts and refuses 600 each. Exact binding yields no false decisions and current rechecking resolves every context. Effects and artifact correspondence remain open. [Caller contract composition](research/toolchain-and-collaboration/RT-24/RT-24-CALLER-CONTRACT-COMPOSITION-2026-11-25.md)
+
+- Compare 32 clean native merges of individually valid contract and provider edits and 3,250 native observations. Validation of the exact combined pair refuses seven of 16 pairs on value or modeled trace obligations. General proof composition and cross-operation dependencies remain open. [Contract and implementation merges](research/toolchain-and-collaboration/RT-24/RT-24-CONTRACT-BODY-MERGES-2026-11-25.md)
+
+- Define conflict detection and safe automatic resolution.
+
+- Reconcile four exact ledgers defining pending, conflict and scoped eligibility. Four of seven pending requests become eligible and three become conflicts. Two of three clean Git candidates fail semantic admission, and three saved slot-only resolutions fail current scoped review. [Safe resolution boundary](research/toolchain-and-collaboration/RT-24/RT-24-SAFE-MERGE-RESOLUTION-BOUNDARY-2026-11-25.md)
+
+- Define reviewable semantic change sets.
+
+- Reconcile three exact ledgers covering five Git projections, eight independently verified packets and eleven review contexts. Empty rendered changes can hide metadata failure. A new transitive caller invalidates the closed review subject while the direct edit remains exact. Real reviewer effectiveness and production authority remain open. [Reviewable change sets](research/toolchain-and-collaboration/RT-24/RT-24-REVIEWABLE-CHANGESET-2026-11-25.md)
+
+- Compare eleven semantic review contexts. Dependency-closed subjects retain review across two unrelated edits and require reapproval for changed consumers, selected provider, dependency, order or policy. An incomplete declared inventory stops before projection. Independent edge completeness, human authority and whole-candidate publication remain open. [Reviewable change-set scope](research/toolchain-and-collaboration/RT-24/RT-24-CHANGESET-REVIEW-SCOPE-2026-11-25.md)
+
+- Define provenance, authorship, approval, and audit trails.
+
+- Verify four distinct signed roles and nine refused audit histories. Exact scope, policy, predecessor, approved disposition and checkpoint distinguish the complete chain. Production issuance and checkpoint authority remain open. [Signed audit chain](research/toolchain-and-collaboration/RT-24/RT-24-SIGNED-AUDIT-CHAIN-2026-11-25.md)
+
+- Define collaboration across branches, forks, and shared artifact registries.
+
+- Check nine fork and registry handoffs plus parent and native ref controls. Only the exact current handoff publishes. A clean clone reproduces the selected merge and artifact lock. Remote authority and distributed coordination remain open. [Fork and registry handoff](research/toolchain-and-collaboration/RT-24/RT-24-FORK-AND-REGISTRY-HANDOFF-2026-11-25.md)
+
+- Test large multi-contributor scenarios.
+
+- Integrate 48 synthetic contributor heads in six orders over 576 native merge calls. Scope checks match full validation on all 288 guarded candidates, accept 36 per order and reject 12 while clean textual merges leave invalid groups. A fresh clone preserves the checked head. Real-team workloads and general affected-set completeness remain open. [Multi-contributor Git integration](research/toolchain-and-collaboration/RT-24/RT-24-CONTRIBUTOR-MERGES-2026-11-25.md)
+
+### 7.4 Security, trust, and reproducibility
+
+- Define trust boundaries among LLM authors, compiler, runtime, plugins, external tools, and artifact registries.
+
+- Check 840 scoped authority handoffs across six roles. Ten exact matrix entries pass and 830 refuse. Plugin intent and registry delivery cannot stand in for supervisor grants or independent behavior evidence. Production authentication and effect enforcement remain open. [Scoped trust handoffs](research/security/RT-16/RT-16-TRUST-HANDOFF-BOUNDARIES-2026-11-25.md)
+
+- Define deterministic validation independent of LLM claims.
+
+- Check three candidate models with two execution bounds, contrary agent claims and five receipt controls. Verifier-owned scope exposes the missing boundary input and reversed trace. A valid narrower receipt remains stale for the larger domain. All 24 existing policy tests pass. Production execution and evidence authentication remain open. [Independent validation](research/security/RT-16/RT-16-INDEPENDENT-VALIDATION-2026-11-25.md)
+
+- Define supply-chain provenance and signed evidence.
+
+- Reconcile three exact ledgers that distinguish signed builder provenance, independent restoration, archive identity and root-bound declared rights. Authority and exact scope remain separate checks. [Signed provenance boundary](research/security/RT-16/RT-16-PROVENANCE-AND-REBUILD-BOUNDARY-2026-11-25.md)
+
+- Define sandboxing and capability restrictions for generated code.
+
+- Reconcile OS launch isolation with 45 mediated-effect schedules. Fresh grant checks, serialization and external completion evidence protect different properties. Production launcher and remote runtime isolation remain open. [Isolation and mediated effects](research/security/RT-16/RT-16-ISOLATION-AND-MEDIATED-EFFECTS-2026-11-25.md)
+
+- Define cache poisoning and malicious artifact defenses.
+
+- Define exact byte and evidence admission with current authority and fail-closed support. The 704-profile model matches an independent oracle, and existing signed cache controls reject wrong bytes and inconsistent rebuilds. [Verified restoration boundary](research/security/RT-16/RT-16-RECOVERY-AND-VERIFIED-RESTORATION-2026-11-25.md)
+
+- Define secret handling and isolation of build/test environments.
+
+- Check pinned receipts for independent environment, descriptor and path controls in 48 native launches. The file-open gate leaves explicitly passed inputs accessible, and records include only presence observations. Production worker integration and secret policy remain open. [Worker boundary evidence](research/security/RT-16/RT-16-ISOLATION-AND-MEDIATED-EFFECTS-2026-11-25.md#reconciled-observations)
+
+- Check 48 native launches and 336 observations across explicit environment and descriptor lists and a scoped seccomp profile. New file opens fail under the filter while passed descriptors and environment values remain available. The local Landlock query returns ENOSYS. Production runner isolation remains open. [Build-worker isolation](research/security/RT-16/RT-16-WORKER-ISOLATION-2026-11-25.md)
+
+- Define reproducible builds and attestations.
+
+- Verify the distinct recipe and artifact claims across eight native build profiles and three exact independent cache rebuilds. Equal bytes with changed sources or flags require an exact new build statement. Cross-machine and full dependency closure remain open. [Rebuild and attestation evidence](research/security/RT-16/RT-16-PROVENANCE-AND-REBUILD-BOUNDARY-2026-11-25.md#reconciled-observations)
+
+- Compare eight GCC builds and ten native Ed25519 admission controls. Path-normalized independent checkouts produce exact bytes. Comment and unused-flag changes preserve bytes but change the signed recipe. Subject-only admits six claims while exact admission admits two. Full environment closure and production trust remain open. [Reproducible build attestation](research/security/RT-16/RT-16-BUILD-ATTESTATION-2026-11-25.md)
+
+- Define recovery and revocation when a tool, proof checker, or implementation is compromised.
+
+- Verify dependency closure after revocation. Sixty-nine profiles retain a complete support path and 635 remain unavailable. An independent rebuild and proof can restore eligibility under a new scope. Distributed authority and complete inventories remain open. [Recovery closure](research/security/RT-16/RT-16-RECOVERY-AND-VERIFIED-RESTORATION-2026-11-25.md#checked-observations)
+
+- Check revocation timing and exact replacement dependencies in Lean and 2,160 finite cases. Cached issuance admits 108 claims rejected by current retroactive policy. Re-signing with the affected checker fails, while an independent recheck supplies new evidence and requires rebinding dependent results. Production authority and dependency coverage remain open. [Proof evidence revocation](research/security/RT-16/RT-16-PROOF-REVOCATION-2026-11-25.md)
+
+### 7.5 Developer experience and adoption
+
+- Define human-readable source and semantic review workflows.
+
+- Generate and verify eight exact review packets containing the Git patch, typed changes and bounded observations. The workflow reports unavailable evidence on failed admission and rejects three mismatched packet controls. Human evaluation and production editor integration remain open. [Source and semantic review packets](research/toolchain-and-collaboration/RT-24/RT-24-REVIEW-PACKET-2026-11-25.md)
+
+- Define diagnostics that explain semantic impact and failed contracts.
+
+- Check 576 scoped diagnostic receipts. Seventy-two exact observations distinguish both clause failures and finite matches. The other 504 stay unavailable, and an incomplete reverse inventory cannot claim empty impact. Dynamic scope and participant evidence remain open. [Contract diagnostics and impact](research/toolchain-and-collaboration/RT-17/RT-17-CONTRACT-DIAGNOSTICS-AND-IMPACT-2026-11-25.md)
+
+- Define editor, language-server, and debugging requirements.
+
+- Check eight ELF builds and 64 source-binding pairs. Four exact DWARF requests resolve. Four stripped sessions stay unavailable, and 56 mismatched bindings refuse. The moved editor line maps to another function in the older artifact. Interactive debugging and editor evaluation remain open. [Editor and debug source scope](research/toolchain-and-collaboration/RT-17/RT-17-EDITOR-AND-DEBUG-SOURCE-SCOPE-2026-11-25.md)
+
+- Define migration and interoperability with existing languages and build systems.
+
+- Check native GNU Make and typed Python interop with three verified shared builds and 51 observations. Header content changes defeat timestamp-only freshness, while the exact current build receipt refuses stale bytes. Production dependency discovery and cutover remain open. [Native migration build handoff](research/compiler-and-translation/RT-28/RT-28-NATIVE-BUILD-HANDOFF-2026-11-25.md)
+
+- Build representative end-to-end examples.
+
+- Verify archived coverage for a typed CLI and the Toolchain change lifecycle. The examples include 170 execution observations and 864 exact round trips. Real-project scale and participant outcomes remain open. [End-to-end examples](research/language-design/RT-01/RT-01-END-TO-END-EXAMPLES-2026-11-25.md)
+
+- Define practical adoption criteria and migration strategy.
+
+- Verify 19,683 synthetic adoption profiles. Only the full nine-fact combination reaches canary eligibility. Exact baseline, effect isolation, representative evidence and checked rollback gate successive stages. Real thresholds and rollout authority remain open. [Adoption readiness](research/language-design/RT-01/RT-01-ADOPTION-AND-MIGRATION-READINESS-2026-11-25.md)
+
+### 7.6 Toolchain Server and semantic development API (RT-19)
+
+- Specify the complete transaction and recovery contract for multiple branches, authorized changes and production Git/filesystem failures.
+
+- Specify the complete candidate transaction and recovery contract across multi-ref and cross-repository publication, scoped authority, indeterminate storage outcomes and immutable historical receipts. TLC and an independent enumerator agree on 4,032 states and seven validated control traces. Native studies scope the claims. Production deployment and durability validation remain open. [Publication and recovery contract](research/toolchain-and-collaboration/RT-19/RT-19-PUBLICATION-RECOVERY-CONTRACT-2026-11-25.md)
+
+- Inject 13 Git write, sync and rename failures with four controls. Exit 128 covers nine old vectors, one mixed files vector and three already visible reftable vectors. Exact recovery retries old state, reconciles the new pair or refuses the mixed pair. Power-loss durability remains open. [Git ref filesystem faults](research/toolchain-and-collaboration/RT-19/RT-19-GIT-REF-FAULTS-2026-11-25.md)
+
+- Verify 24 two-repository Git and SQLite schedules, including eight process exits. Per-receiver atomic push preserves branch/witness pairing after hook refusal. Recovery resumes exact delivery or settles an existing publication, and refuses divergent, unwitnessed or conflicting state. A race distinguishes historical receipts from current remote refs. [Two-repository publication](research/toolchain-and-collaboration/RT-19/RT-19-TWO-REMOTE-PUBLICATION-2026-11-25.md)
+
+- Check 308 native schedules across files/reftable and SHA-1/SHA-256. Direct reads can mix generations across atomic writes. An unchanged marker admits 20 mixed split-write pairs. All 96 pinned reads are coherent, 44 are already superseded, and ancestry retains old tips after Git GC. [Coherent multi-ref reads](research/toolchain-and-collaboration/RT-19/RT-19-COHERENT-MULTIREF-READS-2026-11-25.md)
+
+- Check eight two-ref Git and SQLite journal recovery schedules. A full scoped grant publishes an unchanged batch, observation rights settle an already visible batch and mixed or diverged refs refuse. Cross-repository publication, coherent live read and power-loss durability remain open. [Prepared multi-ref recovery](research/toolchain-and-collaboration/RT-19/RT-19-MULTIREF-TRANSACTION-RECOVERY-2026-11-25.md)
+
+- Specify semantic import/export, external-edit detection, and atomic multi-file publication.
+
+- Reconcile exact archived round trips, worktree edits and generation schedules. Physical destination, canonical tree and leased generation require distinct observations. All 21 leased reads stay exact. Production durability and integrated concurrent publication remain open. [Interchange and publication contract](research/toolchain-and-collaboration/RT-19/RT-19-INTERCHANGE-AND-PUBLICATION-BOUNDARY-2026-11-25.md)
+
+- Compare 133 native publication schedules. Updating individual files produces 64 inconsistent reads, and resolving the current link per file produces nine. A pinned directory prevents mixtures but loses entries in ten retirements. Adding a cooperative lease preserves the selected generation in all 21 lease schedules. Durable and distributed publication remain open. [Native generation publication](research/toolchain-and-collaboration/RT-19/RT-19-GENERATION-PUBLICATION-2026-11-25.md)
+
+- Check 72 native external-edit cases. Size and mtime miss 18 checkout edits and report six touches as edits. Canonical Git normalization merges six line-ending changes. Literal symlinks and external referents retain separate observations, and a private index preserves the live index. Concurrent capture and server integration remain open. [Worktree external edits](research/toolchain-and-collaboration/RT-19/RT-19-WORKTREE-EXTERNAL-EDITS-2026-11-25.md)
+
+- Specify optimistic concurrency, multi-agent workspaces, idempotency, and conflict handling.
+
+- Check 16 SQLite workspace schedules with exact branch and local revision gates. Four independent branches accept both proposals, competing or stale writes refuse, and authorized retries return durable receipts. Production Git arbitration and semantic conflict coverage remain open. [Workspace arbitration](research/toolchain-and-collaboration/RT-19/RT-19-WORKSPACE-ARBITRATION-2026-11-25.md)
+
+- Prototype deterministic import/change/validate/accept/export/re-import as one vertical slice.
+
+- Run 864 end-to-end replays through the public in-memory Toolchain API. Independent roots, canonical export bytes and fresh re-imports agree. The scoped validation adapter blocks invalid or stale acceptance, while the raw lifecycle call only checks revision. Unaccepted export, changed destinations and tampered imports are rejected. Persistent integration remains open. [Toolchain export round trip](research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-ROUNDTRIP-2026-11-25.md)
+
+- Add failure-injection, security, authorization, and comparative source-editing tests.
+
+- Add four prototype boundary tests. Three typed and independently serialized edits yield the same snapshots. Unauthorized or stale acceptance refuses. An injected export replacement error preserves the destination and permits an exact retry. The 9 existing Toolchain and 24 policy tests also pass. [Comparative and failure tests](research/toolchain-and-collaboration/RT-19/RT-19-BOUNDARY-TESTS-2026-11-25.md)
+
+### 7.7 LLM patch planning, caller migration, hash propagation, and verified commit (RT-20)
+
+- Reconcile the function hashId and call-reference assumptions with identity Studies 05–08 and the RT-24 Identity and SPG Reconciliation report.
+
+- Check three exact ledgers covering native propagation, consumer forks and lineage. An exact callable address, selected occurrence, compatibility evidence and stable identity have distinct roles. Six path-specific decisions preserve separate callers, while supplied-row checking still needs independent completeness. [Call identity reconciliation](research/toolchain-and-collaboration/RT-20/RT-20-CALL-IDENTITY-RECONCILIATION-2026-11-25.md)
+
+- Specify reverse-reference completeness for direct, indirect, dynamic, external, and generated call sites.
+
+- Check 3,125 coverage profiles with typed call families. Only the five current closed receipts together establish an exact reverse result. The empty controls distinguish complete absence from missing, stale or open coverage. General extractor and registry correspondence remain open. [Reverse coverage by call kind](research/toolchain-and-collaboration/RT-20/RT-20-REVERSE-COVERAGE-BY-CALL-KIND-2026-11-25.md)
+
+- Check 200 native dispatch observations and 100 reverse-call receipt comparisons. Direct-only and unbound policies yield 90 and 44 wrong sets. Exact caller, Provider and registry binding yields 16 exact results, rejects 64 stale receipts and leaves all 20 open-domain claims unknown. General analysis and server integration remain open. [Native reverse calls](research/toolchain-and-collaboration/RT-20/RT-20-NATIVE-REVERSE-CALLS-2026-11-25.md)
+
+- Prototype single-chain propagation, mixed old/new callers, shared-caller splits, multiple call sites, and branching/converging graphs.
+
+- Check 2,376 native invocations with independent scalar results and exact trace expectations. The split preserves five baseline hashes and rebinds five dependent objects. An equal-result replacement changes 132 target traces per build. All 59 focused validation, semantic diff and planning tests pass. General plan derivation and publication remain open. [Native caller propagation](research/toolchain-and-collaboration/RT-20/RT-20-NATIVE-CALLER-PROPAGATION-2026-11-25.md)
+
+- Extend the call-site plan identity to represent one shared caller forked into multiple consumer/path-specific caller versions.
+
+- Verify all six exact decisions for three outputs of a shared caller in 288 order replays. Eight wrong binding controls fail. Mixed explicit hashes and output-slot references now hash deterministically, with the previous comparable fixture retaining its exact identity. General path discovery and plan completeness remain open. [Consumer fork identity](research/toolchain-and-collaboration/RT-20/RT-20-CONSUMER-FORK-IDENTITY-2026-11-25.md)
+
+- Prototype failed-validation/no-commit, exact-tree commit, concurrency rejection, and idempotent retry behavior.
+
+- Reproduce 16 exact-tree acceptance cases across SHA-1 and SHA-256 and both Git ref backends. Invalid candidates create no commit, ordinary races admit exactly one publication, and an exact retry returns the retained commit after the head advances. Worktree and mismatched-receipt controls verify exact tree binding. Production CIP checks, ref visibility and cross-store recovery remain open. [Exact-tree Git acceptance](research/toolchain-and-collaboration/RT-20/RT-20-EXACT-TREE-ACCEPTANCE-2026-11-25.md)
+
+- Reconcile the completion transaction with RT-19 persistence, crash recovery, atomic export, and Git coordination.
+
+- Compose exact CIP completion, a SQLite outbox, a native Git receipt and an atomic export pointer. Six process exits and one normal run recover the same accepted commit and one generation. A newer branch never supplies old export bytes, changed retries and modified generations refuse. Production distributed recovery remains open. [Completion outbox](research/toolchain-and-collaboration/RT-20/RT-20-COMPLETION-OUTBOX-2026-11-25.md)
+
+### Knowledge Context — LL-026
+
+- Define the boundary between Knowledge Context, free-form prompt text, runtime/execution context, semantic dependency closure, and Task Context.
+
+- Check 256 cases against independent read, runtime, and task completion gates. All 128 prose-only pairs change prompt bytes and preserve decisions. Thirty-two native executions require the exact dependency tuple, runtime and grant. Production dependency extraction, authority and model behavior remain open. [Knowledge Context boundaries](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-BOUNDARIES-2026-11-25.md)
+
+- Inventory eligible sources: Specification, Design, and Implementation objects; contracts; requirements; dependency records; diagnostics; tests and proof evidence; project documentation; approved external references.
+
+- Bind 11 source classes to exact branch blobs and fragments. Verify 44 role-purpose combinations and ten refusal controls. The external fixture admits an edition-specific citation under simulated approval. [Knowledge Context source inventory](research/toolchain-and-collaboration/RT-14/RT-14-SOURCE-INVENTORY-2026-11-25.md)
+
+- Compare exact snapshot-pinned object references with derived summaries, retrieved excerpts, and relevance-ranked material. Distinguish mandatory entries from optional supporting information.
+
+- Verify 864 evidence classifications across two purposes. Original objects and approved checked excerpts satisfy 40 mandatory cases. Summaries and ranked candidates supply only supporting evidence. Source and request binding alone would admit 240 additional cases. [Knowledge Context evidence forms](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-PROJECTIONS-2026-11-25.md)
+
+- Define provenance, source trust classes, revision freshness, conflict handling, unknown/missing sources, and evidence that a context is complete for a declared purpose.
+
+- Verify six source dispositions and exact snapshot/purpose finalization in 144 SQLite scenarios across 2,648 insertion orders and nine further controls. A role-presence rule accepts 2,600 incomplete or unsealed orders. Deployed source enumeration and authenticated finalization remain open. [Knowledge Context source trust](research/toolchain-and-collaboration/RT-14/RT-14-SOURCE-TRUST-2026-11-25.md)
+
+- Study context-size/token budgets, deterministic selection, relevance/coverage trade-offs, omission reporting, redaction, data minimization, and permission-aware retrieval.
+
+- Check 504 authorization and rendering combinations plus 1,512 private-field controls. Denied entries remain absent from rendered output and budget omissions. Exact tokenizer behavior is checked separately. Real permission integration and relevance remain open. [Context minimization](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-MINIMIZATION-2026-11-25.md)
+
+- Check 52 pinned tokenizer budgets and 312 stable input orders. Four mandatory-only budgets fail. Exact greedy loses optional utility in eight cases and additive greedy in 28. Receipts bind the exact rendered prompt and approved excerpt, and report scoped omissions. Provider framing and real task relevance remain open. [Knowledge Context token budgets](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-TOKENS-2026-11-25.md)
+
+- Separate Knowledge Context identity from semantic object identity, dependency hashes, Action Keys, and rendered prompt identity; specify invalidation and safe reuse conditions.
+
+- Check 8,192 identity changes and 32,768 authorization and reuse combinations. Prompt equality falsely admits 1,016 stale manifests, and dependency equality falsely admits 1,792 stale build actions. Live checks gate reuse independently of exact keys. Production authorization and cache replay remain open. [Knowledge Context identities](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-IDENTITY-2026-11-25.md)
+
+- Define transport-neutral assembly, inspection, serialization, and agent-facing retrieval APIs for RT-19.
+
+- Compare ten actual MCP stdio sessions with direct assembly and page decisions. Across 30 page positions, 14 disclose exact entries. Nine borrowed session cursors and both revoked scopes are refused. Atomic revocation and production cursor handling remain open. [Knowledge Context MCP API](research/toolchain-and-collaboration/RT-14/RT-14-KNOWLEDGE-CONTEXT-MCP-2026-11-25.md)
+
+- Check ten paginated read schedules under three policies with matching direct and JSON results. Snapshot and digest checks refuse lost or changed sources. Live grants stop both revoked reads, and exact scope binding requires reassembly after a grant revision changes. MCP, atomic revocation and production cursor handling remain open. [Knowledge Context pages](research/toolchain-and-collaboration/RT-14/RT-14-KNOWLEDGE-CONTEXT-PAGES-2026-11-25.md)
+
+- Construct discriminating fixtures for stale, conflicting, inaccessible, duplicated, incomplete, and over-budget context inputs.
+
+- Score 15 pinned inventories against explicit readiness labels. The ranked surrogate has precision and recall of 8/9 and the exact gate matches every fixture label. These are bounded readiness scores. [Context fixture scoring](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-FIXTURE-SCORING-2026-11-25.md)
+
+- Check 15 Knowledge Context inventories in all 164 distinct input orders per policy. Rank-only selection omits exact mandatory evidence in six cases. Exact selection returns nine contexts, distinguishes equal rendered prompts under changed provenance, and refuses six incomplete or conflicting inventories. Representative tasks and measured agent outcomes remain open. [Knowledge Context assembly](research/toolchain-and-collaboration/RT-14/RT-14-KNOWLEDGE-CONTEXT-ASSEMBLY-2026-11-25.md)
+
+### Task Context — LL-027
+
+- Define the boundary between Task Context, human intent/requirements, Change Impact Plan, Change Set, workspace, Knowledge Context, and authorization grants.
+
+- Check 1,024 cases and 512 prose-only pairs through the actual workspace prototype and impact planner. Eight exact changes apply, and two independently pass both acceptance evidence and authority. Cross-producer authentication and atomicity remain open. [Task Context producer boundaries](research/toolchain-and-collaboration/RT-14/RT-14-TASK-PRODUCERS-2026-11-25.md)
+
+- Define task identity and revision semantics; objective, requirement links, in/out-of-scope objects, constraints, non-goals, assumptions, prerequisites, deliverables, and acceptance criteria.
+
+- Check 514 equivalent encodings, ten field changes, and eight malformed declarations. SQLite distinguishes task identity, exact history, and equal declarations. Restored content cannot select the old receipt, while a display-title edit preserves the head. General schema migration and receipt authority remain open. [Task Context revision identity](research/toolchain-and-collaboration/RT-14/RT-14-TASK-IDENTITY-2026-11-25.md)
+
+- Compare lifecycle models for creation, clarification, planning, execution, blocked/failed states, cancellation, retry, delegation, decomposition, review, handoff, and completion.
+
+- Compare 1,144 lifecycle inputs. The status-only rule admits 152 unsafe transitions. Revision, attempt and evidence checks admit 40 and preserve terminal cancellation and completion. Production settlement remains open. [Task lifecycle boundary](research/toolchain-and-collaboration/RT-14/RT-14-TASK-LIFECYCLE-BOUNDARY-2026-11-25.md)
+
+- Define how a task pins its baseline snapshot, selected Knowledge Context, target objects, and related Change Set/CIP without duplicating their authoritative state.
+
+- Check 2,187 combinations of pinned references. Only the exact current producer records bind to the task. A different valid manifest baseline refuses. [Pinned Task Context references](research/toolchain-and-collaboration/RT-14/RT-14-TASK-PINNED-REFERENCES-2026-11-25.md)
+
+- Specify machine-checkable completion obligations: required mutations, tests, proofs, audits, approvals, evidence bindings, and fail-closed behavior when obligations remain unknown or unsatisfied.
+
+- Check 1,024 profiles with five distinct obligation and issuer roles. Only the complete passing set issues a receipt. Stale, wrong-issuer and conflicting approval cases refuse. [Exact obligation roster](research/toolchain-and-collaboration/RT-14/RT-14-OBLIGATION-ROSTER-AND-INSPECTION-2026-11-25.md)
+
+- Compare completion bindings and a separate current grant across 1,200 Task Context states. Label-only admits 590 incorrect completions and task ID admits 470. Exact completion agrees with the oracle on all states and publication accepts two; four old-receipt controls refuse subsequent publication. Atomic publication and authority integration remain open. [Task Context completion](research/toolchain-and-collaboration/RT-14/RT-14-TASK-CONTEXT-COMPLETION-2026-11-25.md)
+
+- Study multi-agent ownership, concurrent task revisions, subtask dependencies, idempotency, recovery, and the boundary between task completion and commit/push authorization.
+
+- Reconcile 16 delegation races, 27 settlement schedules and 120 grant profiles. Exact prerequisites avoid stale completion, retries preserve one receipt, and commit approval cannot authorize push. [Context ownership and recovery](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-CANDIDATE-AND-TASK-OWNERSHIP-2026-11-25.md)
+
+- Check 27 SQLite WAL task settlements and an interrupted retry. Active-state and task-only checks admit six and three stale completions respectively. Exact task and prerequisite matching admits both valid transitions and no stale ones. Connection-close rollback and exact retry retain one outcome. Production authorization and multi-child integration remain open. [Task Context settlement](research/toolchain-and-collaboration/RT-14/RT-14-TASK-CONTEXT-SQLITE-2026-11-25.md)
+
+- Keep authorization independent: a Task Context describes requested work and constraints but does not grant capabilities; RT-16 policy checks remain authoritative.
+
+- Check 120 completion and RT-16 authority combinations. One commit and one push combination pass their independent gates. Native Git CAS refuses a moved head, and exact-commit push preserves the authorized subject when the local branch advances. Production identity, remote trust and durable nonce handling remain open. [Task Context action authority](research/toolchain-and-collaboration/RT-14/RT-14-TASK-AUTHORITY-2026-11-25.md)
+
+- Build lifecycle and adversarial fixtures for stale baselines, scope expansion, omitted obligations, conflicting delegated work, cancellation/retry, and partial completion.
+
+- Check 22 lifecycle operations, 16 native delegation races and both cancellation orders. Overlap permits one owner, partial or incomplete scope cannot complete the parent, and an exact historical retry cannot settle a new revision. General dependency graphs and production authority remain open. [Task Context sibling lifecycle](research/toolchain-and-collaboration/RT-14/RT-14-TASK-SIBLINGS-2026-11-25.md)
+
+### Joint integration and exit criteria
+
+- Define the Knowledge Context ↔ Task Context relationship without making either the authority for the other's semantics.
+
+- Bind the selected Knowledge Context as one input to the task. Exact references do not authorize applying a change. The action grant is checked independently. [Task and knowledge roles](research/toolchain-and-collaboration/RT-14/RT-14-TASK-PINNED-REFERENCES-2026-11-25.md#producer-mapping)
+
+- Map both models onto RT-05/06 identity and dependency evidence, RT-02 requirements, RT-16 permissions, RT-19 workspaces/Change Sets, and RT-20 plan execution.
+
+- Verify each record against its owning producer, snapshot, identity and declared scope. Production services and policy remain open. [Producer mapping](research/toolchain-and-collaboration/RT-14/RT-14-TASK-PINNED-REFERENCES-2026-11-25.md#producer-mapping)
+
+- Validate that context manifests and task records are reproducible, inspectable, revision-bound, and fail closed on unknown completeness, stale baselines, or unauthorized reads/actions.
+
+- All 120 exact obligation orders produce one receipt digest, while changed manifest or baseline refuses. The separate joint fixture checks fact bindings and live action authority. [Joint inspection and completion](research/toolchain-and-collaboration/RT-14/RT-14-OBLIGATION-ROSTER-AND-INSPECTION-2026-11-25.md#results)
+
+- Check fourteen joint Knowledge/Task Context controls and 144 input permutations. Equal rendered prompts under changed scope or provenance cannot satisfy the old exact task binding. Four cases complete and two separately pass the grant gate. Production truth sources, workspace atomicity and controlled agent trials remain open. [Joint context validation](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-INTEGRATION-2026-11-25.md)
+
+- Record candidate schemas, lifecycle alternatives, invariants, falsifiers, compatibility dependencies, and a bounded prototype/test plan. Do not select language syntax or accept a normative architecture as a result of this planning entry.
+
+- Record candidate context records and ownership alternatives, and bind the prototype plan to explicit coverage, retry, cancellation and permission checks. [Candidate schemas and falsifiers](research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-CANDIDATE-AND-TASK-OWNERSHIP-2026-11-25.md#invariants-and-distinguishing-tests)
+
+### 7.9 AI-oriented syntax experimentation and MCP session observability (RT-31)
+
+- Define the boundary among the authoritative Semantic Model, Abstract Syntax Model, canonical Semantic IR, and independently versioned Concrete Syntax Profiles. Determine which structures are distinct and specify their mappings.
+
+- Compare four profiles and two selected providers across 224 observations. Equal syntax can elaborate differently under a changed binding, while formatting variants retain the admitted graph. [Syntax and semantic boundaries](research/language-design/RT-31/RT-31-SYNTAX-AND-SEMANTIC-LAYER-BOUNDARIES-2026-11-25.md)
+
+- Define frontend/generator contracts, profile versioning, source provenance, diagnostics locations, normalization, elaboration, and semantic validation boundaries.
+
+- Verify source-specific provenance, explicit profile refusal and nested coordinates for embedded syntax. Profile rendering round-trips the supported abstract terms and checks independent observations after elaboration. [Frontend contract](research/language-design/RT-31/RT-31-SYNTAX-AND-SEMANTIC-LAYER-BOUNDARIES-2026-11-25.md#candidate-boundaries)
+
+- Verify 256 conversion routes, 3,584 value-and-effect observations, and 39 diagnostic controls. Eight controls check exact byte locations, including a JSON-escaped scalar. Reparse refuses a lossy generator. General source maps and version migration remain open. [Frontend and generator contracts](research/language-design/RT-31/RT-31-FRONTEND-CONTRACT-2026-11-25.md)
+
+- Compare textual, explicit/verbose, structured, and hybrid syntax profiles while preserving the same declared semantic capabilities.
+
+- Compare four profiles and all 16 routes per configuration over 7,168 independent value and trace observations. The 32 original graph digests match. Another 56 cases check effectful nested operands. Surface syntax errors, elaboration errors and trace failures remain distinct. Model/human workload evaluation remains open. [Hybrid expression profile](research/language-design/RT-31/RT-31-HYBRID-PROFILE-2026-11-25.md).
+
+- Build a profile-independent task corpus covering representative language features and multi-step authoring tasks; pin acceptance oracles and negative controls.
+
+- Verify the exact three-task corpus, 504 bounded observations and 24 refused controls. Each stage preserves the declared semantic edit and observation scope. [Pinned authoring corpus](research/language-design/RT-31/RT-31-AUTHORING-CORPUS-AND-PROTOCOL-2026-11-25.md)
+
+- Define three two-step authoring tasks and check 504 observations across four profiles. Exact stage scope catches a harmless value-preserving edit, a correct terminal source cannot repair a failed earlier stage, and the ordered trace detects a value-equivalent change. All 24 controls refuse. Representative projects and participant trials remain open. [Staged authoring corpus](research/language-design/RT-31/RT-31-STAGED-AUTHORING-CORPUS-2026-11-25.md)
+
+- Implement parser/generator and cross-profile conversion prototypes; verify semantic equivalence independently of textual round-trip identity.
+
+- Define controlled AI experiments with pinned model/provider metadata, model settings, task/context, instruction version, profile, Toolchain build, and execution environment.
+
+- Check 96 synthetic assignment identities and four counterbalanced orders. Each position and directed adjacent profile pair balances. Live approved provider versions and outcomes remain pending. [Controlled assignments](research/language-design/RT-31/RT-31-AUTHORING-CORPUS-AND-PROTOCOL-2026-11-25.md#controlled-assignment)
+
+- Measure separate error categories and first-pass or repair-assisted outcomes in the synthetic attempt fixture.
+
+- Check seven first submissions, four repairs and seven error categories. Exact attempt binding and pending status preserve the denominators. [Attempt measurements](research/language-design/RT-31/RT-31-ATTEMPT-MEASURES-AND-ATTRIBUTION-2026-11-25.md)
+
+- Define an MCP session event model for sessions, turns, requests/responses, tool calls, validation runs, repair attempts, and final outcomes, with stable correlation and provenance.
+
+- Observe 26 versioned events across two MCP stdio repair sessions. Exact session, attempt, source and causal bindings pass all 48 complete delivery orders and leave 48 partial histories pending. Cross-session and same-session wire-ID controls distinguish correlation errors. Real model instrumentation and durable ingestion remain open. [MCP session event model](research/language-design/RT-31/RT-31-MCP-SESSION-DAG-2026-11-25.md)
+
+- Prototype privacy-aware recording with metadata-only and redacted-content modes; define authorization, secret redaction, retention, deletion, export, and audit controls before any unrestricted content capture.
+
+- Check 24 synthetic events, 49 canaries and 23 SQLite lifecycle controls. Both projections exclude the canaries before SQL and throughout export and retained storage. Exact scope and grant epochs gate capture, export, deletion, purge and audit. Live MCP integration, production retention and physical erasure remain open. [Metadata and redacted recording](research/language-design/RT-31/RT-31-PRIVATE-RECORDING-2026-11-25.md)
+
+- Define error attribution that distinguishes model mistakes, ambiguous/incomplete task context, Toolchain defects, and external environment failures; preserve multi-cause and unknown classifications.
+
+- Pin the attribution ledger and verify all 66,048 exact matches, including multiple causes and unknown evidence. Separate failure categories from causal labels. [Cause attribution](research/language-design/RT-31/RT-31-ATTEMPT-MEASURES-AND-ATTRIBUTION-2026-11-25.md#candidate-report)
+
+- Compare attribution over 66,048 synthetic delivery schedules with overlapping causes, unknown checks and wrong-attempt evidence. Last-session and first-attempt rules match 9,600 and 11,400 schedules. Exact attempt binding and an expected check roster match all. Live MCP instrumentation and reviewer calibration remain open. [MCP attempt attribution](research/language-design/RT-31/RT-31-MCP-ATTEMPT-ATTRIBUTION-2026-11-25.md)
+
+- Build analytics and held-out regression evaluation for syntax, instruction, diagnostic, and Toolchain changes; require reviewed promotion rather than automatic unreviewed mutation.
+
+- Check 120 offline cases across six variants and ten review controls. Four regressing candidates pass development and have unchanged parse counts. The held-out suite detects all four, and eligibility requires an exact current review of the complete ledger. Live workload evaluation and actual promotion remain pending. [Held-out regression analytics](research/language-design/RT-31/RT-31-HELDOUT-REGRESSION-2026-11-25.md)
+
+- Define and check the reporting format for sample sizes, uncertainty, reproducibility, token/cost, latency, human review effort, and semantic coverage.
+
+- Verify synthetic denominators and missing-data handling. Do not optimize parse success or cost at the expense of semantic acceptance. [Attempt reporting](research/language-design/RT-31/RT-31-ATTEMPT-MEASURES-AND-ATTRIBUTION-2026-11-25.md#synthetic-reporting-check)
+
+### 7.10 Semantic Function Discovery and Retrieval (RT-35)
+
+- Define the distinction among exact function identity/hash, canonical semantic description, derived semantic fingerprint, and rebuildable search index.
+
+- Verify separate exact callable, manifest, fingerprint and index domains. Description and layout changes can retain the exact callable identity. [Semantic description and query](research/semantic-representation/RT-35/RT-35-SEMANTIC-DESCRIPTION-AND-QUERY-2026-11-25.md)
+
+- Specify a candidate canonical description covering intent, input/output roles, preconditions, postconditions/behavior, effects/capabilities, errors, constraints, and optional cost characteristics.
+
+- Supply a machine-readable reservation description and verify explicit unknown cost and optional projection behavior. [Candidate records](research/semantic-representation/RT-35/RT-35-SEMANTIC-DESCRIPTION-AND-QUERY-2026-11-25.md#candidate-records)
+
+- Compare single-vector, multi-aspect, structured, lexical, and hybrid fingerprints/retrieval channels; keep embedding and ANN choices replaceable.
+
+- Compare five replaceable scoring projections over the same scope and exact IDs, with a separate scoped exact-versus-ANN comparison. [Compared evidence](research/semantic-representation/RT-35/RT-35-CHANNEL-COST-AND-CORPUS-2026-11-25.md#corpus-and-comparison)
+
+- Define intent-only, structured-requirement, and hybrid query forms, including provenance for explicit hard constraints versus soft preferences.
+
+- Check 108 query cases and two invalid-schema controls. Twenty-two current shape and provenance combinations pass, and free text does not establish hard requirements. [Query provenance](research/semantic-representation/RT-35/RT-35-SEMANTIC-DESCRIPTION-AND-QUERY-2026-11-25.md#checked-cases)
+
+- Prototype KNN/ANN candidate retrieval and structured metadata/contract filters; preserve retrieval-channel and score provenance.
+
+- Compare exact and approximate KD-tree retrieval over 3,072 functions and 192 queries. Pre-filtered ANN at eps 0.6 recovers 1,528 of 1,536 exact scoped pairs and 325 of 327 compatible pairs. Global top-eight followed by filtering leaves 102 empty shortlists. Exact receipt mismatch stays pending. Real embeddings and production measurement remain open. [ANN and contract filters](research/semantic-representation/RT-35/RT-35-ANN-CONTRACT-FILTER-2026-11-25.md)
+
+- Define and test hard compatibility checks for types, ownership, preconditions, postconditions, effects, capabilities, and failure behavior. Similarity scores must never authorize compatibility.
+
+- Check 2,187 facet combinations and seven isolated typed failures. One combination is compatible, 127 remain unknown and 2,059 are excluded. [Hard compatibility](research/semantic-representation/RT-35/RT-35-HARD-COMPATIBILITY-AND-AMBIGUITY-2026-11-25.md)
+
+- Specify unknown/incomplete evidence behavior, exclusion reasons, ranking, explanation, and ambiguity handling; do not silently bind an arbitrary top-1 result.
+
+- Verify that higher scores cannot override exclusion, unresolved candidates keep selection pending and two exact compatible identities remain ambiguous. Duplicate or conflicting evidence receives separate treatment. [Ambiguity and explanations](research/semantic-representation/RT-35/RT-35-HARD-COMPATIBILITY-AND-AMBIGUITY-2026-11-25.md#checked-outcomes)
+
+- Demonstrate exact hash resolution and call binding against an immutable semantic snapshot; runtime invocation must not repeat semantic search.
+
+- Replay 36 native calls using an exact snapshot and executable digest, including index removal and a separately authorized retained root. Reordering results preserves the binding. Nine stale, duplicate or mismatched controls refuse. Runtime invokes the sealed exact bytes without search. Production permissions and portability remain open. [Snapshot-bound native call](research/semantic-representation/RT-35/RT-35-BOUND-NATIVE-CALL-2026-11-25.md)
+
+- Define fingerprint/index versioning, incremental updates, cache keys/invalidation, snapshot consistency, stale-result rejection, and rebuild behavior.
+
+- Specify complete-key search caching, atomic ready publication, and verified delta/rebuild. SQLite generation checks yield 10 exact and 18 refusals. [Compared evidence](research/semantic-representation/RT-35/RT-35-CHANNEL-COST-AND-CORPUS-2026-11-25.md#candidate-publication-and-cache-contract)
+
+- Test access control, package/workspace scope, metadata visibility, tenant isolation, misleading descriptions, index poisoning, and adversarial near-neighbours.
+
+- Check 384 scope/field cases and reconcile native generation and derived-index integrity controls. [Response and resolution gates](research/semantic-representation/RT-35/RT-35-RESPONSE-AND-RESOLUTION-GATES-2026-11-25.md)
+
+- Build a benchmark corpus with differently named equivalent-purpose functions, semantically close but incompatible functions, overlapping signatures, hard-constraint violations, and unknown contracts.
+
+- Archive 72 cards for 66 exact objects and 36 query-scope combinations with 48 compatible pairs. [Compared evidence](research/semantic-representation/RT-35/RT-35-CHANNEL-COST-AND-CORPUS-2026-11-25.md#corpus-and-comparison)
+
+- Compare structured-only, single-vector KNN, multi-aspect KNN, and hybrid retrieval using Recall@K, precision/MRR/nDCG, compatible-candidate recall, false-compatible/unsafe-selection rate, ambiguity quality, latency, storage, and update cost.
+
+- Check all 180 reference orders and archive retrieval quality, ranked ambiguity, latency, update costs and encoded feature size. Persistent allocation is separately measured. [Compared evidence](research/semantic-representation/RT-35/RT-35-CHANNEL-COST-AND-CORPUS-2026-11-25.md#measured-cost)
+
+- Report uncertainty, model/index versions, failure cases, and reproducibility; establish evidence-based minimum safety and quality thresholds before automatic resolution.
+
+- Check 180 exact-coverage decisions, record fixture uncertainty limits and define minimum exact evidence and zero-error bounded regression gates. [Response and resolution gates](research/semantic-representation/RT-35/RT-35-RESPONSE-AND-RESOLUTION-GATES-2026-11-25.md)
+
+### 6.5 Synthesis status
+
+- Enumerate and independently verify the bounded owned-result source-to-publication candidate space (#286). Python, Z3 and cvc5 agree on all 4,608 pairs. [Integrated candidate enumeration](research/research-management/planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
+
+- Exercise native exact provider replacement through the scoped local release admission interface (#286). The C and Rust routes match 167,936 observations across eight executions, and all 22 negative admission controls preserve the selected release. [Native release admission](research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-2026-11-25.md)
+
+- Check concurrent revocation and stale-parent cut points of the native local release gate (#286). Eight cross-process schedules distinguish the SQLite write fence from a delayed lock on both exact native routes. [Concurrent release admission](research/research-management/planning-and-synthesis/CONCURRENT-RELEASE-2026-11-25.md)
+
+- Compare four source profiles on a shared finite state, cancellation and ownership workload (#291). All 36,864 observations agree under the same order. The actor trace set distinguishes scalar equality from schedule-independent behavior. [Four resource profiles](research/language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md)
+
+- Check a schedule-invariance criterion for the common resource-profile workload (#293). Four axiom-free Lean theorems and 9,216 paired finite evaluations distinguish scalar invariance from ordered trace equality. [Schedule-invariance criterion](research/formal-verification/SCHEDULE-INVARIANCE-2026-11-25.md)
+
+- Audit comparative evidence and prerequisites for all four integrated candidate vectors (#286). The checked ledger ties 40 candidate requirements to ten shared criteria and 20 pinned reports. [Candidate comparison evidence](research/research-management/planning-and-synthesis/CANDIDATE-COMPARISON-2026-11-25.md)
+
+- Recheck nine scoped result ledgers and regenerate the Provider chart from archived measurements. Link the verified call identity, publication, native invocation and resource discriminators to the integrated criteria. Common workloads and independent dispositions still gate candidate scoring. [Scoped evidence refresh](research/research-management/RESEARCH-OPTION-MATRIX-01.md#57-rechecked-evidence-at-call-publication-and-resource-boundaries)
+
+### LL-001 — Define the canonical OpHash envelope
+
+- **Evidence:** [RT-05 permissive operation identity](research/semantic-representation/RT-05/RT-05-PERMISSIVE-OPERATION-IDENTITY-2026-11-25.md) contrasts a complete relational contract address with exact provider binding. The fixture requires the ordered value/effect relation and its arithmetic interpretation, and leaves the production envelope open.
+
+- **Candidate:** [Exact identity envelope matrix](research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md) specifies and checks candidate fields without adopting a production schema.
+
+### LL-002 — Define Operation Stable ID lifecycle
+
+- **Evidence:** [RT-05 operation lifetime](research/semantic-representation/RT-05/RT-05-OPERATION-LIFETIME-2026-11-25.md) separates retirement and reactivation from immutable value retrieval and replacement. Exact old call admission depends on its publication pair and archive policy. Tombstone authority and distributed retention remain open.
+
+- **Candidate:** [Stable-ID publication](research/semantic-representation/RT-05/RT-05-STABLE-ID-PUBLICATION-2026-11-25.md) checks terminal retirement and authorized atomic allocation.
+
+### LL-003 — Specify contract-based analogue discovery and substitution
+
+- **Bounded evidence:** [Finite contract relations](research/language-design/RT-04/RT-04-CONTRACT-RELATIONS-FINITE-COMPARISON-2026-11-25.md) separates public refinement, local applicability and observable equivalence. Scope and exact provider correspondence remain open.
+
+- **Scoped evidence:** [Joint contract conformance](research/language-design/RT-04/RT-04-JOINT-CONTRACT-CONFORMANCE-2026-11-25.md) proves simultaneous conformance in a total function model and checks different event observations among conforming providers. [Analogue ranking and dispatch](research/language-design/RT-04/RT-04-ANALOGUE-RANKING-AND-DISPATCH-2026-11-25.md) compares discovery and exact admission in a finite catalog.
+
+- **Evidence:** [RT-05 conformance class identity](research/semantic-representation/RT-05/RT-05-CONFORMANCE-CLASS-IDENTITY-2026-11-25.md) separates a stable class definition from changing candidate discoveries and verifies finite membership only for exact evidence records.
+
+- **Candidate:** [Exact identity envelope matrix](research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md) specifies and checks candidate fields without adopting a production schema.
+
+### LL-004 — Choose canonical encoding and hash algorithm policy
+
+- **Evidence:** [RT-05 canonical wire admission](research/semantic-representation/RT-05/RT-05-CANONICAL-WIRE-ADMISSION-2026-11-25.md) validates exact typed wire bytes, expected identity domains and canonical digests across Python and JavaScript. The bounded profile leaves the production schema and digest registry open.
+
+- **Candidate:** [Canonical typed wire and digest-suite admission](research/semantic-representation/RT-05/RT-05-CANONICAL-TYPED-WIRE-AND-SUITES-2026-11-25.md) checks wire, locator and suite-policy separation.
+
+### LL-005 — Define hash-relevant dependency edges and cycles
+
+- **Evidence:** [RT-05 typed edge projections](research/semantic-representation/RT-05/RT-05-TYPED-EDGE-PROJECTIONS-2026-11-25.md) distinguishes the implementation identity closure from verification and source-navigation closures in one closed graph. Reverse lookups can create cycles when followed as identity edges. The experiment holds production edge extraction and semantic cycles open.
+
+- **Evidence:** [RT-05 recursive topology edits](research/semantic-representation/RT-05/RT-05-RECURSIVE-TOPOLOGY-EDITS-2026-11-25.md) checks group condensation through finite split and merge edits. Both prototype encodings match exact rooted graph equality and retain old addresses. Atomic publication and production canonicalization remain open.
+
+- **Evidence:** [RT-05 exact dependency propagation](research/semantic-representation/RT-05/RT-05-EXACT-DEPENDENCY-PROPAGATION-2026-11-25.md) proves change propagation under fixed ordered direct-call contexts and tests abstract-call reuse against exact consulted bindings. The proof concerns typed preimages; production digest admission and extraction remain open.
+
+- **Evidence:** [RT-06 SPG index reconciliation](research/semantic-representation/RT-06/RT-06-SPG-INDEX-RECONCILIATION-2026-11-25.md) replays 104 candidate tests and records open canonical hash, edge, cycle and admissibility decisions.
+
+- **Candidate:** [Hash-edge and cycle boundaries](research/semantic-representation/RT-05/RT-05-HASH-EDGE-AND-CYCLE-BOUNDARIES-2026-11-25.md) separates exact semantic groups from action, evidence, source and descriptive roles.
+
+### LL-007 — Separate target-profile semantics from implementation identity
+
+- **Evidence:** [RT-05 native implementation identity](research/semantic-representation/RT-05/RT-05-NATIVE-IMPLEMENTATION-IDENTITY-2026-11-25.md) separates exact build recipes, caller bytes and the resolved provider/ABI in one Linux fixture. Provider and ABI admission require an explicit binding. The experiment holds the runtime libraries fixed and leaves the production envelope open.
+
+- **Candidate:** [Implementation and execution boundaries](research/semantic-representation/RT-05/RT-05-IMPLEMENTATION-AND-EXECUTION-BOUNDARIES-2026-11-25.md) distinguishes exact dependency propagation from concrete target, runtime and build inputs.
+
+### LL-008 — Define compatibility evidence and evidence reuse rules
+
+- **Evidence:** [RT-05 provided contract identity](research/semantic-representation/RT-05/RT-05-PROVIDED-CONTRACT-IDENTITY-2026-11-25.md) checks exact body-to-provider and provider-to-required evidence subjects. Substituting executable bytes alone loses the provided declaration and admits stale reuse in the fixture. [Cross-target conformance receipts](research/language-design/RT-04/RT-04-CROSS-TARGET-CONFORMANCE-RECEIPTS-2026-11-25.md) also distinguishes exact evidence scopes with matching observation digests.
+
+### LL-021 — Define semantic action caching and incremental compilation
+
+- **Evidence:** [RT-11 scoped dependency fallback](research/toolchain-and-collaboration/RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md) compares whole-graph and per-scope recomputation under obsolete or missing completeness. The fixture preserves independent exact hits and blocks consumers whose fresh input is unavailable.
+
+- **Evidence:** [RT-11 semantic impact and proof freshness](research/toolchain-and-collaboration/RT-11/RT-11-SEMANTIC-IMPACT-AND-PROOF-FRESHNESS-2026-11-25.md) checks equivalent and changed subjects separately from execution and source receipt identities. The two pinned Lean releases accept the saved proof term source and refuse each other's compiled module.
+
+### LL-028 — Define backend-independent proof selection and evidence orchestration
+
+- **Scoped evidence:** [Checked-byte proof routes](research/formal-verification/RT-07/RT-07-CHECKED-BYTE-PROOF-ROUTES-2026-11-25.md) compares claim roles, and [proof format receipts](research/formal-verification/RT-07/RT-07-PROOF-FORMAT-RECEIPTS-2026-11-25.md) checks an exact receipt for two formats. General dispatch, production formats and trust policy remain open.
+
+### LL-030 — Define assumption identity, conditional proof closure and trust policy
+
+- **Scoped evidence:** [Claim trust crosswalk](research/formal-verification/RT-07/RT-07-CLAIM-TRUST-CROSSWALK-2026-11-25.md) distinguishes explicit premises, transitive axioms and checker trust for seven claims. The pinned Logos composition still needs an explicit trust disposition.

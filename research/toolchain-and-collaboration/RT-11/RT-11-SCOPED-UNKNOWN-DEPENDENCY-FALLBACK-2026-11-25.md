@@ -2,7 +2,7 @@
 
 ## Question and assumptions
 
-Can a build retain exact results from one part of its action graph when another has stale or missing completeness evidence? The [incremental invalidation review](../../formal-verification/RT-32/RT-32-INCREMENTAL-INVALIDATION-RECHECK-2026-11-23.md) identifies conservative revalidation and non-cacheable execution as fallback choices. This study compares their placement in one finite action graph. [PLAN §3.2](../../../PLAN.md#32-incremental-analysis-and-invalidation) · [#299](https://github.com/aivibeflow/LLMLang/issues/299) · [LL-021](../../../TODO.md#ll-021--define-semantic-action-caching-and-incremental-compilation)
+Can a build retain exact results from one part of its action graph when another has stale or missing completeness evidence? The [incremental invalidation review](../../formal-verification/RT-32/RT-32-INCREMENTAL-INVALIDATION-RECHECK-2026-11-23.md) identifies conservative revalidation and non-cacheable execution as fallback choices. This study compares their placement in one finite action graph. [PLAN §3.2](../../../PLAN.md#32-incremental-analysis-and-invalidation) · [#299](https://github.com/aivibeflow/LLMLang/issues/299) · [LL-021](../../../PLAN.md#ll-021--define-semantic-action-caching-and-incremental-compilation)
 
 Two independent module branches each have a source-and-environment body action, a deterministic analysis that consumes the body result, and a deterministic emitter that consumes the analysis result. Packaging joins the two artifacts. Each body action has current exact dependency evidence, an obsolete extractor receipt covering only the source, or no receipt. Downstream actions have complete declared byte-level inputs. The initial cache contains exact baseline outputs.
 

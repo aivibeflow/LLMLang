@@ -47,4 +47,4 @@ PYTHONHASHSEED=37 python3 -B "$fixture/check.py" > /tmp/llmlang-role-cycle-bound
 cmp "$fixture/evidence.json" /tmp/llmlang-role-cycle-boundary.json
 ```
 
-The fixture does not prove that a general frontend extracts all required roles, that a versioned canonicalizer handles all SCCs, or that revalidation and publication are atomic in a selected backend. Those are independent work items. [LL-005](../../../TODO.md#ll-005--define-hash-relevant-dependency-edges-and-cycles)
+The fixture does not prove that a general frontend extracts all required roles, that a versioned canonicalizer handles all SCCs, or that revalidation and publication are atomic in a selected backend. Those are independent work items. [LL-005](../../../PLAN.md#ll-005--define-hash-relevant-dependency-edges-and-cycles)

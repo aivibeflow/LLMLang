@@ -253,7 +253,7 @@ This is planning, not approval of a semantic profile. A scoped RFC may be possib
 
 ## 6. Evidence quality and traceability
 
-For each new result, retain exact branch/commit, files, command and tool versions, fixture selection, assumptions, positive/negative cases, limitations, evidence class, and the vector it could falsify. Update the taxonomy and option matrix when scope changes. Keep decisions in [TODO and open decisions](../../TODO.md) open until explicitly accepted.
+For each new result, retain exact branch/commit, files, command and tool versions, fixture selection, assumptions, positive/negative cases, limitations, evidence class, and the vector it could falsify. Update the taxonomy and option matrix when scope changes. Keep decisions in [TODO and open decisions](../../PLAN.md#open-design-questions) open until explicitly accepted.
 
 ## 7. References
 
@@ -265,4 +265,4 @@ For each new result, retain exact branch/commit, files, command and tool version
 - [RT-05 Recursive Identity Experiment](../semantic-representation/RT-05/RT-05-RECURSIVE-IDENTITY-EXPERIMENT.md)
 - [RT-11 Binding Invalidation Benchmark](../toolchain-and-collaboration/RT-11/RT-11-BINDING-INVALIDATION-BENCHMARK.md)
 - [RT-16 Threat Model 01](../security/RT-16/RT-16-THREAT-MODEL-01.md)
-- [TODO and open decisions](../../TODO.md)
+- [TODO and open decisions](../../PLAN.md#open-design-questions)

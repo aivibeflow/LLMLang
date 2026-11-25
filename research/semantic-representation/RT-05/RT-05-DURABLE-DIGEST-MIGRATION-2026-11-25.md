@@ -48,4 +48,4 @@ LC_ALL=C PYTHONHASHSEED=37 python3 -B "$fixture/check.py" > /tmp/llmlang-durable
 cmp "$fixture/evidence.json" /tmp/llmlang-durable-migration.json
 ```
 
-Mixed-client routing, authenticated alias publication, distributed quarantine consistency, production identity policy, performance and independent evidence transfer remain open. [LL-004](../../../TODO.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy)
+Mixed-client routing, authenticated alias publication, distributed quarantine consistency, production identity policy, performance and independent evidence transfer remain open. [LL-004](../../../PLAN.md#ll-004--choose-canonical-encoding-and-hash-algorithm-policy)

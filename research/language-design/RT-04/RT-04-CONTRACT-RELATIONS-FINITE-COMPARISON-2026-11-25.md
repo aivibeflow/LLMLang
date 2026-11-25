@@ -1,6 +1,6 @@
 # RT-04 — Contract identity, refinement, and observed substitution
 
-**Scope:** PLAN §1.3, [#290](https://github.com/aivibeflow/LLMLang/issues/290) and [LL-003](../../../TODO.md#ll-003--specify-contract-based-analogue-discovery-and-substitution). The finite model starts from `research/all` at `4132c237b5f60e4326a5d1254a603085dd3cf4e3`.
+**Scope:** PLAN §1.3, [#290](https://github.com/aivibeflow/LLMLang/issues/290) and [LL-003](../../../PLAN.md#ll-003--specify-contract-based-analogue-discovery-and-substitution). The finite model starts from `research/all` at `4132c237b5f60e4326a5d1254a603085dd3cf4e3`.
 
 LLMLang can keep one public operation contract while selecting a different provider. A tool needs to distinguish exact content identity, whether the replacement promises the public behavior, whether the actual body satisfies its promise, and whether a given caller or observation cache can notice the replacement. This study formulates those checks on a bounded relation model and tests shortcuts that conflate them. It complements [Scenario 14](../RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md) and the [public-interface finite refinement pilot](../../semantic-representation/RT-05/PUBLIC-INTERFACE-FINITE-REFINEMENT-PILOT-2026-11-24.md).
 

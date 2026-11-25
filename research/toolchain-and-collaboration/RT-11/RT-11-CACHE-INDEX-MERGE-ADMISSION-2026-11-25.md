@@ -1,6 +1,6 @@
 # Merge cache indexes and validate exact result availability
 
-**Scope:** PLAN §3.3, [#300](https://github.com/aivibeflow/LLMLang/issues/300), and [LL-021](../../../TODO.md#ll-021--define-semantic-action-caching-and-incremental-compilation). Closed candidate fixture on `research/all` at `e42d50a353f6c0fb92bf5728d66da115f2e407ce`.
+**Scope:** PLAN §3.3, [#300](https://github.com/aivibeflow/LLMLang/issues/300), and [LL-021](../../../PLAN.md#ll-021--define-semantic-action-caching-and-incremental-compilation). Closed candidate fixture on `research/all` at `e42d50a353f6c0fb92bf5728d66da115f2e407ce`.
 
 ## Question and candidate
 

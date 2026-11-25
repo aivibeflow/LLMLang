@@ -2,7 +2,7 @@
 
 - **Evidence** — Executable comparison, explicit graph argument and bounded corpus.
 - **Baseline** — `254352ee8cc635014a139811fd1f68ef2ce09777`.
-- **Plan** — [§1.1](../../../PLAN.md#11-semantic-program-graph-and-program-representation) · [§1.2](../../../PLAN.md#12-semantic-identity-hashes-and-canonical-encoding) · [LL-005](../../../TODO.md#ll-005--define-hash-relevant-dependency-edges-and-cycles).
+- **Plan** — [§1.1](../../../PLAN.md#11-semantic-program-graph-and-program-representation) · [§1.2](../../../PLAN.md#12-semantic-identity-hashes-and-canonical-encoding) · [LL-005](../../../PLAN.md#ll-005--define-hash-relevant-dependency-edges-and-cycles).
 
 ## Question and admitted graph
 

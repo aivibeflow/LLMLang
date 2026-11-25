@@ -4,7 +4,7 @@
 
 ## 1. Decision under study
 
-Content-addressed calls can refer to exact immutable callee versions. Directly putting each exact callee hash in its caller's hash preimage assumes those hashes already exist. A recursive component violates that construction order. This experiment checks how alternative representations address both the group and its callable members, and which dependents must acquire new addresses when it changes. [LL-005](../../../TODO.md#ll-005--define-hash-relevant-dependency-edges-and-cycles) · [Identity decision matrix](../../toolchain-and-collaboration/RT-24/RT-24-IDENTITY-DECISION-MATRIX.md)
+Content-addressed calls can refer to exact immutable callee versions. Directly putting each exact callee hash in its caller's hash preimage assumes those hashes already exist. A recursive component violates that construction order. This experiment checks how alternative representations address both the group and its callable members, and which dependents must acquire new addresses when it changes. [LL-005](../../../PLAN.md#ll-005--define-hash-relevant-dependency-edges-and-cycles) · [Identity decision matrix](../../toolchain-and-collaboration/RT-24/RT-24-IDENTITY-DECISION-MATRIX.md)
 
 Unison provides a concrete precedent for hashing mutually recursive definitions as a cycle and addressing a member by the cycle hash plus a position. This experiment uses an exhaustive structural search for its small fixtures. It does not reproduce Unison's canonicalization algorithm. [Unison literal hash reference](https://www.unison-lang.org/docs/language-reference/literal-hash-references/) · [Unison FAQ on mutually recursive definitions](https://www.unison-lang.org/docs/usage-topics/general-faqs/)
 
