@@ -1,0 +1,111 @@
+{
+  "baseline": "e1695217c29d59437e306748bc9faf2dfd7e4353",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "runner_sha256": "dcdabaf20b53b47a8e6101dd0b630774e1bcc5cb46001056a65dde8d4cd764f4",
+  "source_sha256": {
+    "research/toolchain-and-collaboration/RT-24/COMMIT-TREE-SEMANTIC-ROOT-01/run.py": "8988ba2211978258c5aefd95fd6c85ca16f0e78c167f14c799e4abb63f86ba16",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556"
+  },
+  "formats": {
+    "sha1": {
+      "initial": {
+        "commit": "3ff4266e7b2b4edbadfd22c6a7e71fbd109eb7b7",
+        "tree": "f965a0100d226e35efb487d75c7c255900030a43",
+        "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "observations": [
+          0,
+          1,
+          2
+        ],
+        "parents": []
+      },
+      "preview": {
+        "commit": "fb83bfdd629b3a0416d648888f9cc1e0ae5c316f",
+        "tree": "4a91f095d6d73fca430c5c5745bbb189b920364c",
+        "semantic_root": "c842ba6a21739bbf0b696acc7c59cc95b6ad4ba41f6ec23803c06672ed3ad3ba",
+        "observations": [
+          -2,
+          -1,
+          0
+        ],
+        "parents": [
+          "3ff4266e7b2b4edbadfd22c6a7e71fbd109eb7b7"
+        ]
+      },
+      "restored": {
+        "commit": "001b5fff33472ee86830d54a083b10e1e5bbe785",
+        "tree": "f965a0100d226e35efb487d75c7c255900030a43",
+        "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "observations": [
+          0,
+          1,
+          2
+        ],
+        "parents": [
+          "fb83bfdd629b3a0416d648888f9cc1e0ae5c316f"
+        ]
+      },
+      "annotated_tag": "695e12c796fc2fb75bb04be4cb7c412833bf17b0",
+      "branch_history": [
+        "001b5fff33472ee86830d54a083b10e1e5bbe785",
+        "fb83bfdd629b3a0416d648888f9cc1e0ae5c316f",
+        "3ff4266e7b2b4edbadfd22c6a7e71fbd109eb7b7"
+      ],
+      "ordinary_stale_push_rejected": true,
+      "deleted_preview_branch_pruned": true,
+      "tag_survived_prune": true
+    },
+    "sha256": {
+      "initial": {
+        "commit": "ef0a0e89e44c08222b41afc1eda5bfdd345b622bbf862f49d7480172ac7fe327",
+        "tree": "621027b6b0cf5c27f6f64f76bc8e2443976063b560ad23dc8f72eb57e18f04cd",
+        "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "observations": [
+          0,
+          1,
+          2
+        ],
+        "parents": []
+      },
+      "preview": {
+        "commit": "16ad2eb092e32d7ad0ae0b23ea67a2ba9f909b7dcb1b32248669a661e9133311",
+        "tree": "0c2bcaabe8e5fdcd5bb2f602d5641bdf64c087d832dfcfeda036df0af2bf5869",
+        "semantic_root": "c842ba6a21739bbf0b696acc7c59cc95b6ad4ba41f6ec23803c06672ed3ad3ba",
+        "observations": [
+          -2,
+          -1,
+          0
+        ],
+        "parents": [
+          "ef0a0e89e44c08222b41afc1eda5bfdd345b622bbf862f49d7480172ac7fe327"
+        ]
+      },
+      "restored": {
+        "commit": "a927e30a1eafdbdeb19536f296eee88da38efe47f4918a4f6dfb0aba82cae45a",
+        "tree": "621027b6b0cf5c27f6f64f76bc8e2443976063b560ad23dc8f72eb57e18f04cd",
+        "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "observations": [
+          0,
+          1,
+          2
+        ],
+        "parents": [
+          "16ad2eb092e32d7ad0ae0b23ea67a2ba9f909b7dcb1b32248669a661e9133311"
+        ]
+      },
+      "annotated_tag": "e6d814c717d3d70e07fb6178864b7959e9f17985e49b9761fb3e07aaab2cc9e1",
+      "branch_history": [
+        "a927e30a1eafdbdeb19536f296eee88da38efe47f4918a4f6dfb0aba82cae45a",
+        "16ad2eb092e32d7ad0ae0b23ea67a2ba9f909b7dcb1b32248669a661e9133311",
+        "ef0a0e89e44c08222b41afc1eda5bfdd345b622bbf862f49d7480172ac7fe327"
+      ],
+      "ordinary_stale_push_rejected": true,
+      "deleted_preview_branch_pruned": true,
+      "tag_survived_prune": true
+    }
+  }
+}
