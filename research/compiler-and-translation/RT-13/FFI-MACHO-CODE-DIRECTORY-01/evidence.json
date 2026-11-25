@@ -1,0 +1,65 @@
+{
+  "clang": "Debian clang version 19.1.7 (3+b1)",
+  "lld": "Debian LLD 19.1.7",
+  "profiles": {
+    "ios-arm64/ad-hoc": {
+      "changed_text_page_detected": 4,
+      "cpu": 16777228,
+      "directory": {
+        "bad_pages": [],
+        "code_directory_sha256": "6389d94f366f9dcea6c3f38766aae0938018c244e1e9d2eccc13831b41e37a97",
+        "directory_version": 132096,
+        "page_bytes": 4096,
+        "pages": 9,
+        "signature_slots": 1
+      },
+      "file_sha256": "3712a67e62e28be351f1f8e3ee0b0459a64b89068f73f0f87d8ce7378ebeb598",
+      "signature_present": true
+    },
+    "ios-arm64/unsigned": {
+      "cpu": 16777228,
+      "file_sha256": "84a4c916bcf4d10e319ffd016e6ae42739ba1bc0b1a81c1f6039a084a45eddb3",
+      "signature_present": false
+    },
+    "macos-arm64/ad-hoc": {
+      "changed_text_page_detected": 0,
+      "cpu": 16777228,
+      "directory": {
+        "bad_pages": [],
+        "code_directory_sha256": "fa9566225696bd1526a686ab06a0b5a56c69f414ea79ba55feacd9dedb6cf13a",
+        "directory_version": 132096,
+        "page_bytes": 4096,
+        "pages": 5,
+        "signature_slots": 1
+      },
+      "file_sha256": "93a4842db8a29c15fc8b56d94907b13e01d146d7e6e0f5eba67d8723a533ff52",
+      "signature_present": true
+    },
+    "macos-arm64/unsigned": {
+      "cpu": 16777228,
+      "file_sha256": "c4008d938d94b0b9e9dba7a5af3a25a5cef4226995f928e764d59ce0ba23f986",
+      "signature_present": false
+    },
+    "macos-x64/ad-hoc": {
+      "changed_text_page_detected": 0,
+      "cpu": 16777223,
+      "directory": {
+        "bad_pages": [],
+        "code_directory_sha256": "d96cd4e92b99ee65dce646b33950e2f43962c25bc4c5964cbbb86b8617072a51",
+        "directory_version": 132096,
+        "page_bytes": 4096,
+        "pages": 2,
+        "signature_slots": 1
+      },
+      "file_sha256": "5303d6577dfeb8805aee7b8db000f99a6af74a993bfa6022f34fb0c2cb33d59b",
+      "signature_present": true
+    },
+    "macos-x64/unsigned": {
+      "cpu": 16777223,
+      "file_sha256": "b609720bfe7ec3bdf203832d594be3c403663e48a558ba02ec790d145fb0ea23",
+      "signature_present": false
+    }
+  },
+  "runner_sha256": "c4de629451d0465c9d458f321722586112bb81235a55e68cadc3f6184ef245a5",
+  "source_sha256": "801357d96e8b042a3060b43af1d45b1485da340fe4724aedc0482af7b3d85b28"
+}

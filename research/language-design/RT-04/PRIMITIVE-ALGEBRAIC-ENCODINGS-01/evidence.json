@@ -1,0 +1,84 @@
+{
+  "format": "primitive-algebraic-encodings-01",
+  "lean_proofs": [
+    "'factor_after_distribute' does not depend on any axioms",
+    "'distribute_after_factor' does not depend on any axioms",
+    "'empty_has_no_branch' does not depend on any axioms",
+    "'flag_roundtrip' does not depend on any axioms",
+    "'invalid_flag' depends on axioms: [propext, Quot.sound]"
+  ],
+  "rows": {
+    "clang/-O0": {
+      "artifact": "8016db2fabdbc01a780edbc2ec50150df499ac88e5dd9dbc3c0d6fb444579216",
+      "compiler": "Debian clang version 19.1.7 (3+b1)",
+      "observations": {
+        "algebraic_values_per_encoding": 514,
+        "different_meanings_in_intersection": 256,
+        "first_incompatible_ranks": [
+          257,
+          1
+        ],
+        "first_incompatible_word": 512,
+        "strict_byte_values": 256,
+        "strict_flag_values": 2,
+        "wire_intersection": 258,
+        "words": 65536
+      }
+    },
+    "clang/-O2": {
+      "artifact": "b6e7b20f4554e5bbb1369826985b75ee67453cd055e7e4e0ff6d9a24960cc315",
+      "compiler": "Debian clang version 19.1.7 (3+b1)",
+      "observations": {
+        "algebraic_values_per_encoding": 514,
+        "different_meanings_in_intersection": 256,
+        "first_incompatible_ranks": [
+          257,
+          1
+        ],
+        "first_incompatible_word": 512,
+        "strict_byte_values": 256,
+        "strict_flag_values": 2,
+        "wire_intersection": 258,
+        "words": 65536
+      }
+    },
+    "gcc/-O0": {
+      "artifact": "5130ea379e3dd5d3dffbe70a9e96672fab7e6ee77f0bfdab144532dffed0be32",
+      "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+      "observations": {
+        "algebraic_values_per_encoding": 514,
+        "different_meanings_in_intersection": 256,
+        "first_incompatible_ranks": [
+          257,
+          1
+        ],
+        "first_incompatible_word": 512,
+        "strict_byte_values": 256,
+        "strict_flag_values": 2,
+        "wire_intersection": 258,
+        "words": 65536
+      }
+    },
+    "gcc/-O2": {
+      "artifact": "429146ff99bace8567401ecd96a740ae5db6168e0919377113d58e4a77aad1b8",
+      "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+      "observations": {
+        "algebraic_values_per_encoding": 514,
+        "different_meanings_in_intersection": 256,
+        "first_incompatible_ranks": [
+          257,
+          1
+        ],
+        "first_incompatible_word": 512,
+        "strict_byte_values": 256,
+        "strict_flag_values": 2,
+        "wire_intersection": 258,
+        "words": 65536
+      }
+    }
+  },
+  "source": {
+    "Shapes.lean": "7396436b6e87292f201ceb6983d2f7a6be58fb43714af035c832a9ecc5deca30",
+    "codec.c": "45a018fcbd2193280cfb71fdad650e73fb637fcc198353a8e4a64a0524385ce8"
+  }
+}

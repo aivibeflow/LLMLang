@@ -1,0 +1,168 @@
+{
+  "schema": "llmlang-proof-status-history/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "Status.lean": "bd15939a470d911dcdd99e79795de5af58b28576d19fc81eb9533dc1e5044d90",
+    "run.py": "05fb78751d4b5f47c0bd025bc3d60f0c795b92877df508e968e58108d7ff7792",
+    "axioms.txt": "ac71706bfb686848fbf3f4aaba20341e9a01dbe35e2bc2250880b46904bf206c"
+  },
+  "attempt_templates": [
+    {
+      "attempt": "draft",
+      "subject": "claim-v2",
+      "verdict": "candidate",
+      "authorized": true
+    },
+    {
+      "attempt": "timeout",
+      "subject": "claim-v2",
+      "verdict": "unknown",
+      "authorized": true
+    },
+    {
+      "attempt": "backend-unknown",
+      "subject": "claim-v2",
+      "verdict": "unknown",
+      "authorized": true
+    },
+    {
+      "attempt": "rejected-proof",
+      "subject": "claim-v2",
+      "verdict": "rejected",
+      "authorized": true
+    },
+    {
+      "attempt": "checked-proof",
+      "subject": "claim-v2",
+      "verdict": "proof",
+      "authorized": true
+    },
+    {
+      "attempt": "checked-witness",
+      "subject": "claim-v2",
+      "verdict": "counterexample",
+      "authorized": true
+    },
+    {
+      "attempt": "old-proof",
+      "subject": "claim-v1",
+      "verdict": "proof",
+      "authorized": true
+    },
+    {
+      "attempt": "untrusted-proof",
+      "subject": "claim-v2",
+      "verdict": "proof",
+      "authorized": false
+    }
+  ],
+  "counts": {
+    "subset_premise_pairs": 326,
+    "ordered_profiles": 4162,
+    "last_arrival_differs": 2359,
+    "closed_proof_demoted_to_unresolved": 364,
+    "order_sensitive_last_arrival_pairs": 240
+  },
+  "history_based_status_counts": {
+    "candidate": 32,
+    "unknown": 1002,
+    "proven": 583,
+    "checked": 583,
+    "refuted": 1564,
+    "conflict": 398
+  },
+  "additional_controls": {
+    "exact_repeat_keeps_one_attempt": true,
+    "conflicting_receipt_in_both_orders": true,
+    "same_status_distinct_attempt_count": 2
+  },
+  "comparison_rows_sha256": "fb9a5e081767d6900192aef70ec0f4c72bb72f892661544efca54073a75f81b4",
+  "disagreement_witnesses": {
+    "unknown:candidate": {
+      "arrivals": [
+        "timeout",
+        "draft"
+      ],
+      "open_premise": false
+    },
+    "proven:candidate": {
+      "arrivals": [
+        "checked-proof",
+        "draft"
+      ],
+      "open_premise": false
+    },
+    "checked:candidate": {
+      "arrivals": [
+        "checked-proof",
+        "draft"
+      ],
+      "open_premise": true
+    },
+    "refuted:candidate": {
+      "arrivals": [
+        "checked-witness",
+        "draft"
+      ],
+      "open_premise": false
+    },
+    "proven:unknown": {
+      "arrivals": [
+        "checked-proof",
+        "timeout"
+      ],
+      "open_premise": false
+    },
+    "checked:unknown": {
+      "arrivals": [
+        "checked-proof",
+        "timeout"
+      ],
+      "open_premise": true
+    },
+    "refuted:unknown": {
+      "arrivals": [
+        "checked-witness",
+        "timeout"
+      ],
+      "open_premise": false
+    },
+    "conflict:refuted": {
+      "arrivals": [
+        "checked-proof",
+        "checked-witness"
+      ],
+      "open_premise": false
+    },
+    "conflict:proven": {
+      "arrivals": [
+        "checked-witness",
+        "checked-proof"
+      ],
+      "open_premise": false
+    },
+    "refuted:checked": {
+      "arrivals": [
+        "checked-witness",
+        "checked-proof"
+      ],
+      "open_premise": true
+    },
+    "conflict:candidate": {
+      "arrivals": [
+        "checked-proof",
+        "checked-witness",
+        "draft"
+      ],
+      "open_premise": false
+    },
+    "conflict:unknown": {
+      "arrivals": [
+        "checked-proof",
+        "checked-witness",
+        "timeout"
+      ],
+      "open_premise": false
+    }
+  }
+}

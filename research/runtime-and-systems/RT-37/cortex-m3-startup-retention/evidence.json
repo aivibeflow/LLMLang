@@ -1,0 +1,96 @@
+{
+  "assembler": [
+    "Debian LLVM version 19.1.7",
+    "  Optimized build."
+  ],
+  "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+  "linker": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+  "profiles": {
+    "clear_through_retained": {
+      "image_sha256": "066450a4ffa791082c838df0fc3479d8ef8d7e6235fd96045ba2e595515f52a2",
+      "sections": {
+        ".bss": {
+          "address": 536870916,
+          "length": 4,
+          "type": "NOBITS"
+        },
+        ".data": {
+          "address": 536870912,
+          "length": 4,
+          "type": "PROGBITS"
+        },
+        ".noinit": {
+          "address": 536870920,
+          "length": 4,
+          "type": "NOBITS"
+        }
+      },
+      "uart": "200 200!"
+    },
+    "exact_sections": {
+      "image_sha256": "4801a8c4c3ec91609e01235ebf6f2a593d5dc5d78b9468949661d66382d8662a",
+      "sections": {
+        ".bss": {
+          "address": 536870916,
+          "length": 4,
+          "type": "NOBITS"
+        },
+        ".data": {
+          "address": 536870912,
+          "length": 4,
+          "type": "PROGBITS"
+        },
+        ".noinit": {
+          "address": 536870920,
+          "length": 4,
+          "type": "NOBITS"
+        }
+      },
+      "uart": "20c 207!"
+    },
+    "omit_clear": {
+      "image_sha256": "795b6282dd69de28644cf2d65f5481d9d4bb085acfdc31ad000d19918388a563",
+      "sections": {
+        ".bss": {
+          "address": 536870916,
+          "length": 4,
+          "type": "NOBITS"
+        },
+        ".data": {
+          "address": 536870912,
+          "length": 4,
+          "type": "PROGBITS"
+        },
+        ".noinit": {
+          "address": 536870920,
+          "length": 4,
+          "type": "NOBITS"
+        }
+      },
+      "uart": "2bc 267!"
+    },
+    "omit_copy": {
+      "image_sha256": "478399bb6a5e08869cd82acce7b2d215f79729ff0a93c0792ae466f45f02dbaa",
+      "sections": {
+        ".bss": {
+          "address": 536870916,
+          "length": 4,
+          "type": "NOBITS"
+        },
+        ".data": {
+          "address": 536870912,
+          "length": 4,
+          "type": "PROGBITS"
+        },
+        ".noinit": {
+          "address": 536870920,
+          "length": 4,
+          "type": "NOBITS"
+        }
+      },
+      "uart": "a0c 507!"
+    }
+  },
+  "python": "3.12.14",
+  "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+}

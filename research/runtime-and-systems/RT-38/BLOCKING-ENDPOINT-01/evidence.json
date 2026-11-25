@@ -1,0 +1,278 @@
+{
+  "counts": {
+    "preempt-loses-completion": 10,
+    "reachable_states": 53,
+    "reachable_transitions": 462,
+    "revoke-leaves-waiter": 3,
+    "send-ignores-generation": 6
+  },
+  "first_witnesses": {
+    "preempt-loses-completion": {
+      "action": [
+        "preempt",
+        0
+      ],
+      "correct": {
+        "active": false,
+        "generation": 1,
+        "pending": [
+          "cancelled",
+          0
+        ],
+        "phase": "ready"
+      },
+      "fault": {
+        "active": false,
+        "generation": 1,
+        "pending": null,
+        "phase": "ready"
+      },
+      "prefix": [
+        [
+          "schedule",
+          0
+        ],
+        [
+          "block",
+          1
+        ],
+        [
+          "revoke",
+          0
+        ],
+        [
+          "schedule",
+          0
+        ]
+      ]
+    },
+    "revoke-leaves-waiter": {
+      "action": [
+        "revoke",
+        0
+      ],
+      "correct": {
+        "active": false,
+        "generation": 1,
+        "pending": [
+          "cancelled",
+          0
+        ],
+        "phase": "ready"
+      },
+      "fault": {
+        "active": false,
+        "generation": 1,
+        "pending": null,
+        "phase": "waiting"
+      },
+      "prefix": [
+        [
+          "schedule",
+          0
+        ],
+        [
+          "block",
+          1
+        ]
+      ]
+    },
+    "send-ignores-generation": {
+      "action": [
+        "send",
+        0
+      ],
+      "correct": {
+        "active": true,
+        "generation": 1,
+        "pending": null,
+        "phase": "waiting"
+      },
+      "fault": {
+        "active": true,
+        "generation": 1,
+        "pending": [
+          "message",
+          0
+        ],
+        "phase": "ready"
+      },
+      "prefix": [
+        [
+          "schedule",
+          0
+        ],
+        [
+          "block",
+          1
+        ]
+      ]
+    }
+  },
+  "lean": {
+    "axioms": [
+      "'step_preserves_waiter' depends on axioms: [propext, Quot.sound]",
+      "'old_generation_does_not_deliver' depends on axioms: [propext]",
+      "'waiting_send_wakes_once' depends on axioms: [propext]",
+      "'revoke_cancels_waiting' depends on axioms: [propext]"
+    ],
+    "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "maximum_depth": 8,
+  "replacement_trace": [
+    {
+      "action": [
+        "schedule",
+        0
+      ],
+      "state": {
+        "active": true,
+        "generation": 1,
+        "pending": null,
+        "phase": "running"
+      }
+    },
+    {
+      "action": [
+        "block",
+        1
+      ],
+      "state": {
+        "active": true,
+        "generation": 1,
+        "pending": null,
+        "phase": "waiting"
+      }
+    },
+    {
+      "action": [
+        "revoke",
+        0
+      ],
+      "state": {
+        "active": false,
+        "generation": 1,
+        "pending": [
+          "cancelled",
+          0
+        ],
+        "phase": "ready"
+      }
+    },
+    {
+      "action": [
+        "regrant",
+        0
+      ],
+      "state": {
+        "active": true,
+        "generation": 2,
+        "pending": [
+          "cancelled",
+          0
+        ],
+        "phase": "ready"
+      }
+    },
+    {
+      "action": [
+        "schedule",
+        0
+      ],
+      "state": {
+        "active": true,
+        "generation": 2,
+        "pending": [
+          "cancelled",
+          0
+        ],
+        "phase": "running"
+      }
+    },
+    {
+      "action": [
+        "consume",
+        0
+      ],
+      "state": {
+        "active": true,
+        "generation": 2,
+        "pending": null,
+        "phase": "running"
+      }
+    },
+    {
+      "action": [
+        "block",
+        2
+      ],
+      "state": {
+        "active": true,
+        "generation": 2,
+        "pending": null,
+        "phase": "waiting"
+      }
+    },
+    {
+      "action": [
+        "send",
+        1
+      ],
+      "state": {
+        "active": true,
+        "generation": 2,
+        "pending": null,
+        "phase": "waiting"
+      }
+    },
+    {
+      "action": [
+        "send",
+        2
+      ],
+      "state": {
+        "active": true,
+        "generation": 2,
+        "pending": [
+          "message",
+          2
+        ],
+        "phase": "ready"
+      }
+    },
+    {
+      "action": [
+        "schedule",
+        0
+      ],
+      "state": {
+        "active": true,
+        "generation": 2,
+        "pending": [
+          "message",
+          2
+        ],
+        "phase": "running"
+      }
+    },
+    {
+      "action": [
+        "preempt",
+        0
+      ],
+      "state": {
+        "active": true,
+        "generation": 2,
+        "pending": [
+          "message",
+          2
+        ],
+        "phase": "ready"
+      }
+    }
+  ],
+  "source_sha256": {
+    "Blocking.lean": "64fe473e526bcf8c57fe1fabf82f5481e267989949387b6c72fd942e43439d88",
+    "run.py": "b92530753622602ffa492399717d8f195f7d8b4da681e45d24742a775a44932d"
+  }
+}

@@ -1,0 +1,1182 @@
+{
+  "schema": "llmlang-build-phase-overhead/1",
+  "platform": {
+    "python": "3.12.14",
+    "host": "x86_64",
+    "kernel": "6.18.57",
+    "processor": "AMD EPYC 9V74 80-Core Processor",
+    "affinity": [
+      4
+    ],
+    "cgroup_cpu_max": "400000 100000",
+    "temporary_fs_type": "overlayfs",
+    "tools": {
+      "gcc": {
+        "version": "gcc (Debian 14.2.0-19) 14.2.0",
+        "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+      },
+      "ar": {
+        "version": "GNU ar (GNU Binutils for Debian) 2.44",
+        "sha256": "f8fe09d485b40b1d47c534c96f5cbaaa9148e247aa0494c087104421f48ac5eb"
+      }
+    }
+  },
+  "runner_sha256": "51799d068f0a1ce278632512ebc526f5702a92e51f78bb9781f296cc5be1b780",
+  "seed": 318,
+  "trials_per_size": 17,
+  "workloads": [
+    {
+      "components": 2,
+      "translation_units": 4,
+      "graph_jobs": 10,
+      "storage_payloads": 8,
+      "verification_invocations": 2,
+      "hash_input_bytes": 39848,
+      "storage_payload_bytes": 39532,
+      "source_and_output_hashes": {
+        "part00_lib.c": "9afdfc96621bfaba4f6c157a2499bd87ea84f07d7cc625d47f817481fb2bb984",
+        "part00_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part01_lib.c": "9768bbfbe1166d4a5327f99af649d28e57aa0a9fcf1d34ae5375312f2dbc41ee",
+        "part01_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "common.h": "0f792d617f847c1fa100e3f55e5145c1b74bf18fb2188ce28ec6c1d0f7d40419",
+        "out/part00_lib.o": "7d3050171e58203a268e51591c0c8dfc749322ef2f6592ce7df60a4ce7ac74c8",
+        "out/part00_main.o": "2765186487ecf32c66a3f54e6ff95461e4f81fc387bc337471c361b2fe7ec5cb",
+        "out/part00.a": "c4cdd940ef938cee6800e86b82cb329492934543a2670335ba38bfbd5efd1790",
+        "out/part00.exe": "f71083b697e91de420564143ef19b9443937929bdc47688e48a947bb4dddb733",
+        "out/part01_lib.o": "45bed61c8a7786d86731fef49275c14fa490e19ca560607a3e6ffdf1c4987474",
+        "out/part01_main.o": "c7df125a414fa5a121c220233c048218c1a04d739ddd49b954d8ecf01feeac44",
+        "out/part01.a": "45293f61ad61f61554ecde767699575a88a5fe3777237abf9e0e5b8ae9c11e36",
+        "out/part01.exe": "cdd66f60860ad674c4d1f3af65b6776e3b353ffc8f1fd9a19f0b135dcba251f0"
+      },
+      "verified_integers": [
+        42,
+        43
+      ],
+      "samples": [
+        {
+          "trial": 0,
+          "order": [
+            "verification",
+            "scheduling",
+            "hashing",
+            "storage",
+            "discovery"
+          ],
+          "phase_ns": {
+            "verification": 3566632,
+            "scheduling": 12658,
+            "hashing": 290547,
+            "storage": 603997,
+            "discovery": 18946989
+          }
+        },
+        {
+          "trial": 1,
+          "order": [
+            "discovery",
+            "storage",
+            "verification",
+            "scheduling",
+            "hashing"
+          ],
+          "phase_ns": {
+            "discovery": 20558497,
+            "storage": 460106,
+            "verification": 2613421,
+            "scheduling": 15573,
+            "hashing": 223388
+          }
+        },
+        {
+          "trial": 2,
+          "order": [
+            "verification",
+            "discovery",
+            "storage",
+            "hashing",
+            "scheduling"
+          ],
+          "phase_ns": {
+            "verification": 3572871,
+            "discovery": 20267520,
+            "storage": 416572,
+            "hashing": 160716,
+            "scheduling": 15733
+          }
+        },
+        {
+          "trial": 3,
+          "order": [
+            "storage",
+            "hashing",
+            "scheduling",
+            "verification",
+            "discovery"
+          ],
+          "phase_ns": {
+            "storage": 496319,
+            "hashing": 154246,
+            "scheduling": 9894,
+            "verification": 1810111,
+            "discovery": 21145089
+          }
+        },
+        {
+          "trial": 4,
+          "order": [
+            "verification",
+            "discovery",
+            "hashing",
+            "storage",
+            "scheduling"
+          ],
+          "phase_ns": {
+            "verification": 2867435,
+            "discovery": 22805790,
+            "hashing": 270538,
+            "storage": 400739,
+            "scheduling": 17115
+          }
+        },
+        {
+          "trial": 5,
+          "order": [
+            "scheduling",
+            "hashing",
+            "discovery",
+            "verification",
+            "storage"
+          ],
+          "phase_ns": {
+            "scheduling": 6559,
+            "hashing": 164702,
+            "discovery": 20683681,
+            "verification": 4042232,
+            "storage": 643275
+          }
+        },
+        {
+          "trial": 6,
+          "order": [
+            "hashing",
+            "storage",
+            "discovery",
+            "scheduling",
+            "verification"
+          ],
+          "phase_ns": {
+            "hashing": 211911,
+            "storage": 310196,
+            "discovery": 21864687,
+            "scheduling": 20901,
+            "verification": 2693219
+          }
+        },
+        {
+          "trial": 7,
+          "order": [
+            "verification",
+            "storage",
+            "scheduling",
+            "hashing",
+            "discovery"
+          ],
+          "phase_ns": {
+            "verification": 1425495,
+            "storage": 566002,
+            "scheduling": 11016,
+            "hashing": 159395,
+            "discovery": 26095825
+          }
+        },
+        {
+          "trial": 8,
+          "order": [
+            "storage",
+            "discovery",
+            "scheduling",
+            "verification",
+            "hashing"
+          ],
+          "phase_ns": {
+            "storage": 506214,
+            "discovery": 23339294,
+            "scheduling": 28171,
+            "verification": 1718505,
+            "hashing": 243057
+          }
+        },
+        {
+          "trial": 9,
+          "order": [
+            "hashing",
+            "scheduling",
+            "storage",
+            "discovery",
+            "verification"
+          ],
+          "phase_ns": {
+            "hashing": 146365,
+            "scheduling": 9735,
+            "storage": 364496,
+            "discovery": 21876885,
+            "verification": 2738125
+          }
+        },
+        {
+          "trial": 10,
+          "order": [
+            "storage",
+            "hashing",
+            "discovery",
+            "verification",
+            "scheduling"
+          ],
+          "phase_ns": {
+            "storage": 426106,
+            "hashing": 158723,
+            "discovery": 21196965,
+            "verification": 1823300,
+            "scheduling": 16645
+          }
+        },
+        {
+          "trial": 11,
+          "order": [
+            "verification",
+            "storage",
+            "scheduling",
+            "hashing",
+            "discovery"
+          ],
+          "phase_ns": {
+            "verification": 1522217,
+            "storage": 542958,
+            "scheduling": 11316,
+            "hashing": 167246,
+            "discovery": 22988018
+          }
+        },
+        {
+          "trial": 12,
+          "order": [
+            "verification",
+            "hashing",
+            "discovery",
+            "storage",
+            "scheduling"
+          ],
+          "phase_ns": {
+            "verification": 2761338,
+            "hashing": 221236,
+            "discovery": 26506649,
+            "storage": 543148,
+            "scheduling": 17927
+          }
+        },
+        {
+          "trial": 13,
+          "order": [
+            "hashing",
+            "verification",
+            "storage",
+            "scheduling",
+            "discovery"
+          ],
+          "phase_ns": {
+            "hashing": 167376,
+            "verification": 1588354,
+            "storage": 490110,
+            "scheduling": 10485,
+            "discovery": 22173751
+          }
+        },
+        {
+          "trial": 14,
+          "order": [
+            "storage",
+            "hashing",
+            "verification",
+            "discovery",
+            "scheduling"
+          ],
+          "phase_ns": {
+            "storage": 523309,
+            "hashing": 190000,
+            "verification": 2898230,
+            "discovery": 21523235,
+            "scheduling": 19178
+          }
+        },
+        {
+          "trial": 15,
+          "order": [
+            "discovery",
+            "verification",
+            "scheduling",
+            "storage",
+            "hashing"
+          ],
+          "phase_ns": {
+            "discovery": 19207993,
+            "verification": 1585160,
+            "scheduling": 17186,
+            "storage": 659629,
+            "hashing": 156841
+          }
+        },
+        {
+          "trial": 16,
+          "order": [
+            "scheduling",
+            "storage",
+            "verification",
+            "discovery",
+            "hashing"
+          ],
+          "phase_ns": {
+            "scheduling": 9404,
+            "storage": 302374,
+            "verification": 2841897,
+            "discovery": 23074896,
+            "hashing": 965589
+          }
+        }
+      ]
+    },
+    {
+      "components": 8,
+      "translation_units": 16,
+      "graph_jobs": 40,
+      "storage_payloads": 32,
+      "verification_invocations": 8,
+      "hash_input_bytes": 159338,
+      "storage_payload_bytes": 158128,
+      "source_and_output_hashes": {
+        "part00_lib.c": "9afdfc96621bfaba4f6c157a2499bd87ea84f07d7cc625d47f817481fb2bb984",
+        "part00_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part01_lib.c": "9768bbfbe1166d4a5327f99af649d28e57aa0a9fcf1d34ae5375312f2dbc41ee",
+        "part01_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part02_lib.c": "2fb09d8673c5c5f0e1f9da401fa260195034cc43a3fcb521997e5e7a7564d18b",
+        "part02_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part03_lib.c": "26340d03c0c556d6889ffdc004dbe1ce1eb7219c4af31b6d3a676c9bd489a36e",
+        "part03_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part04_lib.c": "e268fbc5b1e59ba0403e01c82e3b1b9233608c0194fc7036af3a48685a4e6845",
+        "part04_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part05_lib.c": "015fa3fe5d155170816cbbb433b9a503b13f9bf96df5a4be12985e13300b5ba2",
+        "part05_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part06_lib.c": "ceb56cfa013d8d3c446a1ad099f62a9cdfa43b426267362411d4578985399486",
+        "part06_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part07_lib.c": "cc0bac02da0c63e4f7613a6adf8b4fb14dd389310d09cd8d4af2388fa01543d4",
+        "part07_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "common.h": "0f792d617f847c1fa100e3f55e5145c1b74bf18fb2188ce28ec6c1d0f7d40419",
+        "out/part00_lib.o": "7d3050171e58203a268e51591c0c8dfc749322ef2f6592ce7df60a4ce7ac74c8",
+        "out/part00_main.o": "2765186487ecf32c66a3f54e6ff95461e4f81fc387bc337471c361b2fe7ec5cb",
+        "out/part00.a": "c4cdd940ef938cee6800e86b82cb329492934543a2670335ba38bfbd5efd1790",
+        "out/part00.exe": "f71083b697e91de420564143ef19b9443937929bdc47688e48a947bb4dddb733",
+        "out/part01_lib.o": "45bed61c8a7786d86731fef49275c14fa490e19ca560607a3e6ffdf1c4987474",
+        "out/part01_main.o": "c7df125a414fa5a121c220233c048218c1a04d739ddd49b954d8ecf01feeac44",
+        "out/part01.a": "45293f61ad61f61554ecde767699575a88a5fe3777237abf9e0e5b8ae9c11e36",
+        "out/part01.exe": "cdd66f60860ad674c4d1f3af65b6776e3b353ffc8f1fd9a19f0b135dcba251f0",
+        "out/part02_lib.o": "7577b1aa1b601a14e2dcd7b715a301606440a52743809c150b83709dd68769d3",
+        "out/part02_main.o": "2a3d7d9dfb5e05e07cda4ddbfa04e800058dbdd9b10ff60c46208115e50f1b7b",
+        "out/part02.a": "ff19a3b774b4332d77390146010bdd3407dc180038423c91f8f05aea6cae723a",
+        "out/part02.exe": "58d7f969df6fe55107fa973b7f129cfa08e285062b668826f384374553617758",
+        "out/part03_lib.o": "0fa07486c35bc569e3fb5edc7bee622af21f8a9107b678ffe314ca59bc08ef83",
+        "out/part03_main.o": "e276fdc72a3453c3bf6f29df2c22731e71e705b22a0123ea9698ee81ee3296c3",
+        "out/part03.a": "b2261c990b75da9aa39ad3bcd7143cebc1d7dda3ff4327f94c944a7236120e6d",
+        "out/part03.exe": "9c0b50671830c04afccad2aa54acbfdeb7eba524fe7adfbcd1ea85c9c1910f38",
+        "out/part04_lib.o": "c0ecce6a8c709d037a108cc3d7849df7108531c6b17defa82705f47644a161e3",
+        "out/part04_main.o": "ad6ec9c3686841aaa0f15e2aa93b948c8270d1a125c3822a1af029c73154739b",
+        "out/part04.a": "9dc23e31cc047a459370084fbfec4e93f3eea46036e627d52fd7f4167ae971c5",
+        "out/part04.exe": "63a1600cadc2f104be6566eaa5c7d67ad18ebff9386d20297c866cd150f2620f",
+        "out/part05_lib.o": "d27995809a8b90fe06ec80a29a657a89a37219114a75f5a75a7289fa9b213923",
+        "out/part05_main.o": "33894a5e56d0d49c77cc052e08789541759963a130b8c801edeeeb0f51478a39",
+        "out/part05.a": "1ecf4ec2bf3b8cf40767654263d9431f0da89773c95da35df63fb9e90d5d7ef4",
+        "out/part05.exe": "37529cf5ec320a5a056517470bd8a1cdd29bc4dfcceae80f43521e17866793f8",
+        "out/part06_lib.o": "eb1eadc4a06783fce28194f1396675aa16e689cd0e80730134e8aec7d0f42ed3",
+        "out/part06_main.o": "f2cea068690e6a413cb0a30073a9a9994235293c853f14abd22341b5774b4017",
+        "out/part06.a": "3131879ccd781288d353f8131bc8596049df6865103a473ff350865b719e3352",
+        "out/part06.exe": "26c0cd8d70bed4e989a33af5bbb363158227233c1b7d48ffcc096deff8bb4579",
+        "out/part07_lib.o": "db587aa423c8bc455eebcd902884e8cc63e6c1deae931698d9304ec4350139fd",
+        "out/part07_main.o": "8ccfb8fc8ec3eaa9d43838bea9de2e700fc820e733460926f520c9e27188d1cf",
+        "out/part07.a": "eeee4e96adc615427920078b48f3d9123ec57b769e3ce1e7cab45b2ac789b4ce",
+        "out/part07.exe": "b166ffe90da6671858a9c4cdedfa36d83b2b4d124078acdd5fc3c9670e56d198"
+      },
+      "verified_integers": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "samples": [
+        {
+          "trial": 0,
+          "order": [
+            "verification",
+            "scheduling",
+            "hashing",
+            "storage",
+            "discovery"
+          ],
+          "phase_ns": {
+            "verification": 10697298,
+            "scheduling": 34601,
+            "hashing": 774261,
+            "storage": 1977465,
+            "discovery": 75471908
+          }
+        },
+        {
+          "trial": 1,
+          "order": [
+            "storage",
+            "discovery",
+            "hashing",
+            "scheduling",
+            "verification"
+          ],
+          "phase_ns": {
+            "storage": 1602472,
+            "discovery": 79672690,
+            "hashing": 837294,
+            "scheduling": 36413,
+            "verification": 8429155
+          }
+        },
+        {
+          "trial": 2,
+          "order": [
+            "verification",
+            "hashing",
+            "storage",
+            "scheduling",
+            "discovery"
+          ],
+          "phase_ns": {
+            "verification": 9890770,
+            "hashing": 684789,
+            "storage": 1352904,
+            "scheduling": 56203,
+            "discovery": 76887666
+          }
+        },
+        {
+          "trial": 3,
+          "order": [
+            "storage",
+            "verification",
+            "discovery",
+            "hashing",
+            "scheduling"
+          ],
+          "phase_ns": {
+            "storage": 1873722,
+            "verification": 9799084,
+            "discovery": 79193323,
+            "hashing": 789274,
+            "scheduling": 37936
+          }
+        },
+        {
+          "trial": 4,
+          "order": [
+            "storage",
+            "scheduling",
+            "hashing",
+            "discovery",
+            "verification"
+          ],
+          "phase_ns": {
+            "storage": 1478710,
+            "scheduling": 24355,
+            "hashing": 552995,
+            "discovery": 101821788,
+            "verification": 14031522
+          }
+        },
+        {
+          "trial": 5,
+          "order": [
+            "scheduling",
+            "storage",
+            "hashing",
+            "discovery",
+            "verification"
+          ],
+          "phase_ns": {
+            "scheduling": 37685,
+            "storage": 1436898,
+            "hashing": 666672,
+            "discovery": 87934734,
+            "verification": 8038309
+          }
+        },
+        {
+          "trial": 6,
+          "order": [
+            "storage",
+            "hashing",
+            "discovery",
+            "verification",
+            "scheduling"
+          ],
+          "phase_ns": {
+            "storage": 1431640,
+            "hashing": 577611,
+            "discovery": 69397625,
+            "verification": 11219148,
+            "scheduling": 36594
+          }
+        },
+        {
+          "trial": 7,
+          "order": [
+            "storage",
+            "verification",
+            "hashing",
+            "scheduling",
+            "discovery"
+          ],
+          "phase_ns": {
+            "storage": 1469827,
+            "verification": 9679328,
+            "hashing": 660614,
+            "scheduling": 27821,
+            "discovery": 74802252
+          }
+        },
+        {
+          "trial": 8,
+          "order": [
+            "verification",
+            "scheduling",
+            "discovery",
+            "storage",
+            "hashing"
+          ],
+          "phase_ns": {
+            "verification": 8808273,
+            "scheduling": 39929,
+            "discovery": 74770940,
+            "storage": 1548403,
+            "hashing": 802664
+          }
+        },
+        {
+          "trial": 9,
+          "order": [
+            "scheduling",
+            "hashing",
+            "verification",
+            "discovery",
+            "storage"
+          ],
+          "phase_ns": {
+            "scheduling": 36304,
+            "hashing": 591252,
+            "verification": 10093218,
+            "discovery": 76605029,
+            "storage": 1427684
+          }
+        },
+        {
+          "trial": 10,
+          "order": [
+            "verification",
+            "storage",
+            "hashing",
+            "scheduling",
+            "discovery"
+          ],
+          "phase_ns": {
+            "verification": 8099103,
+            "storage": 1728718,
+            "hashing": 687814,
+            "scheduling": 31737,
+            "discovery": 79997234
+          }
+        },
+        {
+          "trial": 11,
+          "order": [
+            "hashing",
+            "verification",
+            "discovery",
+            "scheduling",
+            "storage"
+          ],
+          "phase_ns": {
+            "hashing": 774422,
+            "verification": 8389046,
+            "discovery": 76972721,
+            "scheduling": 42723,
+            "storage": 1466282
+          }
+        },
+        {
+          "trial": 12,
+          "order": [
+            "hashing",
+            "verification",
+            "storage",
+            "scheduling",
+            "discovery"
+          ],
+          "phase_ns": {
+            "hashing": 604190,
+            "verification": 9838162,
+            "storage": 1350481,
+            "scheduling": 29984,
+            "discovery": 73644324
+          }
+        },
+        {
+          "trial": 13,
+          "order": [
+            "verification",
+            "storage",
+            "discovery",
+            "scheduling",
+            "hashing"
+          ],
+          "phase_ns": {
+            "verification": 9225769,
+            "storage": 1559118,
+            "discovery": 77324499,
+            "scheduling": 43134,
+            "hashing": 777826
+          }
+        },
+        {
+          "trial": 14,
+          "order": [
+            "scheduling",
+            "verification",
+            "hashing",
+            "discovery",
+            "storage"
+          ],
+          "phase_ns": {
+            "scheduling": 23275,
+            "verification": 8485457,
+            "hashing": 653884,
+            "discovery": 77078627,
+            "storage": 1829306
+          }
+        },
+        {
+          "trial": 15,
+          "order": [
+            "scheduling",
+            "verification",
+            "hashing",
+            "storage",
+            "discovery"
+          ],
+          "phase_ns": {
+            "scheduling": 39458,
+            "verification": 9927713,
+            "hashing": 708854,
+            "storage": 1752473,
+            "discovery": 76986781
+          }
+        },
+        {
+          "trial": 16,
+          "order": [
+            "storage",
+            "verification",
+            "hashing",
+            "discovery",
+            "scheduling"
+          ],
+          "phase_ns": {
+            "storage": 1555714,
+            "verification": 10344859,
+            "hashing": 680763,
+            "discovery": 75047924,
+            "scheduling": 42052
+          }
+        }
+      ]
+    },
+    {
+      "components": 24,
+      "translation_units": 48,
+      "graph_jobs": 120,
+      "storage_payloads": 96,
+      "verification_invocations": 24,
+      "hash_input_bytes": 477992,
+      "storage_payload_bytes": 474384,
+      "source_and_output_hashes": {
+        "part00_lib.c": "9afdfc96621bfaba4f6c157a2499bd87ea84f07d7cc625d47f817481fb2bb984",
+        "part00_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part01_lib.c": "9768bbfbe1166d4a5327f99af649d28e57aa0a9fcf1d34ae5375312f2dbc41ee",
+        "part01_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part02_lib.c": "2fb09d8673c5c5f0e1f9da401fa260195034cc43a3fcb521997e5e7a7564d18b",
+        "part02_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part03_lib.c": "26340d03c0c556d6889ffdc004dbe1ce1eb7219c4af31b6d3a676c9bd489a36e",
+        "part03_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part04_lib.c": "e268fbc5b1e59ba0403e01c82e3b1b9233608c0194fc7036af3a48685a4e6845",
+        "part04_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part05_lib.c": "015fa3fe5d155170816cbbb433b9a503b13f9bf96df5a4be12985e13300b5ba2",
+        "part05_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part06_lib.c": "ceb56cfa013d8d3c446a1ad099f62a9cdfa43b426267362411d4578985399486",
+        "part06_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part07_lib.c": "cc0bac02da0c63e4f7613a6adf8b4fb14dd389310d09cd8d4af2388fa01543d4",
+        "part07_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part08_lib.c": "f99019cf435bb6952b8bc625186fec846ee5fa01a9187fbf549a5a8228325e12",
+        "part08_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part09_lib.c": "b73b5a8a8526d019f3f668b05e2c98fca4c3e3d8b8202c4d75b88fe177f2737d",
+        "part09_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part10_lib.c": "e2ba6f87754867f759cb1dd4248f4b5c77760db550f7e06a40ef7fcaea675641",
+        "part10_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part11_lib.c": "fadab9fa2c42c8f9b829f50dcffdf0db7b7201d3f91d706b745834b4a2c9a9f5",
+        "part11_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part12_lib.c": "537f49eec15f72deb18e1504089b9b6642b6ca9f63f6a1bb02642ffdae182f94",
+        "part12_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part13_lib.c": "aadf6ba3a6a7ad342cdf7f2ff8b60c96ee0987ab3816adc3453a560002e7bbce",
+        "part13_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part14_lib.c": "c4b88cdc388c719142bf340b0cbc25ec9052ef844d0bac39dbd094179ad56b34",
+        "part14_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part15_lib.c": "7a5eb989d39eb0f399b76477f270191daba0ebcd2705e32509ed1d7d05118436",
+        "part15_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part16_lib.c": "4daefacd684fab126b2a6a88c82c2f17368787e3d3176dfe06ae17c9fb611f4a",
+        "part16_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part17_lib.c": "457a1deaae86de4be4085b57d70e386d8a60677742bc754350de97e6c0ad6b5b",
+        "part17_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part18_lib.c": "4ca662fadc624ba9d4449d22533b63a51cd67d7070ef6c7eac4712d17fcb06dc",
+        "part18_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part19_lib.c": "aa482347335cb2b1487f97a9ce1f1029fdf04ea662ba7a3570df2abdfabf7a28",
+        "part19_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part20_lib.c": "c604bd7ef348c787152dc74415156a0ad6265a3f0fb6ddad2780ef7880002536",
+        "part20_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part21_lib.c": "217660b4f1322e7a0e7d0fe3a2474c3e462a103be4c68b9fda1eda49a1f39353",
+        "part21_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part22_lib.c": "8c5d269f5f245f4ba24a979e096e71b8b8a3752424ab0a6f2546fa936c5ec1c5",
+        "part22_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "part23_lib.c": "a3600dc97b011b8aaed5877eefb5f1b40eb031a53efbf6a3d323dbb5f2c32e0a",
+        "part23_main.c": "65d94d18430a477dc55c458f0c22aa889bd2cf3154d8693306b961221a792560",
+        "common.h": "0f792d617f847c1fa100e3f55e5145c1b74bf18fb2188ce28ec6c1d0f7d40419",
+        "out/part00_lib.o": "7d3050171e58203a268e51591c0c8dfc749322ef2f6592ce7df60a4ce7ac74c8",
+        "out/part00_main.o": "2765186487ecf32c66a3f54e6ff95461e4f81fc387bc337471c361b2fe7ec5cb",
+        "out/part00.a": "c4cdd940ef938cee6800e86b82cb329492934543a2670335ba38bfbd5efd1790",
+        "out/part00.exe": "f71083b697e91de420564143ef19b9443937929bdc47688e48a947bb4dddb733",
+        "out/part01_lib.o": "45bed61c8a7786d86731fef49275c14fa490e19ca560607a3e6ffdf1c4987474",
+        "out/part01_main.o": "c7df125a414fa5a121c220233c048218c1a04d739ddd49b954d8ecf01feeac44",
+        "out/part01.a": "45293f61ad61f61554ecde767699575a88a5fe3777237abf9e0e5b8ae9c11e36",
+        "out/part01.exe": "cdd66f60860ad674c4d1f3af65b6776e3b353ffc8f1fd9a19f0b135dcba251f0",
+        "out/part02_lib.o": "7577b1aa1b601a14e2dcd7b715a301606440a52743809c150b83709dd68769d3",
+        "out/part02_main.o": "2a3d7d9dfb5e05e07cda4ddbfa04e800058dbdd9b10ff60c46208115e50f1b7b",
+        "out/part02.a": "ff19a3b774b4332d77390146010bdd3407dc180038423c91f8f05aea6cae723a",
+        "out/part02.exe": "58d7f969df6fe55107fa973b7f129cfa08e285062b668826f384374553617758",
+        "out/part03_lib.o": "0fa07486c35bc569e3fb5edc7bee622af21f8a9107b678ffe314ca59bc08ef83",
+        "out/part03_main.o": "e276fdc72a3453c3bf6f29df2c22731e71e705b22a0123ea9698ee81ee3296c3",
+        "out/part03.a": "b2261c990b75da9aa39ad3bcd7143cebc1d7dda3ff4327f94c944a7236120e6d",
+        "out/part03.exe": "9c0b50671830c04afccad2aa54acbfdeb7eba524fe7adfbcd1ea85c9c1910f38",
+        "out/part04_lib.o": "c0ecce6a8c709d037a108cc3d7849df7108531c6b17defa82705f47644a161e3",
+        "out/part04_main.o": "ad6ec9c3686841aaa0f15e2aa93b948c8270d1a125c3822a1af029c73154739b",
+        "out/part04.a": "9dc23e31cc047a459370084fbfec4e93f3eea46036e627d52fd7f4167ae971c5",
+        "out/part04.exe": "63a1600cadc2f104be6566eaa5c7d67ad18ebff9386d20297c866cd150f2620f",
+        "out/part05_lib.o": "d27995809a8b90fe06ec80a29a657a89a37219114a75f5a75a7289fa9b213923",
+        "out/part05_main.o": "33894a5e56d0d49c77cc052e08789541759963a130b8c801edeeeb0f51478a39",
+        "out/part05.a": "1ecf4ec2bf3b8cf40767654263d9431f0da89773c95da35df63fb9e90d5d7ef4",
+        "out/part05.exe": "37529cf5ec320a5a056517470bd8a1cdd29bc4dfcceae80f43521e17866793f8",
+        "out/part06_lib.o": "eb1eadc4a06783fce28194f1396675aa16e689cd0e80730134e8aec7d0f42ed3",
+        "out/part06_main.o": "f2cea068690e6a413cb0a30073a9a9994235293c853f14abd22341b5774b4017",
+        "out/part06.a": "3131879ccd781288d353f8131bc8596049df6865103a473ff350865b719e3352",
+        "out/part06.exe": "26c0cd8d70bed4e989a33af5bbb363158227233c1b7d48ffcc096deff8bb4579",
+        "out/part07_lib.o": "db587aa423c8bc455eebcd902884e8cc63e6c1deae931698d9304ec4350139fd",
+        "out/part07_main.o": "8ccfb8fc8ec3eaa9d43838bea9de2e700fc820e733460926f520c9e27188d1cf",
+        "out/part07.a": "eeee4e96adc615427920078b48f3d9123ec57b769e3ce1e7cab45b2ac789b4ce",
+        "out/part07.exe": "b166ffe90da6671858a9c4cdedfa36d83b2b4d124078acdd5fc3c9670e56d198",
+        "out/part08_lib.o": "3022dbc3d19465309c7f17ee6ed19ac13b1d5276288935377f2bf38b5709c84c",
+        "out/part08_main.o": "1b70fd03caa002736bdb18c0c9f40d258f3e0a42287521e1543673ea4dbbf3b9",
+        "out/part08.a": "fa035c69043a9ea2e3c8f206a2a018a2e7c42c2aef8ca1ff66a793064f4e1911",
+        "out/part08.exe": "dd22b08d3ce31baa10209fe5a9694314adc59f0b765efd5b2c20801046cfa49b",
+        "out/part09_lib.o": "a3a425bc23c2d0ebf5f02a1ef539cd32c1839984d81a338a6eb16fae4bc1bdf7",
+        "out/part09_main.o": "60b12569caaaed9f3786d8f2706dde794743a9ab0f68265ad7c19ba597478e74",
+        "out/part09.a": "ea30b36bf77876dd4d3d28e54069bfddadd90109fda3bdf170b59096837c4d45",
+        "out/part09.exe": "aaba89198627b29bf6ab2f258d519b04a662062aa5a2d1b76ea4c0863f113ad9",
+        "out/part10_lib.o": "b7ca9fdd5a4b394d1c7479114fd8c8d45608e012903b08a2c9239c199e9218cd",
+        "out/part10_main.o": "bc72b6b78fab2ee5f9018676f650b185a0714efd8d4f6772b276f6a990a5a56b",
+        "out/part10.a": "8578042ebb0868cc219c33d485351dbb70f67a80e6cfd74aeac85e1dfbaa8ece",
+        "out/part10.exe": "265b2271246488705dcaea53b3c12532df2b50823c874828bfb9213a9ad5b130",
+        "out/part11_lib.o": "60eec0a627ca3c7b51f960f4afa877ef4c76c9e49dedb18cccdc08cf41eabc3a",
+        "out/part11_main.o": "f82a63af4e01ffbdcef98c2a4f34530a269f5effae10b6a00aa798d7620017e8",
+        "out/part11.a": "5ca3741b2c06313ef9f47ea6041ad4558a6ec3e9aafab5ffd858c8f2bebe0378",
+        "out/part11.exe": "343271bb7256a3bdc884c883f06d02e9acfb35f4be62a6036f1b397c1ac8b070",
+        "out/part12_lib.o": "1683ab9367648a269203135c8efd0e457500f732e396d2cc36e52288a0352f24",
+        "out/part12_main.o": "9c5e2dfc125cec04cb3f46ba51cd5b7c30eac277a3fd5d0960b0cafca769d2da",
+        "out/part12.a": "ebfcc8796a981f0f94334546d991e40825b800519f00cd6d8bef929a860c07e9",
+        "out/part12.exe": "9c30c21d762f2d7d9bb2b5518d97a7e0ce07c2e40758c71f21a8b7b5e0dc465f",
+        "out/part13_lib.o": "3bc6375ba8879716cbbdebeba0214aa8d84a03a3ebc30bbe59b23fcba91df231",
+        "out/part13_main.o": "c3dfa108aca04fb591df437d52f0461ac68f3beb144fd74382ce3eac91d2d4d1",
+        "out/part13.a": "8f2776bc8d2fa6e455d4d181b99b8ece512be43d2eb1ec74d15883afeef45171",
+        "out/part13.exe": "01c867079a79c7d36eb207fdf5dd614c2e14d3b73dc48a7b392d0f800ca12678",
+        "out/part14_lib.o": "bd705fcfd8664d8b1a851927756fcd58ba1a8935325b09ed6a25fa991f0c236c",
+        "out/part14_main.o": "f1b99401b0288dca0a78e4aebcbe7b89f9c1b12cb68f62a1a575b1bb053bb73e",
+        "out/part14.a": "df2192cf08b81386e41f3edb6368978cce8d89a2bcec767d126032fe2c9bf2c7",
+        "out/part14.exe": "bb3405f847318b683c50f840716c27031dadfb31eb110117279d5e79c6d91745",
+        "out/part15_lib.o": "5053b5e5c25d70d80f2b2039889c93f2b67f64743bdea320ca8f3ae3c4e0d524",
+        "out/part15_main.o": "9e2ad1d4786698738e70771f53a34ec6e0ebbf39e2806277b43e1734a3240c7d",
+        "out/part15.a": "cfeccc03852f7617ceba0f3b909c34619a444a2a21c17c4cf2f9b2d47451539d",
+        "out/part15.exe": "f11e7d01d6c9f5fc5b9958477f7afa9a4bfa1922d87b538d73a57d30645b526c",
+        "out/part16_lib.o": "78f8ff1e350b747ee7c822a5ee255911952e7311a36ea65e47e75f188ce5d911",
+        "out/part16_main.o": "7999ee529d88b522c3e4d6fa0b153380a38c80206f18863aa22d91cf5254532b",
+        "out/part16.a": "a4410e8eca49d7b399a77033d6d504741564d843c444a72349ef93c74844a81b",
+        "out/part16.exe": "7982d7050f8fadeb8228e6609d9d379dc4134d65542f6c2d8bd97c0f369b3a58",
+        "out/part17_lib.o": "be332205e62a553ea5aaef8705e5d143a105dfb75b7bad7ed55f14584dd3e03e",
+        "out/part17_main.o": "353616a2c69353e2356250e426e63600df3178fd8775e3f63f5a363663162154",
+        "out/part17.a": "e1d1870e99a2d9fb58e6f7bb68c41f6c2a78daa1977fc38111591466ba77a163",
+        "out/part17.exe": "28c9523d5498f0c858d245a66fc29a42d781027b2029c304a2f539902e1e7a39",
+        "out/part18_lib.o": "353988fd133888ac9867e653e57d0b7404152643712ccd3967cfb5878ca482ab",
+        "out/part18_main.o": "6c12456d9346980d1086e06cad25b2dd16e61a77defe365aa2aeb68d01f3165f",
+        "out/part18.a": "36c163779561c3b30fff89cdb2e8f1ba26cd780a6f517a31f3abaadc11195c2c",
+        "out/part18.exe": "8dcece9bc83e691a86b1b246f61496947b1e21f531a0e4b79b0a9c608f44a997",
+        "out/part19_lib.o": "e1dc80643e42ef2568eedb8da5fd7a4ff476ab6633d5a817885a5c067708ed71",
+        "out/part19_main.o": "5135ca0977e41cb6acfbd62e321aeed151fc35907a4c8b813c13542595987ea4",
+        "out/part19.a": "7fe878506eb46c3671a10a50e24196ba3812b4cde4d570a1dfb65cc01b4413d7",
+        "out/part19.exe": "e9a3b4352f3bf229b4552578480255fd211cfacd418a817494799f378a093ab3",
+        "out/part20_lib.o": "383aaa6d954be6ac86c6cdfeb7294598767c4e7c63c3672213996717ce2b4287",
+        "out/part20_main.o": "cc389ca3f3e48fca0122fd5bfbcef2556e902f45871415f7097205b15f4498a7",
+        "out/part20.a": "64639c81f93d68cb1be53ae8db47d830d05558962fa425e0b49d58dabce47732",
+        "out/part20.exe": "2dcba34a5cba48c86dcd286038f75f16c33b082d64249342722324ee6f1b97bc",
+        "out/part21_lib.o": "98c98f67efb1223984ea0f28d61f62dc91d8c5f12aae63cb585554ae37ba159f",
+        "out/part21_main.o": "9f5c6be530ec4e60d67c5cc68564a0acaad8ddb6ba8cf4f99e66434825258e0e",
+        "out/part21.a": "f69d45c3c914519994bdde296ec561cf2da125ed0860410551f577f255ada45a",
+        "out/part21.exe": "36d986aa697ea30f6e98e6eb418c82dd65e5119b7110644f060904cec7d3a975",
+        "out/part22_lib.o": "1a454cab7487a0277e38324b5d8a45508dff5fae8fb1326b152d8f0f975558ba",
+        "out/part22_main.o": "d9bff807e00b8ea5c0ed448f2669fa325fc6ebdc83d8df84a34639686ac7e32f",
+        "out/part22.a": "ba77d266b38f719c6ece6f060522b2db5b194a76de4ba280ccae3b692d1b059d",
+        "out/part22.exe": "46b80bb220378bcef2f3acb33a378902b83378cea3282900d470b06887695efa",
+        "out/part23_lib.o": "e3f57a74fc9607da63c361d051c8995ae1d8dbd94c7f6a0fe3351201c6e3565b",
+        "out/part23_main.o": "e1332ebfa389723a47bbb0a6ced54c311c16f9b8481b4a28212ce12de38caf8a",
+        "out/part23.a": "18053e530283f2a7615be198b32004957e45b7854f747126a6f63d3049b6598b",
+        "out/part23.exe": "be3416030816c8341e9af5f70c632649e853cceb4846cc9cd4d891c8b7dd8494"
+      },
+      "verified_integers": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "samples": [
+        {
+          "trial": 0,
+          "order": [
+            "verification",
+            "discovery",
+            "scheduling",
+            "hashing",
+            "storage"
+          ],
+          "phase_ns": {
+            "verification": 27181527,
+            "discovery": 211570733,
+            "scheduling": 90884,
+            "hashing": 2084323,
+            "storage": 4456019
+          }
+        },
+        {
+          "trial": 1,
+          "order": [
+            "storage",
+            "discovery",
+            "scheduling",
+            "verification",
+            "hashing"
+          ],
+          "phase_ns": {
+            "storage": 5076313,
+            "discovery": 206115251,
+            "scheduling": 89281,
+            "verification": 29290655,
+            "hashing": 2099023
+          }
+        },
+        {
+          "trial": 2,
+          "order": [
+            "discovery",
+            "hashing",
+            "storage",
+            "scheduling",
+            "verification"
+          ],
+          "phase_ns": {
+            "discovery": 215548442,
+            "hashing": 2394380,
+            "storage": 4206724,
+            "scheduling": 88200,
+            "verification": 32117309
+          }
+        },
+        {
+          "trial": 3,
+          "order": [
+            "discovery",
+            "scheduling",
+            "hashing",
+            "storage",
+            "verification"
+          ],
+          "phase_ns": {
+            "discovery": 210991598,
+            "scheduling": 89091,
+            "hashing": 2082040,
+            "storage": 3934674,
+            "verification": 23189787
+          }
+        },
+        {
+          "trial": 4,
+          "order": [
+            "hashing",
+            "storage",
+            "discovery",
+            "scheduling",
+            "verification"
+          ],
+          "phase_ns": {
+            "hashing": 2217569,
+            "storage": 4272390,
+            "discovery": 211491732,
+            "scheduling": 93488,
+            "verification": 26021128
+          }
+        },
+        {
+          "trial": 5,
+          "order": [
+            "verification",
+            "scheduling",
+            "hashing",
+            "discovery",
+            "storage"
+          ],
+          "phase_ns": {
+            "verification": 23845881,
+            "scheduling": 90603,
+            "hashing": 2073658,
+            "discovery": 209670685,
+            "storage": 4248815
+          }
+        },
+        {
+          "trial": 6,
+          "order": [
+            "storage",
+            "discovery",
+            "scheduling",
+            "verification",
+            "hashing"
+          ],
+          "phase_ns": {
+            "storage": 4047120,
+            "discovery": 204945540,
+            "scheduling": 88850,
+            "verification": 31819833,
+            "hashing": 2149420
+          }
+        },
+        {
+          "trial": 7,
+          "order": [
+            "scheduling",
+            "discovery",
+            "hashing",
+            "verification",
+            "storage"
+          ],
+          "phase_ns": {
+            "scheduling": 80538,
+            "discovery": 209312019,
+            "hashing": 2147867,
+            "verification": 24395058,
+            "storage": 4526173
+          }
+        },
+        {
+          "trial": 8,
+          "order": [
+            "verification",
+            "hashing",
+            "storage",
+            "scheduling",
+            "discovery"
+          ],
+          "phase_ns": {
+            "verification": 22283034,
+            "hashing": 2097834,
+            "storage": 4232972,
+            "scheduling": 92286,
+            "discovery": 211400308
+          }
+        },
+        {
+          "trial": 9,
+          "order": [
+            "verification",
+            "discovery",
+            "hashing",
+            "scheduling",
+            "storage"
+          ],
+          "phase_ns": {
+            "verification": 26985526,
+            "discovery": 205517351,
+            "hashing": 2107267,
+            "scheduling": 112005,
+            "storage": 4333860
+          }
+        },
+        {
+          "trial": 10,
+          "order": [
+            "storage",
+            "hashing",
+            "scheduling",
+            "verification",
+            "discovery"
+          ],
+          "phase_ns": {
+            "storage": 3733529,
+            "hashing": 1700660,
+            "scheduling": 76642,
+            "verification": 25773580,
+            "discovery": 220445484
+          }
+        },
+        {
+          "trial": 11,
+          "order": [
+            "verification",
+            "storage",
+            "scheduling",
+            "hashing",
+            "discovery"
+          ],
+          "phase_ns": {
+            "verification": 24250581,
+            "storage": 3860855,
+            "scheduling": 90463,
+            "hashing": 1786085,
+            "discovery": 211144031
+          }
+        },
+        {
+          "trial": 12,
+          "order": [
+            "scheduling",
+            "discovery",
+            "hashing",
+            "storage",
+            "verification"
+          ],
+          "phase_ns": {
+            "scheduling": 156070,
+            "discovery": 206703264,
+            "hashing": 2056984,
+            "storage": 4310897,
+            "verification": 23443069
+          }
+        },
+        {
+          "trial": 13,
+          "order": [
+            "scheduling",
+            "storage",
+            "verification",
+            "discovery",
+            "hashing"
+          ],
+          "phase_ns": {
+            "scheduling": 90062,
+            "storage": 4182748,
+            "verification": 22876857,
+            "discovery": 207154867,
+            "hashing": 2051625
+          }
+        },
+        {
+          "trial": 14,
+          "order": [
+            "verification",
+            "storage",
+            "hashing",
+            "discovery",
+            "scheduling"
+          ],
+          "phase_ns": {
+            "verification": 22744162,
+            "storage": 4059998,
+            "hashing": 1724525,
+            "discovery": 206670726,
+            "scheduling": 91735
+          }
+        },
+        {
+          "trial": 15,
+          "order": [
+            "storage",
+            "discovery",
+            "scheduling",
+            "hashing",
+            "verification"
+          ],
+          "phase_ns": {
+            "storage": 4148578,
+            "discovery": 222775894,
+            "scheduling": 91445,
+            "hashing": 2209198,
+            "verification": 22908233
+          }
+        },
+        {
+          "trial": 16,
+          "order": [
+            "storage",
+            "discovery",
+            "scheduling",
+            "verification",
+            "hashing"
+          ],
+          "phase_ns": {
+            "storage": 4429961,
+            "discovery": 214046983,
+            "scheduling": 94459,
+            "verification": 26773204,
+            "hashing": 2097372
+          }
+        }
+      ]
+    }
+  ]
+}

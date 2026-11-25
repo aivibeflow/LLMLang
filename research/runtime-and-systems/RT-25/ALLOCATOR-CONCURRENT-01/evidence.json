@@ -1,0 +1,1546 @@
+{
+  "counter_delta_churn_only": {
+    "burst_usec": 0,
+    "nice_usec": 0,
+    "nr_bursts": 0,
+    "nr_periods": 66,
+    "nr_throttled": 0,
+    "system_usec": 1210540,
+    "throttled_usec": 0,
+    "usage_usec": 5267818,
+    "user_usec": 4057277
+  },
+  "cpu": [
+    3,
+    4
+  ],
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "kernel": "6.18.57",
+  "libraries": {
+    "glibc": {
+      "filename": "libc.so.6",
+      "sha256": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92"
+    },
+    "google": {
+      "filename": "libllmlang_tcmalloc.so",
+      "sha256": "b1471ea864eebc4b21597df9a462d99e55929ea920b8a7f3aa09cbd1b3b50955"
+    },
+    "gperftools": {
+      "filename": "libtcmalloc_minimal.so.4.5.18",
+      "sha256": "684f9f1240bb581d5d74a1bca5f1ab1119bc722a79bc62b3d6530d64aeae6123"
+    },
+    "jemalloc": {
+      "filename": "libjemalloc.so.2",
+      "sha256": "51952ffe97354b56197c9b765582023d435cfbe1930b0c03b778bdb5faa1fff5"
+    },
+    "mimalloc": {
+      "filename": "libmimalloc.so.2.0",
+      "sha256": "6be283f8dd7676fa9a27654845c28c6ae84fbb0d3ae43b07324c5352343e3925"
+    }
+  },
+  "pressure": {
+    "glibc": [
+      {
+        "bytes_per_chunk": 4194304,
+        "cap_mib": 96,
+        "outcome": "allocation-refused",
+        "peak_kib": 95440,
+        "retained_chunks": 23,
+        "retry_after_drop": true
+      },
+      {
+        "bytes_per_chunk": 4194304,
+        "cap_mib": 192,
+        "outcome": "allocation-refused",
+        "peak_kib": 193752,
+        "retained_chunks": 47,
+        "retry_after_drop": true
+      }
+    ],
+    "google": [
+      {
+        "bytes_per_chunk": 4194304,
+        "cap_mib": 96,
+        "outcome": "allocation-refused",
+        "peak_kib": 79456,
+        "retained_chunks": 18,
+        "retry_after_drop": true
+      },
+      {
+        "bytes_per_chunk": 4194304,
+        "cap_mib": 192,
+        "outcome": "allocation-refused",
+        "peak_kib": 179240,
+        "retained_chunks": 42,
+        "retry_after_drop": true
+      }
+    ],
+    "gperftools": [
+      {
+        "bytes_per_chunk": 4194304,
+        "cap_mib": 96,
+        "outcome": "allocation-refused",
+        "peak_kib": 83948,
+        "retained_chunks": 19,
+        "retry_after_drop": true
+      },
+      {
+        "bytes_per_chunk": 4194304,
+        "cap_mib": 192,
+        "outcome": "allocation-refused",
+        "peak_kib": 182260,
+        "retained_chunks": 43,
+        "retry_after_drop": true
+      }
+    ],
+    "jemalloc": [
+      {
+        "bytes_per_chunk": 4194304,
+        "cap_mib": 96,
+        "outcome": "allocation-refused",
+        "peak_kib": 64296,
+        "retained_chunks": 15,
+        "retry_after_drop": true
+      },
+      {
+        "bytes_per_chunk": 4194304,
+        "cap_mib": 192,
+        "outcome": "allocation-refused",
+        "peak_kib": 150460,
+        "retained_chunks": 36,
+        "retry_after_drop": true
+      }
+    ],
+    "mimalloc": [
+      {
+        "bytes_per_chunk": 4194304,
+        "cap_mib": 96,
+        "outcome": "allocation-refused",
+        "peak_kib": 58776,
+        "retained_chunks": 14,
+        "retry_after_drop": true
+      },
+      {
+        "bytes_per_chunk": 4194304,
+        "cap_mib": 192,
+        "outcome": "allocation-refused",
+        "peak_kib": 144924,
+        "retained_chunks": 35,
+        "retry_after_drop": true
+      }
+    ]
+  },
+  "python": "3.12.14",
+  "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)",
+  "samples": [
+    {
+      "after_drop_kib": 2000,
+      "block": 0,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 24875558,
+      "payload_bytes": 15161344,
+      "peak_kib": 1968,
+      "position": 0,
+      "producers": 1,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 2152,
+      "block": 0,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 47220135,
+      "payload_bytes": 60651856,
+      "peak_kib": 2148,
+      "position": 1,
+      "producers": 4,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 5196,
+      "block": 0,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 11638904,
+      "payload_bytes": 15161344,
+      "peak_kib": 5192,
+      "position": 2,
+      "producers": 1,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 5944,
+      "block": 0,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 47099142,
+      "payload_bytes": 60651856,
+      "peak_kib": 5940,
+      "position": 3,
+      "producers": 4,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 7668,
+      "block": 0,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 45302715,
+      "payload_bytes": 60651856,
+      "peak_kib": 7664,
+      "position": 4,
+      "producers": 4,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 3708,
+      "block": 0,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10641780,
+      "payload_bytes": 15161344,
+      "peak_kib": 3868,
+      "position": 5,
+      "producers": 1,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 1436,
+      "block": 0,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10834062,
+      "payload_bytes": 15161344,
+      "peak_kib": 1432,
+      "position": 6,
+      "producers": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 3472,
+      "block": 0,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 47693154,
+      "payload_bytes": 60651856,
+      "peak_kib": 3444,
+      "position": 7,
+      "producers": 4,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 4844,
+      "block": 0,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 58210731,
+      "payload_bytes": 60651856,
+      "peak_kib": 5920,
+      "position": 8,
+      "producers": 4,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 6716,
+      "block": 0,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10165822,
+      "payload_bytes": 15161344,
+      "peak_kib": 6712,
+      "position": 9,
+      "producers": 1,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 3708,
+      "block": 1,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 12295532,
+      "payload_bytes": 15161344,
+      "peak_kib": 3868,
+      "position": 0,
+      "producers": 1,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 5188,
+      "block": 1,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 13313912,
+      "payload_bytes": 15161344,
+      "peak_kib": 5180,
+      "position": 1,
+      "producers": 1,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 1536,
+      "block": 1,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 11129925,
+      "payload_bytes": 15161344,
+      "peak_kib": 1532,
+      "position": 2,
+      "producers": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 3472,
+      "block": 1,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 77510815,
+      "payload_bytes": 60651856,
+      "peak_kib": 3444,
+      "position": 3,
+      "producers": 4,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 6628,
+      "block": 1,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19398984,
+      "payload_bytes": 15161344,
+      "peak_kib": 6624,
+      "position": 4,
+      "producers": 1,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 6024,
+      "block": 1,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 65945565,
+      "payload_bytes": 60651856,
+      "peak_kib": 6020,
+      "position": 5,
+      "producers": 4,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 1920,
+      "block": 1,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10606008,
+      "payload_bytes": 15161344,
+      "peak_kib": 1888,
+      "position": 6,
+      "producers": 1,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 1948,
+      "block": 1,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 59042096,
+      "payload_bytes": 60651856,
+      "peak_kib": 1960,
+      "position": 7,
+      "producers": 4,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 7620,
+      "block": 1,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 84216358,
+      "payload_bytes": 60651856,
+      "peak_kib": 7616,
+      "position": 8,
+      "producers": 4,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 4380,
+      "block": 1,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 80002246,
+      "payload_bytes": 60651856,
+      "peak_kib": 5660,
+      "position": 9,
+      "producers": 4,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 5256,
+      "block": 2,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19302872,
+      "payload_bytes": 15161344,
+      "peak_kib": 5252,
+      "position": 0,
+      "producers": 1,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 6716,
+      "block": 2,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 17255062,
+      "payload_bytes": 15161344,
+      "peak_kib": 6712,
+      "position": 1,
+      "producers": 1,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 3552,
+      "block": 2,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 78933849,
+      "payload_bytes": 60651856,
+      "peak_kib": 3524,
+      "position": 2,
+      "producers": 4,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 2000,
+      "block": 2,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19198169,
+      "payload_bytes": 15161344,
+      "peak_kib": 1968,
+      "position": 3,
+      "producers": 1,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 2084,
+      "block": 2,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 69872584,
+      "payload_bytes": 60651856,
+      "peak_kib": 2096,
+      "position": 4,
+      "producers": 4,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 7656,
+      "block": 2,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 48479257,
+      "payload_bytes": 60651856,
+      "peak_kib": 7652,
+      "position": 5,
+      "producers": 4,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 5960,
+      "block": 2,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 46164520,
+      "payload_bytes": 60651856,
+      "peak_kib": 5956,
+      "position": 6,
+      "producers": 4,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 3628,
+      "block": 2,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 16619534,
+      "payload_bytes": 15161344,
+      "peak_kib": 3864,
+      "position": 7,
+      "producers": 1,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 1528,
+      "block": 2,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 11509093,
+      "payload_bytes": 15161344,
+      "peak_kib": 1524,
+      "position": 8,
+      "producers": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 4848,
+      "block": 2,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 51560320,
+      "payload_bytes": 60651856,
+      "peak_kib": 5784,
+      "position": 9,
+      "producers": 4,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 2000,
+      "block": 3,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 49384492,
+      "payload_bytes": 60651856,
+      "peak_kib": 2052,
+      "position": 0,
+      "producers": 4,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 4876,
+      "block": 3,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 74201182,
+      "payload_bytes": 60651856,
+      "peak_kib": 6432,
+      "position": 1,
+      "producers": 4,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 6000,
+      "block": 3,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 79239358,
+      "payload_bytes": 60651856,
+      "peak_kib": 5996,
+      "position": 2,
+      "producers": 4,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 5384,
+      "block": 3,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19258057,
+      "payload_bytes": 15161344,
+      "peak_kib": 5380,
+      "position": 3,
+      "producers": 1,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 1924,
+      "block": 3,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19428076,
+      "payload_bytes": 15161344,
+      "peak_kib": 1892,
+      "position": 4,
+      "producers": 1,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 3552,
+      "block": 3,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 90525192,
+      "payload_bytes": 60651856,
+      "peak_kib": 3524,
+      "position": 5,
+      "producers": 4,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 7684,
+      "block": 3,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 90502499,
+      "payload_bytes": 60651856,
+      "peak_kib": 7680,
+      "position": 6,
+      "producers": 4,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 3628,
+      "block": 3,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 12612353,
+      "payload_bytes": 15161344,
+      "peak_kib": 3864,
+      "position": 7,
+      "producers": 1,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 6748,
+      "block": 3,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19374808,
+      "payload_bytes": 15161344,
+      "peak_kib": 6744,
+      "position": 8,
+      "producers": 1,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 1532,
+      "block": 3,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19267271,
+      "payload_bytes": 15161344,
+      "peak_kib": 1528,
+      "position": 9,
+      "producers": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 6716,
+      "block": 4,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19256104,
+      "payload_bytes": 15161344,
+      "peak_kib": 6712,
+      "position": 0,
+      "producers": 1,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 3632,
+      "block": 4,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19269364,
+      "payload_bytes": 15161344,
+      "peak_kib": 3868,
+      "position": 1,
+      "producers": 1,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 7664,
+      "block": 4,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 78691733,
+      "payload_bytes": 60651856,
+      "peak_kib": 7660,
+      "position": 2,
+      "producers": 4,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 5992,
+      "block": 4,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 76357643,
+      "payload_bytes": 60651856,
+      "peak_kib": 5988,
+      "position": 3,
+      "producers": 4,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 5124,
+      "block": 4,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 60801729,
+      "payload_bytes": 60651856,
+      "peak_kib": 6056,
+      "position": 4,
+      "producers": 4,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 1440,
+      "block": 4,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10483622,
+      "payload_bytes": 15161344,
+      "peak_kib": 1436,
+      "position": 5,
+      "producers": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 5376,
+      "block": 4,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10238912,
+      "payload_bytes": 15161344,
+      "peak_kib": 5372,
+      "position": 6,
+      "producers": 1,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 2004,
+      "block": 4,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 17262478,
+      "payload_bytes": 15161344,
+      "peak_kib": 1972,
+      "position": 7,
+      "producers": 1,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 3544,
+      "block": 4,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 78591603,
+      "payload_bytes": 60651856,
+      "peak_kib": 3516,
+      "position": 8,
+      "producers": 4,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 2032,
+      "block": 4,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 88330591,
+      "payload_bytes": 60651856,
+      "peak_kib": 2028,
+      "position": 9,
+      "producers": 4,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 6024,
+      "block": 5,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 79823401,
+      "payload_bytes": 60651856,
+      "peak_kib": 6020,
+      "position": 0,
+      "producers": 4,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 2012,
+      "block": 5,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 83507370,
+      "payload_bytes": 60651856,
+      "peak_kib": 2008,
+      "position": 1,
+      "producers": 4,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 1528,
+      "block": 5,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10760848,
+      "payload_bytes": 15161344,
+      "peak_kib": 1524,
+      "position": 2,
+      "producers": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 3712,
+      "block": 5,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10682843,
+      "payload_bytes": 15161344,
+      "peak_kib": 3876,
+      "position": 3,
+      "producers": 1,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 7604,
+      "block": 5,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 60903914,
+      "payload_bytes": 60651856,
+      "peak_kib": 7600,
+      "position": 4,
+      "producers": 4,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 5228,
+      "block": 5,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19102805,
+      "payload_bytes": 15161344,
+      "peak_kib": 5224,
+      "position": 5,
+      "producers": 1,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 6704,
+      "block": 5,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19129044,
+      "payload_bytes": 15161344,
+      "peak_kib": 6700,
+      "position": 6,
+      "producers": 1,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 1920,
+      "block": 5,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19308658,
+      "payload_bytes": 15161344,
+      "peak_kib": 1888,
+      "position": 7,
+      "producers": 1,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 5172,
+      "block": 5,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 80145023,
+      "payload_bytes": 60651856,
+      "peak_kib": 5656,
+      "position": 8,
+      "producers": 4,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 3476,
+      "block": 5,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 89811494,
+      "payload_bytes": 60651856,
+      "peak_kib": 3448,
+      "position": 9,
+      "producers": 4,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 5280,
+      "block": 6,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 14291700,
+      "payload_bytes": 15161344,
+      "peak_kib": 5276,
+      "position": 0,
+      "producers": 1,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 3540,
+      "block": 6,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 55075678,
+      "payload_bytes": 60651856,
+      "peak_kib": 3512,
+      "position": 1,
+      "producers": 4,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 3700,
+      "block": 6,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 12164670,
+      "payload_bytes": 15161344,
+      "peak_kib": 3868,
+      "position": 2,
+      "producers": 1,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 4920,
+      "block": 6,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 54931036,
+      "payload_bytes": 60651856,
+      "peak_kib": 5600,
+      "position": 3,
+      "producers": 4,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 1964,
+      "block": 6,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 66691002,
+      "payload_bytes": 60651856,
+      "peak_kib": 2060,
+      "position": 4,
+      "producers": 4,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 6064,
+      "block": 6,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 47796321,
+      "payload_bytes": 60651856,
+      "peak_kib": 6060,
+      "position": 5,
+      "producers": 4,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 1924,
+      "block": 6,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10037197,
+      "payload_bytes": 15161344,
+      "peak_kib": 1892,
+      "position": 6,
+      "producers": 1,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 7628,
+      "block": 6,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 42404320,
+      "payload_bytes": 60651856,
+      "peak_kib": 7624,
+      "position": 7,
+      "producers": 4,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 1532,
+      "block": 6,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10194185,
+      "payload_bytes": 15161344,
+      "peak_kib": 1528,
+      "position": 8,
+      "producers": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 6628,
+      "block": 6,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 17996851,
+      "payload_bytes": 15161344,
+      "peak_kib": 6624,
+      "position": 9,
+      "producers": 1,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 1524,
+      "block": 7,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 16201861,
+      "payload_bytes": 15161344,
+      "peak_kib": 1520,
+      "position": 0,
+      "producers": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 2008,
+      "block": 7,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19263421,
+      "payload_bytes": 15161344,
+      "peak_kib": 1976,
+      "position": 1,
+      "producers": 1,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 6636,
+      "block": 7,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10143933,
+      "payload_bytes": 15161344,
+      "peak_kib": 6632,
+      "position": 2,
+      "producers": 1,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 6032,
+      "block": 7,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 80317746,
+      "payload_bytes": 60651856,
+      "peak_kib": 6028,
+      "position": 3,
+      "producers": 4,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 3492,
+      "block": 7,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 56661877,
+      "payload_bytes": 60651856,
+      "peak_kib": 3464,
+      "position": 4,
+      "producers": 4,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 2264,
+      "block": 7,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 83896270,
+      "payload_bytes": 60651856,
+      "peak_kib": 2260,
+      "position": 5,
+      "producers": 4,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 3644,
+      "block": 7,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 11060619,
+      "payload_bytes": 15161344,
+      "peak_kib": 3872,
+      "position": 6,
+      "producers": 1,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 4980,
+      "block": 7,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 62879576,
+      "payload_bytes": 60651856,
+      "peak_kib": 5788,
+      "position": 7,
+      "producers": 4,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 5256,
+      "block": 7,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10522679,
+      "payload_bytes": 15161344,
+      "peak_kib": 5252,
+      "position": 8,
+      "producers": 1,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 7576,
+      "block": 7,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 52674824,
+      "payload_bytes": 60651856,
+      "peak_kib": 7572,
+      "position": 9,
+      "producers": 4,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 7704,
+      "block": 8,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 68547666,
+      "payload_bytes": 60651856,
+      "peak_kib": 7700,
+      "position": 0,
+      "producers": 4,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 3552,
+      "block": 8,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 72426260,
+      "payload_bytes": 60651856,
+      "peak_kib": 3524,
+      "position": 1,
+      "producers": 4,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 4688,
+      "block": 8,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 54757852,
+      "payload_bytes": 60651856,
+      "peak_kib": 5840,
+      "position": 2,
+      "producers": 4,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 1524,
+      "block": 8,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 9882048,
+      "payload_bytes": 15161344,
+      "peak_kib": 1520,
+      "position": 3,
+      "producers": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 5184,
+      "block": 8,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10148790,
+      "payload_bytes": 15161344,
+      "peak_kib": 5180,
+      "position": 4,
+      "producers": 1,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 1936,
+      "block": 8,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 55341389,
+      "payload_bytes": 60651856,
+      "peak_kib": 2008,
+      "position": 5,
+      "producers": 4,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 2008,
+      "block": 8,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10521056,
+      "payload_bytes": 15161344,
+      "peak_kib": 1976,
+      "position": 6,
+      "producers": 1,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 6004,
+      "block": 8,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 78588823,
+      "payload_bytes": 60651856,
+      "peak_kib": 6000,
+      "position": 7,
+      "producers": 4,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 3716,
+      "block": 8,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19049827,
+      "payload_bytes": 15161344,
+      "peak_kib": 3876,
+      "position": 8,
+      "producers": 1,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 6620,
+      "block": 8,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 19107571,
+      "payload_bytes": 15161344,
+      "peak_kib": 6616,
+      "position": 9,
+      "producers": 1,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 5284,
+      "block": 9,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10088962,
+      "payload_bytes": 15161344,
+      "peak_kib": 5280,
+      "position": 0,
+      "producers": 1,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 1444,
+      "block": 9,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 11258128,
+      "payload_bytes": 15161344,
+      "peak_kib": 1440,
+      "position": 1,
+      "producers": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 6712,
+      "block": 9,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 10955703,
+      "payload_bytes": 15161344,
+      "peak_kib": 6708,
+      "position": 2,
+      "producers": 1,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 4928,
+      "block": 9,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 68411056,
+      "payload_bytes": 60651856,
+      "peak_kib": 5528,
+      "position": 3,
+      "producers": 4,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 3456,
+      "block": 9,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 63610679,
+      "payload_bytes": 60651856,
+      "peak_kib": 3428,
+      "position": 4,
+      "producers": 4,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 7620,
+      "block": 9,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 58232272,
+      "payload_bytes": 60651856,
+      "peak_kib": 7616,
+      "position": 5,
+      "producers": 4,
+      "provider": "gperftools"
+    },
+    {
+      "after_drop_kib": 6060,
+      "block": 9,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 60249233,
+      "payload_bytes": 60651856,
+      "peak_kib": 6056,
+      "position": 6,
+      "producers": 4,
+      "provider": "google"
+    },
+    {
+      "after_drop_kib": 3708,
+      "block": 9,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 12601481,
+      "payload_bytes": 15161344,
+      "peak_kib": 3868,
+      "position": 7,
+      "producers": 1,
+      "provider": "jemalloc"
+    },
+    {
+      "after_drop_kib": 2016,
+      "block": 9,
+      "checksum": 7861725308,
+      "count": 1024,
+      "elapsed_ns": 11625687,
+      "payload_bytes": 15161344,
+      "peak_kib": 1984,
+      "position": 8,
+      "producers": 1,
+      "provider": "mimalloc"
+    },
+    {
+      "after_drop_kib": 2052,
+      "block": 9,
+      "checksum": 125339911956,
+      "count": 4096,
+      "elapsed_ns": 88956369,
+      "payload_bytes": 60651856,
+      "peak_kib": 2048,
+      "position": 9,
+      "producers": 4,
+      "provider": "glibc"
+    }
+  ],
+  "seed": 2526,
+  "sources_sha256": {
+    "compatibility_probe": "f19188d110aa54729a159812067644c939859dd47c29731c964ee96fd02774dc",
+    "probe.rs": "e07be3a7d65c7956cdf27ddf9fa4dd38deab1ea8d67b5615edf6024ea2ec8fcc",
+    "run.py": "b0b5b40535a489efa77fbed63ab6698f97f4da85799e62f0135dcabaecc1c55b"
+  },
+  "summary": {
+    "glibc/1": {
+      "after_drop_kib": {
+        "median": 1526.0,
+        "n": 10,
+        "p10": 1439.6,
+        "p90": 1532.4
+      },
+      "elapsed_ns": {
+        "median": 10981993.5,
+        "n": 10,
+        "p10": 10162971.3,
+        "p90": 16508402.0
+      },
+      "peak_kib": {
+        "median": 1522.0,
+        "n": 10,
+        "p10": 1435.6,
+        "p90": 1528.4
+      }
+    },
+    "glibc/4": {
+      "after_drop_kib": {
+        "median": 2022.0,
+        "n": 10,
+        "p10": 1946.8,
+        "p90": 2163.2
+      },
+      "elapsed_ns": {
+        "median": 68281793.0,
+        "n": 10,
+        "p10": 49168056.3,
+        "p90": 88393168.8
+      },
+      "peak_kib": {
+        "median": 2050.0,
+        "n": 10,
+        "p10": 2003.2,
+        "p90": 2159.2
+      }
+    },
+    "google/1": {
+      "after_drop_kib": {
+        "median": 5256.0,
+        "n": 10,
+        "p10": 5187.6,
+        "p90": 5376.8
+      },
+      "elapsed_ns": {
+        "median": 12476408.0,
+        "n": 10,
+        "p10": 10142807.2,
+        "p90": 19262538.5
+      },
+      "peak_kib": {
+        "median": 5252.0,
+        "n": 10,
+        "p10": 5180.0,
+        "p90": 5372.8
+      }
+    },
+    "google/4": {
+      "after_drop_kib": {
+        "median": 6014.0,
+        "n": 10,
+        "p10": 5958.4,
+        "p90": 6060.4
+      },
+      "elapsed_ns": {
+        "median": 71151604.0,
+        "n": 10,
+        "p10": 47005679.8,
+        "p90": 79872835.5
+      },
+      "peak_kib": {
+        "median": 6010.0,
+        "n": 10,
+        "p10": 5954.4,
+        "p90": 6056.4
+      }
+    },
+    "gperftools/1": {
+      "after_drop_kib": {
+        "median": 6708.0,
+        "n": 10,
+        "p10": 6627.2,
+        "p90": 6719.2
+      },
+      "elapsed_ns": {
+        "median": 18552211.0,
+        "n": 10,
+        "p10": 10163633.1,
+        "p90": 19377225.6
+      },
+      "peak_kib": {
+        "median": 6704.0,
+        "n": 10,
+        "p10": 6623.2,
+        "p90": 6715.2
+      }
+    },
+    "gperftools/4": {
+      "after_drop_kib": {
+        "median": 7642.0,
+        "n": 10,
+        "p10": 7601.2,
+        "p90": 7686.0
+      },
+      "elapsed_ns": {
+        "median": 59568093.0,
+        "n": 10,
+        "p10": 45012875.5,
+        "p90": 84844972.1
+      },
+      "peak_kib": {
+        "median": 7638.0,
+        "n": 10,
+        "p10": 7597.2,
+        "p90": 7682.0
+      }
+    },
+    "jemalloc/1": {
+      "after_drop_kib": {
+        "median": 3704.0,
+        "n": 10,
+        "p10": 3628.0,
+        "p90": 3712.4
+      },
+      "elapsed_ns": {
+        "median": 12448506.5,
+        "n": 10,
+        "p10": 10678736.7,
+        "p90": 19071780.7
+      },
+      "peak_kib": {
+        "median": 3868.0,
+        "n": 10,
+        "p10": 3864.0,
+        "p90": 3876.0
+      }
+    },
+    "jemalloc/4": {
+      "after_drop_kib": {
+        "median": 4898.0,
+        "n": 10,
+        "p10": 4657.2,
+        "p90": 5128.8
+      },
+      "elapsed_ns": {
+        "median": 61840652.5,
+        "n": 10,
+        "p10": 54438098.8,
+        "p90": 80016523.7
+      },
+      "peak_kib": {
+        "median": 5786.0,
+        "n": 10,
+        "p10": 5592.8,
+        "p90": 6093.6
+      }
+    },
+    "mimalloc/1": {
+      "after_drop_kib": {
+        "median": 2000.0,
+        "n": 10,
+        "p10": 1920.0,
+        "p90": 2008.8
+      },
+      "elapsed_ns": {
+        "median": 18230323.5,
+        "n": 10,
+        "p10": 10472670.1,
+        "p90": 19972824.2
+      },
+      "peak_kib": {
+        "median": 1968.0,
+        "n": 10,
+        "p10": 1888.0,
+        "p90": 1976.8
+      }
+    },
+    "mimalloc/4": {
+      "after_drop_kib": {
+        "median": 3516.0,
+        "n": 10,
+        "p10": 3470.4,
+        "p90": 3552.0
+      },
+      "elapsed_ns": {
+        "median": 74968537.5,
+        "n": 10,
+        "p10": 54337425.6,
+        "p90": 89882863.8
+      },
+      "peak_kib": {
+        "median": 3488.0,
+        "n": 10,
+        "p10": 3442.4,
+        "p90": 3524.0
+      }
+    }
+  },
+  "trials": 10
+}

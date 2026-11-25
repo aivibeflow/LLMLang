@@ -1,0 +1,414 @@
+{
+  "compatibility": {
+    "glibc": {
+      "impossible_c_resize": "original storage preserved",
+      "library_basename": "libc.so.6",
+      "rust_sequences": 3200,
+      "sha256": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92"
+    },
+    "modern-google-tcmalloc": {
+      "impossible_c_resize": "original storage preserved",
+      "library_basename": "libllmlang_tcmalloc.so",
+      "rust_sequences": 3200,
+      "sha256": "b1471ea864eebc4b21597df9a462d99e55929ea920b8a7f3aa09cbd1b3b50955"
+    }
+  },
+  "cpu": 4,
+  "cpu_counter_delta": {
+    "burst_usec": 0,
+    "nice_usec": 0,
+    "nr_bursts": 0,
+    "nr_periods": 77,
+    "nr_throttled": 0,
+    "system_usec": 565648,
+    "throttled_usec": 0,
+    "usage_usec": 6361771,
+    "user_usec": 5796123
+  },
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "kernel": "6.18.57",
+  "modern_non_graph_process_per_cpu_caches": false,
+  "samples": [
+    {
+      "after_drop_kib": 36324,
+      "baseline_kib": 1352,
+      "block": 0,
+      "build_ns": 155517079,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 328505622,
+      "live_kib": 45316,
+      "peak_kib": 49460,
+      "position": 0,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 52316,
+      "baseline_kib": 4804,
+      "block": 0,
+      "build_ns": 58430323,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 97661542,
+      "live_kib": 46184,
+      "peak_kib": 58456,
+      "position": 1,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 52116,
+      "baseline_kib": 4912,
+      "block": 1,
+      "build_ns": 63181975,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 109999922,
+      "live_kib": 46284,
+      "peak_kib": 62948,
+      "position": 0,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 36320,
+      "baseline_kib": 1348,
+      "block": 1,
+      "build_ns": 58430813,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 101591617,
+      "live_kib": 45312,
+      "peak_kib": 49456,
+      "position": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 36404,
+      "baseline_kib": 1432,
+      "block": 2,
+      "build_ns": 60064423,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 105628479,
+      "live_kib": 45396,
+      "peak_kib": 49540,
+      "position": 0,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 52404,
+      "baseline_kib": 4896,
+      "block": 2,
+      "build_ns": 71101782,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 103707906,
+      "live_kib": 46184,
+      "peak_kib": 58544,
+      "position": 1,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 52680,
+      "baseline_kib": 4968,
+      "block": 3,
+      "build_ns": 69331590,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 102857667,
+      "live_kib": 46364,
+      "peak_kib": 58824,
+      "position": 0,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 36324,
+      "baseline_kib": 1352,
+      "block": 3,
+      "build_ns": 65398643,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 105019253,
+      "live_kib": 45316,
+      "peak_kib": 49460,
+      "position": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 52608,
+      "baseline_kib": 4896,
+      "block": 4,
+      "build_ns": 446424921,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 120479983,
+      "live_kib": 46288,
+      "peak_kib": 58752,
+      "position": 0,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 36332,
+      "baseline_kib": 1360,
+      "block": 4,
+      "build_ns": 66931196,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 102949923,
+      "live_kib": 45324,
+      "peak_kib": 49468,
+      "position": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 52492,
+      "baseline_kib": 4980,
+      "block": 5,
+      "build_ns": 65600168,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 113099097,
+      "live_kib": 46368,
+      "peak_kib": 58636,
+      "position": 0,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 36332,
+      "baseline_kib": 1360,
+      "block": 5,
+      "build_ns": 67113730,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 102549975,
+      "live_kib": 45324,
+      "peak_kib": 49468,
+      "position": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 52772,
+      "baseline_kib": 4908,
+      "block": 6,
+      "build_ns": 62555414,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 95203139,
+      "live_kib": 46256,
+      "peak_kib": 58912,
+      "position": 0,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 36404,
+      "baseline_kib": 1432,
+      "block": 6,
+      "build_ns": 60611714,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 97807180,
+      "live_kib": 45396,
+      "peak_kib": 49540,
+      "position": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 36336,
+      "baseline_kib": 1364,
+      "block": 7,
+      "build_ns": 67542974,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 103374788,
+      "live_kib": 45328,
+      "peak_kib": 49472,
+      "position": 0,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 52624,
+      "baseline_kib": 4908,
+      "block": 7,
+      "build_ns": 61104871,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 181551457,
+      "live_kib": 46272,
+      "peak_kib": 58768,
+      "position": 1,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 52084,
+      "baseline_kib": 4904,
+      "block": 8,
+      "build_ns": 63607992,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 110867356,
+      "live_kib": 46256,
+      "peak_kib": 62916,
+      "position": 0,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 36424,
+      "baseline_kib": 1452,
+      "block": 8,
+      "build_ns": 74733562,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 99995921,
+      "live_kib": 45416,
+      "peak_kib": 49560,
+      "position": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 36440,
+      "baseline_kib": 1468,
+      "block": 9,
+      "build_ns": 74475622,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 103670991,
+      "live_kib": 45432,
+      "peak_kib": 49576,
+      "position": 0,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 52460,
+      "baseline_kib": 5004,
+      "block": 9,
+      "build_ns": 63253051,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 101203212,
+      "live_kib": 46312,
+      "peak_kib": 58604,
+      "position": 1,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 52492,
+      "baseline_kib": 4820,
+      "block": 10,
+      "build_ns": 72889826,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 90575384,
+      "live_kib": 46180,
+      "peak_kib": 58636,
+      "position": 0,
+      "provider": "modern-google-tcmalloc"
+    },
+    {
+      "after_drop_kib": 36432,
+      "baseline_kib": 1460,
+      "block": 10,
+      "build_ns": 62743444,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 106206310,
+      "live_kib": 45424,
+      "peak_kib": 49568,
+      "position": 1,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 36404,
+      "baseline_kib": 1432,
+      "block": 11,
+      "build_ns": 69741097,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 104151797,
+      "live_kib": 45396,
+      "peak_kib": 49540,
+      "position": 0,
+      "provider": "glibc"
+    },
+    {
+      "after_drop_kib": 52280,
+      "baseline_kib": 4824,
+      "block": 11,
+      "build_ns": 399347792,
+      "checksum": "4c66d60dbdbdf118",
+      "impact_ns": 100539728,
+      "live_kib": 46160,
+      "peak_kib": 58424,
+      "position": 1,
+      "provider": "modern-google-tcmalloc"
+    }
+  ],
+  "seed": 2525,
+  "source_sha256": {
+    "BUILD.bazel": "753aac618a5008cf4b558dbda1f97858c144a4e183f754fbcc1160b97de3d617",
+    "bridge.cc": "58d2fceec59847fd01a656fe5167be893107fa4596ee0dd607ae9addb3733aca",
+    "graph": "a23123a51683160c9b35f179c3a778da07bf8326144ee84ed67544584f3e6c51",
+    "probe": "f19188d110aa54729a159812067644c939859dd47c29731c964ee96fd02774dc",
+    "run.py": "54d730fdb535dcef67209992400f2245ff60648015db4d8748158f8ce3642d81"
+  },
+  "summary": {
+    "glibc": {
+      "after_drop_kib": {
+        "median": 36370.0,
+        "n": 12,
+        "p10": 36324.0,
+        "p90": 36431.2
+      },
+      "baseline_kib": {
+        "median": 1398.0,
+        "n": 12,
+        "p10": 1352.0,
+        "p90": 1459.2
+      },
+      "build_ns": {
+        "median": 67022463.0,
+        "n": 12,
+        "p10": 60119152.1,
+        "p90": 74707768.0
+      },
+      "impact_ns": {
+        "median": 103522889.5,
+        "n": 12,
+        "p10": 100155490.6,
+        "p90": 106148526.9
+      },
+      "live_kib": {
+        "median": 45362.0,
+        "n": 12,
+        "p10": 45316.0,
+        "p90": 45423.2
+      },
+      "peak_kib": {
+        "median": 49506.0,
+        "n": 12,
+        "p10": 49460.0,
+        "p90": 49567.2
+      }
+    },
+    "modern-google-tcmalloc": {
+      "after_drop_kib": {
+        "median": 52476.0,
+        "n": 12,
+        "p10": 52132.4,
+        "p90": 52674.4
+      },
+      "baseline_kib": {
+        "median": 4906.0,
+        "n": 12,
+        "p10": 4820.4,
+        "p90": 4978.8
+      },
+      "build_ns": {
+        "median": 64604080.0,
+        "n": 12,
+        "p10": 61249925.3,
+        "p90": 366701995.4
+      },
+      "impact_ns": {
+        "median": 103282786.5,
+        "n": 12,
+        "p10": 95448979.3,
+        "p90": 119741894.4
+      },
+      "live_kib": {
+        "median": 46264.0,
+        "n": 12,
+        "p10": 46180.4,
+        "p90": 46358.8
+      },
+      "peak_kib": {
+        "median": 58694.0,
+        "n": 12,
+        "p10": 58464.8,
+        "p90": 62515.6
+      }
+    }
+  },
+  "tools": {
+    "glibc": "glibc 2.41",
+    "nm": "GNU nm (GNU Binutils for Debian) 2.44",
+    "python": "3.12.14",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  },
+  "trials": 12
+}

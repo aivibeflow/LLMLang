@@ -1,0 +1,26 @@
+{
+  "checks": 1024,
+  "controls": {
+    "conflicting_approval": "unsatisfied",
+    "different_manifest": "incomplete",
+    "duplicate_exact_approval": "complete",
+    "stale_baseline": "stale-baseline",
+    "wrong_audit_issuer": "incomplete"
+  },
+  "exact_completed_receipt": "d63ea7219084628caf788a6cc4b6c8b583516adda7ce314ea0371bea96a94a19",
+  "outcomes": {
+    "complete": 1,
+    "incomplete": 781,
+    "unsatisfied": 242
+  },
+  "permutations": 120,
+  "python": "3.12.14",
+  "required_issuers": {
+    "approval": "authorized-reviewer",
+    "audit": "independent-auditor",
+    "proof": "proof-checker",
+    "required-mutation": "toolchain",
+    "tests": "test-runner"
+  },
+  "source_sha256": "bb7fa665f0c5732e61379c3a0138fbde080c3c30c76d8f480bc018795f55cc19"
+}

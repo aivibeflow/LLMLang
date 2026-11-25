@@ -1,0 +1,52 @@
+{
+  "machine": "x86_64",
+  "kernel": "6.18.57",
+  "cpu": 0,
+  "cpu_name": "AMD EPYC 9V74 80-Core Processor",
+  "clock": "CLOCK_MONOTONIC_RAW",
+  "gomaxprocs": 1,
+  "toolchain": {
+    "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "cxx": "g++ (Debian 14.2.0-19) 14.2.0",
+    "go": "go version go1.27.4 linux/amd64",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  },
+  "archive_sha256": "6d9fd10f7651f6e00f50bdd7a843d38a979c11678b796f82f8e497f3ae52a92c",
+  "calls_per_trial": 524288,
+  "warmup_calls": 16384,
+  "checked_workloads": {
+    "all-success": {
+      "input_sha256": "d402efb8e13ddc56ab42ad2085bacc48f55a4d67463f95c2408f78de7295db22",
+      "native_records_checked_before_measurement": 1280,
+      "statuses": {
+        "0": 256
+      },
+      "warmup_checksum": 328551666567864064,
+      "timed_checksum": 10513653330171650048
+    },
+    "mixed-status": {
+      "input_sha256": "ac5f50a7933c1b0a4d3b304135efb0310c6e36e9d176f8bb2e6c6b89276f5200",
+      "native_records_checked_before_measurement": 1280,
+      "statuses": {
+        "0": 21,
+        "1": 140,
+        "2": 26,
+        "3": 43,
+        "4": 26
+      },
+      "warmup_checksum": 7685428223359610304,
+      "timed_checksum": 6126030189283358720
+    }
+  },
+  "source_sha256": {
+    "research/compiler-and-translation/RT-13/DISPATCH-TIMING-01/run.py": "35dfb605f0e26bcf45836d3fd99d7d112ba7212e14640bacae9cf3510ab10a15",
+    "research/compiler-and-translation/RT-13/DISPATCH-TIMING-01/measure.c": "8aa13406f5ad67c3e093fa5a44cddf70b5a3a1c62f9b10b37fdcb39d91a76624",
+    "research/compiler-and-translation/RT-30/SHARED-C-RUNTIME-01/run.py": "3d60487a399fd2879da8befb88b34d2453cede401f70b87e9317efdff456cfce",
+    "research/compiler-and-translation/RT-30/SHARED-C-RUNTIME-01/runtime.h": "7ced56d90b9d5ea9fde51a7823e2e26d9a038028e4ab3dda1483265c1c2f4067",
+    "research/compiler-and-translation/RT-30/SHARED-C-RUNTIME-01/runtime.c": "6476fa925ce9da3570ac01645c7e65d15b520f399230c795633b5a5ad9fc479c",
+    "research/compiler-and-translation/RT-30/SHARED-C-RUNTIME-01/adapter.c.in": "d0a6dfba468e637f4b1e2daeef8977d0b78eb277141d10147f852102852f0d5f",
+    "research/compiler-and-translation/RT-30/SHARED-C-RUNTIME-01/adapter.cc.in": "af958181400cf2bfc939278c7b510cc0060ada04b90e24b7d410cffc9f76f9ea",
+    "research/compiler-and-translation/RT-30/SHARED-C-RUNTIME-01/adapter.go.in": "b6de4c0db44fed7dcddedf1f1c116cbbb491949883a56d2d42cda66b83c7682e",
+    "research/compiler-and-translation/RT-30/SHARED-C-RUNTIME-01/adapter.rs.in": "c40010931dad7c6ee0a2f4c8d7b8fafee7dcc099326e72a1180270297008b1a8"
+  }
+}

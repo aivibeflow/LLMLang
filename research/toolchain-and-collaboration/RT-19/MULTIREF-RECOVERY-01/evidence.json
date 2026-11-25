@@ -1,0 +1,112 @@
+{
+  "git": "git version 2.56.1",
+  "python": "3.12.14",
+  "scenarios": {
+    "mixed_batch": {
+      "after": [
+        "new-a",
+        "old-b"
+      ],
+      "before": [
+        "new-a",
+        "old-b"
+      ],
+      "decision": "diverged",
+      "journal": "prepared",
+      "request": "30eaf34e4a440bb94792e16a2a7f20691b4e184f83f1f48e917378b007fd9073"
+    },
+    "one_ref_externally_advanced": {
+      "after": [
+        "old-a",
+        "external"
+      ],
+      "before": [
+        "old-a",
+        "external"
+      ],
+      "decision": "diverged",
+      "journal": "prepared",
+      "request": "30eaf34e4a440bb94792e16a2a7f20691b4e184f83f1f48e917378b007fd9073"
+    },
+    "prepared_current": {
+      "after": [
+        "new-a",
+        "new-b"
+      ],
+      "before": [
+        "old-a",
+        "old-b"
+      ],
+      "decision": "published",
+      "journal": "recorded",
+      "request": "30eaf34e4a440bb94792e16a2a7f20691b4e184f83f1f48e917378b007fd9073"
+    },
+    "prepared_no_observation": {
+      "after": [
+        "old-a",
+        "old-b"
+      ],
+      "before": [
+        "old-a",
+        "old-b"
+      ],
+      "decision": "observation-unavailable",
+      "journal": "prepared",
+      "request": "30eaf34e4a440bb94792e16a2a7f20691b4e184f83f1f48e917378b007fd9073"
+    },
+    "prepared_partial_grant": {
+      "after": [
+        "old-a",
+        "old-b"
+      ],
+      "before": [
+        "old-a",
+        "old-b"
+      ],
+      "decision": "mutation-unavailable",
+      "journal": "prepared",
+      "request": "30eaf34e4a440bb94792e16a2a7f20691b4e184f83f1f48e917378b007fd9073"
+    },
+    "published_no_observation": {
+      "after": [
+        "new-a",
+        "new-b"
+      ],
+      "before": [
+        "new-a",
+        "new-b"
+      ],
+      "decision": "observation-unavailable",
+      "journal": "prepared",
+      "request": "30eaf34e4a440bb94792e16a2a7f20691b4e184f83f1f48e917378b007fd9073"
+    },
+    "recorded_retry": {
+      "after": [
+        "new-a",
+        "new-b"
+      ],
+      "before": [
+        "new-a",
+        "new-b"
+      ],
+      "decision": "recorded",
+      "journal": "recorded",
+      "request": "30eaf34e4a440bb94792e16a2a7f20691b4e184f83f1f48e917378b007fd9073"
+    },
+    "unrecorded_published": {
+      "after": [
+        "new-a",
+        "new-b"
+      ],
+      "before": [
+        "new-a",
+        "new-b"
+      ],
+      "decision": "reconciled",
+      "journal": "recorded",
+      "request": "30eaf34e4a440bb94792e16a2a7f20691b4e184f83f1f48e917378b007fd9073"
+    }
+  },
+  "source_sha256": "2e506f7132af2e880b7bd878d4ae1b1d0601db2e4b90066066f93b06eba05165",
+  "sqlite": "3.53.1"
+}

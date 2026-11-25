@@ -157,3 +157,7 @@ Related: [Public interfaces and verified contract refinement](../../semantic-rep
 ## Explicit assumptions and conditional verification (RT-36; proposed)
 
 Use formal hypotheses, extract transitive actual axioms, and distinguish immutable claim identity, evidence closure and scoped trust authorization. A matching proof can discharge a premise only with compatible subject, context and semantics; retain its residual premises. Research cyclic discharge rejection and selective revocation separately. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This is a candidate follow-up, not an adopted rule or new experimental result.
+
+## Verification artifact cache follow-up (2026-11-25; proposed)
+
+See [multi-backend integration and verification artifact cache](../RT-33/VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) and [PLAN §3.5](../../../PLAN.md#35-verification-artifact-cache-and-incremental-proof-reuse-rt-11323336). The brief extends modular versus closed receipt reuse to a persistent multi-backend artifact cache. The existing proof cache and invalidation experiments remain scoped evidence; kernel replay, exact dependency coverage and production admission are open. This is a research proposal, not a normative decision or new experimental observation.

@@ -1,0 +1,90 @@
+{
+  "baseline_contract": {
+    "aggregation": "worst-case",
+    "bounds": {
+      "peak_live": {
+        "constant": 0,
+        "k": 1,
+        "n": 0,
+        "unit": "entry"
+      },
+      "work": {
+        "constant": 1,
+        "k": 1,
+        "n": 2,
+        "unit": "step"
+      }
+    },
+    "ir": "resource-contract/1",
+    "outcome": "successful-materialization",
+    "profile": "abstract-selection/1",
+    "size": {
+      "min_n": 0,
+      "relation": {
+        "k": "selected.count",
+        "k_max": "n",
+        "n": "input.length"
+      }
+    }
+  },
+  "baseline_evidence": {
+    "kernel_log": "cf373a8bb623357b30823c40dea3812f42c6aff1848ec99f19d58099a54bed0b",
+    "request": {
+      "assumptions": "f4ff4ead9bd8b111ea11bd6c103b8c7e872da43297a87f02f204de3958be8677",
+      "checker": "4b3d94f621be2f86f67ee04df56f501aa436b64c8a78da9f4f03765d7bf370d6",
+      "contract": "b0bd3f3cd1f38e3ae95a064ffc40478a4c5f1e0694b56e6aceb724ca4eea7351",
+      "generated_proof": "8f91e135fa9f9510c5b66d3ef85edd19eb3537fdd46dbbcaf9c76f5a8bb279f5",
+      "metric": "work",
+      "subject": "a771d488dc5a90d5b2c83e8d56afc2c3529265aef4ed4340a7605311caeb49e0"
+    }
+  },
+  "checker": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "evidence_mismatches": [
+    "assumptions",
+    "checker",
+    "contract",
+    "generated_proof",
+    "metric",
+    "size-restriction",
+    "subject",
+    "weaker-envelope"
+  ],
+  "finite_size_pairs": 2145,
+  "format": "resource-contract-ir-01",
+  "kernel_results": {
+    "domain-restricted": {
+      "peak_live": "kernel-checked",
+      "work": "kernel-checked"
+    },
+    "exact": {
+      "peak_live": "kernel-checked",
+      "work": "kernel-checked"
+    },
+    "peak-refinement": {
+      "peak_live": "kernel-refused",
+      "work": "kernel-checked"
+    },
+    "uniform-n-envelope": {
+      "peak_live": "kernel-checked",
+      "work": "kernel-checked"
+    },
+    "work-refinement": {
+      "peak_live": "kernel-checked",
+      "work": "kernel-refused"
+    }
+  },
+  "schema_controls": {
+    "boolean-threshold": "unsupported size domain",
+    "different-aggregation": "unsupported aggregation",
+    "different-outcome": "unsupported outcome",
+    "negative-cost": "invalid bound",
+    "peak-unit-step": "metric unit mismatch",
+    "unknown-bound-variable": "invalid shape",
+    "unknown-size": "invalid shape",
+    "work-unit-entry": "metric unit mismatch",
+    "wrong-domain-measure": "unsupported size domain",
+    "wrong-profile": "unsupported cost model"
+  },
+  "substituted_log_refused": true,
+  "untrusted_certificate_refused": true
+}

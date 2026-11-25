@@ -1,0 +1,541 @@
+{
+  "schema": "llmlang-exhaustive-testing-claim-scope/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "5fee7b46e2be56eec4045414f3db90ebdf79cb70495149d072d8ee2702b62929",
+    "Coverage.lean": "6df536d6e604aeee2e85a4dba8df186c6c23bf0bff6d0f7b558293e57c07e5c8",
+    "axioms.txt": "15c9faaec4a37e1cdd0d32d1b7a88628acf5fbde57b593c5d4fc43cc3baa6451"
+  },
+  "archived_commit": "840258f39219be2a1cdb94f12e9afd18b47ed73d",
+  "archives_reconciled": {
+    "branch": {
+      "path": "research/formal-verification/RT-07/IDENTICAL-BRANCH-01/evidence.json",
+      "sha256": "6805fe6787d014b212b85d4cdd2599cddb7edaff932532626e0674bd1b6962ac",
+      "summary": {
+        "compared_guard_body_pairs": 900,
+        "trace_only_erasure_changes": 108,
+        "native_rows": {
+          "O0": 3600,
+          "O3": 3600
+        }
+      }
+    },
+    "state_result": {
+      "path": "research/compiler-and-translation/RT-13/STATE-RESULT-MUTATIONS-01/evidence.json",
+      "sha256": "eb05a5dd8f287d4b4a1195e88d470bc3640a73898e14b9d14cafcc2c921bf32e",
+      "summary": {
+        "corpus_keys": [
+          "bounded_exhaustive",
+          "seeded_general",
+          "seeded_success_only"
+        ],
+        "exact_claim_limited_to_these_corpora": true
+      }
+    },
+    "checked_add": {
+      "path": "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-SYMBOLIC-01/evidence.json",
+      "sha256": "7cbab41fe9ab36ccc201d618e70edf8d065d465fc97a6eb0af72410adfdeadcb",
+      "summary": {
+        "checked_lean_claims": 20,
+        "incorrect_whole_domain_claims": 3,
+        "covers_ir_model_under_recorded_assumptions": true
+      }
+    }
+  },
+  "suites": {
+    "whole_declared_domain": {
+      "rows": 128,
+      "input_pairs": 64,
+      "profiles": {
+        "result": {
+          "pass": [
+            "identity",
+            "omitted_schedule_effect",
+            "reordered_effects"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 0,
+              "first": null
+            },
+            "rare_result": {
+              "mismatches": 2,
+              "first": [
+                31,
+                0,
+                0
+              ]
+            },
+            "error_only": {
+              "mismatches": 64,
+              "first": [
+                0,
+                1,
+                0
+              ]
+            },
+            "reordered_effects": {
+              "mismatches": 0,
+              "first": null
+            }
+          }
+        },
+        "unordered_effects": {
+          "pass": [
+            "identity",
+            "reordered_effects"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 64,
+              "first": [
+                0,
+                0,
+                1
+              ]
+            },
+            "rare_result": {
+              "mismatches": 2,
+              "first": [
+                31,
+                0,
+                0
+              ]
+            },
+            "error_only": {
+              "mismatches": 64,
+              "first": [
+                0,
+                1,
+                0
+              ]
+            },
+            "reordered_effects": {
+              "mismatches": 0,
+              "first": null
+            }
+          }
+        },
+        "complete": {
+          "pass": [
+            "identity"
+          ],
+          "closes_full_declared_claim": [
+            "identity"
+          ],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 64,
+              "first": [
+                0,
+                0,
+                1
+              ]
+            },
+            "rare_result": {
+              "mismatches": 2,
+              "first": [
+                31,
+                0,
+                0
+              ]
+            },
+            "error_only": {
+              "mismatches": 64,
+              "first": [
+                0,
+                1,
+                0
+              ]
+            },
+            "reordered_effects": {
+              "mismatches": 128,
+              "first": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "first_8_addresses": {
+      "rows": 32,
+      "input_pairs": 16,
+      "profiles": {
+        "result": {
+          "pass": [
+            "identity",
+            "omitted_schedule_effect",
+            "rare_result",
+            "reordered_effects"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 0,
+              "first": null
+            },
+            "rare_result": {
+              "mismatches": 0,
+              "first": null
+            },
+            "error_only": {
+              "mismatches": 16,
+              "first": [
+                0,
+                1,
+                0
+              ]
+            },
+            "reordered_effects": {
+              "mismatches": 0,
+              "first": null
+            }
+          }
+        },
+        "unordered_effects": {
+          "pass": [
+            "identity",
+            "rare_result",
+            "reordered_effects"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 16,
+              "first": [
+                0,
+                0,
+                1
+              ]
+            },
+            "rare_result": {
+              "mismatches": 0,
+              "first": null
+            },
+            "error_only": {
+              "mismatches": 16,
+              "first": [
+                0,
+                1,
+                0
+              ]
+            },
+            "reordered_effects": {
+              "mismatches": 0,
+              "first": null
+            }
+          }
+        },
+        "complete": {
+          "pass": [
+            "identity",
+            "rare_result"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 16,
+              "first": [
+                0,
+                0,
+                1
+              ]
+            },
+            "rare_result": {
+              "mismatches": 0,
+              "first": null
+            },
+            "error_only": {
+              "mismatches": 16,
+              "first": [
+                0,
+                1,
+                0
+              ]
+            },
+            "reordered_effects": {
+              "mismatches": 32,
+              "first": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "all_inputs_one_schedule": {
+      "rows": 64,
+      "input_pairs": 64,
+      "profiles": {
+        "result": {
+          "pass": [
+            "identity",
+            "omitted_schedule_effect",
+            "reordered_effects"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 0,
+              "first": null
+            },
+            "rare_result": {
+              "mismatches": 1,
+              "first": [
+                31,
+                0,
+                0
+              ]
+            },
+            "error_only": {
+              "mismatches": 32,
+              "first": [
+                0,
+                1,
+                0
+              ]
+            },
+            "reordered_effects": {
+              "mismatches": 0,
+              "first": null
+            }
+          }
+        },
+        "unordered_effects": {
+          "pass": [
+            "identity",
+            "omitted_schedule_effect",
+            "reordered_effects"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 0,
+              "first": null
+            },
+            "rare_result": {
+              "mismatches": 1,
+              "first": [
+                31,
+                0,
+                0
+              ]
+            },
+            "error_only": {
+              "mismatches": 32,
+              "first": [
+                0,
+                1,
+                0
+              ]
+            },
+            "reordered_effects": {
+              "mismatches": 0,
+              "first": null
+            }
+          }
+        },
+        "complete": {
+          "pass": [
+            "identity",
+            "omitted_schedule_effect"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 0,
+              "first": null
+            },
+            "rare_result": {
+              "mismatches": 1,
+              "first": [
+                31,
+                0,
+                0
+              ]
+            },
+            "error_only": {
+              "mismatches": 32,
+              "first": [
+                0,
+                1,
+                0
+              ]
+            },
+            "reordered_effects": {
+              "mismatches": 64,
+              "first": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "success_only": {
+      "rows": 64,
+      "input_pairs": 32,
+      "profiles": {
+        "result": {
+          "pass": [
+            "error_only",
+            "identity",
+            "omitted_schedule_effect",
+            "reordered_effects"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 0,
+              "first": null
+            },
+            "rare_result": {
+              "mismatches": 2,
+              "first": [
+                31,
+                0,
+                0
+              ]
+            },
+            "error_only": {
+              "mismatches": 0,
+              "first": null
+            },
+            "reordered_effects": {
+              "mismatches": 0,
+              "first": null
+            }
+          }
+        },
+        "unordered_effects": {
+          "pass": [
+            "error_only",
+            "identity",
+            "reordered_effects"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 32,
+              "first": [
+                0,
+                0,
+                1
+              ]
+            },
+            "rare_result": {
+              "mismatches": 2,
+              "first": [
+                31,
+                0,
+                0
+              ]
+            },
+            "error_only": {
+              "mismatches": 0,
+              "first": null
+            },
+            "reordered_effects": {
+              "mismatches": 0,
+              "first": null
+            }
+          }
+        },
+        "complete": {
+          "pass": [
+            "error_only",
+            "identity"
+          ],
+          "closes_full_declared_claim": [],
+          "variants": {
+            "identity": {
+              "mismatches": 0,
+              "first": null
+            },
+            "omitted_schedule_effect": {
+              "mismatches": 32,
+              "first": [
+                0,
+                0,
+                1
+              ]
+            },
+            "rare_result": {
+              "mismatches": 2,
+              "first": [
+                31,
+                0,
+                0
+              ]
+            },
+            "error_only": {
+              "mismatches": 0,
+              "first": null
+            },
+            "reordered_effects": {
+              "mismatches": 64,
+              "first": [
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "compiler": "rustc 1.85.1 (4eb161250 2025-03-15)",
+  "format": "polymorphic-lifetimes-01",
+  "metrics": {
+    "accepted": 14,
+    "compile_decisions": 24,
+    "native_observations": 1024
+  },
+  "provider_libraries": [
+    {
+      "optimization": 0,
+      "rlib": "a3812eac2aa99dc38cacd5330c2e1b406b05cd8b84039732bcb46d5a580627e8"
+    },
+    {
+      "optimization": 2,
+      "rlib": "9b28966a1c780ed569060480e369f86b39b293e772f5b0e272fd15241ed4afdd"
+    }
+  ],
+  "provider_source": "19346b1df4fea86515f9e3a7692cca02a52d41067b707133159a7043f1e637cc",
+  "rows": [
+    {
+      "case": "higher-ranked-function",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "9e54adff7d5fe9cf5c5044fcd765539bacb115d4ed96c7a08195b838debc4b02",
+      "optimization": 0
+    },
+    {
+      "case": "static-provider-under-polymorphic-signature",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "5338c4bd1b1c9b90a2d34681d496e758f127beb504628aa6feb725ba533185d8",
+      "optimization": 0
+    },
+    {
+      "case": "static-only-instantiation",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "9c1ca5cf493758859d21f4f5a1520174e167faa9ae4cc5eb41e02b8e82d6bb96",
+      "optimization": 0
+    },
+    {
+      "case": "erased-lifetime-indexed-method",
+      "decision": "admitted",
+      "observations": 128,
+      "observed_output": "663cbb2e28efd469e425b3ee840dd10bcb999ad0a36504f9b09c5e6af621f4bf",
+      "optimization": 0
+    },
+    {
+      "case": "explicit-associated-type",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "28b4dfb0391977a298262b190d9a6d6381cd96e0034e35d02049d6b927cac0fc",
+      "optimization": 0
+    },
+    {
+      "case": "concrete-type-parameter",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "7c7dac216a39e047230a2f2ee1691f0ba705ae86c3384e7c579324e24ca78543",
+      "optimization": 0
+    },
+    {
+      "case": "sized-only-generic-with-erased-label",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "62ce5c6cc83c2c13abd2a671e1f9ebb816de32728ff6b41882a9912ef9c5314f",
+      "optimization": 0
+    },
+    {
+      "case": "static-only-is-not-higher-ranked",
+      "compiler_codes": [
+        "E0308"
+      ],
+      "decision": "refused",
+      "optimization": 0,
+      "requested_diagnostic": "E0308"
+    },
+    {
+      "case": "opaque-universal-result-cannot-escape",
+      "compiler_codes": [
+        "E0597"
+      ],
+      "decision": "refused",
+      "optimization": 0,
+      "requested_diagnostic": "E0597"
+    },
+    {
+      "case": "generic-method-not-erasable",
+      "compiler_codes": [
+        "E0038"
+      ],
+      "decision": "refused",
+      "optimization": 0,
+      "requested_diagnostic": "E0038"
+    },
+    {
+      "case": "unbound-associated-type",
+      "compiler_codes": [
+        "E0191"
+      ],
+      "decision": "refused",
+      "optimization": 0,
+      "requested_diagnostic": "E0191"
+    },
+    {
+      "case": "sized-generic-hidden-from-erased-interface",
+      "compiler_codes": [],
+      "decision": "refused",
+      "optimization": 0,
+      "requested_diagnostic": "Sized"
+    },
+    {
+      "case": "higher-ranked-function",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "9e54adff7d5fe9cf5c5044fcd765539bacb115d4ed96c7a08195b838debc4b02",
+      "optimization": 2
+    },
+    {
+      "case": "static-provider-under-polymorphic-signature",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "5338c4bd1b1c9b90a2d34681d496e758f127beb504628aa6feb725ba533185d8",
+      "optimization": 2
+    },
+    {
+      "case": "static-only-instantiation",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "9c1ca5cf493758859d21f4f5a1520174e167faa9ae4cc5eb41e02b8e82d6bb96",
+      "optimization": 2
+    },
+    {
+      "case": "erased-lifetime-indexed-method",
+      "decision": "admitted",
+      "observations": 128,
+      "observed_output": "663cbb2e28efd469e425b3ee840dd10bcb999ad0a36504f9b09c5e6af621f4bf",
+      "optimization": 2
+    },
+    {
+      "case": "explicit-associated-type",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "28b4dfb0391977a298262b190d9a6d6381cd96e0034e35d02049d6b927cac0fc",
+      "optimization": 2
+    },
+    {
+      "case": "concrete-type-parameter",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "7c7dac216a39e047230a2f2ee1691f0ba705ae86c3384e7c579324e24ca78543",
+      "optimization": 2
+    },
+    {
+      "case": "sized-only-generic-with-erased-label",
+      "decision": "admitted",
+      "observations": 64,
+      "observed_output": "62ce5c6cc83c2c13abd2a671e1f9ebb816de32728ff6b41882a9912ef9c5314f",
+      "optimization": 2
+    },
+    {
+      "case": "static-only-is-not-higher-ranked",
+      "compiler_codes": [
+        "E0308"
+      ],
+      "decision": "refused",
+      "optimization": 2,
+      "requested_diagnostic": "E0308"
+    },
+    {
+      "case": "opaque-universal-result-cannot-escape",
+      "compiler_codes": [
+        "E0597"
+      ],
+      "decision": "refused",
+      "optimization": 2,
+      "requested_diagnostic": "E0597"
+    },
+    {
+      "case": "generic-method-not-erasable",
+      "compiler_codes": [
+        "E0038"
+      ],
+      "decision": "refused",
+      "optimization": 2,
+      "requested_diagnostic": "E0038"
+    },
+    {
+      "case": "unbound-associated-type",
+      "compiler_codes": [
+        "E0191"
+      ],
+      "decision": "refused",
+      "optimization": 2,
+      "requested_diagnostic": "E0191"
+    },
+    {
+      "case": "sized-generic-hidden-from-erased-interface",
+      "compiler_codes": [],
+      "decision": "refused",
+      "optimization": 2,
+      "requested_diagnostic": "Sized"
+    }
+  ]
+}

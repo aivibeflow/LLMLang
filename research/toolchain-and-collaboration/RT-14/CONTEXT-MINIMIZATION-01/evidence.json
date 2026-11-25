@@ -1,0 +1,13 @@
+{
+  "budget_unit": "UTF-8 bytes in fixture canonical JSON",
+  "changed_hidden_fields_preserve_rendering": true,
+  "counts": {
+    "over-budget": 72,
+    "ready": 96,
+    "unavailable": 336
+  },
+  "decisions": 504,
+  "fixture_private_field_controls": 1512,
+  "python": "3.12.14",
+  "source_sha256": "3a68a7132e7b747f7ba1572359ab7e0d7e5c6f270480b7564e6687512e8fb609"
+}

@@ -1,0 +1,17 @@
+{
+  "read": {
+    "observations": ["disposition", "errno on failure", "committed byte prefix"],
+    "assumptions": "Caller supplies capacity and valid mutable storage for it. The adapter refuses requests larger than capacity.",
+    "source": "https://pubs.opengroup.org/onlinepubs/9699919799/functions/read.html"
+  },
+  "sqlite3_stricmp": {
+    "observations": ["comparison sign under SQLite ASCII folding"],
+    "assumptions": "Caller supplies readable NUL-terminated strings. The fixture makes no Unicode collation claim.",
+    "source": "https://www.sqlite.org/c3ref/stricmp.html"
+  },
+  "EVP_Digest": {
+    "observations": ["success", "actual output length", "digest bytes"],
+    "assumptions": "The adapter selects SHA-256 and requires a 32-byte result, keeps the buffers live, and supplies no ENGINE.",
+    "source": "https://docs.openssl.org/3.5/man3/EVP_DigestInit/"
+  }
+}

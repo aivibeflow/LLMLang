@@ -1,0 +1,30 @@
+{
+  "comparisons": 704,
+  "controls": {
+    "delivery_bytes_required": true,
+    "independent_recheck_recovers": true,
+    "original_eligible": true,
+    "rebuild_only_insufficient": true,
+    "restored_eligibility_requires_new_view_receipt": true,
+    "unavailable_after_compromise": true,
+    "unsupported_cycle_refused": true
+  },
+  "nodes": [
+    "compiler-a",
+    "compiler-b",
+    "checker-a",
+    "checker-b",
+    "implementation-a",
+    "implementation-b",
+    "proof-a",
+    "proof-b",
+    "result",
+    "dependent"
+  ],
+  "outcomes": {
+    "eligible": 69,
+    "unavailable": 635
+  },
+  "python": "3.12.14",
+  "source_sha256": "e891ebf39fedaec4b8184e702083c482eb8153ac592a9f89bbf26a46137aeff5"
+}

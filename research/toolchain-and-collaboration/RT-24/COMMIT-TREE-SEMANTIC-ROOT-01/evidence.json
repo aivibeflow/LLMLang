@@ -1,0 +1,241 @@
+{
+  "baseline": "5c512275257a35ce867e3b2ecd540c3ac6dc04fd",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "inputs": [
+    -1,
+    0,
+    1
+  ],
+  "runner_sha256": "8988ba2211978258c5aefd95fd6c85ca16f0e78c167f14c799e4abb63f86ba16",
+  "prototype_sha256": {
+    "spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+    "spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556"
+  },
+  "formats": {
+    "sha1": {
+      "rows": {
+        "baseline": {
+          "commit": "c7ee16c21486fbadab38603057a270d31cf67ca2",
+          "tree": "f965a0100d226e35efb487d75c7c255900030a43",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "different-message": {
+          "commit": "8e0f3494ecf28175a4f7042a8e355ef7f1fc57ff",
+          "tree": "f965a0100d226e35efb487d75c7c255900030a43",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "different-tree-docs": {
+          "commit": "8fbaf8d45775201ff4bd9053b6dbc42f33bb4335",
+          "tree": "5a62514363754c44c1b56f437948e7e5ecba2369",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [
+            "c7ee16c21486fbadab38603057a270d31cf67ca2"
+          ],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "different-tree-format": {
+          "commit": "b134a3e67c4fac91e81ccc46e294f3198c2347d3",
+          "tree": "da2a224b587e9bc90454a1daf5923cab66c2be48",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [
+            "c7ee16c21486fbadab38603057a270d31cf67ca2"
+          ],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "different-binding": {
+          "commit": "997d1f002e915d6f2a2edbe58fd0ca353a5480bb",
+          "tree": "4a91f095d6d73fca430c5c5745bbb189b920364c",
+          "semantic_root": "c842ba6a21739bbf0b696acc7c59cc95b6ad4ba41f6ec23803c06672ed3ad3ba",
+          "parents": [
+            "c7ee16c21486fbadab38603057a270d31cf67ca2"
+          ],
+          "values": [
+            -2,
+            -1,
+            0
+          ]
+        },
+        "restored-tree": {
+          "commit": "242a07f124ee2c77da69a5391d3b42c3d2a0f92a",
+          "tree": "f965a0100d226e35efb487d75c7c255900030a43",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [
+            "997d1f002e915d6f2a2edbe58fd0ca353a5480bb"
+          ],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "first-merge-order": {
+          "commit": "5f0698e5d852fcc9082bb046e376fbb4a74552eb",
+          "tree": "f965a0100d226e35efb487d75c7c255900030a43",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [
+            "8fbaf8d45775201ff4bd9053b6dbc42f33bb4335",
+            "997d1f002e915d6f2a2edbe58fd0ca353a5480bb"
+          ],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "reversed-merge-order": {
+          "commit": "197f73f8fadc383edd56afa03ea29c2a0cab419f",
+          "tree": "f965a0100d226e35efb487d75c7c255900030a43",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [
+            "997d1f002e915d6f2a2edbe58fd0ca353a5480bb",
+            "8fbaf8d45775201ff4bd9053b6dbc42f33bb4335"
+          ],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "refusals": {
+        "missing-program": "missing semantic source",
+        "undeclared-file": "outside the declared closed tree profile"
+      },
+      "ignores_uncommitted_worktree_bytes": true
+    },
+    "sha256": {
+      "rows": {
+        "baseline": {
+          "commit": "9627532880ea60fa0299f312a1a8219c97fd164420a622dac066effdab70541a",
+          "tree": "621027b6b0cf5c27f6f64f76bc8e2443976063b560ad23dc8f72eb57e18f04cd",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "different-message": {
+          "commit": "ffc7c422b81739693344992f7082238563a1c8ed622f47de19b910dbfda0e1ee",
+          "tree": "621027b6b0cf5c27f6f64f76bc8e2443976063b560ad23dc8f72eb57e18f04cd",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "different-tree-docs": {
+          "commit": "3f87d9a6cdfe4256e7c16fa1eca2b5654dd5edfbf5a80c8db59ba2b2f1f11e08",
+          "tree": "703ed74cbf847cfbf32a1447813700a56317420b9d3a1b62731ba3526c09732d",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [
+            "9627532880ea60fa0299f312a1a8219c97fd164420a622dac066effdab70541a"
+          ],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "different-tree-format": {
+          "commit": "939fdaff9551f6342a40c91bb5676aad286867b5157d34ed76f66d8ab308a0e1",
+          "tree": "b5aa6a59ed5c7858c922b84c9f68b8e18a8c6c83cb18e167b137565a65368c2b",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [
+            "9627532880ea60fa0299f312a1a8219c97fd164420a622dac066effdab70541a"
+          ],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "different-binding": {
+          "commit": "a599e579df0062b8370d50c51dd610b42ce5254a15d29e8e4bdab743329cd315",
+          "tree": "0c2bcaabe8e5fdcd5bb2f602d5641bdf64c087d832dfcfeda036df0af2bf5869",
+          "semantic_root": "c842ba6a21739bbf0b696acc7c59cc95b6ad4ba41f6ec23803c06672ed3ad3ba",
+          "parents": [
+            "9627532880ea60fa0299f312a1a8219c97fd164420a622dac066effdab70541a"
+          ],
+          "values": [
+            -2,
+            -1,
+            0
+          ]
+        },
+        "restored-tree": {
+          "commit": "8bc40b3f15bb4755e428d04ec0224a670b73bcf3e6fb6416f9c8cd4fd6ed29b0",
+          "tree": "621027b6b0cf5c27f6f64f76bc8e2443976063b560ad23dc8f72eb57e18f04cd",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [
+            "a599e579df0062b8370d50c51dd610b42ce5254a15d29e8e4bdab743329cd315"
+          ],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "first-merge-order": {
+          "commit": "6657884b2febc6c87870b3ca1d7fa180e1d99fa7ef3d2be2cb896feee0da89d6",
+          "tree": "621027b6b0cf5c27f6f64f76bc8e2443976063b560ad23dc8f72eb57e18f04cd",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [
+            "3f87d9a6cdfe4256e7c16fa1eca2b5654dd5edfbf5a80c8db59ba2b2f1f11e08",
+            "a599e579df0062b8370d50c51dd610b42ce5254a15d29e8e4bdab743329cd315"
+          ],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "reversed-merge-order": {
+          "commit": "effcc39703255d1f8f3f591f8c45ed0c5f6f4389c52a74d36a7b009f053f36cc",
+          "tree": "621027b6b0cf5c27f6f64f76bc8e2443976063b560ad23dc8f72eb57e18f04cd",
+          "semantic_root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+          "parents": [
+            "a599e579df0062b8370d50c51dd610b42ce5254a15d29e8e4bdab743329cd315",
+            "3f87d9a6cdfe4256e7c16fa1eca2b5654dd5edfbf5a80c8db59ba2b2f1f11e08"
+          ],
+          "values": [
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "refusals": {
+        "missing-program": "missing semantic source",
+        "undeclared-file": "outside the declared closed tree profile"
+      },
+      "ignores_uncommitted_worktree_bytes": true
+    }
+  }
+}

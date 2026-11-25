@@ -1,0 +1,8 @@
+{
+  "operation": "checked_sdiv_i32",
+  "signature": ["i32", "i32"],
+  "result": ["division_status", "i32"],
+  "errors": ["zero_divisor", "signed_overflow"],
+  "effectful": ["attempt", "settle"],
+  "pure": []
+}

@@ -1,0 +1,1317 @@
+{
+  "baseline": "4b9060f0fae2d71ea0b708019ff442ffed82458b",
+  "kernel": "6.18.57",
+  "arch": "x86_64",
+  "python": "3.12.14",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "readelf": "GNU readelf (GNU Binutils for Debian) 2.44",
+  "filesystem": "overlayfs",
+  "libc_archive_sha256": {
+    "glibc": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+    "musl": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0"
+  },
+  "musl_original_specs_sha256": "ffaa141b9ca85cc25ab5b29e8317846b9bf8e2c221044ec8ea240f00fc7ebace",
+  "source_sha256": {
+    "probe.c": "69ac1ca18aaf37009a92972e0d468f4d7324cdbb617c73d617089a18746fa531",
+    "run.py": "d6324e3af4ec62ad047283666cedc1ea00b00afa72428ebe2186fce2fc815b69",
+    "research/runtime-and-systems/RT-10/POSIX-CROSS-LIBC-01/run.py": "aa2f3ee51e210885edad46251ed2089eb40cef7544613c987d00c1b7719f7135"
+  },
+  "results": {
+    "glibc-O0-filesystem": {
+      "pwrite-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "pwrite-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-noappend-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-noappend-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-force-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append-cursor": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          5,
+          5,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "clear-through-alias": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          1
+        ]
+      },
+      "set-through-alias": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "glibc-O0-memfd": {
+      "pwrite-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "pwrite-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-noappend-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-noappend-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-force-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append-cursor": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          5,
+          5,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "clear-through-alias": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          1
+        ]
+      },
+      "set-through-alias": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "glibc-O2-filesystem": {
+      "pwrite-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "pwrite-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-noappend-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-noappend-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-force-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append-cursor": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          5,
+          5,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "clear-through-alias": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          1
+        ]
+      },
+      "set-through-alias": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "glibc-O2-memfd": {
+      "pwrite-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "pwrite-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-noappend-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-noappend-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-force-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append-cursor": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          5,
+          5,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "clear-through-alias": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          1
+        ]
+      },
+      "set-through-alias": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "musl-O0-filesystem": {
+      "pwrite-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "pwrite-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-noappend-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-noappend-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-force-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append-cursor": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          5,
+          5,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "clear-through-alias": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          1
+        ]
+      },
+      "set-through-alias": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "musl-O0-memfd": {
+      "pwrite-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "pwrite-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-noappend-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-noappend-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-force-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append-cursor": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          5,
+          5,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "clear-through-alias": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          1
+        ]
+      },
+      "set-through-alias": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "musl-O2-filesystem": {
+      "pwrite-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "pwrite-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-noappend-plain": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-noappend-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-force-append": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append-cursor": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          5,
+          5,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "clear-through-alias": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          1
+        ]
+      },
+      "set-through-alias": {
+        "filesystem_magic_hex": "794c7630",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "musl-O2-memfd": {
+      "pwrite-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "pwrite-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-noappend-plain": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-noappend-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          1
+        ]
+      },
+      "vector-force-append": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "vector-append-cursor": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          5,
+          5,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          0
+        ]
+      },
+      "clear-through-alias": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "AZCD",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          0,
+          0,
+          1
+        ]
+      },
+      "set-through-alias": {
+        "filesystem_magic_hex": "1021994",
+        "bytes_written": 1,
+        "error": 0,
+        "content": "ABCDZ",
+        "offsets": [
+          2,
+          2,
+          3
+        ],
+        "append_flags": [
+          1,
+          1,
+          0
+        ]
+      }
+    }
+  }
+}

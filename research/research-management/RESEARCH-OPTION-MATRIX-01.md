@@ -1,7 +1,7 @@
 # Research Option Matrix 01 — Language and Execution Foundations
 
 **Status:** Initial evidence-linked comparison; no vector selected
-**Updated:** 2026-11-24
+**Updated:** 2026-11-25
 **Scope:** First synthesis slice across core semantics, type/effect/resource model, semantic representation, verification, runtime, backends, and security. This matrix does not choose a language architecture or replace the source studies.
 
 ## 1. Purpose
@@ -236,6 +236,7 @@ These comparisons join verified results on the current merged research baseline 
 | Route or boundary | Comparable evidence | Condition on implementation selection |
 | --- | --- | --- |
 | Generated Rust, direct LLVM, and generated Go for hosted scalar arithmetic, B-C and DEP-016/024 | The exact integer fixture and source probe hashes match across studies. Four Rust/LLVM and two Go profiles each preserve 197,440 observations covering status, result slot and callback order. Rust debug assertions introduce a runtime helper and the no-undefined-symbol link rejects it. The Go profiles measure complete standalone and shared library artifacts. [Rust and LLVM](../compiler-and-translation/RT-13/RT-13-GENERATED-RUST-INTEGER-LOWERING-2026-11-24.md) · [Go](../compiler-and-translation/RT-13/RT-13-GENERATED-GO-INTEGER-LOWERING-2026-11-24.md) | A hosted integer emitter can use any of the three measured routes with its precise arithmetic and ABI guards. Compare the same output unit for size. Gate debug and freestanding profiles on actual helper symbols and link availability. Ownership, generalized pointer semantics and hardware targets remain separate. |
+| Hosted C ABI static and shared binding, B-C and DEP-024 | The candidate C and LLVM routes cross-link in both directions over all 16 hosted cells. Ninety-six independent Linux x86-64 observations cover success, overflow and preserved output slots. [Bidirectional hosted FFI](../compiler-and-translation/RT-13/RT-13-FFI-BIDIRECTIONAL-HOSTED-CONFORMANCE-2026-11-25.md) | Bind the supported ABI and exact artifacts. Runtime and SDK evidence qualify independently of successful cross-linking. |
 | Ready-to-call LLVM ORC O0 versus Cranelift without optimization, B-C and DEP-015/016 | For the two builds-paused process runs, median ready-to-call latency was 2,405.3 versus 277.0 µs for the first module and 840.5 versus 101.5 µs for later fresh modules. Each profile has 48 first and 1,440 later samples. [JIT experiment](../compiler-and-translation/RT-13/RT-13-JIT-MATERIALIZATION-LATENCY-2026-11-24.md) | A latency-sensitive hosted path can prioritize a Cranelift comparison at the same readiness boundary. Measure runtime code quality, unsupported target features and representative workloads before choosing a default. |
 | Structural verification, translation validation, and execution checks, V-A/V-C and DEP-007/016 | Stock Alive2 validates identity and refutes changed signed overflow and aliased store ordering. It reports atomic read-modify-write and fences as unsupported even though LLVM structurally verifies all fixtures. Extracted Vellvm reproduces concrete sequential assertions. [Stock replay](../compiler-and-translation/RT-13/RT-13-STOCK-ALIVE2-LLVM-EH-2026-11-24.md) | Require separate support and preservation evidence for atomic transformations. A structural verifier result or passing sequential assertion cannot authorize concurrent rewriting. |
 | Dafny local verification and assumed extern contracts, V-A/V-B and DEP-007 | Two bundled Z3 versions verify a checked Dafny implementation and its conditional foreign caller. The chosen C provider and signed output interpretation change native results with the same verified caller. The exact C and ABI route matches all 1,836 inputs per GCC configuration. [Dafny kernel-style lookup and foreign boundary](../formal-verification/RT-07/RT-07-DAFNY-KERNEL-FOREIGN-BOUNDARY-2026-11-25.md) | Bind the foreign source, ABI and native provider separately from the verified contract. Use Dafny source verification for a supported subset and retain the C and binary correspondence obligations. |
@@ -301,6 +302,42 @@ For histories with multiple best common ancestors, the [native merge-base compar
 
 [Native worker settlement](../language-design/RT-01/RT-01-RESOURCE-WORKER-SETTLEMENT-2026-11-25.md) compares initial admission, a fresh effect gate and post-release terminal outcomes over the same two-client workload. An admission-only strategy allows revoked writes. Immediate terminal cancellation retains live resources at six response events. The guarded strategy matches the expected effects, results and descriptor lifecycle.
 
+### 5.6 Bounded source-to-publication candidate space
+
+A finite owned-result workflow combines exact provider selection, build admission, native evidence, effect authority and authorized publication. Eight of 576 profiles pass the normal modeled request. A change to the requested provider leaves four eligible and makes four require an explicit repin. The model withholds all eight eligible profiles when the publisher is revoked or the required evidence domain widens. The component experiments provide distinct premises for this finite comparison. [Integrated candidate enumeration](planning-and-synthesis/INTEGRATED-SOURCE-PUBLICATION-CANDIDATES-2026-11-25.md)
+
+The native release fixture checks how this workflow's evidence and authority interfaces compose. Two exact C/Rust artifacts accept the checked provider replacement and freshly authorized rollback. Old or narrower evidence, mismatched bytes or action, and revoked rights preserve the catalog selection. [Native release admission](planning-and-synthesis/EXACT-PROVIDER-RELEASE-2026-11-25.md)
+
+A cross-process replay moves the publication fence later while keeping exact artifact and trace checks. Both native routes then admit one old-policy write and a duplicate transition from the prior parent. Holding the existing SQLite fence serializes both operations. [Concurrent release admission](planning-and-synthesis/CONCURRENT-RELEASE-2026-11-25.md)
+
+A common finite workload compares all four source profiles under exact order and compares the actor's eligible delivery set. Each fixed order agrees across profiles. Of 1,536 inputs, 936 share their balance across different actor traces and 600 vary even the final balance. The fixture distinguishes contextual correspondence from schedule-independent correctness. [Four resource profiles](../language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md)
+
+For that fixture, an axiom-free Lean proof characterizes actor scalar invariance by local commutation and cancellation invisibility. Distinct terminal-event order remains observable. [Schedule invariance](../formal-verification/SCHEDULE-INVARIANCE-2026-11-25.md)
+
+### 5.7 Rechecked evidence at call, publication and resource boundaries
+
+The replays at `9a6e4cd9` on `research/all` reproduced the exact experiment ledgers and regenerated the Provider chart from its archived CSV. These results add discriminators for individual criteria. The integrated comparison still needs the same admitted workload, current policies, target profiles and review across candidates.
+
+| Criteria affected | Verified discriminator | Boundary for integrated comparison |
+| --- | --- | --- |
+| Evolution and correctness assurance | Six decisions for one shared caller's three paths retain their plan identity in 288 orders. A native migration with the wrong equivalent leaf preserves scalar values and changes 132 traces per build. [Consumer identities](../toolchain-and-collaboration/RT-20/RT-20-CONSUMER-FORK-IDENTITY-2026-11-25.md) · [Native caller propagation](../toolchain-and-collaboration/RT-20/RT-20-NATIVE-CALLER-PROPAGATION-2026-11-25.md) | Include complete caller discovery and exact per-path decisions, and compare both scalar and version-sensitive behavior after the same migration. |
+| Evolution and durable collaboration | All 16 exact-tree cases preserve validation, branch CAS and retry behavior. Across 133 filesystem schedules atomic link switching still mixes reads when resolved per file, while a leased directory preserves the original view. [Git acceptance](../toolchain-and-collaboration/RT-20/RT-20-EXACT-TREE-ACCEPTANCE-2026-11-25.md) · [Filesystem generations](../toolchain-and-collaboration/RT-19/RT-19-GENERATION-PUBLICATION-2026-11-25.md) · [Toolchain round trip](../toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-ROUNDTRIP-2026-11-25.md) | Verify commit, receipt visibility and export recovery across the selected stores under shared failure and concurrency scenarios. |
+| Authoring usability and correctness assurance | Scoped approximate search recovers 325 of 327 compatible exact neighbors, while global post-filter search leaves 102 empty shortlists. The exact selected artifact runs through all 36 native calls independently of the search index. [Scoped ANN](../semantic-representation/RT-35/RT-35-ANN-CONTRACT-FILTER-2026-11-25.md) · [Bound invocation](../semantic-representation/RT-35/RT-35-BOUND-NATIVE-CALL-2026-11-25.md) | Evaluate real task discovery and ambiguity separately from an authorized snapshot's exact call binding. |
+| Interoperability and runtime feasibility | Two Linux libcs agree on 416 typed child-status observations. The timer fixture and Lean proof distinguish delayed expiration accounting from capped refill and serialized spending. [Child waits](../runtime-and-systems/RT-10/RT-10-POSIX-WAIT-STATUS-2026-11-25.md) · [Hierarchical refill](../runtime-and-systems/RT-26/RT-26-TIMER-REFILL-2026-11-25.md) | Compare selected target APIs for process readiness, event consumption and resource behavior. Establish concurrency and portability assumptions before transferring the results. |
+| Incremental behavior and runtime feasibility | Sixty verified Provider samples show how graph shape affects cost at fixed object counts. At 4,096 objects, sparse median builds take 2.866–3.198 s and the 65,400-edge fixture takes 30.710 s. [Pinned Provider baseline](../packages-and-ecosystem/RT-12/RT-12-PROVIDER-BASELINE-2026-11-25.md) | Repeat with representative storage and controlled hardware. End-to-end scoring needs complete cold and warm runs. |
+
+The diagram distinguishes the linked fixture boundaries from the still-open candidate comparison.
+
+```mermaid
+flowchart LR
+    A[Scoped discovery] --> B[Exact path and artifact identity]
+    B --> C[Runtime and target observations]
+    B --> D[Validated candidate and publication]
+    C --> E[Integrated comparison needs a common workload]
+    D --> E
+    F[Provider timing and resource evidence] --> E
+```
+
 ## 6. Shared evaluation criteria
 
 Score each integrated candidate only after common definitions and workload weights are agreed. Use ordinal 1–5 scores with a written rationale and confidence for each score, then report sensitivity to workload weights rather than hiding trade-offs in one aggregate number.
@@ -319,6 +356,8 @@ Score each integrated candidate only after common definitions and workload weigh
 | Evolution | Can incompatible changes be detected, migrated, and versioned predictably? | Migration and compatibility fixtures across multiple language versions |
 
 Do not score an unmeasured criterion as a numeric zero. Mark it **unknown**, report its effect on the candidate ranking, and prioritize an experiment if it could change the decision.
+
+The evidence audit maps all ten criteria to the four integrated vectors. It records common and profile-specific checks against twenty pinned sources, with integrated ratings unknown. [Candidate comparison evidence](planning-and-synthesis/CANDIDATE-COMPARISON-2026-11-25.md)
 
 [RT-35 persistent index generations](../semantic-representation/RT-35/RT-35-PERSISTENT-INDEX-GENERATIONS-2026-11-25.md) compare full rebuild and reduced row writes under the same published output. A complete version key with atomic readiness prevents stale acceptance in 28 SQLite WAL schedules. Marking a partial projection ready yields five incomplete results even with that key. The delta reduces writes, while both implementations still perform full row comparison and validation. Evaluate a dependency-bounded projection update and a generation-aware query path before selecting an index lifecycle.
 

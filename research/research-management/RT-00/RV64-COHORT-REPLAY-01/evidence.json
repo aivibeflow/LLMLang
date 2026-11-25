@@ -1,0 +1,186 @@
+{
+  "guest": {
+    "cpu": "rv64",
+    "firmware": "none",
+    "harts": 1,
+    "instruction_clock": "shift=0,align=off,sleep=off",
+    "machine": "virt",
+    "memory_mib": 64
+  },
+  "host": {
+    "kernel": "6.18.57",
+    "libc": "glibc 2.41",
+    "machine": "x86_64"
+  },
+  "observation_checks": {
+    "archived_profile_images": 33,
+    "conditional_histories": 10080,
+    "conditional_receipt_rows": 5184,
+    "independent_scheduler_traces": 8,
+    "lean_theorems": 11,
+    "linked_frame_controls": 4,
+    "physical_and_smp_transfer": "outside-qemu-evidence",
+    "runnable_guest_profiles": 25
+  },
+  "python": "3.12.14",
+  "python_sha256": "fa67443527ed9647f760d807e2a38f26340757123e643c4639cf273ed15d5ea7",
+  "reproduced": {
+    "RV64-FREESTANDING-PROFILE-01": {
+      "command": [
+        "research/runtime-and-systems/RT-38/RV64-FREESTANDING-PROFILE-01/run.py",
+        "--output",
+        "<scratch>"
+      ],
+      "ledger_sha256": "5099124b40f33747239d1016b2c8942a611db7a3864bd5963c2c3e7bbdcddb0e",
+      "runner_sha256": "6c6f0f2ec8fdf06a40976748c4363d02ddbdb13e2fe362c892a626d29e1d317f",
+      "source_sha256": {}
+    },
+    "RV64-HAL-QEMU-01": {
+      "command": [
+        "research/runtime-and-systems/RT-38/RV64-HAL-QEMU-01/run.py",
+        "--output",
+        "<scratch>",
+        "--qemu",
+        "<qemu>",
+        "--qemu-data",
+        "<qemu-data>"
+      ],
+      "ledger_sha256": "565d747fe64beb5b4692380bec65c28b43f606a92876d718d002b6b8942c10d3",
+      "runner_sha256": "3971932e7931b1b32f648cbdbe7f1ae72f2ae36b3cbb191b806c183dd5e30986",
+      "source_sha256": {
+        "research/runtime-and-systems/RT-38/RV64-HAL-INTRINSICS-01/hal.ll": "01155dcc253ed78afbe4dea2cba56f86b23a5e31f3474854af92c82345d0ce8b",
+        "research/runtime-and-systems/RT-38/RV64-HAL-INTRINSICS-01/hal.s": "31ab98d476f622d34985cf8143921f9588090f9e3a32fdf29946d553cf37b5b6",
+        "research/runtime-and-systems/RT-38/RV64-HAL-QEMU-01/run.py": "3971932e7931b1b32f648cbdbe7f1ae72f2ae36b3cbb191b806c183dd5e30986",
+        "research/runtime-and-systems/RT-38/riscv-sv39-remap/transform.py": "318fbb4fe31da7a90d0fe69b719d6da3a0c6fd01d616b84989fb01e235c16e38",
+        "research/runtime-and-systems/RT-38/riscv-trap-isolation/boot.s": "0ed50ccfffcb015f87aa28a13a011b93dd1418561d1b95ff9d4411246b417115",
+        "research/runtime-and-systems/RT-38/riscv-trap-isolation/memory.ld": "e49d28407dab80a8fa229ac985c51444d374dda042a44b80fc69d073dd51d338",
+        "research/runtime-and-systems/RT-38/riscv-trap-isolation/run.py": "82e7a733660f259da0df298a146abf06ff2915aad0ea1a07defdc185d7dc589b"
+      }
+    },
+    "RV64-LIVE-FRAME-IPC-01": {
+      "command": [
+        "research/runtime-and-systems/RT-38/RV64-LIVE-FRAME-IPC-01/run.py",
+        "--output",
+        "<scratch>",
+        "--qemu",
+        "<qemu>",
+        "--qemu-data",
+        "<qemu-data>"
+      ],
+      "ledger_sha256": "423575f0eba46d3f1e5eb12dbff6b664cc7c07ef70a0d4efd271ba5705626c42",
+      "runner_sha256": "3ec43c0836b8a5a9f1cbb0f529872e6c625fa4b11ee90d38939747077f7365c0",
+      "source_sha256": {
+        "research/runtime-and-systems/RT-38/RV64-LIVE-FRAME-IPC-01/compose.py": "26674739bc03553780dfdc4a0c201b5f043227fd2f87792eea1b64c50c811fac",
+        "research/runtime-and-systems/RT-38/RV64-LIVE-FRAME-IPC-01/replace.s.in": "51bcc39c5e8f2f5492f34c4799924ab26c2e71688a8a61e9e80354221665d35d",
+        "research/runtime-and-systems/RT-38/RV64-LIVE-FRAME-IPC-01/run.py": "3ec43c0836b8a5a9f1cbb0f529872e6c625fa4b11ee90d38939747077f7365c0",
+        "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/compose.py": "f5a25dd8652c25ee096e456d45fdd9f711b3aa63b3f1829e85aeb05dc73f2577",
+        "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/dispatch.s.in": "0aa0b5e81d45134e7ccc82f3fb80c56fac0275fcd57bfa486b87fde8d14acf5c",
+        "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/mapping.s.in": "975f249b88f78779a8dae2ab667091326c1829728b67ab92b693fde8221b52a9",
+        "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/tasks.s.in": "9e1e61ea54895f033e1929762904cc874a14138733137d5e69f2d9a5c7380bf4",
+        "research/runtime-and-systems/RT-38/RV64-TIMER-PREEMPTION-01/transform.py": "1b8e760b24c6ae26a635d7a90d03465ac51bbcef687dd006ae24a117ea3aa91d",
+        "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/boot.s": "cc872c1bedf92e86c5ee116dabbff5529a4524fa21bb29d20ac010d2d60bef27",
+        "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/layout.ld": "e192428aee29f2a09cbdbd670b1dc42156277b032d7ca4a4772363839d481f1c"
+      }
+    },
+    "RV64-PREEMPTIVE-IPC-01": {
+      "command": [
+        "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/run.py",
+        "--output",
+        "<scratch>",
+        "--qemu",
+        "<qemu>",
+        "--qemu-data",
+        "<qemu-data>"
+      ],
+      "ledger_sha256": "33ec7c109a0932a863a26f632b64c50aca4e0209e1c62cdbbe44fac751f315cd",
+      "runner_sha256": "798fbc895a4bbd064c0837ba861763116396890abbedb17d78b7b4dff36ad451",
+      "source_sha256": {
+        "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/compose.py": "f5a25dd8652c25ee096e456d45fdd9f711b3aa63b3f1829e85aeb05dc73f2577",
+        "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/dispatch.s.in": "0aa0b5e81d45134e7ccc82f3fb80c56fac0275fcd57bfa486b87fde8d14acf5c",
+        "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/mapping.s.in": "975f249b88f78779a8dae2ab667091326c1829728b67ab92b693fde8221b52a9",
+        "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/run.py": "798fbc895a4bbd064c0837ba861763116396890abbedb17d78b7b4dff36ad451",
+        "research/runtime-and-systems/RT-38/RV64-PREEMPTIVE-IPC-01/tasks.s.in": "9e1e61ea54895f033e1929762904cc874a14138733137d5e69f2d9a5c7380bf4",
+        "research/runtime-and-systems/RT-38/RV64-TIMER-PREEMPTION-01/transform.py": "1b8e760b24c6ae26a635d7a90d03465ac51bbcef687dd006ae24a117ea3aa91d",
+        "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/boot.s": "cc872c1bedf92e86c5ee116dabbff5529a4524fa21bb29d20ac010d2d60bef27",
+        "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/layout.ld": "e192428aee29f2a09cbdbd670b1dc42156277b032d7ca4a4772363839d481f1c"
+      }
+    },
+    "RV64-TIMER-PREEMPTION-01": {
+      "command": [
+        "research/runtime-and-systems/RT-38/RV64-TIMER-PREEMPTION-01/run.py",
+        "--output",
+        "<scratch>",
+        "--qemu",
+        "<qemu>",
+        "--qemu-data",
+        "<qemu-data>"
+      ],
+      "ledger_sha256": "79b6ccbb94b0c75349d594795e99a75aecb261da83a557cc978ebdf106a47c33",
+      "runner_sha256": "47c1b001899bac3a5eb43f49db495ce19e693e7fd0a1a7a4c155c0afe043bdbd",
+      "source_sha256": {
+        "research/runtime-and-systems/RT-38/RV64-TIMER-PREEMPTION-01/Progress.lean": "637a3b5addf140f900c282ec67c8e3da22e1a28439e7cb0540c458c7d5e99317",
+        "research/runtime-and-systems/RT-38/RV64-TIMER-PREEMPTION-01/run.py": "47c1b001899bac3a5eb43f49db495ce19e693e7fd0a1a7a4c155c0afe043bdbd",
+        "research/runtime-and-systems/RT-38/RV64-TIMER-PREEMPTION-01/transform.py": "1b8e760b24c6ae26a635d7a90d03465ac51bbcef687dd006ae24a117ea3aa91d",
+        "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/boot.s": "cc872c1bedf92e86c5ee116dabbff5529a4524fa21bb29d20ac010d2d60bef27",
+        "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/layout.ld": "e192428aee29f2a09cbdbd670b1dc42156277b032d7ca4a4772363839d481f1c",
+        "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/run.py": "e6d1f13de085b31bcff663497005ca3459470fcab4102852ee54524ceb225603"
+      }
+    },
+    "SCOPED-SMP-DMA-REUSE-01": {
+      "command": [
+        "research/runtime-and-systems/RT-38/SCOPED-SMP-DMA-REUSE-01/run.py",
+        "--output",
+        "<scratch>"
+      ],
+      "ledger_sha256": "5fe3202ec85b3ce3ee0d06c9ed9fd83fa3097518f38bba5cd69d9478166090a8",
+      "runner_sha256": "40cc721cd4c0aa91ee1b7d8c339c986ad156bd659bf123bea0bbbaca64de4a0c",
+      "source_sha256": {
+        "research/runtime-and-systems/RT-38/SCOPED-SMP-DMA-REUSE-01/Reuse.lean": "526c595bf36708e863d718f65e467c41ae993db062bb94a5ae951493f2faa181",
+        "research/runtime-and-systems/RT-38/SCOPED-SMP-DMA-REUSE-01/run.py": "40cc721cd4c0aa91ee1b7d8c339c986ad156bd659bf123bea0bbbaca64de4a0c"
+      }
+    }
+  },
+  "revision": "ccb5f3102dc8e8e64c1042582955d8319d32005b",
+  "tools": {
+    "ld.lld-19": {
+      "sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e",
+      "version": "Debian LLD 19.1.7 (compatible with GNU linkers)"
+    },
+    "lean": {
+      "sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+    },
+    "llc-19": {
+      "sha256": "757877e6d5dd8bd9607a1515284e8ff39c8acb784b5f0ed789187531129cd790",
+      "version": "Debian LLVM version 19.1.7"
+    },
+    "llvm-mc-19": {
+      "sha256": "d934d7015ec1fdb2e1cab279814a21cb35e588387ed21d777de02d40ce1caf5a",
+      "version": "Debian LLVM version 19.1.7"
+    },
+    "llvm-nm-19": {
+      "sha256": "ed2427f2e14ac235a12fc3ca878f3621dd347e1e0dba7a316824f4d2a5e78403",
+      "version": "llvm-nm, compatible with GNU nm"
+    },
+    "llvm-objcopy-19": {
+      "sha256": "8723d4539a1c621fbaa2f0bc9f6a5268ccb7cf93bac6b4fc8f1d6aed1b77201e",
+      "version": "llvm-objcopy, compatible with GNU objcopy"
+    },
+    "llvm-objdump-19": {
+      "sha256": "c904a20cf0caeb812b542b69488e5c79738951a92ca99098fbb8941505eb789d",
+      "version": "Debian LLVM version 19.1.7"
+    },
+    "llvm-readelf-19": {
+      "sha256": "e513bd45eb2b0f4d3740dfa312416a250c2e95c5dd5d4713c0e04d253c89b4eb",
+      "version": "Debian LLVM version 19.1.7"
+    },
+    "opt-19": {
+      "sha256": "6d32545b2590f82c9b2d5021b8c13236225b1241728ffb123f77956940f9f87a",
+      "version": "Debian LLVM version 19.1.7"
+    },
+    "qemu": {
+      "sha256": "5f8ec06281e48c4155a8646aa65959e0d9adc8b915c146b93cc0419b6576ba5f",
+      "version": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+    }
+  }
+}

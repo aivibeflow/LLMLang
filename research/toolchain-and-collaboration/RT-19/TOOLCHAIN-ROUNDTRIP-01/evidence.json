@@ -1,0 +1,31 @@
+{
+  "successful_roundtrips": 864,
+  "traces": [
+    {
+      "increment": -3,
+      "replays": 288,
+      "root": "sha256:4ff4bf79f6575744ca84697f26869846c2ca239ff28e8fc3ba58b22b167dc859",
+      "file": "sha256:0ed8d714ad88af608f74d4222db4d807fcebd403d8fb325cf5a559f5dc87c2ba"
+    },
+    {
+      "increment": 1,
+      "replays": 288,
+      "root": "sha256:caf758ce0aba662ef3ee55831c641d1f01ee1ae5c4be8b29fda27611d12b9ed5",
+      "file": "sha256:c12f11e8df72e9d209c53a4d6e0a7e2b36b3d882e4d71d34eac1bf9ddec19911"
+    },
+    {
+      "increment": 4,
+      "replays": 288,
+      "root": "sha256:e01cda2dfb16a3174f048e34b1a33ab04c4c466e5a36ee40051ad718e249f863",
+      "file": "sha256:364a5a47075103cab416b071a20610e0db2299f6243993ab769a0a7627e878aa"
+    }
+  ],
+  "controls": {
+    "semantic_failure": "adapter refuses; unaccepted export is blocked",
+    "malformed_domain_value": "Boolean offsets are refused",
+    "direct_accept_control": "lifecycle API accepts the invalid candidate without an adapter",
+    "stale_validation": "refused after metadata-only revision; fresh validation succeeds",
+    "external_edit": "refused and bytes preserved",
+    "tampered_entity_import": "refused"
+  }
+}

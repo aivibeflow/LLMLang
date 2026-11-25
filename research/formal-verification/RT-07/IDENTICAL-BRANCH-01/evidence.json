@@ -1,0 +1,74 @@
+{
+  "schema": "llmlang-identical-branch/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "Rewrite.lean": "985c3b576688a4b59553612e8c9a604fe617569de269696bd1155227abf93eb8",
+    "axioms.txt": "bf4250ac484c06b0c6f52c50568f0569bfd3046da2ab4947864a1af135d3f66d",
+    "fixture.c": "e51acf9c20d4047e1c20dc30bc001d3c1f8439e198db404afcf3c65e46557d0b",
+    "run.py": "82d3a1de2f514b46bb63d1809617bfa653cc9624745a4a18fae5aca8d247f597"
+  },
+  "counts": {
+    "body_comparisons": 900,
+    "erase_changes_observation": 792,
+    "erase_only_changes_trace": 108,
+    "duplicate_changes_observation": 210,
+    "guards": 150,
+    "universally_erasable_guards": 12
+  },
+  "witnesses": {
+    "removed_divergence": [
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      0,
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ]
+    ],
+    "trace_only_erasure": [
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      0,
+      [
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ]
+    ]
+  },
+  "native": {
+    "compiler": "Debian clang version 19.1.7 (3+b1)",
+    "builds": {
+      "O0": {
+        "rows": 3600,
+        "ir_sha256": "97c73d6e480b49e9ce70f50b30b6611f9c4f90d77739da3ceee44d43e3c1a5a8",
+        "stdout_sha256": "233aa9c5f5314bd97bb8a661c7de244434c84443fc3324b26edb2a3a2539dab2"
+      },
+      "O3": {
+        "rows": 3600,
+        "ir_sha256": "bb7013e0aa0d1f83100a75010321e85ca97e69c8bdda3a5842099921fadd80e3",
+        "stdout_sha256": "233aa9c5f5314bd97bb8a661c7de244434c84443fc3324b26edb2a3a2539dab2"
+      }
+    }
+  }
+}

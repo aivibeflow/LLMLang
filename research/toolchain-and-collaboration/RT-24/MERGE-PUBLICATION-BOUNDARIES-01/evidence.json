@@ -1,0 +1,22 @@
+{
+  "baseline": "0e77a0690cee79d72cddf89e5678fec75fb42f07",
+  "matrix": {
+    "cases": 5832,
+    "eligible": 3,
+    "outcomes": {
+      "conflict": 729,
+      "eligible": 3,
+      "invalid": 1995,
+      "pending-validation": 189,
+      "unverified-resolution": 2916
+    }
+  },
+  "prior_evidence": {
+    "CONSERVATIVE-MERGE-01": "ee1c4a82475a1159e22eabceb44af23fe2231418fb6e30dff5a40c19104fa42d",
+    "INDEPENDENT-MERGE-01": "15b796073d8cdc0444bc4f516606712fc47ea258d93c086c268762c166974d31",
+    "MERGE-AUDIT-REPLAY-01": "d9ee9bd02f992eb6bfba3634c64ef23d1627f0b7af65b45389df2aa59fe262ec",
+    "MERGE-COVERAGE-01": "16c74fc42ba604fea6c1649e3d1adf60e67875781116589d12f8d1f4cd900cf8",
+    "MERGE-RESOLUTION-BOUNDARY-01": "ceea863053be8c9ce41a295c142cdde48f7854a88b9d36f60c1f9cee03ef964d"
+  },
+  "runner_sha256": "a69119934908e670d51d19e592301012d2cc12991de3e7c00d4ddcd522860a75"
+}

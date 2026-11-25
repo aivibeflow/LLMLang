@@ -1,0 +1,857 @@
+{
+  "candidate": {
+    "consumer": {
+      "quantity": 6,
+      "target": "provider"
+    },
+    "provider": {
+      "capacity": 8,
+      "cost": 7
+    }
+  },
+  "cases": {
+    "changed_budget_same_candidate": {
+      "comparison": {
+        "audit_matches": false,
+        "decision_after_verified_replay": "unverified",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "blocked",
+        "receipts": [
+          {
+            "reason": "budget-exceeded",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "budget",
+            "status": "fail"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "f1be154a0f1fd42075ad398f25a345fde5f6d820f32d831928a762c2b00a4dfc"
+        }
+      },
+      "supplied": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      }
+    },
+    "changed_reason": {
+      "comparison": {
+        "audit_matches": false,
+        "decision_after_verified_replay": "unverified",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      },
+      "supplied": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "waived",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      }
+    },
+    "decision_conflicts_with_receipts": {
+      "comparison": {
+        "audit_matches": false,
+        "decision_after_verified_replay": "unverified",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "blocked",
+        "receipts": [
+          {
+            "reason": "budget-exceeded",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "budget",
+            "status": "fail"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "f1be154a0f1fd42075ad398f25a345fde5f6d820f32d831928a762c2b00a4dfc"
+        }
+      },
+      "supplied": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "budget-exceeded",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "budget",
+            "status": "fail"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "f1be154a0f1fd42075ad398f25a345fde5f6d820f32d831928a762c2b00a4dfc"
+        }
+      }
+    },
+    "duplicated_receipt": {
+      "comparison": {
+        "audit_matches": false,
+        "decision_after_verified_replay": "unverified",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      },
+      "supplied": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          },
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      }
+    },
+    "equal_outcomes_changed_policy_revision": {
+      "comparison": {
+        "audit_matches": false,
+        "decision_after_verified_replay": "unverified",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "9addbd855e7b37b220b4348043cd91e3655ef8bad6819efd4965810feadc3b4e",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "9addbd855e7b37b220b4348043cd91e3655ef8bad6819efd4965810feadc3b4e",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "9addbd855e7b37b220b4348043cd91e3655ef8bad6819efd4965810feadc3b4e",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "5f1e0784637b4e07d26a8fd9c71e864044cf5793d6b6aac8148143bbc4b9a903"
+        }
+      },
+      "supplied": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      }
+    },
+    "exact_acceptance": {
+      "comparison": {
+        "audit_matches": true,
+        "decision_after_verified_replay": "publishable",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      },
+      "supplied": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      }
+    },
+    "exact_rejection": {
+      "comparison": {
+        "audit_matches": true,
+        "decision_after_verified_replay": "blocked",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "blocked",
+        "receipts": [
+          {
+            "reason": "budget-exceeded",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "budget",
+            "status": "fail"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "f1be154a0f1fd42075ad398f25a345fde5f6d820f32d831928a762c2b00a4dfc"
+        }
+      },
+      "supplied": {
+        "decision": "blocked",
+        "receipts": [
+          {
+            "reason": "budget-exceeded",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "budget",
+            "status": "fail"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "f1be154a0f1fd42075ad398f25a345fde5f6d820f32d831928a762c2b00a4dfc"
+        }
+      }
+    },
+    "exchanged_ordered_inputs": {
+      "comparison": {
+        "audit_matches": false,
+        "decision_after_verified_replay": "unverified",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "1c24acd68d45ba6bd2dbfc6c528370b50030d0c17b1dd6042fb183ed3c016939",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "1c24acd68d45ba6bd2dbfc6c528370b50030d0c17b1dd6042fb183ed3c016939",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "1c24acd68d45ba6bd2dbfc6c528370b50030d0c17b1dd6042fb183ed3c016939",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      },
+      "supplied": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      }
+    },
+    "mixed_revision_receipts": {
+      "comparison": {
+        "audit_matches": false,
+        "decision_after_verified_replay": "unverified",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "blocked",
+        "receipts": [
+          {
+            "reason": "budget-exceeded",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "budget",
+            "status": "fail"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "f1be154a0f1fd42075ad398f25a345fde5f6d820f32d831928a762c2b00a4dfc"
+        }
+      },
+      "supplied": {
+        "decision": "blocked",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "f1be154a0f1fd42075ad398f25a345fde5f6d820f32d831928a762c2b00a4dfc"
+        }
+      }
+    },
+    "omitted_failure": {
+      "comparison": {
+        "audit_matches": false,
+        "decision_after_verified_replay": "unverified",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "blocked",
+        "receipts": [
+          {
+            "reason": "budget-exceeded",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "budget",
+            "status": "fail"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "f1be154a0f1fd42075ad398f25a345fde5f6d820f32d831928a762c2b00a4dfc"
+        }
+      },
+      "supplied": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-capacity",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "bbb3b149a6b6e842d0f2dae170c03da4f80d4130ea4d8baa8a45c7324bc9cfc2",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "f1be154a0f1fd42075ad398f25a345fde5f6d820f32d831928a762c2b00a4dfc"
+        }
+      }
+    },
+    "permuted_receipts": {
+      "comparison": {
+        "audit_matches": true,
+        "decision_after_verified_replay": "publishable",
+        "result_matches": true
+      },
+      "fresh": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      },
+      "supplied": {
+        "decision": "publishable",
+        "receipts": [
+          {
+            "reason": "references-resolve",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "closure",
+            "status": "pass"
+          },
+          {
+            "reason": "within-capacity",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "capacity",
+            "status": "pass"
+          },
+          {
+            "reason": "within-budget",
+            "request": "b72176e4c10f0100bd04f2ddfc28b2914052f53ff5fdd1904c538020cf89469f",
+            "rule": "budget",
+            "status": "pass"
+          }
+        ],
+        "request": {
+          "candidate": "b51359aaaeaf4bc781a1dc89c488fd53ebf36b77922dafbd27520e707500c86a",
+          "parents": [
+            "f5196e3c855e2fa3606db793413219c7a8a37171f9704d79b19d92f066b15eef",
+            "732b6e59a3427cfd1b303f9a8baa7d783240bd26aa732f4094ca2da433be7ed9",
+            "0a4806aed068b1f2fa8350e18cd00c5c21e9c5786aff50887f82ac1fbcc54634"
+          ],
+          "profile": "90e2dd1c77ee0b2f2c3975615e143662b8692f7c95c1d1a98b2833460b5a0815"
+        }
+      }
+    }
+  },
+  "inputs": [
+    {
+      "consumer": {
+        "quantity": 4,
+        "target": "provider"
+      },
+      "provider": {
+        "capacity": 6,
+        "cost": 5
+      }
+    },
+    {
+      "consumer": {
+        "quantity": 4,
+        "target": "provider"
+      },
+      "provider": {
+        "capacity": 8,
+        "cost": 7
+      }
+    },
+    {
+      "consumer": {
+        "quantity": 6,
+        "target": "provider"
+      },
+      "provider": {
+        "capacity": 6,
+        "cost": 5
+      }
+    }
+  ],
+  "profiles": [
+    {
+      "budget": 8,
+      "required": [
+        "budget",
+        "capacity",
+        "closure"
+      ],
+      "version": 1
+    },
+    {
+      "budget": 8,
+      "required": [
+        "budget",
+        "capacity",
+        "closure"
+      ],
+      "version": 2
+    },
+    {
+      "budget": 6,
+      "required": [
+        "budget",
+        "capacity",
+        "closure"
+      ],
+      "version": 1
+    }
+  ],
+  "runtime": "3.12.14"
+}

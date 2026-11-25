@@ -1,0 +1,637 @@
+{
+  "go": "go version go1.24.13 linux/amd64",
+  "profiles": {
+    "go1.21": {
+      "binary_sha256": "da19569b1c59b37ebf44df41ba9b48b801e11ba0850940916099fba93f927759",
+      "cases": [
+        {
+          "closes": [],
+          "count": 0,
+          "live_after_scope": [],
+          "mode": "declared-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 1,
+          "live_after_scope": [],
+          "mode": "declared-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "already-closed"
+            }
+          ],
+          "count": 2,
+          "live_after_scope": [
+            1
+          ],
+          "mode": "declared-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 3,
+              "status": "already-closed"
+            },
+            {
+              "id": 3,
+              "status": "already-closed"
+            }
+          ],
+          "count": 3,
+          "live_after_scope": [
+            1,
+            2
+          ],
+          "mode": "declared-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 4,
+              "status": "closed"
+            },
+            {
+              "id": 4,
+              "status": "already-closed"
+            },
+            {
+              "id": 4,
+              "status": "already-closed"
+            },
+            {
+              "id": 4,
+              "status": "already-closed"
+            }
+          ],
+          "count": 4,
+          "live_after_scope": [
+            1,
+            2,
+            3
+          ],
+          "mode": "declared-loop-capture"
+        },
+        {
+          "closes": [],
+          "count": 0,
+          "live_after_scope": [],
+          "mode": "assigned-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 1,
+          "live_after_scope": [],
+          "mode": "assigned-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "already-closed"
+            }
+          ],
+          "count": 2,
+          "live_after_scope": [
+            1
+          ],
+          "mode": "assigned-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 3,
+              "status": "already-closed"
+            },
+            {
+              "id": 3,
+              "status": "already-closed"
+            }
+          ],
+          "count": 3,
+          "live_after_scope": [
+            1,
+            2
+          ],
+          "mode": "assigned-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 4,
+              "status": "closed"
+            },
+            {
+              "id": 4,
+              "status": "already-closed"
+            },
+            {
+              "id": 4,
+              "status": "already-closed"
+            },
+            {
+              "id": 4,
+              "status": "already-closed"
+            }
+          ],
+          "count": 4,
+          "live_after_scope": [
+            1,
+            2,
+            3
+          ],
+          "mode": "assigned-loop-capture"
+        },
+        {
+          "closes": [],
+          "count": 0,
+          "live_after_scope": [],
+          "mode": "snapshot-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 1,
+          "live_after_scope": [],
+          "mode": "snapshot-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 2,
+          "live_after_scope": [],
+          "mode": "snapshot-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 3,
+          "live_after_scope": [],
+          "mode": "snapshot-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 4,
+              "status": "closed"
+            },
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 4,
+          "live_after_scope": [],
+          "mode": "snapshot-capture"
+        },
+        {
+          "closes": [],
+          "count": 0,
+          "live_after_scope": [],
+          "mode": "direct-argument"
+        },
+        {
+          "closes": [
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 1,
+          "live_after_scope": [],
+          "mode": "direct-argument"
+        },
+        {
+          "closes": [
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 2,
+          "live_after_scope": [],
+          "mode": "direct-argument"
+        },
+        {
+          "closes": [
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 3,
+          "live_after_scope": [],
+          "mode": "direct-argument"
+        },
+        {
+          "closes": [
+            {
+              "id": 4,
+              "status": "closed"
+            },
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 4,
+          "live_after_scope": [],
+          "mode": "direct-argument"
+        }
+      ],
+      "cases_with_live_descriptors": 6
+    },
+    "go1.22": {
+      "binary_sha256": "8d3bfa07d937f823c373a12bd8bfecfeb4583e297206b15f4c777fb87fe20216",
+      "cases": [
+        {
+          "closes": [],
+          "count": 0,
+          "live_after_scope": [],
+          "mode": "declared-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 1,
+          "live_after_scope": [],
+          "mode": "declared-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 2,
+          "live_after_scope": [],
+          "mode": "declared-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 3,
+          "live_after_scope": [],
+          "mode": "declared-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 4,
+              "status": "closed"
+            },
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 4,
+          "live_after_scope": [],
+          "mode": "declared-loop-capture"
+        },
+        {
+          "closes": [],
+          "count": 0,
+          "live_after_scope": [],
+          "mode": "assigned-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 1,
+          "live_after_scope": [],
+          "mode": "assigned-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "already-closed"
+            }
+          ],
+          "count": 2,
+          "live_after_scope": [
+            1
+          ],
+          "mode": "assigned-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 3,
+              "status": "already-closed"
+            },
+            {
+              "id": 3,
+              "status": "already-closed"
+            }
+          ],
+          "count": 3,
+          "live_after_scope": [
+            1,
+            2
+          ],
+          "mode": "assigned-loop-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 4,
+              "status": "closed"
+            },
+            {
+              "id": 4,
+              "status": "already-closed"
+            },
+            {
+              "id": 4,
+              "status": "already-closed"
+            },
+            {
+              "id": 4,
+              "status": "already-closed"
+            }
+          ],
+          "count": 4,
+          "live_after_scope": [
+            1,
+            2,
+            3
+          ],
+          "mode": "assigned-loop-capture"
+        },
+        {
+          "closes": [],
+          "count": 0,
+          "live_after_scope": [],
+          "mode": "snapshot-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 1,
+          "live_after_scope": [],
+          "mode": "snapshot-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 2,
+          "live_after_scope": [],
+          "mode": "snapshot-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 3,
+          "live_after_scope": [],
+          "mode": "snapshot-capture"
+        },
+        {
+          "closes": [
+            {
+              "id": 4,
+              "status": "closed"
+            },
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 4,
+          "live_after_scope": [],
+          "mode": "snapshot-capture"
+        },
+        {
+          "closes": [],
+          "count": 0,
+          "live_after_scope": [],
+          "mode": "direct-argument"
+        },
+        {
+          "closes": [
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 1,
+          "live_after_scope": [],
+          "mode": "direct-argument"
+        },
+        {
+          "closes": [
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 2,
+          "live_after_scope": [],
+          "mode": "direct-argument"
+        },
+        {
+          "closes": [
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 3,
+          "live_after_scope": [],
+          "mode": "direct-argument"
+        },
+        {
+          "closes": [
+            {
+              "id": 4,
+              "status": "closed"
+            },
+            {
+              "id": 3,
+              "status": "closed"
+            },
+            {
+              "id": 2,
+              "status": "closed"
+            },
+            {
+              "id": 1,
+              "status": "closed"
+            }
+          ],
+          "count": 4,
+          "live_after_scope": [],
+          "mode": "direct-argument"
+        }
+      ],
+      "cases_with_live_descriptors": 3
+    }
+  },
+  "python": "3.12.14"
+}

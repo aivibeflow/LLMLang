@@ -1,0 +1,180 @@
+{
+  "kind": "synthetic instrument check",
+  "human_observations": 0,
+  "source_sha256": {
+    "protocol": "ed78c1fba9d85715011ff92cde91316fd3e42c812c10d9035e85b42fbf52f452",
+    "study": "3e5a38b57e924741617377b17e1d261161223b916fbbf35d0b190afc3f7246e8",
+    "corpus": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+    "results": "2d61e0e60bf69d08db2fd2ca87a4176663f1a1ebf4dc6c9f590351709c85cd7e",
+    "pilot_runner": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a"
+  },
+  "slots_by_role": {
+    "domain": 152,
+    "engineering": 152
+  },
+  "perfect_and_always_accept_scored_per_arm": {
+    "prompt": {
+      "perfect": {
+        "ELIGIBLE": 16,
+        "detected": 36,
+        "unsafe_accept": 0,
+        "eligible_accept": 16,
+        "unknown_clarify": 24,
+        "DIFFERENT": 36,
+        "UNKNOWN": 24,
+        "review_times_reported": 0,
+        "detection_rate": 1.0,
+        "detection_interval": [
+          0.9035813714055363,
+          1.0
+        ],
+        "unsafe_acceptance_interval": [
+          0.0,
+          0.06017185214208983
+        ]
+      },
+      "always_accept": {
+        "ELIGIBLE": 16,
+        "detected": 0,
+        "unsafe_accept": 60,
+        "eligible_accept": 16,
+        "unknown_clarify": 0,
+        "DIFFERENT": 36,
+        "UNKNOWN": 24,
+        "review_times_reported": 0,
+        "detection_rate": 0.0,
+        "detection_interval": [
+          0.0,
+          0.09641862859446362
+        ],
+        "unsafe_acceptance_interval": [
+          0.93982814785791,
+          0.9999999999999998
+        ]
+      }
+    },
+    "formal": {
+      "perfect": {
+        "ELIGIBLE": 16,
+        "detected": 36,
+        "unsafe_accept": 0,
+        "eligible_accept": 16,
+        "unknown_clarify": 24,
+        "DIFFERENT": 36,
+        "UNKNOWN": 24,
+        "review_times_reported": 0,
+        "detection_rate": 1.0,
+        "detection_interval": [
+          0.9035813714055363,
+          1.0
+        ],
+        "unsafe_acceptance_interval": [
+          0.0,
+          0.06017185214208983
+        ]
+      },
+      "always_accept": {
+        "ELIGIBLE": 16,
+        "detected": 0,
+        "unsafe_accept": 60,
+        "eligible_accept": 16,
+        "unknown_clarify": 0,
+        "DIFFERENT": 36,
+        "UNKNOWN": 24,
+        "review_times_reported": 0,
+        "detection_rate": 0.0,
+        "detection_interval": [
+          0.0,
+          0.09641862859446362
+        ],
+        "unsafe_acceptance_interval": [
+          0.93982814785791,
+          0.9999999999999998
+        ]
+      }
+    },
+    "reconstruction": {
+      "perfect": {
+        "ELIGIBLE": 16,
+        "detected": 36,
+        "unsafe_accept": 0,
+        "eligible_accept": 16,
+        "unknown_clarify": 24,
+        "DIFFERENT": 36,
+        "UNKNOWN": 24,
+        "review_times_reported": 0,
+        "detection_rate": 1.0,
+        "detection_interval": [
+          0.9035813714055363,
+          1.0
+        ],
+        "unsafe_acceptance_interval": [
+          0.0,
+          0.06017185214208983
+        ]
+      },
+      "always_accept": {
+        "ELIGIBLE": 16,
+        "detected": 0,
+        "unsafe_accept": 60,
+        "eligible_accept": 16,
+        "unknown_clarify": 0,
+        "DIFFERENT": 36,
+        "UNKNOWN": 24,
+        "review_times_reported": 0,
+        "detection_rate": 0.0,
+        "detection_interval": [
+          0.0,
+          0.09641862859446362
+        ],
+        "unsafe_acceptance_interval": [
+          0.93982814785791,
+          0.9999999999999998
+        ]
+      }
+    },
+    "expanded": {
+      "perfect": {
+        "ELIGIBLE": 16,
+        "detected": 36,
+        "unsafe_accept": 0,
+        "eligible_accept": 16,
+        "unknown_clarify": 24,
+        "DIFFERENT": 36,
+        "UNKNOWN": 24,
+        "review_times_reported": 0,
+        "detection_rate": 1.0,
+        "detection_interval": [
+          0.9035813714055363,
+          1.0
+        ],
+        "unsafe_acceptance_interval": [
+          0.0,
+          0.06017185214208983
+        ]
+      },
+      "always_accept": {
+        "ELIGIBLE": 16,
+        "detected": 0,
+        "unsafe_accept": 60,
+        "eligible_accept": 16,
+        "unknown_clarify": 0,
+        "DIFFERENT": 36,
+        "UNKNOWN": 24,
+        "review_times_reported": 0,
+        "detection_rate": 0.0,
+        "detection_interval": [
+          0.0,
+          0.09641862859446362
+        ],
+        "unsafe_acceptance_interval": [
+          0.93982814785791,
+          0.9999999999999998
+        ]
+      }
+    }
+  },
+  "partial_response_set_detected": true,
+  "wrong_packet_rejected": true,
+  "synthetic_detection_gap_meets_pilot_thresholds": true
+}

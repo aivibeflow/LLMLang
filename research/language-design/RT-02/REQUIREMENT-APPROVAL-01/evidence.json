@@ -1,0 +1,223 @@
+{
+  "baseline": "2d557b45d54aa9b2ac892ca1c3d116a937083a4f",
+  "case_count": 28,
+  "cases": [
+    {
+      "case": "fresh",
+      "contract_gate": "eligible-for-contract-admission",
+      "current_subject": "63a5fd61ebb20693fbfb2fd8f444aa77e8db08fbdebaa9c8eadb92c63a451eed",
+      "intent_review": "intent-accepted",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "same immutable acceptance reapplied",
+      "contract_gate": "eligible-for-contract-admission",
+      "current_subject": "63a5fd61ebb20693fbfb2fd8f444aa77e8db08fbdebaa9c8eadb92c63a451eed",
+      "intent_review": "intent-accepted",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "stale after semantic changes",
+      "contract_gate": "blocked",
+      "current_subject": "4d4b9b736b9a4dfe46415ce03d6db910ad2b97c0766362b8719fdbaed2ad52b5",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "stale after formal_model changes",
+      "contract_gate": "blocked",
+      "current_subject": "ba5818b3ff78f21aa2f0ce951e43ed70a520d8366362fffdf7f0256d77c925f4",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "stale after intent_sources changes",
+      "contract_gate": "blocked",
+      "current_subject": "7622812612e652e28c81dbc1f5e435a27cf8704aab5534536cb9f7975b67b0de",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "stale after provenance changes",
+      "contract_gate": "blocked",
+      "current_subject": "57947e932afe811b760a7b8a4b52005f8b5851e84bc7a90f505d0ff5fa12eb50",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "stale after reconstruction changes",
+      "contract_gate": "blocked",
+      "current_subject": "058090c7899632fe51eff1a36dc083f13ba64c455bba369c123eacc6b718290b",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "stale after scenarios changes",
+      "contract_gate": "blocked",
+      "current_subject": "3ac0491d404730cba2339250edf46336a2c0321b17338445573763b3b8c20ceb",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "stale after analysis changes",
+      "contract_gate": "blocked",
+      "current_subject": "682a059dfe4153f5f9ee43c70a326d1a5bc65afa6976f8fa667c95998d1a37fb",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "stale after assumptions changes",
+      "contract_gate": "blocked",
+      "current_subject": "fc78f7f1a26351f5975c59bcdc74ca8e619ebe696ecdbf53a1d6bf7324224c6a",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "same package in another project",
+      "contract_gate": "blocked",
+      "current_subject": "e7c7ce9b9a42fb199905fae81dd1263ff1a30ca7e8a2b88370ff153d8d0aa120",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "same package in another slot",
+      "contract_gate": "blocked",
+      "current_subject": "d03e4d04ac246bc95da7415adb0010885e65b3ecee731bd58249625d101f320a",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "same package in another round",
+      "contract_gate": "blocked",
+      "current_subject": "ec4c20c14a27cc2ec87c6585c372b4cbdf1ef3ff110d2ab4bd5b599199e694a7",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "same package in another policy",
+      "contract_gate": "blocked",
+      "current_subject": "d65d5308daa630cb725d8f56383b6202d351953c7b02c71f1a6dc74f8ab4eb46",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "wrong authenticated actor",
+      "contract_gate": "blocked",
+      "current_subject": "63a5fd61ebb20693fbfb2fd8f444aa77e8db08fbdebaa9c8eadb92c63a451eed",
+      "intent_review": "unauthenticated-reviewer",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "removed grant",
+      "contract_gate": "blocked",
+      "current_subject": "63a5fd61ebb20693fbfb2fd8f444aa77e8db08fbdebaa9c8eadb92c63a451eed",
+      "intent_review": "out-of-scope-authority",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "grant for another slot",
+      "contract_gate": "blocked",
+      "current_subject": "63a5fd61ebb20693fbfb2fd8f444aa77e8db08fbdebaa9c8eadb92c63a451eed",
+      "intent_review": "out-of-scope-authority",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    },
+    {
+      "case": "missing rationale",
+      "contract_gate": "blocked",
+      "current_subject": "63a5fd61ebb20693fbfb2fd8f444aa77e8db08fbdebaa9c8eadb92c63a451eed",
+      "intent_review": "invalid-review-action",
+      "submitted_action": "0e165ad2f7c61569b617b944e1d51c15a3df50900995059bd39c40dd50568208"
+    },
+    {
+      "case": "REVISE",
+      "contract_gate": "blocked",
+      "current_subject": "63a5fd61ebb20693fbfb2fd8f444aa77e8db08fbdebaa9c8eadb92c63a451eed",
+      "intent_review": "revision-requested",
+      "submitted_action": "de577a558e73ade3e63b05331522b373a623aa25f30c6896195cf925cde173d2"
+    },
+    {
+      "case": "CLARIFY",
+      "contract_gate": "blocked",
+      "current_subject": "63a5fd61ebb20693fbfb2fd8f444aa77e8db08fbdebaa9c8eadb92c63a451eed",
+      "intent_review": "clarification-requested",
+      "submitted_action": "9313f03e283af9477d18f567160da9bbb89aefb5900355d5a6b7699c01aa0f3c"
+    },
+    {
+      "case": "REJECT",
+      "contract_gate": "blocked",
+      "current_subject": "63a5fd61ebb20693fbfb2fd8f444aa77e8db08fbdebaa9c8eadb92c63a451eed",
+      "intent_review": "candidate-rejected",
+      "submitted_action": "89e6e3f49122a95c392f30bea48a9bcb691b5e48040a84583b064ff67e93d8bc"
+    },
+    {
+      "case": "unresolved_business_questions",
+      "contract_gate": "blocked",
+      "current_subject": "329ac4d8909dae7022c60626655a943a71d856ae5343f7531e2e8a607bc54f37",
+      "intent_review": "incomplete-review-package",
+      "submitted_action": "d4f0303732767d188f6d9f323a5fde092f3be8ef1a22dfb4e6c71921085d44ff"
+    },
+    {
+      "case": "missing_provenance",
+      "contract_gate": "blocked",
+      "current_subject": "e1548da5bd68d13b2bc6b202ab24d4a0ad89d735de64f5ed2e5aa205b064c65c",
+      "intent_review": "incomplete-review-package",
+      "submitted_action": "3e7762ae25254b4422ffd6fee4b7fc8cf9be230f62772abe1c11ad584396d7a8"
+    },
+    {
+      "case": "unsupported_clauses",
+      "contract_gate": "blocked",
+      "current_subject": "880671550aac1fcd8eda074dcac2263a4c6715eb319e1b66afdd94a8ad10c9b5",
+      "intent_review": "incomplete-review-package",
+      "submitted_action": "2fe495685b518339626e558643725db51e185b9325a3974cbe1239792e2ea87a"
+    },
+    {
+      "case": "separate formal result refuted",
+      "contract_gate": "formal-refuted",
+      "current_subject": "a5b309a978b62825bc6655cb56eef96bdca34d95b507530c5908ee1927c1b804",
+      "intent_review": "intent-accepted",
+      "submitted_action": "3d40501a2e3e867be0173b41aefb6f3252b8961f6aeec64f5a4164bf4fc69bb1"
+    },
+    {
+      "case": "separate formal result unknown",
+      "contract_gate": "formal-unknown",
+      "current_subject": "cab1f349880db4f7b9e17946fa171d00ffe668ff821f2d65850b2da159480895",
+      "intent_review": "intent-accepted",
+      "submitted_action": "e5193ff44afd6493a311fa5edd188199d554b5ec8877c2b7cb4315247acb8251"
+    },
+    {
+      "case": "separate formal result unsupported",
+      "contract_gate": "formal-unsupported",
+      "current_subject": "f2269d06cb7e7acf154ecb6cb07999618194aa280fa7288be0a9f00adb70d3e5",
+      "intent_review": "intent-accepted",
+      "submitted_action": "140c33eea5bb38cacf68336e8a024f4e720ea66b355f0d86ac3bab0f29e00bef"
+    },
+    {
+      "case": "legacy candidate unchanged while review text changes",
+      "contract_gate": "blocked",
+      "current_subject": "89a4aa696bafc1ba4f7d284ffe4eb1fd4169ef3662ec20f3aff4c2a18c9da0a8",
+      "intent_review": "different-review-subject",
+      "submitted_action": "68b8431f823108012c130b411bc8eb5e7e08be9638562d6a4bb57cdf8b73ab4c"
+    }
+  ],
+  "contract_gate_counts": {
+    "blocked": 23,
+    "eligible-for-contract-admission": 2,
+    "formal-refuted": 1,
+    "formal-unknown": 1,
+    "formal-unsupported": 1
+  },
+  "legacy_comparison": {
+    "changed_package": "cd8ad75aa930c0e1562ad7f9e61bc5d157950a6b3b04bc7078a217d92cb8ab3a",
+    "legacy_approval_identity_reused": true,
+    "old_package": "2ac0f87f1d95a6b23dff4242707309fd31d6c870373469c00c8839e7c3417e82",
+    "same_semantic_identity": true
+  },
+  "python": "3.12.14",
+  "schema": "rt02-exact-review-approval-1",
+  "source_sha256": {
+    "business_intent.py": "2ec0d63d95a8432baa23ecd678e974ff670d26a9fbfbbcc640d92f8502845f2a",
+    "review.py": "8a79c98e0fbfe6b9231ad17b9d912832481c5c4c6ea920206605082f5c29f6b3",
+    "run.py": "c6d823b0ef42ce8fa5df32d2bbb034d9cf811909a08356b53b540a2e71cdb39d",
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  }
+}

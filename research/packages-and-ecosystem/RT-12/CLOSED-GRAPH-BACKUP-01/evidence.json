@@ -1,0 +1,49 @@
+{
+  "baseline": "bf043f1ccba812cd422c2ac9c2b33f592e0d3cf4",
+  "cases": [
+    {
+      "case": "metadata-only archive after collection",
+      "outcome": "missing object"
+    },
+    {
+      "case": "expected root differs from bundle",
+      "outcome": "different selected root or schema"
+    },
+    {
+      "case": "dangling dependency in otherwise intact index",
+      "outcome": "missing object"
+    },
+    {
+      "case": "corrupt immutable object bytes",
+      "outcome": "object digest mismatch"
+    },
+    {
+      "case": "unexpected unrelated payload",
+      "outcome": "extra entries outside the selected closure"
+    },
+    {
+      "case": "failure before root publication",
+      "outcome": "interrupted before publication"
+    },
+    {
+      "case": "retry exact graph restore",
+      "outcome": "restored"
+    },
+    {
+      "case": "restore into empty independent store",
+      "outcome": "restored"
+    }
+  ],
+  "portable_bundle_sha256": "f04b1b0f4651814447a2bf53ad254d95a2fa4919132d78bdc342a14b7cb6c12a",
+  "python": "3.12.14",
+  "restored_objects": [
+    "a45f4efc0e10e3742468c056d43a4d2f6f0c09f3f326e9b65c3306c0b49493cc",
+    "a5f5be45d20473888fcce6245f533fb4ed435ebd4083836008c97a7784a94055",
+    "fa2facc3e3f80576155bf57f61d8dffa15b02f9dc39449cfeacd05686fdc613c"
+  ],
+  "restored_root": "a45f4efc0e10e3742468c056d43a4d2f6f0c09f3f326e9b65c3306c0b49493cc",
+  "runner_sha256": "ef334ca1f35c0c24fb58847cb20328462ed656c7e5a6e6a71796f1f50532d170",
+  "schema": "rt12-closed-graph-backup-controls-v1",
+  "sqlite": "3.53.1",
+  "sqlite_source_id": "2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9"
+}

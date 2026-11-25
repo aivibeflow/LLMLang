@@ -1,0 +1,17 @@
+{
+  "action_grant_cases": 120,
+  "action_grant_passes": 2,
+  "native_delegation_races": 16,
+  "retry_terminal_receipts": 1,
+  "source_ledgers": {
+    "TASK-AUTHORITY-01": "5789127344ea3e40973c9d0f51da57c3601921d68c4bc406d9ddc7048d4cca6d",
+    "TASK-CONTEXT-SQLITE-01": "aa5a20b4c8c73f9194b638ef5539e7e435ef82cb428b66c28fe038bb9ce85986",
+    "TASK-SIBLINGS-01": "81823ddf0ad234e2a98e120422f8da3b6e72c00e99454e9a093a74027668a6a9"
+  },
+  "source_sha256": "47c0db0711fab05c6973e4118d3e8a4736d68dbecda607771875757cf60c3bb6",
+  "wrong_completions": {
+    "exact-prerequisites": 0,
+    "stationary-task": 6,
+    "task-cas": 3
+  }
+}

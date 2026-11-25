@@ -1,0 +1,70 @@
+{
+  "format": "async-resource-cancellation-01",
+  "outcomes": {
+    "0": {
+      "diagnostics": {
+        "cleanup_diagnostics": 32,
+        "drop_only": 24,
+        "explicitly_reported": 8
+      },
+      "dispositions": {
+        "acquire:A": 24,
+        "acquire:B": 16,
+        "cancelled": 48,
+        "completed": 8
+      },
+      "scopes": 96,
+      "stdout_sha256": "dae295376fbe848dd93691b4f3f1907dd8ba492a73aeca8f8b036925f6e6d7d2",
+      "two_failures": [
+        {
+          "result": "completed/B,A",
+          "scope": [
+            3,
+            0,
+            3,
+            1
+          ],
+          "trace": [
+            "acquire:A",
+            "acquire:B",
+            "close:B:diagnostic",
+            "close:A:diagnostic"
+          ]
+        }
+      ]
+    },
+    "2": {
+      "diagnostics": {
+        "cleanup_diagnostics": 32,
+        "drop_only": 24,
+        "explicitly_reported": 8
+      },
+      "dispositions": {
+        "acquire:A": 24,
+        "acquire:B": 16,
+        "cancelled": 48,
+        "completed": 8
+      },
+      "scopes": 96,
+      "stdout_sha256": "dae295376fbe848dd93691b4f3f1907dd8ba492a73aeca8f8b036925f6e6d7d2",
+      "two_failures": [
+        {
+          "result": "completed/B,A",
+          "scope": [
+            3,
+            0,
+            3,
+            1
+          ],
+          "trace": [
+            "acquire:A",
+            "acquire:B",
+            "close:B:diagnostic",
+            "close:A:diagnostic"
+          ]
+        }
+      ]
+    }
+  },
+  "rust": "rustc 1.85.1 (4eb161250 2025-03-15)"
+}

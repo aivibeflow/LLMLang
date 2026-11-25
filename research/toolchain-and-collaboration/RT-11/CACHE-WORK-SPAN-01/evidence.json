@@ -1,0 +1,107 @@
+{
+  "archive_sha256": {
+    "BUILD-PHASE-OVERHEAD-01": "2e96de14ec4ec1f75f036a374a7011068b9bb09f6c1a8f45612b484166db6a68",
+    "MULTI-ACTION-HITS-01": "4257080bb3c46150fe549d79c036ec66ff7cd3c8051a7bf68e4bc27e8ec19394",
+    "PAIRED-CACHE-SPEEDUP-01": "686d14924fe4673804b6ab468bc4578f2e4c2aa127313062aabb6d003d39425e"
+  },
+  "baseline": "2c7e8914f77e97617bcb883e4c01fa85df49974d",
+  "result": {
+    "counts": {
+      "equal/equal": 80,
+      "equal/faster": 18,
+      "equal/slower": 30,
+      "faster/equal": 120,
+      "faster/faster": 424,
+      "faster/slower": 160,
+      "slower/equal": 32,
+      "slower/slower": 160
+    },
+    "modeled_costs": {
+      "cold": [
+        3,
+        7,
+        11,
+        19
+      ],
+      "restoring_hit": [
+        1,
+        8,
+        2,
+        20
+      ]
+    },
+    "witnesses": {
+      "equal/faster": {
+        "cold_span": 22,
+        "cold_work": 40,
+        "edges": [
+          [
+            0,
+            3
+          ]
+        ],
+        "hits": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "warm_span": 21,
+        "warm_work": 40
+      },
+      "equal/slower": {
+        "cold_span": 19,
+        "cold_work": 40,
+        "edges": [],
+        "hits": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "warm_span": 20,
+        "warm_work": 40
+      },
+      "faster/equal": {
+        "cold_span": 19,
+        "cold_work": 40,
+        "edges": [],
+        "hits": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "warm_span": 19,
+        "warm_work": 31
+      },
+      "faster/slower": {
+        "cold_span": 19,
+        "cold_work": 40,
+        "edges": [],
+        "hits": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "warm_span": 20,
+        "warm_work": 32
+      },
+      "slower/equal": {
+        "cold_span": 19,
+        "cold_work": 40,
+        "edges": [],
+        "hits": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "warm_span": 19,
+        "warm_work": 41
+      }
+    }
+  },
+  "runner_sha256": "9a066bd3a18106fc8fd0963ed5fdd83cccc4effa01758f5bf7145e1c62a6e52c"
+}

@@ -1,0 +1,205 @@
+{
+  "profiles": {
+    "ios-arm64": {
+      "call_lowering": "define [2 x i64] @update_span([2 x i64] %0, i32 noundef %1) local_unnamed_addr #0 {",
+      "coverage": "cross-build-only",
+      "dynamic_client": {
+        "declared_sdk_load_command": "16.0",
+        "dependence": [
+          "@rpath/libspan.dylib"
+        ],
+        "export": "_observe_span",
+        "install_name": "@rpath/libdynamic-client.dylib",
+        "minimum": "16.0",
+        "platform": "ios",
+        "sha256": "19382401bab1550e2c9980469a579e944aac52f89c310235154d5c0b8ebd0d95",
+        "size_bytes": 49352,
+        "target_architecture": "arm64"
+      },
+      "later_deployment_control": {
+        "exact_package_gate": "refused",
+        "link": "accepted",
+        "provider": {
+          "declared_sdk_load_command": "17.0",
+          "dependence": [],
+          "export": "_update_span",
+          "install_name": "@rpath/libspan.dylib",
+          "minimum": "17.0",
+          "platform": "ios",
+          "sha256": "e1abbfe298bb48de1b4f1532cd0109f2059f541c691284b78d115bae57c34f5a",
+          "size_bytes": 32880,
+          "target_architecture": "arm64"
+        },
+        "reported_warning": true
+      },
+      "provider": {
+        "declared_sdk_load_command": "16.0",
+        "dependence": [],
+        "export": "_update_span",
+        "install_name": "@rpath/libspan.dylib",
+        "minimum": "16.0",
+        "platform": "ios",
+        "sha256": "84a4c916bcf4d10e319ffd016e6ae42739ba1bc0b1a81c1f6039a084a45eddb3",
+        "size_bytes": 32880,
+        "target_architecture": "arm64"
+      },
+      "static_archive_sha256": "7c59186a173e41574dd238ad0be619b9f1af3da4311f4188786d553431e8d802",
+      "static_client": {
+        "declared_sdk_load_command": "16.0",
+        "dependence": [],
+        "export": "_observe_span",
+        "install_name": "@rpath/libstatic-client.dylib",
+        "minimum": "16.0",
+        "platform": "ios",
+        "sha256": "8d61264fbe2c4a2d91fe4834517725e1acf6f8c5ca20d535091b5b13e79031c4",
+        "size_bytes": 32912,
+        "target_architecture": "arm64"
+      },
+      "triple": "arm64-apple-ios16.0",
+      "wrong_provider_control": {
+        "exact_package_gate": "refused",
+        "link": "refused",
+        "provider_profile": "macos-arm64",
+        "reported_warning": false
+      }
+    },
+    "macos-arm64": {
+      "call_lowering": "define [2 x i64] @update_span([2 x i64] %0, i32 noundef %1) local_unnamed_addr #0 {",
+      "coverage": "cross-build-only",
+      "dynamic_client": {
+        "declared_sdk_load_command": "13.0",
+        "dependence": [
+          "@rpath/libspan.dylib"
+        ],
+        "export": "_observe_span",
+        "install_name": "@rpath/libdynamic-client.dylib",
+        "minimum": "13.0",
+        "platform": "macos",
+        "sha256": "2b3375d56a56c700e0fe2375ca0aa1caeebe8520186693c8c4e266a6ab64c875",
+        "size_bytes": 33408,
+        "target_architecture": "arm64"
+      },
+      "later_deployment_control": {
+        "exact_package_gate": "refused",
+        "link": "accepted",
+        "provider": {
+          "declared_sdk_load_command": "14.0",
+          "dependence": [],
+          "export": "_update_span",
+          "install_name": "@rpath/libspan.dylib",
+          "minimum": "14.0",
+          "platform": "macos",
+          "sha256": "b00421e7bb2ff2540e252817943b8eae70837f0c34cd6bdfef1b098e1fae99ad",
+          "size_bytes": 16784,
+          "target_architecture": "arm64"
+        },
+        "reported_warning": true
+      },
+      "provider": {
+        "declared_sdk_load_command": "13.0",
+        "dependence": [],
+        "export": "_update_span",
+        "install_name": "@rpath/libspan.dylib",
+        "minimum": "13.0",
+        "platform": "macos",
+        "sha256": "93a4842db8a29c15fc8b56d94907b13e01d146d7e6e0f5eba67d8723a533ff52",
+        "size_bytes": 16784,
+        "target_architecture": "arm64"
+      },
+      "static_archive_sha256": "fbec7f22f58f8b2176effe209d2822daa321ac18bcdc1a66ce8d4b75d36472d0",
+      "static_client": {
+        "declared_sdk_load_command": "13.0",
+        "dependence": [],
+        "export": "_observe_span",
+        "install_name": "@rpath/libstatic-client.dylib",
+        "minimum": "13.0",
+        "platform": "macos",
+        "sha256": "3efd361d894ef6484235cfdfd88b01b8b96ae29f247b664a15e4184ae9f7e43e",
+        "size_bytes": 16832,
+        "target_architecture": "arm64"
+      },
+      "triple": "arm64-apple-macos13.0",
+      "wrong_provider_control": {
+        "exact_package_gate": "refused",
+        "link": "refused",
+        "provider_profile": "ios-arm64",
+        "reported_warning": false
+      }
+    },
+    "macos-x64": {
+      "call_lowering": "define { i64, i64 } @update_span(i64 %0, i64 %1, i32 noundef %2) local_unnamed_addr #0 {",
+      "coverage": "cross-build-only",
+      "dynamic_client": {
+        "declared_sdk_load_command": "13.0",
+        "dependence": [
+          "@rpath/libspan.dylib"
+        ],
+        "export": "_observe_span",
+        "install_name": "@rpath/libdynamic-client.dylib",
+        "minimum": "13.0",
+        "platform": "macos",
+        "sha256": "afc67f7f95b540a7fe9e57ce6e081c317a83e704002d1e1150369256972d6d25",
+        "size_bytes": 8392,
+        "target_architecture": "x86_64"
+      },
+      "later_deployment_control": {
+        "exact_package_gate": "refused",
+        "link": "accepted",
+        "provider": {
+          "declared_sdk_load_command": "14.0",
+          "dependence": [],
+          "export": "_update_span",
+          "install_name": "@rpath/libspan.dylib",
+          "minimum": "14.0",
+          "platform": "macos",
+          "sha256": "460eaa871e00c6f4450308362787c0cc11355c82d07cd6e85b4d60cc33a85328",
+          "size_bytes": 4208,
+          "target_architecture": "x86_64"
+        },
+        "reported_warning": true
+      },
+      "provider": {
+        "declared_sdk_load_command": "13.0",
+        "dependence": [],
+        "export": "_update_span",
+        "install_name": "@rpath/libspan.dylib",
+        "minimum": "13.0",
+        "platform": "macos",
+        "sha256": "b609720bfe7ec3bdf203832d594be3c403663e48a558ba02ec790d145fb0ea23",
+        "size_bytes": 4208,
+        "target_architecture": "x86_64"
+      },
+      "static_archive_sha256": "e63d40041342cf257af32ef37948c290f401d616d2e9bd146da4d997ea9887e5",
+      "static_client": {
+        "declared_sdk_load_command": "13.0",
+        "dependence": [],
+        "export": "_observe_span",
+        "install_name": "@rpath/libstatic-client.dylib",
+        "minimum": "13.0",
+        "platform": "macos",
+        "sha256": "5b9e6023e64a56029bd9eb0d6a2cf8f2274e391f97e0a8f6b7ce8c58f57512de",
+        "size_bytes": 4240,
+        "target_architecture": "x86_64"
+      },
+      "triple": "x86_64-apple-macos13.0",
+      "wrong_provider_control": {
+        "exact_package_gate": "refused",
+        "link": "accepted",
+        "provider_profile": "macos-arm64",
+        "reported_warning": false
+      }
+    }
+  },
+  "sources": {
+    "abi.h": "74a70c9e6037ed574825dd996045c73d9cc5f8073c0a2801b1e02a8186ef26ff",
+    "consumer.c": "e912d81fd597836e7862fc5babedd6f7268a2d3215d8a4775cda19be419b6c7d",
+    "provider.c": "801357d96e8b042a3060b43af1d45b1485da340fe4724aedc0482af7b3d85b28",
+    "run.py": "ce1068245a554b20bf31d7e026d326419545a527fe395494f9a150a5b263c5ad"
+  },
+  "tools": {
+    "ar": "Debian LLVM version 19.1.7",
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "linker": "Debian LLD 19.1.7",
+    "objdump": "Debian LLVM version 19.1.7"
+  }
+}

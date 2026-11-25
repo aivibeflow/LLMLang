@@ -1,0 +1,75 @@
+{
+  "baseline": "525bfbe0a935728710c9c7ade026bfe5687f4473",
+  "cases": {
+    "sha1/after-ref": {
+      "clean_clone": true,
+      "committed_history_length": 2,
+      "initial": "committed-exact",
+      "retry": "committed-exact"
+    },
+    "sha1/before-ref": {
+      "clean_clone": true,
+      "committed_history_length": 2,
+      "initial": "uncommitted",
+      "retry": "committed-exact"
+    },
+    "sha1/normal": {
+      "clean_clone": true,
+      "committed_history_length": 2,
+      "initial": "committed-exact",
+      "retry": "committed-exact"
+    },
+    "sha1/partial-export": {
+      "initial": "withheld",
+      "retry": "uncommitted"
+    },
+    "sha1/stale-ref": {
+      "initial": "withheld",
+      "retry": "uncommitted"
+    },
+    "sha1/stale-worktree": {
+      "initial": "withheld",
+      "retry": "uncommitted"
+    },
+    "sha1/unexpected-staged": {
+      "initial": "withheld",
+      "retry": "uncommitted"
+    },
+    "sha256/after-ref": {
+      "clean_clone": true,
+      "committed_history_length": 2,
+      "initial": "committed-exact",
+      "retry": "committed-exact"
+    },
+    "sha256/before-ref": {
+      "clean_clone": true,
+      "committed_history_length": 2,
+      "initial": "uncommitted",
+      "retry": "committed-exact"
+    },
+    "sha256/normal": {
+      "clean_clone": true,
+      "committed_history_length": 2,
+      "initial": "committed-exact",
+      "retry": "committed-exact"
+    },
+    "sha256/partial-export": {
+      "initial": "withheld",
+      "retry": "uncommitted"
+    },
+    "sha256/stale-ref": {
+      "initial": "withheld",
+      "retry": "uncommitted"
+    },
+    "sha256/stale-worktree": {
+      "initial": "withheld",
+      "retry": "uncommitted"
+    },
+    "sha256/unexpected-staged": {
+      "initial": "withheld",
+      "retry": "uncommitted"
+    }
+  },
+  "git": "git version 2.56.1",
+  "runner_sha256": "3fbb825991c66885f2fdaecb3056c0e014e67cfa589076b9685599ff78f4f48a"
+}

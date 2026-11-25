@@ -1,0 +1,2187 @@
+{
+  "basis": "0bde6f2213d337b3c7aa69160dbca09eb33c3119",
+  "basis_sha256": {
+    "research/language-design/RT-31/CROSS-PROFILE-SPG-01/run.py": "344cdab493a1981021ab5d9096e473888761de4f8bcd24dd233b76301e58145a",
+    "research/language-design/RT-31/FRONTEND-CONTRACT-01/contract.py": "3e2b50e39f31f94d83df78dfb344af58f3534a0b2912836f43219cd15ef5c0f8",
+    "research/language-design/RT-31/HYBRID-PROFILE-01/replay.py": "d39bfa565edfb8c3e01bd6d5b9e16ac98ac7d0d8339ef6532a7ea34385f36ff5"
+  },
+  "candidate_cases": 120,
+  "cases": [
+    {
+      "argument": 19,
+      "case_id": "development-0-infix/1",
+      "kind": "candidate",
+      "offset": -2,
+      "profile": "infix/1",
+      "split": "development"
+    },
+    {
+      "argument": 19,
+      "case_id": "development-0-hybrid/1",
+      "kind": "candidate",
+      "offset": -2,
+      "profile": "hybrid/1",
+      "split": "development"
+    },
+    {
+      "argument": 20,
+      "case_id": "development-1-infix/1",
+      "kind": "malformed",
+      "offset": -1,
+      "profile": "infix/1",
+      "split": "development"
+    },
+    {
+      "argument": 20,
+      "case_id": "development-1-hybrid/1",
+      "kind": "malformed",
+      "offset": -1,
+      "profile": "hybrid/1",
+      "split": "development"
+    },
+    {
+      "argument": 21,
+      "case_id": "development-2-infix/1",
+      "kind": "wrong-type",
+      "offset": 0,
+      "profile": "infix/1",
+      "split": "development"
+    },
+    {
+      "argument": 21,
+      "case_id": "development-2-hybrid/1",
+      "kind": "wrong-type",
+      "offset": 0,
+      "profile": "hybrid/1",
+      "split": "development"
+    },
+    {
+      "argument": 22,
+      "case_id": "development-3-infix/1",
+      "kind": "incomplete",
+      "offset": 1,
+      "profile": "infix/1",
+      "split": "development"
+    },
+    {
+      "argument": 22,
+      "case_id": "development-3-hybrid/1",
+      "kind": "incomplete",
+      "offset": 1,
+      "profile": "hybrid/1",
+      "split": "development"
+    },
+    {
+      "argument": 47,
+      "case_id": "heldout-0-infix/1",
+      "kind": "candidate",
+      "offset": 0,
+      "profile": "infix/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 47,
+      "case_id": "heldout-0-hybrid/1",
+      "kind": "candidate",
+      "offset": 0,
+      "profile": "hybrid/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 48,
+      "case_id": "heldout-1-infix/1",
+      "kind": "effect-falsifier",
+      "offset": 0,
+      "profile": "infix/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 48,
+      "case_id": "heldout-1-hybrid/1",
+      "kind": "effect-falsifier",
+      "offset": 0,
+      "profile": "hybrid/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 49,
+      "case_id": "heldout-2-infix/1",
+      "kind": "malformed",
+      "offset": 0,
+      "profile": "infix/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 49,
+      "case_id": "heldout-2-hybrid/1",
+      "kind": "malformed",
+      "offset": 0,
+      "profile": "hybrid/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 50,
+      "case_id": "heldout-3-infix/1",
+      "kind": "wrong-type",
+      "offset": 1,
+      "profile": "infix/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 50,
+      "case_id": "heldout-3-hybrid/1",
+      "kind": "wrong-type",
+      "offset": 1,
+      "profile": "hybrid/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 51,
+      "case_id": "heldout-4-infix/1",
+      "kind": "incomplete",
+      "offset": 2,
+      "profile": "infix/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 51,
+      "case_id": "heldout-4-hybrid/1",
+      "kind": "incomplete",
+      "offset": 2,
+      "profile": "hybrid/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 52,
+      "case_id": "heldout-5-infix/1",
+      "kind": "candidate",
+      "offset": 0,
+      "profile": "infix/1",
+      "split": "heldout"
+    },
+    {
+      "argument": 52,
+      "case_id": "heldout-5-hybrid/1",
+      "kind": "candidate",
+      "offset": 0,
+      "profile": "hybrid/1",
+      "split": "heldout"
+    }
+  ],
+  "corpus_id": "4b20b674e589ce6dd1e5f11af1d258fb8ac100c8cc7718e3950b9bf28b59b5d3",
+  "evaluation_sha256": "11d7619c9816089b4ab700a58a725492c90146c268e958aea0f3dcf58a7b9c27",
+  "records": {
+    "baseline": {
+      "axis": "baseline",
+      "eligible": true,
+      "identity": "f0f9c91a3d2f732765fd1774694546dc78a7fde6fda0b8fb8a11199a139051a9",
+      "report": {
+        "observations": {
+          "development-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "363ca8a5c1d53e0a07c33274bcc349bb8bb9554cf08e9d1372bcb78549692d75",
+            "trace_match": true
+          },
+          "development-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "4d80ce12c69b6e5644907477393df992773d05cbae131c39d5364923a2d0a3e2",
+            "trace_match": true
+          },
+          "development-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "b3148eb20441fcbe1530bb540aab5a3297121fd92d677c8669411e6abbd1a6f4",
+            "trace_match": null
+          },
+          "development-1-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "1ddfd0f99c4ad3ebf0a9b0e854f804bdf91a0fc8531386a9afca7d3787ef5ba0",
+            "trace_match": null
+          },
+          "development-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "development-2-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "development-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "20433ff52200c3e5d023c9d9dca9bfc854b0fa718ca2a2156892b470a0bbacb8",
+            "trace_match": true
+          },
+          "development-3-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "3015e67d1b4a30869bbf55ffe15a06f9b277d47de010db05113ef4536a0133ae",
+            "trace_match": true
+          },
+          "heldout-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "69a8047a25f188286f48a9d7d2641a81ded6efe3a78656ea0db57171bcc044be",
+            "trace_match": true
+          },
+          "heldout-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "5d13b7a87f7d611baac39d30e33a9437a007744b74c1a7f6790fd4dec601c06a",
+            "trace_match": true
+          },
+          "heldout-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "27375ab0f1256e8346ad9c203e7ca97be5821698b9baecb107cfdaae357cd169",
+            "trace_match": false
+          },
+          "heldout-1-infix/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "f8cef41997c01c462b154f6c0528b5b2606e07910211b608ffe6fb090df153f8",
+            "trace_match": false
+          },
+          "heldout-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "4f2766d60cc8099d5540320b105c30f97b7795e678bdd5194b814bf3f23f2462",
+            "trace_match": null
+          },
+          "heldout-2-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "e0badafcca938729abaed538b493291ac6f7a75315270aa2d203c4845415a8ed",
+            "trace_match": null
+          },
+          "heldout-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "heldout-3-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "heldout-4-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "0e9b4d36aadabda136b952731f492b7fdaea452fe9987dbc770e28eb28f40cb1",
+            "trace_match": true
+          },
+          "heldout-4-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "dfeac12a0cd4c7d1af8843d2bca995c9c2ee4aae857794d5d31b2eed61859c69",
+            "trace_match": true
+          },
+          "heldout-5-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "69a8047a25f188286f48a9d7d2641a81ded6efe3a78656ea0db57171bcc044be",
+            "trace_match": true
+          },
+          "heldout-5-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "5d13b7a87f7d611baac39d30e33a9437a007744b74c1a7f6790fd4dec601c06a",
+            "trace_match": true
+          }
+        },
+        "totals": {
+          "development": {
+            "cases": 8,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/obligation": 2,
+            "diagnostic/ready": 2,
+            "parsed": 6,
+            "regressions": 0,
+            "trace_matches": 4,
+            "value_matches": 4
+          },
+          "heldout": {
+            "cases": 12,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/obligation": 2,
+            "diagnostic/observation": 2,
+            "diagnostic/ready": 4,
+            "parsed": 10,
+            "regressions": 0,
+            "trace_matches": 6,
+            "value_matches": 8
+          }
+        }
+      }
+    },
+    "collapsed-diagnostic": {
+      "axis": "diagnostics",
+      "eligible": false,
+      "identity": "4f601aeff9195c3e886afb79de6a03c21de001b4f4a0723af627c93e6326fc98",
+      "report": {
+        "observations": {
+          "development-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "363ca8a5c1d53e0a07c33274bcc349bb8bb9554cf08e9d1372bcb78549692d75",
+            "trace_match": true
+          },
+          "development-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "4d80ce12c69b6e5644907477393df992773d05cbae131c39d5364923a2d0a3e2",
+            "trace_match": true
+          },
+          "development-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "b3148eb20441fcbe1530bb540aab5a3297121fd92d677c8669411e6abbd1a6f4",
+            "trace_match": null
+          },
+          "development-1-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "1ddfd0f99c4ad3ebf0a9b0e854f804bdf91a0fc8531386a9afca7d3787ef5ba0",
+            "trace_match": null
+          },
+          "development-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "development-2-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "development-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "20433ff52200c3e5d023c9d9dca9bfc854b0fa718ca2a2156892b470a0bbacb8",
+            "trace_match": true
+          },
+          "development-3-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "3015e67d1b4a30869bbf55ffe15a06f9b277d47de010db05113ef4536a0133ae",
+            "trace_match": true
+          },
+          "heldout-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "69a8047a25f188286f48a9d7d2641a81ded6efe3a78656ea0db57171bcc044be",
+            "trace_match": true
+          },
+          "heldout-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "5d13b7a87f7d611baac39d30e33a9437a007744b74c1a7f6790fd4dec601c06a",
+            "trace_match": true
+          },
+          "heldout-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "27375ab0f1256e8346ad9c203e7ca97be5821698b9baecb107cfdaae357cd169",
+            "trace_match": false
+          },
+          "heldout-1-infix/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "f8cef41997c01c462b154f6c0528b5b2606e07910211b608ffe6fb090df153f8",
+            "trace_match": false
+          },
+          "heldout-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "4f2766d60cc8099d5540320b105c30f97b7795e678bdd5194b814bf3f23f2462",
+            "trace_match": null
+          },
+          "heldout-2-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "e0badafcca938729abaed538b493291ac6f7a75315270aa2d203c4845415a8ed",
+            "trace_match": null
+          },
+          "heldout-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": true,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "heldout-3-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": true,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "heldout-4-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "0e9b4d36aadabda136b952731f492b7fdaea452fe9987dbc770e28eb28f40cb1",
+            "trace_match": true
+          },
+          "heldout-4-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "dfeac12a0cd4c7d1af8843d2bca995c9c2ee4aae857794d5d31b2eed61859c69",
+            "trace_match": true
+          },
+          "heldout-5-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "69a8047a25f188286f48a9d7d2641a81ded6efe3a78656ea0db57171bcc044be",
+            "trace_match": true
+          },
+          "heldout-5-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "5d13b7a87f7d611baac39d30e33a9437a007744b74c1a7f6790fd4dec601c06a",
+            "trace_match": true
+          }
+        },
+        "totals": {
+          "development": {
+            "cases": 8,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/obligation": 2,
+            "diagnostic/ready": 2,
+            "parsed": 6,
+            "regressions": 0,
+            "trace_matches": 4,
+            "value_matches": 4
+          },
+          "heldout": {
+            "cases": 12,
+            "diagnostic/frontend": 4,
+            "diagnostic/obligation": 2,
+            "diagnostic/observation": 2,
+            "diagnostic/ready": 4,
+            "parsed": 10,
+            "regressions": 2,
+            "trace_matches": 6,
+            "value_matches": 8
+          }
+        }
+      }
+    },
+    "dropped-ordered-effects": {
+      "axis": "syntax",
+      "eligible": false,
+      "identity": "85150c8ad4e5fc4ff6ea167067804ac2e506ecc28950dd74cdf0365fb8db591a",
+      "report": {
+        "observations": {
+          "development-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "363ca8a5c1d53e0a07c33274bcc349bb8bb9554cf08e9d1372bcb78549692d75",
+            "trace_match": true
+          },
+          "development-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "4d80ce12c69b6e5644907477393df992773d05cbae131c39d5364923a2d0a3e2",
+            "trace_match": true
+          },
+          "development-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "b3148eb20441fcbe1530bb540aab5a3297121fd92d677c8669411e6abbd1a6f4",
+            "trace_match": null
+          },
+          "development-1-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "1ddfd0f99c4ad3ebf0a9b0e854f804bdf91a0fc8531386a9afca7d3787ef5ba0",
+            "trace_match": null
+          },
+          "development-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "development-2-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "development-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "20433ff52200c3e5d023c9d9dca9bfc854b0fa718ca2a2156892b470a0bbacb8",
+            "trace_match": true
+          },
+          "development-3-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "3015e67d1b4a30869bbf55ffe15a06f9b277d47de010db05113ef4536a0133ae",
+            "trace_match": true
+          },
+          "heldout-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": true,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "27375ab0f1256e8346ad9c203e7ca97be5821698b9baecb107cfdaae357cd169",
+            "trace_match": false
+          },
+          "heldout-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": true,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "f8cef41997c01c462b154f6c0528b5b2606e07910211b608ffe6fb090df153f8",
+            "trace_match": false
+          },
+          "heldout-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "27375ab0f1256e8346ad9c203e7ca97be5821698b9baecb107cfdaae357cd169",
+            "trace_match": false
+          },
+          "heldout-1-infix/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "f8cef41997c01c462b154f6c0528b5b2606e07910211b608ffe6fb090df153f8",
+            "trace_match": false
+          },
+          "heldout-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "4f2766d60cc8099d5540320b105c30f97b7795e678bdd5194b814bf3f23f2462",
+            "trace_match": null
+          },
+          "heldout-2-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "e0badafcca938729abaed538b493291ac6f7a75315270aa2d203c4845415a8ed",
+            "trace_match": null
+          },
+          "heldout-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "heldout-3-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "heldout-4-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "0e9b4d36aadabda136b952731f492b7fdaea452fe9987dbc770e28eb28f40cb1",
+            "trace_match": true
+          },
+          "heldout-4-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "dfeac12a0cd4c7d1af8843d2bca995c9c2ee4aae857794d5d31b2eed61859c69",
+            "trace_match": true
+          },
+          "heldout-5-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": true,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "27375ab0f1256e8346ad9c203e7ca97be5821698b9baecb107cfdaae357cd169",
+            "trace_match": false
+          },
+          "heldout-5-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": true,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "f8cef41997c01c462b154f6c0528b5b2606e07910211b608ffe6fb090df153f8",
+            "trace_match": false
+          }
+        },
+        "totals": {
+          "development": {
+            "cases": 8,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/obligation": 2,
+            "diagnostic/ready": 2,
+            "parsed": 6,
+            "regressions": 0,
+            "trace_matches": 4,
+            "value_matches": 4
+          },
+          "heldout": {
+            "cases": 12,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/obligation": 2,
+            "diagnostic/observation": 6,
+            "parsed": 10,
+            "regressions": 4,
+            "trace_matches": 2,
+            "value_matches": 8
+          }
+        }
+      }
+    },
+    "layout": {
+      "axis": "syntax",
+      "eligible": true,
+      "identity": "c7d933f69de7b112ae093a9e12b60efe7ffcd088e2e0b4797c7d279fea094a63",
+      "report": {
+        "observations": {
+          "development-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "6473e6af8aca5592abcbb16ba2ebf7fc8f01b3368a65ce070fe3244dc6cc0e13",
+            "trace_match": true
+          },
+          "development-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "dc6a95da1c489f1e0c1463f954bcad23d06e4c9984357b6c467b7ae6507eea17",
+            "trace_match": true
+          },
+          "development-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "b3148eb20441fcbe1530bb540aab5a3297121fd92d677c8669411e6abbd1a6f4",
+            "trace_match": null
+          },
+          "development-1-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "1ddfd0f99c4ad3ebf0a9b0e854f804bdf91a0fc8531386a9afca7d3787ef5ba0",
+            "trace_match": null
+          },
+          "development-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "development-2-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "development-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "20433ff52200c3e5d023c9d9dca9bfc854b0fa718ca2a2156892b470a0bbacb8",
+            "trace_match": true
+          },
+          "development-3-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "3015e67d1b4a30869bbf55ffe15a06f9b277d47de010db05113ef4536a0133ae",
+            "trace_match": true
+          },
+          "heldout-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "8a4f2711ac72c1c3ea0ca17f770dd011e724c59c57d2a7e67727fafcdc36bb8e",
+            "trace_match": true
+          },
+          "heldout-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "38c87ea23e43eb6796fa1eef9f78447ba5d62c771569112a9616cf988218ae4b",
+            "trace_match": true
+          },
+          "heldout-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "27375ab0f1256e8346ad9c203e7ca97be5821698b9baecb107cfdaae357cd169",
+            "trace_match": false
+          },
+          "heldout-1-infix/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "f8cef41997c01c462b154f6c0528b5b2606e07910211b608ffe6fb090df153f8",
+            "trace_match": false
+          },
+          "heldout-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "4f2766d60cc8099d5540320b105c30f97b7795e678bdd5194b814bf3f23f2462",
+            "trace_match": null
+          },
+          "heldout-2-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "e0badafcca938729abaed538b493291ac6f7a75315270aa2d203c4845415a8ed",
+            "trace_match": null
+          },
+          "heldout-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "heldout-3-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "heldout-4-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "0e9b4d36aadabda136b952731f492b7fdaea452fe9987dbc770e28eb28f40cb1",
+            "trace_match": true
+          },
+          "heldout-4-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "dfeac12a0cd4c7d1af8843d2bca995c9c2ee4aae857794d5d31b2eed61859c69",
+            "trace_match": true
+          },
+          "heldout-5-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "8a4f2711ac72c1c3ea0ca17f770dd011e724c59c57d2a7e67727fafcdc36bb8e",
+            "trace_match": true
+          },
+          "heldout-5-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "38c87ea23e43eb6796fa1eef9f78447ba5d62c771569112a9616cf988218ae4b",
+            "trace_match": true
+          }
+        },
+        "totals": {
+          "development": {
+            "cases": 8,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/obligation": 2,
+            "diagnostic/ready": 2,
+            "parsed": 6,
+            "regressions": 0,
+            "trace_matches": 4,
+            "value_matches": 4
+          },
+          "heldout": {
+            "cases": 12,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/obligation": 2,
+            "diagnostic/observation": 2,
+            "diagnostic/ready": 4,
+            "parsed": 10,
+            "regressions": 0,
+            "trace_matches": 6,
+            "value_matches": 8
+          }
+        }
+      }
+    },
+    "omitted-obligation": {
+      "axis": "instruction",
+      "eligible": false,
+      "identity": "ef66b7199a211d976c2c0a253e25f4d07952279d6d9cca2c1fe8fc672293f51f",
+      "report": {
+        "observations": {
+          "development-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "363ca8a5c1d53e0a07c33274bcc349bb8bb9554cf08e9d1372bcb78549692d75",
+            "trace_match": true
+          },
+          "development-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "4d80ce12c69b6e5644907477393df992773d05cbae131c39d5364923a2d0a3e2",
+            "trace_match": true
+          },
+          "development-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "b3148eb20441fcbe1530bb540aab5a3297121fd92d677c8669411e6abbd1a6f4",
+            "trace_match": null
+          },
+          "development-1-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "1ddfd0f99c4ad3ebf0a9b0e854f804bdf91a0fc8531386a9afca7d3787ef5ba0",
+            "trace_match": null
+          },
+          "development-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "development-2-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "development-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "20433ff52200c3e5d023c9d9dca9bfc854b0fa718ca2a2156892b470a0bbacb8",
+            "trace_match": true
+          },
+          "development-3-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "3015e67d1b4a30869bbf55ffe15a06f9b277d47de010db05113ef4536a0133ae",
+            "trace_match": true
+          },
+          "heldout-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "69a8047a25f188286f48a9d7d2641a81ded6efe3a78656ea0db57171bcc044be",
+            "trace_match": true
+          },
+          "heldout-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "5d13b7a87f7d611baac39d30e33a9437a007744b74c1a7f6790fd4dec601c06a",
+            "trace_match": true
+          },
+          "heldout-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "27375ab0f1256e8346ad9c203e7ca97be5821698b9baecb107cfdaae357cd169",
+            "trace_match": false
+          },
+          "heldout-1-infix/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "observation"
+            ],
+            "scalar_match": true,
+            "source": "f8cef41997c01c462b154f6c0528b5b2606e07910211b608ffe6fb090df153f8",
+            "trace_match": false
+          },
+          "heldout-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "4f2766d60cc8099d5540320b105c30f97b7795e678bdd5194b814bf3f23f2462",
+            "trace_match": null
+          },
+          "heldout-2-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "e0badafcca938729abaed538b493291ac6f7a75315270aa2d203c4845415a8ed",
+            "trace_match": null
+          },
+          "heldout-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "heldout-3-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "heldout-4-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": true,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "0e9b4d36aadabda136b952731f492b7fdaea452fe9987dbc770e28eb28f40cb1",
+            "trace_match": true
+          },
+          "heldout-4-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": true,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "dfeac12a0cd4c7d1af8843d2bca995c9c2ee4aae857794d5d31b2eed61859c69",
+            "trace_match": true
+          },
+          "heldout-5-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "69a8047a25f188286f48a9d7d2641a81ded6efe3a78656ea0db57171bcc044be",
+            "trace_match": true
+          },
+          "heldout-5-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "5d13b7a87f7d611baac39d30e33a9437a007744b74c1a7f6790fd4dec601c06a",
+            "trace_match": true
+          }
+        },
+        "totals": {
+          "development": {
+            "cases": 8,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/obligation": 2,
+            "diagnostic/ready": 2,
+            "parsed": 6,
+            "regressions": 0,
+            "trace_matches": 4,
+            "value_matches": 4
+          },
+          "heldout": {
+            "cases": 12,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/observation": 2,
+            "diagnostic/ready": 6,
+            "parsed": 10,
+            "regressions": 2,
+            "trace_matches": 6,
+            "value_matches": 8
+          }
+        }
+      }
+    },
+    "scalar-only-verdict": {
+      "axis": "toolchain",
+      "eligible": false,
+      "identity": "2679daee2a198b061488616e908d2fc411601952887716d4a761baa4fcb1d00f",
+      "report": {
+        "observations": {
+          "development-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "363ca8a5c1d53e0a07c33274bcc349bb8bb9554cf08e9d1372bcb78549692d75",
+            "trace_match": true
+          },
+          "development-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "4d80ce12c69b6e5644907477393df992773d05cbae131c39d5364923a2d0a3e2",
+            "trace_match": true
+          },
+          "development-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "b3148eb20441fcbe1530bb540aab5a3297121fd92d677c8669411e6abbd1a6f4",
+            "trace_match": null
+          },
+          "development-1-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "1ddfd0f99c4ad3ebf0a9b0e854f804bdf91a0fc8531386a9afca7d3787ef5ba0",
+            "trace_match": null
+          },
+          "development-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "development-2-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "development-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "20433ff52200c3e5d023c9d9dca9bfc854b0fa718ca2a2156892b470a0bbacb8",
+            "trace_match": true
+          },
+          "development-3-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "3015e67d1b4a30869bbf55ffe15a06f9b277d47de010db05113ef4536a0133ae",
+            "trace_match": true
+          },
+          "heldout-0-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "69a8047a25f188286f48a9d7d2641a81ded6efe3a78656ea0db57171bcc044be",
+            "trace_match": true
+          },
+          "heldout-0-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "5d13b7a87f7d611baac39d30e33a9437a007744b74c1a7f6790fd4dec601c06a",
+            "trace_match": true
+          },
+          "heldout-1-hybrid/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": true,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "27375ab0f1256e8346ad9c203e7ca97be5821698b9baecb107cfdaae357cd169",
+            "trace_match": false
+          },
+          "heldout-1-infix/1": {
+            "expected": [
+              "reject",
+              "observation"
+            ],
+            "parsed": true,
+            "regression": true,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "f8cef41997c01c462b154f6c0528b5b2606e07910211b608ffe6fb090df153f8",
+            "trace_match": false
+          },
+          "heldout-2-hybrid/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "4f2766d60cc8099d5540320b105c30f97b7795e678bdd5194b814bf3f23f2462",
+            "trace_match": null
+          },
+          "heldout-2-infix/1": {
+            "expected": [
+              "reject",
+              "frontend"
+            ],
+            "parsed": false,
+            "regression": false,
+            "reported": [
+              "reject",
+              "frontend"
+            ],
+            "scalar_match": null,
+            "source": "e0badafcca938729abaed538b493291ac6f7a75315270aa2d203c4845415a8ed",
+            "trace_match": null
+          },
+          "heldout-3-hybrid/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "905635bb3c3e13ea054903897db644950d68631d96921e29c2a32f3cc1c0ff82",
+            "trace_match": null
+          },
+          "heldout-3-infix/1": {
+            "expected": [
+              "reject",
+              "elaboration"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "elaboration"
+            ],
+            "scalar_match": null,
+            "source": "f85482615f6f25e2de5aff1043a1ae780ec049a85f58c92ca6ab4d8c8de90b49",
+            "trace_match": null
+          },
+          "heldout-4-hybrid/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "0e9b4d36aadabda136b952731f492b7fdaea452fe9987dbc770e28eb28f40cb1",
+            "trace_match": true
+          },
+          "heldout-4-infix/1": {
+            "expected": [
+              "reject",
+              "obligation"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "reject",
+              "obligation"
+            ],
+            "scalar_match": true,
+            "source": "dfeac12a0cd4c7d1af8843d2bca995c9c2ee4aae857794d5d31b2eed61859c69",
+            "trace_match": true
+          },
+          "heldout-5-hybrid/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "69a8047a25f188286f48a9d7d2641a81ded6efe3a78656ea0db57171bcc044be",
+            "trace_match": true
+          },
+          "heldout-5-infix/1": {
+            "expected": [
+              "pass",
+              "ready"
+            ],
+            "parsed": true,
+            "regression": false,
+            "reported": [
+              "pass",
+              "ready"
+            ],
+            "scalar_match": true,
+            "source": "5d13b7a87f7d611baac39d30e33a9437a007744b74c1a7f6790fd4dec601c06a",
+            "trace_match": true
+          }
+        },
+        "totals": {
+          "development": {
+            "cases": 8,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/obligation": 2,
+            "diagnostic/ready": 2,
+            "parsed": 6,
+            "regressions": 0,
+            "trace_matches": 4,
+            "value_matches": 4
+          },
+          "heldout": {
+            "cases": 12,
+            "diagnostic/elaboration": 2,
+            "diagnostic/frontend": 2,
+            "diagnostic/obligation": 2,
+            "diagnostic/ready": 6,
+            "parsed": 10,
+            "regressions": 2,
+            "trace_matches": 6,
+            "value_matches": 8
+          }
+        }
+      }
+    }
+  },
+  "review_controls": {
+    "exact": true,
+    "inconsistent-aggregate": false,
+    "missing-heldout-row": false,
+    "missing-review": false,
+    "old-epoch": false,
+    "other-change": false,
+    "other-corpus": false,
+    "other-metrics": false,
+    "reviewer-refused": false,
+    "wrong-reviewer": false
+  }
+}

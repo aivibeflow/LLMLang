@@ -1,0 +1,438 @@
+{
+  "protocol": "2025-11-25",
+  "jsonschema": "4.26.0",
+  "sessions": 2,
+  "mutation_requests": 4,
+  "versioned_events": 26,
+  "complete_delivery_orders": 48,
+  "partial_delivery_controls": 48,
+  "controls": {
+    "exact_redelivery": "complete",
+    "conflicting_same_slot": "refused-conflicting-event",
+    "cross_session_same_wire": "refused-causal-edge",
+    "wire_reuse_within_session": "refused-wire-reuse",
+    "wrong_wire_id": "refused-causal-edge",
+    "wrong_producer": "refused-scope-or-schema",
+    "wrong_adapter_revision": "refused-scope-or-schema",
+    "missing_repair": "pending",
+    "terminal_uses_failed_attempt": "refused-causal-edge"
+  },
+  "ledger": [
+    {
+      "identity": "f22a433092ed6268ff9c179a033bcf1083bad9fffe21d629412cda43d4e342e3",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "session",
+      "actor": "coordinator",
+      "outcome": "opened",
+      "turn": 0,
+      "attempt": 0,
+      "wire": null,
+      "result_root": null,
+      "parent": null
+    },
+    {
+      "identity": "79a1235b9bb34ac6c55ff2c8b36a1a53332f8d5d4755455df4d7b90f26d272d2",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "turn",
+      "actor": "coordinator",
+      "outcome": "opened",
+      "turn": 1,
+      "attempt": 0,
+      "wire": null,
+      "result_root": null,
+      "parent": "f22a433092ed6268ff9c179a033bcf1083bad9fffe21d629412cda43d4e342e3"
+    },
+    {
+      "identity": "f8c792061afcc41fc7be7e97539d070d88f46bb4a87af7b0cd02690c1dc4c8e9",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "attempt",
+      "actor": "coordinator",
+      "outcome": "opened",
+      "turn": 1,
+      "attempt": 1,
+      "wire": null,
+      "result_root": null,
+      "parent": "79a1235b9bb34ac6c55ff2c8b36a1a53332f8d5d4755455df4d7b90f26d272d2"
+    },
+    {
+      "identity": "5f71d9449696d0a10071c03010e444fd63ea0cdbc102d884f608c4ee3fba17ec",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "request",
+      "actor": "client",
+      "outcome": "issued",
+      "turn": 1,
+      "attempt": 1,
+      "wire": 6,
+      "result_root": null,
+      "parent": "f8c792061afcc41fc7be7e97539d070d88f46bb4a87af7b0cd02690c1dc4c8e9"
+    },
+    {
+      "identity": "d339a24f709aebb22c4551106d336b720bb6a6d9eb631dd7e1c7aefd3892d06a",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "response",
+      "actor": "adapter",
+      "outcome": "refused",
+      "turn": 1,
+      "attempt": 1,
+      "wire": 6,
+      "result_root": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+      "parent": "5f71d9449696d0a10071c03010e444fd63ea0cdbc102d884f608c4ee3fba17ec"
+    },
+    {
+      "identity": "e06c876ff6f17e06c7518993c4f45af1f3f519946e2d8626d980d3ca24250b2c",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "tool",
+      "actor": "adapter",
+      "outcome": "refused",
+      "turn": 1,
+      "attempt": 1,
+      "wire": 6,
+      "result_root": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+      "parent": "d339a24f709aebb22c4551106d336b720bb6a6d9eb631dd7e1c7aefd3892d06a"
+    },
+    {
+      "identity": "7091253011d5e9f8410c54d8020ddc4db41957cac5d25712b1198734fa22b240",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "validation",
+      "actor": "checker",
+      "outcome": "failed",
+      "turn": 1,
+      "attempt": 1,
+      "wire": 6,
+      "result_root": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+      "parent": "e06c876ff6f17e06c7518993c4f45af1f3f519946e2d8626d980d3ca24250b2c"
+    },
+    {
+      "identity": "a28652a2a07d8c80052b90805c571dce5a8ad9cf615e48431516eb83e237ec11",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "repair",
+      "actor": "coordinator",
+      "outcome": "opened",
+      "turn": 1,
+      "attempt": 2,
+      "wire": null,
+      "result_root": null,
+      "parent": "7091253011d5e9f8410c54d8020ddc4db41957cac5d25712b1198734fa22b240"
+    },
+    {
+      "identity": "819ebb4bf828e78a718e48eafe46ebde1b4fc3aeb67ab391e78eb805930ec187",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "request",
+      "actor": "client",
+      "outcome": "issued",
+      "turn": 1,
+      "attempt": 2,
+      "wire": 8,
+      "result_root": null,
+      "parent": "a28652a2a07d8c80052b90805c571dce5a8ad9cf615e48431516eb83e237ec11"
+    },
+    {
+      "identity": "3e98c6ac7d4e7523e3137b8d608d5aa77217a377a08406e8994837ad2c6f7ec8",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "response",
+      "actor": "adapter",
+      "outcome": "ok",
+      "turn": 1,
+      "attempt": 2,
+      "wire": 8,
+      "result_root": "sha256:dc458a6e5a9d8a71b086920afd0d9df10c39a46bb675656bdcb8772793e80413",
+      "parent": "819ebb4bf828e78a718e48eafe46ebde1b4fc3aeb67ab391e78eb805930ec187"
+    },
+    {
+      "identity": "289f023427c7d2acd9aef332b3fd55b37ad1065f6c531d83cdfc1a86a6af95ac",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "tool",
+      "actor": "adapter",
+      "outcome": "ok",
+      "turn": 1,
+      "attempt": 2,
+      "wire": 8,
+      "result_root": "sha256:dc458a6e5a9d8a71b086920afd0d9df10c39a46bb675656bdcb8772793e80413",
+      "parent": "3e98c6ac7d4e7523e3137b8d608d5aa77217a377a08406e8994837ad2c6f7ec8"
+    },
+    {
+      "identity": "34ae5d36992fb9abf59fab86bab4301072232910085a77f5b8524b643ab55d93",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "validation",
+      "actor": "checker",
+      "outcome": "passed",
+      "turn": 1,
+      "attempt": 2,
+      "wire": 8,
+      "result_root": "sha256:dc458a6e5a9d8a71b086920afd0d9df10c39a46bb675656bdcb8772793e80413",
+      "parent": "289f023427c7d2acd9aef332b3fd55b37ad1065f6c531d83cdfc1a86a6af95ac"
+    },
+    {
+      "identity": "1665b9a4412a2e49f2c21eab6e67aa08b7b59aed014889f97232e1c331d38692",
+      "scope": {
+        "session": "session-a",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "terminal",
+      "actor": "coordinator",
+      "outcome": "complete",
+      "turn": 1,
+      "attempt": 2,
+      "wire": null,
+      "result_root": "sha256:dc458a6e5a9d8a71b086920afd0d9df10c39a46bb675656bdcb8772793e80413",
+      "parent": "34ae5d36992fb9abf59fab86bab4301072232910085a77f5b8524b643ab55d93"
+    },
+    {
+      "identity": "40242354b586ea5d353b6085b5db641bab8eee031b868ca4d3da4dbfc2b7d2fc",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "session",
+      "actor": "coordinator",
+      "outcome": "opened",
+      "turn": 0,
+      "attempt": 0,
+      "wire": null,
+      "result_root": null,
+      "parent": null
+    },
+    {
+      "identity": "ae54e67f95f013acb40f60e6a1f9e222e73bdfc1a4ec71e90a703165fffcf77f",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "turn",
+      "actor": "coordinator",
+      "outcome": "opened",
+      "turn": 1,
+      "attempt": 0,
+      "wire": null,
+      "result_root": null,
+      "parent": "40242354b586ea5d353b6085b5db641bab8eee031b868ca4d3da4dbfc2b7d2fc"
+    },
+    {
+      "identity": "1fd020cc338d0911363ea86af85ac5f30672ffcc8808c7a9504431fccee8338e",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "attempt",
+      "actor": "coordinator",
+      "outcome": "opened",
+      "turn": 1,
+      "attempt": 1,
+      "wire": null,
+      "result_root": null,
+      "parent": "ae54e67f95f013acb40f60e6a1f9e222e73bdfc1a4ec71e90a703165fffcf77f"
+    },
+    {
+      "identity": "14e2558563d5ff400a922037d29ed414468d34897acdd1cc23e1056db7ae7b44",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "request",
+      "actor": "client",
+      "outcome": "issued",
+      "turn": 1,
+      "attempt": 1,
+      "wire": 6,
+      "result_root": null,
+      "parent": "1fd020cc338d0911363ea86af85ac5f30672ffcc8808c7a9504431fccee8338e"
+    },
+    {
+      "identity": "c2ab98dfea08afad51a943bc2ba56b4aa49e9ea146fb8cd3cb4602b6ad812797",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "response",
+      "actor": "adapter",
+      "outcome": "refused",
+      "turn": 1,
+      "attempt": 1,
+      "wire": 6,
+      "result_root": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+      "parent": "14e2558563d5ff400a922037d29ed414468d34897acdd1cc23e1056db7ae7b44"
+    },
+    {
+      "identity": "b33f83001f7bdcd15f6afd4c748703cf4ad9ce900a5f969c4a890aab8cddc172",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "tool",
+      "actor": "adapter",
+      "outcome": "refused",
+      "turn": 1,
+      "attempt": 1,
+      "wire": 6,
+      "result_root": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+      "parent": "c2ab98dfea08afad51a943bc2ba56b4aa49e9ea146fb8cd3cb4602b6ad812797"
+    },
+    {
+      "identity": "4089dc22af63afeb5578a2414510090708b2e78b9c59c1d9ec2e125063009ff0",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "validation",
+      "actor": "checker",
+      "outcome": "failed",
+      "turn": 1,
+      "attempt": 1,
+      "wire": 6,
+      "result_root": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+      "parent": "b33f83001f7bdcd15f6afd4c748703cf4ad9ce900a5f969c4a890aab8cddc172"
+    },
+    {
+      "identity": "7941abc6650751f44317592cbdd0fa4db3b98bb79fbf411a0cf2a4212af947a2",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "repair",
+      "actor": "coordinator",
+      "outcome": "opened",
+      "turn": 1,
+      "attempt": 2,
+      "wire": null,
+      "result_root": null,
+      "parent": "4089dc22af63afeb5578a2414510090708b2e78b9c59c1d9ec2e125063009ff0"
+    },
+    {
+      "identity": "524d887375a2e55248fa045ceae18e1e4e99f11fbc317918f00e869b89ce068f",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "request",
+      "actor": "client",
+      "outcome": "issued",
+      "turn": 1,
+      "attempt": 2,
+      "wire": 8,
+      "result_root": null,
+      "parent": "7941abc6650751f44317592cbdd0fa4db3b98bb79fbf411a0cf2a4212af947a2"
+    },
+    {
+      "identity": "b2b8537c2be5abdacb7d2c0f328ad947cb945c4cc059507c99a41bb22e89a403",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "response",
+      "actor": "adapter",
+      "outcome": "ok",
+      "turn": 1,
+      "attempt": 2,
+      "wire": 8,
+      "result_root": "sha256:aaae5fae80e43cbb255f2d9e1efe9b23e86e01edb18de64bd69b689a607830b3",
+      "parent": "524d887375a2e55248fa045ceae18e1e4e99f11fbc317918f00e869b89ce068f"
+    },
+    {
+      "identity": "e2980051b17cf9e312087ac0fd9f8bfd94b03b4385d2b79d24b39eb311bcef7e",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "tool",
+      "actor": "adapter",
+      "outcome": "ok",
+      "turn": 1,
+      "attempt": 2,
+      "wire": 8,
+      "result_root": "sha256:aaae5fae80e43cbb255f2d9e1efe9b23e86e01edb18de64bd69b689a607830b3",
+      "parent": "b2b8537c2be5abdacb7d2c0f328ad947cb945c4cc059507c99a41bb22e89a403"
+    },
+    {
+      "identity": "9b0b0a090a34179222e7fe146f3379725387b8818db4cf90c5ea925d37e04c40",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "validation",
+      "actor": "checker",
+      "outcome": "passed",
+      "turn": 1,
+      "attempt": 2,
+      "wire": 8,
+      "result_root": "sha256:aaae5fae80e43cbb255f2d9e1efe9b23e86e01edb18de64bd69b689a607830b3",
+      "parent": "e2980051b17cf9e312087ac0fd9f8bfd94b03b4385d2b79d24b39eb311bcef7e"
+    },
+    {
+      "identity": "bbacbd34f3a2278c0293f2f5a7dc781895801aaff9428436887946cdd388fa04",
+      "scope": {
+        "session": "session-b",
+        "baseline": "sha256:0b3f6fa89ec6cce0604a2ef7a1b1ff0f1adf3aa7ac512e36566da3074a58902f",
+        "adapter": "abe4740d99b1d99049f7d28b565ce01b4bcc98f8c096a3f1bcdd8a0dbd3a45e9"
+      },
+      "kind": "terminal",
+      "actor": "coordinator",
+      "outcome": "complete",
+      "turn": 1,
+      "attempt": 2,
+      "wire": null,
+      "result_root": "sha256:aaae5fae80e43cbb255f2d9e1efe9b23e86e01edb18de64bd69b689a607830b3",
+      "parent": "9b0b0a090a34179222e7fe146f3379725387b8818db4cf90c5ea925d37e04c40"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "schema": "llmlang-rt00-explicit-relationship-screen/1",
+  "revision": "5cb74cadcb811cef92f89d8abd19cc76c6b6d727",
+  "controls_blob": "a479eba634d1f5c55904d79abb2b6f78901ee2d5",
+  "markdown_documents": 628,
+  "direct_link_pairs": 2218,
+  "candidate_pairs": 8,
+  "candidates": [
+    {
+      "source": "research/README.md",
+      "source_blob": "82908830c2c5f412473ec68eec1dc7dcda30a1be",
+      "line": 226,
+      "target": "research/research-management/RESEARCH-CORPUS-CROSS-CUTTING-ALIGNMENT-REVIEW-2026-11-20.md",
+      "target_blob": "cf8805463df3b8ce8eda519b2c40fe20108ce1c5",
+      "signal": "same-line-supersession-cue"
+    },
+    {
+      "source": "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md",
+      "source_blob": "0deb6541cb0704681747b151d7415ac4cf0b2c0b",
+      "line": 5,
+      "target": "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.ru.md",
+      "target_blob": "58a8bd7716130a86ddce7f1a91e3eb2c341248ae",
+      "signal": "translation-label"
+    },
+    {
+      "source": "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.ru.md",
+      "source_blob": "58a8bd7716130a86ddce7f1a91e3eb2c341248ae",
+      "line": 5,
+      "target": "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md",
+      "target_blob": "0deb6541cb0704681747b151d7415ac4cf0b2c0b",
+      "signal": "translation-label"
+    },
+    {
+      "source": "research/research-management/RESEARCH-CORPUS-AUDIT-2026-11-20.md",
+      "source_blob": "f973caa835ef835fbbe47d16f9387af723c60c3a",
+      "line": 596,
+      "target": "research/research-management/RT-00/RT-00-E-GLOBAL-LINK-AND-ANCHOR-AUDIT-2026-11-21.md",
+      "target_blob": "dad6ef8ca2a20bf3deda410b52cc43a7effc92bd",
+      "signal": "same-line-supersession-cue"
+    },
+    {
+      "source": "research/research-management/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+      "source_blob": "5c478f482f0d6f321d3407fddbe6e9ed85542199",
+      "line": 611,
+      "target": "research/research-management/RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md",
+      "target_blob": "17bc5e1db448627c28a20db0c182d9dbc2444912",
+      "signal": "same-line-supersession-cue"
+    },
+    {
+      "source": "research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md",
+      "source_blob": "a079f82f102da12695d63bae80460885484e6227",
+      "line": 214,
+      "target": "research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md",
+      "target_blob": "f5961f5e42cee1f927467672071159a767571a83",
+      "signal": "same-line-supersession-cue"
+    },
+    {
+      "source": "research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md",
+      "source_blob": "a079f82f102da12695d63bae80460885484e6227",
+      "line": 214,
+      "target": "research/toolchain-and-collaboration/RT-20/RT-20-LLM-PATCH-PLANNING-AND-HASH-PROPAGATION.md",
+      "target_blob": "003aa49898474da2b6fd868cbb51882f271ef91d",
+      "signal": "same-line-supersession-cue"
+    },
+    {
+      "source": "research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md",
+      "source_blob": "a079f82f102da12695d63bae80460885484e6227",
+      "line": 214,
+      "target": "research/toolchain-and-collaboration/RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md",
+      "target_blob": "003c1f0c6f9419abe0d3108d5e889e8804e09637",
+      "signal": "same-line-supersession-cue"
+    },
+    {
+      "source": "research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md",
+      "source_blob": "a079f82f102da12695d63bae80460885484e6227",
+      "line": 214,
+      "target": "research/toolchain-and-collaboration/RT-23/RT-23-SINGLE-INSTANCE-TOOLCHAIN-AND-INCREMENTAL-MULTI-WORKTREE.md",
+      "target_blob": "4122d7a0249be54399fe9995329e3a49caca5cce",
+      "signal": "same-line-supersession-cue"
+    }
+  ],
+  "controls": [
+    {
+      "paths": [
+        "research/formal-verification/RT-07/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md",
+        "research/formal-verification/RT-07/RESEARCH-SCENARIO-32-CANONICAL-TYPED-RELATIONAL-QUERY-IR.md"
+      ],
+      "blobs": [
+        "d9ed864000747071b81390972d4824683184cc63",
+        "b2ddc72dfedb36c2519a0344b0c720b0e3c9feae"
+      ],
+      "b12_text_overlap_selected": false,
+      "any_direct_link": false,
+      "cue_selected": false
+    },
+    {
+      "paths": [
+        "research/toolchain-and-collaboration/RT-15/GIT-SEMANTIC-REPOSITORY.md",
+        "research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md"
+      ],
+      "blobs": [
+        "a079f82f102da12695d63bae80460885484e6227",
+        "f5961f5e42cee1f927467672071159a767571a83"
+      ],
+      "b12_text_overlap_selected": false,
+      "any_direct_link": true,
+      "cue_selected": true
+    },
+    {
+      "paths": [
+        "research/language-design/RT-01/RESEARCH-RELATED-PROJECTS.md",
+        "research/language-design/RT-01/RESEARCH-DEEP-COMPARISON.md"
+      ],
+      "blobs": [
+        "534108da6ad042ce3466be72f2507307f030b1ac",
+        "7194d2435ece2fb8cb3a3891d898dc142f37370e"
+      ],
+      "b12_text_overlap_selected": false,
+      "any_direct_link": false,
+      "cue_selected": false
+    },
+    {
+      "paths": [
+        "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md",
+        "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.ru.md"
+      ],
+      "blobs": [
+        "0deb6541cb0704681747b151d7415ac4cf0b2c0b",
+        "58a8bd7716130a86ddce7f1a91e3eb2c341248ae"
+      ],
+      "b12_text_overlap_selected": false,
+      "any_direct_link": true,
+      "cue_selected": true
+    }
+  ]
+}

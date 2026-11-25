@@ -1,0 +1,60 @@
+replace_lease:
+  la t3, leaves_a
+  ld t4, 24(t3)
+  la t0, old_frame
+  srli t0, t0, 12
+  slli t0, t0, 10
+  ori t0, t0, 0xd7
+  bne t4, t0, fail
+  la t5, replacement_live
+  ld t0, 0(t5)
+  bnez t0, fail
+  sd zero, 24(t3)
+  fence rw, rw
+  sfence.vma zero, zero
+.if LEASE_CONTROL != 3
+  la t0, replacement_frame
+  addi t1, t0, 2047
+  addi t1, t1, 2047
+  addi t1, t1, 2
+.if LEASE_CONTROL != 1
+zero_replacement:
+  sd zero, 0(t0)
+  addi t0, t0, 8
+  bne t0, t1, zero_replacement
+.endif
+  li t1, 1
+  sd t1, 0(t5)
+.if LEASE_CONTROL == 2
+  la t0, old_frame
+.else
+  la t0, replacement_frame
+.endif
+  srli t0, t0, 12
+  slli t0, t0, 10
+  ori t0, t0, 0xd7
+  sd t0, 24(t3)
+  fence rw, rw
+  sfence.vma zero, zero
+.endif
+  ret
+
+private_page_fault:
+  csrr t0, mtval
+  li t1, 0x80203000
+  bne t0, t1, fail
+  ld t0, 0(sp)
+  beqz a1, missing_frame
+  la t1, sender_private_probe
+  bne t0, t1, fail
+  addi t0, t0, 4
+  sd t0, 0(sp)
+  sd zero, 120(sp)
+  li a0, 'I'
+  call uart
+  j resume
+missing_frame:
+  la t1, scan_frame
+  bne t0, t1, fail
+  li a0, 'F'
+  j report_fault

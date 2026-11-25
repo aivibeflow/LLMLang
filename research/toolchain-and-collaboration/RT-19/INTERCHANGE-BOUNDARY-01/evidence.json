@@ -1,0 +1,14 @@
+{
+  "coherent_leased_reads": 21,
+  "exact_roundtrips": 864,
+  "ledger_sha256": {
+    "GENERATION-PUBLICATION-01": "99040b916f76a17430ddb3b97cd07d1827816eb779572449e229790d3a5bc1f7",
+    "TOOLCHAIN-ROUNDTRIP-01": "457cf793e805349312c6eefea7e8781c5609780285877bf981e31bfbf6787c58",
+    "WORKTREE-EDIT-01": "3b2f4fda11d49c39755b0da5efe2329e17f1b2c3d4ec93f35ee1eb6585b9b5bb"
+  },
+  "normalized_checkout_edits": 6,
+  "publication_schedules": 133,
+  "source_sha256": "858a5ef3c4b41f01eeddc549d3cbd854f10fd59090465db56be5de2e679bf960",
+  "stat_missed_checkout": 18,
+  "worktree_cases": 72
+}

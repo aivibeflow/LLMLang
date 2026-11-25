@@ -1,0 +1,2522 @@
+{
+  "baseline": "b076f3abbb798f7c9753236a366aea595654f535",
+  "python": "3.12.14",
+  "runner_sha256": "9a706045031022c6ea5515dffe1a793bb338fdb194bab83d032b0af21b340f56",
+  "focus": "binding:compute",
+  "original_review_subject": {
+    "capsule": {
+      "focus": "binding:compute",
+      "before": {
+        "kind": "binding",
+        "payload": "select plus",
+        "dependencies": [
+          "impl:plus"
+        ]
+      },
+      "after": {
+        "kind": "binding",
+        "payload": "select minus",
+        "dependencies": [
+          "impl:minus"
+        ]
+      },
+      "policy": "review/v1",
+      "rows": {
+        "abi": {
+          "before": {
+            "kind": "runtime",
+            "payload": "word32",
+            "dependencies": []
+          },
+          "after": {
+            "kind": "runtime",
+            "payload": "word32",
+            "dependencies": []
+          }
+        },
+        "binding:compute": {
+          "before": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          }
+        },
+        "client": {
+          "before": {
+            "kind": "operation",
+            "payload": "call compute",
+            "dependencies": [
+              "binding:compute"
+            ]
+          },
+          "after": {
+            "kind": "operation",
+            "payload": "call compute",
+            "dependencies": [
+              "binding:compute"
+            ]
+          }
+        },
+        "entry": {
+          "before": {
+            "kind": "operation",
+            "payload": "call client",
+            "dependencies": [
+              "client"
+            ]
+          },
+          "after": {
+            "kind": "operation",
+            "payload": "call client",
+            "dependencies": [
+              "client"
+            ]
+          }
+        },
+        "impl:minus": {
+          "before": {
+            "kind": "implementation",
+            "payload": "subtract one",
+            "dependencies": [
+              "abi"
+            ]
+          },
+          "after": {
+            "kind": "implementation",
+            "payload": "subtract one",
+            "dependencies": [
+              "abi"
+            ]
+          }
+        },
+        "impl:plus": {
+          "before": {
+            "kind": "implementation",
+            "payload": "add one",
+            "dependencies": [
+              "abi"
+            ]
+          },
+          "after": {
+            "kind": "implementation",
+            "payload": "add one",
+            "dependencies": [
+              "abi"
+            ]
+          }
+        }
+      },
+      "affected": [
+        [
+          "binding:compute",
+          "client",
+          "entry"
+        ],
+        [
+          "binding:compute",
+          "client",
+          "entry"
+        ]
+      ]
+    },
+    "keys": {
+      "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+      "direct": "67eb993c2334ac244af8dd97b74643b744fae5c4352827b8ac6ec7deb82e4eb9",
+      "closed": "5b423e5d9952a069cbe2bed4da64d870d7aef10b8c28a1da24842321b8a3a7ef",
+      "complete": "f8e5f1d6e48ae52ba821d35e13c43bced3100a0c8b240c49a4d2c4bdc8da54dc"
+    }
+  },
+  "cases": {
+    "exact": {
+      "base": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select plus",
+          "dependencies": [
+            "impl:plus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "candidate": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "policy": "review/v1",
+      "result": {
+        "capsule": {
+          "focus": "binding:compute",
+          "before": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          },
+          "policy": "review/v1",
+          "rows": {
+            "abi": {
+              "before": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              },
+              "after": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              }
+            },
+            "binding:compute": {
+              "before": {
+                "kind": "binding",
+                "payload": "select plus",
+                "dependencies": [
+                  "impl:plus"
+                ]
+              },
+              "after": {
+                "kind": "binding",
+                "payload": "select minus",
+                "dependencies": [
+                  "impl:minus"
+                ]
+              }
+            },
+            "client": {
+              "before": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              }
+            },
+            "entry": {
+              "before": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              }
+            },
+            "impl:minus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            },
+            "impl:plus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            }
+          },
+          "affected": [
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ],
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ]
+          ]
+        },
+        "keys": {
+          "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+          "direct": "67eb993c2334ac244af8dd97b74643b744fae5c4352827b8ac6ec7deb82e4eb9",
+          "closed": "5b423e5d9952a069cbe2bed4da64d870d7aef10b8c28a1da24842321b8a3a7ef",
+          "complete": "f8e5f1d6e48ae52ba821d35e13c43bced3100a0c8b240c49a4d2c4bdc8da54dc"
+        }
+      },
+      "approval_matches": [
+        "closed",
+        "complete",
+        "direct",
+        "label"
+      ]
+    },
+    "different_key_order": {
+      "base": {
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select plus",
+          "dependencies": [
+            "impl:plus"
+          ]
+        }
+      },
+      "candidate": {
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        }
+      },
+      "policy": "review/v1",
+      "result": {
+        "capsule": {
+          "focus": "binding:compute",
+          "before": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          },
+          "policy": "review/v1",
+          "rows": {
+            "abi": {
+              "before": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              },
+              "after": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              }
+            },
+            "binding:compute": {
+              "before": {
+                "kind": "binding",
+                "payload": "select plus",
+                "dependencies": [
+                  "impl:plus"
+                ]
+              },
+              "after": {
+                "kind": "binding",
+                "payload": "select minus",
+                "dependencies": [
+                  "impl:minus"
+                ]
+              }
+            },
+            "client": {
+              "before": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              }
+            },
+            "entry": {
+              "before": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              }
+            },
+            "impl:minus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            },
+            "impl:plus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            }
+          },
+          "affected": [
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ],
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ]
+          ]
+        },
+        "keys": {
+          "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+          "direct": "67eb993c2334ac244af8dd97b74643b744fae5c4352827b8ac6ec7deb82e4eb9",
+          "closed": "5b423e5d9952a069cbe2bed4da64d870d7aef10b8c28a1da24842321b8a3a7ef",
+          "complete": "f8e5f1d6e48ae52ba821d35e13c43bced3100a0c8b240c49a4d2c4bdc8da54dc"
+        }
+      },
+      "approval_matches": [
+        "closed",
+        "complete",
+        "direct",
+        "label"
+      ]
+    },
+    "unrelated_base": {
+      "base": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select plus",
+          "dependencies": [
+            "impl:plus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 2",
+          "dependencies": []
+        }
+      },
+      "candidate": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "policy": "review/v1",
+      "result": {
+        "capsule": {
+          "focus": "binding:compute",
+          "before": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          },
+          "policy": "review/v1",
+          "rows": {
+            "abi": {
+              "before": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              },
+              "after": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              }
+            },
+            "binding:compute": {
+              "before": {
+                "kind": "binding",
+                "payload": "select plus",
+                "dependencies": [
+                  "impl:plus"
+                ]
+              },
+              "after": {
+                "kind": "binding",
+                "payload": "select minus",
+                "dependencies": [
+                  "impl:minus"
+                ]
+              }
+            },
+            "client": {
+              "before": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              }
+            },
+            "entry": {
+              "before": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              }
+            },
+            "impl:minus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            },
+            "impl:plus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            }
+          },
+          "affected": [
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ],
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ]
+          ]
+        },
+        "keys": {
+          "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+          "direct": "67eb993c2334ac244af8dd97b74643b744fae5c4352827b8ac6ec7deb82e4eb9",
+          "closed": "5b423e5d9952a069cbe2bed4da64d870d7aef10b8c28a1da24842321b8a3a7ef",
+          "complete": "b1c551bc2fd0f374c2fac59103482e4e2dc892ec8563262d8f2fc030000dad12"
+        }
+      },
+      "approval_matches": [
+        "closed",
+        "direct",
+        "label"
+      ]
+    },
+    "unrelated_candidate": {
+      "base": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select plus",
+          "dependencies": [
+            "impl:plus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "candidate": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 2",
+          "dependencies": []
+        }
+      },
+      "policy": "review/v1",
+      "result": {
+        "capsule": {
+          "focus": "binding:compute",
+          "before": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          },
+          "policy": "review/v1",
+          "rows": {
+            "abi": {
+              "before": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              },
+              "after": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              }
+            },
+            "binding:compute": {
+              "before": {
+                "kind": "binding",
+                "payload": "select plus",
+                "dependencies": [
+                  "impl:plus"
+                ]
+              },
+              "after": {
+                "kind": "binding",
+                "payload": "select minus",
+                "dependencies": [
+                  "impl:minus"
+                ]
+              }
+            },
+            "client": {
+              "before": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              }
+            },
+            "entry": {
+              "before": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              }
+            },
+            "impl:minus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            },
+            "impl:plus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            }
+          },
+          "affected": [
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ],
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ]
+          ]
+        },
+        "keys": {
+          "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+          "direct": "67eb993c2334ac244af8dd97b74643b744fae5c4352827b8ac6ec7deb82e4eb9",
+          "closed": "5b423e5d9952a069cbe2bed4da64d870d7aef10b8c28a1da24842321b8a3a7ef",
+          "complete": "78750db173bad75f4756e6a388dce4a58d319c63d171a41310faa787d6ad17a4"
+        }
+      },
+      "approval_matches": [
+        "closed",
+        "direct",
+        "label"
+      ]
+    },
+    "new_transitive_consumer": {
+      "base": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select plus",
+          "dependencies": [
+            "impl:plus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "candidate": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        },
+        "extra": {
+          "kind": "operation",
+          "payload": "call entry",
+          "dependencies": [
+            "entry"
+          ]
+        }
+      },
+      "policy": "review/v1",
+      "result": {
+        "capsule": {
+          "focus": "binding:compute",
+          "before": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          },
+          "policy": "review/v1",
+          "rows": {
+            "abi": {
+              "before": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              },
+              "after": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              }
+            },
+            "binding:compute": {
+              "before": {
+                "kind": "binding",
+                "payload": "select plus",
+                "dependencies": [
+                  "impl:plus"
+                ]
+              },
+              "after": {
+                "kind": "binding",
+                "payload": "select minus",
+                "dependencies": [
+                  "impl:minus"
+                ]
+              }
+            },
+            "client": {
+              "before": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              }
+            },
+            "entry": {
+              "before": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              }
+            },
+            "extra": {
+              "before": null,
+              "after": {
+                "kind": "operation",
+                "payload": "call entry",
+                "dependencies": [
+                  "entry"
+                ]
+              }
+            },
+            "impl:minus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            },
+            "impl:plus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            }
+          },
+          "affected": [
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ],
+            [
+              "binding:compute",
+              "client",
+              "entry",
+              "extra"
+            ]
+          ]
+        },
+        "keys": {
+          "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+          "direct": "67eb993c2334ac244af8dd97b74643b744fae5c4352827b8ac6ec7deb82e4eb9",
+          "closed": "997c70b2db124cc6c5e291487036ba9622b57875f09b4d8143a88704a25b60b7",
+          "complete": "b2c8f8f7360703472a67c3e3fd8d9af985212ad9fac8ef8d724c002bd8d667a5"
+        }
+      },
+      "approval_matches": [
+        "direct",
+        "label"
+      ]
+    },
+    "consumer_removed": {
+      "base": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select plus",
+          "dependencies": [
+            "impl:plus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "candidate": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "policy": "review/v1",
+      "result": {
+        "capsule": {
+          "focus": "binding:compute",
+          "before": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          },
+          "policy": "review/v1",
+          "rows": {
+            "abi": {
+              "before": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              },
+              "after": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              }
+            },
+            "binding:compute": {
+              "before": {
+                "kind": "binding",
+                "payload": "select plus",
+                "dependencies": [
+                  "impl:plus"
+                ]
+              },
+              "after": {
+                "kind": "binding",
+                "payload": "select minus",
+                "dependencies": [
+                  "impl:minus"
+                ]
+              }
+            },
+            "client": {
+              "before": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              }
+            },
+            "entry": {
+              "before": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              },
+              "after": null
+            },
+            "impl:minus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            },
+            "impl:plus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            }
+          },
+          "affected": [
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ],
+            [
+              "binding:compute",
+              "client"
+            ]
+          ]
+        },
+        "keys": {
+          "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+          "direct": "67eb993c2334ac244af8dd97b74643b744fae5c4352827b8ac6ec7deb82e4eb9",
+          "closed": "8d6b0fb1066fee6fd9909064b21730cb73e329b3c39cb4f54136b7b3d96f4c8b",
+          "complete": "db7b001b9b315b8298b9785bc23d19652026943d23b334420dc560da43ed4f01"
+        }
+      },
+      "approval_matches": [
+        "direct",
+        "label"
+      ]
+    },
+    "provider_body_changed": {
+      "base": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select plus",
+          "dependencies": [
+            "impl:plus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "candidate": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract two",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "policy": "review/v1",
+      "result": {
+        "capsule": {
+          "focus": "binding:compute",
+          "before": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          },
+          "policy": "review/v1",
+          "rows": {
+            "abi": {
+              "before": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              },
+              "after": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              }
+            },
+            "binding:compute": {
+              "before": {
+                "kind": "binding",
+                "payload": "select plus",
+                "dependencies": [
+                  "impl:plus"
+                ]
+              },
+              "after": {
+                "kind": "binding",
+                "payload": "select minus",
+                "dependencies": [
+                  "impl:minus"
+                ]
+              }
+            },
+            "client": {
+              "before": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              }
+            },
+            "entry": {
+              "before": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              }
+            },
+            "impl:minus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "subtract two",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            },
+            "impl:plus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            }
+          },
+          "affected": [
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ],
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ]
+          ]
+        },
+        "keys": {
+          "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+          "direct": "67eb993c2334ac244af8dd97b74643b744fae5c4352827b8ac6ec7deb82e4eb9",
+          "closed": "2bbc19da256d95de47801a0626760b82d5d866ec08f3e735d9687e1949a5337f",
+          "complete": "a00ced6f7234f016329dc506fd259f66c966ce2a24f1a3f103eaf95cbf5d4d54"
+        }
+      },
+      "approval_matches": [
+        "direct",
+        "label"
+      ]
+    },
+    "dependency_changed": {
+      "base": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select plus",
+          "dependencies": [
+            "impl:plus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "candidate": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word64",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "policy": "review/v1",
+      "result": {
+        "capsule": {
+          "focus": "binding:compute",
+          "before": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          },
+          "policy": "review/v1",
+          "rows": {
+            "abi": {
+              "before": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              },
+              "after": {
+                "kind": "runtime",
+                "payload": "word64",
+                "dependencies": []
+              }
+            },
+            "binding:compute": {
+              "before": {
+                "kind": "binding",
+                "payload": "select plus",
+                "dependencies": [
+                  "impl:plus"
+                ]
+              },
+              "after": {
+                "kind": "binding",
+                "payload": "select minus",
+                "dependencies": [
+                  "impl:minus"
+                ]
+              }
+            },
+            "client": {
+              "before": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              }
+            },
+            "entry": {
+              "before": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              }
+            },
+            "impl:minus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            },
+            "impl:plus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            }
+          },
+          "affected": [
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ],
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ]
+          ]
+        },
+        "keys": {
+          "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+          "direct": "67eb993c2334ac244af8dd97b74643b744fae5c4352827b8ac6ec7deb82e4eb9",
+          "closed": "39b8bb364e7ed85c4e355f173077d6ddac6229b85b29377a686a4f371c88077b",
+          "complete": "ab70538487baa7e31af3d333cb6fee1369f6069edb8575938975302fb6735c15"
+        }
+      },
+      "approval_matches": [
+        "direct",
+        "label"
+      ]
+    },
+    "reversed_roles": {
+      "base": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "candidate": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select plus",
+          "dependencies": [
+            "impl:plus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "policy": "review/v1",
+      "result": {
+        "capsule": {
+          "focus": "binding:compute",
+          "before": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "policy": "review/v1",
+          "rows": {
+            "abi": {
+              "before": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              },
+              "after": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              }
+            },
+            "binding:compute": {
+              "before": {
+                "kind": "binding",
+                "payload": "select minus",
+                "dependencies": [
+                  "impl:minus"
+                ]
+              },
+              "after": {
+                "kind": "binding",
+                "payload": "select plus",
+                "dependencies": [
+                  "impl:plus"
+                ]
+              }
+            },
+            "client": {
+              "before": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              }
+            },
+            "entry": {
+              "before": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              }
+            },
+            "impl:minus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            },
+            "impl:plus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            }
+          },
+          "affected": [
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ],
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ]
+          ]
+        },
+        "keys": {
+          "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+          "direct": "1050bcab8adedc4d8bb53948320b0d40f66540fdb13c2dca0431f6b17843f477",
+          "closed": "cdcb51064ea389b861904873324e3e06d6676aaa823a33d774821c3cdb870123",
+          "complete": "ac47061162e2fe307b07877ad1d3d129f0ea0acb19f054e0c7580309ae118092"
+        }
+      },
+      "approval_matches": [
+        "label"
+      ]
+    },
+    "policy_changed": {
+      "base": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select plus",
+          "dependencies": [
+            "impl:plus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "candidate": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "impl:minus": {
+          "kind": "implementation",
+          "payload": "subtract one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "policy": "review/v2",
+      "result": {
+        "capsule": {
+          "focus": "binding:compute",
+          "before": {
+            "kind": "binding",
+            "payload": "select plus",
+            "dependencies": [
+              "impl:plus"
+            ]
+          },
+          "after": {
+            "kind": "binding",
+            "payload": "select minus",
+            "dependencies": [
+              "impl:minus"
+            ]
+          },
+          "policy": "review/v2",
+          "rows": {
+            "abi": {
+              "before": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              },
+              "after": {
+                "kind": "runtime",
+                "payload": "word32",
+                "dependencies": []
+              }
+            },
+            "binding:compute": {
+              "before": {
+                "kind": "binding",
+                "payload": "select plus",
+                "dependencies": [
+                  "impl:plus"
+                ]
+              },
+              "after": {
+                "kind": "binding",
+                "payload": "select minus",
+                "dependencies": [
+                  "impl:minus"
+                ]
+              }
+            },
+            "client": {
+              "before": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call compute",
+                "dependencies": [
+                  "binding:compute"
+                ]
+              }
+            },
+            "entry": {
+              "before": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              },
+              "after": {
+                "kind": "operation",
+                "payload": "call client",
+                "dependencies": [
+                  "client"
+                ]
+              }
+            },
+            "impl:minus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "subtract one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            },
+            "impl:plus": {
+              "before": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              },
+              "after": {
+                "kind": "implementation",
+                "payload": "add one",
+                "dependencies": [
+                  "abi"
+                ]
+              }
+            }
+          },
+          "affected": [
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ],
+            [
+              "binding:compute",
+              "client",
+              "entry"
+            ]
+          ]
+        },
+        "keys": {
+          "label": "b1fb72c6fddd6911af16adf1e17e3adeebae3df8eb548e19a8f54ce475a483dd",
+          "direct": "2d994560ad097f2784619da63ce78a69dccff7b3d8c3698dd73ce5575a138571",
+          "closed": "b5fa4359414d694c7ad08dd8678dacdafa6dd47d6963486637cbfe4bc327f7c0",
+          "complete": "280bdad991508000772b9966bc3a1cc2d58d267b08c29effb304a9ed2bd5bc98"
+        }
+      },
+      "approval_matches": [
+        "label"
+      ]
+    },
+    "incomplete_input": {
+      "candidate": {
+        "binding:compute": {
+          "kind": "binding",
+          "payload": "select minus",
+          "dependencies": [
+            "impl:minus"
+          ]
+        },
+        "impl:plus": {
+          "kind": "implementation",
+          "payload": "add one",
+          "dependencies": [
+            "abi"
+          ]
+        },
+        "abi": {
+          "kind": "runtime",
+          "payload": "word32",
+          "dependencies": []
+        },
+        "client": {
+          "kind": "operation",
+          "payload": "call compute",
+          "dependencies": [
+            "binding:compute"
+          ]
+        },
+        "entry": {
+          "kind": "operation",
+          "payload": "call client",
+          "dependencies": [
+            "client"
+          ]
+        },
+        "manual": {
+          "kind": "documentation",
+          "payload": "revision 1",
+          "dependencies": []
+        }
+      },
+      "refusal": "unresolved dependency at binding:compute",
+      "approval_matches": []
+    }
+  }
+}

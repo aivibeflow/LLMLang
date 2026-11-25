@@ -1,0 +1,602 @@
+{
+  "input_sha256": {
+    "check.py": "faaa6b314f9cca5b504948d0b4eb7e213302308405bfd0e7b0b7633ca795dbb3",
+    "consumer.ll.in": "87d3b5a0efb19dafabe38784d3bf13400381d19461ad98b0c7edc1966453a2e7",
+    "portable.c": "12e633a77f90ec595bceea8176f07bf2d8063cdae8a31484edeb7c32c18fec90",
+    "provider.ll.in": "5e76525c405aa9850cc6e78020742b5f0b2828c786ad34960e93f4ad08ef12e2"
+  },
+  "matrix_sha256": "9d3be6f96fa9499cefafd52ac1dc2a976d7b647097cc0405af3b0f965e330144",
+  "native_reference": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      2,
+      0,
+      2
+    ],
+    [
+      0,
+      4294967295,
+      0,
+      4294967295
+    ],
+    [
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      2,
+      1,
+      2
+    ],
+    [
+      0,
+      3,
+      1,
+      3
+    ],
+    [
+      1,
+      1,
+      17,
+      19
+    ],
+    [
+      0,
+      2147483647,
+      2147483647,
+      2147483647
+    ],
+    [
+      0,
+      2147483648,
+      2147483647,
+      2147483648
+    ],
+    [
+      0,
+      2147483649,
+      2147483647,
+      2147483649
+    ],
+    [
+      1,
+      2147483647,
+      17,
+      19
+    ],
+    [
+      0,
+      2147483648,
+      2147483648,
+      2147483648
+    ],
+    [
+      0,
+      2147483649,
+      2147483648,
+      2147483649
+    ],
+    [
+      0,
+      2147483650,
+      2147483648,
+      2147483650
+    ],
+    [
+      1,
+      2147483648,
+      17,
+      19
+    ],
+    [
+      0,
+      4294967294,
+      4294967294,
+      4294967294
+    ],
+    [
+      0,
+      4294967295,
+      4294967294,
+      4294967295
+    ],
+    [
+      1,
+      4294967294,
+      17,
+      19
+    ],
+    [
+      1,
+      4294967294,
+      17,
+      19
+    ],
+    [
+      0,
+      4294967295,
+      4294967295,
+      4294967295
+    ],
+    [
+      1,
+      4294967295,
+      17,
+      19
+    ],
+    [
+      1,
+      4294967295,
+      17,
+      19
+    ],
+    [
+      1,
+      4294967295,
+      17,
+      19
+    ]
+  ],
+  "native_total": 96,
+  "profiles": {
+    "android-aarch64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "c84f22423a1b5b5d1f2c06d9931c2d5777c49cf78e562cdcb86cf0d668ce68f5",
+            "provider_sha256": "cb4938970a27aa83c9346e7b74983c65f9784e9e20175761f4551a3b509a34df"
+          },
+          "static": {
+            "artifact_sha256": "8f856b15a7e6d2a2ddfc16e1cf5962d2d9307dc7f5522c8e7fe7bc569420f016",
+            "provider_sha256": "f6b54bebac27fcf64a4a38e2ba72fe052a38d4a8cd48359e27098e217ff3da38"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "a034a0e744c1c13f587552355e73e6457eed43c2e9ab844e11f881ec9a1207cb",
+            "provider_sha256": "7a42aac6d33e65309595a084618f7e041036b788bc68e24cb49daae372045db0"
+          },
+          "static": {
+            "artifact_sha256": "c5148c053f3547c9ad8e7e7b7fb7dd9278123a42693d52803f0e3fc678c220c8",
+            "provider_sha256": "f2639d113f486e50a46c9c11d40f0f9013aefe5dfad9f30997758ed5509884ba"
+          }
+        }
+      },
+      "target": "aarch64-linux-android29",
+      "wrong_symbol_refused": true
+    },
+    "android-x86_64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "a3fc3e4d74d95393d490bceaa0793c4b8496ea23e1b2bc880e47eb64e3908470",
+            "provider_sha256": "24dfd2b701c9bc76dc5d1ee077970c39f5438cbe17e08c2ece0a2c7ad57a3071"
+          },
+          "static": {
+            "artifact_sha256": "1b5ee7e279c6db2d96036a7ee64098b84ccc7267f704ece96c57df8485a0d37d",
+            "provider_sha256": "843f11784f90554bee2f717af9fcdb3bc1f8d7ea5fd364a5dfe5e1d0cbb2280e"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "d262e5aacafa0f751f9c271ed880fb617ba9def08c3f4a386740e8fe449c7adb",
+            "provider_sha256": "5e9c36cb7cb313c8cb977944a4497b3336426c57879e60e28027a699a82c52c4"
+          },
+          "static": {
+            "artifact_sha256": "1a4b540ce31a01d0189d72bc330e5376b26339b0ed8167e67fa8f488d16115d3",
+            "provider_sha256": "df91ac836741bc27c1c26f5c2cd57ed89213fdea53c9b83016a6e303938a71e7"
+          }
+        }
+      },
+      "target": "x86_64-linux-android29",
+      "wrong_symbol_refused": true
+    },
+    "freebsd-aarch64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "3a6c3ee73ba465a4f302d51b6bd04c5239b34269084d3f53cd76d524e8ec26b3",
+            "provider_sha256": "4319cc3bd51d7317ccdfcb4650e22fdac6e43f41cd9d6a9fa595ac82371396ff"
+          },
+          "static": {
+            "artifact_sha256": "e5b27216e2e637f49077288a9b7bb7798f5d4813dde3984990ae037a66cec236",
+            "provider_sha256": "2514281990c5236247113badfce9deed3b00b276f5ee90209ac98e67338627e7"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "c7c013a55c64f6c6c1d8d0cf0ddf44cbbbd1e3e4f7227c368f0d342a9a9aaefb",
+            "provider_sha256": "9ec97100df7cb90ea5a032ded2558cab4e564b4f90538ef668a0fbc14d19f482"
+          },
+          "static": {
+            "artifact_sha256": "41fa8e50b86ab0a6e1d49c5b443fc20e6109e326558c9358e28a3f1191f0f6f6",
+            "provider_sha256": "162f93529f15f22e1e8b881e1bbf81d60f0e949ee5698108094bc1c1c2698663"
+          }
+        }
+      },
+      "target": "aarch64-unknown-freebsd14.4",
+      "wrong_symbol_refused": true
+    },
+    "freebsd-x86_64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "0b553a639ecbcb33006b4db3b09cba2e3dedf92a504f3b0bf63f528123abab98",
+            "provider_sha256": "1e7b2d3f4f78b413b977b41c9d943129827f3c9cc96595ffaea49abe4ae6d20e"
+          },
+          "static": {
+            "artifact_sha256": "5597cc9aa8fe758fb9c768946b7e2d25d19341b466ef8a3b60177e381fca8d2c",
+            "provider_sha256": "71489e9f851c4a91c11fd611f88204d35e66731aafa5850ea56fbd781e919d25"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "5e1bc1e2f9fefe9bbf11e2e60cdc975230205bc01028295a157e75ea237eebf0",
+            "provider_sha256": "82e1400916bd7a3243d9cb5844a012ee81d8f3f63fb8c09a6da8d60c23c1926a"
+          },
+          "static": {
+            "artifact_sha256": "462879f02aff85b3b8d37e523d25d222d83a61749e302d103e14ef4b29ef35d5",
+            "provider_sha256": "4a312a1f1945889332eef21f1b7a8887f8453499fb9539758983ee6ecd502b50"
+          }
+        }
+      },
+      "target": "x86_64-unknown-freebsd14.4",
+      "wrong_symbol_refused": true
+    },
+    "ios-aarch64": {
+      "format": "Mach-O",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "000414e082bdd697ee265654f0a8096615105d14772f53a3176504fc01b01cda",
+            "provider_sha256": "7ce2410d3ab1906b15d9d7f77168a13c0020fcbc293fee124391bb6c3744c4e3"
+          },
+          "static": {
+            "artifact_sha256": "edabad04932332cba1f5104df8c72fd881b30b96862666f26234f72f68614c94",
+            "provider_sha256": "e4e00c68c871e05a2bd90fa5ca37e054d2bce3acc0f56c7269e454954f4edb1c"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "88aeb3343bf3b005009797aa9c7c12a9f60d72ec62a77c293bb2d487464a16d6",
+            "provider_sha256": "7ce2410d3ab1906b15d9d7f77168a13c0020fcbc293fee124391bb6c3744c4e3"
+          },
+          "static": {
+            "artifact_sha256": "68609a629d15b648f82f4c5202068a41bffb3c4b85fcb375e4f86467d3835c81",
+            "provider_sha256": "e4e00c68c871e05a2bd90fa5ca37e054d2bce3acc0f56c7269e454954f4edb1c"
+          }
+        }
+      },
+      "target": "arm64-apple-ios16.0",
+      "wrong_symbol_refused": true
+    },
+    "linux-aarch64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "c84f22423a1b5b5d1f2c06d9931c2d5777c49cf78e562cdcb86cf0d668ce68f5",
+            "provider_sha256": "cb4938970a27aa83c9346e7b74983c65f9784e9e20175761f4551a3b509a34df"
+          },
+          "static": {
+            "artifact_sha256": "8f856b15a7e6d2a2ddfc16e1cf5962d2d9307dc7f5522c8e7fe7bc569420f016",
+            "provider_sha256": "bd42849e524e06ac5665ce36869ca6be086a1a6a984daf5a13bbacaac8030696"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "a034a0e744c1c13f587552355e73e6457eed43c2e9ab844e11f881ec9a1207cb",
+            "provider_sha256": "7a42aac6d33e65309595a084618f7e041036b788bc68e24cb49daae372045db0"
+          },
+          "static": {
+            "artifact_sha256": "c5148c053f3547c9ad8e7e7b7fb7dd9278123a42693d52803f0e3fc678c220c8",
+            "provider_sha256": "83414a3a3d15b9cf74e56e07dec097fdb21373f3a9dfe8fe6c65e8c47759bcb8"
+          }
+        }
+      },
+      "target": "aarch64-linux-gnu",
+      "wrong_symbol_refused": true
+    },
+    "linux-riscv64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "cf569205cb67cc473cbc949fe8ea04b667b8d9b44e1ed555b1607863a68225a8",
+            "provider_sha256": "331c7cb03ae12d4531e364bf328b00d180e7f49049fb0770c5c60af6cdff091e"
+          },
+          "static": {
+            "artifact_sha256": "ecb3cacb6cbd9fc62727eedb6b72322a0a9c76123f678de303b798aa07bdb2ed",
+            "provider_sha256": "959faceaf99348e0cb0ceda511a7c98a25a5f5b7ac01863227f6c912c4788667"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "a278ce88a097bb9c187c679af303484da45adffcd990b715b01f57a153cf318a",
+            "provider_sha256": "81c6b76b5c289e261bbf5cfc447e404f94bb2810bd0b63b8bfe04d1520dec622"
+          },
+          "static": {
+            "artifact_sha256": "b6fab79606a5e28ed87669241d81ce26f3e20c1d4a6366f2ba55d633e6bc2018",
+            "provider_sha256": "e7fec1249e20543a96b1e2ea582e5bd71aba647db3f511d0cc04babcedd5a293"
+          }
+        }
+      },
+      "target": "riscv64-linux-gnu",
+      "wrong_symbol_refused": true
+    },
+    "linux-x86_64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "a3fc3e4d74d95393d490bceaa0793c4b8496ea23e1b2bc880e47eb64e3908470",
+            "native_observations": 24,
+            "provider_sha256": "24dfd2b701c9bc76dc5d1ee077970c39f5438cbe17e08c2ece0a2c7ad57a3071"
+          },
+          "static": {
+            "artifact_sha256": "1b5ee7e279c6db2d96036a7ee64098b84ccc7267f704ece96c57df8485a0d37d",
+            "native_observations": 24,
+            "provider_sha256": "5d0d7f4307fdb054626b1d92833b446d72ec75a18fbbb09dd2eaacc5fe44f912"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "d262e5aacafa0f751f9c271ed880fb617ba9def08c3f4a386740e8fe449c7adb",
+            "native_observations": 24,
+            "provider_sha256": "5e9c36cb7cb313c8cb977944a4497b3336426c57879e60e28027a699a82c52c4"
+          },
+          "static": {
+            "artifact_sha256": "1a4b540ce31a01d0189d72bc330e5376b26339b0ed8167e67fa8f488d16115d3",
+            "native_observations": 24,
+            "provider_sha256": "48891c4851806d5be3e1b6a14db8f7b7b6e2e70526ce3dce794632972e9ae706"
+          }
+        }
+      },
+      "target": "x86_64-linux-gnu",
+      "wrong_symbol_refused": true
+    },
+    "macos-aarch64": {
+      "format": "Mach-O",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "3002af5ea82438ebd0ad3b3a8c063b3049599e0e76c4e03ea90481839111ad17",
+            "provider_sha256": "d84c7629f4d635c0e92cb9a4316042677fcc0c9cf8a4e90d4535ecfde780a4ce"
+          },
+          "static": {
+            "artifact_sha256": "1c9f30b51c5e59cbebc1ee9d95199c2df784a277becdd7f3104c557531955808",
+            "provider_sha256": "104477df2c6f879c7afabd462a8e27095cb5b9826cd5c6bab28075ceb3143bb8"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "7cb5f3620d0b8eb2030992706d42cb37d5fb56a1bdaabf9fe94924e709a8a7e1",
+            "provider_sha256": "d84c7629f4d635c0e92cb9a4316042677fcc0c9cf8a4e90d4535ecfde780a4ce"
+          },
+          "static": {
+            "artifact_sha256": "93fd2c5856a1f642f62326d51d14ce027da18927fa8dcf26ee432f3555654fb9",
+            "provider_sha256": "104477df2c6f879c7afabd462a8e27095cb5b9826cd5c6bab28075ceb3143bb8"
+          }
+        }
+      },
+      "target": "arm64-apple-macos13.0",
+      "wrong_symbol_refused": true
+    },
+    "macos-x86_64": {
+      "format": "Mach-O",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "207bdf41cbef973373a69c467cfc67b8ca48b849affd5b61f8e0f65defd929e9",
+            "provider_sha256": "93977d0086ab6657e5506acf4449774c686e42a5f029c3c0cc68d2805b3bdfb6"
+          },
+          "static": {
+            "artifact_sha256": "34fdd50d5c78b3aae846afbbe63f9562ceefb73351794f85e65a4fc7d8743f97",
+            "provider_sha256": "00e9061b0cfc6f7eea49eff2732a90a5939f5273a7bcace2a82b90376ddeed93"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "740b590cbc0150a1106e28fb8e1d0f32776f19bc0119d0ec5056834f5ffb4570",
+            "provider_sha256": "e334eb2dae4264cc9fe73dd07a52fe16f83f22e78becb6c211db59c82c01e58d"
+          },
+          "static": {
+            "artifact_sha256": "4a7c350ca8f56bf2f178d2a8858492201048a1dcc1f31566bf9b9c9526d00d3b",
+            "provider_sha256": "3919e7c2749460efbfb9385970b23dae07692580a53ad5b76a46b5a8d87f4554"
+          }
+        }
+      },
+      "target": "x86_64-apple-macos13.0",
+      "wrong_symbol_refused": true
+    },
+    "netbsd-aarch64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "c84f22423a1b5b5d1f2c06d9931c2d5777c49cf78e562cdcb86cf0d668ce68f5",
+            "provider_sha256": "cb4938970a27aa83c9346e7b74983c65f9784e9e20175761f4551a3b509a34df"
+          },
+          "static": {
+            "artifact_sha256": "8f856b15a7e6d2a2ddfc16e1cf5962d2d9307dc7f5522c8e7fe7bc569420f016",
+            "provider_sha256": "f6b54bebac27fcf64a4a38e2ba72fe052a38d4a8cd48359e27098e217ff3da38"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "a034a0e744c1c13f587552355e73e6457eed43c2e9ab844e11f881ec9a1207cb",
+            "provider_sha256": "7a42aac6d33e65309595a084618f7e041036b788bc68e24cb49daae372045db0"
+          },
+          "static": {
+            "artifact_sha256": "c5148c053f3547c9ad8e7e7b7fb7dd9278123a42693d52803f0e3fc678c220c8",
+            "provider_sha256": "f2639d113f486e50a46c9c11d40f0f9013aefe5dfad9f30997758ed5509884ba"
+          }
+        }
+      },
+      "target": "aarch64-unknown-netbsd10.1",
+      "wrong_symbol_refused": true
+    },
+    "netbsd-x86_64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "a3fc3e4d74d95393d490bceaa0793c4b8496ea23e1b2bc880e47eb64e3908470",
+            "provider_sha256": "24dfd2b701c9bc76dc5d1ee077970c39f5438cbe17e08c2ece0a2c7ad57a3071"
+          },
+          "static": {
+            "artifact_sha256": "1b5ee7e279c6db2d96036a7ee64098b84ccc7267f704ece96c57df8485a0d37d",
+            "provider_sha256": "843f11784f90554bee2f717af9fcdb3bc1f8d7ea5fd364a5dfe5e1d0cbb2280e"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "d262e5aacafa0f751f9c271ed880fb617ba9def08c3f4a386740e8fe449c7adb",
+            "provider_sha256": "5e9c36cb7cb313c8cb977944a4497b3336426c57879e60e28027a699a82c52c4"
+          },
+          "static": {
+            "artifact_sha256": "1a4b540ce31a01d0189d72bc330e5376b26339b0ed8167e67fa8f488d16115d3",
+            "provider_sha256": "df91ac836741bc27c1c26f5c2cd57ed89213fdea53c9b83016a6e303938a71e7"
+          }
+        }
+      },
+      "target": "x86_64-unknown-netbsd10.1",
+      "wrong_symbol_refused": true
+    },
+    "openbsd-aarch64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "8be58f101b735173f67412a05b33716aadf2ec9f4a81948163fb7b1915933651",
+            "provider_sha256": "295ada4bf48822f23e8dd8bcf692fbbd68abe5c6ad6b16940951419bf606dde3"
+          },
+          "static": {
+            "artifact_sha256": "e11cc0233adb4ee701d05e1975b9d900d901f5c6331e2b183c16e13c773017a8",
+            "provider_sha256": "e41403ee41e880df94b852046e13725ffdf2b2d7a19cf7464f0e65cdf2e4cae4"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "694dba7cfe2c4d99130b16bc158741b666149e0d5e1067580e56f7fb97a97f9f",
+            "provider_sha256": "e15247ba4c967d9a98903e6ff6d32d300bc16659968ebecb768c654dc3c51041"
+          },
+          "static": {
+            "artifact_sha256": "c8846bf9117cb54808ea9bfd82d1460c2bd0f9d5431ac2140ff43f0bcc02028a",
+            "provider_sha256": "82029fbe05c850d02b72046453d0df201fda74b9b470769733b76dbbc756c7d3"
+          }
+        }
+      },
+      "target": "aarch64-unknown-openbsd7.7",
+      "wrong_symbol_refused": true
+    },
+    "openbsd-x86_64": {
+      "format": "ELF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "cd0b7dbbbba0f314222aae892ef050ae7d425e8110e825c9aa438b3dbb47d29f",
+            "provider_sha256": "f9b87f3375feefa2bafbe228540de189f445eee6572664085e6903928a0c6fb6"
+          },
+          "static": {
+            "artifact_sha256": "95e140d2e0144460a99f815595b1da4122dc4e78dbd79f0a0af4ad850007a1f4",
+            "provider_sha256": "59d181816ddb01ac8f2b9affff88246184db7e57e186ad8f8c80a062858ee54c"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "aeee886b02e22af45ca936ef557abc1f0059ead0c503ca623716b806dc032132",
+            "provider_sha256": "900485704ded43ad5ff19324fee7c2babe7ae37909fd7c4e262d0487913a6617"
+          },
+          "static": {
+            "artifact_sha256": "f0433894e7d2a04dc84ba4dcc9c48cbffb8588b7da6a90509ab4af8d0013ce35",
+            "provider_sha256": "2eb90a9a871471e533160975a5be91e6e5c7187447f9b42fd5faa366ac8d9d6a"
+          }
+        }
+      },
+      "target": "x86_64-unknown-openbsd7.7",
+      "wrong_symbol_refused": true
+    },
+    "windows-aarch64": {
+      "format": "COFF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "9a5e26e2ffb3048c9dd3ead303ed6dbf6ae46373b3b6df104b2dfb8721a67a11",
+            "provider_sha256": "0baf93756c92c362121b331b41d115ec675f2d8a978daaafde97b11c1244be93"
+          },
+          "static": {
+            "artifact_sha256": "18ef114cd64d4c17c8e025938e8d0a232fe7f98b4a3367d0e603cfb71a1f8130",
+            "provider_sha256": "27deb877f86b93d4751ca15435e640cbadf40e57122268bc46d378339d54acec"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "9a5e26e2ffb3048c9dd3ead303ed6dbf6ae46373b3b6df104b2dfb8721a67a11",
+            "provider_sha256": "0baf93756c92c362121b331b41d115ec675f2d8a978daaafde97b11c1244be93"
+          },
+          "static": {
+            "artifact_sha256": "18ef114cd64d4c17c8e025938e8d0a232fe7f98b4a3367d0e603cfb71a1f8130",
+            "provider_sha256": "099dc9ecbddf04821a44d85604c3202e9934fa36ef3c57f39f3fe0bfc524db82"
+          }
+        }
+      },
+      "target": "aarch64-pc-windows-msvc",
+      "wrong_symbol_refused": true
+    },
+    "windows-x86_64": {
+      "format": "COFF",
+      "provider_consumer": {
+        "c-to-llvm": {
+          "shared": {
+            "artifact_sha256": "0eff458bbadcaaf366017d8a9e2db0e8cffcdba66bdfc223dd046a6c0c677edc",
+            "provider_sha256": "debffdd1b71d3da353e456313e6cf0fa5d13c1a60f55333c4c62fae512100f72"
+          },
+          "static": {
+            "artifact_sha256": "b360f78427f73eea4e21fb6b12c2e254cfe722c15552d5c210f9d6c3cbcb0fc2",
+            "provider_sha256": "6bd0ecf918c4aa914d7e9c937948a74219abdd6c2b09f41287545dfbcdaab642"
+          }
+        },
+        "llvm-to-c": {
+          "shared": {
+            "artifact_sha256": "0eff458bbadcaaf366017d8a9e2db0e8cffcdba66bdfc223dd046a6c0c677edc",
+            "provider_sha256": "debffdd1b71d3da353e456313e6cf0fa5d13c1a60f55333c4c62fae512100f72"
+          },
+          "static": {
+            "artifact_sha256": "b360f78427f73eea4e21fb6b12c2e254cfe722c15552d5c210f9d6c3cbcb0fc2",
+            "provider_sha256": "7d1f12fda1f7c23cfb8d26cab3e14912d822e96c63712e834f315c62dda3e982"
+          }
+        }
+      },
+      "target": "x86_64-pc-windows-msvc",
+      "wrong_symbol_refused": true
+    }
+  },
+  "tools": {
+    "ar": "Debian LLVM version 19.1.7",
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "coff": "Debian LLD 19.1.7",
+    "elf": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "macho": "Debian LLD 19.1.7",
+    "readobj": "Debian LLVM version 19.1.7"
+  }
+}

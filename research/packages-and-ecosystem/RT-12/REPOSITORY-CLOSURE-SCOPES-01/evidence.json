@@ -1,0 +1,185 @@
+{
+  "schema": "llmlang-rt12-repository-closure-scopes/1",
+  "python": "3.12.14",
+  "runner_sha256": "8c430c785235f81603798bd70b29f7272f6ebc4d4f0f4db891749da7059051f7",
+  "measurement": "regular file object bytes, excluding small selection manifests",
+  "cases": {
+    "4": {
+      "objects_per_repository": 5,
+      "shared_unique_objects": 6,
+      "root_ids": {
+        "a": "f3c1f3586b77f3cf72063dcf0c56a280bfe2e83fee3ced713a0b7aaca46a1a5e",
+        "b": "11ce843418bcbe4c46b21b488934b33d4c2dee4731228f2262486c74f86bb303"
+      },
+      "object_byte_counts": {
+        "separate_local_object_bytes": 3390,
+        "shared_object_bytes": 1788,
+        "shared_with_one_local_pin_object_bytes": 3483
+      },
+      "controls": {
+        "a_local_offline": [
+          "verified-closure",
+          5
+        ],
+        "b_local_offline": [
+          "verified-closure",
+          5
+        ],
+        "a_selected_shared_root": [
+          "verified-closure",
+          5
+        ],
+        "b_selected_shared_root": [
+          "verified-closure",
+          5
+        ],
+        "shared_store_unavailable": [
+          "unavailable",
+          0
+        ],
+        "pinned_a_offline": [
+          "verified-closure",
+          5
+        ],
+        "unmaterialized_b_offline": [
+          "unavailable",
+          0
+        ],
+        "peer_root_in_a_inventory": [
+          "closure-mismatch",
+          0
+        ],
+        "peer_root_missing_from_authorized_inventory": [
+          "unlisted-required-object",
+          0
+        ],
+        "corrupted_shared_payload": [
+          "corrupt-object",
+          0
+        ],
+        "local_pin_after_shared_corruption": [
+          "verified-closure",
+          5
+        ]
+      }
+    },
+    "64": {
+      "objects_per_repository": 65,
+      "shared_unique_objects": 66,
+      "root_ids": {
+        "a": "2c776245b8ec4a3ed646203ae417d067e29a1f7f86f5eb8f6479fefe44124ef7",
+        "b": "16cc011dfd18884797001a0fe108591a2ef43d43eb72028c53de622ab42110f2"
+      },
+      "object_byte_counts": {
+        "separate_local_object_bytes": 53538,
+        "shared_object_bytes": 26862,
+        "shared_with_one_local_pin_object_bytes": 53631
+      },
+      "controls": {
+        "a_local_offline": [
+          "verified-closure",
+          65
+        ],
+        "b_local_offline": [
+          "verified-closure",
+          65
+        ],
+        "a_selected_shared_root": [
+          "verified-closure",
+          65
+        ],
+        "b_selected_shared_root": [
+          "verified-closure",
+          65
+        ],
+        "shared_store_unavailable": [
+          "unavailable",
+          0
+        ],
+        "pinned_a_offline": [
+          "verified-closure",
+          65
+        ],
+        "unmaterialized_b_offline": [
+          "unavailable",
+          0
+        ],
+        "peer_root_in_a_inventory": [
+          "closure-mismatch",
+          0
+        ],
+        "peer_root_missing_from_authorized_inventory": [
+          "unlisted-required-object",
+          0
+        ],
+        "corrupted_shared_payload": [
+          "corrupt-object",
+          0
+        ],
+        "local_pin_after_shared_corruption": [
+          "verified-closure",
+          65
+        ]
+      }
+    },
+    "256": {
+      "objects_per_repository": 257,
+      "shared_unique_objects": 258,
+      "root_ids": {
+        "a": "c6230ff8ca27c89222b1beb00e81b9ad85d5c261ea143837bebe337a42bf4a28",
+        "b": "9f875ef764ab57ce964d27be0c61e6ead16d0c835d9946ff3db1aa2f126c83fc"
+      },
+      "object_byte_counts": {
+        "separate_local_object_bytes": 214362,
+        "shared_object_bytes": 107274,
+        "shared_with_one_local_pin_object_bytes": 214455
+      },
+      "controls": {
+        "a_local_offline": [
+          "verified-closure",
+          257
+        ],
+        "b_local_offline": [
+          "verified-closure",
+          257
+        ],
+        "a_selected_shared_root": [
+          "verified-closure",
+          257
+        ],
+        "b_selected_shared_root": [
+          "verified-closure",
+          257
+        ],
+        "shared_store_unavailable": [
+          "unavailable",
+          0
+        ],
+        "pinned_a_offline": [
+          "verified-closure",
+          257
+        ],
+        "unmaterialized_b_offline": [
+          "unavailable",
+          0
+        ],
+        "peer_root_in_a_inventory": [
+          "closure-mismatch",
+          0
+        ],
+        "peer_root_missing_from_authorized_inventory": [
+          "unlisted-required-object",
+          0
+        ],
+        "corrupted_shared_payload": [
+          "corrupt-object",
+          0
+        ],
+        "local_pin_after_shared_corruption": [
+          "verified-closure",
+          257
+        ]
+      }
+    }
+  }
+}

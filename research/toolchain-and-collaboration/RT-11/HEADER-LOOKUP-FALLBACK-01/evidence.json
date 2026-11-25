@@ -1,0 +1,69 @@
+{
+  "schema": "llmlang-ordered-header-lookup-fallback/1",
+  "python": "3.12.14",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "sources_sha256": {
+    "run.py": "b7e8a3da51fae7baff32764522721d561a4cb4fd0395633a86e9c5da27ca7036",
+    "Lookup.lean": "5f9c5cffd118dbc742012417aa3ed172123d4c5cf87060ed942beff26ce9ad3c",
+    "axioms.txt": "11554b62c3b46a0ba22c6278d7047f2e76726794aa2bf0e19168604b2a12c1ab"
+  },
+  "compiler_runs": 162,
+  "successful_native_runs": 156,
+  "native_records_sha256": "2da3007c8daef29ca1e5bbf6ffb5fd2cf66c5ac5caa5104d63d75a62f350e22e",
+  "counts": {
+    "same_command_pairs": 4212,
+    "exact_lookup_reuses": 1092,
+    "availability_cases": 33696,
+    "fallback_for_unknown": 19764,
+    "unknown_where_previous_file_still_matches": 6588,
+    "fallback_avoids_wrong_artifact": 984,
+    "rebuild_for_changed_lookup": 9816,
+    "positive_only_reuses": 1404,
+    "positive_only_stale_selection": 312,
+    "positive_only_stale_artifact": 156,
+    "complete_exact_reuses": 4116
+  },
+  "witnesses": {
+    "old_depfile_wrong_artifact": {
+      "old": [
+        null,
+        null,
+        0
+      ],
+      "new": [
+        null,
+        1,
+        0
+      ],
+      "order": [
+        "a",
+        "b",
+        "c"
+      ],
+      "old_result": {
+        "status": "checked",
+        "selection": [
+          "c",
+          0
+        ],
+        "artifact": "73acf5defe6f71b96caa8d24979a11148977dca2e1c5c7cb847b10ccdb705c0d",
+        "depfile": [
+          "main.c",
+          "c/llmlang_probe_choice.h"
+        ]
+      },
+      "new_result": {
+        "status": "checked",
+        "selection": [
+          "b",
+          1
+        ],
+        "artifact": "aba808d52198ef13a525bb2843f9b2b6dd56ca675fa3913497c8ca0d3bd81b47",
+        "depfile": [
+          "main.c",
+          "b/llmlang_probe_choice.h"
+        ]
+      }
+    }
+  }
+}

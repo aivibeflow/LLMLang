@@ -1,5 +1,11 @@
 # RT-37 — Freestanding, embedded and real-time firmware
 
+The tracked-archive replay checks twelve ledgers across Cortex-M3 firmware, linked interrupt effects and conditional embedded models. [Cortex cohort replay](../../research-management/RT-00/RT-00-CORTEX-COHORT-REPLAY-2026-11-25.md)
+
+The manufacturer part manual supplies scoped LM3S6965 register rules and separates debugger, edge latch and physical claims. [Part register evidence](RT-37-LM3S6965-PART-REGISTER-2026-11-25.md)
+
+The GPIO edge test distinguishes a retained raw latch, masked delivery and pending-state clearance on two emulated ports. [GPIO edge acknowledgment](RT-37-GPIO-EDGE-ACK-2026-11-25.md)
+
 **Status:** Bounded Cortex-M3 startup, runtime closure, timer/GPIO and stack slices checked in QEMU. Broader firmware and timing profile open.
 
 **Priority:** P0 shared profile feasibility; P1 firmware/real-time pilot and advanced targets.  
@@ -55,6 +61,43 @@ Compare static-only versus opt-in explicit allocation; minimal runtime/intrinsic
 Illustrative controller obligations: invalid sensor or sampled temperature at/above threshold implies heater command zero within a bounded response interval; valid duty cycle stays in range; no allocation in interrupt context; stack/period bounds. Actual temperature safety additionally requires sensor accuracy, sampling, actuator response, physical dynamics and fault assumptions. The example is not a safety-certified controller.
 
 Negative controls: hidden libc/OS imports or allocator calls; invalid register mode; write-one-to-clear misuse; a blocking or allocating transitive interrupt callee; stale DMA ownership; stack/deadline exceedance; optimistic bound with missing target assumptions. Retain counterexamples and UNKNOWN results.
+
+### Target families and device profiles
+
+The [research plan §5.4](../../../PLAN.md#54-freestanding-embedded-and-real-time-firmware-rt-37) requires three MCU families. Each needs a versioned device profile and independently scoped evidence; a generic Cortex-M or RV64 emulator is not a substitute for a specific MCU's peripherals or runtime.
+
+| Required family | Initial candidate | CPU / ISA | SDK/runtime paths |
+|---|---|---|---|
+| STM32F1 | STM32F103 | Cortex-M3, ARMv7-M Thumb-2 | CMSIS and STM32CubeF1 HAL/LL; bare metal, optional FreeRTOS |
+| STM32F4 | STM32F407 | Cortex-M4 with FPU, ARMv7E-M Thumb-2 | CMSIS and STM32CubeF4 HAL/LL; bare metal, optional FreeRTOS |
+| ESP32 | Original ESP32 DevKit-class board | Xtensa LX6 32-bit, single/dual core by SoC | ESP-IDF/FreeRTOS integration; separately assess minimal bare-metal closure |
+| ESP32 extension candidates | ESP32-S2/S3; ESP32-C3/C6 | Xtensa LX7; RV32 RISC-V, respectively | Separate pinned SoC, compiler/ABI, SDK, boot and runtime profiles |
+
+The first three rows are required research families; extension chips and initial exact device/board selections remain candidates. Generic RV64 remains a separate research target and is not the ESP32 RISC-V ISA.
+
+Compare vendor HAL/SDK import and LLMLang static-library export against direct MMIO or minimal-runtime approaches. Vendor integration can reuse drivers and boot infrastructure, but requires explicit contracts and trust premises; direct hardware access reduces dependencies while increasing device-specific implementation and proof work. Compare direct LLVM emission and generated freestanding Rust/C adapters only for toolchains that actually support the pinned target.
+
+For STM32F1/F4, pin the device SVD/header, reference manual, startup/vector table, clock tree and linker map; for F4 distinguish floating-point ABI, FPU context and interrupt behavior. For ESP32 pin the Xtensa ABI (including call convention), bootloader, ROM interfaces, flash image layout, SDK configuration, scheduler and single/dual-core assumptions; radio/closed binary dependencies and RTOS behavior must remain explicit external premises. RV32 extension profiles need their own ABI and instruction-set validation.
+
+```mermaid
+flowchart TD
+    S[LLMLang contracts and shared firmware fixture] --> T[Versioned target profile]
+    T --> A[STM32F1 Cortex-M3]
+    T --> B[STM32F4 Cortex-M4F]
+    T --> C[ESP32 Xtensa LX6]
+    T -. candidate extensions .-> D[ESP32 LX7 or RV32]
+    A --> V[Independent C reference and board traces]
+    B --> V
+    C --> V
+    D --> V
+    V --> E[Scoped artifact, ABI, peripheral and proof evidence]
+```
+
+The proposed validation flow shares source-level obligations but requires target-specific build, board and ABI evidence. Candidate extensions do not inherit validation from the original ESP32.
+
+Use a common GPIO/timer/UART workload, static C ABI import/export fixture, independent C reference traces, negative controls for incorrect ABI/layout, invalid MMIO and hidden runtime dependencies, and flash/RAM/stack measurements. Compare emulation with calibrated physical hardware; pin exact board and silicon revision before claiming device conformance or timing. Preserve the existing generic Cortex-M3 pilot and do not mark any requested MCU family as validated based on it.
+
+Manufacturer references: [STM32F1](https://www.st.com/en/microcontrollers-microprocessors/stm32f1-series.html), [STM32F4](https://www.st.com/en/microcontrollers-microprocessors/stm32f4-series.html), [Espressif chip comparison](https://docs.espressif.com/projects/esp-idf/en/v5.0/esp32/hw-reference/chip-series-comparison.html), [Espressif board selection](https://docs.espressif.com/projects/esp-techpedia/en/latest/esp-friends/get-started/board-selection.html). See [bidirectional FFI §6.6](../../../PLAN.md#66-cross-platform-native-interoperability-and-bidirectional-ffi-cross-cutting) for shared library interoperability and evidence rules.
 
 ## 4. Dependencies, evidence and exit criteria
 

@@ -1,0 +1,2667 @@
+{
+  "tiktoken": "0.12.0",
+  "counts": {
+    "budget_cases": 52,
+    "assembled": 48,
+    "blocked_by_mandatory_budget": 4,
+    "input_order_checks": 312,
+    "exact_greedy_loses_utility": 8,
+    "additive_greedy_loses_utility": 28,
+    "additive_greedy_overruns": 0,
+    "additive_estimate_differs": 48
+  },
+  "controls": {
+    "permission": "missing-required",
+    "stale-snapshot": "missing-required",
+    "conflicting-source-identity": "ambiguous-inventory",
+    "approved-excerpt": "exact projected digest without original content digest"
+  },
+  "undelimited_counterexamples": [
+    {
+      "separate": 3,
+      "concatenated": 4,
+      "fragments": [
+        "evidence",
+        "test"
+      ]
+    },
+    {
+      "separate": 3,
+      "concatenated": 2,
+      "fragments": [
+        "scope:",
+        "test"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "topic": "quota",
+      "budget": 32,
+      "status": "mandatory-over-budget",
+      "omissions": {
+        "closed": "permission",
+        "old": "stale-snapshot"
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 33,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 26,
+      "utility": {
+        "exact_optimum": 0,
+        "exact_greedy": 0,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "3d75be6e92cde7fb5a6e105cdf93cd334192f7ad0f4eec3a40123627cb55d48c",
+        "exact_tokens": 25,
+        "reserve": 8,
+        "total_budget": 33,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 34,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 26,
+      "utility": {
+        "exact_optimum": 0,
+        "exact_greedy": 0,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "3d75be6e92cde7fb5a6e105cdf93cd334192f7ad0f4eec3a40123627cb55d48c",
+        "exact_tokens": 25,
+        "reserve": 8,
+        "total_budget": 34,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 39,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 33,
+      "utility": {
+        "exact_optimum": 7,
+        "exact_greedy": 7,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "92c3975db2b912c767658523b87dbcf88c9e9f82a09f7f28e3836dc2be2e5afd",
+        "exact_tokens": 31,
+        "reserve": 8,
+        "total_budget": 39,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 45,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 40,
+      "utility": {
+        "exact_optimum": 12,
+        "exact_greedy": 12,
+        "additive_greedy": 7
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "83cb30ee7eb8d975ab923c4616ff89d09d99af69007fa95a58023ae6e71e6b2e",
+        "exact_tokens": 37,
+        "reserve": 8,
+        "total_budget": 45,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 48,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 41,
+      "utility": {
+        "exact_optimum": 14,
+        "exact_greedy": 14,
+        "additive_greedy": 12
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "d14e30cd96c34cc3b67b251b2f57679f19e20b752500e7bff7d8185f1924fb58",
+        "exact_tokens": 38,
+        "reserve": 8,
+        "total_budget": 48,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 53,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 49,
+      "utility": {
+        "exact_optimum": 20,
+        "exact_greedy": 20,
+        "additive_greedy": 14
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "2c34b645f50298aef7be964754a3ce65349c97810573e931040a993e170d81c0",
+        "exact_tokens": 45,
+        "reserve": 8,
+        "total_budget": 53,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 58,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 55,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 25,
+        "additive_greedy": 20
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "7053d4bfdbec8b0f2e7d6fade39cc114127566c0246ba428de112e346425bf2d",
+        "exact_tokens": 50,
+        "reserve": 8,
+        "total_budget": 58,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 63,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 55,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 12,
+        "additive_greedy": 25
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "7053d4bfdbec8b0f2e7d6fade39cc114127566c0246ba428de112e346425bf2d",
+        "exact_tokens": 50,
+        "reserve": 8,
+        "total_budget": 63,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 68,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 55,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 19,
+        "additive_greedy": 12
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "7053d4bfdbec8b0f2e7d6fade39cc114127566c0246ba428de112e346425bf2d",
+        "exact_tokens": 50,
+        "reserve": 8,
+        "total_budget": 68,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 78,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 71,
+      "utility": {
+        "exact_optimum": 26,
+        "exact_greedy": 26,
+        "additive_greedy": 24
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "e3a27c77294800e03d783967ee0e06c006592de7f7d227de3622debc8b92b34c",
+        "exact_tokens": 67,
+        "reserve": 8,
+        "total_budget": 78,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 93,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 85,
+      "utility": {
+        "exact_optimum": 37,
+        "exact_greedy": 37,
+        "additive_greedy": 37
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "8d7d76ea340aa0075ae4dc6f3b1117664f663244c7c5f5444b30e088b23b3163",
+        "exact_tokens": 79,
+        "reserve": 8,
+        "total_budget": 93,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "quota",
+      "budget": 113,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 85,
+      "utility": {
+        "exact_optimum": 37,
+        "exact_greedy": 37,
+        "additive_greedy": 37
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "quota",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "8d7d76ea340aa0075ae4dc6f3b1117664f663244c7c5f5444b30e088b23b3163",
+        "exact_tokens": 79,
+        "reserve": 8,
+        "total_budget": 113,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3",
+            "projection_digest": "4c908daae37849275bdb95aee8ac7b8480b3e307a48c18fd0e6fcf24f3ca93e3"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d",
+            "projection_digest": "24bb41b8eef5757265e1b65b7e21f50c4f95f1b1f4660343f91029a2f825bf1d"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 61,
+      "status": "mandatory-over-budget",
+      "omissions": {
+        "closed": "permission",
+        "old": "stale-snapshot"
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 62,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 55,
+      "utility": {
+        "exact_optimum": 0,
+        "exact_greedy": 0,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "dd7a77693be23a6cf24ef02b50611ac4d94eb86af89359b560b091625ca6d856",
+        "exact_tokens": 54,
+        "reserve": 8,
+        "total_budget": 62,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 63,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 55,
+      "utility": {
+        "exact_optimum": 0,
+        "exact_greedy": 0,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "dd7a77693be23a6cf24ef02b50611ac4d94eb86af89359b560b091625ca6d856",
+        "exact_tokens": 54,
+        "reserve": 8,
+        "total_budget": 63,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 68,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 62,
+      "utility": {
+        "exact_optimum": 7,
+        "exact_greedy": 7,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "ed33579b89658cba90127883569b6216e938a9e4cbcec3e2251f2c466f4e4d97",
+        "exact_tokens": 60,
+        "reserve": 8,
+        "total_budget": 68,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 74,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 69,
+      "utility": {
+        "exact_optimum": 12,
+        "exact_greedy": 12,
+        "additive_greedy": 7
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "d9e5cb9b65edcbdbc190f8148061f3ca4206efcfd62194ed70d7deac52d8dbde",
+        "exact_tokens": 66,
+        "reserve": 8,
+        "total_budget": 74,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 77,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 70,
+      "utility": {
+        "exact_optimum": 14,
+        "exact_greedy": 14,
+        "additive_greedy": 12
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "a930658c4265a82791fa9876eab91f38bec5ab9c7a5fcdfaf99f7fdfb2474067",
+        "exact_tokens": 67,
+        "reserve": 8,
+        "total_budget": 77,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 82,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 78,
+      "utility": {
+        "exact_optimum": 20,
+        "exact_greedy": 20,
+        "additive_greedy": 14
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "c736926b16ee9520b33afe380ed0053156fdfd378f0c07ba0eb2a9dbb822739d",
+        "exact_tokens": 74,
+        "reserve": 8,
+        "total_budget": 82,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 87,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 84,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 25,
+        "additive_greedy": 20
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "a9c13f737e7ad0a71512761199c650d4f225ec77c4959849c2adcabd9f733476",
+        "exact_tokens": 79,
+        "reserve": 8,
+        "total_budget": 87,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 92,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 84,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 12,
+        "additive_greedy": 25
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "a9c13f737e7ad0a71512761199c650d4f225ec77c4959849c2adcabd9f733476",
+        "exact_tokens": 79,
+        "reserve": 8,
+        "total_budget": 92,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 97,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 84,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 19,
+        "additive_greedy": 12
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "a9c13f737e7ad0a71512761199c650d4f225ec77c4959849c2adcabd9f733476",
+        "exact_tokens": 79,
+        "reserve": 8,
+        "total_budget": 97,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 107,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 100,
+      "utility": {
+        "exact_optimum": 26,
+        "exact_greedy": 26,
+        "additive_greedy": 24
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "283661f4205018ef29c7cd72107070739c2f82b873a681b0cb02cebf40575443",
+        "exact_tokens": 96,
+        "reserve": 8,
+        "total_budget": 107,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 122,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 114,
+      "utility": {
+        "exact_optimum": 37,
+        "exact_greedy": 37,
+        "additive_greedy": 37
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "fb663a6f5943746004d9e96d86f4e83864390350a28ba6bd9e2869f63cde64d5",
+        "exact_tokens": 108,
+        "reserve": 8,
+        "total_budget": 122,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "unicode",
+      "budget": 142,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 114,
+      "utility": {
+        "exact_optimum": 37,
+        "exact_greedy": 37,
+        "additive_greedy": 37
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "unicode",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "fb663a6f5943746004d9e96d86f4e83864390350a28ba6bd9e2869f63cde64d5",
+        "exact_tokens": 108,
+        "reserve": 8,
+        "total_budget": 142,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e",
+            "projection_digest": "1094b4c335a5e5fa2af5cadeef06971ba97df8ea3f6e1477dc89966b90c6565e"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a",
+            "projection_digest": "9bbe572fd8774174f7f9fa0406f94dc5f18d56b04a9e815f9950febf0876527a"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 33,
+      "status": "mandatory-over-budget",
+      "omissions": {
+        "closed": "permission",
+        "old": "stale-snapshot"
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 34,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 27,
+      "utility": {
+        "exact_optimum": 0,
+        "exact_greedy": 0,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "7f322a323b93d2a2def7327318d0c821b6d4083db16b8cf338284e4d081e051d",
+        "exact_tokens": 26,
+        "reserve": 8,
+        "total_budget": 34,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 35,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 27,
+      "utility": {
+        "exact_optimum": 0,
+        "exact_greedy": 0,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "7f322a323b93d2a2def7327318d0c821b6d4083db16b8cf338284e4d081e051d",
+        "exact_tokens": 26,
+        "reserve": 8,
+        "total_budget": 35,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 40,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 34,
+      "utility": {
+        "exact_optimum": 7,
+        "exact_greedy": 7,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "b37f03936574957feb3bc1967d9df9250757d32519bddc1c640b05bd9a792097",
+        "exact_tokens": 32,
+        "reserve": 8,
+        "total_budget": 40,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 46,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 41,
+      "utility": {
+        "exact_optimum": 12,
+        "exact_greedy": 12,
+        "additive_greedy": 7
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "3197b517f3e1abe65c0c2b44dce48d4a9ea3b031fb042bd208516c1837aeb26b",
+        "exact_tokens": 38,
+        "reserve": 8,
+        "total_budget": 46,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 49,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 42,
+      "utility": {
+        "exact_optimum": 14,
+        "exact_greedy": 14,
+        "additive_greedy": 12
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "aa1a8a95c7ccd001a6263fc9a55bb2987293d086d74e654537c986a45c46537b",
+        "exact_tokens": 39,
+        "reserve": 8,
+        "total_budget": 49,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 54,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 50,
+      "utility": {
+        "exact_optimum": 20,
+        "exact_greedy": 20,
+        "additive_greedy": 14
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "22da0200012cac610ce0f1ab182fca9fffe7ab6e32eb44937cfd2061cb95ca59",
+        "exact_tokens": 46,
+        "reserve": 8,
+        "total_budget": 54,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 59,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 56,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 25,
+        "additive_greedy": 20
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "14d4142c83c425a9a8d4bfc77046471dadff720788644753b725975441fec35e",
+        "exact_tokens": 51,
+        "reserve": 8,
+        "total_budget": 59,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 64,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 56,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 12,
+        "additive_greedy": 25
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "14d4142c83c425a9a8d4bfc77046471dadff720788644753b725975441fec35e",
+        "exact_tokens": 51,
+        "reserve": 8,
+        "total_budget": 64,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 69,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 56,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 19,
+        "additive_greedy": 12
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "14d4142c83c425a9a8d4bfc77046471dadff720788644753b725975441fec35e",
+        "exact_tokens": 51,
+        "reserve": 8,
+        "total_budget": 69,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 79,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 72,
+      "utility": {
+        "exact_optimum": 26,
+        "exact_greedy": 26,
+        "additive_greedy": 24
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "730d46c110edcdc7de9b4691b6d69575911f10a03db100d664d2e8d8151533f8",
+        "exact_tokens": 68,
+        "reserve": 8,
+        "total_budget": 79,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 94,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 86,
+      "utility": {
+        "exact_optimum": 37,
+        "exact_greedy": 37,
+        "additive_greedy": 37
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "9552995b2f15890db1aae01ec82051650e05369325c2b30fbb4859de2e21997e",
+        "exact_tokens": 80,
+        "reserve": 8,
+        "total_budget": 94,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "compiler",
+      "budget": 114,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 86,
+      "utility": {
+        "exact_optimum": 37,
+        "exact_greedy": 37,
+        "additive_greedy": 37
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "compiler",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "9552995b2f15890db1aae01ec82051650e05369325c2b30fbb4859de2e21997e",
+        "exact_tokens": 80,
+        "reserve": 8,
+        "total_budget": 114,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63",
+            "projection_digest": "a690b75a9864cf6f9945cdab1f9e441ac1201dcdef75c956c58316925595fb63"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2",
+            "projection_digest": "0f43c44bcd270dd4cab2e2ce4613df6c67b22d54fe32e4a349d448018b63b9a2"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 34,
+      "status": "mandatory-over-budget",
+      "omissions": {
+        "closed": "permission",
+        "old": "stale-snapshot"
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 35,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 28,
+      "utility": {
+        "exact_optimum": 0,
+        "exact_greedy": 0,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "16dafe6d5578cc799a449f349ea7544a2d040d76a55170f4b4f68bf6496dbe8f",
+        "exact_tokens": 27,
+        "reserve": 8,
+        "total_budget": 35,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 36,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 28,
+      "utility": {
+        "exact_optimum": 0,
+        "exact_greedy": 0,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "16dafe6d5578cc799a449f349ea7544a2d040d76a55170f4b4f68bf6496dbe8f",
+        "exact_tokens": 27,
+        "reserve": 8,
+        "total_budget": 36,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 41,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 35,
+      "utility": {
+        "exact_optimum": 7,
+        "exact_greedy": 7,
+        "additive_greedy": 0
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "6ab73ae11b4634559d3e9419f05280f36c27e1e9065ee8a8f866e28372ff1855",
+        "exact_tokens": 33,
+        "reserve": 8,
+        "total_budget": 41,
+        "selected": [
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "comparison": "budget-selection",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 47,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 42,
+      "utility": {
+        "exact_optimum": 12,
+        "exact_greedy": 12,
+        "additive_greedy": 7
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "1a6080e29b0442d9ec6c3452f2d35282f4fd2afe4594028772b99e8ac9b23ff0",
+        "exact_tokens": 39,
+        "reserve": 8,
+        "total_budget": 47,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "note": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 50,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 43,
+      "utility": {
+        "exact_optimum": 14,
+        "exact_greedy": 14,
+        "additive_greedy": 12
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "a0a2c1a97729e4b5d409d4d3af232a4e57099e6add60fcf4c487b5cfb6258fb7",
+        "exact_tokens": 40,
+        "reserve": 8,
+        "total_budget": 50,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 55,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 51,
+      "utility": {
+        "exact_optimum": 20,
+        "exact_greedy": 20,
+        "additive_greedy": 14
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "2014125b074038b06f4e37db99e382458a681932b95d9e58cbc7c0abba90ffae",
+        "exact_tokens": 47,
+        "reserve": 8,
+        "total_budget": 55,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 60,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 57,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 25,
+        "additive_greedy": 20
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "ffeac0a5c9fe83996f0894b802b7139366f4e6a96b7645cd6a375479b9f163ea",
+        "exact_tokens": 52,
+        "reserve": 8,
+        "total_budget": 60,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 65,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 57,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 12,
+        "additive_greedy": 25
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "ffeac0a5c9fe83996f0894b802b7139366f4e6a96b7645cd6a375479b9f163ea",
+        "exact_tokens": 52,
+        "reserve": 8,
+        "total_budget": 65,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 70,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 57,
+      "utility": {
+        "exact_optimum": 25,
+        "exact_greedy": 19,
+        "additive_greedy": 12
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "ffeac0a5c9fe83996f0894b802b7139366f4e6a96b7645cd6a375479b9f163ea",
+        "exact_tokens": 52,
+        "reserve": 8,
+        "total_budget": 70,
+        "selected": [
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "appendix": "budget-selection",
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 80,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 73,
+      "utility": {
+        "exact_optimum": 26,
+        "exact_greedy": 26,
+        "additive_greedy": 24
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "fb165f625a9d5084395c66be295ebdd5e4f0f9d68b1ab7efd9520097e07a8bc1",
+        "exact_tokens": 69,
+        "reserve": 8,
+        "total_budget": 80,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "excerpt": "budget-selection",
+          "old": "stale-snapshot",
+          "reference": "budget-selection"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 95,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 87,
+      "utility": {
+        "exact_optimum": 37,
+        "exact_greedy": 37,
+        "additive_greedy": 37
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "4955576d57ed158bb7c5dfbdadde1ad0a72cb0fe890901bd95bc94e2a13780c6",
+        "exact_tokens": 81,
+        "reserve": 8,
+        "total_budget": 95,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    },
+    {
+      "topic": "archive",
+      "budget": 115,
+      "status": "ready",
+      "approximate_tokens_for_exact_selection": 87,
+      "utility": {
+        "exact_optimum": 37,
+        "exact_greedy": 37,
+        "additive_greedy": 37
+      },
+      "additive_candidate_would_exceed": false,
+      "receipt": {
+        "snapshot": "archive",
+        "renderer": "context-text/1",
+        "tokenizer": "cl100k_base",
+        "encoding_digest": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+        "prompt_digest": "4955576d57ed158bb7c5dfbdadde1ad0a72cb0fe890901bd95bc94e2a13780c6",
+        "exact_tokens": 81,
+        "reserve": 8,
+        "total_budget": 115,
+        "selected": [
+          {
+            "name": "appendix",
+            "source_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871",
+            "projection_digest": "b7070716ab86b1c6216e13c672eb1583da405d7aa9522578fe3db67e03247871"
+          },
+          {
+            "name": "comparison",
+            "source_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038",
+            "projection_digest": "7fe3b77c3c1de1c03c77fffa89637798ad67ac78c913378d103bbe0f1865f038"
+          },
+          {
+            "name": "contract",
+            "source_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432",
+            "projection_digest": "102cc6f0b516c67881034abf1bb362bf9ae02d9f1d815ddbcbc94af1ffd66432"
+          },
+          {
+            "name": "excerpt",
+            "source_digest": null,
+            "projection_digest": "d8ca582161f318b3f29b9adcb5deef52941e65dda61bf01ec7437ef12ae9b9d8"
+          },
+          {
+            "name": "note",
+            "source_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935",
+            "projection_digest": "0b86e59cc595d70461854afbc5767c4cec45bbfb9dbb5f29008f441b3671d935"
+          },
+          {
+            "name": "reference",
+            "source_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac",
+            "projection_digest": "d8d39a0bbb30068ba1b45a37b3dae493195652a8370b2c5b960075246ec701ac"
+          },
+          {
+            "name": "test",
+            "source_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550",
+            "projection_digest": "88e48b88d2d911c7283f36d13230db359ed5ba2252a8618a34bcd5158c7cf550"
+          }
+        ],
+        "omissions": {
+          "closed": "permission",
+          "old": "stale-snapshot"
+        }
+      }
+    }
+  ]
+}

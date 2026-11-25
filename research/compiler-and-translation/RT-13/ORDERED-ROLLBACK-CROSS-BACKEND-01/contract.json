@@ -1,0 +1,12 @@
+{
+  "operation": "checked_write",
+  "maximum": 255,
+  "primary": {"acquire": 1, "range": 2, "write": 3},
+  "cleanup": {"rollback": 1, "release": 2},
+  "events": {
+    "acquire_denied": 10, "acquired": 11, "range": 20,
+    "write_partial": 30, "committed": 31,
+    "rollback_failed": 40, "rolled_back": 41,
+    "release_failed": 50, "released": 51
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "export": "1ed2aba3769a4530222c81e52805910f5f09106b6f54953b100162c3bfc65d81",
+  "format": "portable-graph-publication-01",
+  "git": "git version 2.52.0",
+  "rows": [
+    {
+      "event": "bootstrap",
+      "inventory": "0f2729e8499a9853bfbd4499175db681892c788478269a466fd79fa00232e3dc",
+      "objects": 3,
+      "reverse_rows": 2,
+      "root": "84412d02fbc4af501619bc3ae904c935c3fd109da9ebff8a0c8834124bc51ddd"
+    },
+    {
+      "event": "exit-objects",
+      "exit": 31,
+      "inventory": "0f2729e8499a9853bfbd4499175db681892c788478269a466fd79fa00232e3dc",
+      "objects": 3,
+      "reverse_rows": 2,
+      "root": "84412d02fbc4af501619bc3ae904c935c3fd109da9ebff8a0c8834124bc51ddd"
+    },
+    {
+      "event": "exit-metadata",
+      "exit": 32,
+      "inventory": "0f2729e8499a9853bfbd4499175db681892c788478269a466fd79fa00232e3dc",
+      "objects": 3,
+      "reverse_rows": 2,
+      "root": "84412d02fbc4af501619bc3ae904c935c3fd109da9ebff8a0c8834124bc51ddd"
+    },
+    {
+      "event": "exit-committed",
+      "exit": 33,
+      "inventory": "986615bc90ec976144adac53eaf11f1f5120f3630f00f9240b1af9ffc19da695",
+      "objects": 3,
+      "reverse_rows": 3,
+      "root": "f50ceb08fd12cb1473cab28d2da014c45002e075014658596a4f8d98388be5c4"
+    },
+    {
+      "event": "competing-writer-after-head-change",
+      "inventory": "0dd4e89b321c0104271b7b1045352400a9b18085c51f0ae00e0d0e2a83b60895",
+      "loser": "stale-writer",
+      "objects": 4,
+      "reverse_rows": 3,
+      "root": "359dbf49a42f7f8d40f7c42f80a4b55c70a8e8eb36771cd958fa4fc160987fe3"
+    },
+    {
+      "event": "offline-database-free-archive-rebuild",
+      "inventory": "0dd4e89b321c0104271b7b1045352400a9b18085c51f0ae00e0d0e2a83b60895",
+      "objects": 4,
+      "reverse_rows": 3,
+      "root": "359dbf49a42f7f8d40f7c42f80a4b55c70a8e8eb36771cd958fa4fc160987fe3"
+    },
+    {
+      "decision": "missing object",
+      "event": "partial-offline-archive"
+    }
+  ],
+  "sqlite": "3.53.1",
+  "wrong_root": "export scope mismatch"
+}

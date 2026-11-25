@@ -1,0 +1,161 @@
+{
+  "schema": "llmlang-state-result-reference-validation/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "research/formal-verification/RT-07/STATE-RESULT-REFERENCE-01/reference.py": "83d9e003fda21fba074c060ee3db0d9023fe519b231da31fd491425b2a2497b4",
+    "research/formal-verification/RT-07/STATE-RESULT-REFERENCE-01/validate.py": "3a65e231d7d971d1ead7854fbd35495604c4636e1323cc70a7a6cee0a8549dca",
+    "research/formal-verification/RT-07/THREE-SEMANTICS-01/run.py": "ff0036446f3cee77ef9db1c63a51a10ed0af88625b622fe0e2fbc0cb5367e5cd",
+    "research/PROTOTYPES/RT-04-01/rt03_reference.py": "9aa14d41f837c3c0bae137f6732b72ff9edb0b70a31f1f966639124be98ed8d8",
+    "research/PROTOTYPES/RT-04-01/rt03_smallstep.py": "79516cb51e8ec6f505ab8833646f42415eb1e5f46171aac399b41c6652ed7459"
+  },
+  "comparisons": 8210,
+  "wired_observations_sha256": "1907e412b6976162b2daf394dea2a2f2523d85d055bdeb131270b6b68967fd6a",
+  "controls": [
+    {
+      "case": "normal sequence",
+      "exit_code": 0,
+      "output": {
+        "result": {
+          "ok": null
+        },
+        "final_cell": 1,
+        "trace": [
+          [
+            "write",
+            1
+          ]
+        ]
+      },
+      "input_sha256": "e75d3e3853960503b7c2e34b6b310eaea629350496f29cbd75f2e6e0358bfd14"
+    },
+    {
+      "case": "Result short circuit",
+      "exit_code": 0,
+      "output": {
+        "result": {
+          "error": "planned"
+        },
+        "final_cell": 0,
+        "trace": []
+      },
+      "input_sha256": "59527fd3109c31fdeff3c27d04e80cc1148f0d158e4a12b7c4bfe24306ccb0ef"
+    },
+    {
+      "case": "restore still emits",
+      "exit_code": 0,
+      "output": {
+        "result": {
+          "ok": null
+        },
+        "final_cell": 0,
+        "trace": [
+          [
+            "write",
+            1
+          ],
+          [
+            "write",
+            0
+          ]
+        ]
+      },
+      "input_sha256": "05a22701864203b094807684d1a8ad900aebf9d6cada06f2b3411d8d8e3568f5"
+    },
+    {
+      "case": "malformed",
+      "exit_code": 2,
+      "output": {
+        "error": "malformed-json"
+      },
+      "input_sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
+    },
+    {
+      "case": "invalid UTF-8",
+      "exit_code": 2,
+      "output": {
+        "error": "malformed-json"
+      },
+      "input_sha256": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89"
+    },
+    {
+      "case": "wrong version",
+      "exit_code": 2,
+      "output": {
+        "error": "request-schema"
+      },
+      "input_sha256": "7356e96bfafd3a08241430425034de3414d064b531ef5da5a6cce88b28302122"
+    },
+    {
+      "case": "Boolean initial",
+      "exit_code": 2,
+      "output": {
+        "error": "initial-cell"
+      },
+      "input_sha256": "76bc5c1649e4a44d79bbdf1d0bfcef9f121902bcb7a3142b821abd9881a36abd"
+    },
+    {
+      "case": "initial value out of the domain",
+      "exit_code": 2,
+      "output": {
+        "error": "initial-cell"
+      },
+      "input_sha256": "e3acac10da0c56b37029fa8ef34521d470c1bd286ee7949356386cab3d7f56e2"
+    },
+    {
+      "case": "Boolean write",
+      "exit_code": 2,
+      "output": {
+        "error": "unsupported-expression"
+      },
+      "input_sha256": "df2506324022cd75a9cd6890bc3a2ea171922d8816b0b3daaab961f5080c3528"
+    },
+    {
+      "case": "unsupported operator",
+      "exit_code": 2,
+      "output": {
+        "error": "unsupported-expression"
+      },
+      "input_sha256": "847f001c32f167256e7a23c743665ee1c654ace6b375c11d32a6a4ee06072cba"
+    },
+    {
+      "case": "missing right child",
+      "exit_code": 2,
+      "output": {
+        "error": "unsupported-expression"
+      },
+      "input_sha256": "ecf051abe60cd47adc43cbe0c1025477b27b865681fd3ceabc6591ecb2174881"
+    },
+    {
+      "case": "unsupported expression shape",
+      "exit_code": 2,
+      "output": {
+        "error": "expression-shape"
+      },
+      "input_sha256": "aac01fab9843970aeb31629e9ba7d1a70359d8d7030be2d2227bc13a6f0b9cb3"
+    },
+    {
+      "case": "invalid lazy branch",
+      "exit_code": 2,
+      "output": {
+        "error": "unsupported-expression"
+      },
+      "input_sha256": "03ba56a82120b3301085097864947a833d7bef28afb6f462a226aaa768491df5"
+    },
+    {
+      "case": "excess bytes",
+      "exit_code": 2,
+      "output": {
+        "error": "input-size"
+      },
+      "input_sha256": "76c002eec0c9da854ca2ee5dae9fb0069a622274b6638ab712fcb70384304899"
+    },
+    {
+      "case": "excess depth",
+      "exit_code": 2,
+      "output": {
+        "error": "expression-depth"
+      },
+      "input_sha256": "7ee2e9a1ec6041032d744a01bceb330275edbb5ee2ed7fa7e1e33dd7670d3f34"
+    }
+  ]
+}

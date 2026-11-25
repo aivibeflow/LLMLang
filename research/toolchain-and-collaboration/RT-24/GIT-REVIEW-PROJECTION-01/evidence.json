@@ -1,0 +1,100 @@
+{
+  "baseline": "b42d1b0b8fd1332a49a0ee91c0ff7b19e7b6ac63",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "schema": "llmlang-review/v1",
+  "base_commit": "559d44b0c6ed1eaa62015635199832a531041056",
+  "study_sha256": {
+    "run.py": "35238ff5e9172255fcce926c2a323b033d1d76b04c33dd4f28c4d3e559dd30a5",
+    "project.py": "fa2a542ff6121d2eb118fd2e4a0eb6e236ad6c401eb4947970395092c714d930"
+  },
+  "source_sha256": {
+    "research/toolchain-and-collaboration/RT-24/COMMIT-TREE-SEMANTIC-ROOT-01/run.py": "8988ba2211978258c5aefd95fd6c85ca16f0e78c167f14c799e4abb63f86ba16",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556"
+  },
+  "examples": {
+    "format": {
+      "candidate": "a01854ae42b8babc806186f9e7312bf103e97166",
+      "native_patch": "diff --git a/program.json b/program.json\nindex 88776b7..9f19807 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1,4 @@\n-{\"binding\":\"plus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n+{\n+  \"entry\": \"op(\\\"compute\\\", x)\",\n+  \"binding\": \"plus\"\n+}\n",
+      "unconfigured_patch": "diff --git a/program.json b/program.json\nindex 88776b7..9f19807 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1,4 @@\n-{\"binding\":\"plus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n+{\n+  \"entry\": \"op(\\\"compute\\\", x)\",\n+  \"binding\": \"plus\"\n+}\n",
+      "configured_patch": "",
+      "semantic_snapshot": {
+        "root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "values": [
+          0,
+          1,
+          2
+        ]
+      },
+      "generated_metadata_matches": true,
+      "metadata_patch": ""
+    },
+    "provider-fresh": {
+      "candidate": "bb1d9891c74ad735139aca8c09b8db91485ce13c",
+      "native_patch": "diff --git a/program.json b/program.json\nindex 88776b7..45a166e 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1 @@\n-{\"binding\":\"plus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n+{\"binding\":\"minus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n",
+      "unconfigured_patch": "diff --git a/program.json b/program.json\nindex 88776b7..45a166e 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1 @@\n-{\"binding\":\"plus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n+{\"binding\":\"minus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n",
+      "configured_patch": "diff --git a/program.json b/program.json\nindex 88776b7..45a166e 100644\n--- a/program.json\n+++ b/program.json\n@@ -1,3 +1,3 @@\n llmlang-review/v1\n-compute provider plus\n+compute provider minus\n entry \"op(\\\"compute\\\", x)\"\n",
+      "semantic_snapshot": {
+        "root": "c842ba6a21739bbf0b696acc7c59cc95b6ad4ba41f6ec23803c06672ed3ad3ba",
+        "values": [
+          -2,
+          -1,
+          0
+        ]
+      },
+      "generated_metadata_matches": true,
+      "metadata_patch": "diff --git a/review.json b/review.json\nindex 1b959fc..d5e19d4 100644\n--- a/review.json\n+++ b/review.json\n@@ -1 +1 @@\n-{\"root\": \"43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc\", \"schema\": \"llmlang-review/v1\"}\n+{\"root\": \"c842ba6a21739bbf0b696acc7c59cc95b6ad4ba41f6ec23803c06672ed3ad3ba\", \"schema\": \"llmlang-review/v1\"}\n"
+    },
+    "provider-stale": {
+      "candidate": "155be79a5cce68b0a9db2c63b11c53c4122f02af",
+      "native_patch": "diff --git a/program.json b/program.json\nindex 88776b7..45a166e 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1 @@\n-{\"binding\":\"plus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n+{\"binding\":\"minus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n",
+      "unconfigured_patch": "diff --git a/program.json b/program.json\nindex 88776b7..45a166e 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1 @@\n-{\"binding\":\"plus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n+{\"binding\":\"minus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n",
+      "configured_patch": "diff --git a/program.json b/program.json\nindex 88776b7..45a166e 100644\n--- a/program.json\n+++ b/program.json\n@@ -1,3 +1,3 @@\n llmlang-review/v1\n-compute provider plus\n+compute provider minus\n entry \"op(\\\"compute\\\", x)\"\n",
+      "semantic_snapshot": {
+        "root": "c842ba6a21739bbf0b696acc7c59cc95b6ad4ba41f6ec23803c06672ed3ad3ba",
+        "values": [
+          -2,
+          -1,
+          0
+        ]
+      },
+      "generated_metadata_matches": false,
+      "metadata_patch": ""
+    },
+    "metadata-only": {
+      "candidate": "ee61639f9adfcc9f057d2324144a7e09f3a3fa6f",
+      "native_patch": "",
+      "unconfigured_patch": "",
+      "configured_patch": "",
+      "semantic_snapshot": {
+        "root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "values": [
+          0,
+          1,
+          2
+        ]
+      },
+      "generated_metadata_matches": false,
+      "metadata_patch": "diff --git a/review.json b/review.json\nindex 1b959fc..d5e19d4 100644\n--- a/review.json\n+++ b/review.json\n@@ -1 +1 @@\n-{\"root\": \"43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc\", \"schema\": \"llmlang-review/v1\"}\n+{\"root\": \"c842ba6a21739bbf0b696acc7c59cc95b6ad4ba41f6ec23803c06672ed3ad3ba\", \"schema\": \"llmlang-review/v1\"}\n"
+    },
+    "missing-attributes": {
+      "candidate": "91b931f6a9c58ae01f6aac2e7ef55a6e4da3e347",
+      "native_patch": "diff --git a/program.json b/program.json\nindex 88776b7..9f19807 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1,4 @@\n-{\"binding\":\"plus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n+{\n+  \"entry\": \"op(\\\"compute\\\", x)\",\n+  \"binding\": \"plus\"\n+}\n",
+      "unconfigured_patch": "diff --git a/program.json b/program.json\nindex 88776b7..9f19807 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1,4 @@\n-{\"binding\":\"plus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n+{\n+  \"entry\": \"op(\\\"compute\\\", x)\",\n+  \"binding\": \"plus\"\n+}\n",
+      "configured_patch": "diff --git a/program.json b/program.json\nindex 88776b7..9f19807 100644\n--- a/program.json\n+++ b/program.json\n@@ -1 +1,4 @@\n-{\"binding\":\"plus\",\"entry\":\"op(\\\"compute\\\", x)\"}\n+{\n+  \"entry\": \"op(\\\"compute\\\", x)\",\n+  \"binding\": \"plus\"\n+}\n",
+      "semantic_snapshot": {
+        "root": "43e7af334ca223919e0eb12ee02d67558cf23156c508f85d50ab64a148ebd8bc",
+        "values": [
+          0,
+          1,
+          2
+        ]
+      },
+      "generated_metadata_matches": true,
+      "metadata_patch": ""
+    }
+  }
+}

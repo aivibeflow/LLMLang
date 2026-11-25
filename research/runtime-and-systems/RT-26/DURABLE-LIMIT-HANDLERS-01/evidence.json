@@ -1,0 +1,293 @@
+{
+  "format": "durable-limit-handlers-01",
+  "native_output_bytes": 4,
+  "rows": [
+    {
+      "case": "exit before durable decision",
+      "charged_and_held": [
+        0,
+        0,
+        0
+      ],
+      "claims": 0,
+      "decision": "neither-committed",
+      "receipts": 0
+    },
+    {
+      "case": "two individually admissible writers",
+      "charged_and_held": [
+        6,
+        6,
+        0
+      ],
+      "claims": 1,
+      "decision": "parent-hard-limit",
+      "receipts": 2
+    },
+    {
+      "case": "exact replay holds once",
+      "charged_and_held": [
+        6,
+        6,
+        0
+      ],
+      "claims": 1,
+      "decision": "reserved",
+      "receipts": 2
+    },
+    {
+      "case": "event reused with changed request",
+      "charged_and_held": [
+        6,
+        6,
+        0
+      ],
+      "claims": 1,
+      "decision": "event-scope-mismatch",
+      "receipts": 2
+    },
+    {
+      "case": "settlement cannot exceed hold",
+      "charged_and_held": [
+        6,
+        6,
+        0
+      ],
+      "claims": 1,
+      "decision": "settlement-out-of-scope",
+      "receipts": 2
+    },
+    {
+      "case": "native four-byte settlement",
+      "charged_and_held": [
+        4,
+        4,
+        0
+      ],
+      "claims": 1,
+      "decision": "settled",
+      "receipts": 2
+    },
+    {
+      "case": "repeated settlement",
+      "charged_and_held": [
+        4,
+        4,
+        0
+      ],
+      "claims": 1,
+      "decision": "already-settled",
+      "receipts": 2
+    },
+    {
+      "case": "changed settlement",
+      "charged_and_held": [
+        4,
+        4,
+        0
+      ],
+      "claims": 1,
+      "decision": "settlement-conflict",
+      "receipts": 2
+    },
+    {
+      "case": "throttle",
+      "charged_and_held": [
+        4,
+        4,
+        0
+      ],
+      "claims": 1,
+      "decision": "throttled",
+      "receipts": 3
+    },
+    {
+      "case": "throttled before boundary",
+      "charged_and_held": [
+        4,
+        4,
+        0
+      ],
+      "claims": 1,
+      "decision": "rate-limit-active",
+      "receipts": 4
+    },
+    {
+      "case": "retry at boundary",
+      "charged_and_held": [
+        4,
+        4,
+        0
+      ],
+      "claims": 1,
+      "decision": "retry-ready",
+      "receipts": 5
+    },
+    {
+      "case": "pause",
+      "charged_and_held": [
+        4,
+        4,
+        0
+      ],
+      "claims": 1,
+      "decision": "paused",
+      "receipts": 6
+    },
+    {
+      "case": "pause blocks new budget",
+      "charged_and_held": [
+        4,
+        4,
+        0
+      ],
+      "claims": 1,
+      "decision": "scope-closed-or-paused",
+      "receipts": 7
+    },
+    {
+      "case": "explicit resume",
+      "charged_and_held": [
+        4,
+        4,
+        0
+      ],
+      "claims": 1,
+      "decision": "retry-ready",
+      "receipts": 8
+    },
+    {
+      "case": "cannot exceed delegated child cap",
+      "charged_and_held": [
+        4,
+        4,
+        0
+      ],
+      "claims": 1,
+      "decision": "child-hard-limit",
+      "receipts": 9
+    },
+    {
+      "case": "degrade",
+      "charged_and_held": [
+        7,
+        4,
+        3
+      ],
+      "claims": 2,
+      "decision": "reserved",
+      "receipts": 10
+    },
+    {
+      "case": "cancel",
+      "charged_and_held": [
+        7,
+        4,
+        3
+      ],
+      "claims": 2,
+      "decision": "cancelled",
+      "receipts": 11
+    },
+    {
+      "case": "cancel prevents new admission",
+      "charged_and_held": [
+        7,
+        4,
+        3
+      ],
+      "claims": 2,
+      "decision": "scope-closed-or-paused",
+      "receipts": 12
+    },
+    {
+      "case": "terminal partial work retained",
+      "charged_and_held": [
+        6,
+        4,
+        2
+      ],
+      "claims": 2,
+      "decision": "settled",
+      "receipts": 12
+    },
+    {
+      "case": "optional shed",
+      "charged_and_held": [
+        6,
+        4,
+        2
+      ],
+      "claims": 2,
+      "decision": "shed-optional",
+      "receipts": 13
+    },
+    {
+      "case": "required work cannot be shed",
+      "charged_and_held": [
+        6,
+        4,
+        2
+      ],
+      "claims": 2,
+      "decision": "required-work",
+      "receipts": 14
+    },
+    {
+      "case": "escalate",
+      "charged_and_held": [
+        6,
+        4,
+        2
+      ],
+      "claims": 2,
+      "decision": "await-parent-policy",
+      "receipts": 15
+    },
+    {
+      "case": "handler fails",
+      "charged_and_held": [
+        6,
+        4,
+        2
+      ],
+      "claims": 2,
+      "decision": "handler-failed",
+      "receipts": 16
+    },
+    {
+      "case": "terminate",
+      "charged_and_held": [
+        6,
+        4,
+        2
+      ],
+      "claims": 2,
+      "decision": "terminated",
+      "receipts": 17
+    },
+    {
+      "case": "terminate cannot resume",
+      "charged_and_held": [
+        6,
+        4,
+        2
+      ],
+      "claims": 2,
+      "decision": "scope-closed",
+      "receipts": 18
+    },
+    {
+      "case": "clock regression",
+      "charged_and_held": [
+        6,
+        4,
+        2
+      ],
+      "claims": 2,
+      "decision": "clock-went-backward",
+      "receipts": 18
+    }
+  ],
+  "sqlite": "3.53.1"
+}

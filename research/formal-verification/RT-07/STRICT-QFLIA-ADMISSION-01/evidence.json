@@ -1,0 +1,157 @@
+{
+  "baseline": "0ef40055665a73b82c6ac30c2ea88f71b8947331",
+  "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "python": "3.12.14",
+  "schema": "rt07-strict-qflia-admission-comparison-v1",
+  "source_admission_counts": {
+    "emitted": 4,
+    "rejected": 8
+  },
+  "source_controls": [
+    {
+      "emitted_query": true,
+      "label": "identity",
+      "query_sha256": "fc839a88bf039da55496eb08b529d1cff9180aa2f38633581514bad95d724700",
+      "solver": "sat"
+    },
+    {
+      "emitted_query": true,
+      "label": "constant-return",
+      "query_sha256": "5e7754016c56286c996e05882d266ceb84303fda931cfca9b6c6d476944347e5",
+      "solver": "unsat"
+    },
+    {
+      "emitted_query": true,
+      "label": "negative-literal-multiplier",
+      "query_sha256": "4a2cde60c5f4e85df4c4fcdb80356dd58ab049966c1b91b0cfce9c3fe66481fe",
+      "solver": "sat"
+    },
+    {
+      "emitted_query": true,
+      "label": "bool-identity",
+      "query_sha256": "0076eb46cbf3a2d818d9c6a6a7f80e41c831f215de7dc66462730909a2c12bf0",
+      "solver": "sat"
+    },
+    {
+      "emitted_query": false,
+      "label": "unsupported-string-declaration",
+      "reason": "input sorts must be Bool or Int"
+    },
+    {
+      "emitted_query": false,
+      "label": "unsupported-string-literal",
+      "reason": "QF_LIA accepts only exact Bool/Int values, got str"
+    },
+    {
+      "emitted_query": false,
+      "label": "variable-times-variable",
+      "reason": "multiplication requires an integer literal operand"
+    },
+    {
+      "emitted_query": false,
+      "label": "arithmetic-constant-expression-multiplier",
+      "reason": "multiplication requires an integer literal operand"
+    },
+    {
+      "emitted_query": false,
+      "label": "syntactically-nonlinear-cancellation",
+      "reason": "multiplication requires an integer literal operand"
+    },
+    {
+      "emitted_query": false,
+      "label": "division",
+      "reason": "ill-typed/unsupported binary operator: div"
+    },
+    {
+      "emitted_query": false,
+      "label": "boolean-in-arithmetic",
+      "reason": "binary operand sort mismatch"
+    },
+    {
+      "emitted_query": false,
+      "label": "emitted-effect",
+      "reason": "only final top-level Return is supported"
+    }
+  ],
+  "source_sha256": {
+    "Decode.lean": "d7ae5e2ab6014a09bfd48110b5e6b8d288d2e400ba7e4329afb4e23a5e05c0b8",
+    "LLMLangLogosBinding.lean": "d97967f3743afce4e6c8d427e0fa9fed537a7d310ac8699b3745a12b598eea00",
+    "qf_lia_ir.py": "54f71963d3bcfd5bf6a9549001ad4febeb96b8e6c11a9ce5febf2ae569fb3f01",
+    "qf_lia_profile.py": "5adc1f7bc40a2f59b4439a2a3572d7e2e37043511907034f91dbe52ce948699c",
+    "run.py": "62cdd0423705efd452e58785885caefa5525a9ddb9c5ec0f0b742a036734fc52"
+  },
+  "wire_admission_counts": {
+    "admitted": 4,
+    "rejected": 10
+  },
+  "wire_controls": [
+    {
+      "accepted": true,
+      "label": "identity"
+    },
+    {
+      "accepted": true,
+      "label": "constant-return"
+    },
+    {
+      "accepted": true,
+      "label": "negative-literal-multiplier"
+    },
+    {
+      "accepted": true,
+      "label": "bool-identity"
+    },
+    {
+      "accepted": false,
+      "label": "wire-string-sort",
+      "reason": "query declaration sort must be Int or Bool"
+    },
+    {
+      "accepted": false,
+      "label": "wire-nonlinear",
+      "reason": "nonlinear multiplication is outside the strict QF_LIA profile"
+    },
+    {
+      "accepted": false,
+      "label": "wire-canceling-nonlinearity",
+      "reason": "nonlinear multiplication is outside the strict QF_LIA profile"
+    },
+    {
+      "accepted": false,
+      "label": "wire-nonliteral-multiplier",
+      "reason": "nonlinear multiplication is outside the strict QF_LIA profile"
+    },
+    {
+      "accepted": false,
+      "label": "wire-division",
+      "reason": "unsupported Int query operator: div"
+    },
+    {
+      "accepted": false,
+      "label": "wire-mixed-equality",
+      "reason": "eq operands have different sorts"
+    },
+    {
+      "accepted": false,
+      "label": "wire-int-with-string-atom",
+      "reason": "Integer expected"
+    },
+    {
+      "accepted": false,
+      "label": "wire-hidden-operator-atom",
+      "reason": "field must be null: atom"
+    },
+    {
+      "accepted": false,
+      "label": "wire-unknown-version",
+      "reason": "unsupported canonical query schema version"
+    },
+    {
+      "accepted": false,
+      "label": "wire-unknown-field",
+      "reason": "JSON object has missing or unknown fields"
+    }
+  ],
+  "wire_fixture_sha256": "286289c1b3bfd138dcb5c6f599e5adb3e63c6ed16f0b7ec8908ad7167f7ec1e3"
+}

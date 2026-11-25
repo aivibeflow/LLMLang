@@ -1,0 +1,648 @@
+{
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "fingerprint": "gaussian-fingerprint-v1",
+  "metric": "euclidean-distance",
+  "dimensions": 12,
+  "k": 8,
+  "catalog_root": "fbaccd4ed1986ae4459605d81bf05d8500761aff6eeaea12875d5665dab428d0",
+  "required_contract": "4d55734129cfeaae8e69f5d315f18e7028bdd11d88d414085c32f96a07083338",
+  "corpus_size": 3072,
+  "queries": 192,
+  "exact_neighbor_pairs": 1536,
+  "exact_compatible_pairs": 327,
+  "channel_totals": {
+    "scoped-exact": {
+      "scoped_neighbors_recovered": 1536,
+      "returned_candidates": 1536,
+      "scoped_compatible_recovered": 327,
+      "empty_shortlists": 0,
+      "admitted": 327,
+      "excluded": 1044,
+      "pending": 165
+    },
+    "scoped-ann-0.6": {
+      "scoped_neighbors_recovered": 1528,
+      "returned_candidates": 1536,
+      "scoped_compatible_recovered": 325,
+      "empty_shortlists": 0,
+      "admitted": 326,
+      "excluded": 1045,
+      "pending": 165
+    },
+    "scoped-ann-1.5": {
+      "scoped_neighbors_recovered": 1336,
+      "returned_candidates": 1536,
+      "scoped_compatible_recovered": 280,
+      "empty_shortlists": 0,
+      "admitted": 314,
+      "excluded": 1050,
+      "pending": 172
+    },
+    "global-exact-postfilter": {
+      "scoped_neighbors_recovered": 120,
+      "returned_candidates": 120,
+      "scoped_compatible_recovered": 31,
+      "empty_shortlists": 102,
+      "admitted": 31,
+      "excluded": 83,
+      "pending": 6
+    }
+  },
+  "loose_approximation_changed_queries": 126,
+  "compatibility_controls": {
+    "stale_root": "pending",
+    "wrong_contract": "pending",
+    "wrong_function": "pending",
+    "missing_receipt": "pending"
+  },
+  "examples": {
+    "first_query": {
+      "partition": [
+        "library-a",
+        "i32",
+        "pure"
+      ],
+      "query_id": 1,
+      "query_vector_digest": "11d4fb330d1698eb4a0ee275ed6ebbe78f9a38a072b64b41ad0011a090a0a16c",
+      "rows": {
+        "scoped-exact": [
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 1,
+            "rank_after_scope_filter": 1,
+            "epsilon": 0.0,
+            "distance": 2.1620913,
+            "function_hash": "477fe784f90378e93762176794db737db23bd0b21c4b76faecdbe764c9e182a2",
+            "fingerprint_digest": "b374527acefdae504fd3fb3e6d04dd5c980bf4949c6a03302d26478d8ce1c848",
+            "compatibility": "excluded",
+            "receipt_digest": "82f14990306b53436224bad9edd760978eedefe357d42a4b6e174cc15640419c"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 2,
+            "rank_after_scope_filter": 2,
+            "epsilon": 0.0,
+            "distance": 2.477452881,
+            "function_hash": "da927247c97788c336fd735c6672e2d56b202f128eac002a6bc2f5f2ff3249d9",
+            "fingerprint_digest": "e79e52178113793d711d19e0c6eb4af5c9c171ab41458471f2940d23b9a59ff5",
+            "compatibility": "excluded",
+            "receipt_digest": "110e461e7b5d2e4ec71fd304f55cf46a3340c8724dd30657b56a3916c1ae09ad"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 3,
+            "rank_after_scope_filter": 3,
+            "epsilon": 0.0,
+            "distance": 2.548419076,
+            "function_hash": "bbae434979270f738bbabf25a3f3b3fdec2842a1d0d4168402ca9861f1dc2382",
+            "fingerprint_digest": "9493a1d65c6bb9560c0b87e0dadcebb8657e8287116d4805d2da094c78cd41b8",
+            "compatibility": "excluded",
+            "receipt_digest": "916668699af44ca5a3cf95c6e3337c4756409022007e12b767a8b9a58774c138"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 4,
+            "rank_after_scope_filter": 4,
+            "epsilon": 0.0,
+            "distance": 2.820730802,
+            "function_hash": "4e0e3cdc86a9c64eaf449f6bcf5d14b39083a4988be4ae94bf6e01a5dda8e44e",
+            "fingerprint_digest": "b9894f09359facc8753a08ca52f132856d1325cd8092842512e34b28219f22dc",
+            "compatibility": "excluded",
+            "receipt_digest": "fd06e024cfe245a5fb72244e74c295f46b5dda4d62de9e24089441bc03b11e1b"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 5,
+            "rank_after_scope_filter": 5,
+            "epsilon": 0.0,
+            "distance": 2.847074558,
+            "function_hash": "675375c247f159c990cd94007cf47150653c6ce062161c512fdd07a6a3fe04c6",
+            "fingerprint_digest": "a2441d9bf1e5ec9ef614a6b97cca6213fb4af28b8781329744acb157b5e9ebb8",
+            "compatibility": "admitted",
+            "receipt_digest": "806101790433a44d2256ab473c78327105d67996a247b0621a6f8a98e25217ce"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 6,
+            "rank_after_scope_filter": 6,
+            "epsilon": 0.0,
+            "distance": 2.940832771,
+            "function_hash": "0cfdd7607db2c0cdce832a13da98a01d955341751b1f2a64e018b626497ea5ae",
+            "fingerprint_digest": "49cd03efbae404d316264fe45ff650db0114a648aa15c8d4e50a8defeb027bbc",
+            "compatibility": "excluded",
+            "receipt_digest": "d372b875a10415dcfe0c2f72fda28eacc2c6a4f5f5adc340c83a6a2dc3ae1afe"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 7,
+            "rank_after_scope_filter": 7,
+            "epsilon": 0.0,
+            "distance": 2.943660975,
+            "function_hash": "ad4092a55d0e704532b134250dbbc5c2f77fc0d363e62dd2701c839a575f1c27",
+            "fingerprint_digest": "1388646856b88f38c6ac330b836db540290c260078c3f21f05ae4fcdc8897389",
+            "compatibility": "excluded",
+            "receipt_digest": "2597f93a5fc76700b7f3a341a5a1bfccf158762da438f86f06ce64d805ce6c67"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 8,
+            "rank_after_scope_filter": 8,
+            "epsilon": 0.0,
+            "distance": 2.994456271,
+            "function_hash": "15b0954159b06f4408c7cce9fcdfa2f0b15f95f20373513e6ab6fea8348da9ac",
+            "fingerprint_digest": "f6d1e5e8e3f50dac6e8016a8618b4542d3fcf53361558e516a1a4bc3ca04d8c6",
+            "compatibility": "admitted",
+            "receipt_digest": "8e64f2fe87972b97ebd7d95b859184968095e7137d8645499dcd04148d5deabf"
+          }
+        ],
+        "scoped-ann-0.6": [
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 1,
+            "rank_after_scope_filter": 1,
+            "epsilon": 0.6,
+            "distance": 2.1620913,
+            "function_hash": "477fe784f90378e93762176794db737db23bd0b21c4b76faecdbe764c9e182a2",
+            "fingerprint_digest": "b374527acefdae504fd3fb3e6d04dd5c980bf4949c6a03302d26478d8ce1c848",
+            "compatibility": "excluded",
+            "receipt_digest": "82f14990306b53436224bad9edd760978eedefe357d42a4b6e174cc15640419c"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 2,
+            "rank_after_scope_filter": 2,
+            "epsilon": 0.6,
+            "distance": 2.477452881,
+            "function_hash": "da927247c97788c336fd735c6672e2d56b202f128eac002a6bc2f5f2ff3249d9",
+            "fingerprint_digest": "e79e52178113793d711d19e0c6eb4af5c9c171ab41458471f2940d23b9a59ff5",
+            "compatibility": "excluded",
+            "receipt_digest": "110e461e7b5d2e4ec71fd304f55cf46a3340c8724dd30657b56a3916c1ae09ad"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 3,
+            "rank_after_scope_filter": 3,
+            "epsilon": 0.6,
+            "distance": 2.548419076,
+            "function_hash": "bbae434979270f738bbabf25a3f3b3fdec2842a1d0d4168402ca9861f1dc2382",
+            "fingerprint_digest": "9493a1d65c6bb9560c0b87e0dadcebb8657e8287116d4805d2da094c78cd41b8",
+            "compatibility": "excluded",
+            "receipt_digest": "916668699af44ca5a3cf95c6e3337c4756409022007e12b767a8b9a58774c138"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 4,
+            "rank_after_scope_filter": 4,
+            "epsilon": 0.6,
+            "distance": 2.820730802,
+            "function_hash": "4e0e3cdc86a9c64eaf449f6bcf5d14b39083a4988be4ae94bf6e01a5dda8e44e",
+            "fingerprint_digest": "b9894f09359facc8753a08ca52f132856d1325cd8092842512e34b28219f22dc",
+            "compatibility": "excluded",
+            "receipt_digest": "fd06e024cfe245a5fb72244e74c295f46b5dda4d62de9e24089441bc03b11e1b"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 5,
+            "rank_after_scope_filter": 5,
+            "epsilon": 0.6,
+            "distance": 2.847074558,
+            "function_hash": "675375c247f159c990cd94007cf47150653c6ce062161c512fdd07a6a3fe04c6",
+            "fingerprint_digest": "a2441d9bf1e5ec9ef614a6b97cca6213fb4af28b8781329744acb157b5e9ebb8",
+            "compatibility": "admitted",
+            "receipt_digest": "806101790433a44d2256ab473c78327105d67996a247b0621a6f8a98e25217ce"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 6,
+            "rank_after_scope_filter": 6,
+            "epsilon": 0.6,
+            "distance": 2.940832771,
+            "function_hash": "0cfdd7607db2c0cdce832a13da98a01d955341751b1f2a64e018b626497ea5ae",
+            "fingerprint_digest": "49cd03efbae404d316264fe45ff650db0114a648aa15c8d4e50a8defeb027bbc",
+            "compatibility": "excluded",
+            "receipt_digest": "d372b875a10415dcfe0c2f72fda28eacc2c6a4f5f5adc340c83a6a2dc3ae1afe"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 7,
+            "rank_after_scope_filter": 7,
+            "epsilon": 0.6,
+            "distance": 2.943660975,
+            "function_hash": "ad4092a55d0e704532b134250dbbc5c2f77fc0d363e62dd2701c839a575f1c27",
+            "fingerprint_digest": "1388646856b88f38c6ac330b836db540290c260078c3f21f05ae4fcdc8897389",
+            "compatibility": "excluded",
+            "receipt_digest": "2597f93a5fc76700b7f3a341a5a1bfccf158762da438f86f06ce64d805ce6c67"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 8,
+            "rank_after_scope_filter": 8,
+            "epsilon": 0.6,
+            "distance": 2.994456271,
+            "function_hash": "15b0954159b06f4408c7cce9fcdfa2f0b15f95f20373513e6ab6fea8348da9ac",
+            "fingerprint_digest": "f6d1e5e8e3f50dac6e8016a8618b4542d3fcf53361558e516a1a4bc3ca04d8c6",
+            "compatibility": "admitted",
+            "receipt_digest": "8e64f2fe87972b97ebd7d95b859184968095e7137d8645499dcd04148d5deabf"
+          }
+        ],
+        "scoped-ann-1.5": [
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 1,
+            "rank_after_scope_filter": 1,
+            "epsilon": 1.5,
+            "distance": 2.1620913,
+            "function_hash": "477fe784f90378e93762176794db737db23bd0b21c4b76faecdbe764c9e182a2",
+            "fingerprint_digest": "b374527acefdae504fd3fb3e6d04dd5c980bf4949c6a03302d26478d8ce1c848",
+            "compatibility": "excluded",
+            "receipt_digest": "82f14990306b53436224bad9edd760978eedefe357d42a4b6e174cc15640419c"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 2,
+            "rank_after_scope_filter": 2,
+            "epsilon": 1.5,
+            "distance": 2.477452881,
+            "function_hash": "da927247c97788c336fd735c6672e2d56b202f128eac002a6bc2f5f2ff3249d9",
+            "fingerprint_digest": "e79e52178113793d711d19e0c6eb4af5c9c171ab41458471f2940d23b9a59ff5",
+            "compatibility": "excluded",
+            "receipt_digest": "110e461e7b5d2e4ec71fd304f55cf46a3340c8724dd30657b56a3916c1ae09ad"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 3,
+            "rank_after_scope_filter": 3,
+            "epsilon": 1.5,
+            "distance": 2.548419076,
+            "function_hash": "bbae434979270f738bbabf25a3f3b3fdec2842a1d0d4168402ca9861f1dc2382",
+            "fingerprint_digest": "9493a1d65c6bb9560c0b87e0dadcebb8657e8287116d4805d2da094c78cd41b8",
+            "compatibility": "excluded",
+            "receipt_digest": "916668699af44ca5a3cf95c6e3337c4756409022007e12b767a8b9a58774c138"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 4,
+            "rank_after_scope_filter": 4,
+            "epsilon": 1.5,
+            "distance": 2.820730802,
+            "function_hash": "4e0e3cdc86a9c64eaf449f6bcf5d14b39083a4988be4ae94bf6e01a5dda8e44e",
+            "fingerprint_digest": "b9894f09359facc8753a08ca52f132856d1325cd8092842512e34b28219f22dc",
+            "compatibility": "excluded",
+            "receipt_digest": "fd06e024cfe245a5fb72244e74c295f46b5dda4d62de9e24089441bc03b11e1b"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 5,
+            "rank_after_scope_filter": 5,
+            "epsilon": 1.5,
+            "distance": 2.847074558,
+            "function_hash": "675375c247f159c990cd94007cf47150653c6ce062161c512fdd07a6a3fe04c6",
+            "fingerprint_digest": "a2441d9bf1e5ec9ef614a6b97cca6213fb4af28b8781329744acb157b5e9ebb8",
+            "compatibility": "admitted",
+            "receipt_digest": "806101790433a44d2256ab473c78327105d67996a247b0621a6f8a98e25217ce"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 6,
+            "rank_after_scope_filter": 6,
+            "epsilon": 1.5,
+            "distance": 2.940832771,
+            "function_hash": "0cfdd7607db2c0cdce832a13da98a01d955341751b1f2a64e018b626497ea5ae",
+            "fingerprint_digest": "49cd03efbae404d316264fe45ff650db0114a648aa15c8d4e50a8defeb027bbc",
+            "compatibility": "excluded",
+            "receipt_digest": "d372b875a10415dcfe0c2f72fda28eacc2c6a4f5f5adc340c83a6a2dc3ae1afe"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 7,
+            "rank_after_scope_filter": 7,
+            "epsilon": 1.5,
+            "distance": 2.943660975,
+            "function_hash": "ad4092a55d0e704532b134250dbbc5c2f77fc0d363e62dd2701c839a575f1c27",
+            "fingerprint_digest": "1388646856b88f38c6ac330b836db540290c260078c3f21f05ae4fcdc8897389",
+            "compatibility": "excluded",
+            "receipt_digest": "2597f93a5fc76700b7f3a341a5a1bfccf158762da438f86f06ce64d805ce6c67"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 8,
+            "rank_after_scope_filter": 8,
+            "epsilon": 1.5,
+            "distance": 2.994456271,
+            "function_hash": "15b0954159b06f4408c7cce9fcdfa2f0b15f95f20373513e6ab6fea8348da9ac",
+            "fingerprint_digest": "f6d1e5e8e3f50dac6e8016a8618b4542d3fcf53361558e516a1a4bc3ca04d8c6",
+            "compatibility": "admitted",
+            "receipt_digest": "8e64f2fe87972b97ebd7d95b859184968095e7137d8645499dcd04148d5deabf"
+          }
+        ],
+        "global-exact-postfilter": [
+          {
+            "channel": "global-exact-postfilter",
+            "rank_from_index": 1,
+            "rank_after_scope_filter": 1,
+            "epsilon": 0.0,
+            "distance": 2.1620913,
+            "function_hash": "477fe784f90378e93762176794db737db23bd0b21c4b76faecdbe764c9e182a2",
+            "fingerprint_digest": "b374527acefdae504fd3fb3e6d04dd5c980bf4949c6a03302d26478d8ce1c848",
+            "compatibility": "excluded",
+            "receipt_digest": "82f14990306b53436224bad9edd760978eedefe357d42a4b6e174cc15640419c"
+          },
+          {
+            "channel": "global-exact-postfilter",
+            "rank_from_index": 5,
+            "rank_after_scope_filter": 2,
+            "epsilon": 0.0,
+            "distance": 2.477452881,
+            "function_hash": "da927247c97788c336fd735c6672e2d56b202f128eac002a6bc2f5f2ff3249d9",
+            "fingerprint_digest": "e79e52178113793d711d19e0c6eb4af5c9c171ab41458471f2940d23b9a59ff5",
+            "compatibility": "excluded",
+            "receipt_digest": "110e461e7b5d2e4ec71fd304f55cf46a3340c8724dd30657b56a3916c1ae09ad"
+          }
+        ]
+      }
+    },
+    "first_approximation_difference": {
+      "partition": [
+        "library-a",
+        "i32",
+        "pure"
+      ],
+      "query_id": 2,
+      "query_vector_digest": "ff8004227f2aa0068140b980f92fb988e5c4ecc23c2b2b9ae18824ab9a4550b8",
+      "rows": {
+        "scoped-exact": [
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 1,
+            "rank_after_scope_filter": 1,
+            "epsilon": 0.0,
+            "distance": 2.234432176,
+            "function_hash": "8751dfd4677a56d320078f758d2679b292624085c88bb71fa897684aa7d55a48",
+            "fingerprint_digest": "e439580cc252ca00785e90b66b1673461d7a409c1805903d2c506cb1caae8643",
+            "compatibility": "excluded",
+            "receipt_digest": "be00be31cdc1cd63d4f601b43f3c67c98bc6c8d94dd98a0edb5696376e667fe5"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 2,
+            "rank_after_scope_filter": 2,
+            "epsilon": 0.0,
+            "distance": 2.289815568,
+            "function_hash": "bd5d05b599ff35a9e93482c93560458ca89fb78c0d467e2421946bba2b6547a6",
+            "fingerprint_digest": "fc2f05c6840e96b271b75de5c971abea0842c9ef90cdefeafe4a2d1cc282c6f5",
+            "compatibility": "pending",
+            "receipt_digest": null
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 3,
+            "rank_after_scope_filter": 3,
+            "epsilon": 0.0,
+            "distance": 2.33498294,
+            "function_hash": "dfd030bbe8e2de07bcdbda4f3c5375280f33f802f04c957a4e7c616278d8633f",
+            "fingerprint_digest": "96d14a393d2e9a31be0a2043d68d4de03c088f6cf7bcab53633a6869a233ebaf",
+            "compatibility": "pending",
+            "receipt_digest": null
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 4,
+            "rank_after_scope_filter": 4,
+            "epsilon": 0.0,
+            "distance": 2.396489713,
+            "function_hash": "99c843ebab393c24f6761dcc4998928fe2c730ef41849b857ce28d13c9c55102",
+            "fingerprint_digest": "fb30bea99fbf55cdd3969240210fd4f612ad727f04d782756f7002330cdc5c41",
+            "compatibility": "excluded",
+            "receipt_digest": "31544a4f4a4df0abeef16ea6565c0923952709e6042fc1a0c5742a534f03a98d"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 5,
+            "rank_after_scope_filter": 5,
+            "epsilon": 0.0,
+            "distance": 2.449919686,
+            "function_hash": "c5be9fe7596d3221c7fb9fd39841c04a3add065da08814c1cff886dce951d446",
+            "fingerprint_digest": "8fbf0e8250bc38423f6b2a221f3d5b2efbd327d9923d5a010f7bd4304a5e5815",
+            "compatibility": "excluded",
+            "receipt_digest": "0bedb5520cdb8ec002753a632e8ebf51a2259e47d26e5089811e63a245928ad7"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 6,
+            "rank_after_scope_filter": 6,
+            "epsilon": 0.0,
+            "distance": 2.560435226,
+            "function_hash": "8ee4f0d0c2fc7bfb8b8b17e6207dd7123ae669167c2534d28c89a8d3f8ba63ef",
+            "fingerprint_digest": "e8a693c3ad55d03e213d9019e83cf20062ce2b9d365e4ebcd13763f423f629d1",
+            "compatibility": "excluded",
+            "receipt_digest": "28e1681bce1214dac8e5fc8434d517e300ce1dcbe4cadb1d36a15b6f116f62fe"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 7,
+            "rank_after_scope_filter": 7,
+            "epsilon": 0.0,
+            "distance": 2.577710553,
+            "function_hash": "ea029266c6db91971382fbeba0e105ead5fd7db79d935c8e45269ee46e413f73",
+            "fingerprint_digest": "ead3d5ac408be5b11c87020fc5ac2a4d49a438b1625f91f87e4b3d522f891243",
+            "compatibility": "excluded",
+            "receipt_digest": "00adefaad28664ad7f1b1428d4736a17e5312f9f94fa8e2e023bb64083dfeb90"
+          },
+          {
+            "channel": "scoped-exact",
+            "rank_from_index": 8,
+            "rank_after_scope_filter": 8,
+            "epsilon": 0.0,
+            "distance": 2.714622844,
+            "function_hash": "5a823e68a1b6d3d2729d456f17479688643558105116d097d547e36532d290d8",
+            "fingerprint_digest": "ae9f435cb18ec4d1fb2cc3c24372b6e385006cda969849bf2e9ec161a40d36ce",
+            "compatibility": "excluded",
+            "receipt_digest": "4f75e5f271c7e9b08e0ad7e7017128faae5bcdec61a1a1fe4ed2b120c966aa96"
+          }
+        ],
+        "scoped-ann-0.6": [
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 1,
+            "rank_after_scope_filter": 1,
+            "epsilon": 0.6,
+            "distance": 2.234432176,
+            "function_hash": "8751dfd4677a56d320078f758d2679b292624085c88bb71fa897684aa7d55a48",
+            "fingerprint_digest": "e439580cc252ca00785e90b66b1673461d7a409c1805903d2c506cb1caae8643",
+            "compatibility": "excluded",
+            "receipt_digest": "be00be31cdc1cd63d4f601b43f3c67c98bc6c8d94dd98a0edb5696376e667fe5"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 2,
+            "rank_after_scope_filter": 2,
+            "epsilon": 0.6,
+            "distance": 2.289815568,
+            "function_hash": "bd5d05b599ff35a9e93482c93560458ca89fb78c0d467e2421946bba2b6547a6",
+            "fingerprint_digest": "fc2f05c6840e96b271b75de5c971abea0842c9ef90cdefeafe4a2d1cc282c6f5",
+            "compatibility": "pending",
+            "receipt_digest": null
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 3,
+            "rank_after_scope_filter": 3,
+            "epsilon": 0.6,
+            "distance": 2.33498294,
+            "function_hash": "dfd030bbe8e2de07bcdbda4f3c5375280f33f802f04c957a4e7c616278d8633f",
+            "fingerprint_digest": "96d14a393d2e9a31be0a2043d68d4de03c088f6cf7bcab53633a6869a233ebaf",
+            "compatibility": "pending",
+            "receipt_digest": null
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 4,
+            "rank_after_scope_filter": 4,
+            "epsilon": 0.6,
+            "distance": 2.396489713,
+            "function_hash": "99c843ebab393c24f6761dcc4998928fe2c730ef41849b857ce28d13c9c55102",
+            "fingerprint_digest": "fb30bea99fbf55cdd3969240210fd4f612ad727f04d782756f7002330cdc5c41",
+            "compatibility": "excluded",
+            "receipt_digest": "31544a4f4a4df0abeef16ea6565c0923952709e6042fc1a0c5742a534f03a98d"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 5,
+            "rank_after_scope_filter": 5,
+            "epsilon": 0.6,
+            "distance": 2.449919686,
+            "function_hash": "c5be9fe7596d3221c7fb9fd39841c04a3add065da08814c1cff886dce951d446",
+            "fingerprint_digest": "8fbf0e8250bc38423f6b2a221f3d5b2efbd327d9923d5a010f7bd4304a5e5815",
+            "compatibility": "excluded",
+            "receipt_digest": "0bedb5520cdb8ec002753a632e8ebf51a2259e47d26e5089811e63a245928ad7"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 6,
+            "rank_after_scope_filter": 6,
+            "epsilon": 0.6,
+            "distance": 2.560435226,
+            "function_hash": "8ee4f0d0c2fc7bfb8b8b17e6207dd7123ae669167c2534d28c89a8d3f8ba63ef",
+            "fingerprint_digest": "e8a693c3ad55d03e213d9019e83cf20062ce2b9d365e4ebcd13763f423f629d1",
+            "compatibility": "excluded",
+            "receipt_digest": "28e1681bce1214dac8e5fc8434d517e300ce1dcbe4cadb1d36a15b6f116f62fe"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 7,
+            "rank_after_scope_filter": 7,
+            "epsilon": 0.6,
+            "distance": 2.577710553,
+            "function_hash": "ea029266c6db91971382fbeba0e105ead5fd7db79d935c8e45269ee46e413f73",
+            "fingerprint_digest": "ead3d5ac408be5b11c87020fc5ac2a4d49a438b1625f91f87e4b3d522f891243",
+            "compatibility": "excluded",
+            "receipt_digest": "00adefaad28664ad7f1b1428d4736a17e5312f9f94fa8e2e023bb64083dfeb90"
+          },
+          {
+            "channel": "scoped-ann-0.6",
+            "rank_from_index": 8,
+            "rank_after_scope_filter": 8,
+            "epsilon": 0.6,
+            "distance": 2.714622844,
+            "function_hash": "5a823e68a1b6d3d2729d456f17479688643558105116d097d547e36532d290d8",
+            "fingerprint_digest": "ae9f435cb18ec4d1fb2cc3c24372b6e385006cda969849bf2e9ec161a40d36ce",
+            "compatibility": "excluded",
+            "receipt_digest": "4f75e5f271c7e9b08e0ad7e7017128faae5bcdec61a1a1fe4ed2b120c966aa96"
+          }
+        ],
+        "scoped-ann-1.5": [
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 1,
+            "rank_after_scope_filter": 1,
+            "epsilon": 1.5,
+            "distance": 2.234432176,
+            "function_hash": "8751dfd4677a56d320078f758d2679b292624085c88bb71fa897684aa7d55a48",
+            "fingerprint_digest": "e439580cc252ca00785e90b66b1673461d7a409c1805903d2c506cb1caae8643",
+            "compatibility": "excluded",
+            "receipt_digest": "be00be31cdc1cd63d4f601b43f3c67c98bc6c8d94dd98a0edb5696376e667fe5"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 2,
+            "rank_after_scope_filter": 2,
+            "epsilon": 1.5,
+            "distance": 2.289815568,
+            "function_hash": "bd5d05b599ff35a9e93482c93560458ca89fb78c0d467e2421946bba2b6547a6",
+            "fingerprint_digest": "fc2f05c6840e96b271b75de5c971abea0842c9ef90cdefeafe4a2d1cc282c6f5",
+            "compatibility": "pending",
+            "receipt_digest": null
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 3,
+            "rank_after_scope_filter": 3,
+            "epsilon": 1.5,
+            "distance": 2.33498294,
+            "function_hash": "dfd030bbe8e2de07bcdbda4f3c5375280f33f802f04c957a4e7c616278d8633f",
+            "fingerprint_digest": "96d14a393d2e9a31be0a2043d68d4de03c088f6cf7bcab53633a6869a233ebaf",
+            "compatibility": "pending",
+            "receipt_digest": null
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 4,
+            "rank_after_scope_filter": 4,
+            "epsilon": 1.5,
+            "distance": 2.396489713,
+            "function_hash": "99c843ebab393c24f6761dcc4998928fe2c730ef41849b857ce28d13c9c55102",
+            "fingerprint_digest": "fb30bea99fbf55cdd3969240210fd4f612ad727f04d782756f7002330cdc5c41",
+            "compatibility": "excluded",
+            "receipt_digest": "31544a4f4a4df0abeef16ea6565c0923952709e6042fc1a0c5742a534f03a98d"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 5,
+            "rank_after_scope_filter": 5,
+            "epsilon": 1.5,
+            "distance": 2.449919686,
+            "function_hash": "c5be9fe7596d3221c7fb9fd39841c04a3add065da08814c1cff886dce951d446",
+            "fingerprint_digest": "8fbf0e8250bc38423f6b2a221f3d5b2efbd327d9923d5a010f7bd4304a5e5815",
+            "compatibility": "excluded",
+            "receipt_digest": "0bedb5520cdb8ec002753a632e8ebf51a2259e47d26e5089811e63a245928ad7"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 6,
+            "rank_after_scope_filter": 6,
+            "epsilon": 1.5,
+            "distance": 2.560435226,
+            "function_hash": "8ee4f0d0c2fc7bfb8b8b17e6207dd7123ae669167c2534d28c89a8d3f8ba63ef",
+            "fingerprint_digest": "e8a693c3ad55d03e213d9019e83cf20062ce2b9d365e4ebcd13763f423f629d1",
+            "compatibility": "excluded",
+            "receipt_digest": "28e1681bce1214dac8e5fc8434d517e300ce1dcbe4cadb1d36a15b6f116f62fe"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 7,
+            "rank_after_scope_filter": 7,
+            "epsilon": 1.5,
+            "distance": 2.714622844,
+            "function_hash": "5a823e68a1b6d3d2729d456f17479688643558105116d097d547e36532d290d8",
+            "fingerprint_digest": "ae9f435cb18ec4d1fb2cc3c24372b6e385006cda969849bf2e9ec161a40d36ce",
+            "compatibility": "excluded",
+            "receipt_digest": "4f75e5f271c7e9b08e0ad7e7017128faae5bcdec61a1a1fe4ed2b120c966aa96"
+          },
+          {
+            "channel": "scoped-ann-1.5",
+            "rank_from_index": 8,
+            "rank_after_scope_filter": 8,
+            "epsilon": 1.5,
+            "distance": 2.729995127,
+            "function_hash": "dcb1d8514ee219cf2fbc30f8f2d789d8d55cde6b3c61f2cfe45c884cc543e941",
+            "fingerprint_digest": "76e3c5afb356d5f8034797085992ac7f860687234c6196fe1f2831c7d29c5cc7",
+            "compatibility": "excluded",
+            "receipt_digest": "b58ea14da03f01f4de93cf42b769b33037f7ad3f13436953819384c2920e72ff"
+          }
+        ],
+        "global-exact-postfilter": []
+      }
+    }
+  }
+}

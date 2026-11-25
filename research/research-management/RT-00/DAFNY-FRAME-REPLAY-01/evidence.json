@@ -1,0 +1,84 @@
+{
+  "archive_matched_binaries_sha256": {
+    "dafny": "e540b4826363afb87c326446239a682d45086905425fa6299c103eca9693846d",
+    "z3/bin/z3-4.12.1": "22214e518eed9eec867d18b485e7b2570d09cbf1d94a47c8eec6ec4de0287eff",
+    "z3/bin/z3-4.14.1": "5a4f295b2e64abd2e2463a321d33f8054585083230203a55fa57982a1843d559"
+  },
+  "explicit_assumption_findings": 2,
+  "gcc_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+  "history_checks": {
+    "native_executions": 1920,
+    "native_optimization_profiles": [
+      "O0",
+      "O2"
+    ],
+    "rank_oracle_comparisons": 960,
+    "unique_history_rows": 480
+  },
+  "host": {
+    "kernel": "6.18.57",
+    "libc": "glibc 2.41",
+    "machine": "x86_64"
+  },
+  "inputs_sha256": {
+    "FrameControls.dfy": "efca769124d321736a378ff9371ae04d1ac18bffc63691a896305884f8666db2",
+    "Frames.dfy": "fb26d98d0844c3669294ba23aaf7e7ebbf2513104fe3dca94717e56cc681251d",
+    "counter.c": "04dde4bded1b181b31b737ff2cfa9a7df662801735c8842f67acd781161c7440",
+    "run.py": "09525a16b17ebbc9831953c4c850f4ee7b5429737b4e1f0e7fdea60b2dc968d9"
+  },
+  "ledger_sha256": "e96589442104e0debab3e9c7576b73b563742bf69190c279453088bf29d81fa5",
+  "proofs": {
+    "4.12.1": {
+      "controls": {
+        "errors": 4,
+        "exit": 4,
+        "verified": 1
+      },
+      "diagnostics": {
+        "AssumedFunctionRead": "reads",
+        "DefaultReadFrame": "reads",
+        "DistinctButShared": "modifies",
+        "SharedRead": "reads"
+      },
+      "positive": {
+        "errors": 0,
+        "exit": 0,
+        "verified": 9
+      }
+    },
+    "4.14.1": {
+      "controls": {
+        "errors": 4,
+        "exit": 4,
+        "verified": 1
+      },
+      "diagnostics": {
+        "AssumedFunctionRead": "reads",
+        "DefaultReadFrame": "reads",
+        "DistinctButShared": "modifies",
+        "SharedRead": "reads"
+      },
+      "positive": {
+        "errors": 0,
+        "exit": 0,
+        "verified": 9
+      }
+    }
+  },
+  "python": "3.12.14",
+  "report_tables": {
+    "checked_rows": 10,
+    "sha256": "0d239e3bf852804ff0b0527b49be83ef3b2376477951beea87d6593f0c6b46e5"
+  },
+  "revision": "32bf8da9b5b5e9794abd6077e4d253ba1c2be3a5",
+  "tools": {
+    "dafny": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "python": "3.12.14",
+    "z3": {
+      "4.12.1": "Z3 version 4.12.1 - 64 bit",
+      "4.14.1": "Z3 version 4.14.1 - 64 bit"
+    }
+  },
+  "upstream_release_sha256": "a46a9ff7cdd720f7955854c78e95df13f4cfe6b80691b05f8654fe19e8267179"
+}

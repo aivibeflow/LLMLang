@@ -1,0 +1,102 @@
+{
+  "schema": "llmlang-scc-scheduling/1",
+  "python": "3.12.14",
+  "archived_revision": "c3e6060d7397074544020fed78ae5597d697a0bc",
+  "components_source_sha256": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556",
+  "edge_order": [
+    [
+      "a",
+      "a"
+    ],
+    [
+      "a",
+      "b"
+    ],
+    [
+      "a",
+      "c"
+    ],
+    [
+      "b",
+      "a"
+    ],
+    [
+      "b",
+      "b"
+    ],
+    [
+      "b",
+      "c"
+    ],
+    [
+      "c",
+      "a"
+    ],
+    [
+      "c",
+      "b"
+    ],
+    [
+      "c",
+      "c"
+    ]
+  ],
+  "sources_sha256": {
+    "run.py": "5b7ea69e87859558e4a8dca5402ac22e59e0656662184ecdcab27e1786a1bae3",
+    "Closure.lean": "e1d443d448c20fac58005282aa1a360583caf0b85a714fceee0a2d403786a414",
+    "axioms.txt": "41cf382a0b10c1e96feb04b7d59c2b5edf7824e3d3379a20c9fe4c7770c28d37"
+  },
+  "counts": {
+    "graph_partitions": 512,
+    "fixed_point_comparisons": 4096,
+    "directed_graph_edits": 4608,
+    "changed_partitions": 1440,
+    "edited_fixed_point_comparisons": 36864,
+    "old_plan_requires_reschedule": 7488,
+    "old_plan_false_results_if_missing_inputs_are_empty": 4448
+  },
+  "witnesses": {
+    "stale_schedule_loses_dependency": {
+      "old_mask": 0,
+      "new_mask": 2,
+      "edited_edge": [
+        "a",
+        "b"
+      ],
+      "facts_seed": 2,
+      "old_order": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ],
+        [
+          "c"
+        ]
+      ],
+      "new_order": [
+        [
+          "b"
+        ],
+        [
+          "c"
+        ],
+        [
+          "a"
+        ]
+      ],
+      "incorrect": {
+        "a": 0,
+        "b": 2,
+        "c": 0
+      },
+      "expected": {
+        "a": 2,
+        "b": 2,
+        "c": 0
+      }
+    }
+  },
+  "ordered_rows_sha256": "da87bcb679bb386e0eec5bb2b277ec9be19a64d8c1273d229884acf0713373cd"
+}

@@ -1,0 +1,108 @@
+{
+  "cases": {
+    "merge": {
+      "entities": {
+        "merged": "4ab4f7940a474ab48871788071f28dfd82fc076a6ad411764195bc655cdaabda"
+      },
+      "lineage": [
+        [
+          "shared",
+          "merged"
+        ],
+        [
+          "second",
+          "merged"
+        ]
+      ],
+      "results": {
+        "accepted": 1,
+        "incomplete-callers": 2,
+        "invalid-lineage": 4,
+        "missing-rebind-evidence": 1,
+        "unbound-snapshot": 8
+      },
+      "snapshot": "1b5d17598bc40ab7b272fd6066782509e6202207a29a0269fe07c529069f05d6"
+    },
+    "rename-display": {
+      "entities": {
+        "second": "16ebf14060ac0468d83d7667560eda1ba4b2cb85df396e7c0789297d8c2242f8",
+        "shared": "08a4cf37bd3128e6f09d86f5a590c3fe5c39317c5264dd542e02fc41fa95028d"
+      },
+      "lineage": [
+        [
+          "shared",
+          "shared"
+        ]
+      ],
+      "results": {
+        "accepted": 2,
+        "incomplete-callers": 16,
+        "invalid-lineage": 32,
+        "unauthorized-route": 14,
+        "unbound-snapshot": 64
+      },
+      "snapshot": "bedcc68bac446cd1ac71f2bde44f9334185bc69ac7969a613a0dcb6a52c5f6df"
+    },
+    "rename-public": {
+      "entities": {
+        "second": "16ebf14060ac0468d83d7667560eda1ba4b2cb85df396e7c0789297d8c2242f8",
+        "shared": "c5f64ee53f149fe2f4d353f79baea19163feee148ff858f5a6b6dd0f7a863e71"
+      },
+      "lineage": [
+        [
+          "shared",
+          "shared"
+        ]
+      ],
+      "results": {
+        "accepted": 1,
+        "incomplete-callers": 16,
+        "invalid-lineage": 32,
+        "missing-rebind-evidence": 1,
+        "unauthorized-route": 14,
+        "unbound-snapshot": 64
+      },
+      "snapshot": "34c3cf42514da9ae6ec4ab5dfff18102543fce2b091c91c4369ccc33a8baba45"
+    },
+    "split": {
+      "entities": {
+        "left": "8bec54921d652d402d0ffdb3d520c099cb4a328260cfbfb8f43a25bbbdebc950",
+        "right": "592158b848b46aefd8069f0cf4b9bcdf0307bf17a88ee18997fd2471e9d99f08",
+        "second": "16ebf14060ac0468d83d7667560eda1ba4b2cb85df396e7c0789297d8c2242f8"
+      },
+      "lineage": [
+        [
+          "shared",
+          "left"
+        ],
+        [
+          "shared",
+          "right"
+        ]
+      ],
+      "results": {
+        "accepted": 1,
+        "incomplete-callers": 54,
+        "invalid-lineage": 108,
+        "missing-rebind-evidence": 1,
+        "unauthorized-route": 52,
+        "unbound-snapshot": 216
+      },
+      "snapshot": "9dbffd3feba8cce10e6485cd27bb0e6bb342e9716375e54feb12f4feb3c632b6"
+    }
+  },
+  "equal_content_different_stable_id": "invalid-lineage",
+  "original_snapshot": "007a10e074d64b1f313b2be727e374faf8a3d1c2a6249fbe530ea915312982be",
+  "outcomes": {
+    "accepted": 5,
+    "incomplete-callers": 88,
+    "invalid-lineage": 176,
+    "missing-rebind-evidence": 3,
+    "unauthorized-route": 80,
+    "unbound-snapshot": 352
+  },
+  "python": "3.12.14",
+  "single_caller_receipt_in_split": "missing-rebind-evidence",
+  "source_sha256": "633e15b126d79aefe8cc5491d915c9a0040fa0a1bbd0ea9e99eef1d82256e86f",
+  "total": 704
+}

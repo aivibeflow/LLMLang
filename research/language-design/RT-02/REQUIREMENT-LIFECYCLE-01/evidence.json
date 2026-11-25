@@ -1,0 +1,117 @@
+{
+  "schema": "llmlang-rt02-artifact-lifecycle/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "research/language-design/RT-02/REQUIREMENT-LIFECYCLE-01/run.py": "8bd123163cb80df2e7e7c75e54d8d8899b49db4bb203a92b5fdb43e966f34cda",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_evolution.py": "05d5581ea0e4df4cc9890d6e09355681f424a233f3f5b73cdb1dcf53b50a5198",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "base_review_package": "d6700106e512f4efde4168891783f8eae866a644a43924d123935423968c3ed7",
+  "base_verification": "3fadca7e1eca951b3445fab4b648a1edbb4b67a330588a8ac181d338b7c4fb17",
+  "cases": {
+    "unchanged": {
+      "semantic_only_approval": true,
+      "exact_approval": true,
+      "exact_package_reuse": true,
+      "execution_receipt_applicable": true,
+      "both_bindings_match": true,
+      "accepted_record": "b62bc8db626e94029fa74736fe90a9f1d46d7e3d63b37322bc9f8948bb12d558"
+    },
+    "presentation_only": {
+      "semantic_only_approval": true,
+      "exact_approval": false,
+      "exact_package_reuse": false,
+      "execution_receipt_applicable": true,
+      "both_bindings_match": false,
+      "accepted_record": null
+    },
+    "provenance_only": {
+      "semantic_only_approval": true,
+      "exact_approval": false,
+      "exact_package_reuse": false,
+      "execution_receipt_applicable": true,
+      "both_bindings_match": false,
+      "accepted_record": null
+    },
+    "new_deadline": {
+      "semantic_only_approval": false,
+      "exact_approval": false,
+      "exact_package_reuse": false,
+      "execution_receipt_applicable": false,
+      "both_bindings_match": false,
+      "accepted_record": null
+    },
+    "implementation_only": {
+      "semantic_only_approval": true,
+      "exact_approval": true,
+      "exact_package_reuse": false,
+      "execution_receipt_applicable": false,
+      "both_bindings_match": false,
+      "accepted_record": "b62bc8db626e94029fa74736fe90a9f1d46d7e3d63b37322bc9f8948bb12d558"
+    },
+    "tests_only": {
+      "semantic_only_approval": true,
+      "exact_approval": true,
+      "exact_package_reuse": false,
+      "execution_receipt_applicable": false,
+      "both_bindings_match": false,
+      "accepted_record": "b62bc8db626e94029fa74736fe90a9f1d46d7e3d63b37322bc9f8948bb12d558"
+    },
+    "analysis_unknown_with_exact_approval": {
+      "semantic_only_approval": false,
+      "exact_approval": false,
+      "exact_package_reuse": false,
+      "execution_receipt_applicable": true,
+      "both_bindings_match": false,
+      "accepted_record": null
+    },
+    "incomplete_provenance_with_exact_approval": {
+      "semantic_only_approval": false,
+      "exact_approval": false,
+      "exact_package_reuse": false,
+      "execution_receipt_applicable": true,
+      "both_bindings_match": false,
+      "accepted_record": null
+    },
+    "revise": {
+      "semantic_only_approval": false,
+      "exact_approval": false,
+      "exact_package_reuse": true,
+      "execution_receipt_applicable": true,
+      "both_bindings_match": false,
+      "accepted_record": null
+    },
+    "clarify": {
+      "semantic_only_approval": false,
+      "exact_approval": false,
+      "exact_package_reuse": true,
+      "execution_receipt_applicable": true,
+      "both_bindings_match": false,
+      "accepted_record": null
+    },
+    "reject": {
+      "semantic_only_approval": false,
+      "exact_approval": false,
+      "exact_package_reuse": true,
+      "execution_receipt_applicable": true,
+      "both_bindings_match": false,
+      "accepted_record": null
+    },
+    "proposal_agent_accept": {
+      "semantic_only_approval": false,
+      "exact_approval": false,
+      "exact_package_reuse": true,
+      "execution_receipt_applicable": true,
+      "both_bindings_match": false,
+      "accepted_record": null
+    }
+  },
+  "rejected_chain_controls": {
+    "dangling_formal": "missing or ill-typed parent for explanation",
+    "wrong_artifact_kind": "missing or ill-typed parent for approval",
+    "mixed_formal_versions": "package mixes formal versions",
+    "mixed_requirement_versions": "package mixes requirement versions",
+    "stale_review": "accepted record requires exact authorized approval",
+    "mixed_component_versions": "verification mixes component versions"
+  }
+}

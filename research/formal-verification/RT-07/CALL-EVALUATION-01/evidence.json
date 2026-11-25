@@ -1,0 +1,130 @@
+{
+  "schema": "llmlang-call-evaluation/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "1fd23ea449531bdf328517cf5c95ed94ede05dc04a4591fd384833fabef09418",
+    "call.cc": "2f2b742144e58b8ce9ea1fb92b7b011d3b2a6a022e836e408c7eb7b84b12539f",
+    "call.rs": "af5a3615c2223e20ed335d2482403733e267b94d205457b23c8b3dc230bca0a0",
+    "Order.lean": "e18120e21f1500c789597089ca2b25408d156f689668e8c48d80a774a1089b78",
+    "axioms.txt": "d4b0c83f789d0c8003418ee033d04d37a4907b5b21f3f7a6d91a1e37c9f3fa0e"
+  },
+  "cases": 128,
+  "counts": {
+    "distinct_full_observation": 64,
+    "distinct_terminal_and_cell": 44,
+    "distinct_trace_only": 20,
+    "distinct_failure_stage": 16
+  },
+  "witnesses": {
+    "trace_only": [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "return",
+        0,
+        0,
+        0,
+        4,
+        8,
+        12
+      ],
+      [
+        "return",
+        0,
+        0,
+        0,
+        8,
+        4,
+        12
+      ]
+    ],
+    "failure_stage": [
+      [
+        0,
+        0,
+        2,
+        2
+      ],
+      [
+        "error",
+        1,
+        1,
+        0,
+        5
+      ],
+      [
+        "error",
+        2,
+        1,
+        0,
+        9
+      ]
+    ]
+  },
+  "native": {
+    "rust-O0": {
+      "version": "rustc 1.85.1 (4eb161250 2025-03-15)",
+      "rows": 128,
+      "matches": {
+        "matches_both": 64,
+        "left_only": 64,
+        "right_only": 0
+      },
+      "stdout_sha256": "69800557081ec622ed3ea0257d97d4fec633934213de97e508c139b623b45ed3"
+    },
+    "rust-O2": {
+      "version": "rustc 1.85.1 (4eb161250 2025-03-15)",
+      "rows": 128,
+      "matches": {
+        "matches_both": 64,
+        "left_only": 64,
+        "right_only": 0
+      },
+      "stdout_sha256": "69800557081ec622ed3ea0257d97d4fec633934213de97e508c139b623b45ed3"
+    },
+    "gcc-O0": {
+      "version": "g++ (Debian 14.2.0-19) 14.2.0",
+      "rows": 128,
+      "matches": {
+        "matches_both": 64,
+        "left_only": 0,
+        "right_only": 64
+      },
+      "stdout_sha256": "cf75154d166166c21bdf915cdbe50b355b3ba01ff087f43dc6d242d5f9735f47"
+    },
+    "gcc-O2": {
+      "version": "g++ (Debian 14.2.0-19) 14.2.0",
+      "rows": 128,
+      "matches": {
+        "matches_both": 64,
+        "left_only": 0,
+        "right_only": 64
+      },
+      "stdout_sha256": "cf75154d166166c21bdf915cdbe50b355b3ba01ff087f43dc6d242d5f9735f47"
+    },
+    "clang-O0": {
+      "version": "Debian clang version 19.1.7 (3+b1)",
+      "rows": 128,
+      "matches": {
+        "matches_both": 64,
+        "left_only": 64,
+        "right_only": 0
+      },
+      "stdout_sha256": "69800557081ec622ed3ea0257d97d4fec633934213de97e508c139b623b45ed3"
+    },
+    "clang-O2": {
+      "version": "Debian clang version 19.1.7 (3+b1)",
+      "rows": 128,
+      "matches": {
+        "matches_both": 64,
+        "left_only": 64,
+        "right_only": 0
+      },
+      "stdout_sha256": "69800557081ec622ed3ea0257d97d4fec633934213de97e508c139b623b45ed3"
+    }
+  }
+}

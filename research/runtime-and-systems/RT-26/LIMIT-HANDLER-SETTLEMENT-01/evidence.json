@@ -1,0 +1,2362 @@
+{
+  "baseline": "2bf61c4bc5aafa02e8489292da27ed1ff424e825",
+  "python": "3.12.14",
+  "runner_sha256": "277aa91d94d73c485c5f0d5d47b3dc15228eba1e8e0690fc494e5ec6da050f55",
+  "unit": "reservation tokens",
+  "examples": {
+    "resume": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "peer-uses-headroom": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 7,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 9,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 11,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 7,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "hard-limit",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 7,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "hard-limit"
+        },
+        "retry": {
+          "outcome": "hard-limit",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 7,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 7,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "hard-limit",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 7,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "hard-limit"
+        },
+        "retry": {
+          "outcome": "hard-limit",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 7,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "hard-limit-reconfigured": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 2,
+          "soft": 4,
+          "hard": 5,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 5,
+            "held": 6,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 5,
+            "held": 8,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 2,
+          "soft": 4,
+          "hard": 5,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "hard-limit",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 5,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "hard-limit"
+        },
+        "retry": {
+          "outcome": "hard-limit",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 5,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 2,
+          "soft": 4,
+          "hard": 5,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "stale-event",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 5,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "stale-event"
+        },
+        "retry": {
+          "outcome": "stale-event",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 5,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "same-cap-generation-change": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 2,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 2,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 2,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "stale-event",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "stale-event"
+        },
+        "retry": {
+          "outcome": "stale-event",
+          "state": {
+            "scope": "task-A",
+            "generation": 2,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "different-task-same-limit": {
+      "override": {
+        "before": {
+          "scope": "task-B",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-B",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-B",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-B",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-B",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-B",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-B",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "stale-event",
+          "state": {
+            "scope": "task-B",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "stale-event"
+        },
+        "retry": {
+          "outcome": "stale-event",
+          "state": {
+            "scope": "task-B",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "live-cancellation": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": true
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": true
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": true
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": true
+        },
+        "initial": {
+          "outcome": "scope-cancelled",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": true
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "scope-cancelled"
+        },
+        "retry": {
+          "outcome": "scope-cancelled",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": true
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": true
+        },
+        "initial": {
+          "outcome": "scope-cancelled",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": true
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "scope-cancelled"
+        },
+        "retry": {
+          "outcome": "scope-cancelled",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": true
+          },
+          "replayed": true
+        }
+      }
+    },
+    "bounded-degrade": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 7,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "degrade",
+            "units": 1,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 9,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 7,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "degrade",
+            "units": 1,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "hard-limit",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 7,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "degrade",
+            "units": 1,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "reserved"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 8,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "invalid-degrade": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "invalid-degrade",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "degrade",
+            "units": 2,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "invalid-degrade"
+        },
+        "retry": {
+          "outcome": "invalid-degrade",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "invalid-degrade",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "degrade",
+            "units": 2,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "invalid-degrade"
+        },
+        "retry": {
+          "outcome": "invalid-degrade",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "invalid-degrade",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "degrade",
+            "units": 2,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "invalid-degrade"
+        },
+        "retry": {
+          "outcome": "invalid-degrade",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "pause-then-different-decision": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "pause",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "pause",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "pause"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "pause",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "pause",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "pause"
+        },
+        "retry": {
+          "outcome": "reserved",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 6,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "pause",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "pause",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "pause"
+        },
+        "retry": {
+          "outcome": "decision-mismatch",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      }
+    },
+    "cancel-retains-held-units": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "cancelled",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": true
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "cancel",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "cancelled"
+        },
+        "retry": {
+          "outcome": "cancelled",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": true
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "cancelled",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": true
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "cancel",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "cancelled"
+        },
+        "retry": {
+          "outcome": "cancelled",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": true
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "cancelled",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": true
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "cancel",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "cancelled"
+        },
+        "retry": {
+          "outcome": "cancelled",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": true
+          },
+          "replayed": true
+        }
+      }
+    },
+    "escalate": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "escalate",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "escalate",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "escalate"
+        },
+        "retry": {
+          "outcome": "escalate",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "escalate",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "escalate",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "escalate"
+        },
+        "retry": {
+          "outcome": "escalate",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "escalate",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "escalate",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "escalate"
+        },
+        "retry": {
+          "outcome": "escalate",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "handler-fails": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "handler-failure",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "fail",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "handler-failure"
+        },
+        "retry": {
+          "outcome": "handler-failure",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "handler-failure",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "fail",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "handler-failure"
+        },
+        "retry": {
+          "outcome": "handler-failure",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "handler-failure",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "fail",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 1
+          },
+          "outcome": "handler-failure"
+        },
+        "retry": {
+          "outcome": "handler-failure",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "handler-misses-deadline": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "deadline",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 4
+          },
+          "outcome": "deadline"
+        },
+        "retry": {
+          "outcome": "deadline",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "deadline",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 4
+          },
+          "outcome": "deadline"
+        },
+        "retry": {
+          "outcome": "deadline",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "deadline",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 1,
+            "tick": 4
+          },
+          "outcome": "deadline"
+        },
+        "retry": {
+          "outcome": "deadline",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "handler-exhausts-own-budget": {
+      "override": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "handler-budget",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 3,
+            "tick": 1
+          },
+          "outcome": "handler-budget"
+        },
+        "retry": {
+          "outcome": "handler-budget",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "fresh-hard-check": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "handler-budget",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 3,
+            "tick": 1
+          },
+          "outcome": "handler-budget"
+        },
+        "retry": {
+          "outcome": "handler-budget",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": false
+        }
+      },
+      "exact-once": {
+        "before": {
+          "scope": "task-A",
+          "generation": 1,
+          "soft": 4,
+          "hard": 8,
+          "held": 4,
+          "cancelled": false
+        },
+        "initial": {
+          "outcome": "handler-budget",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          }
+        },
+        "receipt": {
+          "event": {
+            "event_id": 1,
+            "scope": "task-A",
+            "generation": 1,
+            "requested": 2,
+            "observed_held": 4,
+            "soft": 4,
+            "hard": 8,
+            "deadline": 3
+          },
+          "proposal": {
+            "action": "resume",
+            "units": 0,
+            "handler_steps": 3,
+            "tick": 1
+          },
+          "outcome": "handler-budget"
+        },
+        "retry": {
+          "outcome": "handler-budget",
+          "state": {
+            "scope": "task-A",
+            "generation": 1,
+            "soft": 4,
+            "hard": 8,
+            "held": 4,
+            "cancelled": false
+          },
+          "replayed": true
+        }
+      }
+    },
+    "distinct-identical-looking-events": {
+      "event": {
+        "event_id": 2,
+        "scope": "task-A",
+        "generation": 1,
+        "requested": 2,
+        "observed_held": 4,
+        "soft": 4,
+        "hard": 8,
+        "deadline": 3
+      },
+      "supplied_other_event_receipt": {
+        "event": {
+          "event_id": 1,
+          "scope": "task-A",
+          "generation": 1,
+          "requested": 2,
+          "observed_held": 4,
+          "soft": 4,
+          "hard": 8,
+          "deadline": 3
+        },
+        "proposal": {
+          "action": "resume",
+          "units": 0,
+          "handler_steps": 1,
+          "tick": 1
+        },
+        "outcome": "reserved"
+      },
+      "wrong_receipt": {
+        "held": 6,
+        "outcome": "decision-mismatch"
+      },
+      "no_prior_receipt": {
+        "held": 8,
+        "outcome": "reserved"
+      }
+    }
+  },
+  "counts": {
+    "override": {
+      "over_hard": 58,
+      "cancelled_reservation": 42,
+      "duplicate_reservation": 42
+    },
+    "fresh-hard-check": {
+      "over_hard": 0,
+      "cancelled_reservation": 0,
+      "duplicate_reservation": 3
+    },
+    "exact-once": {
+      "over_hard": 0,
+      "cancelled_reservation": 0,
+      "duplicate_reservation": 0
+    }
+  },
+  "finite_cases": [
+    {"hard": 4, "held": 4, "cancelled": false, "repeated": false, "policies": {"override": {"held": 6, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 4, "held": 4, "cancelled": false, "repeated": true, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 4, "held": 4, "cancelled": true, "repeated": false, "policies": {"override": {"held": 6, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 4, "held": 4, "cancelled": true, "repeated": true, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 5, "held": 4, "cancelled": false, "repeated": false, "policies": {"override": {"held": 6, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 5, "held": 4, "cancelled": false, "repeated": true, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 5, "held": 4, "cancelled": true, "repeated": false, "policies": {"override": {"held": 6, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 5, "held": 4, "cancelled": true, "repeated": true, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 5, "held": 5, "cancelled": false, "repeated": false, "policies": {"override": {"held": 7, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 5, "held": 5, "cancelled": false, "repeated": true, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 5, "held": 5, "cancelled": true, "repeated": false, "policies": {"override": {"held": 7, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 5, "held": 5, "cancelled": true, "repeated": true, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 4, "cancelled": false, "repeated": false, "policies": {"override": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 4, "cancelled": false, "repeated": true, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 4, "cancelled": true, "repeated": false, "policies": {"override": {"held": 6, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 4, "cancelled": true, "repeated": true, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 5, "cancelled": false, "repeated": false, "policies": {"override": {"held": 7, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 5, "cancelled": false, "repeated": true, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 5, "cancelled": true, "repeated": false, "policies": {"override": {"held": 7, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 5, "cancelled": true, "repeated": true, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 6, "cancelled": false, "repeated": false, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 6, "cancelled": false, "repeated": true, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 6, "cancelled": true, "repeated": false, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 6, "held": 6, "cancelled": true, "repeated": true, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 4, "cancelled": false, "repeated": false, "policies": {"override": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 4, "cancelled": false, "repeated": true, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 4, "cancelled": true, "repeated": false, "policies": {"override": {"held": 6, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 4, "cancelled": true, "repeated": true, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 5, "cancelled": false, "repeated": false, "policies": {"override": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 5, "cancelled": false, "repeated": true, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 5, "cancelled": true, "repeated": false, "policies": {"override": {"held": 7, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 5, "cancelled": true, "repeated": true, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 6, "cancelled": false, "repeated": false, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 6, "cancelled": false, "repeated": true, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 6, "cancelled": true, "repeated": false, "policies": {"override": {"held": 8, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 6, "cancelled": true, "repeated": true, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 7, "cancelled": false, "repeated": false, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 7, "cancelled": false, "repeated": true, "policies": {"override": {"held": 11, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 7, "cancelled": true, "repeated": false, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 7, "held": 7, "cancelled": true, "repeated": true, "policies": {"override": {"held": 11, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 4, "cancelled": false, "repeated": false, "policies": {"override": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 4, "cancelled": false, "repeated": true, "policies": {"override": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": true}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 4, "cancelled": true, "repeated": false, "policies": {"override": {"held": 6, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 4, "cancelled": true, "repeated": true, "policies": {"override": {"held": 8, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 5, "cancelled": false, "repeated": false, "policies": {"override": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 5, "cancelled": false, "repeated": true, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 5, "cancelled": true, "repeated": false, "policies": {"override": {"held": 7, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 5, "cancelled": true, "repeated": true, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 6, "cancelled": false, "repeated": false, "policies": {"override": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 6, "cancelled": false, "repeated": true, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 6, "cancelled": true, "repeated": false, "policies": {"override": {"held": 8, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 6, "cancelled": true, "repeated": true, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 7, "cancelled": false, "repeated": false, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 7, "cancelled": false, "repeated": true, "policies": {"override": {"held": 11, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 7, "cancelled": true, "repeated": false, "policies": {"override": {"held": 9, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 7, "cancelled": true, "repeated": true, "policies": {"override": {"held": 11, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 8, "cancelled": false, "repeated": false, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 8, "cancelled": false, "repeated": true, "policies": {"override": {"held": 12, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 8, "cancelled": true, "repeated": false, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 8, "held": 8, "cancelled": true, "repeated": true, "policies": {"override": {"held": 12, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 4, "cancelled": false, "repeated": false, "policies": {"override": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 4, "cancelled": false, "repeated": true, "policies": {"override": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": true}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 4, "cancelled": true, "repeated": false, "policies": {"override": {"held": 6, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 4, "cancelled": true, "repeated": true, "policies": {"override": {"held": 8, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 4, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 5, "cancelled": false, "repeated": false, "policies": {"override": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 5, "cancelled": false, "repeated": true, "policies": {"override": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": true}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 5, "cancelled": true, "repeated": false, "policies": {"override": {"held": 7, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 5, "cancelled": true, "repeated": true, "policies": {"override": {"held": 9, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 5, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 6, "cancelled": false, "repeated": false, "policies": {"override": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 6, "cancelled": false, "repeated": true, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 6, "cancelled": true, "repeated": false, "policies": {"override": {"held": 8, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 6, "cancelled": true, "repeated": true, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 6, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 7, "cancelled": false, "repeated": false, "policies": {"override": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 7, "cancelled": false, "repeated": true, "policies": {"override": {"held": 11, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 7, "cancelled": true, "repeated": false, "policies": {"override": {"held": 9, "over_hard": false, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 7, "cancelled": true, "repeated": true, "policies": {"override": {"held": 11, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 7, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 8, "cancelled": false, "repeated": false, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 8, "cancelled": false, "repeated": true, "policies": {"override": {"held": 12, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 8, "cancelled": true, "repeated": false, "policies": {"override": {"held": 10, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 8, "cancelled": true, "repeated": true, "policies": {"override": {"held": 12, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 8, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 9, "cancelled": false, "repeated": false, "policies": {"override": {"held": 11, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": false}, "fresh-hard-check": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 9, "cancelled": false, "repeated": true, "policies": {"override": {"held": 13, "over_hard": true, "cancelled_reservation": false, "duplicate_reservation": true}, "fresh-hard-check": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 9, "cancelled": true, "repeated": false, "policies": {"override": {"held": 11, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": false}, "fresh-hard-check": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}},
+    {"hard": 9, "held": 9, "cancelled": true, "repeated": true, "policies": {"override": {"held": 13, "over_hard": true, "cancelled_reservation": true, "duplicate_reservation": true}, "fresh-hard-check": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}, "exact-once": {"held": 9, "over_hard": false, "cancelled_reservation": false, "duplicate_reservation": false}}}
+  ]
+}

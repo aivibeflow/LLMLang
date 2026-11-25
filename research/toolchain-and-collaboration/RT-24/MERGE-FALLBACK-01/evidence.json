@@ -1,0 +1,99 @@
+{
+  "baseline": "5324a4882175d5fe652a7417403d1a106ce195c9",
+  "cases": [
+    {
+      "candidate_eligible": false,
+      "edit_scope": "same-file",
+      "git_exit": 0,
+      "input_commits": [
+        "131f41d06a33fab8d2f05b8b78bc1cec1b2e5756",
+        "25c5f386ebb8a68370359d01febabf3fa5a2ccc1",
+        "158699fbb27f62d3b898eda14961780440a28e8f"
+      ],
+      "policy": "unconfigured-custom",
+      "stages": [],
+      "whole_tree_check": "capacity-exceeded"
+    },
+    {
+      "candidate_eligible": false,
+      "edit_scope": "same-file",
+      "git_exit": 1,
+      "input_commits": [
+        "131f41d06a33fab8d2f05b8b78bc1cec1b2e5756",
+        "25c5f386ebb8a68370359d01febabf3fa5a2ccc1",
+        "158699fbb27f62d3b898eda14961780440a28e8f"
+      ],
+      "policy": "missing-command",
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "whole_tree_check": "unmerged"
+    },
+    {
+      "candidate_eligible": false,
+      "edit_scope": "same-file",
+      "git_exit": 1,
+      "input_commits": [
+        "131f41d06a33fab8d2f05b8b78bc1cec1b2e5756",
+        "25c5f386ebb8a68370359d01febabf3fa5a2ccc1",
+        "158699fbb27f62d3b898eda14961780440a28e8f"
+      ],
+      "policy": "refused",
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "whole_tree_check": "unmerged"
+    },
+    {
+      "candidate_eligible": false,
+      "edit_scope": "same-file",
+      "git_exit": 1,
+      "input_commits": [
+        "ae5ac09da3feb9bb1fbd4d6f522d072fc6c9ca69",
+        "f0ef984892d33abef9a5a6f5a0c826f5752c50ad",
+        "3e0109327691bc5c02cc6d4738c5b8e4d0367d72"
+      ],
+      "policy": "native-binary",
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "whole_tree_check": "unmerged"
+    },
+    {
+      "candidate_eligible": false,
+      "edit_scope": "separate-files",
+      "git_exit": 0,
+      "input_commits": [
+        "c8b56ac23fcc0c2a8887a322a4603d1c7356279d",
+        "fbcebc759e779349e5a5849392297381f5f892d3",
+        "987e33e073087403d6e062dd677a6b8c87eb446d"
+      ],
+      "policy": "native-binary",
+      "stages": [],
+      "whole_tree_check": "capacity-exceeded"
+    },
+    {
+      "candidate_eligible": true,
+      "edit_scope": "one-sided",
+      "git_exit": 0,
+      "input_commits": [
+        "ae5ac09da3feb9bb1fbd4d6f522d072fc6c9ca69",
+        "f0ef984892d33abef9a5a6f5a0c826f5752c50ad",
+        "a266283f23263e17f839497cd66fc9eecdebde04"
+      ],
+      "policy": "native-binary",
+      "stages": [],
+      "whole_tree_check": "capacity-ok"
+    }
+  ],
+  "git": "git version 2.56.1",
+  "python": "3.12.14",
+  "runner_sha256": "5825a41ba367f4b43009a544d6a7fbcba33f9886e2e5991824eecfb1c4566055",
+  "schema": "rt24-merge-fallback-admission-v1"
+}

@@ -1,0 +1,52 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public final class Observer {
+    public static void main(String[] args) throws Exception {
+        var input = new BufferedReader(new InputStreamReader(System.in));
+        var output = new StringBuilder();
+        for (String line; (line = input.readLine()) != null; ) {
+            var cells = line.split(" ");
+            int initial = Integer.parseInt(cells[0]), delta = Integer.parseInt(cells[1]);
+            boolean acquisition = cells[2].equals("1"), write = cells[3].equals("1");
+            boolean rollback = cells[4].equals("1"), release = cells[5].equals("1");
+            int state = initial, primary = 0, cleanup = 0, value = -1;
+            boolean owned = acquisition;
+            var events = new StringBuilder();
+            if (!acquisition) {
+                primary = @P_ACQUIRE@;
+                events.append(" @E_ACQUIRE_DENIED@");
+            } else {
+                events.append(" @E_ACQUIRED@");
+                var proposed = initial + delta;
+                if (proposed < 0 || proposed > @MAX@) {
+                    primary = @P_RANGE@;
+                    events.append(" @E_RANGE@");
+                } else if (write) {
+                    state = value = proposed;
+                    events.append(" @E_COMMITTED@");
+                } else {
+                    primary = @P_WRITE@;
+                    events.append(" @E_WRITE_PARTIAL@");
+                    if (rollback) {
+                        events.append(" @E_ROLLED_BACK@");
+                    } else {
+                        state = proposed;
+                        cleanup |= @C_ROLLBACK@;
+                        events.append(" @E_ROLLBACK_FAILED@");
+                    }
+                }
+                if (release) {
+                    owned = false;
+                    events.append(" @E_RELEASED@");
+                } else {
+                    cleanup |= @C_RELEASE@;
+                    events.append(" @E_RELEASE_FAILED@");
+                }
+            }
+            output.append(primary).append(' ').append(cleanup).append(' ').append(value).append(' ')
+                  .append(state).append(' ').append(owned ? 1 : 0).append(events).append('\n');
+        }
+        System.out.print(output);
+    }
+}

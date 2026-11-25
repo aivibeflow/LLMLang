@@ -1,0 +1,5850 @@
+{
+  "git": "git version 2.56.1",
+  "profile_summaries_match": true,
+  "profiles": [
+    {
+      "controls": {
+        "contended_cas": {
+          "refusals": 1,
+          "successes": 1
+        },
+        "invalid_parent_closure": "receipt-parent-mismatch",
+        "malformed_json": "noncanonical-receipt",
+        "observe_winning_receipt": "exact",
+        "old_snapshot_after_reflog_expire_and_gc": "exact",
+        "prepared_transaction_visibility": {
+          "committed": "new",
+          "prepared": "old"
+        },
+        "repeat_old_cas": "refused",
+        "rollback_aba": {
+          "epoch_matches": true,
+          "manifest_matches": false,
+          "pair": [
+            "old",
+            "new"
+          ]
+        }
+      },
+      "object_format": "sha1",
+      "receipts": [
+        "fa7393e1f2d044409458d48dc2597a68f51ddfc4",
+        "ac5751f33ed62e9eb41eea5d4d3518c17f7b85e8"
+      ],
+      "ref_format": "files",
+      "schedules": {
+        "atomic/bracket": [
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "publish",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "publish",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "publish",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "publish",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "publish"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "atomic/direct": [
+          {
+            "coherent": true,
+            "events": [
+              "publish",
+              "read-alpha",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "publish",
+              "read-beta"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "read-beta",
+              "publish"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "atomic/pinned": [
+          {
+            "coherent": true,
+            "events": [
+              "publish",
+              "pin",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "publish",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "publish",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "recheck",
+              "publish"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/bracket": [
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/direct": [
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/pinned": [
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "pin",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ]
+      },
+      "summary": {
+        "atomic/bracket": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 3,
+          "mixed": 1,
+          "pinned_stale_at_recheck": 0,
+          "runs": 5
+        },
+        "atomic/direct": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 1,
+          "pinned_stale_at_recheck": 0,
+          "runs": 3
+        },
+        "atomic/pinned": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 0,
+          "pinned_stale_at_recheck": 2,
+          "runs": 4
+        },
+        "split/bracket": {
+          "epoch_admitted_mixed": 5,
+          "epoch_admitted_wrong_generation": 10,
+          "manifest_refused": 29,
+          "mixed": 9,
+          "pinned_stale_at_recheck": 0,
+          "runs": 35
+        },
+        "split/direct": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 3,
+          "pinned_stale_at_recheck": 0,
+          "runs": 10
+        },
+        "split/pinned": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 0,
+          "pinned_stale_at_recheck": 9,
+          "runs": 20
+        }
+      }
+    },
+    {
+      "controls": {
+        "contended_cas": {
+          "refusals": 1,
+          "successes": 1
+        },
+        "invalid_parent_closure": "receipt-parent-mismatch",
+        "malformed_json": "noncanonical-receipt",
+        "observe_winning_receipt": "exact",
+        "old_snapshot_after_reflog_expire_and_gc": "exact",
+        "prepared_transaction_visibility": {
+          "committed": "new",
+          "prepared": "old"
+        },
+        "repeat_old_cas": "refused",
+        "rollback_aba": {
+          "epoch_matches": true,
+          "manifest_matches": false,
+          "pair": [
+            "old",
+            "new"
+          ]
+        }
+      },
+      "object_format": "sha256",
+      "receipts": [
+        "153362d9186b3f2aa90b5d91960a861cca62c8d646da4a4ecf0ba11dff7b5130",
+        "bfc4270da74f37189c47b1eaec2d8e27889e737bad660a911a75b04aa76b78f6"
+      ],
+      "ref_format": "files",
+      "schedules": {
+        "atomic/bracket": [
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "publish",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "publish",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "publish",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "publish",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "publish"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "atomic/direct": [
+          {
+            "coherent": true,
+            "events": [
+              "publish",
+              "read-alpha",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "publish",
+              "read-beta"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "read-beta",
+              "publish"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "atomic/pinned": [
+          {
+            "coherent": true,
+            "events": [
+              "publish",
+              "pin",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "publish",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "publish",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "recheck",
+              "publish"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/bracket": [
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/direct": [
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/pinned": [
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "pin",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ]
+      },
+      "summary": {
+        "atomic/bracket": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 3,
+          "mixed": 1,
+          "pinned_stale_at_recheck": 0,
+          "runs": 5
+        },
+        "atomic/direct": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 1,
+          "pinned_stale_at_recheck": 0,
+          "runs": 3
+        },
+        "atomic/pinned": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 0,
+          "pinned_stale_at_recheck": 2,
+          "runs": 4
+        },
+        "split/bracket": {
+          "epoch_admitted_mixed": 5,
+          "epoch_admitted_wrong_generation": 10,
+          "manifest_refused": 29,
+          "mixed": 9,
+          "pinned_stale_at_recheck": 0,
+          "runs": 35
+        },
+        "split/direct": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 3,
+          "pinned_stale_at_recheck": 0,
+          "runs": 10
+        },
+        "split/pinned": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 0,
+          "pinned_stale_at_recheck": 9,
+          "runs": 20
+        }
+      }
+    },
+    {
+      "controls": {
+        "contended_cas": {
+          "refusals": 1,
+          "successes": 1
+        },
+        "invalid_parent_closure": "receipt-parent-mismatch",
+        "malformed_json": "noncanonical-receipt",
+        "observe_winning_receipt": "exact",
+        "old_snapshot_after_reflog_expire_and_gc": "exact",
+        "prepared_transaction_visibility": {
+          "committed": "new",
+          "prepared": "old"
+        },
+        "repeat_old_cas": "refused",
+        "rollback_aba": {
+          "epoch_matches": true,
+          "manifest_matches": false,
+          "pair": [
+            "old",
+            "new"
+          ]
+        }
+      },
+      "object_format": "sha1",
+      "receipts": [
+        "fa7393e1f2d044409458d48dc2597a68f51ddfc4",
+        "ac5751f33ed62e9eb41eea5d4d3518c17f7b85e8"
+      ],
+      "ref_format": "reftable",
+      "schedules": {
+        "atomic/bracket": [
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "publish",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "publish",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "publish",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "publish",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "publish"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "atomic/direct": [
+          {
+            "coherent": true,
+            "events": [
+              "publish",
+              "read-alpha",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "publish",
+              "read-beta"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "read-beta",
+              "publish"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "atomic/pinned": [
+          {
+            "coherent": true,
+            "events": [
+              "publish",
+              "pin",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "publish",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "publish",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "recheck",
+              "publish"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/bracket": [
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/direct": [
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/pinned": [
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "pin",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ]
+      },
+      "summary": {
+        "atomic/bracket": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 3,
+          "mixed": 1,
+          "pinned_stale_at_recheck": 0,
+          "runs": 5
+        },
+        "atomic/direct": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 1,
+          "pinned_stale_at_recheck": 0,
+          "runs": 3
+        },
+        "atomic/pinned": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 0,
+          "pinned_stale_at_recheck": 2,
+          "runs": 4
+        },
+        "split/bracket": {
+          "epoch_admitted_mixed": 5,
+          "epoch_admitted_wrong_generation": 10,
+          "manifest_refused": 29,
+          "mixed": 9,
+          "pinned_stale_at_recheck": 0,
+          "runs": 35
+        },
+        "split/direct": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 3,
+          "pinned_stale_at_recheck": 0,
+          "runs": 10
+        },
+        "split/pinned": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 0,
+          "pinned_stale_at_recheck": 9,
+          "runs": 20
+        }
+      }
+    },
+    {
+      "controls": {
+        "contended_cas": {
+          "refusals": 1,
+          "successes": 1
+        },
+        "invalid_parent_closure": "receipt-parent-mismatch",
+        "malformed_json": "noncanonical-receipt",
+        "observe_winning_receipt": "exact",
+        "old_snapshot_after_reflog_expire_and_gc": "exact",
+        "prepared_transaction_visibility": {
+          "committed": "new",
+          "prepared": "old"
+        },
+        "repeat_old_cas": "refused",
+        "rollback_aba": {
+          "epoch_matches": true,
+          "manifest_matches": false,
+          "pair": [
+            "old",
+            "new"
+          ]
+        }
+      },
+      "object_format": "sha256",
+      "receipts": [
+        "153362d9186b3f2aa90b5d91960a861cca62c8d646da4a4ecf0ba11dff7b5130",
+        "bfc4270da74f37189c47b1eaec2d8e27889e737bad660a911a75b04aa76b78f6"
+      ],
+      "ref_format": "reftable",
+      "schedules": {
+        "atomic/bracket": [
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "publish",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "publish",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "publish",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "publish",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "publish"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "atomic/direct": [
+          {
+            "coherent": true,
+            "events": [
+              "publish",
+              "read-alpha",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "publish",
+              "read-beta"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "read-beta",
+              "publish"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "atomic/pinned": [
+          {
+            "coherent": true,
+            "events": [
+              "publish",
+              "pin",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "publish",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "publish",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "recheck",
+              "publish"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/bracket": [
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": false,
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": false,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "manifest_admitted": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "epoch_admitted": true,
+            "events": [
+              "pin",
+              "read-alpha",
+              "read-beta",
+              "recheck",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "manifest_admitted": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/direct": [
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-alpha",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "read-alpha",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "write-alpha",
+              "read-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "new",
+              "old"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-beta"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": false,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "write-beta",
+              "read-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "write-alpha",
+              "read-beta",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "read-alpha",
+              "read-beta",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ],
+        "split/pinned": [
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "pin",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "new",
+              "new"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "write-beta",
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "write-beta",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "write-alpha",
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "read-receipt",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-receipt",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "write-beta",
+              "read-receipt",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "write-alpha",
+              "read-receipt",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "write-beta",
+              "write-head",
+              "recheck"
+            ],
+            "fresh_at_recheck": false,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "write-beta",
+              "recheck",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "write-alpha",
+              "recheck",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          },
+          {
+            "coherent": true,
+            "events": [
+              "pin",
+              "read-receipt",
+              "recheck",
+              "write-alpha",
+              "write-beta",
+              "write-head"
+            ],
+            "fresh_at_recheck": true,
+            "matches_pinned_receipt": true,
+            "pair": [
+              "old",
+              "old"
+            ]
+          }
+        ]
+      },
+      "summary": {
+        "atomic/bracket": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 3,
+          "mixed": 1,
+          "pinned_stale_at_recheck": 0,
+          "runs": 5
+        },
+        "atomic/direct": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 1,
+          "pinned_stale_at_recheck": 0,
+          "runs": 3
+        },
+        "atomic/pinned": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 0,
+          "pinned_stale_at_recheck": 2,
+          "runs": 4
+        },
+        "split/bracket": {
+          "epoch_admitted_mixed": 5,
+          "epoch_admitted_wrong_generation": 10,
+          "manifest_refused": 29,
+          "mixed": 9,
+          "pinned_stale_at_recheck": 0,
+          "runs": 35
+        },
+        "split/direct": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 3,
+          "pinned_stale_at_recheck": 0,
+          "runs": 10
+        },
+        "split/pinned": {
+          "epoch_admitted_mixed": 0,
+          "epoch_admitted_wrong_generation": 0,
+          "manifest_refused": 0,
+          "mixed": 0,
+          "pinned_stale_at_recheck": 9,
+          "runs": 20
+        }
+      }
+    }
+  ]
+}

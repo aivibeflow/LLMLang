@@ -1,0 +1,56 @@
+{
+  "baseline": "b23901a91bc4eade228cab50be0276a00010961b",
+  "baseline_rows": {
+    "DEP-191": "| DEP-191 | RT-03 \u2192 RT-33 | Requires | Backend-independent obligation classification and translation correctness require authoritative LLMLang semantics and a defined observation boundary. | Strong hypothesis |",
+    "DEP-193": "| DEP-193 | RT-07 \u2192 RT-33 | Requires | Backend selection, proof strength, trusted boundaries, and evidence aggregation are part of formal verification architecture. | Strong hypothesis |",
+    "DEP-194": "| DEP-194 | RT-08 \u2192 RT-33 | Requires | Backend comparisons need independent oracles, adversarial fixtures, explicit evidence classes, and reproducible evaluation. | Strong hypothesis |",
+    "DEP-196": "| DEP-196 | RT-11 \u2192 RT-33 | Influences | Backend/translator/configuration identities and dependency closure determine safe evidence caching and invalidation. | Strong hypothesis |",
+    "DEP-199": "| DEP-199 | RT-33 \u2192 RT-08 | Influences | Cross-backend result composition and abstention may refine unified evidence states and reporting. | Open hypothesis |"
+  },
+  "claims": {
+    "admission_identity_combinations": 65536,
+    "lean_claims": 6,
+    "lean_controls": 17,
+    "signed_admission_controls": 12,
+    "solver_query_count": 56,
+    "temporal_observations": 18,
+    "why3_boogie_observations": 14
+  },
+  "replayed_ledgers": {
+    "keys": {
+      "pinned_blobs": {
+        "evidence.json": "2547cea1828de85d59973cd5b663bb7fd806d81b",
+        "run.py": "db3abf41e96d990a48febff1d81bb6b2e758f61c"
+      },
+      "verified_sha256": "9e01aab39d4220f69c19c3a6cbeee562f425b968b1432b045e93d195657c7afa"
+    },
+    "lean": {
+      "pinned_blobs": {
+        "evidence.json": "212a966c18219bf010e489007d940ad1e982e933",
+        "run.py": "26dccd37593e70101fdd90debc29cf814d13d1c9"
+      },
+      "verified_sha256": "1c5833ce232ab60322969ab7bbc34550b8f258807d6344627492b8802f339b30"
+    },
+    "smt": {
+      "pinned_blobs": {
+        "evidence.json": "fa708e3b1fca057cca8b63c7256c02964c867440",
+        "run.py": "df2f74133d935d79f8257ca936f95844aa778d16"
+      },
+      "verified_sha256": "2c7906d3b9b14a059210f23940cdf3a3897a272552e34d2397715953a9de9e83"
+    },
+    "temporal": {
+      "pinned_blobs": {
+        "observations.json": "9f24eae85f538c2e8f4cfa323f5203a017824317",
+        "run.py": "d6c936c97a52bec3b9d3cc0d252818df84c01d47"
+      },
+      "verified_sha256": "66d86dfd265925703637db74c1931582174befd3e23270d49da9d79e5a46e2e1"
+    },
+    "why3-boogie": {
+      "pinned_blobs": {
+        "observations.json": "48235e69244e7adc61649300fa5f1db75f53143b",
+        "run.py": "04bb7af036d5d780a7872595a86c7fb18147c897"
+      },
+      "verified_sha256": "02fd9e8d3d39e53fa157b05189cd1116e5558945751a6357c04d4d0c377f612e"
+    }
+  }
+}

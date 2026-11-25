@@ -1,0 +1,89 @@
+{
+  "schema": "llmlang-contextual-substitution/1",
+  "python": "3.12.14",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "sources_sha256": {
+    "Context.lean": "adc33199997a8efae38f0addc09c8f978107574c93049d81945d56e31ac11488",
+    "axioms.txt": "47e182b02d487eece9d58bf065ae34c4f3560f8d25669e63d52461433993567d",
+    "run.py": "6310e6b28982bb5f22214e2a33c032b0e2272bc87bf2996e879eead124ef8d9f",
+    "native_reference_runner": "33ce6716d61e4c54b441abf619f1c7150d31bdc25ad71b82ed3b5ed5b1d43817",
+    "native_probe": "73601941f32830b8ec8d71fc2509c8d1e800818694a68fff5f39c4697fc3dea6"
+  },
+  "native_rows_sha256": {
+    "-O0": "1774de380f21247af2251be21468116ac20ba43627d467349abb61330d27799c",
+    "-O2": "1774de380f21247af2251be21468116ac20ba43627d467349abb61330d27799c"
+  },
+  "comparison_counts": {
+    "complete": {
+      "provider_domain_pairs": 768,
+      "context_comparisons": 9728,
+      "contextually_indistinguishable": 144
+    },
+    "result_only": {
+      "provider_domain_pairs": 768,
+      "context_comparisons": 3584,
+      "contextually_indistinguishable": 320
+    },
+    "event_only": {
+      "provider_domain_pairs": 768,
+      "context_comparisons": 3584,
+      "contextually_indistinguishable": 320
+    }
+  },
+  "scoped_observations_sha256": {
+    "complete:(0,)": "7b88024f3eabddec11a5e9a4d753b5d63878aae5a5573dc24ce4655cab1e1fae",
+    "complete:(1,)": "7c66b56f5c788dd22afda3e9bd2f4e8195884e315f2f5436437d88594398e855",
+    "complete:(0, 1)": "35ee09e11f4b7ccb5cefffef1adece9517f9917882fbc9f06d71968079155e84",
+    "result_only:(0,)": "3321a371629313f40baccbfb70e8ae0bb8ac66c5f2a66364c229c8c1a10985ce",
+    "result_only:(1,)": "48b68cf8b9c752497be71155816d9f7e123fa0bddfe7164c347855d45d0d4542",
+    "result_only:(0, 1)": "9bc7442f5813b90a84336e2dd874cb5623abf1cd13f753ba221a78ff8a98b3f3",
+    "event_only:(0,)": "cb85fc703f7abeb0de8abc4375cd7bb093651617c98e7bb224d1332c08c4fbe7",
+    "event_only:(1,)": "66a9b49842b29a20e0a635a60d4d1e8f4d97608f88fe362ee18e9fe4e72ae3f6",
+    "event_only:(0, 1)": "d02708618b90e67a3c308ce57af5a3f7c8d94e50b19cf19cb2bd6d66b52a5439"
+  },
+  "controls": {
+    "different_declarations_same_effective_contract": {
+      "left": [
+        1,
+        5,
+        1
+      ],
+      "right": [
+        1,
+        5,
+        2
+      ],
+      "exact_equal": false,
+      "effective_equal": true
+    },
+    "strict_to_permissive_refines": true,
+    "permissive_to_strict_refines": false,
+    "same_contract_different_adaptive_result": {
+      "contract": [
+        3,
+        5,
+        10
+      ],
+      "left_provider": 4,
+      "right_provider": 14,
+      "routing_input_by_first_observation": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "left_observations": [
+        0,
+        0
+      ],
+      "right_observations": [
+        2,
+        3
+      ],
+      "final_boolean_results": [
+        0,
+        1
+      ]
+    }
+  }
+}

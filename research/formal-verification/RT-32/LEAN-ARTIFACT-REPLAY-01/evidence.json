@@ -1,0 +1,89 @@
+{
+  "experiment": {
+    "cases": {
+      "base": {
+        "dependency_module": "4289ca138e9a1195938c47621d703caec5db3b74596e642c9f2f8950eb02ee2c",
+        "dependency_source": "2e7e972f46fdb6d7336f31e98a971d4718d192c572383998d0c468ae904eeb53",
+        "exact_artifact_reuse": "checked",
+        "fresh_generation": "checked",
+        "import_with_t0": "checked",
+        "ordinary_import": "checked",
+        "replayed_tactic": "checked",
+        "stored_term": "checked"
+      },
+      "changed-meaning": {
+        "dependency_module": "f51b8ecd60157a42f9ba9852ce9cc62cda659ef1a6f2dffeeb6d7425df433843",
+        "dependency_source": "31c8b7250adcf22701363cbf0fc5956c81df675990e8a312ced77cd0e7e772ec",
+        "exact_artifact_reuse": "refused-before-import",
+        "fresh_generation": "refused",
+        "import_with_t0": "checked",
+        "ordinary_import": "checked",
+        "replayed_tactic": "refused",
+        "stored_term": "refused"
+      },
+      "comment": {
+        "dependency_module": "4289ca138e9a1195938c47621d703caec5db3b74596e642c9f2f8950eb02ee2c",
+        "dependency_source": "72682787ae49608441788fe7c1270b1594a37a95c4b15e0362ecfb2a72d2e1c4",
+        "exact_artifact_reuse": "refused-before-import",
+        "fresh_generation": "checked",
+        "import_with_t0": "checked",
+        "ordinary_import": "checked",
+        "replayed_tactic": "checked",
+        "stored_term": "checked"
+      },
+      "definitionally-equal": {
+        "dependency_module": "e519982efd3ddd2fbefda9fc25fa7c7242a213739764864b873649a4966f1faf",
+        "dependency_source": "4ff8149c49d92a015d4b346afa648bc39d8b45cf66ecfa380decf6333370672b",
+        "exact_artifact_reuse": "refused-before-import",
+        "fresh_generation": "checked",
+        "import_with_t0": "checked",
+        "ordinary_import": "checked",
+        "replayed_tactic": "checked",
+        "stored_term": "checked"
+      }
+    },
+    "controls": {
+      "absent-module": "refused",
+      "damaged-stored-payload": "refused-before-import",
+      "declared-axiom": "axiom-policy",
+      "missing-stored-role": "refused-before-import",
+      "wrong-theorem": "refused"
+    },
+    "semantic_scope": {
+      "assumptions": [],
+      "profile": "nat-definitional-equality/v1",
+      "review_policy": "no-axioms/v1",
+      "subject": "forall step n = n"
+    },
+    "stored_lean_artifacts": {
+      "dependency-module": {
+        "bytes": 7432,
+        "sha256": "4289ca138e9a1195938c47621d703caec5db3b74596e642c9f2f8950eb02ee2c"
+      },
+      "dependency-source": {
+        "bytes": 117,
+        "sha256": "2e7e972f46fdb6d7336f31e98a971d4718d192c572383998d0c468ae904eeb53"
+      },
+      "proof-module": {
+        "bytes": 3688,
+        "sha256": "1628257aa75dec0b6d4482d13eb673f878539f344c630d471ba4b3f5955095fd"
+      },
+      "proof-script": {
+        "bytes": 192,
+        "sha256": "2704c7c673441179cc9f2abb37564958d583698fe6fd3faa54b1a3271de966b6"
+      },
+      "proof-term": {
+        "bytes": 153,
+        "sha256": "4487900ac00096a726665981ada61aad29989de29fd3ed31ff18fbdcd986a022"
+      }
+    },
+    "term": "fun n => Eq.refl (CacheTrial.step n)"
+  },
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "sqlite": "3.53.1",
+  "tool_hashes": {
+    "bin/lean": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+    "lib/lean/Init.olean": "e619b6b24a1bf6a1b961271e047545ebe2c15a5e642f3c08033cb2f9a7accafd",
+    "lib/lean/libleanshared.so": "e2c403b411497bbc325d0a26bf57ba0132271750bf6d84e32cd61a9db4777252"
+  }
+}

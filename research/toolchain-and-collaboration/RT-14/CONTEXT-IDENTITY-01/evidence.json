@@ -1,0 +1,80 @@
+{
+  "access_and_reuse_comparisons": 32768,
+  "false_reuse_by_preceding_key": {
+    "build-action=>context": 254,
+    "build-action=>prompt": 192,
+    "context=>build-action": 14,
+    "context=>prompt": 8,
+    "dependency=>build-action": 1792,
+    "dependency=>context": 2032,
+    "dependency=>prompt": 1536,
+    "object=>build-action": 3840,
+    "object=>context": 4080,
+    "object=>dependency": 2048,
+    "object=>prompt": 3072,
+    "prompt=>build-action": 960,
+    "prompt=>context": 1016,
+    "prompt=>dependency": 512
+  },
+  "identity_comparisons": 8192,
+  "invalidations": {
+    "build-action": 7936,
+    "context": 8176,
+    "dependency": 6144,
+    "object": 4096,
+    "prompt": 7168
+  },
+  "permitted_reuse": {
+    "build-action": 512,
+    "context": 32,
+    "prompt": 2048
+  },
+  "single_mutations": {
+    "advisory_text": [
+      "context",
+      "prompt"
+    ],
+    "build_grant": [
+      "build-action"
+    ],
+    "build_options": [
+      "build-action"
+    ],
+    "build_tool": [
+      "build-action"
+    ],
+    "dependency": [
+      "build-action",
+      "context",
+      "dependency"
+    ],
+    "object_value": [
+      "build-action",
+      "context",
+      "dependency",
+      "object",
+      "prompt"
+    ],
+    "provenance": [
+      "context"
+    ],
+    "purpose": [
+      "context"
+    ],
+    "read_grant": [
+      "context"
+    ],
+    "reader": [
+      "context"
+    ],
+    "rendering_prefix": [
+      "prompt"
+    ],
+    "selection_rule": [
+      "context"
+    ],
+    "snapshot": [
+      "context"
+    ]
+  }
+}

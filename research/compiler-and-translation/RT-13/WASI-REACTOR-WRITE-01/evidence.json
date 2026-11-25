@@ -1,0 +1,159 @@
+{
+  "routes": {
+    "direct-wat": {
+      "bytes": 283,
+      "engines": {
+        "v22.23.5": {
+          "inputs": 588,
+          "missing_import": "refused",
+          "output_bytes": 1080,
+          "output_sha256": "b9b08b7b01f53cf96ff68c6d761242d712e93b8db6976757fe831f80d2346550",
+          "reactor_as_command": "refused",
+          "real_status_sha256": "131e168e189c3da4dd76aaab593a478c3c9f97caa1354582b407c02713327838",
+          "simulated": {
+            "over-report": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "691c5b3a8f9a78624022f1e4c0e7c7786be86125be5bb056b8d9e88929010bdd"
+            },
+            "partial": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "fcd0be0cac9f1e336d4cdfbbd89e9c8cb06e00c0aefeed4934ea82b9b3dbb6a8"
+            }
+          },
+          "uninitialized_emit": "refused"
+        },
+        "v24.22.3": {
+          "inputs": 588,
+          "missing_import": "refused",
+          "output_bytes": 1080,
+          "output_sha256": "b9b08b7b01f53cf96ff68c6d761242d712e93b8db6976757fe831f80d2346550",
+          "reactor_as_command": "refused",
+          "real_status_sha256": "131e168e189c3da4dd76aaab593a478c3c9f97caa1354582b407c02713327838",
+          "simulated": {
+            "over-report": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "691c5b3a8f9a78624022f1e4c0e7c7786be86125be5bb056b8d9e88929010bdd"
+            },
+            "partial": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "fcd0be0cac9f1e336d4cdfbbd89e9c8cb06e00c0aefeed4934ea82b9b3dbb6a8"
+            }
+          },
+          "uninitialized_emit": "refused"
+        }
+      },
+      "sha256": "84456a71871b00c1b1ea467ffc0022409db2be4876064c52648c3bc15b9ba3c5"
+    },
+    "llvm-O0": {
+      "bytes": 839,
+      "engines": {
+        "v22.23.5": {
+          "inputs": 588,
+          "missing_import": "refused",
+          "output_bytes": 1080,
+          "output_sha256": "b9b08b7b01f53cf96ff68c6d761242d712e93b8db6976757fe831f80d2346550",
+          "reactor_as_command": "refused",
+          "real_status_sha256": "131e168e189c3da4dd76aaab593a478c3c9f97caa1354582b407c02713327838",
+          "simulated": {
+            "over-report": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "691c5b3a8f9a78624022f1e4c0e7c7786be86125be5bb056b8d9e88929010bdd"
+            },
+            "partial": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "fcd0be0cac9f1e336d4cdfbbd89e9c8cb06e00c0aefeed4934ea82b9b3dbb6a8"
+            }
+          },
+          "uninitialized_emit": "refused"
+        },
+        "v24.22.3": {
+          "inputs": 588,
+          "missing_import": "refused",
+          "output_bytes": 1080,
+          "output_sha256": "b9b08b7b01f53cf96ff68c6d761242d712e93b8db6976757fe831f80d2346550",
+          "reactor_as_command": "refused",
+          "real_status_sha256": "131e168e189c3da4dd76aaab593a478c3c9f97caa1354582b407c02713327838",
+          "simulated": {
+            "over-report": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "691c5b3a8f9a78624022f1e4c0e7c7786be86125be5bb056b8d9e88929010bdd"
+            },
+            "partial": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "fcd0be0cac9f1e336d4cdfbbd89e9c8cb06e00c0aefeed4934ea82b9b3dbb6a8"
+            }
+          },
+          "uninitialized_emit": "refused"
+        }
+      },
+      "sha256": "f675ec69eebe87b668ac6fadeb26969d08bf232a4550b34f3035c5c409070547"
+    },
+    "llvm-O2": {
+      "bytes": 467,
+      "engines": {
+        "v22.23.5": {
+          "inputs": 588,
+          "missing_import": "refused",
+          "output_bytes": 1080,
+          "output_sha256": "b9b08b7b01f53cf96ff68c6d761242d712e93b8db6976757fe831f80d2346550",
+          "reactor_as_command": "refused",
+          "real_status_sha256": "131e168e189c3da4dd76aaab593a478c3c9f97caa1354582b407c02713327838",
+          "simulated": {
+            "over-report": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "691c5b3a8f9a78624022f1e4c0e7c7786be86125be5bb056b8d9e88929010bdd"
+            },
+            "partial": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "fcd0be0cac9f1e336d4cdfbbd89e9c8cb06e00c0aefeed4934ea82b9b3dbb6a8"
+            }
+          },
+          "uninitialized_emit": "refused"
+        },
+        "v24.22.3": {
+          "inputs": 588,
+          "missing_import": "refused",
+          "output_bytes": 1080,
+          "output_sha256": "b9b08b7b01f53cf96ff68c6d761242d712e93b8db6976757fe831f80d2346550",
+          "reactor_as_command": "refused",
+          "real_status_sha256": "131e168e189c3da4dd76aaab593a478c3c9f97caa1354582b407c02713327838",
+          "simulated": {
+            "over-report": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "691c5b3a8f9a78624022f1e4c0e7c7786be86125be5bb056b8d9e88929010bdd"
+            },
+            "partial": {
+              "host_calls": 300,
+              "observations": 588,
+              "trace_sha256": "fcd0be0cac9f1e336d4cdfbbd89e9c8cb06e00c0aefeed4934ea82b9b3dbb6a8"
+            }
+          },
+          "uninitialized_emit": "refused"
+        }
+      },
+      "sha256": "916ff806e42b5a65394ec480c02f0f9ebfdc4ce13d2b4e6408ed2092a71beccb"
+    }
+  },
+  "source_files": {
+    "host.mjs": "ff6d0ee8e0f36bfc95526401559d2e4349015ddf232f1c8a1ce91e960046c87a",
+    "run.py": "6b5e3a9f6ffd39eedb62d0d39e6c0292a812c4802672da98320235eb7f49eb2f",
+    "write.c": "17f649b003a1bf9e979fbfddd02d1665a749c9e9bf2b3da91390b576405aa3f5",
+    "write.wat": "a369e091a55c62a8d28ecdb824201c14747cc1b435b31bc4dd42478b35e8a397"
+  },
+  "toolchain": {
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "linker": "Debian LLD 19.1.7",
+    "wabt": "1.0.36"
+  }
+}

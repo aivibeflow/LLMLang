@@ -1,0 +1,244 @@
+{
+  "schema": "llmlang-compiler-pass-composition/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "9e1bea886fda224189d6ec9b96c5cfbc684368f74421a8fc7f554a3e26597112",
+    "Chain.lean": "0493c3d2c1783c02bf48d17b10479c62554513eec9ecc68194e35af30a355165",
+    "axioms.txt": "8a39b98055454a90f814baf068968727613ad51a09e789c6ac7ac2eed1ce308a"
+  },
+  "artifacts": {
+    "source": {
+      "observations": [
+        [
+          0,
+          [
+            "read",
+            "write"
+          ]
+        ],
+        [
+          1,
+          [
+            "write"
+          ]
+        ]
+      ],
+      "sha256": "f1df000c1c4baac59118d81a4f702b112e18b86e67d283efe773a58556f4cd75"
+    },
+    "equivalent_copy": {
+      "observations": [
+        [
+          0,
+          [
+            "read",
+            "write"
+          ]
+        ],
+        [
+          1,
+          [
+            "write"
+          ]
+        ]
+      ],
+      "sha256": "143c4ad0e18547d995f49d50175f536c52d5a19026e527c7211ba2a604a14fbc"
+    },
+    "reorder": {
+      "observations": [
+        [
+          0,
+          [
+            "write",
+            "read"
+          ]
+        ],
+        [
+          1,
+          [
+            "write"
+          ]
+        ]
+      ],
+      "sha256": "313795fc488b442256dd3c3beec3fc798f55997c0e0d800decf756c2ff0bae81"
+    },
+    "wrong_result": {
+      "observations": [
+        [
+          0,
+          [
+            "read",
+            "write"
+          ]
+        ],
+        [
+          0,
+          [
+            "write"
+          ]
+        ]
+      ],
+      "sha256": "354419b5b7406139fbe5afe4666da66dd347903a2d1d01623feb954ccc406491"
+    },
+    "undefined_last": {
+      "observations": [
+        [
+          0,
+          [
+            "read",
+            "write"
+          ]
+        ],
+        null
+      ],
+      "sha256": "dcf3dc44872c1b20999c3b09d535b3e7a5f94a198b46343d1acd5afc3ee35f23"
+    },
+    "undefined_first": {
+      "observations": [
+        null,
+        [
+          1,
+          [
+            "write"
+          ]
+        ]
+      ],
+      "sha256": "4bee164a997495460b96cdf04e16d3acb2274acf84cbdaa253c98f66416066dd"
+    },
+    "extra_effect": {
+      "observations": [
+        [
+          0,
+          [
+            "read",
+            "write"
+          ]
+        ],
+        [
+          1,
+          [
+            "write",
+            "read"
+          ]
+        ]
+      ],
+      "sha256": "1e3f2a0e09fa43fe1992e2b9ea218678b7e8afa791aa3af06c6190c8fd8fe4cd"
+    },
+    "both_different": {
+      "observations": [
+        [
+          1,
+          [
+            "write",
+            "read"
+          ]
+        ],
+        [
+          0,
+          [
+            "write",
+            "read"
+          ]
+        ]
+      ],
+      "sha256": "9702ff295077317fe74253f98631bcd8e560930c6d6551f96878cc3097b39820"
+    }
+  },
+  "counts": {
+    "locally_valid_chains": 57132,
+    "exact_chain_admitted": 340,
+    "exact_chain_false_admissions": 0,
+    "checked_bridge_admitted": 1442,
+    "checked_bridge_false_admissions": 0,
+    "ignore_midpoint_admitted": 2018,
+    "ignore_midpoint_false_admissions": 576,
+    "ignore_guard_admitted": 1278,
+    "ignore_guard_false_admissions": 598,
+    "ignore_scope_admitted": 2312,
+    "ignore_scope_false_admissions": 592,
+    "locally_valid_only_admitted": 57132,
+    "locally_valid_only_false_admissions": 34994,
+    "valid_bridge_with_distinct_identity": 1102
+  },
+  "first_witnesses": {
+    "ignore_scope": {
+      "artifacts": [
+        "source",
+        "source",
+        "source",
+        "reorder"
+      ],
+      "receipt_domains": [
+        1,
+        1
+      ],
+      "requested": 1,
+      "receipt_profiles": [
+        "return_only",
+        "return_only"
+      ],
+      "excluded_by": [
+        "scope"
+      ]
+    },
+    "locally_valid_only": {
+      "artifacts": [
+        "source",
+        "source",
+        "source",
+        "reorder"
+      ],
+      "receipt_domains": [
+        1,
+        1
+      ],
+      "requested": 1,
+      "receipt_profiles": [
+        "return_only",
+        "return_only"
+      ],
+      "excluded_by": [
+        "scope"
+      ]
+    },
+    "ignore_guard": {
+      "artifacts": [
+        "source",
+        "source",
+        "source",
+        "reorder"
+      ],
+      "receipt_domains": [
+        1,
+        2
+      ],
+      "requested": 1,
+      "receipt_profiles": [
+        "complete",
+        "complete"
+      ],
+      "excluded_by": [
+        "guard"
+      ]
+    },
+    "ignore_midpoint": {
+      "artifacts": [
+        "source",
+        "source",
+        "reorder",
+        "reorder"
+      ],
+      "receipt_domains": [
+        1,
+        1
+      ],
+      "requested": 1,
+      "receipt_profiles": [
+        "complete",
+        "complete"
+      ],
+      "excluded_by": [
+        "identity"
+      ]
+    }
+  }
+}

@@ -1,0 +1,3206 @@
+{
+  "schema": "llmlang-environment-boundary/1",
+  "python": "3.12.14",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "host": {
+    "kernel": "6.18.57",
+    "machine": "x86_64",
+    "libc": [
+      "glibc",
+      "2.41"
+    ]
+  },
+  "source_sha256": {
+    "run.py": "dc597f465e706a458b24378801db090806d3ab17212846f1c497f5d5f0acb543",
+    "probe.c": "dcc01477032ccada08341e6048430fe7c69712e07c8cc36f8fd50a84d689c314",
+    "Boundary.lean": "69afd130f846a8fd78fdb831e92e58701a4f1e6eb30f0e741979b3797eb33f5f",
+    "axioms.txt": "17c14cd28832f5b50793db729ecf8f425cc178006efc92bcc0034280c64d0279"
+  },
+  "native_observations_per_profile": 144,
+  "native_rows_sha256": {
+    "-O0": "1ac5c08e7d56aec79a314ef7fb22ce0aa07ef8a7ee51cb752183a5cea0f93fe1",
+    "-O2": "1ac5c08e7d56aec79a314ef7fb22ce0aa07ef8a7ee51cb752183a5cea0f93fe1"
+  },
+  "compared_pairs": 1224,
+  "comparison": {
+    "subject_only": {
+      "safe": 744,
+      "stale": 480,
+      "missed": 0
+    },
+    "successful_reads": {
+      "safe": 744,
+      "stale": 64,
+      "missed": 0
+    },
+    "exact_scoped_read": {
+      "safe": 648,
+      "stale": 0,
+      "missed": 96
+    },
+    "parsed_observation": {
+      "safe": 744,
+      "stale": 0,
+      "missed": 0
+    },
+    "whole_environment": {
+      "safe": 0,
+      "stale": 0,
+      "missed": 744
+    }
+  },
+  "reference": [
+    {
+      "request": [
+        0,
+        0
+      ],
+      "observations": [
+        {
+          "env_value": null,
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              null,
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": null,
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              null,
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "0",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "0",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "1",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "1",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "2",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "2",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "3",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "3",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "4",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "4",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "01",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "01",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "one",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "one",
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "request": [
+        0,
+        2
+      ],
+      "observations": [
+        {
+          "env_value": null,
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              null,
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": null,
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              null,
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "0",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "0",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "1",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "1",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "2",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "2",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "3",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "3",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "4",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "4",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "01",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "01",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "one",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "one",
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "request": [
+        0,
+        15
+      ],
+      "observations": [
+        {
+          "env_value": null,
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              null,
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": null,
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              null,
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "0",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "0",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "1",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "1",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "2",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "2",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "3",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "3",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "4",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "4",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "01",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "01",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "one",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            15,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "one",
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "request": [
+        0,
+        255
+      ],
+      "observations": [
+        {
+          "env_value": null,
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              null,
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": null,
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              null,
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "0",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "0",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "1",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "1",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "2",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "2",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "3",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "3",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "4",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "4",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "01",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "01",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "one",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            255,
+            0
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [],
+            "parsed_observation": [],
+            "whole_environment": [
+              "one",
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "request": [
+        1,
+        0
+      ],
+      "observations": [
+        {
+          "env_value": null,
+          "unrelated_value": "legacy",
+          "oracle": [
+            "missing",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              null
+            ],
+            "parsed_observation": [
+              "missing"
+            ],
+            "whole_environment": [
+              null,
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": null,
+          "unrelated_value": "updated",
+          "oracle": [
+            "missing",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              null
+            ],
+            "parsed_observation": [
+              "missing"
+            ],
+            "whole_environment": [
+              null,
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              ""
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              ""
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "0"
+            ],
+            "exact_scoped_read": [
+              "0"
+            ],
+            "parsed_observation": [
+              "0"
+            ],
+            "whole_environment": [
+              "0",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "0"
+            ],
+            "exact_scoped_read": [
+              "0"
+            ],
+            "parsed_observation": [
+              "0"
+            ],
+            "whole_environment": [
+              "0",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            1,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "1"
+            ],
+            "exact_scoped_read": [
+              "1"
+            ],
+            "parsed_observation": [
+              "1"
+            ],
+            "whole_environment": [
+              "1",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            1,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "1"
+            ],
+            "exact_scoped_read": [
+              "1"
+            ],
+            "parsed_observation": [
+              "1"
+            ],
+            "whole_environment": [
+              "1",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "2"
+            ],
+            "exact_scoped_read": [
+              "2"
+            ],
+            "parsed_observation": [
+              "2"
+            ],
+            "whole_environment": [
+              "2",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "2"
+            ],
+            "exact_scoped_read": [
+              "2"
+            ],
+            "parsed_observation": [
+              "2"
+            ],
+            "whole_environment": [
+              "2",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            3,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "3"
+            ],
+            "exact_scoped_read": [
+              "3"
+            ],
+            "parsed_observation": [
+              "3"
+            ],
+            "whole_environment": [
+              "3",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            3,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "3"
+            ],
+            "exact_scoped_read": [
+              "3"
+            ],
+            "parsed_observation": [
+              "3"
+            ],
+            "whole_environment": [
+              "3",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "4"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "4",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "4"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "4",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "01"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "01",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "01"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "01",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "one"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "one",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "one"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "one",
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "request": [
+        1,
+        2
+      ],
+      "observations": [
+        {
+          "env_value": null,
+          "unrelated_value": "legacy",
+          "oracle": [
+            "missing",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              null
+            ],
+            "parsed_observation": [
+              "missing"
+            ],
+            "whole_environment": [
+              null,
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": null,
+          "unrelated_value": "updated",
+          "oracle": [
+            "missing",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              null
+            ],
+            "parsed_observation": [
+              "missing"
+            ],
+            "whole_environment": [
+              null,
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              ""
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              ""
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "0"
+            ],
+            "exact_scoped_read": [
+              "0"
+            ],
+            "parsed_observation": [
+              "0"
+            ],
+            "whole_environment": [
+              "0",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "0"
+            ],
+            "exact_scoped_read": [
+              "0"
+            ],
+            "parsed_observation": [
+              "0"
+            ],
+            "whole_environment": [
+              "0",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            3,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "1"
+            ],
+            "exact_scoped_read": [
+              "1"
+            ],
+            "parsed_observation": [
+              "1"
+            ],
+            "whole_environment": [
+              "1",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            3,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "1"
+            ],
+            "exact_scoped_read": [
+              "1"
+            ],
+            "parsed_observation": [
+              "1"
+            ],
+            "whole_environment": [
+              "1",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            4,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "2"
+            ],
+            "exact_scoped_read": [
+              "2"
+            ],
+            "parsed_observation": [
+              "2"
+            ],
+            "whole_environment": [
+              "2",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            4,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "2"
+            ],
+            "exact_scoped_read": [
+              "2"
+            ],
+            "parsed_observation": [
+              "2"
+            ],
+            "whole_environment": [
+              "2",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            5,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "3"
+            ],
+            "exact_scoped_read": [
+              "3"
+            ],
+            "parsed_observation": [
+              "3"
+            ],
+            "whole_environment": [
+              "3",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            5,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "3"
+            ],
+            "exact_scoped_read": [
+              "3"
+            ],
+            "parsed_observation": [
+              "3"
+            ],
+            "whole_environment": [
+              "3",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "4"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "4",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "4"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "4",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "01"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "01",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "01"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "01",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "one"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "one",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "one"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "one",
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "request": [
+        1,
+        15
+      ],
+      "observations": [
+        {
+          "env_value": null,
+          "unrelated_value": "legacy",
+          "oracle": [
+            "missing",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              null
+            ],
+            "parsed_observation": [
+              "missing"
+            ],
+            "whole_environment": [
+              null,
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": null,
+          "unrelated_value": "updated",
+          "oracle": [
+            "missing",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              null
+            ],
+            "parsed_observation": [
+              "missing"
+            ],
+            "whole_environment": [
+              null,
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              ""
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              ""
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            15,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "0"
+            ],
+            "exact_scoped_read": [
+              "0"
+            ],
+            "parsed_observation": [
+              "0"
+            ],
+            "whole_environment": [
+              "0",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            15,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "0"
+            ],
+            "exact_scoped_read": [
+              "0"
+            ],
+            "parsed_observation": [
+              "0"
+            ],
+            "whole_environment": [
+              "0",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            16,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "1"
+            ],
+            "exact_scoped_read": [
+              "1"
+            ],
+            "parsed_observation": [
+              "1"
+            ],
+            "whole_environment": [
+              "1",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            16,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "1"
+            ],
+            "exact_scoped_read": [
+              "1"
+            ],
+            "parsed_observation": [
+              "1"
+            ],
+            "whole_environment": [
+              "1",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            17,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "2"
+            ],
+            "exact_scoped_read": [
+              "2"
+            ],
+            "parsed_observation": [
+              "2"
+            ],
+            "whole_environment": [
+              "2",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            17,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "2"
+            ],
+            "exact_scoped_read": [
+              "2"
+            ],
+            "parsed_observation": [
+              "2"
+            ],
+            "whole_environment": [
+              "2",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            18,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "3"
+            ],
+            "exact_scoped_read": [
+              "3"
+            ],
+            "parsed_observation": [
+              "3"
+            ],
+            "whole_environment": [
+              "3",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            18,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "3"
+            ],
+            "exact_scoped_read": [
+              "3"
+            ],
+            "parsed_observation": [
+              "3"
+            ],
+            "whole_environment": [
+              "3",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "4"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "4",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "4"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "4",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "01"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "01",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "01"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "01",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "one"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "one",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "one"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "one",
+              "updated"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "request": [
+        1,
+        255
+      ],
+      "observations": [
+        {
+          "env_value": null,
+          "unrelated_value": "legacy",
+          "oracle": [
+            "missing",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              null
+            ],
+            "parsed_observation": [
+              "missing"
+            ],
+            "whole_environment": [
+              null,
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": null,
+          "unrelated_value": "updated",
+          "oracle": [
+            "missing",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              null
+            ],
+            "parsed_observation": [
+              "missing"
+            ],
+            "whole_environment": [
+              null,
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              ""
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              ""
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            255,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "0"
+            ],
+            "exact_scoped_read": [
+              "0"
+            ],
+            "parsed_observation": [
+              "0"
+            ],
+            "whole_environment": [
+              "0",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "0",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            255,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "0"
+            ],
+            "exact_scoped_read": [
+              "0"
+            ],
+            "parsed_observation": [
+              "0"
+            ],
+            "whole_environment": [
+              "0",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "1"
+            ],
+            "exact_scoped_read": [
+              "1"
+            ],
+            "parsed_observation": [
+              "1"
+            ],
+            "whole_environment": [
+              "1",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "1",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "1"
+            ],
+            "exact_scoped_read": [
+              "1"
+            ],
+            "parsed_observation": [
+              "1"
+            ],
+            "whole_environment": [
+              "1",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            1,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "2"
+            ],
+            "exact_scoped_read": [
+              "2"
+            ],
+            "parsed_observation": [
+              "2"
+            ],
+            "whole_environment": [
+              "2",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "2",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            1,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "2"
+            ],
+            "exact_scoped_read": [
+              "2"
+            ],
+            "parsed_observation": [
+              "2"
+            ],
+            "whole_environment": [
+              "2",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "ok",
+            2,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "3"
+            ],
+            "exact_scoped_read": [
+              "3"
+            ],
+            "parsed_observation": [
+              "3"
+            ],
+            "whole_environment": [
+              "3",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "3",
+          "unrelated_value": "updated",
+          "oracle": [
+            "ok",
+            2,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [
+              "3"
+            ],
+            "exact_scoped_read": [
+              "3"
+            ],
+            "parsed_observation": [
+              "3"
+            ],
+            "whole_environment": [
+              "3",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "4"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "4",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "4",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "4"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "4",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "01"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "01",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "01",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "01"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "01",
+              "updated"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "legacy",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "one"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "one",
+              "legacy"
+            ]
+          }
+        },
+        {
+          "env_value": "one",
+          "unrelated_value": "updated",
+          "oracle": [
+            "malformed",
+            0,
+            1
+          ],
+          "projections": {
+            "subject_only": [],
+            "successful_reads": [],
+            "exact_scoped_read": [
+              "one"
+            ],
+            "parsed_observation": [
+              "malformed"
+            ],
+            "whole_environment": [
+              "one",
+              "updated"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

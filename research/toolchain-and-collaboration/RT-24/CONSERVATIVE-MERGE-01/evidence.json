@@ -1,0 +1,2096 @@
+{
+  "baseline": "9fc1bde0127bd55aea65b58752d5af8c38390bf9",
+  "python": "3.12.14",
+  "git": "git version 2.52.0",
+  "runner_sha256": "d128b692ca29550e3789c75acf63f8ddb347c5d40db79731f5a45f1b77866b86",
+  "helper_sha256": "041590cd007b5806a6a6cd0d3749e646ecb06a720e2ee602e52e19141513a430",
+  "cases": {
+    "absent": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": null,
+        "candidate": null,
+        "decision": "pending",
+        "reason": "check-missing"
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "cf8ab09c815df514e2c6b7e189f7e45375589c99105948b7a8672620d0d0fc57",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": [
+          1,
+          1
+        ],
+        "decision": "eligible",
+        "reason": "complete-and-valid"
+      }
+    },
+    "no-checks-run": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "cf8ab09c815df514e2c6b7e189f7e45375589c99105948b7a8672620d0d0fc57",
+          "status": "unknown",
+          "evaluation_limit": 0,
+          "checked": []
+        },
+        "candidate": null,
+        "decision": "pending",
+        "reason": "check-incomplete"
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "cf8ab09c815df514e2c6b7e189f7e45375589c99105948b7a8672620d0d0fc57",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": [
+          1,
+          1
+        ],
+        "decision": "eligible",
+        "reason": "complete-and-valid"
+      }
+    },
+    "truncated-valid": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "cf8ab09c815df514e2c6b7e189f7e45375589c99105948b7a8672620d0d0fc57",
+          "status": "unknown",
+          "evaluation_limit": 1,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "pending",
+        "reason": "check-incomplete"
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "cf8ab09c815df514e2c6b7e189f7e45375589c99105948b7a8672620d0d0fc57",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": [
+          1,
+          1
+        ],
+        "decision": "eligible",
+        "reason": "complete-and-valid"
+      }
+    },
+    "truncated-invalid": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 0
+            },
+            {
+              "write": 1,
+              "read": 0
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "e684489f9d36d767510efcdb598a5b0371e15260a8da2c1e8867fc7a6bd9d1eb",
+          "status": "unknown",
+          "evaluation_limit": 1,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "pending",
+        "reason": "check-incomplete"
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 0
+            },
+            {
+              "write": 1,
+              "read": 0
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "e684489f9d36d767510efcdb598a5b0371e15260a8da2c1e8867fc7a6bd9d1eb",
+          "status": "noncommuting",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                0
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                0
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "conflict",
+        "reason": "order-dependent"
+      }
+    },
+    "completed-valid": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "cf8ab09c815df514e2c6b7e189f7e45375589c99105948b7a8672620d0d0fc57",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": [
+          1,
+          1
+        ],
+        "decision": "eligible",
+        "reason": "complete-and-valid"
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "cf8ab09c815df514e2c6b7e189f7e45375589c99105948b7a8672620d0d0fc57",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": [
+          1,
+          1
+        ],
+        "decision": "eligible",
+        "reason": "complete-and-valid"
+      }
+    },
+    "completed-invalid": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 0
+            },
+            {
+              "write": 1,
+              "read": 0
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "e684489f9d36d767510efcdb598a5b0371e15260a8da2c1e8867fc7a6bd9d1eb",
+          "status": "noncommuting",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                0
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                0
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "conflict",
+        "reason": "order-dependent"
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 0
+            },
+            {
+              "write": 1,
+              "read": 0
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "e684489f9d36d767510efcdb598a5b0371e15260a8da2c1e8867fc7a6bd9d1eb",
+          "status": "noncommuting",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                0
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                0
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "conflict",
+        "reason": "order-dependent"
+      }
+    },
+    "changed-alternative": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 0
+            },
+            {
+              "write": 1,
+              "read": 0
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "cf8ab09c815df514e2c6b7e189f7e45375589c99105948b7a8672620d0d0fc57",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "pending",
+        "reason": "check-stale"
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 0
+            },
+            {
+              "write": 1,
+              "read": 0
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "e684489f9d36d767510efcdb598a5b0371e15260a8da2c1e8867fc7a6bd9d1eb",
+          "status": "noncommuting",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                0
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                0
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                0,
+                0
+              ],
+              "theirs_then_ours": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "conflict",
+        "reason": "order-dependent"
+      }
+    },
+    "reordered-alternatives": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 1,
+              "constant": 1
+            },
+            {
+              "write": 0,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "cf8ab09c815df514e2c6b7e189f7e45375589c99105948b7a8672620d0d0fc57",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "pending",
+        "reason": "check-stale"
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 1,
+              "constant": 1
+            },
+            {
+              "write": 0,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "f0bc9bfeaa92b199c65584a2c904dff54add50d865238a16df2fdceddce0d4df",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": [
+          1,
+          1
+        ],
+        "decision": "eligible",
+        "reason": "complete-and-valid"
+      }
+    },
+    "changed-capacity": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 1
+        },
+        "receipt": {
+          "subject": "cf8ab09c815df514e2c6b7e189f7e45375589c99105948b7a8672620d0d0fc57",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "pending",
+        "reason": "check-stale"
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 1
+        },
+        "receipt": {
+          "subject": "d617b966146605f0272b1bd93b1ac93e8b121d77be97f310e9ba4895ee9d313b",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "conflict",
+        "reason": "capacity",
+        "rejected_state": [
+          1,
+          1
+        ]
+      }
+    },
+    "completed-postcheck-failure": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 1
+        },
+        "receipt": {
+          "subject": "d617b966146605f0272b1bd93b1ac93e8b121d77be97f310e9ba4895ee9d313b",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "conflict",
+        "reason": "capacity",
+        "rejected_state": [
+          1,
+          1
+        ]
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 0,
+              "constant": 1
+            },
+            {
+              "write": 1,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 1
+        },
+        "receipt": {
+          "subject": "d617b966146605f0272b1bd93b1ac93e8b121d77be97f310e9ba4895ee9d313b",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": null,
+        "decision": "conflict",
+        "reason": "capacity",
+        "rejected_state": [
+          1,
+          1
+        ]
+      }
+    },
+    "recomputed-reordered": {
+      "initial": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 1,
+              "constant": 1
+            },
+            {
+              "write": 0,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "f0bc9bfeaa92b199c65584a2c904dff54add50d865238a16df2fdceddce0d4df",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": [
+          1,
+          1
+        ],
+        "decision": "eligible",
+        "reason": "complete-and-valid"
+      },
+      "after_fresh_check": {
+        "request": {
+          "schema": "finite-merge/v1",
+          "base": [
+            0,
+            0
+          ],
+          "ordered_alternatives": [
+            {
+              "write": 1,
+              "constant": 1
+            },
+            {
+              "write": 0,
+              "constant": 1
+            }
+          ],
+          "domain": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "capacity": 2
+        },
+        "receipt": {
+          "subject": "f0bc9bfeaa92b199c65584a2c904dff54add50d865238a16df2fdceddce0d4df",
+          "status": "commutes",
+          "evaluation_limit": 4,
+          "checked": [
+            {
+              "state": [
+                0,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                0,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                0
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            },
+            {
+              "state": [
+                1,
+                1
+              ],
+              "ours_then_theirs": [
+                1,
+                1
+              ],
+              "theirs_then_ours": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        "candidate": [
+          1,
+          1
+        ],
+        "decision": "eligible",
+        "reason": "complete-and-valid"
+      }
+    }
+  }
+}

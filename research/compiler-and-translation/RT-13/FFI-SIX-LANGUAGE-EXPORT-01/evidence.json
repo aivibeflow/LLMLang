@@ -1,0 +1,262 @@
+{
+  "builds": {
+    "base": {
+      "abi": {
+        "argument_bits": [
+          64,
+          32,
+          64
+        ],
+        "mutable_pointee_bits": 64,
+        "profile": "x86_64-linux-gnu SysV LP64",
+        "return_bits": 32,
+        "symbol": "LLM_CHECKED_1"
+      },
+      "abi_sha256": "06e5bbf06880a2db115cf2099e9fd66f770614e37721076edc63411c8009bd5f",
+      "emitted_source_sha256": "195656a270e35186b57a17c9d24fdabad2ebc89973a7a01337c1a1709da6e4bc",
+      "public_header_sha256": "d3f1ee1f84352c7193a3263305597c4d1c5a9f0fc5cad4be8e25fe00cac97206",
+      "shared_sha256": "c2d31e1e25cfa216e5116aa9796c027eba30d5abc202183f792e84b3e889d665",
+      "static_sha256": "e80058acb3b16e09111c23a118998a7a1100b477c2848fb373b8e09464534a93"
+    },
+    "compatible_revision": {
+      "abi": {
+        "argument_bits": [
+          64,
+          32,
+          64
+        ],
+        "mutable_pointee_bits": 64,
+        "profile": "x86_64-linux-gnu SysV LP64",
+        "return_bits": 32,
+        "symbol": "LLM_CHECKED_1"
+      },
+      "abi_sha256": "06e5bbf06880a2db115cf2099e9fd66f770614e37721076edc63411c8009bd5f",
+      "emitted_source_sha256": "195656a270e35186b57a17c9d24fdabad2ebc89973a7a01337c1a1709da6e4bc",
+      "public_header_sha256": "d3f1ee1f84352c7193a3263305597c4d1c5a9f0fc5cad4be8e25fe00cac97206",
+      "shared_sha256": "2361d782a677f3dc24c6c3b6bcb21ea0b571ef245dcbef5b52e62fe7d28453c2",
+      "static_sha256": "8f4871a7fd369be4f2702377a597ec0f7fc8b94cc7ace7917b82323370786659"
+    },
+    "different_abi": {
+      "abi": {
+        "argument_bits": [
+          64,
+          32,
+          64
+        ],
+        "mutable_pointee_bits": 32,
+        "profile": "x86_64-linux-gnu SysV LP64",
+        "return_bits": 32,
+        "symbol": "LLM_CHECKED_1"
+      },
+      "abi_sha256": "777ba4a138d32e9cf159dc9efaf5cd015ea1cf8678352c1ab8c08f8dbdc054d4",
+      "emitted_source_sha256": "195656a270e35186b57a17c9d24fdabad2ebc89973a7a01337c1a1709da6e4bc",
+      "public_header_sha256": "10bfbd3c0c7ccb50ccf9ac94fc9f054cef2264c71c4525617d94f9a716694c64",
+      "shared_sha256": "47b47e9df06fe43f755bb25202b27ab38fb3cd07a2fe87690496476bccb9fcfe",
+      "static_sha256": "140ee22459a3028073bc769fcfbaf044605abd3e92ecc2ad70874df873f1cd62"
+    },
+    "different_contract": {
+      "abi": {
+        "argument_bits": [
+          64,
+          32,
+          64
+        ],
+        "mutable_pointee_bits": 64,
+        "profile": "x86_64-linux-gnu SysV LP64",
+        "return_bits": 32,
+        "symbol": "LLM_CHECKED_1"
+      },
+      "abi_sha256": "06e5bbf06880a2db115cf2099e9fd66f770614e37721076edc63411c8009bd5f",
+      "emitted_source_sha256": "a97ec317ae4b28a5e85d1befa703b0d101248a643310b2676492513398950691",
+      "public_header_sha256": "d3f1ee1f84352c7193a3263305597c4d1c5a9f0fc5cad4be8e25fe00cac97206",
+      "shared_sha256": "6f2a0f502b5454d3225e3c182ffc93a7c33ed6447ed8ba50d00ca72d65141adf",
+      "static_sha256": "e36c4fddff7bd6494637973b1171d8c1ae843329fdb0ec799b7cb49ed6bfc3d4"
+    }
+  },
+  "cases_per_consumer": 72,
+  "different_abi": "compiler refuses wrong pointee and execution is withheld",
+  "profile": "Linux x86-64 SysV LP64, generated C interface version 1",
+  "reference_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e",
+  "routes": {
+    "c-shared/base": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "fff64797dcc84cbd1496454daa3a3d7d88c4698a5cf7c2ce5e5459f8257e1d0d",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "c-shared/compatible_revision": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "fc0c070f1b0fedb5f6a10aadb1374adb40a40af3778f27ac9f83d2a9d68a52a5",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "c-shared/different_contract": {
+      "admission": "contract-refused",
+      "mismatches": 33,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "871917c86170fd52f3794455e93d8e2d2c1bea96b5977dc68791e208384256f2",
+      "trace_sha256": "b289796aa025d7497d0d1fce05e80d9fdbdfe418c8e4bd7283cf7702bb0790e9"
+    },
+    "c-static/base": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "archive",
+      "receipt": "e2b034d17cba4144a83a2007a7e2696b05ef98c4c22d284159c39e3224c3a2c3",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "cpp-shared/base": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "30d76b103a917134c4ea894175d8b969b3c97b7976c6a81f34079382e698ea78",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "cpp-shared/compatible_revision": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "c6c6f3e43fd6c829ee4d87ea0b05a4de3377c4e76c6d11f5691284192569ca6b",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "cpp-shared/different_contract": {
+      "admission": "contract-refused",
+      "mismatches": 33,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "f2b30147c3bc32e78e45cea7bcad2c8670ad066b5ca6d50830a77a2cd072bd8d",
+      "trace_sha256": "b289796aa025d7497d0d1fce05e80d9fdbdfe418c8e4bd7283cf7702bb0790e9"
+    },
+    "cpp-static/base": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "archive",
+      "receipt": "d569adc4f340a97ed93b96489a500001c04f1b310919d4914dfed8a725dd0778",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "go/base": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "33a3ab6df7b57d149ccf22a8150c3b813faac46ce141f6eeb31a8e0128ddb0fd",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "go/compatible_revision": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "e5bad2c06b2a7c802ebab637e38bdc64f347e107cab18f077fe039ab7a900c6b",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "go/different_contract": {
+      "admission": "contract-refused",
+      "mismatches": 33,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "c2fc79a81a9ef00833e981c6fadc1b71f8750fa07504897b68c540d7c957ef16",
+      "trace_sha256": "b289796aa025d7497d0d1fce05e80d9fdbdfe418c8e4bd7283cf7702bb0790e9"
+    },
+    "java-ffm/base": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "70907a5153bfff26c608e65845951fdcb7c520f2a5876b10b06ef66abd655d23",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "java-ffm/compatible_revision": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "56a563754e490f8d8a78e96db1eec82c3ef17878e04dec22f6885e5bc748b1c0",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "java-ffm/different_contract": {
+      "admission": "contract-refused",
+      "mismatches": 33,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "512969efb4e77f25cfa14a1d30de8873a230068ad42b8c1f402aeb189a86ecde",
+      "trace_sha256": "b289796aa025d7497d0d1fce05e80d9fdbdfe418c8e4bd7283cf7702bb0790e9"
+    },
+    "python/base": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "42e2a36a29c5e0b28ace11f19064b1fbf715b345c80850df46ff6550ad02de18",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "python/compatible_revision": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "43d218e45f30e2b5b0e67f292dec5f6a3d6d196f1de1ceddd14c2f0a7bf41960",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "python/different_contract": {
+      "admission": "contract-refused",
+      "mismatches": 33,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "ea71192d5b07391f8cb73bfb7ca1e9843b37d825a43ca20c28550a03c72686c4",
+      "trace_sha256": "b289796aa025d7497d0d1fce05e80d9fdbdfe418c8e4bd7283cf7702bb0790e9"
+    },
+    "rust/base": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "df7e0dfabe51f1f881eaf0e3e2625f10b9c27a9412f00cfac42c471bbfdb26cf",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "rust/compatible_revision": {
+      "admission": "checked",
+      "mismatches": 0,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "9a75adb7b9501ef0439c44173caef58109548641ad8bc2827d6f0fe1c26b13af",
+      "trace_sha256": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e"
+    },
+    "rust/different_contract": {
+      "admission": "contract-refused",
+      "mismatches": 33,
+      "observations": 72,
+      "provider_binding": "exact ELF audit",
+      "receipt": "1e6b4104ac76fdb2baeb8aa12e92e5ae016adb49aafd2dff769c1210438aa478",
+      "trace_sha256": "b289796aa025d7497d0d1fce05e80d9fdbdfe418c8e4bd7283cf7702bb0790e9"
+    }
+  },
+  "source_contract_sha256": "390309749bee604e832055391d89f3851407035443a3c50faf0a08c280382aad",
+  "source_sha256": {
+    "Consumer.java": "c818e9da14d3c45ae2b56df8ee648131623cf7ca0b6ad75fc5b07b9a4f9694db",
+    "consumer.c": "6bdea2ed75beaffafecd607800c3c513c948e35352ab3e4e5eadcd8760c4feae",
+    "consumer.cc": "338d2401e9ef88b4613e91ae0c718bddbc3a96696013d4d0ba5a5b56066c061f",
+    "consumer.go": "4df7d4964e40c3bfd8fd9b7af73350df4933a01ac4d8e0aee2de36bb415d7b2b",
+    "consumer.py": "075c26e48f5a48b48de294e9d7f9f951bba5a2f6d6e9990ff2cdf6a99341f405",
+    "consumer.rs": "00e954c28595c14139c69ec7fe5cf006518519752e00e94aecc89e9a47d98911",
+    "provider.c.in": "fac5d9ba752f7bb2d35a466d4c1dfa64f2a448a054c7b318b75c37e9c564ddeb",
+    "public.json": "a0c70922b35eafdac9dd9f6a4a5f668fbfc24ffd7aae5616ce371df09561ac72",
+    "run.py": "0fce37115f0a6321bdd8692bf94e9d43c114a1bd29b84cf3bb30cb0a55b0c9b3"
+  },
+  "stale_receipt_after_compatible_change": "refused",
+  "tools": {
+    "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "cxx": "g++ (Debian 14.2.0-19) 14.2.0",
+    "go": "go version go1.27.4 linux/amd64",
+    "java": "openjdk 21.0.13 2026-10-20",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  }
+}

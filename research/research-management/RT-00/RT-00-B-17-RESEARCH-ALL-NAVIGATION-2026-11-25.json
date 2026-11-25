@@ -1,0 +1,1033 @@
+{
+  "schema": "rt00-index-reachability-v1",
+  "baseline_revision": "d5b70342ca46de02d4310391850034167d64e621",
+  "environment": {
+    "python": "3.12.14",
+    "arch": "x86_64"
+  },
+  "baseline": {
+    "roots": [
+      "research/README.md",
+      "PLAN.md"
+    ],
+    "summary": {
+      "artifacts": 1793,
+      "markdown_mdx_documents": 634,
+      "artifacts_reachable_by_document_links": 1483,
+      "documents_reachable_by_document_links": 614,
+      "artifacts_reachable_with_directory_links": 1793,
+      "documents_reachable_with_directory_links": 634,
+      "documents_without_a_direct_index_link": 52,
+      "documents_without_an_incoming_document_link": 18
+    },
+    "artifacts_reachable_only_with_directory_links": [
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCpcCertificate.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/TypedQueryEquality.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-kernel-model-witness/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-source-refutation/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-upstream-program/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/isolated-runtime-build.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/spg_lean/SpgObservations.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/__init__.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/adaptive_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/business_intent.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_graph_audit.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_semantic_diff.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_validation.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/contract_model.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/counterfactual_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/coverage_guided.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/dependency_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/execution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/formal_core.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/logos_runner.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/multifactor_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/project_state.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/proof_boundary.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_profile.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_evolution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/symbolic_relational.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/typed_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_adaptive_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_business_intent.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_graph_audit.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff_cip_v2.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_validation.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_contract_model.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_counterfactual_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_coverage_guided.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_dependency_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_execution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_finite_relational_consistency.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_formal_core.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_impact_planning.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_logos_runner.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_multifactor_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_persistence.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_project_state.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_proof_boundary.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_requirement_evolution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_scoped_binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_semantic_graph.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_symbolic_finite_differential.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_symbolic_relational.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_typed_ir.py",
+      "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/checked_add_certificate_replay.py",
+      "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/checked_add_formula.py",
+      "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/Probe.java",
+      "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/chart.py",
+      "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/probe.c",
+      "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/probe.rs",
+      "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/chart.py",
+      "research/compiler-and-translation/RT-13/BY-VALUE-CALL-ABI-01/provider.h",
+      "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/host.go",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/Cargo.lock",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/Cargo.toml",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/builds-paused/run-20261125/config.json",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/builds-paused/run-20261125/samples.csv",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/builds-paused/run-31261125/config.json",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/builds-paused/run-31261125/samples.csv",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/concurrent/run-20261124/config.json",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/concurrent/run-20261124/samples.csv",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/concurrent/run-31261124/config.json",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/concurrent/run-31261124/samples.csv",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/orc.cpp",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/src/main.rs",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/summarize.py",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/preserving_O0_complete_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/preserving_O0_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/preserving_O3_complete_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/preserving_O3_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/reverse_effects_O0_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/reverse_effects_O0_status_and_stores_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/reverse_effects_O3_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/reverse_effects_O3_status_and_stores_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/store_on_error_O0_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/store_on_error_O0_status_and_effects_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/store_on_error_O3_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/store_on_error_O3_status_and_effects_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-SYMBOLIC-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-DYNAMIC-ROUNDING-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-ROUNDING-LTO-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-ROUNDING-LTO-01/host.c",
+      "research/compiler-and-translation/RT-13/LLVM-ROUNDING-VERSIONS-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/alias.ll",
+      "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/atomic.ll",
+      "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/fence.ll",
+      "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/identity.ll",
+      "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/wrap.ll",
+      "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/chart.py",
+      "research/compiler-and-translation/RT-13/atomic-lowering/boot.s",
+      "research/compiler-and-translation/RT-13/atomic-lowering/layout.ld",
+      "research/compiler-and-translation/RT-13/atomic-lowering/operations.ll",
+      "research/compiler-and-translation/RT-13/atomic-lowering/run.py",
+      "research/compiler-and-translation/RT-13/cranelift-checked-add/Cargo.lock",
+      "research/compiler-and-translation/RT-13/cranelift-checked-add/Cargo.toml",
+      "research/compiler-and-translation/RT-13/cranelift-checked-add/run.py",
+      "research/compiler-and-translation/RT-13/cranelift-checked-add/src/main.rs",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/composed_oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/coverage_v2.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/composition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/test_composition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/transition_experiment.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/extended_oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/grammar.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/models.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/test_recursive.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/explore.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/models.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/test_system.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/templates.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/test_generator.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicQuery.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicState.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicStateExamples.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/TransitionState.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/lean_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/machine.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/smt_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/templates.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_lean_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_smt_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_symbolic_dual_check.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_tlc_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/tlc_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/run.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/sat-without-certificate-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/used-omitted-declaration-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/wrong-certificate-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/absolute-stdout.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/absolute.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-all.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-final-stdout.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-final.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_coverage_v2.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_runner.py",
+      "research/formal-verification/RT-07/AFFINE-CERTIFICATES-01/chart.py",
+      "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/audit.py",
+      "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/chart.py",
+      "research/formal-verification/RT-32/COMPILED-ADMISSION-01/chart.py",
+      "research/formal-verification/RT-32/DEEP-FUEL-01/chart.py",
+      "research/formal-verification/RT-32/LEAN-DEPENDENCIES-01/ImportedAll.lean",
+      "research/formal-verification/RT-32/LEAN-DEPENDENCIES-01/ImportedLegacy.lean",
+      "research/formal-verification/RT-32/LEAN-DEPENDENCIES-01/ImportedPublic.lean",
+      "research/formal-verification/RT-32/LEAN-DEPENDENCIES-01/OnlyPublic.lean",
+      "research/formal-verification/RT-32/MUTUAL-EFFECTS-01/chart.py",
+      "research/formal-verification/RT-32/SOURCE-CLEANUP-KERNEL-01/chart.py",
+      "research/formal-verification/RT-34/BINARY-SEARCH-COST-01/chart.py",
+      "research/formal-verification/RT-34/CALL-COST-BINDING-01/chart.py",
+      "research/formal-verification/RT-34/MERGE-RECURRENCE-01/chart.py",
+      "research/formal-verification/RT-34/NESTED-LOOP-COST-01/chart.py",
+      "research/language-design/RT-01/RESEARCH-DEEP-COMPARISON.md",
+      "research/language-design/RT-01/RESEARCH-RELATED-PROJECTS.md",
+      "research/language-design/RT-02/RESEARCH-SCENARIO-03-REQUIREMENT-IMPACT.md",
+      "research/language-design/RT-03/SOURCE-CLEANUP-CFG-01/chart.py",
+      "research/language-design/RT-03/SOURCE-CLEANUP-CFG-01/run.py",
+      "research/language-design/RT-04/EXTERNAL-REVOCATION-01/chart.py",
+      "research/language-design/RT-04/GRANT-REVOCATION-01/chart.py",
+      "research/language-design/RT-04/QUEUED-FOREIGN-OWNERSHIP-01/chart.py",
+      "research/language-design/RT-04/atomic-rmw-fences/cases.py",
+      "research/language-design/RT-04/atomic-rmw-fences/enumerate_model.py",
+      "research/language-design/RT-04/atomic-rmw-fences/run.py",
+      "research/language-design/RT-04/atomic-rmw-fences/smt_model.py",
+      "research/language-design/RT-04/linux-owned-cleanup/owned_cleanup.c",
+      "research/language-design/RT-04/linux-owned-cleanup/run.py",
+      "research/language-design/RT-31/CROSS-PROFILE-SPG-01/chart.py",
+      "research/language-design/RT-31/TOKEN_EFFICIENCY.md",
+      "research/references/snapshots/Alive2/LICENSE-MIT.txt",
+      "research/references/snapshots/MCP/LICENSE.md",
+      "research/references/snapshots/MCP/authorization.mdx",
+      "research/references/snapshots/MCP/basic-index.mdx",
+      "research/references/snapshots/MCP/schema.json",
+      "research/references/snapshots/MCP/transports.mdx",
+      "research/references/snapshots/OCI/LICENSE-APACHE-2.0.txt",
+      "research/references/snapshots/OCI/descriptor.md",
+      "research/references/snapshots/OCI/image-layout.md",
+      "research/references/snapshots/OCI/manifest.md",
+      "research/references/snapshots/REAPI/LICENSE-APACHE-2.0.txt",
+      "research/references/snapshots/REAPI/remote_execution.proto",
+      "research/research-management/RT-00/RT-00-B-02B-2-PYTHON-PROTOTYPE-AND-TEST-AUDIT-2026-11-20.md",
+      "research/research-management/RT-00/RT-00-B-02B-3-SCENARIO-OVERLAP-AND-SUPERSESSION-AUDIT-2026-11-20.md",
+      "research/research-management/RT-00/RT-00-B-02B-4-ORPHAN-AND-TRACEABILITY-AUDIT-2026-11-20.md",
+      "research/research-management/RT-00/RT-00-B-13-KNOWN-RELATIONSHIP-CONTROLS-2026-11-25.json",
+      "research/research-management/RT-00/RT-00-C-02-SQLITE-IDENTITY-AND-SOURCE-ARCHIVE-INTEGRITY-2026-11-21.md",
+      "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.json",
+      "research/runtime-and-systems/RT-26/MIGRATING-CPU-01/chart.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-allocator/reserve.ll",
+      "research/runtime-and-systems/RT-37/cortex-m3-allocator/reserve.rs",
+      "research/runtime-and-systems/RT-37/cortex-m3-allocator/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-allocator/startup.s",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/inputs.json",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/memory.ld",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/startup.s",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/step.ll",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/step.rs",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/wide_division.ll",
+      "research/runtime-and-systems/RT-37/cortex-m3-isr-effects/handlers.s",
+      "research/runtime-and-systems/RT-37/cortex-m3-isr-effects/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-stack/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-stack/stack_probe.s",
+      "research/runtime-and-systems/RT-37/cortex-m3-timer/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-timer/timer.s",
+      "research/runtime-and-systems/RT-37/cortex-m3-volatile/pair.ll",
+      "research/runtime-and-systems/RT-37/cortex-m3-volatile/pair.rs",
+      "research/runtime-and-systems/RT-37/cortex-m3-volatile/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-volatile/startup.s",
+      "research/runtime-and-systems/RT-37/dma-lease/run.py",
+      "research/runtime-and-systems/RT-37/mmio-metadata/run.py",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-01/ROOT",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-01/replay.sh",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/ROOT",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/replay.sh",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/aliased-registers.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/direct.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/missing-line-end.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/renamed-refactor.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/reordered-steps.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/swapped-result.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/unsupported-operation.ops",
+      "research/runtime-and-systems/RT-38/riscv-address-spaces/address_space.py",
+      "research/runtime-and-systems/RT-38/riscv-address-spaces/run.py",
+      "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/boot.s",
+      "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/layout.ld",
+      "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/run.py",
+      "research/runtime-and-systems/RT-38/riscv-frame-allocator/Frame.lean",
+      "research/runtime-and-systems/RT-38/riscv-frame-allocator/allocator.c",
+      "research/runtime-and-systems/RT-38/riscv-frame-allocator/make_fixture.py",
+      "research/runtime-and-systems/RT-38/riscv-frame-allocator/reference.py",
+      "research/runtime-and-systems/RT-38/riscv-frame-allocator/run.py",
+      "research/runtime-and-systems/RT-38/riscv-ipc/adapt.py",
+      "research/runtime-and-systems/RT-38/riscv-ipc/ipc.c",
+      "research/runtime-and-systems/RT-38/riscv-ipc/reference.py",
+      "research/runtime-and-systems/RT-38/riscv-ipc/request_vectors.py",
+      "research/runtime-and-systems/RT-38/riscv-ipc/run.py",
+      "research/runtime-and-systems/RT-38/riscv-sv39-remap/run.py",
+      "research/runtime-and-systems/RT-38/riscv-sv39-remap/transform.py",
+      "research/runtime-and-systems/RT-38/riscv-trap-isolation/boot.s",
+      "research/runtime-and-systems/RT-38/riscv-trap-isolation/memory.ld",
+      "research/semantic-representation/RT-05/COMPOSED-LINEAGE-01/chart.py",
+      "research/semantic-representation/RT-05/DIRECTED-RECURSIVE-01/chart.py",
+      "research/semantic-representation/RT-05/GENERIC-PROVIDER-BINDING-01/driver.c",
+      "research/semantic-representation/RT-05/GUARDED-DISPATCH-IDENTITY-01/chart.py",
+      "research/semantic-representation/RT-05/MACRO-BINDING-01/chart.py",
+      "research/semantic-representation/RT-05/MULTI-PARENT-LINEAGE-01/chart.py",
+      "research/semantic-representation/RT-05/ORDERED-OCCURRENCES-01/chart.py",
+      "research/semantic-representation/RT-05/PROTOTYPE-01-RESULTS.md",
+      "research/semantic-representation/RT-05/RECURSIVE-STORAGE-01/chart.py",
+      "research/semantic-representation/RT-05/RESEARCH-SCENARIO-01-RENAME-IDENTITY.md",
+      "research/semantic-representation/RT-05/public-refinement-pilot/modular_provider.py",
+      "research/semantic-representation/RT-05/public-refinement-pilot/provider_evidence_rebind.py",
+      "research/semantic-representation/RT-06/CONDITIONAL-DEPENDENCY-01/chart.py",
+      "research/semantic-representation/RT-06/RESEARCH-SCENARIO-09-DEPENDENCY-DRIVEN-EVOLUTION.md",
+      "research/semantic-representation/RT-35/PREFERRED-FUNCTION-RELATIONAL-SCHEMA.json",
+      "research/toolchain-and-collaboration/RT-14/RESEARCH-SCENARIO-02-CONCURRENT-CHANGES.md",
+      "research/toolchain-and-collaboration/RT-14/RFC-REQUEST-CHANGE.md",
+      "research/toolchain-and-collaboration/RT-17/WIRE-DIAGNOSTIC-01/chart.py",
+      "research/toolchain-and-collaboration/RT-17/WIRE-DIAGNOSTIC-01/package.json",
+      "research/toolchain-and-collaboration/RT-17/WIRE-POSITIONS-01/chart.py",
+      "research/toolchain-and-collaboration/RT-17/WIRE-REPAIR-01/chart.py",
+      "research/toolchain-and-collaboration/RT-19/EXTERNAL-RECEIPT-RECOVERY-01/chart.py",
+      "research/toolchain-and-collaboration/RT-19/sqlite-git-crash-recovery/coordinator.py",
+      "research/toolchain-and-collaboration/RT-19/sqlite-git-crash-recovery/run.py",
+      "research/toolchain-and-collaboration/RT-23/CONCURRENT-RECEIVE-01/chart.py",
+      "research/toolchain-and-collaboration/RT-23/DEPENDENT-REF-VERIFY-01/chart.py",
+      "research/toolchain-and-collaboration/RT-23/NATIVE-GENERATION-READS-01/chart.py",
+      "research/toolchain-and-collaboration/RT-23/PINNED-GIT-RETENTION-01/chart.py",
+      "research/toolchain-and-collaboration/RT-23/SINGLE-JOURNAL-REF-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/driver.c",
+      "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/providers.c",
+      "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/routes.h",
+      "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/app.c",
+      "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/observe.c",
+      "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/providers.c",
+      "research/toolchain-and-collaboration/RT-24/GUARDED-MERGE-EVIDENCE-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/MULTIPLE-MERGE-BASES-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/NATIVE-GIT-HOOKS-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/NATIVE-MERGE-DRIVER-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/NATIVE-MERGETOOL-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/NATIVE-RECEIVE-GATE-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/SPLIT-CALLER-PATHS-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/canonical-git-layouts/run.py",
+      "research/toolchain-and-collaboration/RT-27/CHUNK-BOUNDARIES-01/chart.py",
+      "research/toolchain-and-collaboration/RT-27/METADATA-FIRST-01/chart.py",
+      "research/toolchain-and-collaboration/RT-27/SHARDED-HISTORY-01/chart.py",
+      "research/toolchain-and-collaboration/benchmarks/git_binary_spg/run_benchmark.py"
+    ],
+    "artifacts_unreachable_with_directory_links": [],
+    "unresolved_local_path_occurrences": [
+      {
+        "source": "research/COMPARISON-DAFNY-LLMLANG.md",
+        "target": "LLMLang-CONCEPT.md"
+      },
+      {
+        "source": "research/COMPARISON-DAFNY-LLMLANG.md",
+        "target": "RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md"
+      },
+      {
+        "source": "research/COMPARISON-DAFNY-LLMLANG.md",
+        "target": "RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md"
+      },
+      {
+        "source": "research/COMPARISON-DAFNY-LLMLANG.md",
+        "target": "LLMLang-CONCEPT.md"
+      },
+      {
+        "source": "research/COMPARISON-DAFNY-LLMLANG.md",
+        "target": "RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md"
+      },
+      {
+        "source": "research/COMPARISON-DAFNY-LLMLANG.md",
+        "target": "RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/alive2.png"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/google.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/nlnet.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/woven.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/matterlabs.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "BugList.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "image-index.md#image-index-property-descriptions"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#ebnf"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#canonicalization"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "annotations.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "conversion.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md#imageid"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#file-attributes"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#zstd-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#pre-defined-annotation-keys"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../compiler-and-translation/RT-09/RT-09-STRUCTURAL-TYPE-IDENTITY-LAYOUT-AND-C-ABI-PROPOSAL.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../language-design/RT-04/RESEARCH-SCENARIO-70-TYPE-ALIASES-NEWTYPE-AND-OPAQUE-ABSTRACTIONS.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../compiler-and-translation/RT-13/RESEARCH-SCENARIO-72-SUM-TYPE-LAYOUT-ABI-AND-INTEROPERABILITY.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../toolchain-and-collaboration/RT-20/RT-20-CONTRACT-IDENTITY-AND-COMPATIBILITY.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../packages-and-ecosystem/RT-12/RESEARCH-SCENARIO-10-CONTRACT-IMPLEMENTATION-BINDINGS.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../semantic-representation/RT-05/PUBLIC-INTERFACE-VERIFICATION-REBIND-2026-11-24.md"
+      },
+      {
+        "source": "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md",
+        "target": "../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md"
+      }
+    ]
+  },
+  "curated_links": {
+    "roots": [
+      "research/README.md",
+      "PLAN.md"
+    ],
+    "summary": {
+      "artifacts": 1793,
+      "markdown_mdx_documents": 634,
+      "artifacts_reachable_by_document_links": 1496,
+      "documents_reachable_by_document_links": 627,
+      "artifacts_reachable_with_directory_links": 1793,
+      "documents_reachable_with_directory_links": 634,
+      "documents_without_a_direct_index_link": 39,
+      "documents_without_an_incoming_document_link": 5
+    },
+    "artifacts_reachable_only_with_directory_links": [
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/SymbolicCpcCertificate.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/TypedQueryEquality.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-kernel-model-witness/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-source-refutation/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-upstream-program/axioms.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/isolated-runtime-build.txt",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/spg_lean/SpgObservations.lean",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/__init__.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/adaptive_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/business_intent.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_graph_audit.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_semantic_diff.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/candidate_validation.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/contract_model.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/counterfactual_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/coverage_guided.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/dependency_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/execution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/formal_core.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/logos_runner.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/multifactor_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/project_state.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/proof_boundary.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/qf_lia_profile.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_evolution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/symbolic_relational.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/typed_ir.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_adaptive_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_business_intent.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_graph_audit.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_semantic_diff_cip_v2.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_candidate_validation.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_contract_model.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_counterfactual_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_coverage_guided.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_dependency_discovery.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_execution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_finite_relational_consistency.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_formal_core.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_impact_planning.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_logos_runner.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_multifactor_analysis.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_persistence.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_project_state.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_proof_boundary.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_qf_lia_profile.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_requirement_evolution.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_scoped_binding.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_semantic_graph.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_symbolic_finite_differential.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_symbolic_relational.py",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_typed_ir.py",
+      "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/checked_add_certificate_replay.py",
+      "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/checked_add_formula.py",
+      "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/Probe.java",
+      "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/chart.py",
+      "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/probe.c",
+      "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/probe.rs",
+      "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/chart.py",
+      "research/compiler-and-translation/RT-13/BY-VALUE-CALL-ABI-01/provider.h",
+      "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/host.go",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/Cargo.lock",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/Cargo.toml",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/builds-paused/run-20261125/config.json",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/builds-paused/run-20261125/samples.csv",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/builds-paused/run-31261125/config.json",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/builds-paused/run-31261125/samples.csv",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/concurrent/run-20261124/config.json",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/concurrent/run-20261124/samples.csv",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/concurrent/run-31261124/config.json",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/evidence/concurrent/run-31261124/samples.csv",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/orc.cpp",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/src/main.rs",
+      "research/compiler-and-translation/RT-13/JIT-MATERIALIZATION-01/summarize.py",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/preserving_O0_complete_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/preserving_O0_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/preserving_O3_complete_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/preserving_O3_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/reverse_effects_O0_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/reverse_effects_O0_status_and_stores_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/reverse_effects_O3_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/reverse_effects_O3_status_and_stores_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/store_on_error_O0_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/store_on_error_O0_status_and_effects_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/store_on_error_O3_partition.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/lrat/store_on_error_O3_status_and_effects_mismatch.lrat",
+      "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-SYMBOLIC-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-DYNAMIC-ROUNDING-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-ROUNDING-LTO-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-ROUNDING-LTO-01/host.c",
+      "research/compiler-and-translation/RT-13/LLVM-ROUNDING-VERSIONS-01/chart.py",
+      "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/alias.ll",
+      "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/atomic.ll",
+      "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/fence.ll",
+      "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/identity.ll",
+      "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/wrap.ll",
+      "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/chart.py",
+      "research/compiler-and-translation/RT-13/atomic-lowering/boot.s",
+      "research/compiler-and-translation/RT-13/atomic-lowering/layout.ld",
+      "research/compiler-and-translation/RT-13/atomic-lowering/operations.ll",
+      "research/compiler-and-translation/RT-13/atomic-lowering/run.py",
+      "research/compiler-and-translation/RT-13/cranelift-checked-add/Cargo.lock",
+      "research/compiler-and-translation/RT-13/cranelift-checked-add/Cargo.toml",
+      "research/compiler-and-translation/RT-13/cranelift-checked-add/run.py",
+      "research/compiler-and-translation/RT-13/cranelift-checked-add/src/main.rs",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/composed_oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/coverage_v2.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/composition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/test_composition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/evidence/transition_experiment.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/extended_oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/grammar.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/models.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/recursive/test_recursive.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/explore.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/models.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/system/test_system.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/templates.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/test_generator.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicQuery.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicState.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/SymbolicStateExamples.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/TransitionState.lean",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/generate.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/lean_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/machine.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/oracle.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/smt_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/templates.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_lean_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_smt_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_symbolic_dual_check.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_tlc_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/test_transition.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/generative/transition/tlc_adapter.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/oracles.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/run.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/sat-without-certificate-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/used-omitted-declaration-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-cpc-results/wrong-certificate-diagnostic.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/absolute-stdout.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/absolute.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-all.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-final-stdout.txt",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/symbolic-smt-results/zero-final.smt2",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_coverage_v2.py",
+      "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/test_runner.py",
+      "research/formal-verification/RT-07/AFFINE-CERTIFICATES-01/chart.py",
+      "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/audit.py",
+      "research/formal-verification/RT-07/LOGOS-VERDICT-PROOF-01/chart.py",
+      "research/formal-verification/RT-32/COMPILED-ADMISSION-01/chart.py",
+      "research/formal-verification/RT-32/DEEP-FUEL-01/chart.py",
+      "research/formal-verification/RT-32/LEAN-DEPENDENCIES-01/ImportedAll.lean",
+      "research/formal-verification/RT-32/LEAN-DEPENDENCIES-01/ImportedLegacy.lean",
+      "research/formal-verification/RT-32/LEAN-DEPENDENCIES-01/ImportedPublic.lean",
+      "research/formal-verification/RT-32/LEAN-DEPENDENCIES-01/OnlyPublic.lean",
+      "research/formal-verification/RT-32/MUTUAL-EFFECTS-01/chart.py",
+      "research/formal-verification/RT-32/SOURCE-CLEANUP-KERNEL-01/chart.py",
+      "research/formal-verification/RT-34/BINARY-SEARCH-COST-01/chart.py",
+      "research/formal-verification/RT-34/CALL-COST-BINDING-01/chart.py",
+      "research/formal-verification/RT-34/MERGE-RECURRENCE-01/chart.py",
+      "research/formal-verification/RT-34/NESTED-LOOP-COST-01/chart.py",
+      "research/language-design/RT-03/SOURCE-CLEANUP-CFG-01/chart.py",
+      "research/language-design/RT-03/SOURCE-CLEANUP-CFG-01/run.py",
+      "research/language-design/RT-04/EXTERNAL-REVOCATION-01/chart.py",
+      "research/language-design/RT-04/GRANT-REVOCATION-01/chart.py",
+      "research/language-design/RT-04/QUEUED-FOREIGN-OWNERSHIP-01/chart.py",
+      "research/language-design/RT-04/atomic-rmw-fences/cases.py",
+      "research/language-design/RT-04/atomic-rmw-fences/enumerate_model.py",
+      "research/language-design/RT-04/atomic-rmw-fences/run.py",
+      "research/language-design/RT-04/atomic-rmw-fences/smt_model.py",
+      "research/language-design/RT-04/linux-owned-cleanup/owned_cleanup.c",
+      "research/language-design/RT-04/linux-owned-cleanup/run.py",
+      "research/language-design/RT-31/CROSS-PROFILE-SPG-01/chart.py",
+      "research/references/snapshots/Alive2/LICENSE-MIT.txt",
+      "research/references/snapshots/MCP/LICENSE.md",
+      "research/references/snapshots/MCP/authorization.mdx",
+      "research/references/snapshots/MCP/basic-index.mdx",
+      "research/references/snapshots/MCP/schema.json",
+      "research/references/snapshots/MCP/transports.mdx",
+      "research/references/snapshots/OCI/LICENSE-APACHE-2.0.txt",
+      "research/references/snapshots/OCI/descriptor.md",
+      "research/references/snapshots/OCI/image-layout.md",
+      "research/references/snapshots/OCI/manifest.md",
+      "research/references/snapshots/REAPI/LICENSE-APACHE-2.0.txt",
+      "research/references/snapshots/REAPI/remote_execution.proto",
+      "research/research-management/RT-00/RT-00-B-13-KNOWN-RELATIONSHIP-CONTROLS-2026-11-25.json",
+      "research/research-management/RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.json",
+      "research/runtime-and-systems/RT-26/MIGRATING-CPU-01/chart.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-allocator/reserve.ll",
+      "research/runtime-and-systems/RT-37/cortex-m3-allocator/reserve.rs",
+      "research/runtime-and-systems/RT-37/cortex-m3-allocator/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-allocator/startup.s",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/inputs.json",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/memory.ld",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/startup.s",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/step.ll",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/step.rs",
+      "research/runtime-and-systems/RT-37/cortex-m3-closure/wide_division.ll",
+      "research/runtime-and-systems/RT-37/cortex-m3-isr-effects/handlers.s",
+      "research/runtime-and-systems/RT-37/cortex-m3-isr-effects/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-stack/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-stack/stack_probe.s",
+      "research/runtime-and-systems/RT-37/cortex-m3-timer/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-timer/timer.s",
+      "research/runtime-and-systems/RT-37/cortex-m3-volatile/pair.ll",
+      "research/runtime-and-systems/RT-37/cortex-m3-volatile/pair.rs",
+      "research/runtime-and-systems/RT-37/cortex-m3-volatile/run.py",
+      "research/runtime-and-systems/RT-37/cortex-m3-volatile/startup.s",
+      "research/runtime-and-systems/RT-37/dma-lease/run.py",
+      "research/runtime-and-systems/RT-37/mmio-metadata/run.py",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-01/ROOT",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-01/replay.sh",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/ROOT",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/replay.sh",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/aliased-registers.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/direct.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/missing-line-end.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/renamed-refactor.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/reordered-steps.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/swapped-result.ops",
+      "research/runtime-and-systems/RT-38/SEL4-LOOKUP-SOURCE-01/sources/unsupported-operation.ops",
+      "research/runtime-and-systems/RT-38/riscv-address-spaces/address_space.py",
+      "research/runtime-and-systems/RT-38/riscv-address-spaces/run.py",
+      "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/boot.s",
+      "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/layout.ld",
+      "research/runtime-and-systems/RT-38/riscv-cooperative-scheduler/run.py",
+      "research/runtime-and-systems/RT-38/riscv-frame-allocator/Frame.lean",
+      "research/runtime-and-systems/RT-38/riscv-frame-allocator/allocator.c",
+      "research/runtime-and-systems/RT-38/riscv-frame-allocator/make_fixture.py",
+      "research/runtime-and-systems/RT-38/riscv-frame-allocator/reference.py",
+      "research/runtime-and-systems/RT-38/riscv-frame-allocator/run.py",
+      "research/runtime-and-systems/RT-38/riscv-ipc/adapt.py",
+      "research/runtime-and-systems/RT-38/riscv-ipc/ipc.c",
+      "research/runtime-and-systems/RT-38/riscv-ipc/reference.py",
+      "research/runtime-and-systems/RT-38/riscv-ipc/request_vectors.py",
+      "research/runtime-and-systems/RT-38/riscv-ipc/run.py",
+      "research/runtime-and-systems/RT-38/riscv-sv39-remap/run.py",
+      "research/runtime-and-systems/RT-38/riscv-sv39-remap/transform.py",
+      "research/runtime-and-systems/RT-38/riscv-trap-isolation/boot.s",
+      "research/runtime-and-systems/RT-38/riscv-trap-isolation/memory.ld",
+      "research/semantic-representation/RT-05/COMPOSED-LINEAGE-01/chart.py",
+      "research/semantic-representation/RT-05/DIRECTED-RECURSIVE-01/chart.py",
+      "research/semantic-representation/RT-05/GENERIC-PROVIDER-BINDING-01/driver.c",
+      "research/semantic-representation/RT-05/GUARDED-DISPATCH-IDENTITY-01/chart.py",
+      "research/semantic-representation/RT-05/MACRO-BINDING-01/chart.py",
+      "research/semantic-representation/RT-05/MULTI-PARENT-LINEAGE-01/chart.py",
+      "research/semantic-representation/RT-05/ORDERED-OCCURRENCES-01/chart.py",
+      "research/semantic-representation/RT-05/RECURSIVE-STORAGE-01/chart.py",
+      "research/semantic-representation/RT-05/public-refinement-pilot/modular_provider.py",
+      "research/semantic-representation/RT-05/public-refinement-pilot/provider_evidence_rebind.py",
+      "research/semantic-representation/RT-06/CONDITIONAL-DEPENDENCY-01/chart.py",
+      "research/semantic-representation/RT-35/PREFERRED-FUNCTION-RELATIONAL-SCHEMA.json",
+      "research/toolchain-and-collaboration/RT-17/WIRE-DIAGNOSTIC-01/chart.py",
+      "research/toolchain-and-collaboration/RT-17/WIRE-DIAGNOSTIC-01/package.json",
+      "research/toolchain-and-collaboration/RT-17/WIRE-POSITIONS-01/chart.py",
+      "research/toolchain-and-collaboration/RT-17/WIRE-REPAIR-01/chart.py",
+      "research/toolchain-and-collaboration/RT-19/EXTERNAL-RECEIPT-RECOVERY-01/chart.py",
+      "research/toolchain-and-collaboration/RT-19/sqlite-git-crash-recovery/coordinator.py",
+      "research/toolchain-and-collaboration/RT-19/sqlite-git-crash-recovery/run.py",
+      "research/toolchain-and-collaboration/RT-23/CONCURRENT-RECEIVE-01/chart.py",
+      "research/toolchain-and-collaboration/RT-23/DEPENDENT-REF-VERIFY-01/chart.py",
+      "research/toolchain-and-collaboration/RT-23/NATIVE-GENERATION-READS-01/chart.py",
+      "research/toolchain-and-collaboration/RT-23/PINNED-GIT-RETENTION-01/chart.py",
+      "research/toolchain-and-collaboration/RT-23/SINGLE-JOURNAL-REF-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/driver.c",
+      "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/providers.c",
+      "research/toolchain-and-collaboration/RT-24/CONFIG-CALLER-COVERAGE-01/routes.h",
+      "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/app.c",
+      "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/observe.c",
+      "research/toolchain-and-collaboration/RT-24/CONFIGURED-MERGE-PUBLICATION-01/providers.c",
+      "research/toolchain-and-collaboration/RT-24/GUARDED-MERGE-EVIDENCE-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/MULTIPLE-MERGE-BASES-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/NATIVE-GIT-HOOKS-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/NATIVE-MERGE-DRIVER-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/NATIVE-MERGETOOL-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/NATIVE-RECEIVE-GATE-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/SPLIT-CALLER-PATHS-01/chart.py",
+      "research/toolchain-and-collaboration/RT-24/canonical-git-layouts/run.py",
+      "research/toolchain-and-collaboration/RT-27/CHUNK-BOUNDARIES-01/chart.py",
+      "research/toolchain-and-collaboration/RT-27/METADATA-FIRST-01/chart.py",
+      "research/toolchain-and-collaboration/RT-27/SHARDED-HISTORY-01/chart.py",
+      "research/toolchain-and-collaboration/benchmarks/git_binary_spg/run_benchmark.py"
+    ],
+    "artifacts_unreachable_with_directory_links": [],
+    "unresolved_local_path_occurrences": [
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/alive2.png"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/google.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/nlnet.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/woven.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "imgs/matterlabs.svg"
+      },
+      {
+        "source": "research/references/snapshots/Alive2/README.md",
+        "target": "BugList.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "image-index.md#image-index-property-descriptions"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#ebnf"
+      },
+      {
+        "source": "research/references/snapshots/OCI/descriptor.md",
+        "target": "considerations.md#canonicalization"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/image-layout.md",
+        "target": "annotations.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "conversion.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "image-index.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "media-types.md#compatibility-matrix"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "config.md#imageid"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#applying-changesets"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#file-attributes"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#gzip-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "./layer.md#non-distributable-layers"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "layer.md#zstd-media-types"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#rules"
+      },
+      {
+        "source": "research/references/snapshots/OCI/manifest.md",
+        "target": "annotations.md#pre-defined-annotation-keys"
+      }
+    ]
+  }
+}

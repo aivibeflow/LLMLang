@@ -1,0 +1,35 @@
+{
+  "schema": "llmlang-proof-cache-store/1",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "runner_sha256": "bea457a0362c8ef8510ce39577241687a9c4f90f13912c026e902a1e9f07f571",
+  "results": {
+    "journal_mode": "wal",
+    "modular_input_mutations": {
+      "spg": "miss",
+      "caller_contract": "miss",
+      "callee_contract": "miss",
+      "assumptions": "miss",
+      "profile": "miss",
+      "decoder": "miss",
+      "generator": "miss",
+      "compiler": "miss",
+      "toolchain": "miss"
+    },
+    "baseline_reopened": "a2c1956acae48f3e667a67fc48ea7a5e4aba03e26b7ab03e80fd4162c3c9818f",
+    "modular_reused_after_rebind": "ddf20a0094ccd778dbb4be121323302a94c7f0e8ba88c25be52e461925c588f6",
+    "old_closed": "437dbaebfc70fd6a241be9f7271b90b9ebb8c37552928182487406a7e3b3c14e",
+    "rebound_closed": "a303b43d4f8f15445bad35562f9b4b98c82c4f293a9f644cdba22ecaedec1e4e",
+    "changed_artifact_closed": "e13f4cd129e167771e4a3d4f2c0fe86c091b539cd1412ce347b46e665e694412",
+    "changed_trust_closed": "88cf5233bcbeb6004fb92379cb8e9fcaefbb5616a7f328093d3b21b051e21ca3",
+    "cold_rebind_refusal": "missing exact admitted dependency",
+    "different_payload_same_key_refusal": "conflicting receipt",
+    "incomplete_inventory_refusal": "incomplete proof inventory",
+    "wrong_request_refusal": "closure request mismatch",
+    "pinned_reader_then_new_view": true,
+    "interrupted_publish_recovered": true,
+    "interrupted_publish_same_request_retried": true,
+    "corrupted_payload_refusal": "payload digest mismatch",
+    "corrupted_dependency_blocks_closed_reuse": "payload digest mismatch"
+  }
+}

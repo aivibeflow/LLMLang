@@ -1,0 +1,833 @@
+{
+  "baseline": "655553342a713c1f1dab611d8c8c4cecb9c4c043",
+  "python": "3.12.14",
+  "runner_sha256": "bdc508ed3f67fcb0df7388925f5ea2f47460e482566d0fd85b081dae0c978c1f",
+  "input_sha256": {
+    "src/spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+    "src/spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+    "src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "src/persistence.py": "9a3aaeae773808d2195253e2cb0e3f2c39cc140a53c94080b7644f1854ac7da3",
+    "src/recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556"
+  },
+  "layouts": {
+    "compact": {
+      "source_utf8": "(op(\"provider\", x) + op(\"provider\", x))",
+      "source_sha256": "a4fbef3209e694607fa4545760e8859b6d44d824a0bab72913db3b7aff0c7651",
+      "graph_root": "a771d3985fbf40033fafa0226f1874769d25cb88dda4836698d5ff41b5436de0",
+      "graph_sha256": "45d8c1fc5157050bc5d53e87dd866579de64e334969bb65151b53ac8d2693354",
+      "spans": {
+        "left": [
+          1,
+          18
+        ],
+        "right": [
+          21,
+          38
+        ]
+      },
+      "lexeme_sha256": {
+        "left": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa",
+        "right": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa"
+      },
+      "codepoint_line_start_control": {
+        "left": [
+          1,
+          18
+        ],
+        "right": [
+          21,
+          38
+        ]
+      },
+      "observations": [
+        [
+          -10,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          0,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          4,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          6,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          22,
+          [
+            "tick",
+            "tick"
+          ]
+        ]
+      ]
+    },
+    "trailing-comment": {
+      "source_utf8": "(op(\"provider\", x) + op(\"provider\", x)) # result\n",
+      "source_sha256": "52fcad9da0c19061439008132f4353a904f2b9e4d1d90641bca5044b9a2bd2fc",
+      "graph_root": "a771d3985fbf40033fafa0226f1874769d25cb88dda4836698d5ff41b5436de0",
+      "graph_sha256": "45d8c1fc5157050bc5d53e87dd866579de64e334969bb65151b53ac8d2693354",
+      "spans": {
+        "left": [
+          1,
+          18
+        ],
+        "right": [
+          21,
+          38
+        ]
+      },
+      "lexeme_sha256": {
+        "left": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa",
+        "right": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa"
+      },
+      "codepoint_line_start_control": {
+        "left": [
+          1,
+          18
+        ],
+        "right": [
+          21,
+          38
+        ]
+      },
+      "observations": [
+        [
+          -10,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          0,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          4,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          6,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          22,
+          [
+            "tick",
+            "tick"
+          ]
+        ]
+      ]
+    },
+    "wide-spacing": {
+      "source_utf8": "(  op(\"provider\", x)   +   op(\"provider\", x)  )\n",
+      "source_sha256": "7576cfb0c1e13b9224d275848f26b0b48e1c47ec917b2873ba1f7bbb1e0189d8",
+      "graph_root": "a771d3985fbf40033fafa0226f1874769d25cb88dda4836698d5ff41b5436de0",
+      "graph_sha256": "45d8c1fc5157050bc5d53e87dd866579de64e334969bb65151b53ac8d2693354",
+      "spans": {
+        "left": [
+          3,
+          20
+        ],
+        "right": [
+          27,
+          44
+        ]
+      },
+      "lexeme_sha256": {
+        "left": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa",
+        "right": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa"
+      },
+      "codepoint_line_start_control": {
+        "left": [
+          3,
+          20
+        ],
+        "right": [
+          27,
+          44
+        ]
+      },
+      "observations": [
+        [
+          -10,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          0,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          4,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          6,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          22,
+          [
+            "tick",
+            "tick"
+          ]
+        ]
+      ]
+    },
+    "multiline": {
+      "source_utf8": "(\n    op(\"provider\", x) +\n    op(\"provider\", x)\n)\n",
+      "source_sha256": "679a663ea78fb1b0ecf5a22766c68818e62fa7d1704b018b60b65591b928ecb6",
+      "graph_root": "a771d3985fbf40033fafa0226f1874769d25cb88dda4836698d5ff41b5436de0",
+      "graph_sha256": "45d8c1fc5157050bc5d53e87dd866579de64e334969bb65151b53ac8d2693354",
+      "spans": {
+        "left": [
+          6,
+          23
+        ],
+        "right": [
+          30,
+          47
+        ]
+      },
+      "lexeme_sha256": {
+        "left": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa",
+        "right": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa"
+      },
+      "codepoint_line_start_control": {
+        "left": [
+          6,
+          23
+        ],
+        "right": [
+          30,
+          47
+        ]
+      },
+      "observations": [
+        [
+          -10,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          0,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          4,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          6,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          22,
+          [
+            "tick",
+            "tick"
+          ]
+        ]
+      ]
+    },
+    "utf8-before": {
+      "source_utf8": "# entr\u00e9e \ud83d\udd0d\n(op(\"provider\", x) + op(\"provider\", x))\n",
+      "source_sha256": "2c5e03c3ebcfee797c5440f5a4b612ea9695510e8e861f7b01cfdb25a6109bbd",
+      "graph_root": "a771d3985fbf40033fafa0226f1874769d25cb88dda4836698d5ff41b5436de0",
+      "graph_sha256": "45d8c1fc5157050bc5d53e87dd866579de64e334969bb65151b53ac8d2693354",
+      "spans": {
+        "left": [
+          16,
+          33
+        ],
+        "right": [
+          36,
+          53
+        ]
+      },
+      "lexeme_sha256": {
+        "left": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa",
+        "right": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa"
+      },
+      "codepoint_line_start_control": {
+        "left": [
+          12,
+          29
+        ],
+        "right": [
+          32,
+          49
+        ]
+      },
+      "observations": [
+        [
+          -10,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          0,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          4,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          6,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          22,
+          [
+            "tick",
+            "tick"
+          ]
+        ]
+      ]
+    },
+    "utf8-between-crlf": {
+      "source_utf8": "(\r\n    op(\"provider\", x) +  # r\u00e9sultat \ud83d\udd0d\r\n    op(\"provider\", x)\r\n)\r\n",
+      "source_sha256": "30f27ea5390ac62b6a7ebd3f1ba12e0d6d8408323f3c3dde0d4d466fb9d440f9",
+      "graph_root": "a771d3985fbf40033fafa0226f1874769d25cb88dda4836698d5ff41b5436de0",
+      "graph_sha256": "45d8c1fc5157050bc5d53e87dd866579de64e334969bb65151b53ac8d2693354",
+      "spans": {
+        "left": [
+          7,
+          24
+        ],
+        "right": [
+          50,
+          67
+        ]
+      },
+      "lexeme_sha256": {
+        "left": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa",
+        "right": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa"
+      },
+      "codepoint_line_start_control": {
+        "left": [
+          7,
+          24
+        ],
+        "right": [
+          46,
+          63
+        ]
+      },
+      "observations": [
+        [
+          -10,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          0,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          4,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          6,
+          [
+            "tick",
+            "tick"
+          ]
+        ],
+        [
+          22,
+          [
+            "tick",
+            "tick"
+          ]
+        ]
+      ]
+    }
+  },
+  "ordered_layout_pairs": [
+    {
+      "old": "compact",
+      "new": "compact",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": true,
+      "source_revision_accept": true,
+      "occurrence_revalidation_accept": true,
+      "coordinates_equal": true
+    },
+    {
+      "old": "compact",
+      "new": "trailing-comment",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": true,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": true
+    },
+    {
+      "old": "compact",
+      "new": "wide-spacing",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "compact",
+      "new": "multiline",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "compact",
+      "new": "utf8-before",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "compact",
+      "new": "utf8-between-crlf",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "trailing-comment",
+      "new": "compact",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": true,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": true
+    },
+    {
+      "old": "trailing-comment",
+      "new": "trailing-comment",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": true,
+      "source_revision_accept": true,
+      "occurrence_revalidation_accept": true,
+      "coordinates_equal": true
+    },
+    {
+      "old": "trailing-comment",
+      "new": "wide-spacing",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "trailing-comment",
+      "new": "multiline",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "trailing-comment",
+      "new": "utf8-before",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "trailing-comment",
+      "new": "utf8-between-crlf",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "wide-spacing",
+      "new": "compact",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "wide-spacing",
+      "new": "trailing-comment",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "wide-spacing",
+      "new": "wide-spacing",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": true,
+      "source_revision_accept": true,
+      "occurrence_revalidation_accept": true,
+      "coordinates_equal": true
+    },
+    {
+      "old": "wide-spacing",
+      "new": "multiline",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "wide-spacing",
+      "new": "utf8-before",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "wide-spacing",
+      "new": "utf8-between-crlf",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "multiline",
+      "new": "compact",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "multiline",
+      "new": "trailing-comment",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "multiline",
+      "new": "wide-spacing",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "multiline",
+      "new": "multiline",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": true,
+      "source_revision_accept": true,
+      "occurrence_revalidation_accept": true,
+      "coordinates_equal": true
+    },
+    {
+      "old": "multiline",
+      "new": "utf8-before",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "multiline",
+      "new": "utf8-between-crlf",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-before",
+      "new": "compact",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-before",
+      "new": "trailing-comment",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-before",
+      "new": "wide-spacing",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-before",
+      "new": "multiline",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-before",
+      "new": "utf8-before",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": true,
+      "source_revision_accept": true,
+      "occurrence_revalidation_accept": true,
+      "coordinates_equal": true
+    },
+    {
+      "old": "utf8-before",
+      "new": "utf8-between-crlf",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-between-crlf",
+      "new": "compact",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-between-crlf",
+      "new": "trailing-comment",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-between-crlf",
+      "new": "wide-spacing",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-between-crlf",
+      "new": "multiline",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-between-crlf",
+      "new": "utf8-before",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": false,
+      "source_revision_accept": false,
+      "occurrence_revalidation_accept": false,
+      "coordinates_equal": false
+    },
+    {
+      "old": "utf8-between-crlf",
+      "new": "utf8-between-crlf",
+      "graph_key_reuse": true,
+      "graph_and_lexemes_accept": true,
+      "source_revision_accept": true,
+      "occurrence_revalidation_accept": true,
+      "coordinates_equal": true
+    }
+  ],
+  "cross_revision_pairs": 30,
+  "cross_revision_lexeme_admissions": 2,
+  "cross_revision_coordinate_mismatches": 28,
+  "codepoint_line_start_failures": [
+    "utf8-before",
+    "utf8-between-crlf"
+  ],
+  "swapped_spans": {
+    "source": "compact",
+    "spans": {
+      "left": [
+        21,
+        38
+      ],
+      "right": [
+        1,
+        18
+      ]
+    },
+    "lexemes_match": true,
+    "revision_and_bounds_accept": true,
+    "occurrence_revalidation_accept": false
+  },
+  "changed_program": {
+    "source_utf8": "(op(\"provider\", x) + op(\"provider\", x + 1))",
+    "source_sha256": "d835beecff74cbcf483aadc3240afde66a2b90b5317b5975ba66a9a978c025e2",
+    "graph_root": "35e535ec5828791c1850297efad09254941f284cc3160f8df4d27b0677fbdb09",
+    "graph_sha256": "18fa51f6924486ca118fca81afab880d02d6a04155440a5bec7c6232b5e895fa",
+    "spans": {
+      "left": [
+        1,
+        18
+      ],
+      "right": [
+        21,
+        42
+      ]
+    },
+    "lexeme_sha256": {
+      "left": "43d71e4c73c155e71946eede7d8b6cc2bbe025f2fe6d099b4866cc9fc0df20aa",
+      "right": "43659e6c0c8ecbbe005bcb67188c0d277edf61856d9e13fe6eef670d080e90c2"
+    },
+    "codepoint_line_start_control": {
+      "left": [
+        1,
+        18
+      ],
+      "right": [
+        21,
+        42
+      ]
+    },
+    "observations": [
+      [
+        -9,
+        [
+          "tick",
+          "tick"
+        ]
+      ],
+      [
+        1,
+        [
+          "tick",
+          "tick"
+        ]
+      ],
+      [
+        5,
+        [
+          "tick",
+          "tick"
+        ]
+      ],
+      [
+        7,
+        [
+          "tick",
+          "tick"
+        ]
+      ],
+      [
+        23,
+        [
+          "tick",
+          "tick"
+        ]
+      ]
+    ]
+  },
+  "swapped_distinct_spans_match_lexemes": false
+}

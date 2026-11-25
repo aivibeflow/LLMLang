@@ -1,0 +1,100 @@
+{
+  "cases": [
+    {
+      "artifact": "98d877ed0e799a6d19661e5147cd2a1d15de88328ced5021bf5150f2f0d3075a",
+      "bytes": 3170080,
+      "commit": "bd1155deff32e3fb27d0f3ee9d92218318f6432a31794c4b859fa3ca28350924",
+      "files": 3,
+      "layout": "whole",
+      "restored_with": "Git-alone",
+      "root": "fcbe721260a90d4add012380556d1bd684fe64c905bd17ef836d9d4c68e77b54"
+    },
+    {
+      "artifact": "c666b26c259d7e58af28aa8d607fbef07944a2f8a7ff49d6c07e03bb63a38a01",
+      "bytes": 3170080,
+      "commit": "c19fe02cd9ed4749f7bd4a57019f4d2f612ced9430391b7914347b6df0f8b7c6",
+      "files": 3,
+      "layout": "whole",
+      "restored_with": "Git-alone",
+      "root": "86a27a84ebf8b9c2741d7b52db3a664b33b80289ea5c5aa421ee64a54a566f2f"
+    },
+    {
+      "artifact": "98d877ed0e799a6d19661e5147cd2a1d15de88328ced5021bf5150f2f0d3075a",
+      "bytes": 3170080,
+      "commit": "5508450fab1e5a9ad7a9429d3d67efc5faa89968584c58c78b34122148e1d7ad",
+      "files": 6,
+      "layout": "chunks",
+      "restored_with": "Git-alone",
+      "root": "fcbe721260a90d4add012380556d1bd684fe64c905bd17ef836d9d4c68e77b54"
+    },
+    {
+      "artifact": "c666b26c259d7e58af28aa8d607fbef07944a2f8a7ff49d6c07e03bb63a38a01",
+      "bytes": 3170080,
+      "commit": "a29ea027b691ddfa33964c4d9546ed259a787e04d003fc43570a2f38997228a2",
+      "files": 6,
+      "layout": "chunks",
+      "restored_with": "Git-alone",
+      "root": "86a27a84ebf8b9c2741d7b52db3a664b33b80289ea5c5aa421ee64a54a566f2f"
+    },
+    {
+      "artifact": "98d877ed0e799a6d19661e5147cd2a1d15de88328ced5021bf5150f2f0d3075a",
+      "bytes": 3170080,
+      "commit": "621156cdd047df67b81e1499f51bdbae46fd024b71aae45ef011282dfc9a27ae",
+      "files": 2,
+      "layout": "detached",
+      "restored_with": "detached-exact-source",
+      "root": "fcbe721260a90d4add012380556d1bd684fe64c905bd17ef836d9d4c68e77b54"
+    },
+    {
+      "artifact": "c666b26c259d7e58af28aa8d607fbef07944a2f8a7ff49d6c07e03bb63a38a01",
+      "bytes": 3170080,
+      "commit": "083fa3dc7948ad2007ca3320effa7a7deb5dd9bf1bd995f00d2378a7b5de9d1c",
+      "files": 2,
+      "layout": "detached",
+      "restored_with": "detached-exact-source",
+      "root": "86a27a84ebf8b9c2741d7b52db3a664b33b80289ea5c5aa421ee64a54a566f2f"
+    }
+  ],
+  "chunk_bytes": 1048576,
+  "controls": [
+    {
+      "case": "whole/historical-root",
+      "decision": "wrong exact semantic root"
+    },
+    {
+      "case": "chunks/historical-root",
+      "decision": "wrong exact semantic root"
+    },
+    {
+      "case": "a missing required chunk",
+      "decision": "chunk unavailable"
+    },
+    {
+      "case": "altered chunk",
+      "decision": "chunk digest or size mismatch"
+    },
+    {
+      "case": "correct chunks in a different order",
+      "decision": "artifact digest or size mismatch"
+    },
+    {
+      "case": "detached/621156cdd047df67b81e1499f51bdbae46fd024b71aae45ef011282dfc9a27ae/offline",
+      "decision": "detached artifact unavailable"
+    },
+    {
+      "case": "detached/083fa3dc7948ad2007ca3320effa7a7deb5dd9bf1bd995f00d2378a7b5de9d1c/offline",
+      "decision": "detached artifact unavailable"
+    },
+    {
+      "case": "detached/historical-root",
+      "decision": "wrong exact semantic root"
+    },
+    {
+      "case": "detached valid artifact from a different revision",
+      "decision": "artifact digest or size mismatch"
+    }
+  ],
+  "format": "large-binary-closure-01",
+  "git": "git version 2.52.0",
+  "reused_chunks": 2
+}

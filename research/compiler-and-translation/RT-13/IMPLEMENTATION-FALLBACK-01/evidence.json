@@ -1,0 +1,39 @@
+{
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "theorems": [
+    "'selected_from_eligible' depends on axioms: [propext]",
+    "'no_selection_iff_none_eligible' depends on axioms: [propext, Quot.sound]",
+    "'selection_binds_exact_evidence' depends on axioms: [propext]",
+    "'eligible_preferred_stays_selected' depends on axioms: [propext]"
+  ],
+  "candidate_variants": 96,
+  "dispatch_cases": 9216,
+  "decisions": {
+    "exact": {
+      "incorrect_dispatch": 0,
+      "preferred": 96,
+      "refused": 9025,
+      "reserve": 95,
+      "wrong_decision": 0
+    },
+    "available-only": {
+      "incorrect_dispatch": 6768,
+      "preferred": 4608,
+      "refused": 2304,
+      "reserve": 2304,
+      "wrong_decision": 6768
+    },
+    "abi-only": {
+      "incorrect_dispatch": 4698,
+      "preferred": 2880,
+      "refused": 4356,
+      "reserve": 1980,
+      "wrong_decision": 4698
+    }
+  },
+  "decision_stream_sha256": "155a0da4db52095b4582fd35e408921679d683dd2b51c28d5a829ab7c0435c80",
+  "source_sha256": {
+    "Fallback.lean": "1bb0201a699133f7071bc1e48bc59e18fc72196606e44e0e3fed3ae0f7913086",
+    "run.py": "d42f59a08b7c440bf46398034528d7bec355289c1550b412f3ffd52ec9768099"
+  }
+}

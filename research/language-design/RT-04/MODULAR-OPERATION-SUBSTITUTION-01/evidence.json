@@ -1,0 +1,76 @@
+{
+  "schema": "llmlang-modular-operation-substitution/1",
+  "python": "3.12.14",
+  "tools": {
+    "gcc": {
+      "version": "gcc (Debian 14.2.0-19) 14.2.0",
+      "executable_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+    },
+    "clang": {
+      "version": "Debian clang version 19.1.7 (3+b1)",
+      "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+    },
+    "ld": {
+      "version": "GNU ld (GNU Binutils for Debian) 2.44",
+      "executable_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+    },
+    "wasm_ld": {
+      "version": "Debian LLD 19.1.7",
+      "executable_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+    },
+    "node": {
+      "version": "v24.22.3",
+      "executable_sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+    }
+  },
+  "source_evidence_sha256": "a9788245a73767620ed70bcc3d79c24e2d8b4b7067dd96551fe0f5e5b079fb30",
+  "runner_sha256": "1243502b82f60a64aa09072ee3210278ccc06baa7c7b14754a4b0e067a413806",
+  "observed_artifact_scopes": 16,
+  "counts": {
+    "cases": 192,
+    "directly_conforming": 176,
+    "modular_admissions": 100,
+    "direct_but_missing_modular_requirement": 76,
+    "false_admissions_with_refinement_only": 20,
+    "false_admissions_with_body_only": 68
+  },
+  "distinct_body_receipts": 56,
+  "distinct_refinement_receipts": 30,
+  "matrix_sha256": "432a85a3fa0bef6cbb18d122e03fdfddb8c65dabbbf3b7192893bfdab1b3d64e",
+  "witnesses": {
+    "direct_behavior_without_modular_closure": [
+      "gcc_native_O0",
+      "exact",
+      {
+        "callback_observable": false
+      },
+      "exact_marker",
+      "value_only",
+      true,
+      true,
+      false,
+      false
+    ],
+    "refining_declaration_without_body_conformance": [
+      "gcc_native_O0",
+      "exact",
+      {
+        "callback_observable": true
+      },
+      "value_only",
+      "quiet",
+      true,
+      false,
+      true,
+      false
+    ]
+  },
+  "binding_controls": {
+    "exact": "eligible",
+    "wrong_operation": "operation-mismatch",
+    "same_body_new_contract": "body-evidence-missing",
+    "wrong_scope": "body-evidence-missing",
+    "refinement_receipt_missing": "refinement-evidence-missing",
+    "binding_approval_missing": "binding-approval-missing"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "llmlang-identity-crosswalk/1",
+  "python": "3.12.14",
+  "node": "v24.22.3",
+  "git": "git version 2.52.0",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "runner_sha256": "ffa3784a114630b301288cd3083da8e7ae758e6197af8b686c915b1119497dc9",
+  "replayed_ledger_sha256": {
+    "NATIVE-IMPLEMENTATION-IDENTITY-01": "f7489653d27f1046a2b3ca8ef434b01c61cd071b82db229364da37e9ed391b26",
+    "TYPED-EDGE-PROJECTIONS-01": "bb19d6e1ae0c233e71a845cad6bc492c81e0a613446af2afa867fee0abf46d51",
+    "OPERATION-IDENTITY-01": "61c4d7bf9d35c8eee5ebf42265eaf4cfc1fc2d6242f2d45ff09ba5fceb2d84c7",
+    "CONFORMANCE-CLASS-IDENTITY-01": "9fec93bfaba15c3abbb33b5ec798a3eff85b62b636b556530290db8a748bc77e",
+    "RECURSIVE-TOPOLOGY-EDITS-01": "5a88298254d5d333b04537419b4e12c77ee2b078dcd543d01721c13458996b7c",
+    "OPERATION-LIFETIME-01": "74ea00e004c315fdcbadfb1a178ef3d5ec9b18e8733822f4e7056d8be0fc748b",
+    "CANONICAL-WIRE-01": "73efd14211b5990138af8de324ca8ef3e9116f7b414792e407056c0a02c2ab06",
+    "DEPENDENCY-PROPAGATION-01": "0834cf43dfaec78076386a8f3f5fae73639b4f08bdda219d075e66b1f36f7ca7",
+    "PROVIDED-CONTRACT-IDENTITY-01": "7b51a95bb5992c1f760f9426c668fc14e01acc56c18988cf963310d28a35a5fd",
+    "DIGEST-MIGRATION-01": "2300fbd9fe6cd4981ffbad1843ecdeaebcfc3c1b1a70d465acd8cbe0c250268a",
+    "GUARDED-DISPATCH-IDENTITY-01": "65b59478c9aefe35c4e0546d1a0a0f68b051adfd45716e0a33a24e5e763f68e8"
+  },
+  "replayed_axiom_output_sha256": {
+    "TYPED-EDGE-PROJECTIONS-01": "11d28207cfdadd8394c07a85ec08f714417578b0bd77802e84cabcb55ca44d1f",
+    "OPERATION-IDENTITY-01": "d71d7d5b0209e6fd1f5a46de61b0764682314bedf25d6da7d659ac1c7e02bb4e",
+    "DEPENDENCY-PROPAGATION-01": "42c384b6873a99df9289bd2b290c35aa1c02d89e2567e38c2ce161f375ddbdd8",
+    "PROVIDED-CONTRACT-IDENTITY-01": "aee94058b53599c74005acac9405a87b97c366ae34c3f92a68943bfb95bf6df4"
+  },
+  "crosswalk_controls": {
+    "Build request differs while caller bytes and resolved identity agree": 4,
+    "Identical caller bytes with different provider observations": 8,
+    "One implementation key reuses stale verification or navigation": [
+      384,
+      256
+    ],
+    "One operation has admissible providers with distinct observations and bindings": 6,
+    "Changing discovery retains the class while adding a candidate": [
+      true,
+      1,
+      true
+    ],
+    "The exact class and implementation leave evidence inputs unresolved": 100,
+    "Direct recursive propagation agrees with exact rooted closure": [
+      0,
+      0
+    ],
+    "Alias lookup can admit an old pin outside its execution policy": 8,
+    "Digest-correct wrong-domain frame": [
+      "domain",
+      "domain",
+      "accept"
+    ],
+    "Exact implementation without resolved abstract binding can be stale": 128,
+    "Keeping executable and public identity can hide provided-contract change": 29,
+    "Rewriting digest references changes the receipt subject": true,
+    "Equal provider sets can hide changed state-to-provider dispatch": 1708
+  }
+}

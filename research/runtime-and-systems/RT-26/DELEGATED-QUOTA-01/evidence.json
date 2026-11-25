@@ -1,0 +1,23 @@
+{
+  "budget_upper_bound": 12,
+  "example": {
+    "budget": 5,
+    "child_available": 1,
+    "child_spent": 2,
+    "child_unsettled": 1,
+    "parent_after_exact_settlement_reports_one_use": 2,
+    "parent_after_exact_settlement_reports_zero_use": 3,
+    "parent_after_reclaim": 2,
+    "parent_after_restoring_entire_grant": 5,
+    "parent_before_reclaim": 1
+  },
+  "python": "3.12.14",
+  "totals": {
+    "exact_settlement_cases": 68067,
+    "full_return_unsafe_admissions": 8736,
+    "initial_states": 1819,
+    "request_cases": 19291,
+    "safe_reclaim_unsafe_admissions": 0,
+    "settlement_unsafe_admissions": 0
+  }
+}

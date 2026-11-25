@@ -1,0 +1,81 @@
+{
+  "baseline": "2805481d1f9fb9d013c464070359c62513be3b5d",
+  "baseline_rows": {
+    "DEP-047": "| DEP-047 | RT-15 \u2192 RT-19 | Constrains | Import/export, external-edit detection, branch synchronization, and semantic merge must preserve Git portability and the repository representation contract. | Strong hypothesis |",
+    "DEP-048": "| DEP-048 | RT-16 \u2192 RT-19 | Constrains | Workspace scoping, tool permissions, acceptance, commit, sandboxing, and audit requirements constrain every server adapter and operation. | Strong hypothesis |",
+    "DEP-058": "| DEP-058 | RT-19 \u2192 RT-20 | Enables | Workspaces, Change Sets, immutable snapshots, and repository coordination provide the operational substrate for CIP planning and verified commit. | Strong hypothesis |",
+    "DEP-263": "| DEP-263 | RT-19 \u2192 RT-15 | Constrains | A durable workspace acceptance journal may record accepted-but-not-yet-exported state, but Git-visible canonical inputs remain the reconstructible authority; export/commit receipts must bind the exact accepted root and be idempotently reconciled after interruption. | Strong hypothesis; three bounded transaction-boundary candidates compared in RT-19, crash recovery remains untested |",
+    "DEP-264": "| DEP-264 | RT-15 \u2192 RT-19 | Constrains | Git is the reconstruction boundary, while its ref updates are separate from SQLite acceptance. Eight process exits check durable accepted-pending state, exact candidate publication, historical receipts and shared-head CAS. [RT-19 process recovery](../toolchain-and-collaboration/RT-19/RT-19-SQLITE-GIT-PROCESS-RECOVERY-2026-11-24.md) | Scoped real SQLite/Git evidence |"
+  },
+  "claims": {
+    "authority_schedules": 48,
+    "checkout_edits_missed_by_stat": 18,
+    "cip_completion_cases": 7,
+    "cip_distinct_receipt_commits": 1,
+    "contract_controls": 7,
+    "contract_distinct_states": 4032,
+    "fault_visibility_by_backend": {
+      "files": [
+        "old old",
+        "old old",
+        "old old",
+        "new old"
+      ],
+      "reftable": [
+        "old old",
+        "old old",
+        "old old",
+        "old old",
+        "old old",
+        "old old",
+        "new new",
+        "new new",
+        "new new"
+      ]
+    },
+    "fenced_unauthorized_disclosures": 0,
+    "fenced_unauthorized_effects": 0,
+    "native_ref_schedule_count": 308,
+    "native_remote_schedule_count": 24,
+    "pinned_leased_exports": 21,
+    "unfenced_unauthorized_disclosures": 1,
+    "unfenced_unauthorized_effects": 2
+  },
+  "pins": {
+    "authority": {
+      "expected_blob": "35dceec319287eddba10a0fe1007735181f571f3",
+      "runner_blob": "bee14865fe49759b9d421cb8730dd96a61fbc769",
+      "verified_sha256": "1a10fb8013121ae2a6ea4266f8ba000952137d9a06672b4e9eb4fc4d9ecc34a9"
+    },
+    "cip": {
+      "expected_blob": "703fab1e619621d0c0555d732ea64bcd763e893e",
+      "runner_blob": "ab6d618e8f60c93a8ab27da88717c67857f3bf40",
+      "verified_sha256": "b9b204e38b598b74f83d935d51cf5ecdcaaff0a8c2b2bdec144c1ad9e8069293"
+    },
+    "coherent": {
+      "expected_blob": "029e89938eca6709066a14325611d4ae3a9719d1",
+      "runner_blob": "5879fe4d9d1d81d2063aaeb87797344eddebdd59",
+      "verified_sha256": "a1697d1fca71312bf080408718e9757793cb1634253e566cebf39b21207af563"
+    },
+    "contract": {
+      "expected_blob": "4e6894e02d7c907ff4c4c0e96d086a4e2d5fdc27",
+      "runner_blob": "fa851db8b399055bd59f10a7639ef6145cb2c17f",
+      "verified_sha256": "da725d3ac0912e332d1ee26ec79882e4a3cffb966c9db111862f31564d9d15cf"
+    },
+    "faults": {
+      "expected_blob": "affb4dfcb8ca8e3ac0a4836e493e9fc2459e01cb",
+      "runner_blob": "d296c51ae96091a12c57a18d8b23ceabbd13b06b",
+      "verified_sha256": "a2e51f19d6c9f24d86d7e138c38c1a9c819975bc1b56cab3d393774afa264937"
+    },
+    "interchange": {
+      "expected_blob": "115981910191620919cf3a62365ef99e061d9915",
+      "runner_blob": "c609f98eebb4571f22e0ca1dc39a4e801daf41ca",
+      "verified_sha256": "a705384138c5b6bcd6b5d2c113a848ba46749c37695d01b15f3ca8004b482a34"
+    },
+    "two-repositories": {
+      "expected_blob": "ec87050df464554d57183e6526ec65ba9451a311",
+      "runner_blob": "be0014a0507d4d3a9f1d596cb0b4deebb24f7285",
+      "verified_sha256": "128615c7d25b0c0b52384bc47baec0117889dea98605e40fb422cf87651f3202"
+    }
+  }
+}

@@ -4,6 +4,19 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [Execution and POSIX](execution-and-posix/README.md) · RT-10
+- [Memory and resource accounting](memory-and-resource-accounting/README.md) · RT-25, RT-26
+- [RT-25 static allocator selection](RT-25/RT-25-STATIC-ALLOCATOR-SELECTION-2026-11-25.md) compares exact static provider ownership in Rust, public C and component scopes.
+- [RT-26 CPU timer scope](RT-26/RT-26-CPU-TIMER-SCOPE-2026-11-25.md) distinguishes process and worker charging from targeted notification.
+- [Embedded systems and operating-system kernels](embedded-and-kernels/README.md) · RT-37, RT-38
+- [RT-38 executable HAL comparison](RT-38/RT-38-RV64-HAL-QEMU-2026-11-25.md) checks linked RV64 HAL observations through Sv39 remap and revocation in QEMU.
+- [RT-38 timer preemption](RT-38/RT-38-RV64-TIMER-PREEMPTION-2026-11-25.md) checks real machine timer delivery, task context and bounded runnable progress.
+- [RT-38 preemptive IPC](RT-38/RT-38-RV64-PREEMPTIVE-IPC-2026-11-25.md) checks wakeup and generation revocation across two live Sv39 roots.
+- [RT-38 live frame replacement](RT-38/RT-38-RV64-LIVE-FRAME-IPC-2026-11-25.md) checks private data reallocation before waking a blocked task.
+- [RT-38 scoped SMP and DMA reuse](RT-38/RT-38-SCOPED-SMP-DMA-REUSE-2026-11-25.md) checks distinct CPU and device completion claims before frame reuse.
+
 ## Studies
 
 | ID | Scope |
@@ -16,6 +29,38 @@ This direction groups related research studies without changing their RT identif
 
 ## Recent bounded rechecks
 
+- [RT-37 cross-MCU pilot](RT-37/RT-37-CROSS-MCU-GPIO-TIMER-UART-2026-11-25.md) checks separate STM32 and ESP32 firmware paths against one independent C trace.
+- [RT-37 MCU target manifests](RT-37/RT-37-MCU-TARGET-MANIFESTS-2026-11-25.md) pins STM32F103, STM32F407 and ESP32 research profiles and checks their ABI objects.
+- [RT-26 task-switch accounting](RT-26/RT-26-TASK-SWITCH-ACCOUNTING-2026-11-25.md) separates runtime dispatch and suspension from logical owner and kernel switches.
+- [RT-37 Cortex-M3 NVIC pending clear](RT-37/RT-37-CORTEX-M3-NVIC-PENDING-CLEAR-2026-11-25.md) checks exact write-one-to-clear and read-modify-write effects.
+- [RT-37 Cortex-M3 nested exception stack](RT-37/RT-37-CORTEX-M3-NESTED-EXCEPTION-STACK-2026-11-25.md) compares priority, masking and observed frame displacement.
+- [RT-37 Cortex-M3 startup RAM retention](RT-37/RT-37-CORTEX-M3-STARTUP-RETENTION-2026-11-25.md) checks exact copy and clear intervals during software re-entry.
+- [RT-10 POSIX read continuation proof](RT-10/RT-10-POSIX-READ-CONTINUATION-PROOF-2026-11-25.md) checks abstract prefix conservation and audits concrete premises.
+- [RT-10 POSIX umask context](RT-10/RT-10-POSIX-UMASK-CONTEXT-2026-11-25.md) compares temporary ambient masks with scoped creation modes.
+- [RT-10 libc error carriers](RT-10/RT-10-LIBC-ERROR-CARRIERS-2026-11-25.md) compares return-carried errors and scoped errno capture.
+- [RT-10 Linux syscall architectures](RT-10/RT-10-LINUX-SYSCALL-ARCHITECTURES-2026-11-25.md) compares freestanding adapters on native x86-64 and emulated AArch64.
+- [RT-10 POSIX startup and file I/O slice](RT-10/RT-10-POSIX-STARTUP-IO-SLICE-2026-11-25.md) composes process startup, typed errors and regular-file progress.
+- [RT-10 POSIX profile evidence](RT-10/RT-10-POSIX-PROFILE-EVIDENCE-2026-11-25.md) checks exact scope, availability and runtime claim coverage.
+- [RT-10 libc and syscall cancellation](RT-10/RT-10-LIBC-SYSCALL-CANCELLATION-2026-11-25.md) distinguishes a cancelled join from byte settlement.
+- [RT-10 typed readv progress](RT-10/RT-10-POSIX-READV-TYPED-PROGRESS-2026-11-25.md) distinguishes zero requests, EOF, would-block and vector continuation.
+- [Typed POSIX vector output](RT-10/RT-10-POSIX-WRITEV-TYPED-PROGRESS-2026-11-25.md) checks native partial writev progress, typed errors and exact continuation.
+- [Descriptor-relative POSIX](RT-10/RT-10-DIRECTORY-RELATIVE-POSIX-2026-11-25.md) checks exact directory lifetimes and ambient cwd races across two libc profiles.
+- [POSIX ppoll ABI](RT-10/RT-10-PPOLL-FFI-BOUNDARY-2026-11-25.md) checks libc and Linux adapter distinctions for timeouts, masks and errors.
+- [POSIX pipe claim scope](RT-10/RT-10-PIPE-CONFORMANCE-SCOPE-2026-11-25.md) checks capacity extensions, exact native observations and formal claim admission.
+- [RT-10 POSIX edition descriptors](RT-10/RT-10-POSIX-EDITION-DESCRIPTORS-2026-11-25.md) compares edition requests, descriptor declarations and native flags.
+- [RT-10 native wait predicates](RT-10/RT-10-WAIT-PREDICATES-AND-CANCELLATION-2026-11-25.md) compares notification, work readiness and cancellation.
+- [RT-10 release sequence membership](RT-10/RT-10-RELEASE-SEQUENCE-MEMBERSHIP-2026-11-25.md) checks version-specific synchronization under explicit read-from edges.
+- [RT-26 delegated quota reclamation](RT-26/RT-26-DELEGATED-QUOTA-RECLAMATION-2026-11-25.md) checks conservation and safe reuse after child usage.
+- [RT-10 native byte and text values](RT-10/RT-10-NATIVE-BYTE-AND-TEXT-VALUES-2026-11-25.md) observes exact spans, C string prefixes and UTF-8 validation.
+- [RT-10 exact native call closure](RT-10/RT-10-EXACT-NATIVE-CALL-CLOSURE-2026-11-25.md) compares wrapper identity, resolved helper identity and observed behavior.
+- [RT-10 stack VM fuel correspondence](RT-10/RT-10-STACK-VM-FUEL-CORRESPONDENCE-2026-11-25.md) compares source charges, opcode costs and partial effect traces.
+- [Resumable reference and VM execution](RT-10/RT-10-RESUMABLE-EXECUTION-2026-11-25.md) checks exact checkpoints, effect receipts and source-level observables.
+- [Tagged runtime bindings](RT-10/RT-10-TAGGED-RUNTIME-BINDING-2026-11-25.md) checks exact operation, runtime revision, typed ABI words and error layouts.
+- [Native signal and primitive contracts](RT-10/RT-10-NATIVE-SIGNAL-PRIMITIVES-2026-11-25.md) checks Linux thread-directed interruption, restart and primitive dispositions.
+- [Atomic store buffering](RT-10/RT-10-ATOMIC-STORE-BUFFERING-2026-11-25.md) compares exact total orders with two-location native atomic observations.
+- [Mediated native descriptors](RT-10/RT-10-MEDIATED-DESCRIPTORS-2026-11-25.md) checks active runtime authority, native handle identity and grant retirement.
+- [Async terminal resource settlement](RT-10/RT-10-ASYNC-TERMINAL-SETTLEMENT-2026-11-25.md) checks repeated cancellation, exact native closure and retained primary errors.
+- [RT-25 four-provider allocator replay](RT-25/RT-25-FOUR-PROVIDER-ALLOCATOR-REPLAY-2026-11-25.md) — checks the same Rust probe and graph with glibc, jemalloc, TCMalloc minimal and mimalloc.
 - [RT-25 workload-fit recheck](RT-25/RT-25-WORKLOAD-FIT-RECHECK-2026-11-24.md) maps current allocator evidence to the RT-01 workload catalog and RT-25 gates. Existing evidence covers one compatible Linux glibc/jemalloc probe and one synthetic graph workload; actual cache/package/concurrent service workloads, other mandatory candidates, and supported-target FFI coverage remain open.
 
 ## Dedicated research artifacts
@@ -24,4 +69,10 @@ This direction groups related research studies without changing their RT identif
 
 ## Cross-direction evidence
 
+- [RT-26 resource authority and fallback](RT-26/RT-26-RESOURCE-AUTHORITY-BOUNDARY-2026-11-25.md) checks capability-scoped admission against five pinned Linux accounting witnesses.
+- [Native disk accounting](RT-26/RT-26-NATIVE-DISK-ACCOUNTING-2026-11-25.md) compares logical task charges, process I/O counters and delegated budget decisions.
+- [Durable limit handlers](RT-26/RT-26-DURABLE-LIMIT-HANDLERS-2026-11-25.md) checks parent/child reservations and typed handler settlement with SQLite contention.
+- [RT-25 component allocator ownership](RT-25/RT-25-COMPONENT-ALLOCATOR-OWNERSHIP-2026-11-25.md) checks explicit buffers with a named allocator alongside two process providers.
+- [RT-25 concurrent ownership and address limits](RT-25/RT-25-ALLOCATOR-CONCURRENT-AND-ADDRESS-LIMIT-2026-11-25.md) checks cross-thread buffers across five providers and runs separate process address-space controls.
+- [RT-25 modern Google TCMalloc](RT-25/RT-25-MODERN-GOOGLE-TCMALLOC-2026-11-25.md) checks the pinned native build, process-wide Rust allocation and a head-to-head graph workload.
 See [shared executable research prototypes](../PROTOTYPES/README.md) for integrated experiments that are used across directions.

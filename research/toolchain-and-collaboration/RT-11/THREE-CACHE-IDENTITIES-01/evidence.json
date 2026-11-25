@@ -1,0 +1,199 @@
+{
+  "baseline": "017d2e73e32b3fe050ff62f41d145d871781c21e",
+  "python": "3.12.14",
+  "gcc": {
+    "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+    "version": "x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0",
+    "target": "x86_64-linux-gnu"
+  },
+  "runner_sha256": "f61acf560321899434be2e855d69449584cda9962ef0cc3f5a3d0e679c556b57",
+  "archive_hashes": {
+    "research/toolchain-and-collaboration/RT-11/CROSS-TOOLCHAIN-CACHE-01/evidence.json": "ee3c3187086fbcb5ebfba10fdde1a390c229a02ef0ade92b0855325d75cc14a8",
+    "research/compiler-and-translation/RT-13/COMPILE-ACTION-INPUTS-01/evidence.json": "e8679b08199ada404d0517ffc0e42a7125079c12d9f2c04c9c6a246589cd83a5"
+  },
+  "native_tools": {
+    "as": "GNU assembler (GNU Binutils for Debian) 2.44",
+    "ld": "GNU ld (GNU Binutils for Debian) 2.44"
+  },
+  "host": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "flags_omission_control": {
+    "same_incomplete_key": true,
+    "same_artifact": false
+  },
+  "inputs": [
+    0,
+    1,
+    31,
+    255
+  ],
+  "builds": {
+    "full-optimized": {
+      "declaration": {
+        "increment": 1,
+        "contract_scope": "all-unsigned"
+      },
+      "inputs": {
+        "input_sha256": "04178af25079160520c101455f76dda444ec77479e78e9305cad6a45aa89fea1",
+        "engine": {
+          "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+          "version": "x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0",
+          "target": "x86_64-linux-gnu"
+        },
+        "flags": [
+          "-O2"
+        ],
+        "recipe": "C PIC object with fixed source name and debug virtual root"
+      },
+      "subject_hash": "e61d317432b11b80af5e1a5bfed4c4c9b07963d64f946f9178fa9a4a3b0586cf",
+      "action_key": "fdc0e8cd296d8fca8d0bea9bad641c01d350488104fb948b4b337610fde7abd3",
+      "artifact_sha256": "be235b524bc247e05d0c6a30bce2a03ebeb826b9d66e5c0f38ac842abbed39bb",
+      "observation": [
+        1,
+        2,
+        32,
+        256
+      ]
+    },
+    "full-higher-optimization": {
+      "declaration": {
+        "increment": 1,
+        "contract_scope": "all-unsigned"
+      },
+      "inputs": {
+        "input_sha256": "04178af25079160520c101455f76dda444ec77479e78e9305cad6a45aa89fea1",
+        "engine": {
+          "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+          "version": "x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0",
+          "target": "x86_64-linux-gnu"
+        },
+        "flags": [
+          "-O3"
+        ],
+        "recipe": "C PIC object with fixed source name and debug virtual root"
+      },
+      "subject_hash": "e61d317432b11b80af5e1a5bfed4c4c9b07963d64f946f9178fa9a4a3b0586cf",
+      "action_key": "24b4cb899a4df002db0695d39bd512c2c3f62346f6023b5f354f85373afa4162",
+      "artifact_sha256": "be235b524bc247e05d0c6a30bce2a03ebeb826b9d66e5c0f38ac842abbed39bb",
+      "observation": [
+        1,
+        2,
+        32,
+        256
+      ]
+    },
+    "full-debug": {
+      "declaration": {
+        "increment": 1,
+        "contract_scope": "all-unsigned"
+      },
+      "inputs": {
+        "input_sha256": "04178af25079160520c101455f76dda444ec77479e78e9305cad6a45aa89fea1",
+        "engine": {
+          "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+          "version": "x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0",
+          "target": "x86_64-linux-gnu"
+        },
+        "flags": [
+          "-O2",
+          "-g"
+        ],
+        "recipe": "C PIC object with fixed source name and debug virtual root"
+      },
+      "subject_hash": "e61d317432b11b80af5e1a5bfed4c4c9b07963d64f946f9178fa9a4a3b0586cf",
+      "action_key": "4018d8753d62fb058b3b21836cfaefa305ee5bbe236c83aaa28802fca79962bd",
+      "artifact_sha256": "30e1ee5269c16e8c19d90f2f533bd141b6d85ce08cccd34107d03433291ed06b",
+      "observation": [
+        1,
+        2,
+        32,
+        256
+      ]
+    },
+    "restricted-optimized": {
+      "declaration": {
+        "increment": 1,
+        "contract_scope": "byte-inputs"
+      },
+      "inputs": {
+        "input_sha256": "04178af25079160520c101455f76dda444ec77479e78e9305cad6a45aa89fea1",
+        "engine": {
+          "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+          "version": "x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0",
+          "target": "x86_64-linux-gnu"
+        },
+        "flags": [
+          "-O2"
+        ],
+        "recipe": "C PIC object with fixed source name and debug virtual root"
+      },
+      "subject_hash": "a2511576b0d54579c4addbf789370decdd6315ebbad571390af3b81b7fe75d0f",
+      "action_key": "fdc0e8cd296d8fca8d0bea9bad641c01d350488104fb948b4b337610fde7abd3",
+      "artifact_sha256": "be235b524bc247e05d0c6a30bce2a03ebeb826b9d66e5c0f38ac842abbed39bb",
+      "observation": [
+        1,
+        2,
+        32,
+        256
+      ]
+    },
+    "changed-body": {
+      "declaration": {
+        "increment": 2,
+        "contract_scope": "all-unsigned"
+      },
+      "inputs": {
+        "input_sha256": "b38c79c2b2b3226ae17b1c0a46c7bb627ff57e392a279c396b634a6d5cd0905a",
+        "engine": {
+          "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+          "version": "x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0",
+          "target": "x86_64-linux-gnu"
+        },
+        "flags": [
+          "-O2"
+        ],
+        "recipe": "C PIC object with fixed source name and debug virtual root"
+      },
+      "subject_hash": "4928ea3b52cafc234e7479828ab5496e3a2fcf7cc0b733b1014d4bc106ea80da",
+      "action_key": "d2c703cd0a3fba30b2b272e42e0a77b67d123fa2d519b2ed42dfdc8631a71ae3",
+      "artifact_sha256": "12c784530cfea7f1cd751dfd40c35fcdf8df9863c39927682d7376eb10993e08",
+      "observation": [
+        2,
+        3,
+        33,
+        257
+      ]
+    }
+  },
+  "comparisons_with_original": {
+    "full-optimized": {
+      "subject_hash": true,
+      "action_key": true,
+      "artifact_sha256": true,
+      "observation": true
+    },
+    "full-higher-optimization": {
+      "subject_hash": true,
+      "action_key": false,
+      "artifact_sha256": true,
+      "observation": true
+    },
+    "full-debug": {
+      "subject_hash": true,
+      "action_key": false,
+      "artifact_sha256": false,
+      "observation": true
+    },
+    "restricted-optimized": {
+      "subject_hash": false,
+      "action_key": true,
+      "artifact_sha256": true,
+      "observation": true
+    },
+    "changed-body": {
+      "subject_hash": false,
+      "action_key": false,
+      "artifact_sha256": false,
+      "observation": false
+    }
+  }
+}

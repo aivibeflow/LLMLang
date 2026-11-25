@@ -6,6 +6,11 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [Planning and synthesis](planning-and-synthesis/README.md) · Taxonomy, dependencies and candidate options
+- [Inventory, quality and reproducibility](inventory-quality-and-reproduction/README.md) · RT-00
+
 ## Studies
 
 | ID | Scope |
@@ -14,15 +19,35 @@ This direction groups related research studies without changing their RT identif
 
 ## Planning and synthesis
 
+- [Stage 7 scalability metrics](SCALABILITY-METRICS-2026-11-25.md) ties per-profile memory, latency, throughput and cache counts to their pinned raw trial ledgers.
 - [Research state](RESEARCH-STATE-2026-11-19.md)
 - [Open questions research program](RESEARCH-PROGRAM-OPEN-QUESTIONS-2026-11-19.md)
 - [Cross-area option matrix](RESEARCH-OPTION-MATRIX-01.md)
 - [Cross-scenario architectural synthesis](RESEARCH-SYNTHESIS-01-CROSS-SCENARIO.md)
 - [Proposed quality and decision rules](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) and [review protocol](QUALITY-REVIEW-PROTOCOL.md)
 
+## Historical audit chain
+
+- [Prototype and test audit](RT-00/RT-00-B-02B-2-PYTHON-PROTOTYPE-AND-TEST-AUDIT-2026-11-20.md)
+- [Scenario overlap and supersession audit](RT-00/RT-00-B-02B-3-SCENARIO-OVERLAP-AND-SUPERSESSION-AUDIT-2026-11-20.md)
+- [Orphan and traceability audit](RT-00/RT-00-B-02B-4-ORPHAN-AND-TRACEABILITY-AUDIT-2026-11-20.md)
+- [SQLite identity and source archive integrity](RT-00/RT-00-C-02-SQLITE-IDENTITY-AND-SOURCE-ARCHIVE-INTEGRITY-2026-11-21.md)
+
 ## Audits and evidence maps
 
 - [Draft evidence crosswalk](RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md) — checks the current glossary and accepted architecture decision against their linked RT/Scenario research, and records where the linked work remains proposal-level or bounded.
+- [RT-06 path replay and conditional-call boundary](RT-00/RT-00-C-RT06-PATH-COMPLETENESS-REPLAY-2026-11-25.md)
+- [RT-19/RT-23 recovery evidence and claim lineage](RT-00/RT-00-RT19-RT23-RECOVERY-RELATIONSHIPS-2026-11-25.md)
+- [Research register and dependency path evidence](RT-00/RT-00-DEPENDENCY-REGISTER-AND-PATH-BOUNDARY-2026-11-25.md)
+- [Observation evidence dependency recheck](RT-00/RT-00-OBSERVATION-EVIDENCE-DEPENDENCY-RECHECK-2026-11-25.md) — replays the executable reference, observation projections and exact-target proof controls.
+- [Native binary64 replay across four studies](RT-00/RT-00-C-BINARY64-NATIVE-REPLAY-2026-11-25.md)
+- [RT-13 symbolic checked-add replay](RT-00/RT-00-C-RT13-SYMBOLIC-CHECKED-ADD-REPLAY-2026-11-25.md) — reproduces the proof ledger and checks additional concrete preservation controls.
+- [RT-13 CPC binding replay](RT-00/RT-00-C-RT13-CPC-BINDING-REPLAY-2026-11-25.md) — reproduces both Logos certificate bindings and separates declaration order, sort and admissible commands.
+- [Cross-study timing provenance and units](RT-00/RT-00-C-TIMING-PROVENANCE-2026-11-25.md) checks six archived timing fixtures against their runners.
+- [RT-13 replay metadata audit](RT-00/RT-00-C-RT13-REPLAY-METADATA-2026-11-25.md) — checks the pinned replay routes and distinguishes inherited tool records from observed execution.
+- [Exact evidence identity delta](RT-00/RT-00-C-EVIDENCE-IDENTITY-DELTA-2026-11-25.md) — verifies the tracked source identities and embedded source records of 67 new ledgers.
+- [Shared-branch navigation delta](RT-00/RT-00-B-18-NAVIGATION-DELTA-2026-11-25.md) — checks all current pinned artifacts and repairs the sole first-party link error.
+- [Binary64 claim relationships and observation boundaries](RT-00/RT-00-B-15-F64-RELATIONSHIP-REVIEW-2026-11-25.md)
 - [Corpus-wide text overlap and relationship adjudication](RT-00/RT-00-B-12-TEXT-OVERLAP-2026-11-24.md)
 - [SQLite and generated-Rust lifecycle replay](RT-00/RT-00-C-NATIVE-LIFECYCLE-REPLAY-2026-11-24.md)
 - [Changed research artifact roles](RT-00/RT-00-B-11-CHANGED-ARTIFACT-ROLES-2026-11-24.md)
@@ -49,3 +74,13 @@ This direction groups related research studies without changing their RT identif
 - [Scenario relationship review](RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md) and [semantic traceability](RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md)
 - [Dependency Graph prototype evidence](RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-DEPENDENCY-GRAPH-01-2026-11-20.md) and [RT-04-01 prototype evidence](RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md)
 - [Scenario 133 current-main generated Rust replay](RT-00/RT-00-C-SCENARIO-133-CURRENT-MAIN-REPLAY-2026-11-25.md) — rechecks the bounded native corpus with pinned Rust 1.85.1 / LLVM 19.1.7 and records the fresh runner limits.
+- [Dafny modular proof closure replay](RT-00/RT-00-C-DAFNY-MODULAR-PROOF-REPLAY-2026-11-25.md) — reproduces the full Dafny/Z3, Lean, cvc5 and Logos ledger on a fresh runner.
+- [Draft citations to research on research/all](RT-00/RT-00-C-DRAFT-CITATION-RESEARCH-ALL-AUDIT-2026-11-25.md) — checks all current direct draft-to-research citations, their resolution and their scope.
+- [Explicit supersession and translation link screen](RT-00/RT-00-B-16-EXPLICIT-RELATIONSHIP-SCREEN-2026-11-25.md) — checks the direct-link signal against four known relationship controls and adjudicates every selected pair.
+- [Dafny contract boundary replays](RT-00/RT-00-C-DAFNY-CONTRACT-BOUNDARIES-REPLAY-2026-11-25.md) — reproduces the complete typed overlapping-copy and foreign C lookup ledgers.
+- [Structural warning coverage after research relocation](RT-00/RT-00-C-QUALITY-WARNING-COVERAGE-2026-11-25.md) — compares root-only and explicit report selection and checks the structural control.
+- [English and Russian concept proof boundaries](RT-00/RT-00-B-CONCEPT-TRANSLATION-PROOF-BOUNDARY-2026-11-25.md) — compares shared §18A claims and the English-only RT-36 proposal.
+- [Immutable component versions and state commits](RT-00/RT-00-B-COMPONENT-IMMUTABILITY-AND-RUNTIME-COMMIT-2026-11-25.md) — checks component, runtime and Toolchain publication boundaries with two worked cases.
+- [Negative-result warning adjudication](RT-00/RT-00-C-NEGATIVE-RESULT-WARNING-ADJUDICATION-2026-11-25.md) — classifies exact source passages for all seven flagged nested reports.
+- [Historical draft publication boundaries](RT-00/RT-00-C-DRAFT-BOUNDARY-HISTORY-2026-11-25.md) — traces the draft layout and exact accepted decision body across 21 published trees.
+- [Accepted feature decision authority](RT-00/RT-00-C-ACCEPTED-FEATURE-AUTHORITY-2026-11-25.md) — cross-checks all registry acceptances against the exact decision sources.

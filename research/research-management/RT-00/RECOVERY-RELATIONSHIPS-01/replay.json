@@ -1,0 +1,63 @@
+{
+  "baseline": "c03e64fcc3a3b195ae0922a678b6aa39743b552e",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "git": "git version 2.52.0",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "kernel": "6.18.57",
+  "architecture": "x86_64",
+  "temporary_filesystem": "overlayfs",
+  "locale": "C",
+  "python_hash_seed": "1",
+  "replays": {
+    "RT-19/sqlite-git-crash-recovery": {
+      "runner_sha256": "62cef330900aada8e7ece18d2fd7f7c38f87987332d703ac438019c0c85940c5",
+      "ledger_path": "research/toolchain-and-collaboration/RT-19/sqlite-git-crash-recovery/results.json",
+      "archived_sha256": "4de6748db7afea4f94e142d27ed5f2427c8407ec902ecf98da22e063ebd8dc88",
+      "observed_sha256": "4de6748db7afea4f94e142d27ed5f2427c8407ec902ecf98da22e063ebd8dc88",
+      "byte_equal": true
+    },
+    "RT-19/EXTERNAL-RECEIPT-RECOVERY-01": {
+      "runner_sha256": "7ad5091f18ed6df755c9002687d70e6be9c78c0bce9a65e914be78d7a33e0fdc",
+      "ledger_path": "research/toolchain-and-collaboration/RT-19/EXTERNAL-RECEIPT-RECOVERY-01/evidence.json",
+      "archived_sha256": "1181d5097ed3e1db9933c5d9bd1762b6b105fb077b49026cd15ef7d66350d549",
+      "observed_sha256": "1181d5097ed3e1db9933c5d9bd1762b6b105fb077b49026cd15ef7d66350d549",
+      "byte_equal": true
+    },
+    "RT-19/MUTABLE-LOG-RECOVERY-01": {
+      "runner_sha256": "6d2375328e844fcdb8774baa3921be42532e2bda093441a446d88cd74fa0f631",
+      "ledger_path": "research/toolchain-and-collaboration/RT-19/MUTABLE-LOG-RECOVERY-01/evidence.json",
+      "archived_sha256": "526be47e4110fe0e1e9b0f0bdf2eeb91fb0e1a5a91dac3c487a7233ba6eadbca",
+      "observed_sha256": "526be47e4110fe0e1e9b0f0bdf2eeb91fb0e1a5a91dac3c487a7233ba6eadbca",
+      "byte_equal": true
+    },
+    "RT-19/RECOVERY-AUTHORITY-01": {
+      "runner_sha256": "eef130ef1e7239d767cb9abc86ceb3ff3cd1256c8c99f0cb90c617f24c8c69c3",
+      "ledger_path": "research/toolchain-and-collaboration/RT-19/RECOVERY-AUTHORITY-01/evidence.json",
+      "archived_sha256": "1a10fb8013121ae2a6ea4266f8ba000952137d9a06672b4e9eb4fc4d9ecc34a9",
+      "observed_sha256": "1a10fb8013121ae2a6ea4266f8ba000952137d9a06672b4e9eb4fc4d9ecc34a9",
+      "byte_equal": true
+    },
+    "RT-23/SINGLE-JOURNAL-REF-01": {
+      "runner_sha256": "73eb4b7f5250e5b9d81deb9052927549d2d2d824b76cf86f822865d2103d1f9b",
+      "ledger_path": "research/toolchain-and-collaboration/RT-23/SINGLE-JOURNAL-REF-01/evidence.json",
+      "archived_sha256": "a62bf8bfd0999e0c955d55b9f38709541495b3f71136ce0e60909df74a323fe7",
+      "observed_sha256": "a62bf8bfd0999e0c955d55b9f38709541495b3f71136ce0e60909df74a323fe7",
+      "byte_equal": true
+    },
+    "RT-23/INDEXED-JOURNAL-RECOVERY-01": {
+      "runner_sha256": "d1c68a660ca650fac7c37d2287b477a4279c69387bac4550349e754d74c55223",
+      "ledger_path": "research/toolchain-and-collaboration/RT-23/INDEXED-JOURNAL-RECOVERY-01/evidence.json",
+      "archived_sha256": "c00e41862d0f46a8f28baa4230b827051a5c3a7ddcd19365b100e8f6bf255d96",
+      "observed_sha256": "c00e41862d0f46a8f28baa4230b827051a5c3a7ddcd19365b100e8f6bf255d96",
+      "byte_equal": true
+    },
+    "RT-23/PINNED-GIT-RETENTION-01": {
+      "runner_sha256": "29dde049aa02be472ba76ff071eb59425bff96c51b3dc2e175d5f418eeb787f5",
+      "ledger_path": "research/toolchain-and-collaboration/RT-23/PINNED-GIT-RETENTION-01/evidence.json",
+      "archived_sha256": "72244f0eeea63d2ef92cee2d2c2e65546f6011d014ae6a8d4c6e746bc94aee32",
+      "observed_sha256": "72244f0eeea63d2ef92cee2d2c2e65546f6011d014ae6a8d4c6e746bc94aee32",
+      "byte_equal": true
+    }
+  }
+}

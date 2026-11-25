@@ -1,0 +1,268 @@
+{
+  "schema": "llmlang-llvm-validator-and-choice-scope/1",
+  "python": "3.12.14",
+  "archive_revision": "5cb0641ad4f250ecb8fcf8d1c62335d52cc016c3",
+  "tools": {
+    "asm": "Debian LLVM version 19.1.7",
+    "opt": "Debian LLVM version 19.1.7",
+    "clang": "Debian clang version 19.1.7 (3+b1)"
+  },
+  "sources_sha256": {
+    "run.py": "0827cb625a443ade7515b1efccfc9d15efd4dae9fb11b8f7c60c56afe3da5066",
+    "Choice.lean": "0b7b75ed542dd72454e7be16af189f24160cfb5a76a3d922a492f639f1c9b3b6",
+    "freeze.ll": "d5aa810da7b5a90e1940891b3cd378e6cdea4f91b1e75c1cab93e1b70978592a",
+    "harness.c": "3b7436c3007b47fc84057d7d1af7d73397b92a33cade3da4526dae88ac7b3a1e",
+    "axioms.txt": "2f47a42e5595dcd8175f9e94ab8d3335f72b39d2d2b35dd223bc4896bca42125"
+  },
+  "archives": {
+    "shared_five_modules": {
+      "identity": {
+        "sha256": "5a21ecae923e3f5bc8f9f2d7a36eea1dc6feb30973f6c3fad0c359994395ec73",
+        "structural_verifier": "accepted",
+        "archived_alive2": "valid",
+        "archived_vellvm_assertions": {
+          "passed": 4,
+          "failed": 0,
+          "exit_code": 0
+        }
+      },
+      "wrap": {
+        "sha256": "d322418fb9c4fe8ab8659091067238501e08378426c827fd63839fc7e3ee7edc",
+        "structural_verifier": "accepted",
+        "archived_alive2": "refuted",
+        "archived_vellvm_assertions": {
+          "passed": 4,
+          "failed": 0,
+          "exit_code": 0
+        }
+      },
+      "alias": {
+        "sha256": "3d5644507c8bd9b42a2d5ef51b4c394d8cf8b8f4d99e9571dc3b35f701743896",
+        "structural_verifier": "accepted",
+        "archived_alive2": "refuted",
+        "archived_vellvm_assertions": {
+          "passed": 4,
+          "failed": 0,
+          "exit_code": 0
+        }
+      },
+      "atomic": {
+        "sha256": "3521becb35bea1b251e3d64416eb4d10387813e27361d78d8cc9766feb2a7d2d",
+        "structural_verifier": "accepted",
+        "archived_alive2": "unsupported",
+        "archived_vellvm_assertions": {
+          "passed": 4,
+          "failed": 0,
+          "exit_code": 0
+        }
+      },
+      "fence": {
+        "sha256": "8709ebcdf6d7b925baa92133b3a6791c97e379817023640afd935213631e1911",
+        "structural_verifier": "accepted",
+        "archived_alive2": "unsupported",
+        "archived_vellvm_assertions": {
+          "passed": 2,
+          "failed": 0,
+          "exit_code": 0
+        }
+      }
+    },
+    "f64_module": {
+      "sha256": "33da72f3d42886fb06ba19578c466d7c576409b38456af03710b338bdffc7063",
+      "structural_verifier": "accepted",
+      "cases": {
+        "ordered_branch": {
+          "archived_alive2": {
+            "verdict": "refines"
+          },
+          "archived_vellvm_assertions": {
+            "passed": 432,
+            "failed": 0,
+            "exit": 0,
+            "uninterpreted_calls": 0
+          },
+          "archived_native_mismatch_count": 0
+        },
+        "ordered_select": {
+          "archived_alive2": {
+            "verdict": "refines"
+          },
+          "archived_vellvm_assertions": {
+            "passed": 432,
+            "failed": 0,
+            "exit": 0,
+            "uninterpreted_calls": 0
+          },
+          "archived_native_mismatch_count": 0
+        },
+        "guarded_saturate": {
+          "archived_alive2": {
+            "verdict": "unsupported",
+            "reason": "unknown saturating conversion intrinsic"
+          },
+          "archived_vellvm_assertions": {
+            "passed": 0,
+            "failed": 2,
+            "exit": 1,
+            "uninterpreted_calls": 2
+          },
+          "archived_native_mismatch_count": 0
+        },
+        "saturate": {
+          "archived_alive2": {
+            "verdict": "unsupported",
+            "reason": "unknown saturating conversion intrinsic"
+          },
+          "archived_vellvm_assertions": {
+            "passed": 0,
+            "failed": 2,
+            "exit": 1,
+            "uninterpreted_calls": 2
+          },
+          "archived_native_mismatch_count": 63
+        },
+        "inclusive_upper": {
+          "archived_alive2": {
+            "verdict": "refuted",
+            "reason": "target more poisonous",
+            "input": "43e0000000000000"
+          },
+          "archived_vellvm_assertions": {
+            "passed": 4,
+            "failed": 0,
+            "exit": 0,
+            "uninterpreted_calls": 0
+          },
+          "archived_native_mismatch_count": null
+        },
+        "unmasked_value": {
+          "archived_alive2": {
+            "verdict": "refuted",
+            "reason": "target more poisonous",
+            "input": "43e8000088042119"
+          },
+          "archived_vellvm_assertions": {
+            "passed": 4,
+            "failed": 0,
+            "exit": 0,
+            "uninterpreted_calls": 0
+          },
+          "archived_native_mismatch_count": null
+        }
+      }
+    }
+  },
+  "fresh_choice_experiment": {
+    "builds": {
+      "O0": {
+        "admitted_memberships": 12,
+        "tests": 4
+      },
+      "O3": {
+        "admitted_memberships": 12,
+        "tests": 4
+      }
+    },
+    "modeled_outcomes": {
+      "0,0": {
+        "stable": [
+          1
+        ],
+        "independent": [
+          1
+        ],
+        "pin": [
+          1
+        ]
+      },
+      "0,1": {
+        "stable": [
+          1,
+          2
+        ],
+        "independent": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "pin": [
+          1
+        ]
+      },
+      "1,0": {
+        "stable": [
+          2
+        ],
+        "independent": [
+          2
+        ],
+        "pin": [
+          2
+        ]
+      },
+      "1,1": {
+        "stable": [
+          1,
+          2
+        ],
+        "independent": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "pin": [
+          1
+        ]
+      }
+    },
+    "choice_case_translation_directions": {
+      "stable_to_stable": {
+        "refines": true,
+        "extra_target_values": []
+      },
+      "stable_to_independent": {
+        "refines": false,
+        "extra_target_values": [
+          0,
+          3
+        ]
+      },
+      "stable_to_pin": {
+        "refines": true,
+        "extra_target_values": []
+      },
+      "independent_to_stable": {
+        "refines": true,
+        "extra_target_values": []
+      },
+      "independent_to_independent": {
+        "refines": true,
+        "extra_target_values": []
+      },
+      "independent_to_pin": {
+        "refines": true,
+        "extra_target_values": []
+      },
+      "pin_to_stable": {
+        "refines": false,
+        "extra_target_values": [
+          2
+        ]
+      },
+      "pin_to_independent": {
+        "refines": false,
+        "extra_target_values": [
+          0,
+          2,
+          3
+        ]
+      },
+      "pin_to_pin": {
+        "refines": true,
+        "extra_target_values": []
+      }
+    }
+  }
+}

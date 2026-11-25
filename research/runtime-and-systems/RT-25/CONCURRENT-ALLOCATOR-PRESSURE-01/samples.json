@@ -1,0 +1,7363 @@
+{
+  "build_sha256": "903f3abb3ae9ea7ce6e1902335fa10f8cc66344f38c1697364c0b2387b47b7fb",
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "host": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "prior_library_ledger_sha256": "8a11be14863689ffd5a1acf300cbcab508e9299842595c9c436b7018bffc2eba",
+  "providers": {
+    "glibc": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+    "google": "b1471ea864eebc4b21597df9a462d99e55929ea920b8a7f3aa09cbd1b3b50955",
+    "gperftools": "684f9f1240bb581d5d74a1bca5f1ab1119bc722a79bc62b3d6530d64aeae6123",
+    "jemalloc": "51952ffe97354b56197c9b765582023d435cfbe1930b0c03b778bdb5faa1fff5",
+    "mimalloc": "6be283f8dd7676fa9a27654845c28c6ae84fbb0d3ae43b07324c5352343e3925"
+  },
+  "samples": [
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 8,
+          "reserve_ns": 594790,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 595771,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 0,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 167050,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 100440,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 313819,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 151066,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 0,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 222483,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 208792,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 229574,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 454319,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 0,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 10,
+          "reserve_ns": 703433,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 9,
+          "reserve_ns": 714569,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 0,
+      "virtual_kib_at_activation": 19192,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 0,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 321211,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 59109,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 169414,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 168893,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 0,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 12,
+          "reserve_ns": 542982,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 11,
+          "reserve_ns": 522672,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 9,
+          "reserve_ns": 508440,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 10,
+          "reserve_ns": 559527,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 0,
+      "virtual_kib_at_activation": 17136,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 530794,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 173219,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 172048,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 131157,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 0,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 13,
+          "reserve_ns": 743843,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 733307,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 750582,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 732225,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 0,
+      "virtual_kib_at_activation": 21248,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 341861,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 357454,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 235212,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 297575,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 362623,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 408591,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 0,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 0,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 912390,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 939325,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 913551,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 146409,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 0,
+          "reserve_ns": 1262,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 2884,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 27942,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 1362,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 122393,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 194010,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 195924,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 198948,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 0,
+      "virtual_kib_at_activation": 21248,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 156915,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 164817,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 328221,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 327059,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 0,
+      "virtual_kib_at_activation": 19192,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 438076,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 443974,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 0,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 0,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 230034,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 386839,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 147030,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 36013,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 32920,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 49354,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 550574,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 370865,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 0,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 360970,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 245397,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 0,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 9,
+          "reserve_ns": 173449,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 10,
+          "reserve_ns": 174551,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 0,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 55553,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 123825,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 44997,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 106068,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 1522117,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 829391,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1722407,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1602567,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 0,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 83265,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 3595,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 0,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 34621,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 35003,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 551635,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 543153,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 567284,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 576432,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 402502,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 356193,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 410820,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 446588,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 0,
+      "virtual_kib_at_activation": 17136,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 87782,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 97045,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 82694,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 58968,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 113049,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 148252,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 198227,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 193239,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 0,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 687128,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 681009,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 0,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 245297,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 241581,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 615621,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 382893,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 661570,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 513047,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 0,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 14,
+          "reserve_ns": 90485,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 95363,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 34792,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 51487,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 38248,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 29804,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 116384,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 87561,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 0,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 359878,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 11,
+          "reserve_ns": 387490,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 388451,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 383163,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 780177,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 789761,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 703682,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 710292,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 1,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 11,
+          "reserve_ns": 245137,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 11,
+          "reserve_ns": 248332,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 1,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 395211,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 439437,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 1,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 14,
+          "reserve_ns": 592196,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 12,
+          "reserve_ns": 588220,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 11,
+          "reserve_ns": 585706,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 567740,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 1,
+      "virtual_kib_at_activation": 21252,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 315562,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 312707,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 98708,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 101622,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 121611,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 110706,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 74131,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 65168,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 10,
+          "reserve_ns": 750373,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 733467,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 766086,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 562141,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 1,
+      "virtual_kib_at_activation": 17140,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 145137,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 87541,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 64126,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 83916,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 1,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 608771,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 709912,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 9,
+          "reserve_ns": 387610,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 375262,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 376814,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 368972,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 1,
+      "virtual_kib_at_activation": 17136,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 48833,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 51266,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 30576,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 38708,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 113480,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 122013,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 1,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 230746,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 202373,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 1,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 42483,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 56434,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 56374,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 46800,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 975640,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 983461,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1027487,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 158838,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 1,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 112508,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 87761,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 204647,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 105428,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 1,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 443504,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 448751,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 1,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 359227,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 218026,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 1,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 194721,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 188772,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 1,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 1,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 280881,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 295321,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 1,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 10,
+          "reserve_ns": 203484,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 9,
+          "reserve_ns": 202733,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 1,
+      "virtual_kib_at_activation": 19196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 861388,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 959866,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1178964,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 339288,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 1,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 41572,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 37897,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 159539,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 45037,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 153710,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 108583,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 205247,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 62433,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 47581,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 63665,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 1,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 8,
+          "reserve_ns": 408441,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 11,
+          "reserve_ns": 410123,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 1,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 249273,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 175502,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 241140,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 187000,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 5,
+          "reserve_ns": 377314,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 366808,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 338356,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 371215,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 1,
+      "virtual_kib_at_activation": 21252,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 253539,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 238788,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 251752,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 223164,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 38978,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 4727,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 0,
+          "reserve_ns": 2124,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 54742,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 2193,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 3606,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 666066,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 657994,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 1,
+      "virtual_kib_at_activation": 19196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 276884,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 80711,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 1,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 104697,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 30566,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 1,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 1,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 191897,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 414209,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 399317,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 387780,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 348992,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 152749,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 2,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 1025124,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1000898,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 745425,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1016671,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 2,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 298707,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 253229,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 298476,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 300520,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 2,
+      "virtual_kib_at_activation": 21252,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 305827,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 29975,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 47431,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 158587,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 97306,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 218687,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 221091,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 221842,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 2,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 103444,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 69865,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 1,
+          "reserve_ns": 17025,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 116634,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 76615,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 79519,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 219268,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 255973,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 2,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 12,
+          "reserve_ns": 917152,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 891574,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 859646,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 922760,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 2,
+      "virtual_kib_at_activation": 17140,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 38217,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 42274,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 42584,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 34612,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 2,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 563262,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 580839,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 2,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 154200,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 409442,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 61152,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 260650,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 2,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 2,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 261652,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 258096,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 245768,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 262263,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 2,
+      "virtual_kib_at_activation": 17140,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 67962,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 69384,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 70986,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 46550,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 2,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 2,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 78357,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 117215,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 71186,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 48613,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 2,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 0,
+          "reserve_ns": 3365,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 31407,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 451736,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 369312,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 2,
+      "virtual_kib_at_activation": 19196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 14,
+          "reserve_ns": 144376,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 108182,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 396934,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 436593,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 2,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 5,
+          "reserve_ns": 540568,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 553167,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 549142,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 555151,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 2,
+      "virtual_kib_at_activation": 21252,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 2,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 1147917,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 1175608,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 11,
+          "reserve_ns": 1181427,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 1189639,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 10,
+          "reserve_ns": 399698,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 9,
+          "reserve_ns": 401560,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 2,
+      "virtual_kib_at_activation": 19192,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 1108078,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 906276,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1069489,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 688790,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 2,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 119309,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 108612,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 2,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 123094,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 80300,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 42032,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 73710,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 400950,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 172909,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 232198,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 253329,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 2,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 0,
+          "reserve_ns": 1813,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 3385,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 36915,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 4156,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 188873,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 192198,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 2,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 452908,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 471495,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 11,
+          "reserve_ns": 116915,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 109164,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 308612,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 973947,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 2,
+      "virtual_kib_at_activation": 17136,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 118498,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 41863,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 219078,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 369052,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 150505,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 32008,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 73530,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 46339,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 2,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 138557,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 89064,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 651124,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 720468,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 963591,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 325867,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 3,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 306999,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 261000,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 300260,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 295222,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 3,
+      "virtual_kib_at_activation": 17136,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 137886,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 134361,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 149253,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 104817,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 177145,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 361611,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 3,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 401231,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 367029,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 3,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 188152,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 381545,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 374200,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 326018,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 803693,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1339199,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 3,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 10,
+          "reserve_ns": 400660,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 9,
+          "reserve_ns": 399287,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 3,
+      "virtual_kib_at_activation": 19192,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 10,
+          "reserve_ns": 810583,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 11,
+          "reserve_ns": 850412,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 855830,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 847127,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 3,
+      "virtual_kib_at_activation": 21252,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 115994,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 54611,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 186679,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 163625,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 226749,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 103145,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 3,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 140751,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 98588,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 144526,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 82644,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 497985,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 335512,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 279157,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 114071,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 3,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 39489,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 3084,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 216995,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 95663,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 103184,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 63064,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 3,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 504214,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 351696,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 72739,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 72829,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 3,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 13,
+          "reserve_ns": 389252,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 217035,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 12,
+          "reserve_ns": 837964,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 832875,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 828349,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 807318,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 3,
+      "virtual_kib_at_activation": 17140,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 1,
+          "reserve_ns": 515150,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 488661,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 449142,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 518326,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 3,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 165047,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 62754,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 288792,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 34361,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 45358,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 48222,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 3,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 262904,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 224586,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 9,
+          "reserve_ns": 302712,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 289633,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 3,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 254120,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 178797,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 252347,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 259678,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 3,
+      "virtual_kib_at_activation": 21248,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 151577,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 30535,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 48603,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 63135,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 592977,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 323494,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 3,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 623107,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 231927,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 3,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 331235,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 319037,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 3,
+      "virtual_kib_at_activation": 19192,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 0,
+          "reserve_ns": 3024,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 42544,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 2203,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 2133,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 410374,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 413959,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 3,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 36505,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 28223,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 38017,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 32779,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 3,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 9,
+          "reserve_ns": 222673,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 10,
+          "reserve_ns": 227150,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 3,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 146619,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 62919,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 78578,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 54958,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 3,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 666477,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 883922,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1112594,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 429953,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 3,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 3,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 208121,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 204195,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 201051,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 162614,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 1483223,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1348867,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1399924,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1452898,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 4,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 0,
+          "reserve_ns": 3346,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 2364,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 2333,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 36915,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 229663,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 70175,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 4,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 439738,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 99379,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 4,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 9,
+          "reserve_ns": 191306,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 10,
+          "reserve_ns": 187661,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 4,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 471455,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 479828,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 4,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 10,
+          "reserve_ns": 573989,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 160120,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 509352,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 12,
+          "reserve_ns": 539117,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 4,
+      "virtual_kib_at_activation": 21252,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 434239,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 317064,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 4,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 220861,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 86790,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 95483,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 47682,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 4,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 0,
+          "reserve_ns": 1682,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 136584,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 151477,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 126399,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 352848,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 10,
+          "reserve_ns": 168502,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 1,
+          "reserve_ns": 63105,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 95643,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 112308,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 105959,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 110886,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 33120,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 31467,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 37897,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 14,
+          "reserve_ns": 341541,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 362262,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 350344,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 248222,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 392327,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 603072,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 4,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 391716,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 361090,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 4,
+      "virtual_kib_at_activation": 19192,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 151546,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 97426,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 43115,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 168652,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 516142,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 567449,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 4,
+      "virtual_kib_at_activation": 17136,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 12,
+          "reserve_ns": 816261,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 10,
+          "reserve_ns": 814999,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 492306,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 773116,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 4,
+      "virtual_kib_at_activation": 17136,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 4,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 101972,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 29304,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 34732,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 26429,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 537644,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 962519,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1334005,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 903481,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 4,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 89404,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 219919,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 46649,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 88182,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 4,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 483253,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 11,
+          "reserve_ns": 473678,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 475461,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 468641,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 268051,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 298486,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 300179,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 301752,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 4,
+      "virtual_kib_at_activation": 17140,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 367430,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 393138,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 4,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 4,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 4,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 263504,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 378376,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 13,
+          "reserve_ns": 243244,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 256273,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 4,
+      "virtual_kib_at_activation": 19196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 308171,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 371596,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 387710,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 10,
+          "reserve_ns": 371525,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 4,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 78107,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 44797,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 34812,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 37687,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 18698,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 1131,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 192117,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 3515,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 4,
+      "virtual_kib_at_activation": 21252,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 248481,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 273499,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 301260,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 302313,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 4,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 14,
+          "reserve_ns": 911403,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 132979,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 4,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 251846,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 139168,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 4,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 206890,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 171297,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 8,
+          "reserve_ns": 523663,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 418205,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 393859,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 388311,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 293609,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 298787,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 845124,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 874268,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 5,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 154762,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 229563,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 5,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 83114,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 77626,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 43585,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 40150,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 197265,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 269543,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 255883,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 209653,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 5,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 222934,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 82403,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 75192,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 82463,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 5,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 148342,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 203905,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 154842,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 11,
+          "reserve_ns": 105238,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 5,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 59179,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 55893,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 5,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 32599,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 1963,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 5,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 187190,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 126880,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 5,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 1144032,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1171472,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 5,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 656121,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 12,
+          "reserve_ns": 655120,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 645064,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 595050,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 5,
+      "virtual_kib_at_activation": 17136,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 13,
+          "reserve_ns": 661930,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 602571,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 642851,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 10,
+          "reserve_ns": 649601,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 5,
+      "virtual_kib_at_activation": 21248,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 112909,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 26971,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 32970,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 34161,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 205798,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 40381,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 67992,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 72709,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 5,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 138917,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 101832,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 182422,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 126188,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 247561,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 241241,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 247060,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 247881,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 106600,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 32288,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 41161,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 41923,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 6,
+          "reserve_ns": 108192,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 108202,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 449413,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 452827,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 5,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 47471,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 39099,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 35904,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 41713,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 10,
+          "reserve_ns": 310023,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 9,
+          "reserve_ns": 307781,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 5,
+      "virtual_kib_at_activation": 17136,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 0,
+          "reserve_ns": 3034,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 3084,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 40270,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 2824,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 288802,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 322713,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 5,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 440890,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 452557,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 5,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 1051482,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 950111,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1298372,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 401901,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 5,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 302372,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 309873,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 265317,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 304105,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 5,
+      "virtual_kib_at_activation": 21248,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 415632,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 414280,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 5,
+      "virtual_kib_at_activation": 19192,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 3136842,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 3123261,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 3093487,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 3002701,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 5,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 128653,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 172959,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 182082,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 147310,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 161692,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 201932,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 5,
+      "virtual_kib_at_activation": 19192,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 5,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 143555,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 162803,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 167440,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 162383,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 5,
+      "virtual_kib_at_activation": 17136,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 296904,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 325337,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 5,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 5,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 6,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 0,
+          "reserve_ns": 400850,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 412867,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 220740,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 392186,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 6,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 284856,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 310454,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 96655,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 177726,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 6,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 6,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 614249,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 749441,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 6,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 320850,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 435801,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 6,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 8,
+          "reserve_ns": 157485,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 172869,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 228882,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 53930,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 6,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 248462,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 256404,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 6,
+      "virtual_kib_at_activation": 135688,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 0,
+          "reserve_ns": 3345,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 2443,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 2554,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 30515,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 11,
+          "reserve_ns": 633988,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 12,
+          "reserve_ns": 557975,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 605586,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 641559,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 6,
+      "virtual_kib_at_activation": 21252,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 81381,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 76665,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 57316,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 56605,
+          "retried": false,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 371456,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 367851,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 369192,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 146670,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 14,
+          "reserve_ns": 362703,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 362808,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 394931,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 381596,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 6,
+      "virtual_kib_at_activation": 2560,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 814979,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 382091,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 6,
+      "virtual_kib_at_activation": 3156216,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 104777,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 34201,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 15,
+          "reserve_ns": 229353,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 70325,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 49123,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 15,
+          "reserve_ns": 77136,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 6,
+      "virtual_kib_at_activation": 268816,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 98227,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 150475,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "glibc",
+      "sample": 6,
+      "virtual_kib_at_activation": 2560,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "provider": "google",
+      "sample": 6,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 2,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "provider": "google",
+      "sample": 6,
+      "startup_error": 11,
+      "virtual_kib_at_activation": 3154160,
+      "workers": 4,
+      "workers_created": 0
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 33881,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 33640,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 35142,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 29725,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 35588,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 407689,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 325537,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 6,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 3,
+          "reserve_ns": 200309,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 367259,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 230965,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 178837,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 11344,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 151426,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 28743,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 31628,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 32288,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 4,
+          "reserve_ns": 68532,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 8,
+          "reserve_ns": 67862,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 13,
+          "reserve_ns": 954087,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 373399,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 11344,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 14,
+          "reserve_ns": 106759,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 14,
+          "reserve_ns": 103825,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 103196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 8,
+          "reserve_ns": 841689,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 12,
+          "reserve_ns": 840337,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 740678,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 817954,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 6,
+      "virtual_kib_at_activation": 17136,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 351015,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 13,
+          "reserve_ns": 552436,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 21592,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 10,
+          "reserve_ns": 378636,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 9,
+          "reserve_ns": 378356,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 6,
+      "virtual_kib_at_activation": 19196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 2,
+          "reserve_ns": 156264,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 160420,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 3,
+          "reserve_ns": 171746,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 1,
+          "reserve_ns": 114010,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "jemalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 31840,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 124195,
+          "retried": false,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 0,
+          "reserve_ns": 1732,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 5,
+          "reserve_ns": 309373,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 301111,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 304556,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 4,
+          "reserve_ns": 307830,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 6,
+      "virtual_kib_at_activation": 17140,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 576903,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1231382,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1703328,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1535628,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 6,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 29634,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 35112,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 102473,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 7,
+          "reserve_ns": 28202,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 170804,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 8,
+          "reserve_ns": 1336530,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 11,
+          "reserve_ns": 1334536,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 6,
+      "virtual_kib_at_activation": 17140,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 519367,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 565305,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 6,
+      "virtual_kib_at_activation": 19196,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": true,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 7,
+          "reserve_ns": 105318,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 66769,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "mimalloc",
+      "sample": 6,
+      "virtual_kib_at_activation": 35588,
+      "workers": 2
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 192,
+      "per_thread": [
+        {
+          "held": 16,
+          "reserve_ns": 956571,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 515251,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1462037,
+          "retried": true,
+          "stop": "quota"
+        },
+        {
+          "held": 16,
+          "reserve_ns": 1703819,
+          "retried": true,
+          "stop": "quota"
+        }
+      ],
+      "provider": "google",
+      "sample": 6,
+      "virtual_kib_at_activation": 3158272,
+      "workers": 4
+    },
+    {
+      "cap_before_workers": false,
+      "cap_mib": 96,
+      "per_thread": [
+        {
+          "held": 5,
+          "reserve_ns": 532457,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 2,
+          "reserve_ns": 510152,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 5,
+          "reserve_ns": 523703,
+          "retried": true,
+          "stop": "fallible-refusal"
+        },
+        {
+          "held": 6,
+          "reserve_ns": 535051,
+          "retried": true,
+          "stop": "fallible-refusal"
+        }
+      ],
+      "provider": "gperftools",
+      "sample": 6,
+      "virtual_kib_at_activation": 21252,
+      "workers": 4
+    }
+  ],
+  "seed": 2527,
+  "sources_sha256": {
+    "check.py": "a50c81cfa87a0af3f157c219dbcb4c93834dc181a6709aaaf610a2e51188d64c",
+    "pressure.c": "18405ae16027047bbdd14ca9dda62c7656f1c0f6d20643fb752bc23d63b3a8ca"
+  }
+}

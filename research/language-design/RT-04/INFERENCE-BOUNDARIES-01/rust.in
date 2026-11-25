@@ -1,0 +1,10 @@
+fn consume(_: u64) {}
+
+@API@
+
+fn main() {
+    @DECLARATION@
+    let prior_type = std::any::type_name_of_val(&number);
+    @LATER_USE@
+    println!("{}:{}", prior_type, number);
+}

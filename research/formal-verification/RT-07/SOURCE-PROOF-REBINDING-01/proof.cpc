@@ -1,0 +1,6 @@
+(declare-const i_4_L Int)
+(declare-const i_5_R Int)
+(assume @p1 (not (= i_4_L i_5_R)))
+(assume @p2 (or (not (= (ite true 7 0) (ite true 7 0))) false))
+(step @p3 :rule evaluate :args ((or (not (= (ite true 7 0) (ite true 7 0))) false)))
+(step @p4 false :rule eq_resolve :premises (@p2 @p3))

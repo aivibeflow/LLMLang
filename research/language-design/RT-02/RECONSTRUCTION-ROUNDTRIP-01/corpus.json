@@ -1,0 +1,34 @@
+{
+  "case": "order-confirmation",
+  "source_fragments": {
+    "intent": "For retail orders, successful payment and a successful reservation should lead to confirmation within five seconds.",
+    "operator": "A confirmation is the automatic order-status transition. Sending a notification is a separate action.",
+    "clock": "Use payment registration as the clock origin. Exactly five seconds after registration is allowed. Classify complete observations by their final reservation outcome. This clause imposes no separate ordering between the confirmation and reservation observations.",
+    "clock-copy": "Authorized copy of clock decision: use payment registration and include its five-second boundary. Classify by the final reservation outcome, with no additional ordering condition.",
+    "exception": "For retail orders whose reservation has failed, automatic confirmation must be absent throughout the observed interval.",
+    "conflicting-clock": "Unresolved alternate proposal: use reservation completion as clock origin."
+  },
+  "authorized_fragments": ["intent", "operator", "clock", "clock-copy", "exception"],
+  "clauses": [
+    {
+      "id": "deadline",
+      "scope": "retail",
+      "condition": "succeeded",
+      "mode": "require",
+      "action": "confirmation",
+      "origin": "payment registration",
+      "deadline": 5,
+      "refs": ["intent", "operator", "clock"]
+    },
+    {
+      "id": "exception",
+      "scope": "retail",
+      "condition": "failed",
+      "mode": "forbid",
+      "action": "confirmation",
+      "origin": null,
+      "deadline": null,
+      "refs": ["operator", "exception"]
+    }
+  ]
+}

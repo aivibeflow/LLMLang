@@ -1,0 +1,164 @@
+{
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "operational_baseline": "d554c0fdbdbb6814db6e5faf5dae3853f306b2d7",
+  "proof_iteration_baseline": "0012e8518096b149c93842580f905b1737d0a34a",
+  "model_sha256": "e8047411b8734c1470e1492a83e12e40c605944319fe6b88b532e70862b34b46",
+  "operational_sources": {
+    "runner_sha256": "ff0036446f3cee77ef9db1c63a51a10ed0af88625b622fe0e2fbc0cb5367e5cd",
+    "ledger_sha256": "1d7d2eee8161a91eab85bd7242876f212303447089690c9de726c9755c93f6ec",
+    "comparison_rows_sha256": "86ccd9b379ae5fe0ff38c27a5f2dfb38e634fa784d73f608d7b9a71d1cc8605b"
+  },
+  "axioms": [
+    "'ClosedStateResult.wp_agrees' depends on axioms: [propext, Quot.sound]",
+    "'ClosedStateResult.preserves_posts_iff_same_observation' depends on axioms: [propext, Quot.sound]",
+    "'ClosedStateResult.same_final_cell_and_result' depends on axioms: [propext]",
+    "'ClosedStateResult.restore_not_substitutable_for_all_posts' depends on axioms: [propext, Quot.sound]"
+  ],
+  "checked_rows": 8210,
+  "batch_sizes": {
+    "18": 1,
+    "256": 32
+  },
+  "batches": {
+    "Batch0.lean": {
+      "checks": 256,
+      "sha256": "0655dbf5e663a1a6cff09a61b2a502d2b72d3efd192090456e4d57b006183b0a"
+    },
+    "Batch1.lean": {
+      "checks": 256,
+      "sha256": "ead86e7e6619daa0ca0f717ee5cd9f12060b58b9fd12df8bbb1c14125151a5ad"
+    },
+    "Batch2.lean": {
+      "checks": 256,
+      "sha256": "c50023758bbc7f31dcfd3317c1cc0b31757e0d3bb7b3039c2280438d13532427"
+    },
+    "Batch3.lean": {
+      "checks": 256,
+      "sha256": "2d1d07a6334f7ee818d933de07f1d3b79dbf0f4ad990f59e055e381ab9553b87"
+    },
+    "Batch4.lean": {
+      "checks": 256,
+      "sha256": "8ae5e10d353ceb72f3b8f69f18df21b38da6c22a989bd698cdf4b77f3fdf5c26"
+    },
+    "Batch5.lean": {
+      "checks": 256,
+      "sha256": "aedd6c4bcb23d9a86070f1d9be70870b51b1ed82b8a57b5318917a8b2b23871b"
+    },
+    "Batch6.lean": {
+      "checks": 256,
+      "sha256": "7a1387daaadde50de57cc90892efb91c07c66c1d19a2652072158fd9f604595e"
+    },
+    "Batch7.lean": {
+      "checks": 256,
+      "sha256": "286cd1feed01951717bd47ecfdf98d991af0af1b0c91feab587a02e332b1f729"
+    },
+    "Batch8.lean": {
+      "checks": 256,
+      "sha256": "60f2536c7b8673de979f6502dde0b8d7c91af302e4b70d6744ccfb0922379b34"
+    },
+    "Batch9.lean": {
+      "checks": 256,
+      "sha256": "af5703d1b601ecf8526c39fcee35d9cc99c41c89f0a78364ebfff622cbe59efe"
+    },
+    "Batch10.lean": {
+      "checks": 256,
+      "sha256": "60243d878563afcbff38caa82125bc4c6f3872b7ef73505c8fa947b5ebf11686"
+    },
+    "Batch11.lean": {
+      "checks": 256,
+      "sha256": "c6959ba02147eeb97d302cd638f1277331d534ab35d4af3936d083113f1b5309"
+    },
+    "Batch12.lean": {
+      "checks": 256,
+      "sha256": "a4c826361d67c7356ad6838fc30115cb2cf8f96d81a51ee865bb7b079fe9f47f"
+    },
+    "Batch13.lean": {
+      "checks": 256,
+      "sha256": "50413c6d8af36c9979c976c086d1fa2b3fcb81ba7a32b8c73c658a32f8c14c36"
+    },
+    "Batch14.lean": {
+      "checks": 256,
+      "sha256": "86cbf85dd91439df906ea5ff8e5fee987f17fd4e25029646b68726cb3cd3a78b"
+    },
+    "Batch15.lean": {
+      "checks": 256,
+      "sha256": "bb618ae31f44e38e6446a1079cba88ac2dc227ef69b806393e3196d7b4de8f3b"
+    },
+    "Batch16.lean": {
+      "checks": 256,
+      "sha256": "636ac0dfb0b46e8ac27b66dbafeeaf8249ef08b2242a2f4b5790b60ca05eb163"
+    },
+    "Batch17.lean": {
+      "checks": 256,
+      "sha256": "9188a4fdc11f9cc62bc30ea72706f88076c6220434ec631afff784170a4351a7"
+    },
+    "Batch18.lean": {
+      "checks": 256,
+      "sha256": "b97b2f280e8254579a2378bff5a9e6930fa4e5ab38ba1bf3bd8b101fd14a7ccc"
+    },
+    "Batch19.lean": {
+      "checks": 256,
+      "sha256": "8a420067fae13e8ff345981458690d5fdb42bde71bb6879de0d8a0ca1981d8f1"
+    },
+    "Batch20.lean": {
+      "checks": 256,
+      "sha256": "358e97e4a955792f85e959972f4f5808b019184caa6fe1ab1d86efb0414bad76"
+    },
+    "Batch21.lean": {
+      "checks": 256,
+      "sha256": "61494e821fb8cbedba1ea13f0de2f767ffe47f06e4554b1d90bf349617fe53b5"
+    },
+    "Batch22.lean": {
+      "checks": 256,
+      "sha256": "e647d38b1ccda3e9a81c65499387af4fb07f7963e35d59fd43fb6e9a1538d922"
+    },
+    "Batch23.lean": {
+      "checks": 256,
+      "sha256": "c39986bc025662a3c7a0e18a68197736dc51a7fdbcfe92028ac1547a2b51b07c"
+    },
+    "Batch24.lean": {
+      "checks": 256,
+      "sha256": "d42d0a913f01fb46c6fd78ae6620d7a92834b25ab60b960271d6f4a75f6713e3"
+    },
+    "Batch25.lean": {
+      "checks": 256,
+      "sha256": "d39823714a8fff8cf6db29eefa74cf874d055a9cd898d6f53ace8dbd095c2b2f"
+    },
+    "Batch26.lean": {
+      "checks": 256,
+      "sha256": "a9c5c058e7c9c8bdc82d19bf4d99957af7783d4c24b5c9c6f595ee8824dfe876"
+    },
+    "Batch27.lean": {
+      "checks": 256,
+      "sha256": "03eb7851de356b1859e70c57c0f25d06a5875aa1b148e4f6251b426abf313cef"
+    },
+    "Batch28.lean": {
+      "checks": 256,
+      "sha256": "2efaf20d0f3a94e3a6ae57409e6f2d6423d518f4ce5128414df5ae2fd505698b"
+    },
+    "Batch29.lean": {
+      "checks": 256,
+      "sha256": "ed146f627d36590c503453a71e40163282636ea3da7dc30eba3e396f7b9ad9eb"
+    },
+    "Batch30.lean": {
+      "checks": 256,
+      "sha256": "8cbe8a659205a41d3e570e42b6c1a3a9cf95e2b9eddb37c7d0c20ee53299e704"
+    },
+    "Batch31.lean": {
+      "checks": 256,
+      "sha256": "e11ea0b9151d90269482c1f0b17a4241194ceb85a0722c7efcf2e8013a32c8c2"
+    },
+    "Batch32.lean": {
+      "checks": 18,
+      "sha256": "1b00f5ca88d9b38f16fadbbe28bd40f8c7ea60c42ccd1dd666378f663a93d592"
+    }
+  },
+  "controls": [
+    {
+      "name": "erased-restore-effects",
+      "rejected": true,
+      "source_sha256": "0fc7b4466fd3cbc136a0eccb95c08b3585da1cbe337f1afa5cf88c2864cf0030"
+    }
+  ]
+}

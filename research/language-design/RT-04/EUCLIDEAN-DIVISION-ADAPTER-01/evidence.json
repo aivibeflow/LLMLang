@@ -1,0 +1,83 @@
+{
+  "schema": "llmlang-euclidean-division-adapter/1",
+  "python": "3.12.14",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "sources_sha256": {
+    "run.py": "902d8f2d03f5f5141514448d1d50c52317105a015fa38a7a90e3fc74b9ed1bc5",
+    "probe.c": "6e922aa7829cfde118e46c5eb285f3fa72ad8f13dad35cc33e59b7c8ad16b649",
+    "Adapter.lean": "e6bd15ee2df35a74a8b17dd0a457bef772ee83ee0d6cf255be4c7cf5b0ec2e1f",
+    "axioms.txt": "7d4c86b863f5d2958d9f221b6e5421eb37b41cb7c86c05ac3a708c0d1cbee8c5"
+  },
+  "input_pairs_per_variant": 2769,
+  "counts_per_profile": {
+    "precondition_refusals": 1136,
+    "checked_rows": 11076
+  },
+  "native_rows_sha256": {
+    "O0": "238ed92a4ecd3e1a460e43738b250de76bb49b333ab2ea49c503b0f6e6012363",
+    "O2": "238ed92a4ecd3e1a460e43738b250de76bb49b333ab2ea49c503b0f6e6012363",
+    "ubsan": "238ed92a4ecd3e1a460e43738b250de76bb49b333ab2ea49c503b0f6e6012363"
+  },
+  "differences_from_required_outcome": {
+    "verified": 0,
+    "return_euclidean": 1097,
+    "stale_truncation_provider": 1097,
+    "shift_only_quotient": 1097
+  },
+  "counterexamples": {
+    "return_euclidean": {
+      "input": [
+        -32,
+        3
+      ],
+      "required": [
+        0,
+        1,
+        -10,
+        -2
+      ],
+      "actual": [
+        0,
+        1,
+        -11,
+        1
+      ]
+    },
+    "stale_truncation_provider": {
+      "input": [
+        -32,
+        3
+      ],
+      "required": [
+        0,
+        1,
+        -10,
+        -2
+      ],
+      "actual": [
+        2,
+        1,
+        0,
+        0
+      ]
+    },
+    "shift_only_quotient": {
+      "input": [
+        -32,
+        3
+      ],
+      "required": [
+        0,
+        1,
+        -10,
+        -2
+      ],
+      "actual": [
+        0,
+        1,
+        -10,
+        1
+      ]
+    }
+  }
+}

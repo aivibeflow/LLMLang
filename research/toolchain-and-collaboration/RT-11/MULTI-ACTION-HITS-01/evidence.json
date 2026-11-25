@@ -1,0 +1,3434 @@
+{
+  "schema": "llmlang-multi-action-cache/1",
+  "python": "3.12.14",
+  "tools": {
+    "gcc": {
+      "version": "x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0",
+      "sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+    },
+    "ar": {
+      "version": "GNU ar (GNU Binutils for Debian) 2.44",
+      "sha256": "f8fe09d485b40b1d47c534c96f5cbaaa9148e247aa0494c087104421f48ac5eb"
+    },
+    "as": {
+      "version": "GNU assembler (GNU Binutils for Debian) 2.44",
+      "sha256": "07dd8551ea0aa065975e4dddb8e1bb7dc308d12d54eca22c3858db79467c7cb9"
+    },
+    "ld": {
+      "version": "GNU ld (GNU Binutils for Debian) 2.44",
+      "sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+    },
+    "target": "x86_64-linux-gnu",
+    "fixed_environment": {
+      "LC_ALL": "C",
+      "SOURCE_DATE_EPOCH": "0"
+    }
+  },
+  "inputs_sha256": {
+    "run.py": "b26dcfd08b100f6e61a21b358796b6b3d8fab9f318f226c99c395bbb4bffa7a0"
+  },
+  "phases": {
+    "cold": {
+      "exact_payload": {
+        "hits": {
+          "compile": 0,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "29af0de5f64e42fcb31e42c2435395e4b3f776a066324d8d912d5f52976e022a",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6573bda405412f853b8427fb609aa5f645ecbdb8439d74bca3ba374e2c56b4b9",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "cee3c69ea0e47dc678e1f40bcdb2dd07ccb6b067cc223276038f1e4e585accb3",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "bad45ec2fd082990cfe4c83be78b68895d2b9d8b218fce42620bf8041954ee01",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "261d424164f9afc9d3406111bf4b45cb78f613ab9b3cbec9b3d857cd2feaad0e",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "producer_keys": {
+        "hits": {
+          "compile": 0,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "29af0de5f64e42fcb31e42c2435395e4b3f776a066324d8d912d5f52976e022a",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e3a158a56ab506d6be237048a085e6e2cd44abf042d11eb6ce83bf8fefb1c98c",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "9f01fa39b251c3fd15234168403dd52b1bce451bca8de994ce5181a87c777c74",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "8eef3a96ac0127d9cbb3e13d2f07564ad24f66a8b351457c9a0128c98271dba4",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "49fa8078dffa4117dffdce8d400ab07d8e03c41b03b64385dc026c5cb68f6feb",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "bd90b0fe87b25f1ac43820fac66df64fc0b1e347a040eb30f8ca34eb7c5824b1",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e4b3a350fc355e8fe8183fabf035e84352a3403856538a8b07e036d033c60cd3",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "no_verifier_policy": {
+        "hits": {
+          "compile": 0,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "29af0de5f64e42fcb31e42c2435395e4b3f776a066324d8d912d5f52976e022a",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6573bda405412f853b8427fb609aa5f645ecbdb8439d74bca3ba374e2c56b4b9",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "cee3c69ea0e47dc678e1f40bcdb2dd07ccb6b067cc223276038f1e4e585accb3",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "2896f6bd9c2d267c5a98b275567fcf5b500bb304b5f6b9e1f731961c7c2d0def",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "a9b48b90bcd4a3d350ed77c2cfc492f4c48200b9c65f4947e4ec43da816299d5",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "forced": {
+        "hits": {
+          "compile": 0,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "29af0de5f64e42fcb31e42c2435395e4b3f776a066324d8d912d5f52976e022a",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6573bda405412f853b8427fb609aa5f645ecbdb8439d74bca3ba374e2c56b4b9",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "cee3c69ea0e47dc678e1f40bcdb2dd07ccb6b067cc223276038f1e4e585accb3",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "bad45ec2fd082990cfe4c83be78b68895d2b9d8b218fce42620bf8041954ee01",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "261d424164f9afc9d3406111bf4b45cb78f613ab9b3cbec9b3d857cd2feaad0e",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      }
+    },
+    "warm": {
+      "exact_payload": {
+        "hits": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "29af0de5f64e42fcb31e42c2435395e4b3f776a066324d8d912d5f52976e022a",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6573bda405412f853b8427fb609aa5f645ecbdb8439d74bca3ba374e2c56b4b9",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "cee3c69ea0e47dc678e1f40bcdb2dd07ccb6b067cc223276038f1e4e585accb3",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "bad45ec2fd082990cfe4c83be78b68895d2b9d8b218fce42620bf8041954ee01",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "261d424164f9afc9d3406111bf4b45cb78f613ab9b3cbec9b3d857cd2feaad0e",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "producer_keys": {
+        "hits": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "29af0de5f64e42fcb31e42c2435395e4b3f776a066324d8d912d5f52976e022a",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e3a158a56ab506d6be237048a085e6e2cd44abf042d11eb6ce83bf8fefb1c98c",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "9f01fa39b251c3fd15234168403dd52b1bce451bca8de994ce5181a87c777c74",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "8eef3a96ac0127d9cbb3e13d2f07564ad24f66a8b351457c9a0128c98271dba4",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "49fa8078dffa4117dffdce8d400ab07d8e03c41b03b64385dc026c5cb68f6feb",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "bd90b0fe87b25f1ac43820fac66df64fc0b1e347a040eb30f8ca34eb7c5824b1",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e4b3a350fc355e8fe8183fabf035e84352a3403856538a8b07e036d033c60cd3",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "no_verifier_policy": {
+        "hits": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "29af0de5f64e42fcb31e42c2435395e4b3f776a066324d8d912d5f52976e022a",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6573bda405412f853b8427fb609aa5f645ecbdb8439d74bca3ba374e2c56b4b9",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "cee3c69ea0e47dc678e1f40bcdb2dd07ccb6b067cc223276038f1e4e585accb3",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "2896f6bd9c2d267c5a98b275567fcf5b500bb304b5f6b9e1f731961c7c2d0def",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "a9b48b90bcd4a3d350ed77c2cfc492f4c48200b9c65f4947e4ec43da816299d5",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "forced": {
+        "hits": {
+          "compile": 0,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "29af0de5f64e42fcb31e42c2435395e4b3f776a066324d8d912d5f52976e022a",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6573bda405412f853b8427fb609aa5f645ecbdb8439d74bca3ba374e2c56b4b9",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "cee3c69ea0e47dc678e1f40bcdb2dd07ccb6b067cc223276038f1e4e585accb3",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "bad45ec2fd082990cfe4c83be78b68895d2b9d8b218fce42620bf8041954ee01",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "261d424164f9afc9d3406111bf4b45cb78f613ab9b3cbec9b3d857cd2feaad0e",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      }
+    },
+    "comment_only": {
+      "exact_payload": {
+        "hits": {
+          "compile": 3,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "66d9ef490bf459627994a65a95ff4e7fe1d0a4e6b74e5c4525a6d0a401af376e",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6573bda405412f853b8427fb609aa5f645ecbdb8439d74bca3ba374e2c56b4b9",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "cee3c69ea0e47dc678e1f40bcdb2dd07ccb6b067cc223276038f1e4e585accb3",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "bad45ec2fd082990cfe4c83be78b68895d2b9d8b218fce42620bf8041954ee01",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "261d424164f9afc9d3406111bf4b45cb78f613ab9b3cbec9b3d857cd2feaad0e",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "producer_keys": {
+        "hits": {
+          "compile": 3,
+          "archive": 1,
+          "link": 1,
+          "verify": 1
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "66d9ef490bf459627994a65a95ff4e7fe1d0a4e6b74e5c4525a6d0a401af376e",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e60a7a40515d023bd047f237c9c7f3dd849325320f7f6e00b7e4e311e67980be",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "00d10754cf08ae337c8367944e0a67b06ed65f6b7a25c4a4f0e6f0c3183d0360",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "d85999289faf08c12c2c2d1ba68f719a87c9b32524e55e25fdb1c5f853411502",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "49fa8078dffa4117dffdce8d400ab07d8e03c41b03b64385dc026c5cb68f6feb",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "bd90b0fe87b25f1ac43820fac66df64fc0b1e347a040eb30f8ca34eb7c5824b1",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e4b3a350fc355e8fe8183fabf035e84352a3403856538a8b07e036d033c60cd3",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "no_verifier_policy": {
+        "hits": {
+          "compile": 3,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "66d9ef490bf459627994a65a95ff4e7fe1d0a4e6b74e5c4525a6d0a401af376e",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6573bda405412f853b8427fb609aa5f645ecbdb8439d74bca3ba374e2c56b4b9",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "cee3c69ea0e47dc678e1f40bcdb2dd07ccb6b067cc223276038f1e4e585accb3",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "2896f6bd9c2d267c5a98b275567fcf5b500bb304b5f6b9e1f731961c7c2d0def",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "a9b48b90bcd4a3d350ed77c2cfc492f4c48200b9c65f4947e4ec43da816299d5",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "forced": {
+        "hits": {
+          "compile": 0,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 6,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "66d9ef490bf459627994a65a95ff4e7fe1d0a4e6b74e5c4525a6d0a401af376e",
+            "payload": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6573bda405412f853b8427fb609aa5f645ecbdb8439d74bca3ba374e2c56b4b9",
+            "payload": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "cee3c69ea0e47dc678e1f40bcdb2dd07ccb6b067cc223276038f1e4e585accb3",
+            "payload": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "bad45ec2fd082990cfe4c83be78b68895d2b9d8b218fce42620bf8041954ee01",
+            "payload": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "261d424164f9afc9d3406111bf4b45cb78f613ab9b3cbec9b3d857cd2feaad0e",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "15e3542a62fede75b7aee70afc3c3be73589fab7b0d677ceb23fde235a69d6e7",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "20c05ef95dadf7ee58d386d89d74f3d00de2809ca019aa0d4068ee07ff6f8ad5",
+          "lib_a.o": "6f8d370693612b1bfdf430c8e1512bfb42d7f8fb4a61bd296c7f2dbd05966a22",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "cfe59837be85e709f5ceef451e64e20770d5eb6b84b77247c120baf76de9225c",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      }
+    },
+    "local_value": {
+      "exact_payload": {
+        "hits": {
+          "compile": 3,
+          "archive": 1,
+          "link": 1,
+          "verify": 1
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 9,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "83ab2278e41f64cc0e5ac26fb56f3fac5a2b93c250b7b4a2228d45cda43bc5cd",
+            "payload": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "a7395b62e4e064ed70f20f2170f4bcdef7f5ecef6f894d6d8719d76a02f55922",
+            "payload": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "9e8b57e2ecb342e3fc8a3bae44daa510f26781d1f7626b101bf329ad3e44de09",
+            "payload": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "054f25fbec11e1352d7192b3a2b987669aeb00ae4eef5773ac15e7fe1281c7fa",
+            "payload": "94fd4af3d74f514bf59f41e798eda81ddf78b97487d65794f764f758d630982f"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "261d424164f9afc9d3406111bf4b45cb78f613ab9b3cbec9b3d857cd2feaad0e",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67",
+          "lib_a.o": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "94fd4af3d74f514bf59f41e798eda81ddf78b97487d65794f764f758d630982f",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "producer_keys": {
+        "hits": {
+          "compile": 3,
+          "archive": 1,
+          "link": 1,
+          "verify": 1
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 9,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "83ab2278e41f64cc0e5ac26fb56f3fac5a2b93c250b7b4a2228d45cda43bc5cd",
+            "payload": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "5b1587031be2f06476fd0f759faa2828184cf4abe80f41f0fa0f0de0779d7d65",
+            "payload": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "8038c18cb30b0e8a697b0d2a3a98c42418ea2286e52f8fb092e5823b15274992",
+            "payload": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "f2cde77f0d92aafbab0ab4abd84cc3d4f3d4292280ccdcc355e6e5e531cd3683",
+            "payload": "94fd4af3d74f514bf59f41e798eda81ddf78b97487d65794f764f758d630982f"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "49fa8078dffa4117dffdce8d400ab07d8e03c41b03b64385dc026c5cb68f6feb",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "bd90b0fe87b25f1ac43820fac66df64fc0b1e347a040eb30f8ca34eb7c5824b1",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e4b3a350fc355e8fe8183fabf035e84352a3403856538a8b07e036d033c60cd3",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67",
+          "lib_a.o": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "94fd4af3d74f514bf59f41e798eda81ddf78b97487d65794f764f758d630982f",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "no_verifier_policy": {
+        "hits": {
+          "compile": 3,
+          "archive": 1,
+          "link": 1,
+          "verify": 1
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 9,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "83ab2278e41f64cc0e5ac26fb56f3fac5a2b93c250b7b4a2228d45cda43bc5cd",
+            "payload": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "a7395b62e4e064ed70f20f2170f4bcdef7f5ecef6f894d6d8719d76a02f55922",
+            "payload": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "9e8b57e2ecb342e3fc8a3bae44daa510f26781d1f7626b101bf329ad3e44de09",
+            "payload": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "43010aa62bb80b775a421e0dc1da420d0b2997eeb2d4f24360e4213cb2630646",
+            "payload": "94fd4af3d74f514bf59f41e798eda81ddf78b97487d65794f764f758d630982f"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "a9b48b90bcd4a3d350ed77c2cfc492f4c48200b9c65f4947e4ec43da816299d5",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67",
+          "lib_a.o": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "94fd4af3d74f514bf59f41e798eda81ddf78b97487d65794f764f758d630982f",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "forced": {
+        "hits": {
+          "compile": 0,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 9,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "83ab2278e41f64cc0e5ac26fb56f3fac5a2b93c250b7b4a2228d45cda43bc5cd",
+            "payload": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "a7395b62e4e064ed70f20f2170f4bcdef7f5ecef6f894d6d8719d76a02f55922",
+            "payload": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "9e8b57e2ecb342e3fc8a3bae44daa510f26781d1f7626b101bf329ad3e44de09",
+            "payload": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "054f25fbec11e1352d7192b3a2b987669aeb00ae4eef5773ac15e7fe1281c7fa",
+            "payload": "94fd4af3d74f514bf59f41e798eda81ddf78b97487d65794f764f758d630982f"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "261d424164f9afc9d3406111bf4b45cb78f613ab9b3cbec9b3d857cd2feaad0e",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67",
+          "lib_a.o": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "94fd4af3d74f514bf59f41e798eda81ddf78b97487d65794f764f758d630982f",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      }
+    },
+    "verification_policy": {
+      "exact_payload": {
+        "hits": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 1
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 9,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "83ab2278e41f64cc0e5ac26fb56f3fac5a2b93c250b7b4a2228d45cda43bc5cd",
+            "payload": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "a7395b62e4e064ed70f20f2170f4bcdef7f5ecef6f894d6d8719d76a02f55922",
+            "payload": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "9e8b57e2ecb342e3fc8a3bae44daa510f26781d1f7626b101bf329ad3e44de09",
+            "payload": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "34db07a6f054a959cba09e844b020d65bceee1759c2424b66d2a044ec4a647af",
+            "payload": "815a270cc205e1d13dc9a366c9231cd2f07d783d6f864296acc7de76cd1ad789"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "261d424164f9afc9d3406111bf4b45cb78f613ab9b3cbec9b3d857cd2feaad0e",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67",
+          "lib_a.o": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "815a270cc205e1d13dc9a366c9231cd2f07d783d6f864296acc7de76cd1ad789",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "producer_keys": {
+        "hits": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 1
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 9,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "83ab2278e41f64cc0e5ac26fb56f3fac5a2b93c250b7b4a2228d45cda43bc5cd",
+            "payload": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "5b1587031be2f06476fd0f759faa2828184cf4abe80f41f0fa0f0de0779d7d65",
+            "payload": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "8038c18cb30b0e8a697b0d2a3a98c42418ea2286e52f8fb092e5823b15274992",
+            "payload": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "0f65dc59541ea523d30b3043a5abfcabcb52ed295c3b263006073c0ce71191a0",
+            "payload": "815a270cc205e1d13dc9a366c9231cd2f07d783d6f864296acc7de76cd1ad789"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "49fa8078dffa4117dffdce8d400ab07d8e03c41b03b64385dc026c5cb68f6feb",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "bd90b0fe87b25f1ac43820fac66df64fc0b1e347a040eb30f8ca34eb7c5824b1",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e4b3a350fc355e8fe8183fabf035e84352a3403856538a8b07e036d033c60cd3",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67",
+          "lib_a.o": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "815a270cc205e1d13dc9a366c9231cd2f07d783d6f864296acc7de76cd1ad789",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "no_verifier_policy": {
+        "hits": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 0,
+            "observed": 9,
+            "satisfied": true
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "83ab2278e41f64cc0e5ac26fb56f3fac5a2b93c250b7b4a2228d45cda43bc5cd",
+            "payload": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "a7395b62e4e064ed70f20f2170f4bcdef7f5ecef6f894d6d8719d76a02f55922",
+            "payload": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "9e8b57e2ecb342e3fc8a3bae44daa510f26781d1f7626b101bf329ad3e44de09",
+            "payload": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "43010aa62bb80b775a421e0dc1da420d0b2997eeb2d4f24360e4213cb2630646",
+            "payload": "94fd4af3d74f514bf59f41e798eda81ddf78b97487d65794f764f758d630982f"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "a9b48b90bcd4a3d350ed77c2cfc492f4c48200b9c65f4947e4ec43da816299d5",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67",
+          "lib_a.o": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "94fd4af3d74f514bf59f41e798eda81ddf78b97487d65794f764f758d630982f",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      },
+      "forced": {
+        "hits": {
+          "compile": 0,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 9,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 12,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "83ab2278e41f64cc0e5ac26fb56f3fac5a2b93c250b7b4a2228d45cda43bc5cd",
+            "payload": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "a7395b62e4e064ed70f20f2170f4bcdef7f5ecef6f894d6d8719d76a02f55922",
+            "payload": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "9e8b57e2ecb342e3fc8a3bae44daa510f26781d1f7626b101bf329ad3e44de09",
+            "payload": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "34db07a6f054a959cba09e844b020d65bceee1759c2424b66d2a044ec4a647af",
+            "payload": "815a270cc205e1d13dc9a366c9231cd2f07d783d6f864296acc7de76cd1ad789"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "3482d39b5eb12cf77054ed2298912647518bd9a6f39b83c630495e2673333943",
+            "payload": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e5d6d17e46d2c0480b17f6d834dec8ea6d6bb8b09dc15761643afe36b6e5aa04",
+            "payload": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "c61f48592ff4ebffcada80d696e019a4bdf9b1fdff0e5f6618ba541a6be475a8",
+            "payload": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "261d424164f9afc9d3406111bf4b45cb78f613ab9b3cbec9b3d857cd2feaad0e",
+            "payload": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+          }
+        ],
+        "artifacts": {
+          "app_a": "6f8a34e0cce14718db971cf8a8621dd030afc774e213a29cde6073f6f751e286",
+          "app_b": "9a07744dde54fc4cfa5e1b103d741e32305eb4c993002b56c6d08aabe47f3f05",
+          "lib_a.a": "a63c34ec23f17a3515183ea2f1dc5ab98be9dd1c260c181bf0d6d79345900b67",
+          "lib_a.o": "e013b958493907e829b1ff422639766f056e537ab259cc98ad83a511a690ae12",
+          "lib_b.a": "77eca4df5ae924115de6195cef4e24d888ba3ee927d0448f6835f65b05a1bd44",
+          "lib_b.o": "e3ec700d45b2fb5cb5e05385a22df1c9b988f4804e82937cfa9027f26fcc9251",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "815a270cc205e1d13dc9a366c9231cd2f07d783d6f864296acc7de76cd1ad789",
+          "verify_b.json": "bef9af2aaee6b022a94987517be902d82e48d480f1e00a7ddd1f7c21e24498e2"
+        }
+      }
+    },
+    "shared_header": {
+      "exact_payload": {
+        "hits": {
+          "compile": 2,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 10,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 13,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "315cec4b311fba9234c513f9f518d8265497fbb61235dfd9e9b91370b48feced",
+            "payload": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "a0894c8c9a355b5a2e88bc4b1476e700fd122e2d0208c53a886057f3a1fc90ff",
+            "payload": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "385ba6ac205ffa3b39168dcba4e6cd778f70f57276e7328ee38a4ef8f9b76650",
+            "payload": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "ee191a6d5034df11cf26f173042ef088b68217027b5bc7060ab687e85ca3e0d6",
+            "payload": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e1adf5ac375bf98ae425f76a7f90f25d8552e94c969cd062db9856acaafda5ed",
+            "payload": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "d5862f0fd78b22f8d48cd0a819da9651e736b6c2c05e9c9ae6c45270f1c3ade6",
+            "payload": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "67698a1f5e1c793207609ceb6db7a7338237c779cfa77831c402ed98fe21eb4f",
+            "payload": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "0e083849a0b1a9b756a3e3dfd05228279f9d76a0049c4c01e9e96b58a8fe4eea",
+            "payload": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+          }
+        ],
+        "artifacts": {
+          "app_a": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f",
+          "app_b": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c",
+          "lib_a.a": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2",
+          "lib_a.o": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970",
+          "lib_b.a": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914",
+          "lib_b.o": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc",
+          "verify_b.json": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+        }
+      },
+      "producer_keys": {
+        "hits": {
+          "compile": 2,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 10,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 13,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "315cec4b311fba9234c513f9f518d8265497fbb61235dfd9e9b91370b48feced",
+            "payload": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "81e5c73e8aedb77881b380c3fc883857875affdbfdaa12a1f657e03810dfe1fd",
+            "payload": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "ef74ed8cd55ff8f364cfb1ccbf51bd97c07c41532c1eced0d78498ef6f5bb7a8",
+            "payload": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "1a1871f280a597fe218e568703d280abac3703892a02e3468be38872b2ce300f",
+            "payload": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e1adf5ac375bf98ae425f76a7f90f25d8552e94c969cd062db9856acaafda5ed",
+            "payload": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "5ecdab837067ec6d62a00a082d7d71fe18b8bc1ad444bc508fa25670c861c802",
+            "payload": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "53b0941eea0e2394581a85a0efa000ce297a0ca9542da1e378c6fe1b1a9aefd8",
+            "payload": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "7b519bf8be6e78a09e26af95de39bb104828e972230038dde3a8c35ecee60cdc",
+            "payload": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+          }
+        ],
+        "artifacts": {
+          "app_a": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f",
+          "app_b": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c",
+          "lib_a.a": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2",
+          "lib_a.o": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970",
+          "lib_b.a": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914",
+          "lib_b.o": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc",
+          "verify_b.json": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+        }
+      },
+      "no_verifier_policy": {
+        "hits": {
+          "compile": 2,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 10,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 13,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "315cec4b311fba9234c513f9f518d8265497fbb61235dfd9e9b91370b48feced",
+            "payload": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "a0894c8c9a355b5a2e88bc4b1476e700fd122e2d0208c53a886057f3a1fc90ff",
+            "payload": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "385ba6ac205ffa3b39168dcba4e6cd778f70f57276e7328ee38a4ef8f9b76650",
+            "payload": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "13a26f6226d806a46adf0f7949eef043d7460191ba38458f3792a7afe5e70833",
+            "payload": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e1adf5ac375bf98ae425f76a7f90f25d8552e94c969cd062db9856acaafda5ed",
+            "payload": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "d5862f0fd78b22f8d48cd0a819da9651e736b6c2c05e9c9ae6c45270f1c3ade6",
+            "payload": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "67698a1f5e1c793207609ceb6db7a7338237c779cfa77831c402ed98fe21eb4f",
+            "payload": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "1938dc0a08df5918de7bd76567987402afcc066e1196068e0c9a8aba03375994",
+            "payload": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+          }
+        ],
+        "artifacts": {
+          "app_a": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f",
+          "app_b": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c",
+          "lib_a.a": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2",
+          "lib_a.o": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970",
+          "lib_b.a": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914",
+          "lib_b.o": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc",
+          "verify_b.json": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+        }
+      },
+      "forced": {
+        "hits": {
+          "compile": 0,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 10,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 13,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "315cec4b311fba9234c513f9f518d8265497fbb61235dfd9e9b91370b48feced",
+            "payload": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "a0894c8c9a355b5a2e88bc4b1476e700fd122e2d0208c53a886057f3a1fc90ff",
+            "payload": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "385ba6ac205ffa3b39168dcba4e6cd778f70f57276e7328ee38a4ef8f9b76650",
+            "payload": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "ee191a6d5034df11cf26f173042ef088b68217027b5bc7060ab687e85ca3e0d6",
+            "payload": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e1adf5ac375bf98ae425f76a7f90f25d8552e94c969cd062db9856acaafda5ed",
+            "payload": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "d5862f0fd78b22f8d48cd0a819da9651e736b6c2c05e9c9ae6c45270f1c3ade6",
+            "payload": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "67698a1f5e1c793207609ceb6db7a7338237c779cfa77831c402ed98fe21eb4f",
+            "payload": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "0e083849a0b1a9b756a3e3dfd05228279f9d76a0049c4c01e9e96b58a8fe4eea",
+            "payload": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+          }
+        ],
+        "artifacts": {
+          "app_a": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f",
+          "app_b": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c",
+          "lib_a.a": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2",
+          "lib_a.o": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970",
+          "lib_b.a": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914",
+          "lib_b.o": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc",
+          "verify_b.json": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+        }
+      }
+    },
+    "restore_materialization": {
+      "exact_payload": {
+        "hits": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 10,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 10,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 13,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "315cec4b311fba9234c513f9f518d8265497fbb61235dfd9e9b91370b48feced",
+            "payload": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "a0894c8c9a355b5a2e88bc4b1476e700fd122e2d0208c53a886057f3a1fc90ff",
+            "payload": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "385ba6ac205ffa3b39168dcba4e6cd778f70f57276e7328ee38a4ef8f9b76650",
+            "payload": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "ee191a6d5034df11cf26f173042ef088b68217027b5bc7060ab687e85ca3e0d6",
+            "payload": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "e1adf5ac375bf98ae425f76a7f90f25d8552e94c969cd062db9856acaafda5ed",
+            "payload": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "d5862f0fd78b22f8d48cd0a819da9651e736b6c2c05e9c9ae6c45270f1c3ade6",
+            "payload": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "67698a1f5e1c793207609ceb6db7a7338237c779cfa77831c402ed98fe21eb4f",
+            "payload": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "0e083849a0b1a9b756a3e3dfd05228279f9d76a0049c4c01e9e96b58a8fe4eea",
+            "payload": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+          }
+        ],
+        "artifacts": {
+          "app_a": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f",
+          "app_b": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c",
+          "lib_a.a": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2",
+          "lib_a.o": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970",
+          "lib_b.a": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914",
+          "lib_b.o": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc",
+          "verify_b.json": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+        }
+      },
+      "producer_keys": {
+        "hits": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 10,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 10,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 13,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "315cec4b311fba9234c513f9f518d8265497fbb61235dfd9e9b91370b48feced",
+            "payload": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "81e5c73e8aedb77881b380c3fc883857875affdbfdaa12a1f657e03810dfe1fd",
+            "payload": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "ef74ed8cd55ff8f364cfb1ccbf51bd97c07c41532c1eced0d78498ef6f5bb7a8",
+            "payload": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "1a1871f280a597fe218e568703d280abac3703892a02e3468be38872b2ce300f",
+            "payload": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "e1adf5ac375bf98ae425f76a7f90f25d8552e94c969cd062db9856acaafda5ed",
+            "payload": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "5ecdab837067ec6d62a00a082d7d71fe18b8bc1ad444bc508fa25670c861c802",
+            "payload": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "53b0941eea0e2394581a85a0efa000ce297a0ca9542da1e378c6fe1b1a9aefd8",
+            "payload": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "7b519bf8be6e78a09e26af95de39bb104828e972230038dde3a8c35ecee60cdc",
+            "payload": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+          }
+        ],
+        "artifacts": {
+          "app_a": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f",
+          "app_b": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c",
+          "lib_a.a": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2",
+          "lib_a.o": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970",
+          "lib_b.a": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914",
+          "lib_b.o": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc",
+          "verify_b.json": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+        }
+      },
+      "no_verifier_policy": {
+        "hits": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 10,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 10,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 13,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "315cec4b311fba9234c513f9f518d8265497fbb61235dfd9e9b91370b48feced",
+            "payload": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "a0894c8c9a355b5a2e88bc4b1476e700fd122e2d0208c53a886057f3a1fc90ff",
+            "payload": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "385ba6ac205ffa3b39168dcba4e6cd778f70f57276e7328ee38a4ef8f9b76650",
+            "payload": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "13a26f6226d806a46adf0f7949eef043d7460191ba38458f3792a7afe5e70833",
+            "payload": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "e1adf5ac375bf98ae425f76a7f90f25d8552e94c969cd062db9856acaafda5ed",
+            "payload": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "d5862f0fd78b22f8d48cd0a819da9651e736b6c2c05e9c9ae6c45270f1c3ade6",
+            "payload": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "67698a1f5e1c793207609ceb6db7a7338237c779cfa77831c402ed98fe21eb4f",
+            "payload": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": true,
+            "materialized_from_cache": true,
+            "key": "1938dc0a08df5918de7bd76567987402afcc066e1196068e0c9a8aba03375994",
+            "payload": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+          }
+        ],
+        "artifacts": {
+          "app_a": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f",
+          "app_b": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c",
+          "lib_a.a": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2",
+          "lib_a.o": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970",
+          "lib_b.a": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914",
+          "lib_b.o": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc",
+          "verify_b.json": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+        }
+      },
+      "forced": {
+        "hits": {
+          "compile": 0,
+          "archive": 0,
+          "link": 0,
+          "verify": 0
+        },
+        "actions": {
+          "compile": 4,
+          "archive": 2,
+          "link": 2,
+          "verify": 2
+        },
+        "restored": 0,
+        "observations": {
+          "a": {
+            "minimum": 1000,
+            "observed": 10,
+            "satisfied": false
+          },
+          "b": {
+            "minimum": 0,
+            "observed": 13,
+            "satisfied": true
+          }
+        },
+        "rows": [
+          {
+            "kind": "compile",
+            "action": "main_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "6be678c647810bc870bc6640d0e421233773055c1c6000a45a23d1e93a11c2e7",
+            "payload": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "315cec4b311fba9234c513f9f518d8265497fbb61235dfd9e9b91370b48feced",
+            "payload": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970"
+          },
+          {
+            "kind": "archive",
+            "action": "library_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "a0894c8c9a355b5a2e88bc4b1476e700fd122e2d0208c53a886057f3a1fc90ff",
+            "payload": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2"
+          },
+          {
+            "kind": "link",
+            "action": "link_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "385ba6ac205ffa3b39168dcba4e6cd778f70f57276e7328ee38a4ef8f9b76650",
+            "payload": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_a",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "ee191a6d5034df11cf26f173042ef088b68217027b5bc7060ab687e85ca3e0d6",
+            "payload": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc"
+          },
+          {
+            "kind": "compile",
+            "action": "main_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "55f5eb6749e146c10bcb1f153eaae462b6d0b15bd2c9e424ffa7ae9c3825471d",
+            "payload": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc"
+          },
+          {
+            "kind": "compile",
+            "action": "lib_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "e1adf5ac375bf98ae425f76a7f90f25d8552e94c969cd062db9856acaafda5ed",
+            "payload": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b"
+          },
+          {
+            "kind": "archive",
+            "action": "library_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "d5862f0fd78b22f8d48cd0a819da9651e736b6c2c05e9c9ae6c45270f1c3ade6",
+            "payload": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914"
+          },
+          {
+            "kind": "link",
+            "action": "link_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "67698a1f5e1c793207609ceb6db7a7338237c779cfa77831c402ed98fe21eb4f",
+            "payload": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c"
+          },
+          {
+            "kind": "verify",
+            "action": "verify_b",
+            "hit": false,
+            "materialized_from_cache": false,
+            "key": "0e083849a0b1a9b756a3e3dfd05228279f9d76a0049c4c01e9e96b58a8fe4eea",
+            "payload": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+          }
+        ],
+        "artifacts": {
+          "app_a": "fd4bf530cebc2a9ff5ce1bea1303ef45052844a0109b301fd86fc91d72fe347f",
+          "app_b": "6b3cb0fd029843bc83293634cb338722e75aef028b206187b6eae3a825df028c",
+          "lib_a.a": "b1e1be8d209759e93bf0e992910e00ab3d37301bb1718a2ede01f5e84890eab2",
+          "lib_a.o": "21299d6a0f3b2cddcec429e65816266ed7eab7b365ca6c50563efb3dd5516970",
+          "lib_b.a": "863c19c84fdc1bdb6aae0fa09af9bc84b7dbf79fd95e60e77766d25cd1b41914",
+          "lib_b.o": "6fe73f29f27549b3729e10cde5c450eb6fc0f10618e9a781e6a92e903353fd2b",
+          "main_a.o": "8ed3b0f898cb13be5844e85952ea60f3a6bb58dd67ac46104ddf4d83096c50d0",
+          "main_b.o": "5bc20740e47d97e1d0838cfe263525520b052cbebff133a8954d0defc80179cc",
+          "verify_a.json": "358f0a61a9df24b61fc9749e7885456fcfdb7a280d9e4b75783ce9bb92f878bc",
+          "verify_b.json": "48450a79c7480071239bb559bd148c038bb94fab99c369e1d11af6582f0b9e4e"
+        }
+      }
+    }
+  }
+}

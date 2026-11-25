@@ -1,0 +1,2 @@
+'identical_branches_preserve_guard' depends on axioms: [propext]
+'erasure_iff_transparent' depends on axioms: [propext]

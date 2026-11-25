@@ -1,0 +1,2170 @@
+{
+  "driver_cases": 126,
+  "provider_sha256": "e244731c3891ee7e391104ef0b414da49b06cd73c6f33765a7391ff0fd29174c",
+  "routes": {
+    "c": [
+      {
+        "join_first": "first",
+        "payload": -8,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 979,
+          "renewed": 979,
+          "worker_first": 1979,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -8,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 993,
+          "renewed": 993,
+          "worker_first": 1993,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -8,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1037,
+          "renewed": 1037,
+          "worker_first": 2037,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -8,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 979,
+          "renewed": 979,
+          "worker_first": 1979,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -8,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 993,
+          "renewed": 993,
+          "worker_first": 1993,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -8,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1037,
+          "renewed": 1037,
+          "worker_first": 2037,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -7,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 1992
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -7,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2006
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -7,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2050
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -7,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 1992
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -7,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2006
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -7,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2050
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -6,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 985,
+          "renewed": 985,
+          "worker_first": 1985,
+          "worker_second": 1995
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -6,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 999,
+          "renewed": 999,
+          "worker_first": 1999,
+          "worker_second": 2009
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -6,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1043,
+          "renewed": 1043,
+          "worker_first": 2043,
+          "worker_second": 2053
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -6,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 985,
+          "renewed": 985,
+          "worker_first": 1985,
+          "worker_second": 1995
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -6,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 999,
+          "renewed": 999,
+          "worker_first": 1999,
+          "worker_second": 2009
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -6,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1043,
+          "renewed": 1043,
+          "worker_first": 2043,
+          "worker_second": 2053
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1000,
+          "renewed": 1000,
+          "worker_first": 2000,
+          "worker_second": 2010
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1014,
+          "renewed": 1014,
+          "worker_first": 2014,
+          "worker_second": 2024
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1058,
+          "renewed": 1058,
+          "worker_first": 2058,
+          "worker_second": 2068
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1000,
+          "renewed": 1000,
+          "worker_first": 2000,
+          "worker_second": 2010
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1014,
+          "renewed": 1014,
+          "worker_first": 2014,
+          "worker_second": 2024
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1058,
+          "renewed": 1058,
+          "worker_first": 2058,
+          "worker_second": 2068
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 0,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1003,
+          "renewed": 1003,
+          "worker_first": 2003,
+          "worker_second": 2013
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 0,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1017,
+          "renewed": 1017,
+          "worker_first": 2017,
+          "worker_second": 2027
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 0,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1061,
+          "renewed": 1061,
+          "worker_first": 2061,
+          "worker_second": 2071
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 0,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1003,
+          "renewed": 1003,
+          "worker_first": 2003,
+          "worker_second": 2013
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 0,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1017,
+          "renewed": 1017,
+          "worker_first": 2017,
+          "worker_second": 2027
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 0,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1061,
+          "renewed": 1061,
+          "worker_first": 2061,
+          "worker_second": 2071
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1006,
+          "renewed": 1006,
+          "worker_first": 2006,
+          "worker_second": 2016
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1020,
+          "renewed": 1020,
+          "worker_first": 2020,
+          "worker_second": 2030
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1064,
+          "renewed": 1064,
+          "worker_first": 2064,
+          "worker_second": 2074
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1006,
+          "renewed": 1006,
+          "worker_first": 2006,
+          "worker_second": 2016
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1020,
+          "renewed": 1020,
+          "worker_first": 2020,
+          "worker_second": 2030
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1064,
+          "renewed": 1064,
+          "worker_first": 2064,
+          "worker_second": 2074
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 31,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1096,
+          "renewed": 1096,
+          "worker_first": 2096,
+          "worker_second": 2106
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 31,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1110,
+          "renewed": 1110,
+          "worker_first": 2110,
+          "worker_second": 2120
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 31,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1154,
+          "renewed": 1154,
+          "worker_first": 2154,
+          "worker_second": 2164
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 31,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1096,
+          "renewed": 1096,
+          "worker_first": 2096,
+          "worker_second": 2106
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 31,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1110,
+          "renewed": 1110,
+          "worker_first": 2110,
+          "worker_second": 2120
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 31,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1154,
+          "renewed": 1154,
+          "worker_first": 2154,
+          "worker_second": 2164
+        }
+      }
+    ],
+    "python": [
+      {
+        "join_first": "first",
+        "payload": -8,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 979,
+          "renewed": 979,
+          "worker_first": 1979,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -8,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 993,
+          "renewed": 993,
+          "worker_first": 1993,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -8,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1037,
+          "renewed": 1037,
+          "worker_first": 2037,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -8,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 979,
+          "renewed": 979,
+          "worker_first": 1979,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -8,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 993,
+          "renewed": 993,
+          "worker_first": 1993,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -8,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1037,
+          "renewed": 1037,
+          "worker_first": 2037,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -7,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 1992
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -7,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2006
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -7,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2050
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -7,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 1992
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -7,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2006
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -7,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2050
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -6,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 985,
+          "renewed": 985,
+          "worker_first": 1985,
+          "worker_second": 1995
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -6,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 999,
+          "renewed": 999,
+          "worker_first": 1999,
+          "worker_second": 2009
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -6,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1043,
+          "renewed": 1043,
+          "worker_first": 2043,
+          "worker_second": 2053
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -6,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 985,
+          "renewed": 985,
+          "worker_first": 1985,
+          "worker_second": 1995
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -6,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 999,
+          "renewed": 999,
+          "worker_first": 1999,
+          "worker_second": 2009
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -6,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1043,
+          "renewed": 1043,
+          "worker_first": 2043,
+          "worker_second": 2053
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1000,
+          "renewed": 1000,
+          "worker_first": 2000,
+          "worker_second": 2010
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1014,
+          "renewed": 1014,
+          "worker_first": 2014,
+          "worker_second": 2024
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1058,
+          "renewed": 1058,
+          "worker_first": 2058,
+          "worker_second": 2068
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1000,
+          "renewed": 1000,
+          "worker_first": 2000,
+          "worker_second": 2010
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1014,
+          "renewed": 1014,
+          "worker_first": 2014,
+          "worker_second": 2024
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1058,
+          "renewed": 1058,
+          "worker_first": 2058,
+          "worker_second": 2068
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 0,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1003,
+          "renewed": 1003,
+          "worker_first": 2003,
+          "worker_second": 2013
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 0,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1017,
+          "renewed": 1017,
+          "worker_first": 2017,
+          "worker_second": 2027
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 0,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1061,
+          "renewed": 1061,
+          "worker_first": 2061,
+          "worker_second": 2071
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 0,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1003,
+          "renewed": 1003,
+          "worker_first": 2003,
+          "worker_second": 2013
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 0,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1017,
+          "renewed": 1017,
+          "worker_first": 2017,
+          "worker_second": 2027
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 0,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1061,
+          "renewed": 1061,
+          "worker_first": 2061,
+          "worker_second": 2071
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1006,
+          "renewed": 1006,
+          "worker_first": 2006,
+          "worker_second": 2016
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1020,
+          "renewed": 1020,
+          "worker_first": 2020,
+          "worker_second": 2030
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1064,
+          "renewed": 1064,
+          "worker_first": 2064,
+          "worker_second": 2074
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1006,
+          "renewed": 1006,
+          "worker_first": 2006,
+          "worker_second": 2016
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1020,
+          "renewed": 1020,
+          "worker_first": 2020,
+          "worker_second": 2030
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1064,
+          "renewed": 1064,
+          "worker_first": 2064,
+          "worker_second": 2074
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 31,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1096,
+          "renewed": 1096,
+          "worker_first": 2096,
+          "worker_second": 2106
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 31,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1110,
+          "renewed": 1110,
+          "worker_first": 2110,
+          "worker_second": 2120
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 31,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1154,
+          "renewed": 1154,
+          "worker_first": 2154,
+          "worker_second": 2164
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 31,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1096,
+          "renewed": 1096,
+          "worker_first": 2096,
+          "worker_second": 2106
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 31,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1110,
+          "renewed": 1110,
+          "worker_first": 2110,
+          "worker_second": 2120
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 31,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1154,
+          "renewed": 1154,
+          "worker_first": 2154,
+          "worker_second": 2164
+        }
+      }
+    ],
+    "rust-unwind": [
+      {
+        "join_first": "first",
+        "payload": -8,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 979,
+          "renewed": 979,
+          "worker_first": 1979,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -8,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 993,
+          "renewed": 993,
+          "worker_first": 1993,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -8,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1037,
+          "renewed": 1037,
+          "worker_first": 2037,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -8,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 979,
+          "renewed": 979,
+          "worker_first": 1979,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -8,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 993,
+          "renewed": 993,
+          "worker_first": 1993,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -8,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1037,
+          "renewed": 1037,
+          "worker_first": 2037,
+          "worker_second": -77
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -7,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 1992
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -7,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2006
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -7,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2050
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -7,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 1992
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -7,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2006
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -7,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": -77,
+          "renewed": -77,
+          "worker_first": -77,
+          "worker_second": 2050
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -6,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 985,
+          "renewed": 985,
+          "worker_first": 1985,
+          "worker_second": 1995
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -6,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 999,
+          "renewed": 999,
+          "worker_first": 1999,
+          "worker_second": 2009
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -6,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1043,
+          "renewed": 1043,
+          "worker_first": 2043,
+          "worker_second": 2053
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -6,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 985,
+          "renewed": 985,
+          "worker_first": 1985,
+          "worker_second": 1995
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -6,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 999,
+          "renewed": 999,
+          "worker_first": 1999,
+          "worker_second": 2009
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -6,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1043,
+          "renewed": 1043,
+          "worker_first": 2043,
+          "worker_second": 2053
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1000,
+          "renewed": 1000,
+          "worker_first": 2000,
+          "worker_second": 2010
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1014,
+          "renewed": 1014,
+          "worker_first": 2014,
+          "worker_second": 2024
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": -1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1058,
+          "renewed": 1058,
+          "worker_first": 2058,
+          "worker_second": 2068
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1000,
+          "renewed": 1000,
+          "worker_first": 2000,
+          "worker_second": 2010
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1014,
+          "renewed": 1014,
+          "worker_first": 2014,
+          "worker_second": 2024
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": -1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1058,
+          "renewed": 1058,
+          "worker_first": 2058,
+          "worker_second": 2068
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 0,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1003,
+          "renewed": 1003,
+          "worker_first": 2003,
+          "worker_second": 2013
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 0,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1017,
+          "renewed": 1017,
+          "worker_first": 2017,
+          "worker_second": 2027
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 0,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1061,
+          "renewed": 1061,
+          "worker_first": 2061,
+          "worker_second": 2071
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 0,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1003,
+          "renewed": 1003,
+          "worker_first": 2003,
+          "worker_second": 2013
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 0,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1017,
+          "renewed": 1017,
+          "worker_first": 2017,
+          "worker_second": 2027
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 0,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1061,
+          "renewed": 1061,
+          "worker_first": 2061,
+          "worker_second": 2071
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1006,
+          "renewed": 1006,
+          "worker_first": 2006,
+          "worker_second": 2016
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1020,
+          "renewed": 1020,
+          "worker_first": 2020,
+          "worker_second": 2030
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1064,
+          "renewed": 1064,
+          "worker_first": 2064,
+          "worker_second": 2074
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 1,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1006,
+          "renewed": 1006,
+          "worker_first": 2006,
+          "worker_second": 2016
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 1,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1020,
+          "renewed": 1020,
+          "worker_first": 2020,
+          "worker_second": 2030
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 1,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1064,
+          "renewed": 1064,
+          "worker_first": 2064,
+          "worker_second": 2074
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 31,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1096,
+          "renewed": 1096,
+          "worker_first": 2096,
+          "worker_second": 2106
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 31,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1110,
+          "renewed": 1110,
+          "worker_first": 2110,
+          "worker_second": 2120
+        }
+      },
+      {
+        "join_first": "first",
+        "payload": 31,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1154,
+          "renewed": 1154,
+          "worker_first": 2154,
+          "worker_second": 2164
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 31,
+        "peer_context": 10,
+        "primary_context": 3,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1096,
+          "renewed": 1096,
+          "worker_first": 2096,
+          "worker_second": 2106
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 31,
+        "peer_context": 24,
+        "primary_context": 17,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1110,
+          "renewed": 1110,
+          "worker_first": 2110,
+          "worker_second": 2120
+        }
+      },
+      {
+        "join_first": "second",
+        "payload": 31,
+        "peer_context": 68,
+        "primary_context": 61,
+        "registration_generations": [
+          1,
+          1,
+          2
+        ],
+        "results": {
+          "inline": 1154,
+          "renewed": 1154,
+          "worker_first": 2154,
+          "worker_second": 2164
+        }
+      }
+    ]
+  },
+  "rust_abort_control": {
+    "-7": "SIGABRT-before-result",
+    "-8": "SIGABRT-before-result",
+    "0": "completed"
+  },
+  "summary": {
+    "completed-upcall": 432,
+    "typed-error": 72
+  },
+  "versions": {
+    "c": "gcc (Debian 14.2.0-19) 14.2.0",
+    "libc": "glibc 2.41",
+    "machine": "x86_64",
+    "python": "3.12.14",
+    "rust": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  }
+}

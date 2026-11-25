@@ -1,0 +1,58 @@
+{
+  "libpython": "libpython3.12.so.1.0",
+  "libpython_sha256": "7e177a680eabb11fcb7d3867f7a1b9c4b93a9bd5b18129ce1af51ec07977b024",
+  "native_cc": "cc (Debian 14.2.0-19) 14.2.0",
+  "profiles": {
+    "-O0": {
+      "archive_sha256": "f6496c62cd37c89e2fddda27577a3ac6332a2e4333ec3ba0d8d5550f44d44ca0",
+      "cycles": 2,
+      "trace": [
+        "value:104",
+        "value:104",
+        "callback-error",
+        "value:206",
+        "stale",
+        "stale",
+        "value:108",
+        "value:209",
+        "finalized",
+        "value:104",
+        "value:104",
+        "callback-error",
+        "value:206",
+        "stale",
+        "stale",
+        "value:108",
+        "value:209",
+        "finalized"
+      ]
+    },
+    "-O2": {
+      "archive_sha256": "9fd2886a1695c44f82e56934b9727630b47848b054fa6c8bc32d251f84153508",
+      "cycles": 2,
+      "trace": [
+        "value:104",
+        "value:104",
+        "callback-error",
+        "value:206",
+        "stale",
+        "stale",
+        "value:108",
+        "value:209",
+        "finalized",
+        "value:104",
+        "value:104",
+        "callback-error",
+        "value:206",
+        "stale",
+        "stale",
+        "value:108",
+        "value:209",
+        "finalized"
+      ]
+    }
+  },
+  "python": "Python 3.12.14",
+  "runner_sha256": "f2c4db30865b820527dbd495b9b729594cb5040376fe20f7d37e74f12f20b3d4",
+  "source_sha256": "ff6c3401fe3ddb5785bada56ea3ef5489b0c3f3479c4dbc3ca36fc688e3420c4"
+}

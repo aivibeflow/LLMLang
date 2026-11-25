@@ -1,0 +1,75 @@
+{
+  "allocator_source_pins": {
+    "CMakeLists.txt": "311e5a995812bda6a5249c24e9996ff8c52ed0252c9f460815e28fad754cb4b6",
+    "include/mimalloc.h": "5a2e6d5cf6b546ef5bdb53cbdf2faf5e52727eb45b15576e57da440d519f17da",
+    "src/static.c": "bda0d6d050bb6d47a1f999fb39f7c23fec9797ceef0be6cb507242e36a659446"
+  },
+  "legacy_2_0_9": {
+    "archive_sha256": "39f49e3a65c4368580dc07a08fe1d95b87c060b1ad8a937f8d1ad25105ce8ff7",
+    "outcome": "component alignment guard refused before access",
+    "requested_alignment": 256,
+    "source_header_sha256": "9676399b876d7a3b9b8fd79c538af4421790973f7e215ba36c3025e49ee60e85",
+    "tested_size": 1024
+  },
+  "profiles": {
+    "named_rust_global": {
+      "c_memory_mimalloc_region": false,
+      "checked_layouts": 36,
+      "dynamic_libraries": [
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "elf_sha256": "857f27d0832f2ab9496f15a395165556fa5227179f8a30f4420b6892b9aa9303",
+      "exact_archive_sha256": "ab8fb3564d567c486b289083c8c170b389360f95f8079c2c37a60258c6183cb8",
+      "ordered_output_sha256": "0c6a8d418f7411c80119d696996f849cedd938de5b7b778c573d72c9a49fe419",
+      "public_malloc_owned_by_executable": false,
+      "rust_memory_mimalloc_region": true,
+      "wrong_component_releases_refused": 36
+    },
+    "system_with_named_component": {
+      "c_memory_mimalloc_region": false,
+      "checked_layouts": 36,
+      "dynamic_libraries": [
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "elf_sha256": "f6dbf23c83a5a99a0ca71159cba4941dbd1d6e6efe4a305589aab030be6fbb3a",
+      "exact_archive_sha256": "ab8fb3564d567c486b289083c8c170b389360f95f8079c2c37a60258c6183cb8",
+      "ordered_output_sha256": "7ef708e4d2055e88dcf6349e8138bfcb2075f100efcee47d9716762fdefc4c00",
+      "public_malloc_owned_by_executable": false,
+      "rust_memory_mimalloc_region": false,
+      "wrong_component_releases_refused": 36
+    },
+    "whole_process_override": {
+      "c_memory_mimalloc_region": true,
+      "checked_layouts": 36,
+      "dynamic_libraries": [
+        "libgcc_s.so.1",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "elf_sha256": "fa4fa065b3ac259cac1ef685fc138e9d40ee8a49707de44c4ba0afd4b6e83632",
+      "exact_archive_sha256": "47e205576290dc42f1473bd7cc3eff5531a9d84c8702a953f257a1fc7f00bfc2",
+      "ordered_output_sha256": "f86cc6a3b65592097da69487c7978563610442ab8a774063d0971c7b90a5f0eb",
+      "public_malloc_owned_by_executable": true,
+      "rust_memory_mimalloc_region": true,
+      "wrong_component_releases_refused": 36
+    }
+  },
+  "providers": {
+    "interposed": "47e205576290dc42f1473bd7cc3eff5531a9d84c8702a953f257a1fc7f00bfc2",
+    "non_interposed": "ab8fb3564d567c486b289083c8c170b389360f95f8079c2c37a60258c6183cb8"
+  },
+  "sources": {
+    "bridge.c": "28e5bb49e05f7c032fce5b628918e1b88633c9e02f01cfd85f04c47c9d49c186",
+    "probe.rs": "b0f65708d4a1f99752c7680a1d7e4641fd59c08e4d320041c91e24f362e948e3",
+    "run.py": "eea3e48c13a89a3c738602ab57ace4f1ed2a1c7b1b8fc3d23a824d493a05dd83"
+  },
+  "toolchain": {
+    "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "cmake": "cmake version 3.31.6",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  }
+}

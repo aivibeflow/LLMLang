@@ -1,0 +1,87 @@
+{
+  "schema": "rt03-research-synthesis/1",
+  "baseline": "2ab654158352cd356ff3b577d82735816e86293e",
+  "adopted_profile": null,
+  "dimensions": [
+    "value-model", "evaluation", "state", "failure", "determinism",
+    "observations", "concurrency", "termination-resources", "composition"
+  ],
+  "profiles": {
+    "A": {
+      "name": "Pure functional",
+      "vector": [
+        "immutable values and pure functions",
+        "strict call by value",
+        "pure core with explicit external boundary",
+        "explicit result values",
+        "fixed sequential observations for fixed inputs",
+        "result, typed failure and divergence",
+        "sequential meaning and observation-preserving implementation parallelism",
+        "explicit partiality, with fuel and external resources as separate extensions",
+        "immutable imports and explicit external contracts"
+      ],
+      "checks": [
+        "research/language-design/RT-03/RESEARCH-SCENARIO-36-RECURSION-TERMINATION-AND-FUEL.md",
+        "research/formal-verification/RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md"
+      ],
+      "open": ["termination policy", "whole-program source extraction", "typed foreign boundary"]
+    },
+    "B": {
+      "name": "Imperative linear",
+      "vector": [
+        "commands with owned mutable store",
+        "explicit strict sequencing",
+        "mutation through owned locations and scoped borrows",
+        "typed result, ownership disposition and cleanup outcomes",
+        "fixed transition order with declared environment",
+        "ordered effects, result, final state and resource disposition",
+        "sequential core with separate synchronization rules",
+        "explicit resource lifetime, transfer and cleanup",
+        "imports include state and ownership obligations"
+      ],
+      "checks": [
+        "research/language-design/RT-04/RESEARCH-SCENARIO-35-RESOURCE-RETURN-AND-CLEANUP.md",
+        "research/language-design/RT-04/RESEARCH-SCENARIO-97-CLEANUP-ERROR-COMPOSITION-AND-OWNERSHIP.md"
+      ],
+      "open": ["general alias analysis", "source-complete resource paths", "memory model"]
+    },
+    "C": {
+      "name": "Concurrent actor",
+      "vector": [
+        "isolated actors and local state",
+        "explicit asynchronous steps under a scheduler",
+        "actor-local mutation and typed message exchange",
+        "message, cancellation and supervision outcomes",
+        "allowed trace set under declared scheduling premises",
+        "ordered sends, receives, terminal outcomes and progress",
+        "isolated actors with asynchronous coordination",
+        "termination, progress, fairness and scoped task resources",
+        "protocol contracts and authority at actor boundaries"
+      ],
+      "checks": [
+        "research/runtime-and-systems/RT-10/RESEARCH-SCENARIO-112-WEAK-STRONG-AND-BOUNDED-FAIRNESS.md",
+        "research/language-design/RT-04/RT-04-ASYNC-RESOURCE-CANCELLATION-2026-11-25.md"
+      ],
+      "open": ["full scheduler semantics", "protocol source correspondence", "policy for supervision"]
+    },
+    "D": {
+      "name": "Effectful functional",
+      "vector": [
+        "immutable values with explicitly described effectful computations",
+        "functional composition with explicit effect order",
+        "declared effects mediated by handlers",
+        "typed success, errors and handler or cleanup outcomes",
+        "fixed sequential observations under an exact handler environment",
+        "results, ordered effect requests and handler-visible state",
+        "sequential effect core with optional asynchronous effects",
+        "explicit acquisitions, release and effect-specific budget rules",
+        "imports declare handled and propagated effects"
+      ],
+      "checks": [
+        "research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md",
+        "research/language-design/RT-03/RT-03-SOURCE-CLEANUP-CFG-2026-11-25.md"
+      ],
+      "open": ["handler laws over composition", "supported asynchronous effects", "formal authority checks"]
+    }
+  }
+}

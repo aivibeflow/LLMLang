@@ -1,0 +1,311 @@
+{
+  "pinned_tree": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+  "plan_blob": "4953fdc8f9082d89337956479b61305b0c2485e7",
+  "totals": {
+    "ledgers": 13,
+    "embedded_version": 8,
+    "companion_version": 4,
+    "no_version_in_checked_sources": 1,
+    "plan_mentions": 0
+  },
+  "ledgers": [
+    {
+      "path": "research/formal-verification/RT-34/PARALLEL-EXPECTED-OUTPUT-01/evidence.json",
+      "blob": "f66ef293d8b23880056055abff83d897fda03104",
+      "runner": {
+        "path": "research/formal-verification/RT-34/PARALLEL-EXPECTED-OUTPUT-01/run.py",
+        "blob": "887b878b89ff4a10dd2bce0dd73cccc6b795b4f2"
+      },
+      "plan_mentions": [],
+      "companion": {
+        "path": "research/formal-verification/RT-34/RT-34-PARALLEL-EXPECTED-OUTPUT-2026-11-25.md",
+        "blob": "c03fbb9ffd31f9001796acae4b49aca5a8d78ccd",
+        "command_line": 34,
+        "command": "study=research/formal-verification/RT-34/PARALLEL-EXPECTED-OUTPUT-01",
+        "version_line": 31,
+        "version": "Reproduce with Lean 4.36.0 and Python from the repository root."
+      },
+      "disposition": "companion-version"
+    },
+    {
+      "path": "research/formal-verification/RT-34/READ-LOWER-AND-QUEUE-01/evidence.json",
+      "blob": "3bacd412697f2cb99a292e27d3dc60a9c13b6648",
+      "runner": {
+        "path": "research/formal-verification/RT-34/READ-LOWER-AND-QUEUE-01/run.py",
+        "blob": "f6ad997035d0da9439794ee8169862fbbedf43ef"
+      },
+      "plan_mentions": [],
+      "companion": {
+        "path": "research/formal-verification/RT-34/RT-34-READ-LOWER-AND-QUEUE-2026-11-25.md",
+        "blob": "f55598ce839e88065be34866363d82ba25767625",
+        "command_line": 22,
+        "command": "study=research/formal-verification/RT-34/READ-LOWER-AND-QUEUE-01",
+        "version_line": 19,
+        "version": "Reproduce with Lean 4.36.0 and Python from the repository root."
+      },
+      "disposition": "companion-version"
+    },
+    {
+      "path": "research/formal-verification/RT-34/RESOURCE-CONTRACT-IR-01/evidence.json",
+      "blob": "e4d0df514ffd5289d017f8b10f923de8b00ad374",
+      "runner": {
+        "path": "research/formal-verification/RT-34/RESOURCE-CONTRACT-IR-01/run.py",
+        "blob": "04bb8ff2489e4d01cc099cca92f65256efcdaca0"
+      },
+      "plan_mentions": [],
+      "recorded_tool_strings": [
+        {
+          "keys": [
+            "checker"
+          ],
+          "value": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+        }
+      ],
+      "disposition": "embedded-version"
+    },
+    {
+      "path": "research/language-design/RT-04/ASYNC-RESOURCE-CANCELLATION-01/evidence.json",
+      "blob": "cf2e09a2207e561e0c543d8256770cc953b075ed",
+      "runner": {
+        "path": "research/language-design/RT-04/ASYNC-RESOURCE-CANCELLATION-01/run.py",
+        "blob": "fa4dce647ce21a0fa153def1eee87e3b650781a1"
+      },
+      "plan_mentions": [],
+      "recorded_tool_strings": [
+        {
+          "keys": [
+            "rust"
+          ],
+          "value": "rustc 1.85.1 (4eb161250 2025-03-15)"
+        }
+      ],
+      "disposition": "embedded-version"
+    },
+    {
+      "path": "research/language-design/RT-04/DEPENDENT-BOUNDARY-VALUES-01/evidence.json",
+      "blob": "2cc9dfd857962d2f3007722b1c30be92ba595a45",
+      "runner": {
+        "path": "research/language-design/RT-04/DEPENDENT-BOUNDARY-VALUES-01/run.py",
+        "blob": "ef2be1762db143586e6339d7c853197c0da1049f"
+      },
+      "plan_mentions": [],
+      "recorded_tool_strings": [
+        {
+          "keys": [
+            "rust"
+          ],
+          "value": "rustc 1.85.1 (4eb161250 2025-03-15)"
+        }
+      ],
+      "disposition": "embedded-version"
+    },
+    {
+      "path": "research/language-design/RT-04/GENERIC-CONTEXT-INFERENCE-01/evidence.json",
+      "blob": "fc8274006daa7e8ff2406ccf912dbdbf9031f054",
+      "runner": {
+        "path": "research/language-design/RT-04/GENERIC-CONTEXT-INFERENCE-01/run.py",
+        "blob": "eb2a5eabc61a3d673bef03e047760912ec1baf3a"
+      },
+      "plan_mentions": [],
+      "recorded_tool_strings": [
+        {
+          "keys": [
+            "toolchains",
+            "go"
+          ],
+          "value": "go version go1.23.6 linux/amd64"
+        },
+        {
+          "keys": [
+            "toolchains",
+            "rust"
+          ],
+          "value": "rustc 1.85.1 (4eb161250 2025-03-15)"
+        }
+      ],
+      "disposition": "embedded-version"
+    },
+    {
+      "path": "research/language-design/RT-04/PRIMITIVE-ALGEBRAIC-ENCODINGS-01/evidence.json",
+      "blob": "1bb85923b25f504c01c1998dc19c1eb260241c2f",
+      "runner": {
+        "path": "research/language-design/RT-04/PRIMITIVE-ALGEBRAIC-ENCODINGS-01/run.py",
+        "blob": "77fc7816e6547db40e894b47de1282e5b92f7795"
+      },
+      "plan_mentions": [],
+      "recorded_tool_strings": [
+        {
+          "keys": [
+            "rows",
+            "clang/-O0",
+            "compiler"
+          ],
+          "value": "Debian clang version 19.1.7 (3+b1)"
+        },
+        {
+          "keys": [
+            "rows",
+            "clang/-O2",
+            "compiler"
+          ],
+          "value": "Debian clang version 19.1.7 (3+b1)"
+        },
+        {
+          "keys": [
+            "rows",
+            "gcc/-O0",
+            "compiler"
+          ],
+          "value": "gcc (Debian 14.2.0-19) 14.2.0"
+        },
+        {
+          "keys": [
+            "rows",
+            "gcc/-O2",
+            "compiler"
+          ],
+          "value": "gcc (Debian 14.2.0-19) 14.2.0"
+        }
+      ],
+      "disposition": "embedded-version"
+    },
+    {
+      "path": "research/language-design/RT-04/SCOPED-MUTABLE-REGIONS-01/evidence.json",
+      "blob": "74045f3f9a8668141bacf4491d997d2f05a51551",
+      "runner": {
+        "path": "research/language-design/RT-04/SCOPED-MUTABLE-REGIONS-01/run.py",
+        "blob": "6d3e475b9b28ef257ba6d48aca71716d7f7bcf7f"
+      },
+      "plan_mentions": [],
+      "recorded_tool_strings": [
+        {
+          "keys": [
+            "rust"
+          ],
+          "value": "rustc 1.85.1 (4eb161250 2025-03-15)"
+        }
+      ],
+      "disposition": "embedded-version"
+    },
+    {
+      "path": "research/language-design/RT-04/TYPED-CAPABILITY-ERRORS-01/evidence.json",
+      "blob": "95b9eaa9d2f84f7703354d2407630f9d2b0cacc7",
+      "runner": {
+        "path": "research/language-design/RT-04/TYPED-CAPABILITY-ERRORS-01/run.py",
+        "blob": "77e5dd322a2f9ab3befc0b4d2f587ee2aaccacf8"
+      },
+      "plan_mentions": [],
+      "recorded_tool_strings": [
+        {
+          "keys": [
+            "rust"
+          ],
+          "value": "rustc 1.85.1 (4eb161250 2025-03-15)"
+        }
+      ],
+      "disposition": "embedded-version"
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/RESUMABLE-EXECUTION-01/evidence.json",
+      "blob": "62f9df474900ee87406f166ba3b638b382459a39",
+      "runner": {
+        "path": "research/runtime-and-systems/RT-10/RESUMABLE-EXECUTION-01/run.py",
+        "blob": "df2fc2b348b8007d0a95a3af94c6e42018833eb7"
+      },
+      "plan_mentions": [],
+      "companion": {
+        "path": "research/runtime-and-systems/RT-10/RT-10-RESUMABLE-EXECUTION-2026-11-25.md",
+        "blob": "f9f5372ab05ee12a60b57ea41b41a3957cb85929",
+        "command_line": 22,
+        "command": "study=research/runtime-and-systems/RT-10/RESUMABLE-EXECUTION-01",
+        "version_line": 19,
+        "version": "Reproduce with CPython 3.12.14 from the repository root."
+      },
+      "disposition": "companion-version"
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/TARGET-CLOSURE-CROSSWALK-01/evidence.json",
+      "blob": "9d04995c15bbf964fed6cc742594d2a24bd8357f",
+      "runner": {
+        "path": "research/runtime-and-systems/RT-37/TARGET-CLOSURE-CROSSWALK-01/check.py",
+        "blob": "1eee40c523b96e44402ec20d45397357dad92cc2"
+      },
+      "plan_mentions": [],
+      "companion": {
+        "path": "research/runtime-and-systems/RT-37/RT-37-EXECUTION-CLOSURE-AND-ALLOCATION-PROFILES-2026-11-25.md",
+        "blob": "f31659e0360d44dace947bf9111f66f466a1eb0c",
+        "command_line": 28,
+        "command": "LC_ALL=C PYTHONHASHSEED=37 python -B research/runtime-and-systems/RT-37/TARGET-CLOSURE-CROSSWALK-01/check.py",
+        "version_line": null,
+        "version": null
+      },
+      "disposition": "no-version-in-checked-sources"
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/CROSS-LANGUAGE-RECEIPTS-01/evidence.json",
+      "blob": "6afdc53a362c6d4c475bc52546bfa8cc4c403c76",
+      "runner": {
+        "path": "research/toolchain-and-collaboration/RT-11/CROSS-LANGUAGE-RECEIPTS-01/run.py",
+        "blob": "ea4e106498b904f22b991e888f5026e4d198aad4"
+      },
+      "plan_mentions": [],
+      "recorded_tool_strings": [
+        {
+          "keys": [
+            "actions",
+            "c-saturate",
+            "descriptor",
+            "tool_version"
+          ],
+          "value": "gcc (Debian 14.2.0-19) 14.2.0"
+        },
+        {
+          "keys": [
+            "actions",
+            "c-wrap",
+            "descriptor",
+            "tool_version"
+          ],
+          "value": "gcc (Debian 14.2.0-19) 14.2.0"
+        },
+        {
+          "keys": [
+            "actions",
+            "rust-saturate",
+            "descriptor",
+            "tool_version"
+          ],
+          "value": "rustc 1.85.1 (4eb161250 2025-03-15)"
+        },
+        {
+          "keys": [
+            "actions",
+            "rust-wrap",
+            "descriptor",
+            "tool_version"
+          ],
+          "value": "rustc 1.85.1 (4eb161250 2025-03-15)"
+        }
+      ],
+      "disposition": "embedded-version"
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/PACKAGE-CACHE-DELIVERY-01/evidence.json",
+      "blob": "a8cc2ffa3cd6e622340127ec4d8858dc5893d52b",
+      "runner": {
+        "path": "research/toolchain-and-collaboration/RT-11/PACKAGE-CACHE-DELIVERY-01/run.py",
+        "blob": "60106f7379aa6c2794ac376fd24506c6a606a024"
+      },
+      "plan_mentions": [],
+      "companion": {
+        "path": "research/toolchain-and-collaboration/RT-11/RT-11-PACKAGE-CACHE-DELIVERY-2026-11-25.md",
+        "blob": "57218a6031ab587d202a93c7c7d6b778df9e519c",
+        "command_line": 26,
+        "command": "study=research/toolchain-and-collaboration/RT-11/PACKAGE-CACHE-DELIVERY-01",
+        "version_line": 23,
+        "version": "Reproduce with GCC, GNU readelf, Lean 4.36.0 and Python from the repository root."
+      },
+      "disposition": "companion-version"
+    }
+  ]
+}

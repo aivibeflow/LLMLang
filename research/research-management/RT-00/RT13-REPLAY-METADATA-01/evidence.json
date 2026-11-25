@@ -1,0 +1,453 @@
+{
+  "schema": "llmlang-rt13-replay-metadata/1",
+  "revision": "037723fc4a4d23c4b0e30e31aefea11e7a13382f",
+  "ledgers": [
+    {
+      "ledger": "research/compiler-and-translation/RT-13/BINARY64-CONTRACTION-01/evidence.json",
+      "ledger_blob": "f7fdd9bcfbe5309f44153c3613f637f4bec11054",
+      "runner_blob": "b779e3a51eeb955476b5f107c24f5cfe913e33f6",
+      "reported_tool_fields": [
+        "gcc",
+        "java_compiler",
+        "java_runtime",
+        "python",
+        "rustc"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-BINARY64-CONTRACTION-2026-11-25.md",
+          "line": 51,
+          "command": "python3 \"$fixture/run.py\" --output \"$output\"",
+          "long_options": [
+            "--output"
+          ],
+          "report_blob": "e119dd86b742cf3aad0ea03c3334cc5bf9f45bc4"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/evidence.json",
+      "ledger_blob": "913383e7ab152d78c7354ec27f3c90e6e9b082f3",
+      "runner_blob": "a681cb5569e40d92abf7363bf85ff0e1d1a6790f",
+      "reported_tool_fields": [
+        "gcc",
+        "lean_model",
+        "python",
+        "rustc"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md",
+          "line": 53,
+          "command": "python3 \"$fixture/run.py\" --output \"$output\"",
+          "long_options": [
+            "--output"
+          ],
+          "report_blob": "a507b2635d7ab8bb205b088a96a682db104d0809"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/BY-VALUE-CALL-ABI-01/evidence.json",
+      "ledger_blob": "fa49d1dedd237d3db1a957155e33fea3f368b13d",
+      "runner_blob": "df53a9ac5fa84003da7b2b6662dc9e6cf9a2f859",
+      "reported_tool_fields": [
+        "cc",
+        "objdump",
+        "python",
+        "rustc"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-BY-VALUE-CALL-ABI-2026-11-25.md",
+          "line": 48,
+          "command": "PYTHONHASHSEED=1 python3 -B \"$fixture/run.py\" > /tmp/llmlang-rt13-byvalue.json",
+          "long_options": [],
+          "report_blob": "8b1c1c84645ec2feb9e6fb141bcaa00b8904e97f"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/DWARF-ORIGINS-01/evidence.json",
+      "ledger_blob": "4b6c560da0456037456bca424b770cdda1c12bc2",
+      "runner_blob": "664e06bacbb90b7a684ce8cc53061d04874e4149",
+      "reported_tool_fields": [
+        "tools"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-DWARF-CALLBACK-SOURCE-ORIGINS-2026-11-24.md",
+          "line": 48,
+          "command": "python3 -B \"$study/run.py\" --output /tmp/llmlang-dwarf-origins.json",
+          "long_options": [
+            "--output"
+          ],
+          "report_blob": "d624d69fae3ce1d867694b8b7f23e8101e983cff"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/GENERATED-CPP-INTEGERS-01/evidence.json",
+      "ledger_blob": "59ac9e755626988acbd8150ca2096f1fca858a80",
+      "runner_blob": "3ee0713e7167f5f9b4e17c3438602b8978a4f483",
+      "reported_tool_fields": [
+        "python",
+        "tools"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-GENERATED-CPP-INTEGER-LOWERING-2026-11-24.md",
+          "line": 55,
+          "command": "python3 -B \"$study/run.py\" --output /tmp/llmlang-cpp-integers.json",
+          "long_options": [
+            "--output"
+          ],
+          "report_blob": "8fcd274b7c3b252b88546850d88a82fae7533f2d"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/evidence.json",
+      "ledger_blob": "d41838cf6a46e8903cb378b30c2ab14e06081f55",
+      "runner_blob": "d0d66592fc1df0c400705db62b460e428726f571",
+      "reported_tool_fields": [
+        "c_compiler",
+        "go_archive_sha256",
+        "toolchain"
+      ],
+      "reported_host_or_target_fields": [
+        "cpu"
+      ],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-GENERATED-GO-INTEGER-LOWERING-2026-11-24.md",
+          "line": 48,
+          "command": "python3 -B \"$study/run.py\" --go /absolute/path/to/go1.27.4/bin/go    --cache \"$work/cache\" --output \"$work/evidence.json\"",
+          "long_options": [
+            "--cache",
+            "--go",
+            "--output"
+          ],
+          "report_blob": "ecaac06951a6eb5e970c92717d4244cac9620149"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/GENERATED-GO-OWNERSHIP-01/evidence.json",
+      "ledger_blob": "4f19c6d60b45611a2284d72f8aa8f2806dd1b86a",
+      "runner_blob": "aef1b5a6aa48d824479736de6c15da3a2b185016",
+      "reported_tool_fields": [
+        "go",
+        "python"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-GENERATED-GO-OWNED-OUTCOMES-2026-11-24.md",
+          "line": 48,
+          "command": "python3 -B \"$study/run.py\" --go /absolute/path/to/go1.27.4/bin/go    --cache \"$work/cache\" --output \"$work/evidence.json\"",
+          "long_options": [
+            "--cache",
+            "--go",
+            "--output"
+          ],
+          "report_blob": "3d482b7d945bdef265f56a5c02c445527c979a83"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/GENERATED-JAVA-INTEGERS-01/evidence.json",
+      "ledger_blob": "1e541fe1887dcf8bd872c0aa6b6bbc8819b1f4e7",
+      "runner_blob": "39f1ea6f4bd0ac47278a3299622b2529b7a91f97",
+      "reported_tool_fields": [
+        "compiler",
+        "python",
+        "runtime"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-GENERATED-JAVA-INTEGER-LOWERING-2026-11-24.md",
+          "line": 45,
+          "command": "python3 -B \"$study/run.py\" --java /usr/bin/java --output /tmp/llmlang-java-integers.json",
+          "long_options": [
+            "--java",
+            "--output"
+          ],
+          "report_blob": "36d16d0a6ef59fd7a987459ba30b9378fdbb2b6e"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/GENERATED-RUST-INTEGERS-01/evidence.json",
+      "ledger_blob": "8527f94645413be01b0618262684c832a580d325",
+      "runner_blob": "1282a21fd5b9e5590a287aa1909d3008d29dd4ac",
+      "reported_tool_fields": [
+        "tools"
+      ],
+      "reported_host_or_target_fields": [
+        "cpu",
+        "target"
+      ],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-GENERATED-RUST-INTEGER-LOWERING-2026-11-24.md",
+          "line": 55,
+          "command": "python3 -B \"$study/run.py\" --output /tmp/llmlang-generated-rust-integers.json",
+          "long_options": [
+            "--output"
+          ],
+          "report_blob": "c7956015354db02410ab94e781645146898a4589"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-LEAN-01/evidence.json",
+      "ledger_blob": "091b3cceec82fa00b575933591b0ed48ee3da9df",
+      "runner_blob": "a3718e3477676eb7f175280f594e64ee8f6cee1b",
+      "reported_tool_fields": [
+        "lean",
+        "python",
+        "tools"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-LEAN-2026-11-25.md",
+          "line": 49,
+          "command": "python3 -B \"$fixture/run.py\" --opt \"$(command -v opt)\" --lean \"$(command -v lean)\" > \"$output\"",
+          "long_options": [
+            "--lean",
+            "--opt"
+          ],
+          "report_blob": "43530df72bb1399ebbc1c85fe54b3cba326b11d4"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/LLVM-CHECKED-ADD-SYMBOLIC-01/evidence.json",
+      "ledger_blob": "d0dd8baec4213972e8d0e3129b82fbe7523b5f28",
+      "runner_blob": "f954b5b7a45c065610845bff7480e1602e14799e",
+      "reported_tool_fields": [
+        "lean"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-LLVM-CHECKED-ADD-SYMBOLIC-2026-11-25.md",
+          "line": 49,
+          "command": "python3 -B \"$fixture/run.py\" --lean \"$(command -v lean)\" --opt \"$(command -v opt)\" > \"$output\"",
+          "long_options": [
+            "--lean",
+            "--opt"
+          ],
+          "report_blob": "03618ccb146362afd5274f0bbdf1bacbe2efe86a"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/LLVM-DYNAMIC-ROUNDING-01/evidence.json",
+      "ledger_blob": "5d78b81657a3fb370e930f869d5ef380a6b2e365",
+      "runner_blob": "984c3bea180c6260237c49c64f8b24325ad67c0f",
+      "reported_tool_fields": [
+        "python",
+        "versions"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-LLVM-DYNAMIC-ROUNDING-2026-11-25.md",
+          "line": 53,
+          "command": "python3 \"$fixture/run.py\" --output \"$output\"",
+          "long_options": [
+            "--output"
+          ],
+          "report_blob": "9747a2519bcd74572f17ba6f2d089018ebef71dc"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/LLVM-F64-I64-LOWERING-01/evidence.json",
+      "ledger_blob": "060e2e0a2c16295ecc31426b9115645a40471156",
+      "runner_blob": "e4d1619eae5763fe1b085a412b5d81c5c87ee2e2",
+      "reported_tool_fields": [
+        "tools"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-LLVM-F64-I64-LOWERING-2026-11-25.md",
+          "line": 59,
+          "command": "LC_ALL=C PYTHONHASHSEED=1 python3 -B \"$fixture/run.py\"    --assembler \"$LLVM_STOCK/bin/llvm-as\" --optimizer \"$LLVM_STOCK/bin/opt\"    --extractor \"$LLVM_DEBIAN/bin/llvm-extract\" --clang \"$LLVM_DEBIAN/bin/clang\"    --alive \"$ALIVE_STOCK\" --vellvm \"$VELLVM_SOURCE/src/vellvm\"    --ocamlrun \"$OCAML_SWITCH/bin/ocamlrun\"    --bytecode \"$VELLVM_SOURCE/src/_build-byte/default/ml/main.bc\"    > /tmp/llmlang-llvm-f64-i64.json",
+          "long_options": [
+            "--alive",
+            "--assembler",
+            "--bytecode",
+            "--clang",
+            "--extractor",
+            "--ocamlrun",
+            "--optimizer",
+            "--vellvm"
+          ],
+          "report_blob": "24d83ca8b5c19c6a5c811606ef6ff588492d328c"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/LLVM-FP-FLAGS-01/evidence.json",
+      "ledger_blob": "a38ac0acef15acbaec3d07ce05006cc548febcd8",
+      "runner_blob": "fa950f04d9e434add3db4454c55adf42fc3bdc63",
+      "reported_tool_fields": [
+        "python",
+        "versions"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-LLVM-FP-FLAGS-2026-11-25.md",
+          "line": 47,
+          "command": "python3 \"$fixture/run.py\" --output \"$output\"",
+          "long_options": [
+            "--output"
+          ],
+          "report_blob": "4dd53a332b36022b311896e8f9e6b7628beb8cb4"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/LLVM-ROUNDING-LTO-01/evidence.json",
+      "ledger_blob": "4d4acbf08cdd69a6d4413d1e97a23d46914fb92c",
+      "runner_blob": "8e077f72fbb804585e30f7afa6a197a33f30d61e",
+      "reported_tool_fields": [
+        "python",
+        "toolchains"
+      ],
+      "reported_host_or_target_fields": [
+        "target"
+      ],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-LLVM-DYNAMIC-ROUNDING-LTO-2026-11-25.md",
+          "line": 52,
+          "command": "python3 \"$fixture/run.py\"    --llvm19-bin /path/to/llvm19/bin --llvm22-bin /path/to/llvm22/bin    --llvm23-bin /path/to/llvm23/bin --output \"$output\"",
+          "long_options": [
+            "--llvm19-bin",
+            "--llvm22-bin",
+            "--llvm23-bin",
+            "--output"
+          ],
+          "report_blob": "3ee980445163e6c95d1422efd616b0bbe2549c23"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/LLVM-ROUNDING-VERSIONS-01/evidence.json",
+      "ledger_blob": "f0c6e6adac0b914c518cd9f66b7381265a3dfeaa",
+      "runner_blob": "726ca89cd2545d09e519e4c24f79b479647407d4",
+      "reported_tool_fields": [
+        "python"
+      ],
+      "reported_host_or_target_fields": [
+        "target"
+      ],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-LLVM-DYNAMIC-ROUNDING-VERSIONS-2026-11-25.md",
+          "line": 47,
+          "command": "python3 \"$fixture/run.py\"    --clang19 /path/to/clang-19 --clang22 /path/to/clang-22    --clang23 /path/to/clang-23 --output \"$output\"",
+          "long_options": [
+            "--clang19",
+            "--clang22",
+            "--clang23",
+            "--output"
+          ],
+          "report_blob": "cce51672f05bb9f1f464435186e95294879a555f"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/LLVM-VALIDATORS-01/evidence.json",
+      "ledger_blob": "d3c95ae6e50923d3c0fe4e0229fd6c86196a2361",
+      "runner_blob": "0bd2179d60ef9402d5ea9115c1be22e1beddf82e",
+      "reported_tool_fields": [
+        "alive2_revision",
+        "llvm",
+        "vellvm_revision"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-ALIVE2-VELLVM-COVERAGE-2026-11-24.md",
+          "line": 62,
+          "command": "python3 -B \"$study/run.py\"    --alive /absolute/path/to/alive-tv --vellvm /absolute/path/to/vellvm    --output /tmp/llmlang-rt13-validators.json",
+          "long_options": [
+            "--alive",
+            "--output",
+            "--vellvm"
+          ],
+          "report_blob": "ad9070631e9ebfb1d9b12747bc0067eca38366cd"
+        },
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-STOCK-ALIVE2-LLVM-EH-2026-11-24.md",
+          "line": 69,
+          "command": "python3 -B \"$study/run.py\"    --alive \"$alive_source/build-stock-eh/alive-tv\" --vellvm \"$study/vellvm-byte.sh\"    --output /tmp/rt13-stock-packaged.json",
+          "long_options": [
+            "--alive",
+            "--output",
+            "--vellvm"
+          ],
+          "report_blob": "bd3986d6ffd7085aff4c0844bd7057e72a82d9de"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/evidence.json",
+      "ledger_blob": "076a6f8be78917bfedddff657986684724fd9e50",
+      "runner_blob": "281c739207fc9737596b52d809f306c60d048177",
+      "reported_tool_fields": [
+        "cc",
+        "python",
+        "rustc"
+      ],
+      "reported_host_or_target_fields": [],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-NATIVE-OWNED-ABI-2026-11-24.md",
+          "line": 50,
+          "command": "python3 \"$fixture/run.py\" --output \"$output\"",
+          "long_options": [
+            "--output"
+          ],
+          "report_blob": "cf6ba03adb09866572afd50f2f98c4f1a38d6123"
+        }
+      ]
+    },
+    {
+      "ledger": "research/compiler-and-translation/RT-13/NATIVE-RECORD-LAYOUT-01/evidence.json",
+      "ledger_blob": "d3ddd35f6a6a1bfa808c48895d76a40274bddcef",
+      "runner_blob": "3a097d2104373c5f55afbbcc1bae62f262629b17",
+      "reported_tool_fields": [
+        "cc",
+        "python",
+        "readelf"
+      ],
+      "reported_host_or_target_fields": [
+        "target"
+      ],
+      "documented_commands": [
+        {
+          "report": "research/compiler-and-translation/RT-13/RT-13-NATIVE-RECORD-LAYOUT-2026-11-25.md",
+          "line": 50,
+          "command": "PYTHONHASHSEED=1 python3 -B \"$fixture/run.py\" > /tmp/llmlang-rt13-native-record.json",
+          "long_options": [],
+          "report_blob": "602e2a20fc88e83229bdbb9267c25f969b133f24"
+        }
+      ]
+    }
+  ]
+}

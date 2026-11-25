@@ -1,0 +1,1299 @@
+{
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "glibc": "glibc 2.41",
+  "musl_specs_sha256": "ffaa141b9ca85cc25ab5b29e8317846b9bf8e2c221044ec8ea240f00fc7ebace",
+  "checked_observations": 336,
+  "native_errno_differences": [
+    {
+      "case": "address-not-numeric",
+      "seed": 7,
+      "glibc_errno": 7,
+      "musl_errno": 22
+    },
+    {
+      "case": "address-not-numeric",
+      "seed": 8,
+      "glibc_errno": 8,
+      "musl_errno": 22
+    }
+  ],
+  "profiles": {
+    "glibc": {
+      "counts": {
+        "checked": 168,
+        "negative_errno_rule_disagreements": 108,
+        "errno_only_rule_disagreements": 120
+      },
+      "builds": {
+        "O0": {
+          "probe_sha256": "46cffa2851a7995aeebf7156cd5d947ce078e8b73eec5bdb73f4cc9f2a9b143d",
+          "raw_observations": [
+            {
+              "case": "open-missing",
+              "seed_errno": 7,
+              "result": -1,
+              "errno": 2,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                2
+              ]
+            },
+            {
+              "case": "read-invalid",
+              "seed_errno": 7,
+              "result": -1,
+              "errno": 9,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                9
+              ]
+            },
+            {
+              "case": "pthread-busy",
+              "seed_errno": 7,
+              "result": 16,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                16
+              ]
+            },
+            {
+              "case": "pthread-acquired",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "clock-invalid",
+              "seed_errno": 7,
+              "result": 22,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                22
+              ]
+            },
+            {
+              "case": "clock-zero",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "spawn-missing",
+              "seed_errno": 7,
+              "result": 2,
+              "errno": 2,
+              "auxiliary": 1,
+              "typed_observation": [
+                "function-error",
+                2
+              ]
+            },
+            {
+              "case": "address-not-numeric",
+              "seed_errno": 7,
+              "result": -2,
+              "errno": 7,
+              "auxiliary": 1,
+              "typed_observation": [
+                "name-resolution",
+                -2
+              ]
+            },
+            {
+              "case": "long-cleared-boundary",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 0,
+              "auxiliary": 1,
+              "typed_observation": [
+                "ok",
+                9223372036854775807
+              ]
+            },
+            {
+              "case": "long-dirty-boundary",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 7,
+              "auxiliary": 1,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "long-over-range",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 34,
+              "auxiliary": 1,
+              "typed_observation": [
+                "errno",
+                34
+              ]
+            },
+            {
+              "case": "long-partial",
+              "seed_errno": 7,
+              "result": 42,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "partial-input",
+                42
+              ]
+            },
+            {
+              "case": "readdir-dirty-end",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "readdir-cleared-end",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "eof",
+                0
+              ]
+            },
+            {
+              "case": "open-missing",
+              "seed_errno": 8,
+              "result": -1,
+              "errno": 2,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                2
+              ]
+            },
+            {
+              "case": "read-invalid",
+              "seed_errno": 8,
+              "result": -1,
+              "errno": 9,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                9
+              ]
+            },
+            {
+              "case": "pthread-busy",
+              "seed_errno": 8,
+              "result": 16,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                16
+              ]
+            },
+            {
+              "case": "pthread-acquired",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "clock-invalid",
+              "seed_errno": 8,
+              "result": 22,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                22
+              ]
+            },
+            {
+              "case": "clock-zero",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "spawn-missing",
+              "seed_errno": 8,
+              "result": 2,
+              "errno": 2,
+              "auxiliary": 1,
+              "typed_observation": [
+                "function-error",
+                2
+              ]
+            },
+            {
+              "case": "address-not-numeric",
+              "seed_errno": 8,
+              "result": -2,
+              "errno": 8,
+              "auxiliary": 1,
+              "typed_observation": [
+                "name-resolution",
+                -2
+              ]
+            },
+            {
+              "case": "long-cleared-boundary",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 0,
+              "auxiliary": 1,
+              "typed_observation": [
+                "ok",
+                9223372036854775807
+              ]
+            },
+            {
+              "case": "long-dirty-boundary",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 8,
+              "auxiliary": 1,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "long-over-range",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 34,
+              "auxiliary": 1,
+              "typed_observation": [
+                "errno",
+                34
+              ]
+            },
+            {
+              "case": "long-partial",
+              "seed_errno": 8,
+              "result": 42,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "partial-input",
+                42
+              ]
+            },
+            {
+              "case": "readdir-dirty-end",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "readdir-cleared-end",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "eof",
+                0
+              ]
+            }
+          ]
+        },
+        "O2": {
+          "probe_sha256": "0e3f36f20733857a5c9f8793d69d88672ea9c226a66879ce92cf3a0719890046",
+          "raw_observations": [
+            {
+              "case": "open-missing",
+              "seed_errno": 7,
+              "result": -1,
+              "errno": 2,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                2
+              ]
+            },
+            {
+              "case": "read-invalid",
+              "seed_errno": 7,
+              "result": -1,
+              "errno": 9,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                9
+              ]
+            },
+            {
+              "case": "pthread-busy",
+              "seed_errno": 7,
+              "result": 16,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                16
+              ]
+            },
+            {
+              "case": "pthread-acquired",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "clock-invalid",
+              "seed_errno": 7,
+              "result": 22,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                22
+              ]
+            },
+            {
+              "case": "clock-zero",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "spawn-missing",
+              "seed_errno": 7,
+              "result": 2,
+              "errno": 2,
+              "auxiliary": 1,
+              "typed_observation": [
+                "function-error",
+                2
+              ]
+            },
+            {
+              "case": "address-not-numeric",
+              "seed_errno": 7,
+              "result": -2,
+              "errno": 7,
+              "auxiliary": 1,
+              "typed_observation": [
+                "name-resolution",
+                -2
+              ]
+            },
+            {
+              "case": "long-cleared-boundary",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 0,
+              "auxiliary": 1,
+              "typed_observation": [
+                "ok",
+                9223372036854775807
+              ]
+            },
+            {
+              "case": "long-dirty-boundary",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 7,
+              "auxiliary": 1,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "long-over-range",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 34,
+              "auxiliary": 1,
+              "typed_observation": [
+                "errno",
+                34
+              ]
+            },
+            {
+              "case": "long-partial",
+              "seed_errno": 7,
+              "result": 42,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "partial-input",
+                42
+              ]
+            },
+            {
+              "case": "readdir-dirty-end",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "readdir-cleared-end",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "eof",
+                0
+              ]
+            },
+            {
+              "case": "open-missing",
+              "seed_errno": 8,
+              "result": -1,
+              "errno": 2,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                2
+              ]
+            },
+            {
+              "case": "read-invalid",
+              "seed_errno": 8,
+              "result": -1,
+              "errno": 9,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                9
+              ]
+            },
+            {
+              "case": "pthread-busy",
+              "seed_errno": 8,
+              "result": 16,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                16
+              ]
+            },
+            {
+              "case": "pthread-acquired",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "clock-invalid",
+              "seed_errno": 8,
+              "result": 22,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                22
+              ]
+            },
+            {
+              "case": "clock-zero",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "spawn-missing",
+              "seed_errno": 8,
+              "result": 2,
+              "errno": 2,
+              "auxiliary": 1,
+              "typed_observation": [
+                "function-error",
+                2
+              ]
+            },
+            {
+              "case": "address-not-numeric",
+              "seed_errno": 8,
+              "result": -2,
+              "errno": 8,
+              "auxiliary": 1,
+              "typed_observation": [
+                "name-resolution",
+                -2
+              ]
+            },
+            {
+              "case": "long-cleared-boundary",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 0,
+              "auxiliary": 1,
+              "typed_observation": [
+                "ok",
+                9223372036854775807
+              ]
+            },
+            {
+              "case": "long-dirty-boundary",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 8,
+              "auxiliary": 1,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "long-over-range",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 34,
+              "auxiliary": 1,
+              "typed_observation": [
+                "errno",
+                34
+              ]
+            },
+            {
+              "case": "long-partial",
+              "seed_errno": 8,
+              "result": 42,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "partial-input",
+                42
+              ]
+            },
+            {
+              "case": "readdir-dirty-end",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "readdir-cleared-end",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "eof",
+                0
+              ]
+            }
+          ]
+        }
+      },
+      "archive_sha256": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326"
+    },
+    "musl": {
+      "counts": {
+        "checked": 168,
+        "negative_errno_rule_disagreements": 108,
+        "errno_only_rule_disagreements": 120
+      },
+      "builds": {
+        "O0": {
+          "probe_sha256": "e6378e01a62a64c8336dd48463d8d858fda59f62ecb11aa7ace0f428d8e7460d",
+          "raw_observations": [
+            {
+              "case": "open-missing",
+              "seed_errno": 7,
+              "result": -1,
+              "errno": 2,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                2
+              ]
+            },
+            {
+              "case": "read-invalid",
+              "seed_errno": 7,
+              "result": -1,
+              "errno": 9,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                9
+              ]
+            },
+            {
+              "case": "pthread-busy",
+              "seed_errno": 7,
+              "result": 16,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                16
+              ]
+            },
+            {
+              "case": "pthread-acquired",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "clock-invalid",
+              "seed_errno": 7,
+              "result": 22,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                22
+              ]
+            },
+            {
+              "case": "clock-zero",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "spawn-missing",
+              "seed_errno": 7,
+              "result": 2,
+              "errno": 2,
+              "auxiliary": 1,
+              "typed_observation": [
+                "function-error",
+                2
+              ]
+            },
+            {
+              "case": "address-not-numeric",
+              "seed_errno": 7,
+              "result": -2,
+              "errno": 22,
+              "auxiliary": 1,
+              "typed_observation": [
+                "name-resolution",
+                -2
+              ]
+            },
+            {
+              "case": "long-cleared-boundary",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 0,
+              "auxiliary": 1,
+              "typed_observation": [
+                "ok",
+                9223372036854775807
+              ]
+            },
+            {
+              "case": "long-dirty-boundary",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 7,
+              "auxiliary": 1,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "long-over-range",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 34,
+              "auxiliary": 1,
+              "typed_observation": [
+                "errno",
+                34
+              ]
+            },
+            {
+              "case": "long-partial",
+              "seed_errno": 7,
+              "result": 42,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "partial-input",
+                42
+              ]
+            },
+            {
+              "case": "readdir-dirty-end",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "readdir-cleared-end",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "eof",
+                0
+              ]
+            },
+            {
+              "case": "open-missing",
+              "seed_errno": 8,
+              "result": -1,
+              "errno": 2,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                2
+              ]
+            },
+            {
+              "case": "read-invalid",
+              "seed_errno": 8,
+              "result": -1,
+              "errno": 9,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                9
+              ]
+            },
+            {
+              "case": "pthread-busy",
+              "seed_errno": 8,
+              "result": 16,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                16
+              ]
+            },
+            {
+              "case": "pthread-acquired",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "clock-invalid",
+              "seed_errno": 8,
+              "result": 22,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                22
+              ]
+            },
+            {
+              "case": "clock-zero",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "spawn-missing",
+              "seed_errno": 8,
+              "result": 2,
+              "errno": 2,
+              "auxiliary": 1,
+              "typed_observation": [
+                "function-error",
+                2
+              ]
+            },
+            {
+              "case": "address-not-numeric",
+              "seed_errno": 8,
+              "result": -2,
+              "errno": 22,
+              "auxiliary": 1,
+              "typed_observation": [
+                "name-resolution",
+                -2
+              ]
+            },
+            {
+              "case": "long-cleared-boundary",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 0,
+              "auxiliary": 1,
+              "typed_observation": [
+                "ok",
+                9223372036854775807
+              ]
+            },
+            {
+              "case": "long-dirty-boundary",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 8,
+              "auxiliary": 1,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "long-over-range",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 34,
+              "auxiliary": 1,
+              "typed_observation": [
+                "errno",
+                34
+              ]
+            },
+            {
+              "case": "long-partial",
+              "seed_errno": 8,
+              "result": 42,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "partial-input",
+                42
+              ]
+            },
+            {
+              "case": "readdir-dirty-end",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "readdir-cleared-end",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "eof",
+                0
+              ]
+            }
+          ]
+        },
+        "O2": {
+          "probe_sha256": "8a62f807b1ee9616b08ff4a4f44002ce98af8ffcca4843fa1f39d232b382734b",
+          "raw_observations": [
+            {
+              "case": "open-missing",
+              "seed_errno": 7,
+              "result": -1,
+              "errno": 2,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                2
+              ]
+            },
+            {
+              "case": "read-invalid",
+              "seed_errno": 7,
+              "result": -1,
+              "errno": 9,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                9
+              ]
+            },
+            {
+              "case": "pthread-busy",
+              "seed_errno": 7,
+              "result": 16,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                16
+              ]
+            },
+            {
+              "case": "pthread-acquired",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "clock-invalid",
+              "seed_errno": 7,
+              "result": 22,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                22
+              ]
+            },
+            {
+              "case": "clock-zero",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "spawn-missing",
+              "seed_errno": 7,
+              "result": 2,
+              "errno": 2,
+              "auxiliary": 1,
+              "typed_observation": [
+                "function-error",
+                2
+              ]
+            },
+            {
+              "case": "address-not-numeric",
+              "seed_errno": 7,
+              "result": -2,
+              "errno": 22,
+              "auxiliary": 1,
+              "typed_observation": [
+                "name-resolution",
+                -2
+              ]
+            },
+            {
+              "case": "long-cleared-boundary",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 0,
+              "auxiliary": 1,
+              "typed_observation": [
+                "ok",
+                9223372036854775807
+              ]
+            },
+            {
+              "case": "long-dirty-boundary",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 7,
+              "auxiliary": 1,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "long-over-range",
+              "seed_errno": 7,
+              "result": 9223372036854775807,
+              "errno": 34,
+              "auxiliary": 1,
+              "typed_observation": [
+                "errno",
+                34
+              ]
+            },
+            {
+              "case": "long-partial",
+              "seed_errno": 7,
+              "result": 42,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "partial-input",
+                42
+              ]
+            },
+            {
+              "case": "readdir-dirty-end",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 7,
+              "auxiliary": 0,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "readdir-cleared-end",
+              "seed_errno": 7,
+              "result": 0,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "eof",
+                0
+              ]
+            },
+            {
+              "case": "open-missing",
+              "seed_errno": 8,
+              "result": -1,
+              "errno": 2,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                2
+              ]
+            },
+            {
+              "case": "read-invalid",
+              "seed_errno": 8,
+              "result": -1,
+              "errno": 9,
+              "auxiliary": 0,
+              "typed_observation": [
+                "errno",
+                9
+              ]
+            },
+            {
+              "case": "pthread-busy",
+              "seed_errno": 8,
+              "result": 16,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                16
+              ]
+            },
+            {
+              "case": "pthread-acquired",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "clock-invalid",
+              "seed_errno": 8,
+              "result": 22,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "function-error",
+                22
+              ]
+            },
+            {
+              "case": "clock-zero",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "ok",
+                0
+              ]
+            },
+            {
+              "case": "spawn-missing",
+              "seed_errno": 8,
+              "result": 2,
+              "errno": 2,
+              "auxiliary": 1,
+              "typed_observation": [
+                "function-error",
+                2
+              ]
+            },
+            {
+              "case": "address-not-numeric",
+              "seed_errno": 8,
+              "result": -2,
+              "errno": 22,
+              "auxiliary": 1,
+              "typed_observation": [
+                "name-resolution",
+                -2
+              ]
+            },
+            {
+              "case": "long-cleared-boundary",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 0,
+              "auxiliary": 1,
+              "typed_observation": [
+                "ok",
+                9223372036854775807
+              ]
+            },
+            {
+              "case": "long-dirty-boundary",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 8,
+              "auxiliary": 1,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "long-over-range",
+              "seed_errno": 8,
+              "result": 9223372036854775807,
+              "errno": 34,
+              "auxiliary": 1,
+              "typed_observation": [
+                "errno",
+                34
+              ]
+            },
+            {
+              "case": "long-partial",
+              "seed_errno": 8,
+              "result": 42,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "partial-input",
+                42
+              ]
+            },
+            {
+              "case": "readdir-dirty-end",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 8,
+              "auxiliary": 0,
+              "typed_observation": [
+                "uncleared-errno",
+                0
+              ]
+            },
+            {
+              "case": "readdir-cleared-end",
+              "seed_errno": 8,
+              "result": 0,
+              "errno": 0,
+              "auxiliary": 0,
+              "typed_observation": [
+                "eof",
+                0
+              ]
+            }
+          ]
+        }
+      },
+      "archive_sha256": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0"
+    }
+  },
+  "source_sha256": {
+    "PRIMITIVE-ERROR-DOMAINS-01/probe.c": "cac08e8bdb4941565934074be712b4a8eb84cc11773c338296895c2f6f7db071",
+    "PRIMITIVE-ERROR-DOMAINS-01/run.py": "d7f75472f6adcbf8d00f7eca445133592581afb4dbe8f43668c37fcb1d2fe5a5",
+    "POSIX-CROSS-LIBC-01/run.py": "aa2f3ee51e210885edad46251ed2089eb40cef7544613c987d00c1b7719f7135"
+  }
+}

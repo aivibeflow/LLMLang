@@ -1,0 +1,15 @@
+{
+  "native_trials": 120,
+  "process_elapsed_while_worker_below_budget": 60,
+  "profiles": {
+    "process/10000000": 20,
+    "process/20000000": 20,
+    "process/5000000": 20,
+    "worker/10000000": 20,
+    "worker/20000000": 20,
+    "worker/5000000": 20
+  },
+  "runner_sha256": "f50e0f3f6b0a65a6ea2b9df33c8cc4a90ee4083b51bcff07f1fa45e3942ab75a",
+  "source_sha256": "04d5a4efdacc678b9ba7125c9d983cc3c08b6fad40f985cbe78a0e116ffdd404",
+  "worker_elapsed_only_after_local_cpu": 60
+}

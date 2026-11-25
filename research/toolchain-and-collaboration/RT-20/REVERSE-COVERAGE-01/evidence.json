@@ -1,0 +1,33 @@
+{
+  "cases": 3125,
+  "empty_results": {
+    "all_families_closed": "exact",
+    "duplicate_family": "unknown-roster",
+    "missing_family": "unknown-roster",
+    "open_family": "open-domain"
+  },
+  "independent_inventory": {
+    "direct": [
+      "entry:site-1"
+    ],
+    "dynamic": [
+      "registry:site-3"
+    ],
+    "external": [],
+    "generated": [
+      "generator:site-4"
+    ],
+    "indirect": [
+      "table:site-2"
+    ]
+  },
+  "outcomes": {
+    "exact": 1,
+    "inventory-disagrees": 31,
+    "open-domain": 211,
+    "stale": 781,
+    "unknown-roster": 2101
+  },
+  "python": "3.12.14",
+  "source_sha256": "1dcdf87a7ec4f159982ea4870b8f05eac5852309427780cb62056f5337700073"
+}

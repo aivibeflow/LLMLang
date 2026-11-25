@@ -1,0 +1,374 @@
+{
+  "baseline": "d816c26380dae97c9ade3252eb7438adacb1b4ae",
+  "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+  "python": "3.12.14",
+  "runtime_lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "runtime_api_olean_sha256": "dc2d0ffeb2e3e4bc3adf1e2346f69a8849ec0d55f65abf453d3ec93693fe07bf",
+  "runtime_source_sha256": "b2c24afc50f8f6310043d7d4a754ce63e53bfdf71db0ac6e904bcd891494f050",
+  "runtime_axioms_sha256": "d886f1f978dbacff2d55adfb348296a6f82afe346876f74afba9cb3eb7623748",
+  "runtime_theorems": {
+    "LLMLang.LogosBinding.correctVerdict_conditions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LLMLang.LogosBinding.incorrectVerdict_condition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LLMLang.LogosBinding.incompleteVerdict_condition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LLMLang.LogosBinding.correctFile_conditions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "archived_source_profiles": {
+    "logos-concrete-pair": {
+      "transcript_sha256": "1052b04b7705e6cfeb828711212f2b2193c20cd51c5f66118811193814aec294",
+      "theorems": {
+        "LLMLang.LogosScalarDenotation.liftValuation_revalues": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "LLMLang.LogosScalarDenotation.wireValuation_preservesFormula": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "LLMLang.LogosScalarDenotation.acceptedAssumptions_forConcretePair": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "logos-model-extension": {
+      "transcript_sha256": "bc05afa5275fb58d55f45aecce304468edc0fe3d888bc2d42f51f30935831cf1",
+      "theorems": {
+        "LLMLang.LogosScalarDenotation.extendModel_wellFormed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "LLMLang.LogosScalarDenotation.extendModel_agrees": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "LLMLang.LogosScalarDenotation.exists_wellFormed_agreeing_model": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound",
+          "Smtm.native_re_canonical_none._native.native_decide.ax_1_1✝"
+        ],
+        "LLMLang.LogosScalarDenotation.nameOnly_breaks_model_typing": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "LLMLang.LogosScalarDenotation.emptyRegexCanonical_kernel": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "logos-kernel-model-witness": {
+      "transcript_sha256": "92647cf3be4a1bd4c68f4367d460bbf22aa78649629f2a768e9e0b082dab7066",
+      "theorems": {
+        "LLMLang.LogosScalarDenotation.extendModel_wellFormed": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "LLMLang.LogosScalarDenotation.extendModel_agrees": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "LLMLang.LogosScalarDenotation.exists_wellFormed_agreeing_model": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "LLMLang.LogosScalarDenotation.nameOnly_breaks_model_typing": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "LLMLang.LogosScalarDenotation.emptyRegexCanonical_kernel": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    "logos-source-refutation": {
+      "transcript_sha256": "d0251b8c5153e066d5799a1151d0187b28c4351e02a69a8e7028afaa1f143335",
+      "theorems": {
+        "LLMLang.LogosScalarDenotation.checkedRefutation_noDependence": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    }
+  },
+  "archived_verdict": {
+    "upstream_build_provenance_sha256": "cc066cf7eb0df39cab4349a84f9f96efd3c6d64f59c9219a261f8fae0abaabfc",
+    "archive_sha256": "5da335e43e75eb76cb37a3ff7fb73c0b39323b693790eeef28affc6f9f7f9ac2",
+    "build_record_fields": [
+      "api_correct_olean_sha256",
+      "api_correct_source_sha256",
+      "kind",
+      "lean_revision",
+      "logos_revision",
+      "mathlib_revision",
+      "rule_batch_command",
+      "rule_batch_log_sha256",
+      "successful_rule_batches",
+      "verification_command",
+      "verification_jobs",
+      "verification_log_sha256"
+    ],
+    "full_proof_native_axioms": 2118,
+    "native_axioms_within_rule_modules": 1634,
+    "distinct_final_components": 606,
+    "defining_modules": {
+      "Cpc.Proofs.Rules.Bool_not_ite_elim": 601,
+      "Cpc.Proofs.Closed.IsClosedRec": 169,
+      "Cpc.Proofs.Rules.String_length_pos": 49,
+      "Cpc.Proofs.RuleSupport.Evaluate.SoundBitVec": 39,
+      "Cpc.Proofs.Rules.Bv_smulo_elim": 35,
+      "Cpc.Proofs.Rules.String_reduction": 33,
+      "Cpc.Proofs.Rules.Bv_comp_eliminate": 31,
+      "Cpc.Proofs.RuleSupport.Evaluate.Prelude.BitVecSignExtend": 29,
+      "Cpc.Proofs.Rules.Bv_ite_equal_children": 26,
+      "Cpc.Proofs.Rules.Bv_ashr_by_const_0": 25,
+      "Cpc.Proofs.Rules.Bv_ashr_zero": 25,
+      "Cpc.Proofs.Rules.Bv_commutative_comp": 25,
+      "Cpc.Proofs.Rules.Bv_lshr_by_const_0": 25,
+      "Cpc.Proofs.Rules.Bv_lshr_zero": 25,
+      "Cpc.Proofs.Rules.Bv_not_ult": 25,
+      "Cpc.Proofs.Rules.Bv_sge_eliminate": 25,
+      "Cpc.Proofs.Rules.Bv_sgt_eliminate": 25,
+      "Cpc.Proofs.Rules.Bv_shl_by_const_0": 25,
+      "Cpc.Proofs.Rules.Bv_shl_zero": 25,
+      "Cpc.Proofs.Rules.Bv_sle_eliminate": 25,
+      "Cpc.Proofs.Rules.Bv_udiv_one": 25,
+      "Cpc.Proofs.Rules.Bv_udiv_zero": 25,
+      "Cpc.Proofs.Rules.Bv_uge_eliminate": 25,
+      "Cpc.Proofs.Rules.Bv_ugt_eliminate": 25,
+      "Cpc.Proofs.Rules.Bv_ule_eliminate": 25,
+      "Cpc.Proofs.Rules.Bv_ule_zero": 25,
+      "Cpc.Proofs.Rules.Bv_ult_zero_1": 25,
+      "Cpc.Proofs.Rules.Bv_ult_zero_2": 25,
+      "Cpc.Proofs.Rules.Bv_urem_one": 25,
+      "Cpc.Proofs.Rules.Bv_zero_ule": 25,
+      "Cpc.Proofs.Rules.Re_repeat_elim": 25,
+      "Cpc.Proofs.Rules.Uf_int2bv_bv2nat": 25,
+      "Cpc.Proofs.Rules.Uf_int2bv_bvule_equiv": 25,
+      "Cpc.Proofs.Rules.Uf_int2bv_bvult_equiv": 25,
+      "Cpc.Proofs.RuleSupport.QdsCtor": 24,
+      "Cpc.Proofs.Rules.Arith_mult_tangent": 21,
+      "Cpc.Proofs.Translation.Base": 19,
+      "Cpc.Proofs.RuleSupport.StrInReFromIntDigRangeSupport": 18,
+      "Cpc.Proofs.RuleSupport.StrInReEvalSupport": 17,
+      "Cpc.Proofs.Rules.Bv_ite_const_children_1": 10,
+      "Cpc.Proofs.Rules.Bv_ite_const_children_2": 10,
+      "Cpc.Proofs.Rules.Bv_ite_width_one": 10,
+      "Cpc.Proofs.Rules.Bv_ite_width_one_not": 10,
+      "Cpc.Proofs.RuleSupport.BvSaddoElimSupport": 9,
+      "Cpc.Proofs.RuleSupport.Evaluate.Prelude.BitVecShift": 9,
+      "Cpc.Proofs.RuleSupport.BvSsuboElimSupport": 8,
+      "Cpc.Proofs.RuleSupport.BvCommutativeXorSupport": 7,
+      "Cpc.Proofs.Translation.Apply": 7,
+      "Cpc.Proofs.RuleSupport.ArithStringEntailSupport": 6,
+      "Cpc.Proofs.RuleSupport.Evaluate.Prelude.BitVecToInt": 6,
+      "Cpc.Proofs.Rules.Absorb": 6,
+      "Cpc.Proofs.Rules.Arith_sum_ub": 6,
+      "Cpc.Proofs.Rules.Re_in_cstring": 6,
+      "Cpc.Proofs.Rules.Str_in_re_contains": 6,
+      "Cpc.Proofs.RuleSupport.ArithPolyNormSupport": 5,
+      "Cpc.Proofs.RuleSupport.BvNegoEliminateSupport": 5,
+      "Cpc.Proofs.RuleSupport.BvOverflowSupport": 5,
+      "Cpc.Proofs.RuleSupport.BvShiftByConst1Support": 5,
+      "Cpc.Proofs.RuleSupport.Evaluate.Prelude.BitVecSignedComparison": 5,
+      "Cpc.Proofs.RuleSupport.QuantDtSplitSupport": 5,
+      "Cpc.Proofs.Rules.Aci_norm": 5,
+      "Cpc.Proofs.Rules.Re_in_comp": 5,
+      "Cpc.Proofs.Rules.Uf_sbv_to_int_elim": 5,
+      "Cpc.Proofs.RuleSupport.ArithModOverModSupport": 4,
+      "Cpc.Proofs.RuleSupport.ArithMultSupport": 4,
+      "Cpc.Proofs.RuleSupport.BvDivPow2Support": 4,
+      "Cpc.Proofs.RuleSupport.BvIteConstCondSupport": 4,
+      "Cpc.Proofs.RuleSupport.BvUaddoElimSupport": 4,
+      "Cpc.Proofs.RuleSupport.CnfSupport": 4,
+      "Cpc.Proofs.Rules.Re_diff_elim": 4,
+      "Cpc.Proofs.Rules.Str_indexof_re_none": 4,
+      "Cpc.Proofs.Rules.Str_replace_re_all_none": 4,
+      "Cpc.Proofs.Rules.Str_replace_re_none": 4,
+      "Cpc.Proofs.TypePreservation.BitVecCore": 4,
+      "Cpc.Proofs.Canonical.Basic": 3,
+      "Cpc.Proofs.RuleSupport.BvBitwiseElimSupport": 3,
+      "Cpc.Proofs.RuleSupport.BvSubElimSupport": 3,
+      "Cpc.Proofs.RuleSupport.Cong.TupleBvSeq": 3,
+      "Cpc.Proofs.RuleSupport.DtCollapseTesterSupport": 3,
+      "Cpc.Proofs.Rules.Int_tight_lb": 3,
+      "Cpc.Proofs.Rules.Int_tight_ub": 3,
+      "Cpc.Proofs.Rules.Re_in_sigma_star": 3,
+      "Cpc.Proofs.Rules.Re_opt_elim": 3,
+      "Cpc.Proofs.CheckerCore": 2,
+      "Cpc.Proofs.RuleSupport.ArithPolyNormRelSupport": 2,
+      "Cpc.Proofs.RuleSupport.BvBitblastSupport": 2,
+      "Cpc.Proofs.RuleSupport.BvConcatPullupSupport": 2,
+      "Cpc.Proofs.RuleSupport.BvMultPow2Support": 2,
+      "Cpc.Proofs.RuleSupport.BvShiftByConst2Support": 2,
+      "Cpc.Proofs.RuleSupport.DtConsEqSupport": 2,
+      "Cpc.Proofs.RuleSupport.SkolemizeSupport": 2,
+      "Cpc.Proofs.RuleSupport.Substitute.SubstitutePreservationShared": 2,
+      "Cpc.Proofs.Rules.Arith_int_mod_total_one": 2,
+      "Cpc.Proofs.Rules.Bool_dual_impl_eq": 2,
+      "Cpc.Proofs.Rules.Bool_impl_elim": 2,
+      "Cpc.Proofs.Rules.Bool_implies_de_morgan": 2,
+      "Cpc.Proofs.Rules.Bool_not_eq_elim1": 2,
+      "Cpc.Proofs.Rules.Bool_not_eq_elim2": 2,
+      "Cpc.Proofs.Rules.Bool_not_xor_elim": 2,
+      "Cpc.Proofs.Rules.Bool_xor_comm": 2,
+      "Cpc.Proofs.Rules.Bool_xor_elim": 2,
+      "Cpc.Proofs.Rules.Bv_sign_extend_eliminate_0": 2,
+      "Cpc.Proofs.Rules.Bv_smod_eliminate": 2,
+      "Cpc.Proofs.Rules.Bv_umulo_elim": 2,
+      "Cpc.Proofs.Rules.Bv_zero_extend_eliminate": 2,
+      "Cpc.Proofs.Rules.Ite_else_false": 2,
+      "Cpc.Proofs.Rules.Ite_else_lookahead_not_self": 2,
+      "Cpc.Proofs.Rules.Ite_else_lookahead_self": 2,
+      "Cpc.Proofs.Rules.Ite_else_true": 2,
+      "Cpc.Proofs.Rules.Ite_then_false": 2,
+      "Cpc.Proofs.Rules.Ite_then_lookahead_not_self": 2,
+      "Cpc.Proofs.Rules.Ite_then_lookahead_self": 2,
+      "Cpc.Proofs.Rules.Ite_then_true": 2,
+      "Cpc.Proofs.Rules.Re_all_elim": 2,
+      "Cpc.Proofs.Rules.Re_in_empty": 2,
+      "Cpc.Proofs.Rules.Re_in_sigma": 2,
+      "Cpc.Proofs.Rules.Re_plus_elim": 2,
+      "Cpc.Proofs.Rules.Re_star_emp": 2,
+      "Cpc.Proofs.Rules.Re_star_none": 2,
+      "Cpc.Proofs.Rules.Re_star_star": 2,
+      "Cpc.Proofs.Translation.Datatypes": 2,
+      "Cpc.Proofs.Translation.Inversions": 2,
+      "Cpc.Proofs.CheckerState": 1,
+      "Cpc.Proofs.RuleSupport.BvEqExtractElimSupport": 1,
+      "Cpc.Proofs.RuleSupport.BvExtractMultLeadingBitSupport": 1,
+      "Cpc.Proofs.RuleSupport.BvExtractSignExtend3Support": 1,
+      "Cpc.Proofs.RuleSupport.BvExtractSignExtendSupport": 1,
+      "Cpc.Proofs.RuleSupport.BvIteEqualCond1Support": 1,
+      "Cpc.Proofs.RuleSupport.BvMultSltMultSupport": 1,
+      "Cpc.Proofs.RuleSupport.BvRotateDecompSupport": 1,
+      "Cpc.Proofs.RuleSupport.BvUsuboElimSupport": 1,
+      "Cpc.Proofs.RuleSupport.Contract": 1,
+      "Cpc.Proofs.RuleSupport.DistinctTermsSupport": 1,
+      "Cpc.Proofs.RuleSupport.Evaluate.Prelude.StringFromInt": 1,
+      "Cpc.Proofs.RuleSupport.IntTightSupport": 1,
+      "Cpc.Proofs.RuleSupport.ReInclusionSupport": 1,
+      "Cpc.Proofs.RuleSupport.RegexRewriteSupport": 1,
+      "Cpc.Proofs.RuleSupport.SetsEvalOpSupport": 1,
+      "Cpc.Proofs.RuleSupport.StrConcatClashSupport": 1,
+      "Cpc.Proofs.RuleSupport.StrOverlapSupport": 1,
+      "Cpc.Proofs.RuleSupport.Substitute.SubstitutePreservationUOp1": 1,
+      "Cpc.Proofs.Rules.Arith_divisible_elim": 1,
+      "Cpc.Proofs.Rules.Arith_int_div_total_one": 1,
+      "Cpc.Proofs.Rules.Arith_int_div_total_zero": 1,
+      "Cpc.Proofs.Rules.Arith_int_mod_total_zero": 1,
+      "Cpc.Proofs.Rules.Arith_reduction": 1,
+      "Cpc.Proofs.Rules.Bool_and_de_morgan": 1,
+      "Cpc.Proofs.Rules.Bool_double_not_elim": 1,
+      "Cpc.Proofs.Rules.Bool_eq_false": 1,
+      "Cpc.Proofs.Rules.Bool_eq_nrefl": 1,
+      "Cpc.Proofs.Rules.Bool_eq_true": 1,
+      "Cpc.Proofs.Rules.Bool_impl_false1": 1,
+      "Cpc.Proofs.Rules.Bool_impl_false2": 1,
+      "Cpc.Proofs.Rules.Bool_impl_true1": 1,
+      "Cpc.Proofs.Rules.Bool_impl_true2": 1,
+      "Cpc.Proofs.Rules.Bool_or_de_morgan": 1,
+      "Cpc.Proofs.Rules.Bool_xor_false": 1,
+      "Cpc.Proofs.Rules.Bool_xor_nrefl": 1,
+      "Cpc.Proofs.Rules.Bool_xor_refl": 1,
+      "Cpc.Proofs.Rules.Bool_xor_true": 1,
+      "Cpc.Proofs.Rules.Bv_bitwise_slicing": 1,
+      "Cpc.Proofs.Rules.Bv_ite_merge_else_else": 1,
+      "Cpc.Proofs.Rules.Bv_ite_merge_else_if": 1,
+      "Cpc.Proofs.Rules.Bv_ite_merge_then_else": 1,
+      "Cpc.Proofs.Rules.Bv_ite_merge_then_if": 1,
+      "Cpc.Proofs.Rules.Bv_lt_self": 1,
+      "Cpc.Proofs.Rules.Bv_not_idemp": 1,
+      "Cpc.Proofs.Rules.Bv_sle_self": 1,
+      "Cpc.Proofs.Rules.Bv_ule_self": 1,
+      "Cpc.Proofs.Rules.Bv_ult_self": 1,
+      "Cpc.Proofs.Rules.Bv_zero_extend_eliminate_0": 1,
+      "Cpc.Proofs.Rules.Dt_collapse_updater": 1,
+      "Cpc.Proofs.Rules.Dt_cycle": 1,
+      "Cpc.Proofs.Rules.Dt_inst": 1,
+      "Cpc.Proofs.Rules.Dt_updater_elim": 1,
+      "Cpc.Proofs.Rules.Re_inter_all": 1,
+      "Cpc.Proofs.Rules.Re_inter_inclusion": 1,
+      "Cpc.Proofs.Rules.Re_loop_neg": 1,
+      "Cpc.Proofs.Rules.Re_star_union_char": 1,
+      "Cpc.Proofs.Rules.Re_star_union_drop_emp": 1,
+      "Cpc.Proofs.Rules.Re_union_all": 1,
+      "Cpc.Proofs.Rules.Re_union_inclusion": 1,
+      "Cpc.Proofs.Rules.Str_in_re_from_int_nemp_dig_range": 1,
+      "Cpc.Proofs.Rules.Str_in_re_inter_elim": 1,
+      "Cpc.Proofs.Rules.Str_in_re_union_elim": 1,
+      "Cpc.Proofs.Rules.Str_to_lower_concat": 1,
+      "Cpc.Proofs.Rules.Str_to_lower_from_int": 1,
+      "Cpc.Proofs.Rules.Str_to_upper_concat": 1,
+      "Cpc.Proofs.Rules.Str_to_upper_from_int": 1,
+      "Cpc.Proofs.Rules.String_ext": 1,
+      "Cpc.Proofs.Rules.Ubv_to_int_elim": 1,
+      "Cpc.Proofs.Translation.Full": 1,
+      "Cpc.Proofs.TypePreservation.Base": 1,
+      "Cpc.Proofs.TypePreservation.Common": 1
+    },
+    "theorem_sets": {
+      "correct___logos_verdict": {
+        "total_axioms": 2121,
+        "native_decide_axioms": 2118,
+        "set_sha256": "e2edb4a4952be9bce2d40511e7b0aee5e4eb25aa0ab45f49fd3dd362dfee0146"
+      },
+      "correct___logos_check_proof": {
+        "total_axioms": 2121,
+        "native_decide_axioms": 2118,
+        "set_sha256": "e2edb4a4952be9bce2d40511e7b0aee5e4eb25aa0ab45f49fd3dd362dfee0146"
+      },
+      "Smtm.model_wf_nonvacuous": {
+        "total_axioms": 4,
+        "native_decide_axioms": 1,
+        "set_sha256": "c71992902ed0e8d9e2da9ea1fa61cfb0e9d118aeddcb4f9866227a8b8fac98b1"
+      },
+      "LLMLang.LogosScalarDenotation.pinnedVerdict_noDependence_withBase": {
+        "total_axioms": 2121,
+        "native_decide_axioms": 2118,
+        "set_sha256": "e2edb4a4952be9bce2d40511e7b0aee5e4eb25aa0ab45f49fd3dd362dfee0146"
+      },
+      "LLMLang.LogosScalarDenotation.pinnedVerdict_noDependence": {
+        "total_axioms": 2121,
+        "native_decide_axioms": 2118,
+        "set_sha256": "e2edb4a4952be9bce2d40511e7b0aee5e4eb25aa0ab45f49fd3dd362dfee0146"
+      }
+    },
+    "base_witness_native_axiom": "_private.Cpc.Proofs.TypePreservation.Common.0.Smtm.native_re_canonical_none._native.native_decide.ax_1_1",
+    "changed_name_control": {
+      "same_full_count": true,
+      "same_final_components": true,
+      "same_full_set_digest": false
+    }
+  }
+}

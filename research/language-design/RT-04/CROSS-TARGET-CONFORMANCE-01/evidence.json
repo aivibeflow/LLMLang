@@ -1,0 +1,1264 @@
+{
+  "schema": "llmlang-cross-target-conformance/1",
+  "python": "3.12.14",
+  "inputs_sha256": {
+    "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+    "provider.c": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+    "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+  },
+  "tools": {
+    "gcc": {
+      "version": "gcc (Debian 14.2.0-19) 14.2.0",
+      "executable_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+    },
+    "clang": {
+      "version": "Debian clang version 19.1.7 (3+b1)",
+      "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+    },
+    "ld": {
+      "version": "GNU ld (GNU Binutils for Debian) 2.44",
+      "executable_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+    },
+    "wasm_ld": {
+      "version": "Debian LLD 19.1.7",
+      "executable_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+    },
+    "node": {
+      "version": "v24.22.3",
+      "executable_sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+    }
+  },
+  "scopes": 16,
+  "observations": 128,
+  "checked_scopes": 12,
+  "refuted_scopes": 4,
+  "ordered_receipt_reuse_pairs": 192,
+  "exact_reuse_admissions": 12,
+  "same_observations_different_scope": 68,
+  "single_field_reuse_controls": {
+    "semantic_input": false,
+    "contract": false,
+    "checker": false,
+    "assumption": false,
+    "target": false,
+    "artifact_sha256": false,
+    "compiler": false,
+    "linker": false,
+    "executor": false,
+    "recipe": false
+  },
+  "samples": [
+    {
+      "profile": "gcc_native_O0",
+      "provider": "exact",
+      "artifact_bytes": 14936,
+      "key": "6992381132cfa879f2aaedaca83c9ac4d60fa06fe1cd36d11ae6f26cec1fd3bc",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "exact",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": false
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "x86_64-sysv-c-int",
+        "artifact_sha256": "55cb5fcaa85c340654f55b334822bb8bead5b5735df5418920a135bc1f276924",
+        "compiler": {
+          "version": "gcc (Debian 14.2.0-19) 14.2.0",
+          "executable_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+        },
+        "linker": {
+          "version": "GNU ld (GNU Binutils for Debian) 2.44",
+          "executable_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+        },
+        "executor": {
+          "python": "3.12.14",
+          "api": "ctypes.CDLL",
+          "c_int_bytes": 4
+        },
+        "recipe": {
+          "compiler_driver_argv": [
+            "-fPIC",
+            "-shared",
+            "-Wl,--build-id=none",
+            "-O0",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "provider.c",
+            "-o",
+            "provider.so"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "21cc8a558e2bc6d1c2696b97080fd5ae07de430e188f83596c3718f698ad1055",
+      "refutations": []
+    },
+    {
+      "profile": "gcc_native_O0",
+      "provider": "exact",
+      "artifact_bytes": 14936,
+      "key": "00424d3e75d81ea9bf8bb0dfae7d59abc7c463cb4f2b2b20d4f00698daa961c8",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "exact",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": true
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "x86_64-sysv-c-int",
+        "artifact_sha256": "55cb5fcaa85c340654f55b334822bb8bead5b5735df5418920a135bc1f276924",
+        "compiler": {
+          "version": "gcc (Debian 14.2.0-19) 14.2.0",
+          "executable_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+        },
+        "linker": {
+          "version": "GNU ld (GNU Binutils for Debian) 2.44",
+          "executable_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+        },
+        "executor": {
+          "python": "3.12.14",
+          "api": "ctypes.CDLL",
+          "c_int_bytes": 4
+        },
+        "recipe": {
+          "compiler_driver_argv": [
+            "-fPIC",
+            "-shared",
+            "-Wl,--build-id=none",
+            "-O0",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "provider.c",
+            "-o",
+            "provider.so"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "59a682e346a8876c4b41300596038f8db00b9299a4181f4595371627fcda99dd",
+      "refutations": []
+    },
+    {
+      "profile": "gcc_native_O0",
+      "provider": "drop_event",
+      "artifact_bytes": 14936,
+      "key": "ff24c30bf3b0de9cdb555787da5e7a4c2762ab50d50d0e3ffabfa875470bd7f7",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "drop_event",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": false
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "x86_64-sysv-c-int",
+        "artifact_sha256": "f58b77fbe4c973abdf4dfe416e46ad25ba021d765f89292de080475546f85262",
+        "compiler": {
+          "version": "gcc (Debian 14.2.0-19) 14.2.0",
+          "executable_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+        },
+        "linker": {
+          "version": "GNU ld (GNU Binutils for Debian) 2.44",
+          "executable_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+        },
+        "executor": {
+          "python": "3.12.14",
+          "api": "ctypes.CDLL",
+          "c_int_bytes": 4
+        },
+        "recipe": {
+          "compiler_driver_argv": [
+            "-fPIC",
+            "-shared",
+            "-Wl,--build-id=none",
+            "-O0",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-DOMIT_EVENT",
+            "provider.c",
+            "-o",
+            "provider.so"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "21cc8a558e2bc6d1c2696b97080fd5ae07de430e188f83596c3718f698ad1055",
+      "refutations": []
+    },
+    {
+      "profile": "gcc_native_O0",
+      "provider": "drop_event",
+      "artifact_bytes": 14936,
+      "key": "bd722ac5b9f9f89f3465977491a6bf93eae81cd3e31e5882713646d1dd831aa2",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "drop_event",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": true
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "x86_64-sysv-c-int",
+        "artifact_sha256": "f58b77fbe4c973abdf4dfe416e46ad25ba021d765f89292de080475546f85262",
+        "compiler": {
+          "version": "gcc (Debian 14.2.0-19) 14.2.0",
+          "executable_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f"
+        },
+        "linker": {
+          "version": "GNU ld (GNU Binutils for Debian) 2.44",
+          "executable_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+        },
+        "executor": {
+          "python": "3.12.14",
+          "api": "ctypes.CDLL",
+          "c_int_bytes": 4
+        },
+        "recipe": {
+          "compiler_driver_argv": [
+            "-fPIC",
+            "-shared",
+            "-Wl,--build-id=none",
+            "-O0",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-DOMIT_EVENT",
+            "provider.c",
+            "-o",
+            "provider.so"
+          ]
+        }
+      },
+      "validated": false,
+      "observations_sha256": "439df4dc6d67d133ae1c996e3dcc9fbe9789bb1e99b398bfb85e4d57cba67663",
+      "refutations": [
+        [
+          -2,
+          1,
+          0
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          4,
+          1,
+          6
+        ],
+        [
+          5,
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "profile": "clang_native_O2",
+      "provider": "exact",
+      "artifact_bytes": 15144,
+      "key": "7e77e7290b744f7f42028f1c1343116a5b64493d414a82cff7f5e48885700a9b",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "exact",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": false
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "x86_64-sysv-c-int",
+        "artifact_sha256": "2177dbc9c74a86783cb2cfae287dada2bedb6ffd1002a13eca16b4f55370746f",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "GNU ld (GNU Binutils for Debian) 2.44",
+          "executable_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+        },
+        "executor": {
+          "python": "3.12.14",
+          "api": "ctypes.CDLL",
+          "c_int_bytes": 4
+        },
+        "recipe": {
+          "compiler_driver_argv": [
+            "-fPIC",
+            "-shared",
+            "-Wl,--build-id=none",
+            "-O2",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "provider.c",
+            "-o",
+            "provider.so"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "21cc8a558e2bc6d1c2696b97080fd5ae07de430e188f83596c3718f698ad1055",
+      "refutations": []
+    },
+    {
+      "profile": "clang_native_O2",
+      "provider": "exact",
+      "artifact_bytes": 15144,
+      "key": "7a99bcd9e778cdd8a3fbc1376f21cc25984bb956cf5390934a7ddd318f2e8755",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "exact",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": true
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "x86_64-sysv-c-int",
+        "artifact_sha256": "2177dbc9c74a86783cb2cfae287dada2bedb6ffd1002a13eca16b4f55370746f",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "GNU ld (GNU Binutils for Debian) 2.44",
+          "executable_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+        },
+        "executor": {
+          "python": "3.12.14",
+          "api": "ctypes.CDLL",
+          "c_int_bytes": 4
+        },
+        "recipe": {
+          "compiler_driver_argv": [
+            "-fPIC",
+            "-shared",
+            "-Wl,--build-id=none",
+            "-O2",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "provider.c",
+            "-o",
+            "provider.so"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "59a682e346a8876c4b41300596038f8db00b9299a4181f4595371627fcda99dd",
+      "refutations": []
+    },
+    {
+      "profile": "clang_native_O2",
+      "provider": "drop_event",
+      "artifact_bytes": 15144,
+      "key": "59e832dc6755ad8c27f9303119152d863705cf4a54d7935d172d9285dd51c66b",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "drop_event",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": false
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "x86_64-sysv-c-int",
+        "artifact_sha256": "cf82256b38a53516d9d6cdd5427e77ba94a154038651698edb7c51b210b496f6",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "GNU ld (GNU Binutils for Debian) 2.44",
+          "executable_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+        },
+        "executor": {
+          "python": "3.12.14",
+          "api": "ctypes.CDLL",
+          "c_int_bytes": 4
+        },
+        "recipe": {
+          "compiler_driver_argv": [
+            "-fPIC",
+            "-shared",
+            "-Wl,--build-id=none",
+            "-O2",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-DOMIT_EVENT",
+            "provider.c",
+            "-o",
+            "provider.so"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "21cc8a558e2bc6d1c2696b97080fd5ae07de430e188f83596c3718f698ad1055",
+      "refutations": []
+    },
+    {
+      "profile": "clang_native_O2",
+      "provider": "drop_event",
+      "artifact_bytes": 15144,
+      "key": "0d0df1fad5c8a2b4297462128d53ba1005a06418dd5db7f7cd314a2aed30613a",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "drop_event",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": true
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "x86_64-sysv-c-int",
+        "artifact_sha256": "cf82256b38a53516d9d6cdd5427e77ba94a154038651698edb7c51b210b496f6",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "GNU ld (GNU Binutils for Debian) 2.44",
+          "executable_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b"
+        },
+        "executor": {
+          "python": "3.12.14",
+          "api": "ctypes.CDLL",
+          "c_int_bytes": 4
+        },
+        "recipe": {
+          "compiler_driver_argv": [
+            "-fPIC",
+            "-shared",
+            "-Wl,--build-id=none",
+            "-O2",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-DOMIT_EVENT",
+            "provider.c",
+            "-o",
+            "provider.so"
+          ]
+        }
+      },
+      "validated": false,
+      "observations_sha256": "439df4dc6d67d133ae1c996e3dcc9fbe9789bb1e99b398bfb85e4d57cba67663",
+      "refutations": [
+        [
+          -2,
+          1,
+          0
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          4,
+          1,
+          6
+        ],
+        [
+          5,
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "profile": "clang_wasm_O0",
+      "provider": "exact",
+      "artifact_bytes": 517,
+      "key": "0aa8420b65f244dc5b15736b8632994e4c861058de6f286a3309218dff6ff727",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "exact",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": false
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "wasm32-export-i32",
+        "artifact_sha256": "2fc69ab572c18637fcdb9966af631d041787bc1ac68b473aaa38c56dc5c6d096",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "Debian LLD 19.1.7",
+          "executable_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+        },
+        "executor": {
+          "version": "v24.22.3",
+          "executable_sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+        },
+        "recipe": {
+          "compiler_argv": [
+            "--target=wasm32-unknown-unknown",
+            "-ffreestanding",
+            "-O0",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-c",
+            "provider.c",
+            "-o",
+            "provider.o"
+          ],
+          "linker_argv": [
+            "--no-entry",
+            "--export=bounded_value",
+            "provider.o",
+            "-o",
+            "provider.wasm"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "21cc8a558e2bc6d1c2696b97080fd5ae07de430e188f83596c3718f698ad1055",
+      "refutations": []
+    },
+    {
+      "profile": "clang_wasm_O0",
+      "provider": "exact",
+      "artifact_bytes": 517,
+      "key": "cdd9e0b23c8679b2c26c0f0519c61af0492d2c233a1b4ac4f60a12fcbbc8c126",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "exact",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": true
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "wasm32-export-i32",
+        "artifact_sha256": "2fc69ab572c18637fcdb9966af631d041787bc1ac68b473aaa38c56dc5c6d096",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "Debian LLD 19.1.7",
+          "executable_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+        },
+        "executor": {
+          "version": "v24.22.3",
+          "executable_sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+        },
+        "recipe": {
+          "compiler_argv": [
+            "--target=wasm32-unknown-unknown",
+            "-ffreestanding",
+            "-O0",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-c",
+            "provider.c",
+            "-o",
+            "provider.o"
+          ],
+          "linker_argv": [
+            "--no-entry",
+            "--export=bounded_value",
+            "provider.o",
+            "-o",
+            "provider.wasm"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "59a682e346a8876c4b41300596038f8db00b9299a4181f4595371627fcda99dd",
+      "refutations": []
+    },
+    {
+      "profile": "clang_wasm_O0",
+      "provider": "drop_event",
+      "artifact_bytes": 458,
+      "key": "b1c437251310b72858838cf787e12aadbd36e70928e213fcd1c5c206602c1a9f",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "drop_event",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": false
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "wasm32-export-i32",
+        "artifact_sha256": "defac37fa10779b959d05f9bd7516b25da20f7d1179dc5e257cd9d31743ef85d",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "Debian LLD 19.1.7",
+          "executable_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+        },
+        "executor": {
+          "version": "v24.22.3",
+          "executable_sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+        },
+        "recipe": {
+          "compiler_argv": [
+            "--target=wasm32-unknown-unknown",
+            "-ffreestanding",
+            "-O0",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-DOMIT_EVENT",
+            "-c",
+            "provider.c",
+            "-o",
+            "provider.o"
+          ],
+          "linker_argv": [
+            "--no-entry",
+            "--export=bounded_value",
+            "provider.o",
+            "-o",
+            "provider.wasm"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "21cc8a558e2bc6d1c2696b97080fd5ae07de430e188f83596c3718f698ad1055",
+      "refutations": []
+    },
+    {
+      "profile": "clang_wasm_O0",
+      "provider": "drop_event",
+      "artifact_bytes": 458,
+      "key": "bf1ecf4ca6940d9b0aa8d8e48f0f52dedb9c31650aec23f28735f6bc44a5f18d",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "drop_event",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": true
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "wasm32-export-i32",
+        "artifact_sha256": "defac37fa10779b959d05f9bd7516b25da20f7d1179dc5e257cd9d31743ef85d",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "Debian LLD 19.1.7",
+          "executable_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+        },
+        "executor": {
+          "version": "v24.22.3",
+          "executable_sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+        },
+        "recipe": {
+          "compiler_argv": [
+            "--target=wasm32-unknown-unknown",
+            "-ffreestanding",
+            "-O0",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-DOMIT_EVENT",
+            "-c",
+            "provider.c",
+            "-o",
+            "provider.o"
+          ],
+          "linker_argv": [
+            "--no-entry",
+            "--export=bounded_value",
+            "provider.o",
+            "-o",
+            "provider.wasm"
+          ]
+        }
+      },
+      "validated": false,
+      "observations_sha256": "439df4dc6d67d133ae1c996e3dcc9fbe9789bb1e99b398bfb85e4d57cba67663",
+      "refutations": [
+        [
+          -2,
+          1,
+          0
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          4,
+          1,
+          6
+        ],
+        [
+          5,
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "profile": "clang_wasm_O2",
+      "provider": "exact",
+      "artifact_bytes": 297,
+      "key": "aa4ada6d9d17641d69736c817c1f13d35f256eab1cdef51d39ffd123f21c762f",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "exact",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": false
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "wasm32-export-i32",
+        "artifact_sha256": "55afaec5bb1c166844b46fd21670971324712a24c069dab7a8f1a9b209cd9504",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "Debian LLD 19.1.7",
+          "executable_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+        },
+        "executor": {
+          "version": "v24.22.3",
+          "executable_sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+        },
+        "recipe": {
+          "compiler_argv": [
+            "--target=wasm32-unknown-unknown",
+            "-ffreestanding",
+            "-O2",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-c",
+            "provider.c",
+            "-o",
+            "provider.o"
+          ],
+          "linker_argv": [
+            "--no-entry",
+            "--export=bounded_value",
+            "provider.o",
+            "-o",
+            "provider.wasm"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "21cc8a558e2bc6d1c2696b97080fd5ae07de430e188f83596c3718f698ad1055",
+      "refutations": []
+    },
+    {
+      "profile": "clang_wasm_O2",
+      "provider": "exact",
+      "artifact_bytes": 297,
+      "key": "bcafe7f24faa89be8f5b7b94cdf648e65a739cfdaacca7856a472c095a5ce1b7",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "exact",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": true
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "wasm32-export-i32",
+        "artifact_sha256": "55afaec5bb1c166844b46fd21670971324712a24c069dab7a8f1a9b209cd9504",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "Debian LLD 19.1.7",
+          "executable_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+        },
+        "executor": {
+          "version": "v24.22.3",
+          "executable_sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+        },
+        "recipe": {
+          "compiler_argv": [
+            "--target=wasm32-unknown-unknown",
+            "-ffreestanding",
+            "-O2",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-c",
+            "provider.c",
+            "-o",
+            "provider.o"
+          ],
+          "linker_argv": [
+            "--no-entry",
+            "--export=bounded_value",
+            "provider.o",
+            "-o",
+            "provider.wasm"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "59a682e346a8876c4b41300596038f8db00b9299a4181f4595371627fcda99dd",
+      "refutations": []
+    },
+    {
+      "profile": "clang_wasm_O2",
+      "provider": "drop_event",
+      "artifact_bytes": 281,
+      "key": "49be4f49482839a41de0da0e870ff4e62fc1161db20bdf5d9d59245394d5cce2",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "drop_event",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": false
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "wasm32-export-i32",
+        "artifact_sha256": "168813bfb8f6acc53e735c774e72f6e32e48dd8ff164ebf6244a324de5615586",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "Debian LLD 19.1.7",
+          "executable_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+        },
+        "executor": {
+          "version": "v24.22.3",
+          "executable_sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+        },
+        "recipe": {
+          "compiler_argv": [
+            "--target=wasm32-unknown-unknown",
+            "-ffreestanding",
+            "-O2",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-DOMIT_EVENT",
+            "-c",
+            "provider.c",
+            "-o",
+            "provider.o"
+          ],
+          "linker_argv": [
+            "--no-entry",
+            "--export=bounded_value",
+            "provider.o",
+            "-o",
+            "provider.wasm"
+          ]
+        }
+      },
+      "validated": true,
+      "observations_sha256": "21cc8a558e2bc6d1c2696b97080fd5ae07de430e188f83596c3718f698ad1055",
+      "refutations": []
+    },
+    {
+      "profile": "clang_wasm_O2",
+      "provider": "drop_event",
+      "artifact_bytes": 281,
+      "key": "89e37c003daf385b7b41e8658b40c71160c2b5d3b3ecf0bf5709dca36c7bf5ee",
+      "subject": {
+        "semantic_input": {
+          "operation": "bounded-value/1",
+          "source": "09a9f32f8810b9a25192133fe581e7d929c8d7f13bc0fc135ddde2039b76bda5",
+          "provider": "drop_event",
+          "input_values": [
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "contract": {
+          "id": "clamp-to-zero-through-three-with-declared-event/1",
+          "reference_sha256": "706cd8e61e74d3d66f7fb878473d99b13d5a3ef6202a4f6dcb18e2ac76022b48"
+        },
+        "assumption": {
+          "callback_observable": true
+        },
+        "checker": {
+          "run.py": "f470fee893c2b5f1d47812af2a685cc114d568a070dfea20131760e3e62332a7",
+          "wasm.mjs": "5714feb3d2b3db1730553d6425c10ed76211fec8275718ae67f777d609b37e13"
+        },
+        "target": "wasm32-export-i32",
+        "artifact_sha256": "168813bfb8f6acc53e735c774e72f6e32e48dd8ff164ebf6244a324de5615586",
+        "compiler": {
+          "version": "Debian clang version 19.1.7 (3+b1)",
+          "executable_sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+        },
+        "linker": {
+          "version": "Debian LLD 19.1.7",
+          "executable_sha256": "7a2fd87d82662beac4371a1a21067b37cd4b7d43777aa61c089d85c45f772f6e"
+        },
+        "executor": {
+          "version": "v24.22.3",
+          "executable_sha256": "acbe4b8d9153b841ed0697cbfc4f93e767386620edb745ab9358306c0a6f31aa"
+        },
+        "recipe": {
+          "compiler_argv": [
+            "--target=wasm32-unknown-unknown",
+            "-ffreestanding",
+            "-O2",
+            "-std=c17",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-DOMIT_EVENT",
+            "-c",
+            "provider.c",
+            "-o",
+            "provider.o"
+          ],
+          "linker_argv": [
+            "--no-entry",
+            "--export=bounded_value",
+            "provider.o",
+            "-o",
+            "provider.wasm"
+          ]
+        }
+      },
+      "validated": false,
+      "observations_sha256": "439df4dc6d67d133ae1c996e3dcc9fbe9789bb1e99b398bfb85e4d57cba67663",
+      "refutations": [
+        [
+          -2,
+          1,
+          0
+        ],
+        [
+          -1,
+          1,
+          0
+        ],
+        [
+          4,
+          1,
+          6
+        ],
+        [
+          5,
+          1,
+          6
+        ]
+      ]
+    }
+  ]
+}

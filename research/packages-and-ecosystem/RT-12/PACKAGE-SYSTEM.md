@@ -553,6 +553,8 @@ The queue index improved throughput across all four shapes. It adds roughly 0.5 
 
 These are single-run CI observations, not controlled-hardware baselines: there are no repetitions, confidence intervals, or stable performance thresholds. They demonstrate the direction and current cost profile only. They do not prove constant memory or predict production Content Store performance.
 
+A later pinned shared-host series recorded 60 verified exploratory samples across four shapes and three sizes. At 4,096 objects, sparse build medians ranged from 2.866 to 3.198 s and the 65,400-edge fixture took 30.710 s. Dedicated hardware and representative Store I/O remain open. [Single-core Provider baseline](RT-12-PROVIDER-BASELINE-2026-11-25.md)
+
 CI also exercises 1,200-object chain and high-fan-out closures through the actual Provider and archive verifier, with deliberately small external-sort and SQLite cache settings. This is a scale regression test, not a maximum-capacity claim.
 
 ### 17.2 Toolchain Server Prototype 01 is not yet a Provider backend

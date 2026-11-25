@@ -1,0 +1,60 @@
+{
+  "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+  "optimizer": "Debian LLVM version 19.1.7",
+  "profiles": {
+    "0": {
+      "function_progress": {
+        "assumes_terminating_input": false,
+        "has_volatile_read": false,
+        "has_wait_backedge": true,
+        "native_result_for_stop_one": 7
+      },
+      "loop_progress": {
+        "assumes_terminating_input": false,
+        "has_volatile_read": false,
+        "has_wait_backedge": true,
+        "native_result_for_stop_one": 7
+      },
+      "unannotated": {
+        "assumes_terminating_input": false,
+        "has_volatile_read": false,
+        "has_wait_backedge": true,
+        "native_result_for_stop_one": 7
+      },
+      "volatiles_make_progress": {
+        "assumes_terminating_input": false,
+        "has_volatile_read": true,
+        "has_wait_backedge": true,
+        "native_result_for_stop_one": 7
+      }
+    },
+    "3": {
+      "function_progress": {
+        "assumes_terminating_input": true,
+        "has_volatile_read": false,
+        "has_wait_backedge": false,
+        "native_result_for_stop_one": 7
+      },
+      "loop_progress": {
+        "assumes_terminating_input": true,
+        "has_volatile_read": false,
+        "has_wait_backedge": false,
+        "native_result_for_stop_one": 7
+      },
+      "unannotated": {
+        "assumes_terminating_input": false,
+        "has_volatile_read": false,
+        "has_wait_backedge": true,
+        "native_result_for_stop_one": 7
+      },
+      "volatiles_make_progress": {
+        "assumes_terminating_input": false,
+        "has_volatile_read": true,
+        "has_wait_backedge": true,
+        "native_result_for_stop_one": 7
+      }
+    }
+  },
+  "python": "3.12.14",
+  "source_sha256": "209be7007bdb9ddc4d774f80a20637277a27857a60f69da9f4bff6f1749a811c"
+}

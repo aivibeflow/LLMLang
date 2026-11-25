@@ -1,0 +1,98 @@
+{
+  "schema": "llmlang-joint-contracts/1",
+  "python": "3.12.14",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "sources_sha256": {
+    "run.py": "33ce6716d61e4c54b441abf619f1c7150d31bdc25ad71b82ed3b5ed5b1d43817",
+    "Contracts.lean": "9ff27799513454acc376a2a1c44dcd1c97e03041b6d5df6ac77b2f3ff011be7b",
+    "axioms.txt": "3fae297a7e11d14271356729365d710fdad915fbfefdbbf9da7bd23e854d1a96",
+    "probe.c": "73601941f32830b8ec8d71fc2509c8d1e800818694a68fff5f39c4697fc3dea6"
+  },
+  "contracts": 1024,
+  "implementations": 16,
+  "native_rows_per_optimization": 32,
+  "native_rows_sha256": {
+    "-O0": "1774de380f21247af2251be21468116ac20ba43627d467349abb61330d27799c",
+    "-O2": "1774de380f21247af2251be21468116ac20ba43627d467349abb61330d27799c"
+  },
+  "counts": {
+    "ordered_contract_pairs": 1048576,
+    "individually_feasible_pairs": 923521,
+    "jointly_feasible_pairs": 829921,
+    "overlap_only_false_admission_pairs": 674880,
+    "overlap_only_false_provider_admissions": 5767168,
+    "unconditional_intersection_false_refusal_pairs": 515200,
+    "unconditional_intersection_false_provider_refusals": 2097152,
+    "individually_feasible_but_disjoint_pairs": 93600,
+    "contracts_with_multiple_conforming_providers": 945,
+    "contracts_allow_same_values_with_distinct_effects": 385
+  },
+  "witnesses": {
+    "overlap_hides_obligation": {
+      "left": [
+        0,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        0,
+        0
+      ],
+      "implementation": 0
+    },
+    "inactive_postcondition_restricts": {
+      "left": [
+        0,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        1,
+        0
+      ],
+      "implementation": 0
+    },
+    "no_common_provider": {
+      "left": [
+        1,
+        1,
+        0
+      ],
+      "right": [
+        1,
+        2,
+        0
+      ],
+      "implementation": null
+    },
+    "exact_operation_can_allow_distinct_effects": {
+      "contract": [
+        3,
+        5,
+        10
+      ],
+      "provider_4": {
+        "0": [
+          0,
+          0
+        ],
+        "1": [
+          1,
+          0
+        ]
+      },
+      "provider_14": {
+        "0": [
+          0,
+          1
+        ],
+        "1": [
+          1,
+          1
+        ]
+      }
+    }
+  }
+}

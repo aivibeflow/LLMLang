@@ -1,0 +1,66 @@
+{
+  "format": "mediated-descriptors-01",
+  "host": "x86_64",
+  "rows": [
+    {
+      "case": "exact read permission",
+      "result": "A"
+    },
+    {
+      "case": "invalid grant integrity",
+      "result": "bad-grant"
+    },
+    {
+      "case": "altered actor inside signed grant",
+      "result": "bad-grant"
+    },
+    {
+      "case": "wrong external actor",
+      "result": "wrong-authority-scope"
+    },
+    {
+      "case": "wrong requested resource",
+      "result": "wrong-authority-scope"
+    },
+    {
+      "case": "permission cannot amplify from read to write",
+      "result": "wrong-authority-scope"
+    },
+    {
+      "case": "wrong runtime profile",
+      "result": "wrong-authority-scope"
+    },
+    {
+      "case": "grant cannot write through a read-only descriptor",
+      "result": "native-right-insufficient"
+    },
+    {
+      "case": "native read-only right",
+      "result": "EBADF"
+    },
+    {
+      "case": "exact mediated write",
+      "result": 1
+    },
+    {
+      "case": "write-only descriptor refuses reading",
+      "result": "native-right-insufficient"
+    },
+    {
+      "case": "submit after scheduled revocation",
+      "result": "stale-grant"
+    },
+    {
+      "case": "already transferred raw descriptor keeps kernel lifetime",
+      "result": "A"
+    },
+    {
+      "case": "current grant after explicit reissue",
+      "result": "A"
+    },
+    {
+      "case": "descriptor number is reused for a different fixture file",
+      "result": "wrong-native-object"
+    }
+  ]
+}

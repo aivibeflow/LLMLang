@@ -1,0 +1,535 @@
+{
+  "baseline": "5619c764c399c25453730cd93d50515dd6eb7ba2",
+  "runner_sha256": "aad6506dfb989c4c7a0a2cce03d750046883652dcfd794b04be8c556afb2392d",
+  "python": "3.12.14",
+  "kernel": "6.18.57",
+  "system": "Linux",
+  "target": "x86_64",
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "pinned_cpu": 2,
+  "trial_seed": 32,
+  "trials_per_profile": 9,
+  "cyclic_gc_enabled": false,
+  "clock": {
+    "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+    "resolution_seconds": 1e-09
+  },
+  "path_prefix_limit": 4096,
+  "rows": [
+    {
+      "depth": 4,
+      "graph_nodes": 13,
+      "graph_edges": 16,
+      "complete_visits": {
+        "paths": 61,
+        "full-state": 23
+      },
+      "node_only_outcomes": [
+        0
+      ],
+      "exact_outcomes": [
+        0,
+        1
+      ],
+      "path_prefix": {
+        "visits": 61,
+        "terminal_outcomes": [
+          0,
+          1
+        ],
+        "complete": true,
+        "exact_worklist_used": false,
+        "exported_outcomes": [
+          0,
+          1
+        ]
+      },
+      "trial_order": [
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ]
+      ],
+      "elapsed": {
+        "paths": {
+          "raw_total_ns": [
+            154658,
+            154258,
+            196020,
+            153977,
+            152355,
+            151634,
+            153176,
+            153757,
+            154989
+          ],
+          "traversals_per_trial": 20,
+          "median_ns_per_traversal": 7698.85,
+          "q1_ns_per_traversal": 7658.8,
+          "q3_ns_per_traversal": 7732.9
+        },
+        "full-state": {
+          "raw_total_ns": [
+            994780,
+            983914,
+            1011655,
+            991715,
+            983503,
+            1004665,
+            972576,
+            979537,
+            983793
+          ],
+          "traversals_per_trial": 200,
+          "median_ns_per_traversal": 4919.57,
+          "q1_ns_per_traversal": 4917.515,
+          "q3_ns_per_traversal": 4973.9
+        }
+      }
+    },
+    {
+      "depth": 8,
+      "graph_nodes": 25,
+      "graph_edges": 32,
+      "complete_visits": {
+        "paths": 1021,
+        "full-state": 47
+      },
+      "node_only_outcomes": [
+        0
+      ],
+      "exact_outcomes": [
+        0,
+        1
+      ],
+      "path_prefix": {
+        "visits": 1021,
+        "terminal_outcomes": [
+          0,
+          1
+        ],
+        "complete": true,
+        "exact_worklist_used": false,
+        "exported_outcomes": [
+          0,
+          1
+        ]
+      },
+      "trial_order": [
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ]
+      ],
+      "elapsed": {
+        "paths": {
+          "raw_total_ns": [
+            2950128,
+            2707099,
+            2751125,
+            2600171,
+            2614822,
+            2608794,
+            2834587,
+            2807968,
+            2615654
+          ],
+          "traversals_per_trial": 20,
+          "median_ns_per_traversal": 135354.95,
+          "q1_ns_per_traversal": 130741.1,
+          "q3_ns_per_traversal": 140398.4
+        },
+        "full-state": {
+          "raw_total_ns": [
+            1976069,
+            2188754,
+            1936221,
+            1950472,
+            1935439,
+            1959845,
+            1946395,
+            2027935,
+            2064450
+          ],
+          "traversals_per_trial": 200,
+          "median_ns_per_traversal": 9799.225,
+          "q1_ns_per_traversal": 9731.975,
+          "q3_ns_per_traversal": 10139.675
+        }
+      }
+    },
+    {
+      "depth": 12,
+      "graph_nodes": 37,
+      "graph_edges": 48,
+      "complete_visits": {
+        "paths": 16381,
+        "full-state": 71
+      },
+      "node_only_outcomes": [
+        0
+      ],
+      "exact_outcomes": [
+        0,
+        1
+      ],
+      "path_prefix": {
+        "visits": 4096,
+        "terminal_outcomes": [
+          0,
+          1
+        ],
+        "complete": false,
+        "exact_worklist_used": true,
+        "exported_outcomes": [
+          0,
+          1
+        ]
+      },
+      "trial_order": [
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ]
+      ],
+      "elapsed": {
+        "paths": {
+          "raw_total_ns": [
+            4194025,
+            4444816,
+            4310367,
+            4177281,
+            4222217,
+            4228987,
+            4402723,
+            4491375,
+            4340141
+          ],
+          "traversals_per_trial": 2,
+          "median_ns_per_traversal": 2155183.5,
+          "q1_ns_per_traversal": 2111108.5,
+          "q3_ns_per_traversal": 2201361.5
+        },
+        "full-state": {
+          "raw_total_ns": [
+            2906174,
+            2982636,
+            3390238,
+            2915056,
+            2883860,
+            3190724,
+            3096183,
+            2966463,
+            2966352
+          ],
+          "traversals_per_trial": 200,
+          "median_ns_per_traversal": 14832.315,
+          "q1_ns_per_traversal": 14575.28,
+          "q3_ns_per_traversal": 15480.915
+        }
+      }
+    },
+    {
+      "depth": 16,
+      "graph_nodes": 49,
+      "graph_edges": 64,
+      "complete_visits": {
+        "paths": 262141,
+        "full-state": 95
+      },
+      "node_only_outcomes": [
+        0
+      ],
+      "exact_outcomes": [
+        0,
+        1
+      ],
+      "path_prefix": {
+        "visits": 4096,
+        "terminal_outcomes": [
+          0,
+          1
+        ],
+        "complete": false,
+        "exact_worklist_used": true,
+        "exported_outcomes": [
+          0,
+          1
+        ]
+      },
+      "trial_order": [
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ]
+      ],
+      "elapsed": {
+        "paths": {
+          "raw_total_ns": [
+            34523329,
+            33872178,
+            33884686,
+            34449240,
+            34840397,
+            33448431,
+            35456988,
+            34294180,
+            33719322
+          ],
+          "traversals_per_trial": 1,
+          "median_ns_per_traversal": 34294180.0,
+          "q1_ns_per_traversal": 33872178.0,
+          "q3_ns_per_traversal": 34523329.0
+        },
+        "full-state": {
+          "raw_total_ns": [
+            4003263,
+            3994321,
+            3941552,
+            4055841,
+            4033599,
+            4246253,
+            4256228,
+            3956034,
+            4029663
+          ],
+          "traversals_per_trial": 200,
+          "median_ns_per_traversal": 20148.315,
+          "q1_ns_per_traversal": 19971.605,
+          "q3_ns_per_traversal": 20279.205
+        }
+      }
+    },
+    {
+      "depth": 20,
+      "graph_nodes": 61,
+      "graph_edges": 80,
+      "complete_visits": {
+        "paths": 4194301,
+        "full-state": 119
+      },
+      "node_only_outcomes": [
+        0
+      ],
+      "exact_outcomes": [
+        0,
+        1
+      ],
+      "path_prefix": {
+        "visits": 4096,
+        "terminal_outcomes": [
+          0,
+          1
+        ],
+        "complete": false,
+        "exact_worklist_used": true,
+        "exported_outcomes": [
+          0,
+          1
+        ]
+      },
+      "trial_order": [
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "full-state",
+          "paths"
+        ],
+        [
+          "paths",
+          "full-state"
+        ],
+        [
+          "full-state",
+          "paths"
+        ]
+      ],
+      "elapsed": {
+        "paths": {
+          "raw_total_ns": [
+            547174668,
+            562328264,
+            550470768,
+            544877858,
+            543824696,
+            546096991,
+            545354242,
+            545750659,
+            552722612
+          ],
+          "traversals_per_trial": 1,
+          "median_ns_per_traversal": 546096991.0,
+          "q1_ns_per_traversal": 545354242.0,
+          "q3_ns_per_traversal": 550470768.0
+        },
+        "full-state": {
+          "raw_total_ns": [
+            5053371,
+            5328084,
+            5277727,
+            4990947,
+            5058834,
+            4998155,
+            5551143,
+            4981239,
+            5067206
+          ],
+          "traversals_per_trial": 200,
+          "median_ns_per_traversal": 25294.17,
+          "q1_ns_per_traversal": 24990.775,
+          "q3_ns_per_traversal": 26388.635
+        }
+      }
+    }
+  ]
+}

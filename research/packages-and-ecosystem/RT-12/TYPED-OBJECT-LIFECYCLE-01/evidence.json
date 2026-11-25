@@ -1,0 +1,173 @@
+{
+  "common_typed_identity": "3f69f69155ed763f4d25ea1284c41054a198e2577b1f400ae652d0daedfa663a",
+  "format": "typed-object-lifecycle-01",
+  "lifecycle_refusals": [
+    {
+      "case": "v1 reader addresses v2 object",
+      "decision": "reader format unsupported"
+    },
+    {
+      "case": "wrong read domain",
+      "decision": "unknown exact address or domain"
+    },
+    {
+      "case": "stale reference update",
+      "decision": "stale reference"
+    },
+    {
+      "case": "new storage format is unrecognized",
+      "decision": "unsupported storage envelope"
+    },
+    {
+      "case": "Boolean storage version",
+      "decision": "unsupported storage envelope"
+    },
+    {
+      "case": "non-string inner address",
+      "decision": "address"
+    },
+    {
+      "case": "transport length is false",
+      "decision": "noncanonical storage envelope"
+    },
+    {
+      "case": "old address bytes changed",
+      "decision": "corrupt exact address"
+    },
+    {
+      "case": "ordinary repeat cannot overwrite damage",
+      "decision": "occupied-invalid"
+    }
+  ],
+  "node": "v24.22.3",
+  "sqlite": "3.53.1",
+  "typed_controls": [
+    {
+      "case": "canonical-candidate-set",
+      "decision": "accept"
+    },
+    {
+      "case": "canonical-class",
+      "decision": "accept"
+    },
+    {
+      "case": "canonical-contract",
+      "decision": "accept"
+    },
+    {
+      "case": "canonical-evidence",
+      "decision": "accept"
+    },
+    {
+      "case": "canonical-implementation",
+      "decision": "accept"
+    },
+    {
+      "case": "canonical-operation",
+      "decision": "accept"
+    },
+    {
+      "case": "map-order-0",
+      "decision": "accept"
+    },
+    {
+      "case": "map-order-1",
+      "decision": "noncanonical"
+    },
+    {
+      "case": "map-order-2",
+      "decision": "noncanonical"
+    },
+    {
+      "case": "map-order-3",
+      "decision": "noncanonical"
+    },
+    {
+      "case": "map-order-4",
+      "decision": "noncanonical"
+    },
+    {
+      "case": "map-order-5",
+      "decision": "noncanonical"
+    },
+    {
+      "case": "whitespace",
+      "decision": "noncanonical"
+    },
+    {
+      "case": "escaped-unicode",
+      "decision": "noncanonical"
+    },
+    {
+      "case": "raw-hash-unsorted",
+      "decision": "noncanonical"
+    },
+    {
+      "case": "valid-composed-text",
+      "decision": "accept"
+    },
+    {
+      "case": "valid-decomposed-text",
+      "decision": "accept"
+    },
+    {
+      "case": "invalid-utf8",
+      "decision": "malformed"
+    },
+    {
+      "case": "utf8-bom",
+      "decision": "malformed"
+    },
+    {
+      "case": "trailing-expression",
+      "decision": "malformed"
+    },
+    {
+      "case": "wrong-version",
+      "decision": "envelope"
+    },
+    {
+      "case": "wrong-domain",
+      "decision": "domain"
+    },
+    {
+      "case": "missing-domain",
+      "decision": "envelope"
+    },
+    {
+      "case": "duplicate-key",
+      "decision": "typed"
+    },
+    {
+      "case": "int-negative-zero",
+      "decision": "typed"
+    },
+    {
+      "case": "bare-unsafe-integer",
+      "decision": "typed"
+    },
+    {
+      "case": "escaped-lone-surrogate",
+      "decision": "typed"
+    },
+    {
+      "case": "unsupported-algorithm",
+      "decision": "algorithm"
+    },
+    {
+      "case": "uppercase-address",
+      "decision": "address"
+    },
+    {
+      "case": "truncated-address",
+      "decision": "address"
+    },
+    {
+      "case": "wrong-address",
+      "decision": "digest"
+    }
+  ],
+  "v1_object": "ff0eed5cf9715403ff41f43d6e4e82c4b96892cc692aafa3749accab64583b48",
+  "v2_new_inner_object": "96c928fcfcf989eb9dfddf64e889f75c82950ec1af2ea21b3eaacaccb7cabdf2",
+  "v2_same_inner_object": "79f74ad99ba350298718c1ff2eeeaca6316b8120c25520b63a5d63157c22949d"
+}

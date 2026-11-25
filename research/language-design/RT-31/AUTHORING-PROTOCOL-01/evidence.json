@@ -1,0 +1,74 @@
+{
+  "assignment_digest": "6a79a8949365a6645eb85648b3b1bac67ba52fb96aad6e2a707925022adb0ae6",
+  "assignments": 96,
+  "example_assigned_request": {
+    "assignment": {
+      "corpus": "8b2783753b0d140f7e1a14fe64a1ae068a343e9dd136795f3dac7b23dd8e78c9",
+      "environment_digest": "fixture-environment:1",
+      "initial_context_digest": "fixture-read-scope:1",
+      "instruction_digest": "fixture-instructions:1",
+      "maximum_repair_attempts": 1,
+      "mode": "synthetic-plan-only",
+      "model_identity": "fixture-model-revision",
+      "model_provider": "fixture-provider",
+      "model_settings": {
+        "max_output_tokens": 400,
+        "temperature": 0,
+        "tool_selection": "fixture"
+      },
+      "oracle": "9acf2f4749c1abd60158e6271657cb68edf03c9f7edf6b4e738f8c50d019e5fc",
+      "ordinal": 0,
+      "profile": "infix/1",
+      "profile_order": [
+        "infix/1",
+        "s-expression/1",
+        "hybrid/1",
+        "json-tree/1"
+      ],
+      "seed": 17,
+      "task": "rebind-and-adjust",
+      "toolchain_digest": "fixture-toolchain:1"
+    },
+    "id": "f77cf0fc7bdf9187a7f458e422cd98d9c5d8fe7067c94efc5ca8654855f66335"
+  },
+  "historical_negative_controls": 24,
+  "historical_oracle_observations": 504,
+  "input_pins": [
+    "8b2783753b0d140f7e1a14fe64a1ae068a343e9dd136795f3dac7b23dd8e78c9",
+    "9acf2f4749c1abd60158e6271657cb68edf03c9f7edf6b4e738f8c50d019e5fc"
+  ],
+  "mode": "synthetic-plan-only",
+  "profile_orders": [
+    [
+      "infix/1",
+      "s-expression/1",
+      "hybrid/1",
+      "json-tree/1"
+    ],
+    [
+      "s-expression/1",
+      "json-tree/1",
+      "infix/1",
+      "hybrid/1"
+    ],
+    [
+      "json-tree/1",
+      "hybrid/1",
+      "s-expression/1",
+      "infix/1"
+    ],
+    [
+      "hybrid/1",
+      "infix/1",
+      "json-tree/1",
+      "s-expression/1"
+    ]
+  ],
+  "python": "3.12.14",
+  "source_sha256": "62adf2e6abf9396d2c490b18d49425fdeecfe9b55539b74f302e8a24e35f6feb",
+  "tasks": [
+    "rebind-and-adjust",
+    "pin-and-change-argument",
+    "change-trace-and-fallback"
+  ]
+}

@@ -1,0 +1,5 @@
+'DelegatedQuota.reclaimConserves' depends on axioms: [propext]
+'DelegatedQuota.reclaimIdempotent' depends on axioms: [propext]
+'DelegatedQuota.settleConserves' depends on axioms: [propext, Quot.sound]
+'DelegatedQuota.admissionSafe' depends on axioms: [propext, Quot.sound]
+'DelegatedQuota.fullReturnCanOvercommit' does not depend on any axioms

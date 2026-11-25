@@ -1,0 +1,44 @@
+{
+  "comparisons": 1296,
+  "controls": {
+    "absent-root": "missing-exact-object",
+    "active-linux-with-exact-object": "exact",
+    "active-linux-with-same-name-replacement": "missing-exact-object",
+    "inactive-windows-missing": "exact",
+    "roots-only-without-condition-facts": "exact",
+    "unsupported-target-fact": "unknown-condition"
+  },
+  "differences_between_policies": {
+    "required": 162,
+    "with-optional": 96
+  },
+  "objects": {
+    "common": "7aa4816df720c96939b0225227caa8534bbe97043e7e1a4792162abd664b7e2e",
+    "entry": "79b05c7db85ff8f84999a7406d6fc4a7c6643dad307ca4b87da0b1b62afa90dd",
+    "evidence": "10709eed298a8eb7df223c746b71e390a5d242644e03b59c657d00a841ac2965",
+    "linux": "a359463e7cd9b91ce1528bb45a5f4c223d305bd26b8121aff9a07ceecec9519d",
+    "support": "4c98bd8611fb53f8ae40e1dc501a7adc35fbeede5faa598dd96ce8fe19471823",
+    "trace": "18726d9f9c0c11701bc249665c975960d6c92d161cea315aa953234860efc391",
+    "windows": "6b26a0f788131ade55101b7480f679b03a9b48d2d11cb6c9e235b4bcac0e7a0b"
+  },
+  "outcomes": {
+    "target-active/required/exact": 54,
+    "target-active/required/missing-exact-object": 90,
+    "target-active/required/unknown-condition": 72,
+    "target-active/roots-only/exact": 207,
+    "target-active/roots-only/missing-exact-object": 9,
+    "target-active/with-optional/exact": 28,
+    "target-active/with-optional/missing-exact-object": 68,
+    "target-active/with-optional/unknown-condition": 120,
+    "target-metadata/required/exact": 135,
+    "target-metadata/required/missing-exact-object": 81,
+    "target-metadata/roots-only/exact": 207,
+    "target-metadata/roots-only/missing-exact-object": 9,
+    "target-metadata/with-optional/exact": 72,
+    "target-metadata/with-optional/missing-exact-object": 72,
+    "target-metadata/with-optional/unknown-condition": 72
+  },
+  "python": "3.12.14",
+  "replacement": "15090d1fbb6bcf73730d24370aeac5d62c24a36ba6c50915d985efcb5bdf5b19",
+  "source_sha256": "86aa39bb279591197fff0bf5c889319d46d3b6fd986d1fe51a6f9e80cb6fc8fd"
+}

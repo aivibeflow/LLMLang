@@ -1,0 +1,572 @@
+{
+  "baseline": "5317a6a66c53886d5d8885b7262d07ad0a3e79fa",
+  "cases": [
+    {
+      "case": {
+        "handle_close": "ok",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "retained_error",
+        "wants_value": true
+      },
+      "different_projection_key": "751166e10db162b22e5985c26d27e7815bd46460cee33d4d00176ab054bac468",
+      "different_provider_key": "74c01bee77b93cd7e09c01ea6a4af950b8bb3498fb0865497d3aea597c40884a",
+      "exact_claim_key": "a157770127622754bfa6acfb54ff553f16ebd3f231dacdc281c4e995e9fbf2f7",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "retained_error",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "retained_error",
+        "wants_value": true
+      },
+      "different_projection_key": "eec98fba1fd84be0b1c412c0186b3687ef4f99e50c64a5a7aac2a78a67f793d8",
+      "different_provider_key": "9f6d2793ffb1eb20df90715857fd00dd805949b85cb4d11e3437a37e8202fd29",
+      "exact_claim_key": "efae38539240010db4c99408f95d48f65a6c1e76ae3aa85ee667fa73fa74ab0f",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "consumed_error",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "retained_error",
+        "wants_value": true
+      },
+      "different_projection_key": "190dfdcf3fb17c8345e9a451a22acdf3d28ee508b74fe96630c1f78a72406d2b",
+      "different_provider_key": "da7a688cc8afec983b1ca704c3a5c48cd97768d96240e0c876dfcaa04e1a0816",
+      "exact_claim_key": "d3129e6e56efb5f1fa15d7c25672cc278513e92f45f436b46071a8e116426333",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "indeterminate",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "retained_error",
+        "wants_value": true
+      },
+      "different_projection_key": "5dacf348cbe58d407181ad60c791ecd52d54f1b4e615d3de370f929a679ce6ec",
+      "different_provider_key": "6c304b14baccf3db4d3e7472cad332f7a2f81887d6d6a44e11756e19483339b6",
+      "exact_claim_key": "f45aa925d6390039ce8c73158fd4e65edaae5ed6c43bb44138af2636b8a9f35b",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "ok",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "consumed_error",
+        "wants_value": true
+      },
+      "different_projection_key": "da5099d448deafd48d1b5d2fc27e1217d58dae2a76bfffff716ec09ffbc94583",
+      "different_provider_key": "55a4dfc9a552bb81091872f22aab9a256cffb02ee28a0b435840cfcd0be40277",
+      "exact_claim_key": "28ba7c82386baf97d4fa6648d4bccb3be4f7ac5efa8d5b3bb8b95d4a69cc38ef",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "retained_error",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "consumed_error",
+        "wants_value": true
+      },
+      "different_projection_key": "417461207d10d120a62cf3944f87c75ad1f45758dd240a871770e8a9dfa1da85",
+      "different_provider_key": "3ac4f1b07c5aa1728ea60fe505cf2689ae55c7cfb25b1e9fcfbd9a122878fea3",
+      "exact_claim_key": "bd96f53b55ddaf95c801024333739c112b3478dc8238aef0b5390dc016501171",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "consumed_error",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "consumed_error",
+        "wants_value": true
+      },
+      "different_projection_key": "5c91aaeae607387d32c1b63d40517860e4b069d376b3e62ca7b26dfdb83713ae",
+      "different_provider_key": "41fc6d7d966047c5c902943f38518d5cd7b6e926dbd4fcc4890691de26296ccf",
+      "exact_claim_key": "9e9b5ddf4c4c6edb075c9cede63f5b00b8fb4f7f09d6780adaf30504856fef3d",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "indeterminate",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "consumed_error",
+        "wants_value": true
+      },
+      "different_projection_key": "c1c46cf831c82fe87be555ebc729de97b95bc2d0eae465074dc33d683d15e0b9",
+      "different_provider_key": "0e31980aae69b9e4340da2d187a2021ec70efa6be9007b6fbadc511151c934f6",
+      "exact_claim_key": "eb91c60fca9c3b5d6aa2604c60675451a0409255824b0d44e47f8272a7c50df4",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "ok",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "indeterminate",
+        "wants_value": true
+      },
+      "different_projection_key": "c81e9dd271650cdb345f217b8c8b67680e5ee8a485bb55a2486716dd1c317532",
+      "different_provider_key": "6c59b00ea564b41ec0995b41f97d661ce3e66def175bc45253fdcbf7904fde00",
+      "exact_claim_key": "d414f9038971587ef242418b9c550f8c53544e4ba0fb497ed298c9d9b82ccc51",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "retained_error",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "indeterminate",
+        "wants_value": true
+      },
+      "different_projection_key": "3f98ecbef4560b507924118b18dfaf37f8fbe78f77c7a7c6ab7c58aa5f5bb2e0",
+      "different_provider_key": "940ff64c98caf499cd8b2554bf3f0880464234114e102752ab52e587f97de76a",
+      "exact_claim_key": "18c47283ebd20551a8e0f498a24bc6546d48afcbced34458e7e9a017b613dab3",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "consumed_error",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "indeterminate",
+        "wants_value": true
+      },
+      "different_projection_key": "dbe1d810a83b4ff4eb5cf47fdc8366f451b4e7fbbbcb00d26f65ed6246a574d0",
+      "different_provider_key": "0eaf94557ca4710500716fad36e3234d3e89ec1972cee968c656dbd0257a8177",
+      "exact_claim_key": "27501b9ed66df58c0368f89c1c2ba2fd0bb44b00ddf48f4782294aba03646ed1",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "indeterminate",
+        "identities": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "local_close": "indeterminate",
+        "wants_value": true
+      },
+      "different_projection_key": "3515d6e3e9be3b8aa16d3391f1481b27dc7c41a7d669cb16ca743afae33e9f8b",
+      "different_provider_key": "f71d90e20a583b59da8d569fb7674632f6d2f23487f8c9a16066b47fa51f65ae",
+      "exact_claim_key": "08442727afdada8c7ed9536d251dbe99880b190e691d9a55c4951624676c3c5f",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "ok",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "retained_error",
+        "wants_value": true
+      },
+      "different_projection_key": "9bfcb75570d93464ef481c2d3e4ef2f6276c9de7715a2fc92ebb80eea0b41264",
+      "different_provider_key": "009a676dfd091b7699b412eea62cf4bab52fddae608d2b187b81350e28f7ce1c",
+      "exact_claim_key": "eec5c2531fde1e3a577ea73e552f535384298d8bab99a0b90bb402f2ff80bc9f",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": false
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "retained_error",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "retained_error",
+        "wants_value": true
+      },
+      "different_projection_key": "2cacf8cc733bb8cdd98f8057ff448692b748800b1936fa69c002aa010c16a44a",
+      "different_provider_key": "2591baeeff5721a665677a0d2a69141e4813d4d9150ec8d09ed5478a2a8371e8",
+      "exact_claim_key": "d92e28d0d13b9d49a283449ae73135fb193cb8538953df2db4cd009f6f6ac06d",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "consumed_error",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "retained_error",
+        "wants_value": true
+      },
+      "different_projection_key": "1e7a04efb17812b952393bde2f67b34d3f7cda658299027a80fe48cdb6293911",
+      "different_provider_key": "1284bcad7aed4a7716c9d4b7f534c068d12e4ff3b342c617cb0f3c89ebf4ee6b",
+      "exact_claim_key": "b78a32633871b2c202ddee9f1dae20ca5c8b7b87310850e62aba8c397e3a1803",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": false
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "indeterminate",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "retained_error",
+        "wants_value": true
+      },
+      "different_projection_key": "622cf459f7898408ce231cd382094a863baa51a5a1460d672fc0c88c9df4d839",
+      "different_provider_key": "b49957f8dab50c1dea9801577acea561023ab46aa63c79591ada818e7370a4da",
+      "exact_claim_key": "297da5a52d157fb1cb9c1f513b61ed93bd0204dadc03043dddf08dec192d8620",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "ok",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "consumed_error",
+        "wants_value": true
+      },
+      "different_projection_key": "5bf0637391157d938862c89559a63b4f292abd50115f629e3f9499300731b324",
+      "different_provider_key": "432905788495cf05c42ff8d9ce973c477bed0aad757cd8e807b0cfb5173a5779",
+      "exact_claim_key": "1e1aef3dbac8543ca0e62d87130f35bb2a1ac5c85d6f01072834919fe9ca9822",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": false
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "retained_error",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "consumed_error",
+        "wants_value": true
+      },
+      "different_projection_key": "3afce20a83549f4a2acde03a4a2bf193b2cf554b3f45f05cbf9d7ce17d09c8d6",
+      "different_provider_key": "73a6c31b25efd629b1e05f1c35bc6b6c78ad8677090e1197b6d3e84b00a2194f",
+      "exact_claim_key": "a389dc0868c704889f7d4ec74a8991badd5e1be1424f42757160369d0de32900",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "consumed_error",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "consumed_error",
+        "wants_value": true
+      },
+      "different_projection_key": "ec7877a873eb186c72af3950b60f7327612c1d46965eca44cb6b839ee8d3673a",
+      "different_provider_key": "78005b108bf950391e7c29071f973134377a62eb7028f09e183b22ed259bdece",
+      "exact_claim_key": "60633b5cded7a070572ac89e26afaa4122d78a97cbacb68a9b421c1b2fa33489",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": false
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "indeterminate",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "consumed_error",
+        "wants_value": true
+      },
+      "different_projection_key": "51ed5520953404ef6fcbf1764f5463a71d6be6e47bf76ef4507a1386dc4e150d",
+      "different_provider_key": "c2b3edf8ccebc62b98ea4709463505b10a1c77740d64e1eb2d4494e9fc5b39f8",
+      "exact_claim_key": "6eb51925391c03dc2cd2e31b9678ecc7abc243eff1fd889d54cb751db0e7db48",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "ok",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "indeterminate",
+        "wants_value": true
+      },
+      "different_projection_key": "fce6f88697908dde187fa8600ff23c623a37fef21b0417cba9b95cca8fe22ad1",
+      "different_provider_key": "1a8a48855872f8b9ae87cbc7a09f5ff6f66657c5e50abef9e53833ec79cd7995",
+      "exact_claim_key": "eeaf17e5eb8623511b2847aaaf66a6b393b5b4457954ab4db45d2593800fc040",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": false
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "retained_error",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "indeterminate",
+        "wants_value": true
+      },
+      "different_projection_key": "ad5d19b3259db10208eabe6e8756ee3f50be90390233f90ee90f80c37c6a0856",
+      "different_provider_key": "3d821ddfa44f0502c3508cc0db01d390af0f190a7f8364a1a03c8092ee2cd7a9",
+      "exact_claim_key": "b5466a41dba5c90c5830c5e3374116e311b695513494cb23a269c1154e9980cc",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "consumed_error",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "indeterminate",
+        "wants_value": true
+      },
+      "different_projection_key": "5720f1ec608fdfafdee39f3f9b34f8802ccba4d8ce224ce693cff40598d2ee75",
+      "different_provider_key": "2a1da4c295ed28d4bb91b83be17f908d31a3513d972614cef437ddd754b2d5c5",
+      "exact_claim_key": "d222bfc0b4502520282782fa80ed92d57c824b17f0b54b4352f611a592678526",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": false
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    },
+    {
+      "case": {
+        "handle_close": "indeterminate",
+        "identities": [
+          "a",
+          "b",
+          "a",
+          "b"
+        ],
+        "local_close": "indeterminate",
+        "wants_value": true
+      },
+      "different_projection_key": "414a7822a1df17e3e137c0f6aa4d05c58b3cc9496e4c0c30050ec332e5558021",
+      "different_provider_key": "603958fcf1de1f3577e65e17b4b6c9cd4ecee3bd04fbacc0e240b34c460e7d22",
+      "exact_claim_key": "5294d815b2caeb5b14b880c231a2358a624890822b7a29503ef90fb980843e2c",
+      "observations_equal": {
+        "caller-owned": false,
+        "cleanup-only": true,
+        "combined": false,
+        "later-admission": true
+      },
+      "strong_reuse_with_cleanup_only_key_would_be_incorrect": true
+    }
+  ],
+  "comparison_count": 24,
+  "equal_by_projection": {
+    "caller-owned": 0,
+    "cleanup-only": 24,
+    "combined": 0,
+    "later-admission": 18
+  },
+  "incorrect_strong_reuses": 24,
+  "python": "3.12.14",
+  "schema": "rt04-cleanup-subject-proof-boundary-v1",
+  "source_sha256": {
+    "formal-verification/RT-32/SOURCE-CLEANUP-KERNEL-01/evidence.json": "5114232b42d656c7184d3a4727a97af790e57e72c4e3feffa1295b25cd9d0f7f",
+    "language-design/RT-04/CLEANUP-IDENTITY-01/run.py": "3b935372e142bc9f7a0ab4acd109d9b518e23bfe5aeec99469abe25bd4fe900a",
+    "language-design/RT-04/owned-contract-replay/results.json": "af5b4ef377c707f9f604a75f70d0ee41a517b8da7fb3334a0cb3b5ac8314b044"
+  }
+}

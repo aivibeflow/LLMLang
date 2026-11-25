@@ -1,0 +1,252 @@
+{
+  "schema": "llmlang-impact-and-proof-freshness/1",
+  "python": "3.12.14",
+  "host": {
+    "system": "Linux",
+    "architecture": "x86_64",
+    "kernel": "6.18.57",
+    "libc": [
+      "glibc",
+      "2.41"
+    ]
+  },
+  "sources": {
+    "baseline": "grow x = x + 1\n",
+    "formatting": "grow x =  x  +  1  \n",
+    "refactor": "grow x = 1 + x\n",
+    "changed": "grow x = x + 2\n",
+    "refuted": "grow x = x\n"
+  },
+  "sources_sha256": {
+    "run.py": "40a14a824caa5f3186c0b47bb490095a71033e3b574a02a14eaa9b127cd12742",
+    "SemanticControls.lean": "0bafa9805b0f4a1099f529c2bad1fc8b75fa8641bab3347082d671a40b00fd4e"
+  },
+  "checkers": {
+    "4.34.0": {
+      "version": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "executable_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+      "library_profile": {
+        "init_objects": 1947,
+        "init_manifest_sha256": "5ce00890f2905239108664386948806a0d6d6f951be9a1573b5cc6b33efeae0d",
+        "shared_libraries_sha256": {
+          "libInit_shared.so": "07f8c1156271ab6ec36c14c3031b5572329325d5f73dde3e89a1615d88f4e5cb",
+          "libleanshared.so": "ab523f803d805db2c08eb755f0fa8189345bf6ae9b408664cdf3cf67fa0112d9",
+          "libleanshared_1.so": "69e900c025f40bf05c14f5b9ec48071b3130e34c96a7c45ee2eb5b6f307e19e6",
+          "libleanshared_2.so": "38d0a03750b2e8d51161885ad597a8b4f6d3b85215c5a52aecd2b3753273cf3f"
+        }
+      },
+      "flags": [
+        "-DwarningAsError=true"
+      ]
+    },
+    "4.36.0": {
+      "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+      "executable_sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "library_profile": {
+        "init_objects": 2004,
+        "init_manifest_sha256": "06e66dd27767c00a2682d6a68e101ad406f3422a43e59128cd9622ea518edce7",
+        "shared_libraries_sha256": {
+          "libInit_shared.so": "eeedc97ceed1a50fbc88d1fbbae0a50e4771b2187aa55730937f82dee9985dcc",
+          "libleanshared.so": "e2c403b411497bbc325d0a26bf57ba0132271750bf6d84e32cd61a9db4777252",
+          "libleanshared_1.so": "9950455d80c620fcacc4e22a4c3490a78020f1880a1fd4f88bc39cf187ec5be8",
+          "libleanshared_2.so": "f98feef07ea4ae2ea88295ae465d6d640a443880d1255a0b25acdf7567ccf060"
+        }
+      },
+      "flags": [
+        "-DwarningAsError=true"
+      ]
+    }
+  },
+  "checked_source_runs": {
+    "baseline/4.34.0": {
+      "source_sha256": "4c587644787471f42012fbe58e581f0468bf8bed7182761041d0714672281acc",
+      "subject": "43dae869fa666811b92722ad0fac4ebb4966e6f8fac40a3d738131c8c48d5dee",
+      "proof_input_sha256": "83aa707e5b399489e69273684747b452745d7dad28abfd962cb042f966d391fa",
+      "outcome": "proved",
+      "exit_code": 0,
+      "output": "'increases' does not depend on any axioms\n",
+      "execution_key": "ec6462c8f841bbe033947f6de28c40812dc44d80f646d67a79cb00cc7ff16ad6",
+      "source_receipt": "fe52406aedf53c8e75a1a881c55e76ed9514a32ff866d166dbc81c52f641318c"
+    },
+    "formatting/4.34.0": {
+      "source_sha256": "f75350e811cf0b2cdd1eca9b8719567bfa9e124dc2ea30be243f235f8217a08c",
+      "subject": "43dae869fa666811b92722ad0fac4ebb4966e6f8fac40a3d738131c8c48d5dee",
+      "proof_input_sha256": "83aa707e5b399489e69273684747b452745d7dad28abfd962cb042f966d391fa",
+      "outcome": "proved",
+      "exit_code": 0,
+      "output": "'increases' does not depend on any axioms\n",
+      "execution_key": "ec6462c8f841bbe033947f6de28c40812dc44d80f646d67a79cb00cc7ff16ad6",
+      "source_receipt": "5aa6d5dcc15197932b372607dd90420963f6e873af04369c9132f6545d30192d"
+    },
+    "refactor/4.34.0": {
+      "source_sha256": "d14a309aedad357579ef41b73c415f2feb77d84d75be3189b30cab8c0b3f527b",
+      "subject": "4cdf46269f2ca5cae0d8768dae1537963378ea2296da366862f4fbf1b42f0680",
+      "proof_input_sha256": "d6ac4178a733806f6ebe91ec4276e7a1da64cc7dc6e29b408752957eb1a787ff",
+      "outcome": "proved",
+      "exit_code": 0,
+      "output": "'increases' does not depend on any axioms\n",
+      "execution_key": "92d00220c866b5a39b906d1f5484f257eb701b9a803313f80dd4cd772b210ed1",
+      "source_receipt": "a610a4af7c98ebb66f281010f78bd5c3cd747965dbdeb301e334b7d46dfb5b7e"
+    },
+    "changed/4.34.0": {
+      "source_sha256": "420e3c32a8d2d07c3478049c36e6918132f3f00a9b0cb64f07ac0b37fc23c5a8",
+      "subject": "cec5dc7e3a1b264cda1ee27ab48e79075f34e5d202712f5818a156f2936694ac",
+      "proof_input_sha256": "0230046174282ce03fc609f3dd3ca51d292c6f08f28edf805e8fd93e0ae9bef5",
+      "outcome": "proved",
+      "exit_code": 0,
+      "output": "'increases' does not depend on any axioms\n",
+      "execution_key": "66dd7d6365da399081ca11a6aea54f6632d35cd35fddefe52a5027e2a039ba03",
+      "source_receipt": "c4e40c431084b956497f3952c7017a237b78d9d78c3af0c9da2fa6d00e5f7f9f"
+    },
+    "refuted/4.34.0": {
+      "source_sha256": "3c4e3d51c3f9ec4b80c87eed3a7eb2b9166eefd94c6dfca4ed08957a64ac7514",
+      "subject": "dfa74dbd8c40d607e9f105308f20dd78b0a335eaace6a6631f9a5cefa34c7836",
+      "proof_input_sha256": "76a46ca2066cd92d46bbb4cf7650cd72d998d3e6c6277f0ec6de3ca4a209b564",
+      "outcome": "refused",
+      "exit_code": 1,
+      "output": "Saved.lean:4:2: error: Type mismatch\n  Nat.lt_succ_self x\nhas type\n  x < x.succ\nbut is expected to have type\n  x < grow x\n'increases' depends on axioms: [sorryAx]\n",
+      "execution_key": "b46378fcb58137fd6c5ccbff1b37a752f5e3e5bf9ff8dd4ae737e0c933e7fa90",
+      "source_receipt": "5e5fc971fa7a8d5232158b0c5c3975d4c27448e78ccc6135d883a9408b3c47a0"
+    },
+    "baseline/4.36.0": {
+      "source_sha256": "4c587644787471f42012fbe58e581f0468bf8bed7182761041d0714672281acc",
+      "subject": "43dae869fa666811b92722ad0fac4ebb4966e6f8fac40a3d738131c8c48d5dee",
+      "proof_input_sha256": "83aa707e5b399489e69273684747b452745d7dad28abfd962cb042f966d391fa",
+      "outcome": "proved",
+      "exit_code": 0,
+      "output": "'increases' does not depend on any axioms\n",
+      "execution_key": "95833da67d39f219fd790171412b979a14411843e3fd1f776959fe48e64e94ad",
+      "source_receipt": "ff082e8a1d06b64918bb3f525dcb20ee0666b9f4d32eeea0b0b24c13a3d1cbc7"
+    },
+    "formatting/4.36.0": {
+      "source_sha256": "f75350e811cf0b2cdd1eca9b8719567bfa9e124dc2ea30be243f235f8217a08c",
+      "subject": "43dae869fa666811b92722ad0fac4ebb4966e6f8fac40a3d738131c8c48d5dee",
+      "proof_input_sha256": "83aa707e5b399489e69273684747b452745d7dad28abfd962cb042f966d391fa",
+      "outcome": "proved",
+      "exit_code": 0,
+      "output": "'increases' does not depend on any axioms\n",
+      "execution_key": "95833da67d39f219fd790171412b979a14411843e3fd1f776959fe48e64e94ad",
+      "source_receipt": "9d1f9282ac3182b00b186c7e3857f8e831cc9bf926e8c515e633b68ddf8e5318"
+    },
+    "refactor/4.36.0": {
+      "source_sha256": "d14a309aedad357579ef41b73c415f2feb77d84d75be3189b30cab8c0b3f527b",
+      "subject": "4cdf46269f2ca5cae0d8768dae1537963378ea2296da366862f4fbf1b42f0680",
+      "proof_input_sha256": "d6ac4178a733806f6ebe91ec4276e7a1da64cc7dc6e29b408752957eb1a787ff",
+      "outcome": "proved",
+      "exit_code": 0,
+      "output": "'increases' does not depend on any axioms\n",
+      "execution_key": "2866960b917bd60d4fa50f6c3a0bbf2905c7c06ac9359ea2c3d0a74f4b03b7d7",
+      "source_receipt": "ff6d57b3eed14394e4155aea4e9e6a1ab41c6d4682051b84f6329bb8b1e18ecf"
+    },
+    "changed/4.36.0": {
+      "source_sha256": "420e3c32a8d2d07c3478049c36e6918132f3f00a9b0cb64f07ac0b37fc23c5a8",
+      "subject": "cec5dc7e3a1b264cda1ee27ab48e79075f34e5d202712f5818a156f2936694ac",
+      "proof_input_sha256": "0230046174282ce03fc609f3dd3ca51d292c6f08f28edf805e8fd93e0ae9bef5",
+      "outcome": "proved",
+      "exit_code": 0,
+      "output": "'increases' does not depend on any axioms\n",
+      "execution_key": "cdff9ab841c597f2ccd68ac167a175b981dcd091b19404390dcbcf4b963b4739",
+      "source_receipt": "98c2ecc26aa36be609ef41b28850b759a9d6a3c22b506e614b96193664d4a107"
+    },
+    "refuted/4.36.0": {
+      "source_sha256": "3c4e3d51c3f9ec4b80c87eed3a7eb2b9166eefd94c6dfca4ed08957a64ac7514",
+      "subject": "dfa74dbd8c40d607e9f105308f20dd78b0a335eaace6a6631f9a5cefa34c7836",
+      "proof_input_sha256": "76a46ca2066cd92d46bbb4cf7650cd72d998d3e6c6277f0ec6de3ca4a209b564",
+      "outcome": "refused",
+      "exit_code": 1,
+      "output": "Saved.lean:4:2: error: Type mismatch\n  Nat.lt_succ_self x\nhas type\n  x < x.succ\nbut is expected to have type\n  x < grow x\n'increases' depends on axioms: [sorryAx]\n",
+      "execution_key": "0ccc5f377f46af6f0570e767b25ffed324387fc99d79d01fb28531a79fc8364f",
+      "source_receipt": "695d3f323a5a0a695e9626ee9a15fc18c74ac1a0226b9c870c8e780736d0e07f"
+    }
+  },
+  "semantic_controls": {
+    "4.34.0": "'ProofFreshness.refactorPreservesEveryResult' does not depend on any axioms\n'ProofFreshness.changedAtZero' does not depend on any axioms\n'ProofFreshness.identityRefutesStrictIncrease' does not depend on any axioms\n",
+    "4.36.0": "'ProofFreshness.refactorPreservesEveryResult' does not depend on any axioms\n'ProofFreshness.changedAtZero' does not depend on any axioms\n'ProofFreshness.identityRefutesStrictIncrease' does not depend on any axioms\n"
+  },
+  "compiled_artifacts_sha256": {
+    "4.34.0": "b52290d1d1be997983bafd455404128884f12c62565a9a5bc5e718425a5bd828",
+    "4.36.0": "602f1c45ed489e5ce6a46a0ccea9fd9e7347408209a7c259d33340339864c1b6"
+  },
+  "compiled_imports": {
+    "4.34.0->4.34.0": {
+      "builder": "4.34.0",
+      "reader": "4.34.0",
+      "admitted": true,
+      "exit_code": 0,
+      "diagnostic": "'increases' does not depend on any axioms\n"
+    },
+    "4.34.0->4.36.0": {
+      "builder": "4.34.0",
+      "reader": "4.36.0",
+      "admitted": false,
+      "exit_code": 1,
+      "diagnostic": "Read.lean:1:0: error: failed to read file '<fixture>/4.34.0/Saved.olean', incompatible header\n"
+    },
+    "4.36.0->4.34.0": {
+      "builder": "4.36.0",
+      "reader": "4.34.0",
+      "admitted": false,
+      "exit_code": 1,
+      "diagnostic": "Read.lean:1:0: error: failed to read file '<fixture>/4.36.0/Saved.olean', incompatible header\n"
+    },
+    "4.36.0->4.36.0": {
+      "builder": "4.36.0",
+      "reader": "4.36.0",
+      "admitted": true,
+      "exit_code": 0,
+      "diagnostic": "'increases' does not depend on any axioms\n"
+    }
+  },
+  "comparison_to_baseline_434": {
+    "baseline/4.34.0": {
+      "subject": true,
+      "execution_key": true,
+      "source_receipt": true
+    },
+    "formatting/4.34.0": {
+      "subject": true,
+      "execution_key": true,
+      "source_receipt": false
+    },
+    "refactor/4.34.0": {
+      "subject": false,
+      "execution_key": false,
+      "source_receipt": false
+    },
+    "changed/4.34.0": {
+      "subject": false,
+      "execution_key": false,
+      "source_receipt": false
+    },
+    "refuted/4.34.0": {
+      "subject": false,
+      "execution_key": false,
+      "source_receipt": false
+    },
+    "baseline/4.36.0": {
+      "subject": true,
+      "execution_key": false,
+      "source_receipt": false
+    },
+    "formatting/4.36.0": {
+      "subject": true,
+      "execution_key": false,
+      "source_receipt": false
+    },
+    "refactor/4.36.0": {
+      "subject": false,
+      "execution_key": false,
+      "source_receipt": false
+    },
+    "changed/4.36.0": {
+      "subject": false,
+      "execution_key": false,
+      "source_receipt": false
+    },
+    "refuted/4.36.0": {
+      "subject": false,
+      "execution_key": false,
+      "source_receipt": false
+    }
+  }
+}

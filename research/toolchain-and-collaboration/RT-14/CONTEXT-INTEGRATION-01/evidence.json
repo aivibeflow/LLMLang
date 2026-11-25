@@ -1,0 +1,1542 @@
+{
+  "baseline": "971f11e4f6e05bffbbb814062f16e7ecd1e30990",
+  "python": "3.12.14",
+  "runner_sha256": "e473f140f7b5ba8c961233b4a1b8674aca6758cd79b1b81c7f61508d6b7312af",
+  "source_sha256": {
+    "research/toolchain-and-collaboration/RT-14/KNOWLEDGE-CONTEXT-01/run.py": "38c8a8c9d04376f9df9264076a95d10e93d9642808754de3a09cdb392c848ba3",
+    "research/toolchain-and-collaboration/RT-14/TASK-CONTEXT-COMPLETION-01/run.py": "bfb00d4a6bd428d1cefde6906a0bf4a108f47693d7e69b6c6e58f2abb1aad63a"
+  },
+  "independent_required_refs": {
+    "contract": {
+      "source": "spec#1",
+      "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+    },
+    "test": {
+      "source": "test#1",
+      "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+    }
+  },
+  "cases": {
+    "original": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "ready",
+        "receipt": "799103f3b4bef630e7cf9808e6aeb65917c2990e3288e00b4adf055140d3259e",
+        "publish": true
+      }
+    },
+    "same-prompt-new-scope": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "scope-2",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "a50e70281599e42c562f86139edbf99c115d21c080d6ded8ff257e2ddcb1adc3",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "knowledge-revision-mismatch",
+        "publish": false
+      }
+    },
+    "same-prompt-different-provenance": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#2",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "4535e5d7f812d657ea937e0fc33120ee9577acef103cda2810c2c4ba015accb8",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "knowledge-revision-mismatch",
+        "publish": false
+      }
+    },
+    "changed-optional-selection": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 23,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "omissions": {
+            "note": "over-budget"
+          }
+        },
+        "manifest_sha256": "0a4fe608843a6517bdb1abca1c3f846d93796a5dc1f7694f64308de774495674",
+        "rendered_sha256": "5871a9d06602b3a3bee7b24eda2d9c98d4a1badabb2bc4c3bcb715889f6e2822",
+        "rendered_utf8_bytes": 23
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "knowledge-revision-mismatch",
+        "publish": false
+      }
+    },
+    "missing-required-source": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "unavailable"
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "knowledge-unavailable",
+        "publish": false
+      }
+    },
+    "required-source-not-readable": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "unavailable"
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "knowledge-unavailable",
+        "publish": false
+      }
+    },
+    "required-source-digest-mismatch": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "required-bytes-mismatch"
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "knowledge-required-bytes-mismatch",
+        "publish": false
+      }
+    },
+    "refreshed-task-old-receipts": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 5,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "a50e70281599e42c562f86139edbf99c115d21c080d6ded8ff257e2ddcb1adc3",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "scope-2",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "a50e70281599e42c562f86139edbf99c115d21c080d6ded8ff257e2ddcb1adc3",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "unsatisfied",
+        "receipt": null,
+        "publish": false
+      }
+    },
+    "refreshed-task-exact-receipts": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 5,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "a50e70281599e42c562f86139edbf99c115d21c080d6ded8ff257e2ddcb1adc3",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "scope-2",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "a50e70281599e42c562f86139edbf99c115d21c080d6ded8ff257e2ddcb1adc3",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 5,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "a50e70281599e42c562f86139edbf99c115d21c080d6ded8ff257e2ddcb1adc3",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 5,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "a50e70281599e42c562f86139edbf99c115d21c080d6ded8ff257e2ddcb1adc3",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 5,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "a50e70281599e42c562f86139edbf99c115d21c080d6ded8ff257e2ddcb1adc3",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 5,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "a50e70281599e42c562f86139edbf99c115d21c080d6ded8ff257e2ddcb1adc3",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "ready",
+        "receipt": "fe5d7532c904bf07f3743e383dea4a7d35838ad67707f9d54ad3c40945256d2d",
+        "publish": true
+      }
+    },
+    "valid-completion-without-publication-authority": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": null,
+      "outcome": {
+        "completion": "ready",
+        "receipt": "799103f3b4bef630e7cf9808e6aeb65917c2990e3288e00b4adf055140d3259e",
+        "publish": false
+      }
+    },
+    "valid-completion-with-revoked-grant": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 8
+      },
+      "outcome": {
+        "completion": "ready",
+        "receipt": "799103f3b4bef630e7cf9808e6aeb65917c2990e3288e00b4adf055140d3259e",
+        "publish": false
+      }
+    },
+    "knowledge-from-other-baseline": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-6",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-6",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-6",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-6",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-6",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-6",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "knowledge-baseline-mismatch",
+        "publish": false
+      }
+    },
+    "active-branch-moved": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-9",
+      "affected_operations": [
+        "operation-A"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "baseline-moved",
+        "receipt": null,
+        "publish": false
+      }
+    },
+    "unapproved-work": {
+      "task_binding": {
+        "task_id": "task-17",
+        "task_revision": 4,
+        "baseline": "snap-7",
+        "candidate": "snap-8",
+        "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "evidence_policy_revision": 3
+      },
+      "live_baseline": "snap-7",
+      "affected_operations": [
+        "operation-A",
+        "operation-B"
+      ],
+      "knowledge": {
+        "status": "ready",
+        "manifest": {
+          "snapshot": "snap-7",
+          "purpose": "review-quota-change",
+          "assembly_version": 1,
+          "scope_revision": "capability-revision-1",
+          "budget_utf8_bytes": 50,
+          "required": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            }
+          },
+          "bindings": {
+            "contract": {
+              "source": "spec#1",
+              "sha256": "55fa295c7ce0bede39e17527a2487be2cc1222fb2e957eb3ffc1f23ed65d5da3"
+            },
+            "test": {
+              "source": "test#1",
+              "sha256": "11247d464ffc5bf92237e40b8a4066db3e748ce8663d66c2497acb8ba21e2b45"
+            },
+            "note": {
+              "source": "design#1",
+              "sha256": "b5b219514254e05214750d01662cef48fb6d968150934a86463f1270e1d45594"
+            }
+          },
+          "omissions": {}
+        },
+        "manifest_sha256": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+        "rendered_sha256": "836c8923528aca9209f6f80201e9b80e17c41eb5869133fea623ec53ef29f161",
+        "rendered_utf8_bytes": 36
+      },
+      "evidence": [
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "mutation",
+          "issuer": "graph-validator",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "test",
+          "issuer": "test-runner",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "proof",
+          "issuer": "proof-checker",
+          "status": "pass"
+        },
+        {
+          "binding": {
+            "task_id": "task-17",
+            "task_revision": 4,
+            "baseline": "snap-7",
+            "candidate": "snap-8",
+            "knowledge_manifest": "eea32c3ad2125e54c253bd2d19c64a862ed313e7e5b0efa8a5e13517bfae87dd",
+            "evidence_policy_revision": 3
+          },
+          "obligation": "review",
+          "issuer": "review-authority",
+          "status": "pass"
+        }
+      ],
+      "grant": {
+        "subject": "operator-5",
+        "action": "publish",
+        "candidate": "snap-8",
+        "epoch": 9
+      },
+      "outcome": {
+        "completion": "wrong-mutation-scope",
+        "receipt": null,
+        "publish": false
+      }
+    }
+  },
+  "source_and_evidence_permutations": 144
+}

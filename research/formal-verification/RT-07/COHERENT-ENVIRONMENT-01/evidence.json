@@ -1,0 +1,154 @@
+{
+  "schema": "llmlang-coherent-environment/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "c0767ea8056175137ea14a08013dfa23084893ac145f746631bd6cffe06f1fb6",
+    "Environment.lean": "1e653becd697d2362e64b64f06fa2032ee5bbe0b0e074f5c11d9baee3f0ac96d",
+    "pair.c": "86790c5a9208dee3cd8a043dbc36e495cc05b70bb79ee7e70bfa936dacb9690c",
+    "axioms.txt": "34fe4b25b0c11cc6cb1800d4e74325df3b3f6a6e365157f358edfe7826952d65"
+  },
+  "schedule_order": [
+    "before_epoch",
+    "left_read",
+    "right_read",
+    "after_epoch"
+  ],
+  "generations": 5,
+  "schedules_per_timeline": 70,
+  "counts": {
+    "cases": 71680,
+    "independent_accepted": 71680,
+    "independent_mixed_origins": 35840,
+    "independent_value_without_coherent_generation": 5560,
+    "full_epoch_accepted": 5120,
+    "full_epoch_mixed_origins": 0,
+    "full_epoch_value_without_coherent_generation": 0,
+    "modulo_2_accepted": 38912,
+    "modulo_2_mixed_origins": 19456,
+    "modulo_2_value_without_coherent_generation": 2808,
+    "modulo_4_accepted": 20480,
+    "modulo_4_mixed_origins": 10240,
+    "modulo_4_value_without_coherent_generation": 1080,
+    "field_origin_accepted": 35840,
+    "field_origin_mixed_origins": 0,
+    "field_origin_value_without_coherent_generation": 0,
+    "pinned_accepted": 71680,
+    "pinned_mixed_origins": 0,
+    "pinned_value_without_coherent_generation": 0
+  },
+  "witnesses": {
+    "independent": {
+      "images": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "schedule": [
+        0,
+        0,
+        4,
+        4
+      ],
+      "returned_pair": [
+        0,
+        1
+      ]
+    },
+    "modulo_2": {
+      "images": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "schedule": [
+        0,
+        0,
+        4,
+        4
+      ],
+      "returned_pair": [
+        0,
+        1
+      ]
+    },
+    "modulo_4": {
+      "images": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "schedule": [
+        0,
+        0,
+        4,
+        4
+      ],
+      "returned_pair": [
+        0,
+        1
+      ]
+    }
+  },
+  "rows_sha256": "24dcd47a5f3871058b93ffdc0b5692be77f9e4bd65918d40f18d6cb2d06dc8eb",
+  "native": {
+    "O0": {
+      "rows": 71680,
+      "stdout_sha256": "ba5ee9990cf96db3bead13f96b4174425001370231104f0a47459775c795d884"
+    },
+    "O2-ubsan": {
+      "rows": 71680,
+      "stdout_sha256": "ba5ee9990cf96db3bead13f96b4174425001370231104f0a47459775c795d884"
+    }
+  }
+}

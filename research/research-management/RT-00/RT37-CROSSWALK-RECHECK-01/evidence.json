@@ -1,0 +1,52 @@
+{
+  "pinned": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+  "archived": {
+    "path": "research/runtime-and-systems/RT-37/TARGET-CLOSURE-CROSSWALK-01/evidence.json",
+    "blob": "9d04995c15bbf964fed6cc742594d2a24bd8357f",
+    "expected": "ab3bbc9e94a7b7317d600778cf2357e5e7a018fb883e10b19ef9e8645bdf726f",
+    "bytes": 2415
+  },
+  "inputs": {
+    "allocator": {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-allocator/results.json",
+      "blob": "825e3de42c5a9f38aefa6a996173f9e463329c60",
+      "sha256": "653b6e335c4743c5efbe19b8b06ab293ba3e3db3064b2d05447c7139f8ebb557"
+    },
+    "closure": {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-closure/results.json",
+      "blob": "29e1e7aab3df6fb2122ccac5e91dcbf3870c2ea5",
+      "sha256": "5a08105beed3167742bf49f044aac08b1285ef74dc60fdebc64a6f17158009f9"
+    },
+    "esp": {
+      "path": "research/runtime-and-systems/RT-37/ESP32-SCHEDULING-PROFILES-01/evidence.json",
+      "blob": "1c71ebc824899386e85aba0594d34eab2588ea63",
+      "sha256": "3b92dabb7f465b4309a2b2302a3aa5a4c49c6546721b207c37d20ed64b8e2f42"
+    },
+    "manifests": {
+      "path": "research/runtime-and-systems/RT-37/MCU-TARGET-MANIFESTS-01/manifests.json",
+      "blob": "74cba1863a35bed5cc1983290881d2f6b38c5df6",
+      "sha256": "6f49dd3b90a574eee7910a284bffeab4561ffb5922344a77af6fc94bdd01a3c9"
+    },
+    "renode": {
+      "path": "research/runtime-and-systems/RT-37/MCU-GPIO-TIMER-UART-01/arm-emulator-evidence.json",
+      "blob": "fcecfd4e6dc33c3d78091adba22096a87f8d1b37",
+      "sha256": "6068d23f60929186fb1058a49a5ee04604d5512ab687253272aaf697a4923321"
+    },
+    "startup": {
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-startup-retention/evidence.json",
+      "blob": "a277eff92791b63cdad32710296cc2a2ad5ba659",
+      "sha256": "01857b2c992e9e4f5e6cac8d02fd9d37ba72a5a97f9dc29d3f840c4dbba54e55"
+    },
+    "stm32": {
+      "path": "research/runtime-and-systems/RT-37/MCU-GPIO-TIMER-UART-01/stm32-evidence.json",
+      "blob": "3de3f8ddfc47cb9a772c5d337af78ea5e617a348",
+      "sha256": "aae5463f212557f143c663fc01f5cd5a47871fe72fa866412bb66c7ed470a32d"
+    }
+  },
+  "controls": {
+    "wrong-flash-extent": "refused",
+    "startup-control-loses-distinction": "refused",
+    "changed-emulator-trace": "refused",
+    "radio-scope-upgrade": "refused"
+  }
+}

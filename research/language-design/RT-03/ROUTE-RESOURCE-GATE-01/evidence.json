@@ -1,0 +1,1039 @@
+{
+  "cases": [
+    {
+      "checked_potential": [
+        0,
+        1,
+        2
+      ],
+      "constraints": 3,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        }
+      ],
+      "family": "ring",
+      "format_variant_route": "8724d7657f8c32cd07897ebc3ef207b3006597467d239aee507b79b09d0bb756",
+      "formula_sha256": "c4306dd899504ba9a411e606c63bea8885afb8f0a320cf487fd5d395c423d391",
+      "negative": false,
+      "route": "ae4615e0bfcb4b61c96468f26ea715fa803613e735bf0465ea63776e9ea7971f",
+      "source_sha256": "17135f326490cf3b3b6632abea9f4c7d8248782f71ec575f131aee7716e34583",
+      "vertices": 3,
+      "walk_indices": null
+    },
+    {
+      "checked_potential": null,
+      "constraints": 3,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        }
+      ],
+      "family": "ring",
+      "format_variant_route": "3c8289d293023cc580ccb5d8752e8faf65eab78ede9fb69a8c5e202359dd82b1",
+      "formula_sha256": "81cc714d835e3a5cc37b691793a43c0da669e835447a9002812c82b0cfa29ca4",
+      "negative": true,
+      "route": "04867d4a4a4aefa6cb3dfe51932de3119dfb6c425f0839cc7d28218ed13830c0",
+      "source_sha256": "9d332b10434696dc21e181c39f0d04ead69a33316a347a773fbb74b2bcb8f2c6",
+      "vertices": 3,
+      "walk_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "checked_potential": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "constraints": 5,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        }
+      ],
+      "family": "ring",
+      "format_variant_route": "55ad662ca13ef49b8a9ed7b507d0442ff1466d28b270ec32acbbfbb970814445",
+      "formula_sha256": "bf208250997af43a1607e4b00abbf6f09f1c37322e926dce69c4f8da7b7b4304",
+      "negative": false,
+      "route": "b1871c7953e3ff70a0c23cb076dd4cfdc9bcbb6476bfc74c4f407a733c8bc6fb",
+      "source_sha256": "49a11baf488bd0a0f609367dbb697cfc5a73b647fd690079d19e5697e1b9891a",
+      "vertices": 5,
+      "walk_indices": null
+    },
+    {
+      "checked_potential": null,
+      "constraints": 5,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        }
+      ],
+      "family": "ring",
+      "format_variant_route": "981b480252a3e0c475223714644e61e0b670c3a3f9bd6189bad1320e7ad2e6cc",
+      "formula_sha256": "3f4b477111a989f866f3771ba5b1de5d15d59b4537750c387f235b23ead7d309",
+      "negative": true,
+      "route": "c303b9a2b8024bdbbb916bf471a1813fb24ce940ee29571762303a6610324ebc",
+      "source_sha256": "55081164deea60e0e72af76a929376e1d01f022400e5c81b506fd19e34694e80",
+      "vertices": 5,
+      "walk_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "checked_potential": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "constraints": 8,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        }
+      ],
+      "family": "ring",
+      "format_variant_route": "e4c45738d2d74d421f5a5e5f48964eac732e974186373bc7e6c12f86967ee302",
+      "formula_sha256": "30e866a11ee298ac5125941dbedab5f0b52457982f265fda193ff5e6d6cd4736",
+      "negative": false,
+      "route": "9282f35c9bd3c8d5d7a156fa5da4637dfd459a4403f245d7c05d8d1e6323fb20",
+      "source_sha256": "09d28b9dddb0fb49f25d6d83cdf0a440a066caf60cb242dfc164d6199892ac2d",
+      "vertices": 8,
+      "walk_indices": null
+    },
+    {
+      "checked_potential": null,
+      "constraints": 8,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        }
+      ],
+      "family": "ring",
+      "format_variant_route": "557579fe1e295d5c0b1b9daca6fd9d76f9d224097362353704b6c62542517cfe",
+      "formula_sha256": "085effc9f2a8debac289ab86a4e3487bcd885db02811777049e7603667e1b67f",
+      "negative": true,
+      "route": "f4a8d78d4c4d355a965b13c2583dfa156de47b620d061596fceeff1b498ea02e",
+      "source_sha256": "7424dd2f61dda45020cb1b7331c1b50a40383bfc57f71df63c3e64d7f6bd48cf",
+      "vertices": 8,
+      "walk_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "checked_potential": [
+        0,
+        1,
+        2
+      ],
+      "constraints": 4,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        }
+      ],
+      "family": "chords",
+      "format_variant_route": "75b503ce32ccc0c087bf02e530cbc74737d9f2b9c6fca47a88cdfc2e42a3a496",
+      "formula_sha256": "ed42977739d99c5cd3486241a5f2ed85dce8399b31c57663dc08a0f2ec06ff4a",
+      "negative": false,
+      "route": "131832feb1a9677929d6670da8d2ee02b236c0e2678d4ddbadc821cb76554d6b",
+      "source_sha256": "1cedceddb83f3dc6a8c9c93670ee00ce82625087a1c14dd625a2d1333c9439ac",
+      "vertices": 3,
+      "walk_indices": null
+    },
+    {
+      "checked_potential": null,
+      "constraints": 4,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        }
+      ],
+      "family": "chords",
+      "format_variant_route": "1086dc8e2d548d18b5a3c8e00c97fde259800ab8b7c8308cdb65467ff5fbae7d",
+      "formula_sha256": "6a88d1e4445a2ab9c495d06ba544f563910274561b7faaa98fb17298499c8528",
+      "negative": true,
+      "route": "01ab7fbdd4e15db4117dc6bb6a4fab6b745fb8a7eda895e48ef8cbc370c779f6",
+      "source_sha256": "043a281d6df265f5cfa187fd4650346da0ec36983d7ee5ebc5a0aa76f630addf",
+      "vertices": 3,
+      "walk_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "checked_potential": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "constraints": 11,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        }
+      ],
+      "family": "chords",
+      "format_variant_route": "8dd0f6918a89f9240fce37dfb4db23cbdd38e0cc8971239d2d970bf71c7a1ce5",
+      "formula_sha256": "1b4b3bcab2244eaf9d522a44dd6681effc493be48a7130f2293e136c9e0ee261",
+      "negative": false,
+      "route": "11892ef8ea879c8ff6af41ee6a621be57869e3100c6828735aa38b989b346b8a",
+      "source_sha256": "2bb4e9955ffb1c384aa0b1e19af965dd8e53134edeec0e2ec4ffc563c6d98861",
+      "vertices": 5,
+      "walk_indices": null
+    },
+    {
+      "checked_potential": null,
+      "constraints": 11,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        }
+      ],
+      "family": "chords",
+      "format_variant_route": "7430fa17886e90f5ad73147faac3b34af0228376377c581a0627a4dbc75a14a9",
+      "formula_sha256": "53832cf87bad1621bf4b8265e3fd1f542377fd9c4cfbb7f7d013e8daa8f33e2f",
+      "negative": true,
+      "route": "654476b6be24215428a31429725092c773d462f2d5d392083b47c70a68ef15b7",
+      "source_sha256": "4240adbad54a08c5568c398d17f0bd6bfba6f87e2e43d5f13f2e688c8dfa8079",
+      "vertices": 5,
+      "walk_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "checked_potential": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "constraints": 29,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        }
+      ],
+      "family": "chords",
+      "format_variant_route": "2a428576e53748d01eead735c910663ea197e8c43a44b4c236f32fcda2099401",
+      "formula_sha256": "f2c03d11acebf4bef679c40422c1def942df0b3d0e86cd3e75b4d4e2ecd7dc19",
+      "negative": false,
+      "route": "9167ae7ca53189f53ae4180e47e09088d225111897d59a74de9572995584df42",
+      "source_sha256": "bf79cacdf97957479576a814d9134087f20348597404d27d3e27dab2fb4cd91a",
+      "vertices": 8,
+      "walk_indices": null
+    },
+    {
+      "checked_potential": null,
+      "constraints": 29,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        }
+      ],
+      "family": "chords",
+      "format_variant_route": "75754073f6642c10ea94929796fab599eabcb180e1e0b9f709a1800bb3279e84",
+      "formula_sha256": "530d9942d766caf800fb20b12ba1a916b54fa215572b7fca4f8fd682367d8c42",
+      "negative": true,
+      "route": "99bd34e4d22a68c90a478a527a7c0bf2ba76a0f0646548c2bdfc3fcf9ad6bd22",
+      "source_sha256": "ef4d7d35e4aed8c6886092387bd5e768f09e23243966871977974abea993b768",
+      "vertices": 8,
+      "walk_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "checked_potential": [
+        0,
+        1,
+        2
+      ],
+      "constraints": 5,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        }
+      ],
+      "family": "opposed",
+      "format_variant_route": "a983b65aea5a3a2e3a8876d66ad4a23fb5b30114c75513b19e479cb95cce5b29",
+      "formula_sha256": "a53b2d3d5d6174cf98ed71419ac69e9a5990d2033dd229a4cb73addd0dd31a5a",
+      "negative": false,
+      "route": "2bcae19edaafb3c9708897c6db122385283af6067c7f8a2092e20620738d75c3",
+      "source_sha256": "53340cdbb96201c62a685da9f793f55760ab5fba98993c795bfff6c16a80a3f9",
+      "vertices": 3,
+      "walk_indices": null
+    },
+    {
+      "checked_potential": null,
+      "constraints": 5,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        }
+      ],
+      "family": "opposed",
+      "format_variant_route": "7a480bda1c690a3cae9acde5cd89e6146a05e985be0dcdac797ad4f7208c9cb7",
+      "formula_sha256": "d7385185a6720135600e866feaebdceb80abc74a73148bda90a613a087cc000f",
+      "negative": true,
+      "route": "d0b53cbcc960c13d15263f309074a520b470194b88feb9573ef534274e0aef8f",
+      "source_sha256": "299ebae91e97305ddba041419f6290e7247d08810caea6ddccf7c460611f15c9",
+      "vertices": 3,
+      "walk_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "checked_potential": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "constraints": 9,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        }
+      ],
+      "family": "opposed",
+      "format_variant_route": "4646d170efb39cfc21fb8d23b1240379a44339b1a74648d7a97296c702695764",
+      "formula_sha256": "f7ebc802d9be49a0d0037ca45c5566fe7d95acda6fb54b7229658632cb371452",
+      "negative": false,
+      "route": "5cfda67701525bf11ff8bed209edfaefd89393ca70a8c4b6a0debd157915df89",
+      "source_sha256": "2e9d1bceb7493da519e6ef38887918708a1bd56011bfb853dbf93db86df4dc18",
+      "vertices": 5,
+      "walk_indices": null
+    },
+    {
+      "checked_potential": null,
+      "constraints": 9,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        }
+      ],
+      "family": "opposed",
+      "format_variant_route": "866c39d59b7c5c0e50ded228be7948498b7ab6126240946abc2610e9ac380248",
+      "formula_sha256": "4abad87258f1b6fa48240edb637f7cf66e06b3c62f55926a8c23d63b9f1f537d",
+      "negative": true,
+      "route": "923d8515629a9260b55facf42cca91011daf0d756bd8b1a4d2cb3bcdb3100e56",
+      "source_sha256": "911ed3ef6d5875e51499c4df97299c33e2e26fdd7ca93dde2281008f59fa2dd9",
+      "vertices": 5,
+      "walk_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "checked_potential": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "constraints": 15,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "possible-verified",
+          "status": "sat"
+        }
+      ],
+      "family": "opposed",
+      "format_variant_route": "4790ea2152ac8d7bd0711aeea22364038df6ffb8dc9a85890ff472b5bf2bf04d",
+      "formula_sha256": "112d910ae8696cbee4dac45daaa0236c8f1b5b562a225ae823a9aaffbd7a8ecc",
+      "negative": false,
+      "route": "8686a5bf87f26ecf47343cb17b68676e60ef022c296961e21dd2a240beb2ba6e",
+      "source_sha256": "15fc02135aa2dd1448b58f48ca6fffaa6803f9557dfa5d92d3a9861f6878aef0",
+      "vertices": 8,
+      "walk_indices": null
+    },
+    {
+      "checked_potential": null,
+      "constraints": 15,
+      "controls": [
+        {
+          "backend": "cvc5",
+          "limit": 1,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "cvc5",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        },
+        {
+          "backend": "z3",
+          "limit": 1,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100,
+          "outcome": "possible-unresolved",
+          "status": "unknown"
+        },
+        {
+          "backend": "z3",
+          "limit": 100000,
+          "outcome": "pruned",
+          "status": "unsat"
+        }
+      ],
+      "family": "opposed",
+      "format_variant_route": "5e0d641ef57f727836eb4617969e5a3ee1cf3f0acd82d0430bed3ca17d0bc7be",
+      "formula_sha256": "d51bb9ce92eb78acd31bc588d66fa9b7a4be4a41449b9c1f14877fcf970e55f8",
+      "negative": true,
+      "route": "4342b5facd29d9d136fadaf05ab8f13e9704a2a0aac00b3d644d07e8cc148609",
+      "source_sha256": "523f5e9267ef829c1c782102605c3c1345940df37562ab64c969f5fc31607080",
+      "vertices": 8,
+      "walk_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "python": "3.12.14",
+  "solvers": {
+    "cvc5": {
+      "banner": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+      "sha256": "6aecddf466552b83bb5883756c7955e0c9d5ddcc6d7f45b48c2f6e06a741b102"
+    },
+    "z3": {
+      "banner": "Z3 version 4.13.3 - 64 bit",
+      "sha256": "c28f5598836fe6312ed4b25a98525fb58e2800d4c4f8117a1daeb04e6327686c"
+    }
+  },
+  "source_sha256": {
+    "check.py": "e78d88baf5a5d6437a1391db537393ada53fd89f209381aab601077029bf1269",
+    "checker.py": "cd3dc0e230639c9e86deb8cb95de1cdc8093dba35a4e2851dfdb9167e57423a1",
+    "run.py": "89ebfaea305404651c56fcb80be342873515974f93186a77874923a1a1832bf5"
+  },
+  "totals": {
+    "possible-unresolved": 54,
+    "possible-verified": 18,
+    "pruned": 36
+  }
+}

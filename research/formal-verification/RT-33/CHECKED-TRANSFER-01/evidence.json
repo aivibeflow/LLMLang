@@ -1,0 +1,129 @@
+{
+  "additional_refusals": [
+    "unchecked-original-core",
+    "other-proven-core",
+    "incomplete-model",
+    "wrong-model-sort",
+    "changed-symbol-sort"
+  ],
+  "alpha_controls": {
+    "capture_changes_value": true,
+    "same_typed_local_after_renaming": true
+  },
+  "base_core": {
+    "certificate": "(assume a0 (! (= x 3) :named @p_1))\n(assume a1 (! (not @p_1) :named @p_2))\n(step t0 (cl) :rule resolution :premises (a0 a1) :args (@p_1 true))\n",
+    "certificate_sha256": "acdb11ee9f52c4c2c19a2178f95fc8da265feb97082fde147996df76c0e777c6",
+    "query": "(set-logic QF_LIA)\n(declare-const x Int)\n(declare-const enabled Bool)\n(declare-const other Int)\n(assert (= x 3))\n(assert (not (= x 3)))\n(check-sat)\n(exit)\n",
+    "query_sha256": "e1d94e6305756ccd3f5933c595206a6f88f53276a3b66a49d8a0491894290c60"
+  },
+  "fresh_core_after_change": {
+    "certificate": "(assume a0 (! (= x 7) :named @p_1))\n(assume a1 (! (not @p_1) :named @p_2))\n(step t0 (cl) :rule resolution :premises (a0 a1) :args (@p_1 true))\n",
+    "certificate_sha256": "12f49b82511aa5cbcd49beb9e7d8d0d35cb73b239f303f294eb1d129d75d4690",
+    "query": "(set-logic QF_LIA)\n(declare-const x Int)\n(declare-const enabled Bool)\n(declare-const other Int)\n(assert (= x 7))\n(assert (not (= x 7)))\n(check-sat)\n(exit)\n",
+    "query_sha256": "f2af2e6b0112ed73f12d3ea850e6f3abd59a28d13fb4eeac7ac4e37798419b2e"
+  },
+  "lean_axioms": [
+    "'CheckedTransfer.reuseByImplication' does not depend on any axioms",
+    "'CheckedTransfer.transferUnsatCore' does not depend on any axioms",
+    "'CheckedTransfer.boundedObligation' does not depend on any axioms"
+  ],
+  "obs": {
+    "different-free-roles": {
+      "cvc5": "unsat",
+      "old_complete_witness": false,
+      "old_core": false,
+      "query_sha256": "be7709bb2220721eb4d7d4df67d22e9c9cf8a3f8fb5f11e10352e7a5b8e948c2",
+      "z3": "unsat"
+    },
+    "different-unsat": {
+      "cvc5": "unsat",
+      "old_complete_witness": false,
+      "old_core": false,
+      "query_sha256": "f5db1b44512f683a00c9bc6e6934ebcb194a728793deb0cca9d0116407b0dd01",
+      "z3": "unsat"
+    },
+    "original": {
+      "cvc5": "unsat",
+      "old_complete_witness": false,
+      "old_core": true,
+      "query_sha256": "be7709bb2220721eb4d7d4df67d22e9c9cf8a3f8fb5f11e10352e7a5b8e948c2",
+      "z3": "unsat"
+    },
+    "removed-core-assertion": {
+      "cvc5": "sat",
+      "old_complete_witness": true,
+      "old_core": false,
+      "query_sha256": "10b1d5281fc40bebd96bfa48ddb4b60f02046a92d43db3da4c6edd1225bc6dcc",
+      "z3": "sat"
+    },
+    "renamed-sat": {
+      "cvc5": "sat",
+      "old_complete_witness": true,
+      "old_core": false,
+      "query_sha256": "56f174a5b63ff18435825383b285b5df88fcc7b946d7734d99a2c01574a0832b",
+      "z3": "sat"
+    },
+    "reordered-assertions": {
+      "cvc5": "unsat",
+      "old_complete_witness": false,
+      "old_core": true,
+      "query_sha256": "8df2b745bf19126d781150875788275b27fd2eb6fbccca3cb4bba4c6221aba3b",
+      "z3": "unsat"
+    },
+    "sat": {
+      "cvc5": "sat",
+      "old_complete_witness": true,
+      "old_core": false,
+      "query_sha256": "6ef0f9e8ffc16da82d59e7ebc1820cae4924dd0a5be05526ded0066c734aad49",
+      "z3": "sat"
+    },
+    "sat-with-different-guard": {
+      "cvc5": "sat",
+      "old_complete_witness": false,
+      "old_core": false,
+      "query_sha256": "340639949135972c662e79511442c19528393fd8ec5927caad84ad091722c068",
+      "z3": "sat"
+    },
+    "stronger": {
+      "cvc5": "unsat",
+      "old_complete_witness": false,
+      "old_core": true,
+      "query_sha256": "5479f531420a0790e9d1cc6b8f692c86952be9dba9808e2f7e3365b352999e77",
+      "z3": "unsat"
+    },
+    "typed-alpha-renaming": {
+      "cvc5": "unsat",
+      "old_complete_witness": false,
+      "old_core": true,
+      "query_sha256": "36772bb0e0be1674ee2adffd143ad804264bcd7a0723e6fe8f3e06bcdf071515",
+      "z3": "unsat"
+    }
+  },
+  "retained_core_labels": [
+    "excluded",
+    "required"
+  ],
+  "tools": {
+    "carcara": {
+      "sha256": "8e4db8912497cd2b628c9d7f4f925b4601c2b9e4ffba91df5e980b61c70f2380",
+      "version": "carcara 1.1.0 [git none unknown]"
+    },
+    "cvc5": {
+      "sha256": "6aecddf466552b83bb5883756c7955e0c9d5ddcc6d7f45b48c2f6e06a741b102",
+      "version": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]"
+    },
+    "lean": {
+      "sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+      "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+    },
+    "z3": {
+      "sha256": "c28f5598836fe6312ed4b25a98525fb58e2800d4c4f8117a1daeb04e6327686c",
+      "version": "Z3 version 4.13.3 - 64 bit"
+    }
+  },
+  "witness": {
+    "guard": true,
+    "spare": 2,
+    "value": 3
+  }
+}

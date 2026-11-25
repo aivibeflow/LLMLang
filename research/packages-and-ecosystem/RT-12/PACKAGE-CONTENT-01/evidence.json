@@ -1,0 +1,104 @@
+{
+  "baseline": {
+    "archive": "sha256:3c7705a3960f58d42295c582e8243923d0fbfda2068be85b7112bc9d720e043d",
+    "index": "sha256:3fba23dcb3bcd69146f12cb9d9788b6d048f44fce2b6eff568db5a4c45b691df",
+    "root": "sha256:38ef8689e6af3ec9b81436260d2fda424a13eb2f96e0377a61d072e416a5b8a1"
+  },
+  "changed_logical_index": {
+    "edge_condition": {
+      "archive": "sha256:6728e9a62cbccb922d2873e96ccc574b6235bf64cb9a827f9e1d197b5a233ff0",
+      "index": "sha256:ee535fc3f278e8781ebbaa0eb7f522c1c7b7f3f0311699220a9ce6afea7c1c9b",
+      "root": "sha256:fb73f8dd95c3cd96b8d7bef363f139a743e23ade444abceda51ded7a3468c4ca"
+    },
+    "edge_kind": {
+      "archive": "sha256:c78003668b0717970ec7ff0c84a3498a1c3ef7edc8bedf962c7f6b96853429ed",
+      "index": "sha256:01a4dac958725c1446144d93158365d5777e52ec1e9bb6b8b8dfbbba2f2cf3b5",
+      "root": "sha256:cd6d35c4d819af54818caad28ef91f191eefdcd64b75cca99acafe3e8cd8bfd0"
+    },
+    "edge_target": {
+      "archive": "sha256:0746ec3c16af487a9f2ee1f8f7bba761e1fd02eef3c628a6e2ab43dd098d4768",
+      "index": "sha256:692ea2f8d5e012d28d76030ffbfae062fd4605696dda233acfda8b2a340e38e5",
+      "root": "sha256:1104306c1946beed260208032bdd62a287dfb790a7cd355979e54418c51c7e3e"
+    },
+    "export_name": {
+      "archive": "sha256:6d0f2ea73d39787345ad9dcda77f3ce773589a239ff321b5660b70399f9f7975",
+      "index": "sha256:ea7a791dda9964fa754f40cb9b3cf049e78023dc1cd85bbb0ec45f95f752ab19",
+      "root": "sha256:09634abf0eb7cc8f5dec58fe8b9cf997bb1c0d381cdfa35e51b77f772776d64c"
+    },
+    "external_evidence": {
+      "archive": "sha256:f1714e7ea4da87b1c962704e3221dd11fdc2ce9a3bf77b6303918a36d2bc837d",
+      "index": "sha256:dd6dd5d6670e20c9eabcc0a8820beca2a8adece84f0ce8fee2df3bef28039c37",
+      "root": "sha256:c6161dc61c6e2ab75fb66c390037f887903de78030e4d9fc3619e905ad3f2772"
+    },
+    "module_membership": {
+      "archive": "sha256:6da2513582ebe3e6dd8988cbde117226b358072cdb465e090adacec89a292edc",
+      "index": "sha256:b6bbe3f04eed4c6546e7565026436257d37b21625ef038e8f6c732ae0f6c3c8d",
+      "root": "sha256:e50d5b3d31d72a35cc0f87af72d2618b32c6c96bc67a6db0db53f5d2e51f0f3f"
+    },
+    "object_membership": {
+      "archive": "sha256:2f0037db2bd6f0fed774c8c79ace2f54bbaeab78bb4fc7080c7b6ba3a243939e",
+      "index": "sha256:fa8045076ff3ab4cac80ca9b5c1380e29157025ee1c44f0877b6b6c83e85dc2a",
+      "root": "sha256:500aabf75444604116a48eda9fc2e0709e46795ef01457ba49aba95743d46996"
+    }
+  },
+  "changed_logical_manifest": {
+    "policy": {
+      "archive": "sha256:3f19d1e278352494b36888e65b332415bb03ebea2369236501cb1ff6b5299540",
+      "index": "sha256:3fba23dcb3bcd69146f12cb9d9788b6d048f44fce2b6eff568db5a4c45b691df",
+      "root": "sha256:559bae290779c7b23d5a40d3855089137d813cc52079cdbdc5bc93c56efe91c6"
+    },
+    "resolution_inputs": {
+      "archive": "sha256:cdff700d9aee9aec3da4a786f485785f1925380740f21b7f1b923722e0b52fbc",
+      "index": "sha256:3fba23dcb3bcd69146f12cb9d9788b6d048f44fce2b6eff568db5a4c45b691df",
+      "root": "sha256:d3f3f0d4ff143744766a9dec93af11447a909fedd902c1372834f83843abec44"
+    },
+    "selected_roots": {
+      "archive": "sha256:58e782ce4f2fe437a9c2f08a8edbd97cfb8098a1c849217206816a476fc7d528",
+      "index": "sha256:3fba23dcb3bcd69146f12cb9d9788b6d048f44fce2b6eff568db5a4c45b691df",
+      "root": "sha256:8992742d534a44dd1371f3e9051612682b232bb21edaf1b11eebdcdbaf64953f"
+    }
+  },
+  "content_preserving_delivery_changes": {
+    "index_path": {
+      "archive": "sha256:64aad464676c81093c339e603b9bcd75c3619c42527bf6e67a1c309250629d3f",
+      "index": "sha256:3fba23dcb3bcd69146f12cb9d9788b6d048f44fce2b6eff568db5a4c45b691df",
+      "root": "sha256:38ef8689e6af3ec9b81436260d2fda424a13eb2f96e0377a61d072e416a5b8a1"
+    },
+    "package_label": {
+      "archive": "sha256:45f801ecad431d0103d90f9b3d8e2e92239586109ddba1bafe459e6fd3d21d2e",
+      "index": "sha256:3fba23dcb3bcd69146f12cb9d9788b6d048f44fce2b6eff568db5a4c45b691df",
+      "root": "sha256:38ef8689e6af3ec9b81436260d2fda424a13eb2f96e0377a61d072e416a5b8a1"
+    },
+    "reordered": {
+      "archive": "sha256:9f9369512c2a2de914a19e4e3657282b8fb2c8a10a0a1701e71f9fc730356244",
+      "index": "sha256:3fba23dcb3bcd69146f12cb9d9788b6d048f44fce2b6eff568db5a4c45b691df",
+      "root": "sha256:38ef8689e6af3ec9b81436260d2fda424a13eb2f96e0377a61d072e416a5b8a1"
+    }
+  },
+  "payload_ids": {
+    "entry": "sha256:010091c95f29ea409528865833c12d96e255bfaa0f97f6668fb22cbfa1ce8028",
+    "external": "sha256:f8b7f9e2e87ccd6db56bf0f1525769a619b280aa54d57e1b484ac0faff936a77",
+    "extra": "sha256:6478bca9007f08d39127b92c4b176efc53a34d6e1628d9e56a40f7f4108109ab",
+    "proof": "sha256:b05dbd7ad400e03cad9bf9f369346d7000a26bdb3c1fe7e0d555f2d5340f121a",
+    "type": "sha256:ae5cc127ae9538399741888db847bcb731ace3faa80cac1f736943767e1a317b"
+  },
+  "python": "3.12.14",
+  "refused": {
+    "absent_root": "package root is not present in included object membership",
+    "duplicate_root": "duplicate package root",
+    "inline_provenance": "archive contains unexpected entries",
+    "malformed_export": "export references an absent object",
+    "malformed_member": "module references an absent object",
+    "missing_evidence": "included dependency target is absent from objects"
+  },
+  "separate_provenance_statement_digests": [
+    "sha256:cb38fbf820601f9a7d83561c78a9e88a94d6a5f521c5cd50b2b0cc2d0d1dd494",
+    "sha256:1bd55dd48c0304bbd4e4c75cf6ea51eadb07dcbb1822ba159be294ea3c547b61"
+  ],
+  "source_sha256": {
+    "check.py": "3639b7a18d0684f061fbf5d2f2126ccc3c0e628798572ca7c8ca95523a555633",
+    "package_archive.py": "01febe052788c913ebb750561e0430a9609c50cb9b86558f74ecc680499bfff1",
+    "package_identity.py": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458",
+    "package_index.py": "e03e977aef9a7dd9764854468bf0c43875236dae700bcdc498b2286e1de6ae3c"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "accepted_features": [
+    "F-PORT-002",
+    "F-TOOL-003"
+  ],
+  "allocator_runs": 280,
+  "allocator_startup_errors": 28,
+  "base": "1ec32a8c356a1a44c3531a59e25d73a60120313b",
+  "ffi_native_observations": 96,
+  "ffi_wrong_symbols_refused": 16,
+  "genuine_nitpick_counterexamples": 1,
+  "input_sha256": {
+    "draft/ARCHITECTURE-DECISIONS.md": "d21e952c9f54b103d2ecb0dd0d3e36df02a5228b87670413e5528ab382b344d9",
+    "research/compiler-and-translation/RT-13/FFI-BIDIRECTIONAL-HOSTED-01/evidence.json": "bff849409c31f8ca4bd78f6832cdfb6818e8e50a2c304f43887a8dc3cd0113ef",
+    "research/compiler-and-translation/RT-28/CONTRIBUTION-AND-CUTOVER-01/evidence.json": "579fe3cea5459ecedfdbeef93c1216d3c507e92f4dc12ab321dc9691f67604cb",
+    "research/research-management/QUALITY-REVIEW-PROTOCOL.md": "c41ae6bf4b8482bc5b44d76e1bb6a2f7db8358ca6ca182f2ea2cf4f1e8f0d394",
+    "research/research-management/RT-00/RT-00-C-ACCEPTED-FEATURE-AUTHORITY-2026-11-25.json": "cc53fcec387f377c01c302e58c237da8f9d85c3830d3322afd68dacc20af0894",
+    "research/runtime-and-systems/RT-25/CONCURRENT-ALLOCATOR-PRESSURE-01/samples.json": "72d119e4fa8a9af218d2edaea88d2c1aa596936b1bc8544766a41538243bfeba",
+    "research/runtime-and-systems/RT-26/NATIVE-READ-ADMISSION-01/samples.json": "f0f0bc0c0982448dde810c1ca89bda5cac295b6152a29dfca04f4849788c7eee",
+    "research/runtime-and-systems/RT-38/SEL4-TRANSFER-CONTROLS-01/stock-evidence.json": "ee6a151bda7ce1e430bccf514f40d155a412a898209fa9724bdd2f0416a64b5e",
+    "research/templates/REPORT-TEMPLATE.md": "b25efe541d5b1447d14a50fd0236848e409f065ce282369977ba956bda621066"
+  },
+  "migration_outcomes": {
+    "accepted/cutover-and-rollback": 1,
+    "accepted/held-original": 11,
+    "deferred/held-original": 12,
+    "modified/cutover-and-rollback": 1,
+    "modified/held-original": 11,
+    "rejected/held-original": 12
+  },
+  "proofs": [
+    "candidate_agrees",
+    "reachable_fault",
+    "reachable_slot",
+    "reachable_state"
+  ],
+  "quickcheck_counterexamples": 3,
+  "quota_decisions": 92160,
+  "quota_runs": 72,
+  "template_headings": [
+    "Problem and hypotheses",
+    "Prior art and alternatives",
+    "Formal model and assumptions",
+    "Experiments and method",
+    "Results and evidence classification",
+    "Negative results, rejected options and UNKNOWN",
+    "Limitations and threats to validity",
+    "Decision boundary and recommendation",
+    "Draft impact and traceability",
+    "Reproduction and quality-gate review"
+  ]
+}

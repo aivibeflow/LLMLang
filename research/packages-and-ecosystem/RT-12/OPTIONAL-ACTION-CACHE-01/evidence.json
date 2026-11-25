@@ -1,0 +1,273 @@
+{
+  "baseline": "5ab667bbbe59cde3c9c2777b0155aeadaf0df7b7",
+  "python": "3.12.14",
+  "runner_sha256": "sha256:34c020d1e728c3567a61e71b28ca146d5b6d0bb13239573a4810553f519b7e3b",
+  "source_sha256": {
+    "research/packages-and-ecosystem/RT-12/STATIC-INDEX-01/run.py": "sha256:8b1d32f04f4966b76d4a98e4a5edb8fa48e968cbeecbe7cda13a178ea30e2d0f",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_archive.py": "sha256:01febe052788c913ebb750561e0430a9609c50cb9b86558f74ecc680499bfff1",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_index.py": "sha256:e03e977aef9a7dd9764854468bf0c43875236dae700bcdc498b2286e1de6ae3c",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/test_package_archive.py": "sha256:3f43628810fb3898b2c6c8e40173ce59b1cb157478d847952f7dcb24dd6b1764",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/cache_index.py": "sha256:2662ffa87450e05f075218b5593222262ff724e785ce512436bfa40443329b3b",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/language_version.py": "sha256:ef95a3198b49a6bd72db48aa600a50a2db2bf8fa922be3229e450ac57ab0d406",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py": "sha256:9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/test_language_version_cache_index.py": "sha256:d6576e10e9a1a0fdf674751f18602eabbee81c9cb732177c092a7cfdd7688a6f"
+  },
+  "package_members": [
+    "package.llpkg"
+  ],
+  "action_request": {
+    "action_key": "sha256:a9acab8ff26061751e02f88bb70d4aa439a9772ccaf0c623a868501412445fe8",
+    "action_kind": "type_check",
+    "action_implementation": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "input_hashes": [
+      "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+      "sha256:8ed3f6ad685b959ead7022518e1af76cd816f8e8ec7ccdda1ed4018e8f2223f8",
+      "sha256:f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753"
+    ],
+    "language_version": "1.3.2.1.0",
+    "language_component_registry_digest": "sha256:455f7cd2d2d7a113645df451b5b3bed3ddfe1d98099b71eabae516d4060c11e6",
+    "toolchain_identity": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "target_profile_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "configuration_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+    "runtime_identity": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "status": "success",
+    "determinism": "byte_deterministic",
+    "dependency_complete": true,
+    "output_artifacts": [
+      "sha256:2f667956e3348f7ddde69830f87c7215202ace48d015db52bb68dc7336bcd9bf"
+    ]
+  },
+  "prior_request": {
+    "action_key": "sha256:3b22f20cdbc5a99cf505c6c8e922bac5280da3bf000451db252d40f40d80cba0",
+    "action_kind": "type_check",
+    "action_implementation": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "input_hashes": [
+      "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+      "sha256:8ed3f6ad685b959ead7022518e1af76cd816f8e8ec7ccdda1ed4018e8f2223f8",
+      "sha256:f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753"
+    ],
+    "language_version": "1.3.2.1.0",
+    "language_component_registry_digest": "sha256:455f7cd2d2d7a113645df451b5b3bed3ddfe1d98099b71eabae516d4060c11e6",
+    "toolchain_identity": "sha256:f84b36948f37bd5fa4fffe0d6257c1318cc8ec677a22135277823682296ba9ac",
+    "target_profile_digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "configuration_digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+    "runtime_identity": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "status": "success",
+    "determinism": "byte_deterministic",
+    "dependency_complete": true,
+    "output_artifacts": [
+      "sha256:2f667956e3348f7ddde69830f87c7215202ace48d015db52bb68dc7336bcd9bf"
+    ]
+  },
+  "rows": {
+    "core-only": {
+      "archive": "sha256:3432d3572ebe7de1973a680fa1e2329964a67af39284dd5867744f0e4cb2135b",
+      "entries": [
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "absent",
+      "fallback": true
+    },
+    "embedded-both": {
+      "archive": "sha256:25f0c85998b33d23ebc94157a14f41d9b1720c92fe7553fe1960ef4bcff15f7b",
+      "entries": [
+        "cache/artifacts/2f667956e3348f7ddde69830f87c7215202ace48d015db52bb68dc7336bcd9bf",
+        "cache/index.json",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "hit-embedded",
+      "fallback": false
+    },
+    "detached-index": {
+      "archive": "sha256:bc4a4d8697bba2d05751b1aeb0de4dc2dfd3dea0caf490cf7a47275465135412",
+      "entries": [
+        "cache/artifacts/2f667956e3348f7ddde69830f87c7215202ace48d015db52bb68dc7336bcd9bf",
+        "package.llpkg"
+      ],
+      "detached_index": "sha256:f1378f1ca257e71643b8c3afcc46e3712e449aafb8d667273ecfdd4854bbf557",
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "hit-embedded",
+      "fallback": false
+    },
+    "embedded-index-external-artifact": {
+      "archive": "sha256:195821670be95b46be7227ce3d347f7d74d2972819406de32476fb27cfbfd76e",
+      "entries": [
+        "cache/index.json",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "hit-external",
+      "fallback": false
+    },
+    "no-artifact": {
+      "archive": "sha256:195821670be95b46be7227ce3d347f7d74d2972819406de32476fb27cfbfd76e",
+      "entries": [
+        "cache/index.json",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "missing-artifact",
+      "fallback": true
+    },
+    "payload-without-index": {
+      "archive": "sha256:bc4a4d8697bba2d05751b1aeb0de4dc2dfd3dea0caf490cf7a47275465135412",
+      "entries": [
+        "cache/artifacts/2f667956e3348f7ddde69830f87c7215202ace48d015db52bb68dc7336bcd9bf",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "absent",
+      "fallback": true
+    },
+    "stale-toolchain-key": {
+      "archive": "sha256:757649cd8079172658ad94d82d7d6ff12e554f95987e17dc0e859188becd1f4f",
+      "entries": [
+        "cache/artifacts/2f667956e3348f7ddde69830f87c7215202ace48d015db52bb68dc7336bcd9bf",
+        "cache/index.json",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "action-miss",
+      "fallback": true
+    },
+    "incomplete-action": {
+      "archive": "sha256:523946a51a86e074e92d37bfcce2098602bfd88329bbe3321285395ee7f5ac3e",
+      "entries": [
+        "cache/artifacts/2f667956e3348f7ddde69830f87c7215202ace48d015db52bb68dc7336bcd9bf",
+        "cache/index.json",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "invalid-index",
+      "fallback": true
+    },
+    "unreadable-index": {
+      "archive": "sha256:fc53e123ed5f816facaf3944e1ba1672d0731c991b39a3fedd09ae8facaf1ec6",
+      "entries": [
+        "cache/index.json",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "invalid-index",
+      "fallback": true
+    },
+    "corrupt-artifact": {
+      "archive": "sha256:e834a75271579f04d3859735bd580a42fd6cf5e3abf4179dae51cf9448d24d6f",
+      "entries": [
+        "cache/artifacts/2f667956e3348f7ddde69830f87c7215202ace48d015db52bb68dc7336bcd9bf",
+        "cache/index.json",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "artifact-digest-mismatch",
+      "fallback": true
+    },
+    "untrusted-authority": {
+      "archive": "sha256:25f0c85998b33d23ebc94157a14f41d9b1720c92fe7553fe1960ef4bcff15f7b",
+      "entries": [
+        "cache/artifacts/2f667956e3348f7ddde69830f87c7215202ace48d015db52bb68dc7336bcd9bf",
+        "cache/index.json",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "untrusted-result",
+      "fallback": true
+    },
+    "same-key-different-result": {
+      "archive": "sha256:5bf84ce5ad822c971b2de667cb212d18a76498c38b6a4a8735042d715238d96e",
+      "entries": [
+        "cache/artifacts/b0624444e23839883ce3d7276c69795c430e8f2a331d819bdc7067c2a7370d4c",
+        "cache/index.json",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "admitted",
+      "identity": {
+        "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+        "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+        "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3"
+      },
+      "cache": "untrusted-result",
+      "fallback": true
+    },
+    "broken-package-with-valid-cache": {
+      "archive": "sha256:59b7ce0bb472f7fd11e5b223259faffb9ad2d77ab76fac3874444d2218edb748",
+      "entries": [
+        "cache/artifacts/2f667956e3348f7ddde69830f87c7215202ace48d015db52bb68dc7336bcd9bf",
+        "cache/index.json",
+        "package.llpkg"
+      ],
+      "detached_index": null,
+      "package": "refused",
+      "cache": "not-read",
+      "fallback": false
+    }
+  }
+}

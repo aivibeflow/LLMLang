@@ -1,0 +1,233 @@
+{
+  "schema": "llmlang-checked-byte-proof-routes/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "d3d830d38063c145f01c6de69296de6cdde2689cecf882dfe94718b8204c4b99",
+    "probe.c": "0fc139599e34c1fe918c4ba85962b5e602191afbcda062dc813408e663dbaace",
+    "Regions.lean": "8aac7fedaa63528667b220bc6e34ee4fc50bbfe1b7257900a0920c61a0285863",
+    "axioms.txt": "0285a7d8762a1180049a5feca37518b31c3eec7a92ac0ada9745bdf2da57782e"
+  },
+  "input_pairs": 65536,
+  "initial_cell": -999,
+  "native": {
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "rows_per_optimization": 393216,
+    "profile_sha256": {
+      "-O0": "b7f29204944e880676b8211a2400b89ba5a21aa477af51845d723b5edc582680",
+      "-O2": "b7f29204944e880676b8211a2400b89ba5a21aa477af51845d723b5edc582680"
+    },
+    "differences": {
+      "base": {
+        "complete": 0,
+        "status_and_cell": 0,
+        "status": 0
+      },
+      "inclusive_overflow": {
+        "complete": 127,
+        "status_and_cell": 127,
+        "status": 127
+      },
+      "restored_error_store": {
+        "complete": 16384,
+        "status_and_cell": 0,
+        "status": 0
+      },
+      "omitted_callback": {
+        "complete": 49152,
+        "status_and_cell": 0,
+        "status": 0
+      },
+      "reordered_callback": {
+        "complete": 49152,
+        "status_and_cell": 0,
+        "status": 0
+      },
+      "sum_stored_on_error": {
+        "complete": 16384,
+        "status_and_cell": 16384,
+        "status": 0
+      }
+    }
+  },
+  "solvers": {
+    "cvc5": {
+      "version": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+      "checks": {
+        "base": {
+          "raw_status": "unsat",
+          "smt_sha256": "c355414149f4754e72c4414601832cb0f2408e0803a5058f94c68d0f5bace579",
+          "validated_witness": null
+        },
+        "inclusive_overflow": {
+          "raw_status": "sat",
+          "smt_sha256": "e7b608fce2029ef54b2f97458eb7df5f30ec65a7fadeae33a88daa54414720fa",
+          "validated_witness": [
+            127,
+            1
+          ]
+        },
+        "restored_error_store": {
+          "raw_status": "sat",
+          "smt_sha256": "08105a40b18e19db302ae01c01af8e6d0f82b43c8ea57bb54a93652e56e09ebe",
+          "validated_witness": [
+            -128,
+            -128
+          ]
+        },
+        "omitted_callback": {
+          "raw_status": "sat",
+          "smt_sha256": "db4f8ca6574162af33c99d005ebe805b59f4f8c102d9366eafc9e738077c3e70",
+          "validated_witness": [
+            0,
+            -128
+          ]
+        },
+        "reordered_callback": {
+          "raw_status": "sat",
+          "smt_sha256": "fd00299d22523e25ef52744f40d008c4d38c7dd54b536157d982030eec4c9641",
+          "validated_witness": [
+            0,
+            -128
+          ]
+        },
+        "sum_stored_on_error": {
+          "raw_status": "sat",
+          "smt_sha256": "311e06907d4fcb21622c4aff124534c5259389aa41e9161964cbd9fe071be1e9",
+          "validated_witness": [
+            -128,
+            -1
+          ]
+        }
+      }
+    },
+    "z3": {
+      "version": "Z3 version 4.13.3 - 64 bit",
+      "checks": {
+        "base": {
+          "raw_status": "unsat",
+          "smt_sha256": "c355414149f4754e72c4414601832cb0f2408e0803a5058f94c68d0f5bace579",
+          "validated_witness": null
+        },
+        "inclusive_overflow": {
+          "raw_status": "sat",
+          "smt_sha256": "e7b608fce2029ef54b2f97458eb7df5f30ec65a7fadeae33a88daa54414720fa",
+          "validated_witness": [
+            1,
+            127
+          ]
+        },
+        "restored_error_store": {
+          "raw_status": "sat",
+          "smt_sha256": "08105a40b18e19db302ae01c01af8e6d0f82b43c8ea57bb54a93652e56e09ebe",
+          "validated_witness": [
+            1,
+            127
+          ]
+        },
+        "omitted_callback": {
+          "raw_status": "sat",
+          "smt_sha256": "db4f8ca6574162af33c99d005ebe805b59f4f8c102d9366eafc9e738077c3e70",
+          "validated_witness": [
+            0,
+            0
+          ]
+        },
+        "reordered_callback": {
+          "raw_status": "sat",
+          "smt_sha256": "fd00299d22523e25ef52744f40d008c4d38c7dd54b536157d982030eec4c9641",
+          "validated_witness": [
+            0,
+            0
+          ]
+        },
+        "sum_stored_on_error": {
+          "raw_status": "sat",
+          "smt_sha256": "311e06907d4fcb21622c4aff124534c5259389aa41e9161964cbd9fe071be1e9",
+          "validated_witness": [
+            127,
+            1
+          ]
+        }
+      }
+    }
+  },
+  "specialized": {
+    "base": {
+      "status": "checked",
+      "endpoints": [
+        -256,
+        -129,
+        -128,
+        127,
+        128,
+        254
+      ],
+      "counterexample_sum": null
+    },
+    "inclusive_overflow": {
+      "status": "refuted",
+      "endpoints": [
+        -256,
+        -129,
+        -128,
+        127,
+        128,
+        129,
+        254
+      ],
+      "counterexample_sum": 128
+    },
+    "restored_error_store": {
+      "status": "refuted",
+      "endpoints": [
+        -256,
+        -129,
+        -128,
+        127,
+        128,
+        254
+      ],
+      "counterexample_sum": -256
+    },
+    "omitted_callback": {
+      "status": "refuted",
+      "endpoints": [
+        -256,
+        -129,
+        -128,
+        127,
+        128,
+        254
+      ],
+      "counterexample_sum": -128
+    },
+    "reordered_callback": {
+      "status": "refuted",
+      "endpoints": [
+        -256,
+        -129,
+        -128,
+        127,
+        128,
+        254
+      ],
+      "counterexample_sum": -128
+    },
+    "sum_stored_on_error": {
+      "status": "refuted",
+      "endpoints": [
+        -256,
+        -129,
+        -128,
+        127,
+        128,
+        254
+      ],
+      "counterexample_sum": -256
+    }
+  },
+  "coarse_partition_control": {
+    "status": "missing-branch-boundary",
+    "endpoints": []
+  }
+}

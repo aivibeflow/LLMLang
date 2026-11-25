@@ -1,0 +1,42 @@
+{
+  "compiler_refusals": {
+    "nested": "improper_ctypes_definitions",
+    "unrestricted": "improper_ctypes_definitions"
+  },
+  "controls": {
+    "niche_zero": "absent",
+    "tagged_absent": {
+      "bits": 0,
+      "result": 0,
+      "tag": 0
+    },
+    "tagged_present_zero": {
+      "bits": 0,
+      "result": 4294967296,
+      "tag": 1
+    }
+  },
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "profiles": {
+    "0": {
+      "native_transcript_sha256": "016db4ce8d4a4d804711f083038f5c31e2fb201662ad45c9255768156798db02",
+      "niche_inputs_checked": 260,
+      "tagged_calls": 1040
+    },
+    "2": {
+      "native_transcript_sha256": "016db4ce8d4a4d804711f083038f5c31e2fb201662ad45c9255768156798db02",
+      "niche_inputs_checked": 260,
+      "tagged_calls": 1040
+    }
+  },
+  "python": "3.12.14",
+  "rustc": [
+    "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "binary: rustc",
+    "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+    "commit-date: 2025-03-15",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.85.1",
+    "LLVM version: 19.1.7"
+  ]
+}

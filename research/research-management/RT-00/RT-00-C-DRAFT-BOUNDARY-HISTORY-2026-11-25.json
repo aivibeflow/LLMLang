@@ -1,0 +1,111 @@
+{
+  "head": "9196d810463a4f978c327c1065a81a3db9c9ecf9",
+  "draft_affecting_first_parent_commits": [
+    {
+      "commit": "bf9604a02ea00ce09ef498baa6b8cea36f0f6b6f",
+      "draft_paths": 100
+    },
+    {
+      "commit": "bed1647bb1394c3f4bd148251782cffcf390c324",
+      "draft_paths": 101
+    },
+    {
+      "commit": "e011d60451b486dcc987d2b2c47c9f14987f7778",
+      "draft_paths": 101
+    },
+    {
+      "commit": "790edf330b21aab167588eafe34d813caf93b0cb",
+      "draft_paths": 102
+    },
+    {
+      "commit": "1a0a5cfa24a5b6c1058addfe5c00e7d5b863b47b",
+      "draft_paths": 1
+    },
+    {
+      "commit": "66dc7ea3f0875f54b4c0ed4d3f2ee4fc38d25247",
+      "draft_paths": 2
+    },
+    {
+      "commit": "c7db7ea1f4c582319de2e15f855175fd34c60bcd",
+      "draft_paths": 3
+    },
+    {
+      "commit": "cb4fd59bfa2d99b391592255dad76e41c8040cc5",
+      "draft_paths": 4
+    },
+    {
+      "commit": "31144d6055c1eabe92a7d339396c2b368a26c91a",
+      "draft_paths": 5
+    },
+    {
+      "commit": "4782d22a51bcae41e82e88b503a62886b2507e4a",
+      "draft_paths": 6,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification"
+    },
+    {
+      "commit": "47c30f1c3bd8d10211ab6c6d2e868bc369f7ec33",
+      "draft_paths": 7,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification"
+    },
+    {
+      "commit": "e9ed9861be9c33acc893cdab3f37d88e043c5419",
+      "draft_paths": 0
+    },
+    {
+      "commit": "9c7f621ec5c94ca99f07ca2c35fec40e3f40bd9d",
+      "draft_paths": 7,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification"
+    },
+    {
+      "commit": "d1dbf8730556d8620823de68c1faf70e1e10559a",
+      "draft_paths": 7,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification"
+    },
+    {
+      "commit": "27d3041d9044bb68bd2eafb7c341fc4d2d8aead2",
+      "draft_paths": 8,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification",
+      "architecture_blob": "8a6fc6803d742e5a59c23353b62d13bcd435d57f",
+      "decision_through_reconsideration_sha256": "19d014e1054c27ae56249d0ffa7258a25161c89e148785f7d43ac29c928dd11d"
+    },
+    {
+      "commit": "9dbb8302c7ea655d59082449a5234f024cc5ce4d",
+      "draft_paths": 8,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification",
+      "architecture_blob": "8a6fc6803d742e5a59c23353b62d13bcd435d57f"
+    },
+    {
+      "commit": "789ff65923d55d6ea803f322b0f261010026b477",
+      "draft_paths": 8,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification",
+      "architecture_blob": "a375d87451fc0325cd649f25f46cefb9669f848d",
+      "decision_through_reconsideration_sha256": "19d014e1054c27ae56249d0ffa7258a25161c89e148785f7d43ac29c928dd11d"
+    },
+    {
+      "commit": "9c4e619194374153756076a0f3e0f948e0c0d3dc",
+      "draft_paths": 8,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification",
+      "architecture_blob": "a375d87451fc0325cd649f25f46cefb9669f848d"
+    },
+    {
+      "commit": "fe229c3215c42d8bded531d77bbef47761ac5770",
+      "draft_paths": 8,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification",
+      "architecture_blob": "c1cf5d846f2075681389c021b5d240e53b81f937",
+      "decision_through_reconsideration_sha256": "19d014e1054c27ae56249d0ffa7258a25161c89e148785f7d43ac29c928dd11d"
+    },
+    {
+      "commit": "1a5972480c22f534dd00b1c99fd57e0db089e4d5",
+      "draft_paths": 8,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification",
+      "architecture_blob": "c1cdc4c6c2aafbcb6dadb144d3355cd90a1e96eb",
+      "decision_through_reconsideration_sha256": "19d014e1054c27ae56249d0ffa7258a25161c89e148785f7d43ac29c928dd11d"
+    },
+    {
+      "commit": "c9cb445c6e68ccae45a362e0bcc95fc4a235198d",
+      "draft_paths": 8,
+      "glossary_status": "**Status:** Terminology proposal for the draft specification",
+      "architecture_blob": "c1cdc4c6c2aafbcb6dadb144d3355cd90a1e96eb"
+    }
+  ]
+}

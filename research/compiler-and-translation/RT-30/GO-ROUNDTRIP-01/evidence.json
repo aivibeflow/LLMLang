@@ -1,0 +1,186 @@
+{
+  "go": "go version go1.27.4 linux/amd64",
+  "go_release_archive_sha256": "7226736c2339719cda28fbf3a54d71aa63bcefe376e98cef00034268dab24840",
+  "source_sha256": {
+    "research/compiler-and-translation/RT-30/GO-ROUNDTRIP-01/roundtrip.py": "dde64303b2ae3f93895ebc34477a1b4f93ccc55c5b84e49ef854a2db53bef42b",
+    "research/compiler-and-translation/RT-30/GO-ROUNDTRIP-01/import.go": "51abf8b30a9e742e71bcc68b1e9964b1b1a058eb1ee377910cb98aa27e9fd983",
+    "research/compiler-and-translation/RT-30/GO-ROUNDTRIP-01/original.go.in": "04fe663e39cd614cb3fa9501f6c8fd5516b796c5f519d1530c1b14cbe51cec8e",
+    "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/host.go": "50ce99bafed1eba6bcebb5f0e61191469e54f7f30614e11f034ffab0ba74832d",
+    "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/lower_go.py": "ce112e486fa9cfce940eaea2a3aff3826a8cdc55ece5acc3a6be71fd8654875b",
+    "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/run.py": "66627d08c7336389953db30ec9ded770529d1b38f14ea5713b59f67b298c0cd9",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a"
+  },
+  "approved_programs": [
+    {
+      "operation": "wrap_add",
+      "operands": [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "operation": "wrap_add",
+      "operands": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "operation": "wrap_add",
+      "operands": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "operation": "wrap_add",
+      "operands": [
+        "b",
+        "b"
+      ]
+    },
+    {
+      "operation": "wrap_sub",
+      "operands": [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "operation": "wrap_sub",
+      "operands": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "operation": "wrap_sub",
+      "operands": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "operation": "wrap_sub",
+      "operands": [
+        "b",
+        "b"
+      ]
+    },
+    {
+      "operation": "wrap_mul",
+      "operands": [
+        "a",
+        "a"
+      ]
+    },
+    {
+      "operation": "wrap_mul",
+      "operands": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "operation": "wrap_mul",
+      "operands": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "operation": "wrap_mul",
+      "operands": [
+        "b",
+        "b"
+      ]
+    }
+  ],
+  "successful_reimports": 12,
+  "negative": {
+    "malformed": "parse-error",
+    "ill-typed": "type-error",
+    "different-inventory": "unsupported-inventory",
+    "build-constraint": "unsupported-directive",
+    "compiler-directive": "unsupported-directive",
+    "signed-schema": "unsupported-shape",
+    "different-operation": "unsupported-shape",
+    "narrower-branch": "unsupported-shape",
+    "different-initial-event": "unsupported-shape",
+    "different-slot-effect-order": "unsupported-shape"
+  },
+  "negative_native": {
+    "narrower-branch": {
+      "input": [
+        7,
+        2,
+        2
+      ],
+      "expected": [
+        "ok",
+        9,
+        [
+          7,
+          9
+        ]
+      ],
+      "actual": [
+        "ok",
+        2,
+        [
+          7,
+          2
+        ]
+      ],
+      "changed": [
+        "events",
+        "slot"
+      ]
+    },
+    "different-initial-event": {
+      "input": [
+        7,
+        2,
+        1
+      ],
+      "expected": [
+        "ok",
+        9,
+        [
+          7,
+          9
+        ]
+      ],
+      "actual": [
+        "ok",
+        9,
+        [
+          2,
+          9
+        ]
+      ],
+      "changed": [
+        "events"
+      ]
+    }
+  },
+  "native_comparison": {
+    "original_go": {
+      "observations": 37020,
+      "statuses": {
+        "ok": 37020
+      },
+      "binary_sha256": "32bc33622a8bd179d120fc5504c1bcd3ed6a8fb0e18a46541b6e9f89a9d0cf93"
+    },
+    "reexported_go": {
+      "observations": 37020,
+      "statuses": {
+        "ok": 37020
+      },
+      "binary_sha256": "f28dac6d81b93718c063f957ec36237aecb079a584caa92f199b3130397d1e6b"
+    }
+  },
+  "input_go_sha256": "7a229cd0b20609a9bee5757e4a9b9f92baf07e811b274afe3e65b1e89fe3909b",
+  "output_go_sha256": "cfb4e28d7618d44a164cf1e596f7c1c09b420b2eb9ba8b27181ffd70c9a1ddbd"
+}

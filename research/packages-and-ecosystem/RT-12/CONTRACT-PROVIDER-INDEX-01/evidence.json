@@ -1,0 +1,205 @@
+{
+  "baseline": "c3b56825b682650082fb71eee7e99c2223254547",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "runner_sha256": "74847c15c16d1d39c964daac94309b5c6f55fd5a4eec9aaa7f9cc63ba04ddc84",
+  "source_catalogs": [
+    [
+      [
+        "app",
+        "v1",
+        "linux",
+        "legacy"
+      ],
+      [
+        "app",
+        "v1",
+        "linux",
+        "portable"
+      ],
+      [
+        "app",
+        "v1",
+        "wasm",
+        "portable-wasm"
+      ],
+      [
+        "other",
+        "v1",
+        "linux",
+        "private"
+      ]
+    ],
+    [
+      [
+        "app",
+        "v1",
+        "linux",
+        "portable"
+      ],
+      [
+        "app",
+        "v1",
+        "linux",
+        "new-native"
+      ],
+      [
+        "app",
+        "v2",
+        "wasm",
+        "new-wasm"
+      ],
+      [
+        "other",
+        "v1",
+        "linux",
+        "private"
+      ]
+    ],
+    [
+      [
+        "app",
+        "v2",
+        "linux",
+        "native-v2"
+      ],
+      [
+        "app",
+        "v2",
+        "wasm",
+        "new-wasm"
+      ],
+      [
+        "other",
+        "v1",
+        "linux",
+        "private"
+      ]
+    ]
+  ],
+  "queries": [
+    [
+      "app",
+      "v1",
+      "linux"
+    ],
+    [
+      "app",
+      "v1",
+      "wasm"
+    ],
+    [
+      "app",
+      "v1",
+      "aarch64"
+    ],
+    [
+      "app",
+      "v2",
+      "linux"
+    ],
+    [
+      "app",
+      "v2",
+      "wasm"
+    ],
+    [
+      "app",
+      "v2",
+      "aarch64"
+    ],
+    [
+      "app",
+      "absent",
+      "linux"
+    ],
+    [
+      "app",
+      "absent",
+      "wasm"
+    ],
+    [
+      "app",
+      "absent",
+      "aarch64"
+    ],
+    [
+      "other",
+      "v1",
+      "linux"
+    ],
+    [
+      "other",
+      "v1",
+      "wasm"
+    ],
+    [
+      "other",
+      "v1",
+      "aarch64"
+    ],
+    [
+      "other",
+      "v2",
+      "linux"
+    ],
+    [
+      "other",
+      "v2",
+      "wasm"
+    ],
+    [
+      "other",
+      "v2",
+      "aarch64"
+    ],
+    [
+      "other",
+      "absent",
+      "linux"
+    ],
+    [
+      "other",
+      "absent",
+      "wasm"
+    ],
+    [
+      "other",
+      "absent",
+      "aarch64"
+    ]
+  ],
+  "snapshot_roots": [
+    "1fbfc150bc47a9ddfb14e645e21f61e048ccd581af6b30a0ce219459a8a062a8",
+    "18ba9186fd899edf5ab60888072aca4908ac8f02ea67681677c82b9cfe361740",
+    "ad2f7d8ae131e771c018743d5a733f552eb47d658579ea219ee73f518e677bae"
+  ],
+  "exact_queries": 54,
+  "query_plan": "SEARCH discovery USING PRIMARY KEY (root=? AND scope=? AND contract=? AND target=?)",
+  "wal_control": {
+    "selected_old_root": "1fbfc150bc47a9ddfb14e645e21f61e048ccd581af6b30a0ce219459a8a062a8",
+    "new_root": "18ba9186fd899edf5ab60888072aca4908ac8f02ea67681677c82b9cfe361740",
+    "request": [
+      "app",
+      "v1",
+      "linux"
+    ],
+    "one_read_transaction": [
+      "legacy",
+      "portable"
+    ],
+    "unscoped_lookup_after_publish": [
+      "new-native",
+      "portable"
+    ],
+    "generation_bound_after_publish": [
+      "legacy",
+      "portable"
+    ]
+  },
+  "same_count_substitution": {
+    "count_matches": true,
+    "digest_matches": false,
+    "exact_admission": false
+  }
+}

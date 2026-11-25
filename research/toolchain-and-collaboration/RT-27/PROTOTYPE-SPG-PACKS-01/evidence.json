@@ -1,0 +1,347 @@
+{
+  "format": "prototype-spg-packs-01",
+  "git": "git version 2.52.0",
+  "layouts": {
+    "content-defined-chunks": {
+      "after_compaction_bytes": 163282,
+      "before_compaction_bytes": 163282,
+      "common_pack": {
+        "delta_packed_bytes": 58910,
+        "deltas": 51,
+        "max_delta_depth": 6,
+        "objects": 81,
+        "pack_and_index_bytes": 96088
+      },
+      "final_pack": {
+        "delta_packed_bytes": 115490,
+        "deltas": 92,
+        "max_delta_depth": 7,
+        "objects": 139,
+        "pack_and_index_bytes": 158615
+      },
+      "layout": "content-defined-chunks",
+      "maximum_active_bytes": 176699,
+      "maximum_tracked_record_files": 6,
+      "pins": {
+        "alternate": "470b96925d57a93bf8cdc17c2225ace8cf4c3b1d",
+        "common": "6fdf1cf043060d2b6167dac7c8e289c1434dccfa",
+        "compact": "f16eb1753ec5eb755e53de7679b6c6129fd96ec7",
+        "primary": "e4affa452b615dc6549c06c2dff4549122b97453"
+      },
+      "pre_compaction_pack": {
+        "delta_packed_bytes": 115417,
+        "deltas": 91,
+        "max_delta_depth": 7,
+        "objects": 138,
+        "pack_and_index_bytes": 158507
+      },
+      "restored_commits": 16,
+      "selected_roots": [
+        "5fb3f26b9f5984d1792faf04ea50fde46e5f923a55a5b755177c3af8d4623941",
+        "30ebbb69277d9e79810e730b247aa23d3256f48f00345488ca7dfa616841a3f3",
+        "be1adae514868865a5c2e69c8a5d786f10d11ae90b1380e6031bb021e0df989c",
+        "2b266ceeeed793785a791e6324ccca95ea9bba158b185c3b2ab2186a49bc5427",
+        "f07aa1681263d2bd345cf7eba750e239478f3f69715f47419d61e07502417f1a",
+        "9edf6a132d56e628697a187f7134dd6d52794d17743e0c68615e4d2aa5ed4683",
+        "12ed4d22cf1a70403af6c93b08ea2a8b265dc25209115e1cccb8400c4a1bcc4d",
+        "129e8998fbeb8760d585a1c8551c06a43e31f2c567e37e01f15764fc376ce427",
+        "2105b38f182b6b64f34e4b14566f339f15868def45a6ca978b64fd2322e018c1",
+        "39f2cecd6ca0ebddb15a0e61aa0ff24bd5072d2f181318b97b444c4c40cb83d6",
+        "84862acf7d0a1a79f27b58f9381c95244918b3998f0b865b5f5ec80329e20711",
+        "dafe82ebfa7bf82234ba78a7f69d231b062cea7142735d3c03fc6c649c7ee01a",
+        "75bb0d205bf4193b544b419994f7288e53df0722544da1745dd485f603dad436",
+        "ed6ab660278f648bcb6c3b1f0b550bae2505483a21ad714bfc83342527c25895",
+        "bcf624c3e0d508fa8a939c1ab3f36150e30e9c4a9b3ed5ca4e40085c56112b79",
+        "dafe82ebfa7bf82234ba78a7f69d231b062cea7142735d3c03fc6c649c7ee01a"
+      ]
+    },
+    "immutable-segments": {
+      "after_compaction_bytes": 163282,
+      "before_compaction_bytes": 493629,
+      "common_pack": {
+        "delta_packed_bytes": 12840,
+        "deltas": 23,
+        "max_delta_depth": 5,
+        "objects": 45,
+        "pack_and_index_bytes": 71210
+      },
+      "final_pack": {
+        "delta_packed_bytes": 41581,
+        "deltas": 44,
+        "max_delta_depth": 6,
+        "objects": 80,
+        "pack_and_index_bytes": 103009
+      },
+      "layout": "immutable-segments",
+      "maximum_active_bytes": 493629,
+      "maximum_tracked_record_files": 12,
+      "pins": {
+        "alternate": "ca71cbf8f43273e131fd6208684d115f5b61bf44",
+        "common": "1ac01d29c036d4aa3fff6c96c4e92fd160e11b2f",
+        "compact": "a18ffe5a21bfefd514a29b4264dd9e2a3cb439de",
+        "primary": "ba8ff8ac3fc5cd77ff0f881a88db79ec4a9dc31d"
+      },
+      "pre_compaction_pack": {
+        "delta_packed_bytes": 32010,
+        "deltas": 42,
+        "max_delta_depth": 6,
+        "objects": 75,
+        "pack_and_index_bytes": 92946
+      },
+      "restored_commits": 16,
+      "selected_roots": [
+        "5fb3f26b9f5984d1792faf04ea50fde46e5f923a55a5b755177c3af8d4623941",
+        "30ebbb69277d9e79810e730b247aa23d3256f48f00345488ca7dfa616841a3f3",
+        "be1adae514868865a5c2e69c8a5d786f10d11ae90b1380e6031bb021e0df989c",
+        "2b266ceeeed793785a791e6324ccca95ea9bba158b185c3b2ab2186a49bc5427",
+        "f07aa1681263d2bd345cf7eba750e239478f3f69715f47419d61e07502417f1a",
+        "9edf6a132d56e628697a187f7134dd6d52794d17743e0c68615e4d2aa5ed4683",
+        "12ed4d22cf1a70403af6c93b08ea2a8b265dc25209115e1cccb8400c4a1bcc4d",
+        "129e8998fbeb8760d585a1c8551c06a43e31f2c567e37e01f15764fc376ce427",
+        "2105b38f182b6b64f34e4b14566f339f15868def45a6ca978b64fd2322e018c1",
+        "39f2cecd6ca0ebddb15a0e61aa0ff24bd5072d2f181318b97b444c4c40cb83d6",
+        "84862acf7d0a1a79f27b58f9381c95244918b3998f0b865b5f5ec80329e20711",
+        "dafe82ebfa7bf82234ba78a7f69d231b062cea7142735d3c03fc6c649c7ee01a",
+        "75bb0d205bf4193b544b419994f7288e53df0722544da1745dd485f603dad436",
+        "ed6ab660278f648bcb6c3b1f0b550bae2505483a21ad714bfc83342527c25895",
+        "bcf624c3e0d508fa8a939c1ab3f36150e30e9c4a9b3ed5ca4e40085c56112b79",
+        "dafe82ebfa7bf82234ba78a7f69d231b062cea7142735d3c03fc6c649c7ee01a"
+      ]
+    },
+    "stable-shards": {
+      "after_compaction_bytes": 163282,
+      "before_compaction_bytes": 163282,
+      "common_pack": {
+        "delta_packed_bytes": 26532,
+        "deltas": 62,
+        "max_delta_depth": 7,
+        "objects": 90,
+        "pack_and_index_bytes": 58199
+      },
+      "final_pack": {
+        "delta_packed_bytes": 56961,
+        "deltas": 111,
+        "max_delta_depth": 7,
+        "objects": 156,
+        "pack_and_index_bytes": 93092
+      },
+      "layout": "stable-shards",
+      "maximum_active_bytes": 176699,
+      "maximum_tracked_record_files": 8,
+      "pins": {
+        "alternate": "6f699c458b92237516fc5787a8da2cf1f32f074d",
+        "common": "df92d7b4c9aed623a1f2b7255a2e8ee3fd2a16a3",
+        "compact": "5c8c7773af58dc958c5caad69dca46ff77d296f9",
+        "primary": "8b97a0e309d290087504d6155d6d541f6417511b"
+      },
+      "pre_compaction_pack": {
+        "delta_packed_bytes": 56888,
+        "deltas": 110,
+        "max_delta_depth": 7,
+        "objects": 155,
+        "pack_and_index_bytes": 92985
+      },
+      "restored_commits": 16,
+      "selected_roots": [
+        "5fb3f26b9f5984d1792faf04ea50fde46e5f923a55a5b755177c3af8d4623941",
+        "30ebbb69277d9e79810e730b247aa23d3256f48f00345488ca7dfa616841a3f3",
+        "be1adae514868865a5c2e69c8a5d786f10d11ae90b1380e6031bb021e0df989c",
+        "2b266ceeeed793785a791e6324ccca95ea9bba158b185c3b2ab2186a49bc5427",
+        "f07aa1681263d2bd345cf7eba750e239478f3f69715f47419d61e07502417f1a",
+        "9edf6a132d56e628697a187f7134dd6d52794d17743e0c68615e4d2aa5ed4683",
+        "12ed4d22cf1a70403af6c93b08ea2a8b265dc25209115e1cccb8400c4a1bcc4d",
+        "129e8998fbeb8760d585a1c8551c06a43e31f2c567e37e01f15764fc376ce427",
+        "2105b38f182b6b64f34e4b14566f339f15868def45a6ca978b64fd2322e018c1",
+        "39f2cecd6ca0ebddb15a0e61aa0ff24bd5072d2f181318b97b444c4c40cb83d6",
+        "84862acf7d0a1a79f27b58f9381c95244918b3998f0b865b5f5ec80329e20711",
+        "dafe82ebfa7bf82234ba78a7f69d231b062cea7142735d3c03fc6c649c7ee01a",
+        "75bb0d205bf4193b544b419994f7288e53df0722544da1745dd485f603dad436",
+        "ed6ab660278f648bcb6c3b1f0b550bae2505483a21ad714bfc83342527c25895",
+        "bcf624c3e0d508fa8a939c1ab3f36150e30e9c4a9b3ed5ca4e40085c56112b79",
+        "dafe82ebfa7bf82234ba78a7f69d231b062cea7142735d3c03fc6c649c7ee01a"
+      ]
+    }
+  },
+  "typed_revisions": [
+    {
+      "added": 173,
+      "arm": 0,
+      "prototype_root": "2ca6dfb19bff873126fa4219854b99455316d382f399747c55d8028fce9c39ae",
+      "prototype_values": 172,
+      "retired": 0,
+      "transport_root": "5fb3f26b9f5984d1792faf04ea50fde46e5f923a55a5b755177c3af8d4623941",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 4,
+      "arm": 0,
+      "prototype_root": "dfddf8ff75a93e6d6fb71c4d05a6b450128d717d2f719484c3752401b5c493ed",
+      "prototype_values": 172,
+      "retired": 4,
+      "transport_root": "30ebbb69277d9e79810e730b247aa23d3256f48f00345488ca7dfa616841a3f3",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 19,
+      "arm": 0,
+      "prototype_root": "3c4eae0a1b9243cc4932322aded58b33dedc55bfe419e57d8a35f82be12663f9",
+      "prototype_values": 186,
+      "retired": 5,
+      "transport_root": "be1adae514868865a5c2e69c8a5d786f10d11ae90b1380e6031bb021e0df989c",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 5,
+      "arm": 0,
+      "prototype_root": "c6acdbefb2da7d1ca4e685159d1c17c1989e7e9b43c5bf08cd47c9c80f5fdcea",
+      "prototype_values": 186,
+      "retired": 5,
+      "transport_root": "2b266ceeeed793785a791e6324ccca95ea9bba158b185c3b2ab2186a49bc5427",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 5,
+      "arm": 0,
+      "prototype_root": "01de715de64dce45e94672f1f0640a4a1e6917fa0f9f49fa0cccd77f18e1ad5f",
+      "prototype_values": 172,
+      "retired": 19,
+      "transport_root": "f07aa1681263d2bd345cf7eba750e239478f3f69715f47419d61e07502417f1a",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 5,
+      "arm": 0,
+      "prototype_root": "47aae15bae07d04c6d32c18ab852db6e8ac9fa4efa0a7fd4512ad5b376ba152b",
+      "prototype_values": 172,
+      "retired": 5,
+      "transport_root": "9edf6a132d56e628697a187f7134dd6d52794d17743e0c68615e4d2aa5ed4683",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 5,
+      "arm": 0,
+      "prototype_root": "8ed99687b38c6ffa28f1c1f3a98bd2620173f1592847080f291721064be7657b",
+      "prototype_values": 172,
+      "retired": 5,
+      "transport_root": "12ed4d22cf1a70403af6c93b08ea2a8b265dc25209115e1cccb8400c4a1bcc4d",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 5,
+      "arm": 0,
+      "prototype_root": "059332ae90d5eaf933ce0d6b2b2e74f67f1e10064cf3c9155748a616b0da32f8",
+      "prototype_values": 172,
+      "retired": 5,
+      "transport_root": "129e8998fbeb8760d585a1c8551c06a43e31f2c567e37e01f15764fc376ce427",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 5,
+      "arm": 0,
+      "prototype_root": "55b47a850f2da706aecd19b00eae4794b1400a4f3137191338ca28483b8e8055",
+      "prototype_values": 172,
+      "retired": 5,
+      "transport_root": "2105b38f182b6b64f34e4b14566f339f15868def45a6ca978b64fd2322e018c1",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 19,
+      "arm": 1,
+      "prototype_root": "dc1a37943303e6a7b61d518bc44f5b08112b190c62d6f1ce3acb5f994f675c04",
+      "prototype_values": 186,
+      "retired": 5,
+      "transport_root": "39f2cecd6ca0ebddb15a0e61aa0ff24bd5072d2f181318b97b444c4c40cb83d6",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 5,
+      "arm": 1,
+      "prototype_root": "3e7a6d64b1d91eaf17fdb22a608a5a7a63b6d71dfeb795b3fa21b480ba2d6c26",
+      "prototype_values": 172,
+      "retired": 19,
+      "transport_root": "84862acf7d0a1a79f27b58f9381c95244918b3998f0b865b5f5ec80329e20711",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 5,
+      "arm": 1,
+      "prototype_root": "24783780169fedab8e713ca5e4dfc0eabfa10c68af7e17c0924308091216de57",
+      "prototype_values": 172,
+      "retired": 5,
+      "transport_root": "dafe82ebfa7bf82234ba78a7f69d231b062cea7142735d3c03fc6c649c7ee01a",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 19,
+      "arm": 2,
+      "prototype_root": "1527c9c0876dd2969a10da976cb33ce308de15be6c6f37693c27746dba6a4a1e",
+      "prototype_values": 186,
+      "retired": 5,
+      "transport_root": "75bb0d205bf4193b544b419994f7288e53df0722544da1745dd485f603dad436",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 5,
+      "arm": 2,
+      "prototype_root": "fee04eb2231768a33e8cf4858366f93f3276c839034a0bd57c1ce34f0dd73aa5",
+      "prototype_values": 172,
+      "retired": 19,
+      "transport_root": "ed6ab660278f648bcb6c3b1f0b550bae2505483a21ad714bfc83342527c25895",
+      "value_range": [
+        143,
+        638
+      ]
+    },
+    {
+      "added": 5,
+      "arm": 2,
+      "prototype_root": "0adc440f83733ddf674326c2929528337530781e93dbef6a663a331a98a49910",
+      "prototype_values": 172,
+      "retired": 5,
+      "transport_root": "bcf624c3e0d508fa8a939c1ab3f36150e30e9c4a9b3ed5ca4e40085c56112b79",
+      "value_range": [
+        143,
+        638
+      ]
+    }
+  ]
+}

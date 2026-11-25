@@ -1,0 +1,123 @@
+{
+  "lean_version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "llvm_version": "Debian LLVM version 19.1.7",
+  "machine": "QEMU virt RV64 single hart, no firmware, fixed virtual instruction clock",
+  "profiles": {
+    "keep_current-1-1": {
+      "elf_sha256": "4fb8272bbde21b60982544267cd06217a95aa6ababc92ca208fa37e0156c303b",
+      "kernel_text_bytes": 1008,
+      "timer_credits": [
+        1,
+        1
+      ],
+      "uart": "AaBb!",
+      "user_code_sha256": "d0fa8f21e66c51e48a766f9c25964234d053bb53d821a76a26555321451334c2"
+    },
+    "keep_current-1-3": {
+      "elf_sha256": "b977ad6e1a53e2f05d536ceeb333821a314249e3efe84fbbddd0b2a5f27e95b8",
+      "kernel_text_bytes": 1008,
+      "timer_credits": [
+        1,
+        3
+      ],
+      "uart": "AaBBBb!",
+      "user_code_sha256": "d0fa8f21e66c51e48a766f9c25964234d053bb53d821a76a26555321451334c2"
+    },
+    "keep_current-3-1": {
+      "elf_sha256": "ee47ef2b2c17262b8892fc4cb755c4272ffc735f3d6a5a7ab3b5d47043aa8e04",
+      "kernel_text_bytes": 1008,
+      "timer_credits": [
+        3,
+        1
+      ],
+      "uart": "AAAaBb!",
+      "user_code_sha256": "d0fa8f21e66c51e48a766f9c25964234d053bb53d821a76a26555321451334c2"
+    },
+    "keep_current-3-3": {
+      "elf_sha256": "7522c48583d06d2272b2c451138da8b09a00e02b96afd25966d0c4ed5846f818",
+      "kernel_text_bytes": 1008,
+      "timer_credits": [
+        3,
+        3
+      ],
+      "uart": "AAAaBBBb!",
+      "user_code_sha256": "d0fa8f21e66c51e48a766f9c25964234d053bb53d821a76a26555321451334c2"
+    },
+    "round_robin-1-1": {
+      "elf_sha256": "0bb0ffaa0bbf9dccecedf6c8293b566cf91fca9e22f997d034bc14c15154a4fd",
+      "kernel_text_bytes": 1020,
+      "timer_credits": [
+        1,
+        1
+      ],
+      "uart": "ABab!",
+      "user_code_sha256": "d0fa8f21e66c51e48a766f9c25964234d053bb53d821a76a26555321451334c2"
+    },
+    "round_robin-1-3": {
+      "elf_sha256": "dd74febad11f77157f3938bc702b3185a8f7700a676adf828568e9d7b9647809",
+      "kernel_text_bytes": 1020,
+      "timer_credits": [
+        1,
+        3
+      ],
+      "uart": "ABaBBb!",
+      "user_code_sha256": "d0fa8f21e66c51e48a766f9c25964234d053bb53d821a76a26555321451334c2"
+    },
+    "round_robin-3-1": {
+      "elf_sha256": "fd7e42624a5b131aabec5bfc1f9463efa89284688c2d6e6d16f8f8c6b81a37b5",
+      "kernel_text_bytes": 1020,
+      "timer_credits": [
+        3,
+        1
+      ],
+      "uart": "ABAbAa!",
+      "user_code_sha256": "d0fa8f21e66c51e48a766f9c25964234d053bb53d821a76a26555321451334c2"
+    },
+    "round_robin-3-3": {
+      "elf_sha256": "a8e1e721a9cee8f45ac86f50c235d635340501efef3568fa3cd8ebc1b8d03e0c",
+      "kernel_text_bytes": 1020,
+      "timer_credits": [
+        3,
+        3
+      ],
+      "uart": "ABABABab!",
+      "user_code_sha256": "d0fa8f21e66c51e48a766f9c25964234d053bb53d821a76a26555321451334c2"
+    },
+    "saved_register_fault-3-3": {
+      "elf_sha256": "d6ba66926591f0cc0a90ec7b19252b502b09665273a0e4dc8e3f164adb712a6f",
+      "kernel_text_bytes": 1024,
+      "timer_credits": [
+        3,
+        3
+      ],
+      "uart": "ABS",
+      "user_code_sha256": "d0fa8f21e66c51e48a766f9c25964234d053bb53d821a76a26555321451334c2"
+    },
+    "wrong_continuation-3-3": {
+      "elf_sha256": "a43d1b41dc8498c7fa407a94157ca5345fb9b8119d6e2df89e32de653904de8d",
+      "kernel_text_bytes": 1032,
+      "timer_credits": [
+        3,
+        3
+      ],
+      "uart": "ABT",
+      "user_code_sha256": "d0fa8f21e66c51e48a766f9c25964234d053bb53d821a76a26555321451334c2"
+    }
+  },
+  "proof_audit": [
+    "'tickWithinBudget' does not depend on any axioms",
+    "'tickConsumesProgress' depends on axioms: [propext]",
+    "'finishConsumesProgress' does not depend on any axioms",
+    "'tickConsumesJointProgress' depends on axioms: [propext]"
+  ],
+  "qemu_sha256": "5f8ec06281e48c4155a8646aa65959e0d9adc8b915c146b93cc0419b6576ba5f",
+  "qemu_version": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "sources": {
+    "RV64-TIMER-PREEMPTION-01/Progress.lean": "637a3b5addf140f900c282ec67c8e3da22e1a28439e7cb0540c458c7d5e99317",
+    "RV64-TIMER-PREEMPTION-01/run.py": "47c1b001899bac3a5eb43f49db495ce19e693e7fd0a1a7a4c155c0afe043bdbd",
+    "RV64-TIMER-PREEMPTION-01/transform.py": "1b8e760b24c6ae26a635d7a90d03465ac51bbcef687dd006ae24a117ea3aa91d",
+    "riscv-cooperative-scheduler/boot.s": "cc872c1bedf92e86c5ee116dabbff5529a4524fa21bb29d20ac010d2d60bef27",
+    "riscv-cooperative-scheduler/layout.ld": "e192428aee29f2a09cbdbd670b1dc42156277b032d7ca4a4772363839d481f1c",
+    "riscv-cooperative-scheduler/run.py": "e6d1f13de085b31bcff663497005ca3459470fcab4102852ee54524ceb225603"
+  }
+}

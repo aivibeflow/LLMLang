@@ -1,0 +1,36 @@
+{
+  "base": "42402234d7caee9bcdd7c3d26e3f4eb041d4d37d",
+  "ledger_sha256": {
+    "CANONICAL-WIRE-01": "73efd14211b5990138af8de324ca8ef3e9116f7b414792e407056c0a02c2ab06",
+    "CROSS-RUNTIME-F64-01": "edb22fcce1fdb39a1dccc31513a9fbfd288454402368cc3b859220eb46d55650",
+    "CROSS-RUNTIME-I64-01": "27960e4b6ca7dcb498ebef299b8d390fafa0dd048bad907200c38ce2fb4c2f29",
+    "DIGEST-MIGRATION-01": "2300fbd9fe6cd4981ffbad1843ecdeaebcfc3c1b1a70d465acd8cbe0c250268a"
+  },
+  "node": "v24.22.3",
+  "python": "3.12.14",
+  "registry": {
+    "sha256": 64,
+    "sha512": 128
+  },
+  "results": {
+    "dispositions": {
+      "accepted": 6,
+      "digest": 6,
+      "domain": 30,
+      "envelope": 12,
+      "locator-shape": 112,
+      "malformed": 12,
+      "noncanonical": 6,
+      "suite-out-of-scope": 28,
+      "typed": 12
+    },
+    "requests": 224,
+    "typed_cases": 14
+  },
+  "runner_sha256": "99397b4ea227279445cad8601545d30c2480291e6d263f8a7380c3a4fd4c5442",
+  "source_sha256": {
+    "decode.mjs": "688ae3f4ac8039224e2aa6aa89930a747596227f1552871358923eb86e1a737f",
+    "run.py": "7910cba595f146a8728ccd91b8b3d7e36fd5883f6e688a9cd7b824f35de5b081"
+  },
+  "wire_profile": "llmlang.identity-fixture/1"
+}

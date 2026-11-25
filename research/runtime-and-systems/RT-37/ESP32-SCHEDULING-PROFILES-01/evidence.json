@@ -1,0 +1,70 @@
+{
+  "freestanding": {
+    "rv32": {
+      "machine": "RISC-V",
+      "runtime_dependencies": 0,
+      "sha256": "7d87d8272c7667b6c82c3970969f34d0ec75521aecd7017166c3ced9a4bf8f2a"
+    },
+    "xtensa": {
+      "machine": "Tensilica Xtensa Processor",
+      "runtime_dependencies": 0,
+      "sha256": "91997dcaca38d80db9f5dec379671383989d0eb6db1f9e114230c30eefc1f43f"
+    }
+  },
+  "idf": "2c211b236707889e8400c4dc5644dd5c4ee071e0",
+  "profiles": {
+    "esp32-dual": {
+      "elf_sha256": "e19a95b266646292d0ee358c7932c8c2eb599255f8130c7adb54e7d7a247804a",
+      "flash_sha256": "3e680c74d9ba81b8e3374a3e7c1c628668a500070b50334d55f3b11b80bd1eb9",
+      "machine": "Tensilica Xtensa Processor",
+      "trace": "S:2:0:1:1:2"
+    },
+    "esp32-unicore": {
+      "elf_sha256": "2fc89ac67617657654bc5a60edbf420de5b2a6aea7e287cc90643c6da3c62cdb",
+      "flash_sha256": "4cf7ccb55257079056f347bbc2872365a573b1807ce272687c9555ec48f313cd",
+      "machine": "Tensilica Xtensa Processor",
+      "trace": "S:1:0:0:1:2"
+    },
+    "esp32c3-unicore": {
+      "elf_sha256": "4ad0768a0e4423f43a1b2e245bb95837a15f9690a230a9a9ca4687934d1324c5",
+      "flash_sha256": "70062dc9288fd29640a25d322a754dd4f09d8f18d92e5fbd3ac59df99772dc72",
+      "machine": "RISC-V",
+      "trace": "S:1:0:0:1:2"
+    }
+  },
+  "qemu": {
+    "rv32": "QEMU emulator version 9.2.2 (esp_develop_9.2.2_20250817)",
+    "xtensa": "QEMU emulator version 9.2.2 (esp_develop_9.2.2_20250817)"
+  },
+  "radio": {
+    "application_bytes": {
+      "disabled": 137424,
+      "enabled": 608528
+    },
+    "observation": "static_link_map",
+    "radio_disabled_vendor_archives": 0,
+    "radio_enabled_vendor_archives": {
+      "libcore.a": {
+        "members": 1,
+        "sha256": "7cd16b4f29f9d8c04b24cda36a26fd0205c9446e07f6a7e35b93ce258b9cf92c"
+      },
+      "libespnow.a": {
+        "members": 1,
+        "sha256": "d75bb687c87524be487bf5959a86d34f910ad8bd95f01e4aa37e9f5edecccd95"
+      },
+      "libmesh.a": {
+        "members": 14,
+        "sha256": "c4ff7278277edaf17f23b392f5997f9020fca9a0c6b7520fa4ccd01d0a70f2a5"
+      },
+      "libnet80211.a": {
+        "members": 35,
+        "sha256": "58e3ea8d0594ca902192662a265d4818c470fd569d8ceea19c111da8c58492e7"
+      },
+      "libpp.a": {
+        "members": 19,
+        "sha256": "f3b1454bfff80fb99b8e5a1230f1108dd3c922b0c1ce48425ca1c9a1d3c75d49"
+      }
+    },
+    "vendor_revision": "e0befaa593277b4e80726079fbd521b4681754c2"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "python": "3.12.14",
+  "rows": [
+    {
+      "cases": 28,
+      "exact_invalid_admissions": 0,
+      "period": 2,
+      "phase_only_invalid_admissions": 12,
+      "valid": 2,
+      "width_bits": 1,
+      "wrapped_invalid_admissions": 6
+    },
+    {
+      "cases": 104,
+      "exact_invalid_admissions": 0,
+      "period": 4,
+      "phase_only_invalid_admissions": 48,
+      "valid": 4,
+      "width_bits": 2,
+      "wrapped_invalid_admissions": 12
+    },
+    {
+      "cases": 400,
+      "exact_invalid_admissions": 0,
+      "period": 8,
+      "phase_only_invalid_admissions": 192,
+      "valid": 8,
+      "width_bits": 3,
+      "wrapped_invalid_admissions": 24
+    },
+    {
+      "cases": 1568,
+      "exact_invalid_admissions": 0,
+      "period": 16,
+      "phase_only_invalid_admissions": 768,
+      "valid": 16,
+      "width_bits": 4,
+      "wrapped_invalid_admissions": 48
+    },
+    {
+      "cases": 6208,
+      "exact_invalid_admissions": 0,
+      "period": 32,
+      "phase_only_invalid_admissions": 3072,
+      "valid": 32,
+      "width_bits": 5,
+      "wrapped_invalid_admissions": 96
+    },
+    {
+      "cases": 24704,
+      "exact_invalid_admissions": 0,
+      "period": 64,
+      "phase_only_invalid_admissions": 12288,
+      "valid": 64,
+      "width_bits": 6,
+      "wrapped_invalid_admissions": 192
+    }
+  ],
+  "totals": {
+    "cases": 33012,
+    "exact_invalid_admissions": 0,
+    "phase_only_invalid_admissions": 16380,
+    "valid": 126,
+    "wrapped_invalid_admissions": 378
+  }
+}

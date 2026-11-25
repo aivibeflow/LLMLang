@@ -1,0 +1,83 @@
+{
+  "scipy": "1.17.0",
+  "calls": 36,
+  "inputs": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "original": {
+    "snapshot": "1baef1757a85b94807db1c1c70ca01896dfb398b81df27f367e585b6f36cc2c9",
+    "function": "1b5b3f752fe900e314d1301041b1323323b5c12ec08781a31fd2382b03668d08",
+    "contract": "5f20491e875ebf3f2ae0cc347f7c859c1ba9a26d49f16c127047a2fc97e5f0c1",
+    "artifact": "62965f737b73d738e4793f69ec4d416aac7b03dc960683e51677e073dea2f8ab"
+  },
+  "current": {
+    "snapshot": "ffab6da73ebf879100e81c6b9c287b2cef96ea897d647744e9b72c5a7b2597d6",
+    "function": "e80a6992ad76607ea6deae1f5ec1aa7881957a85ce30218c8eec26ab152d380e",
+    "contract": "5f20491e875ebf3f2ae0cc347f7c859c1ba9a26d49f16c127047a2fc97e5f0c1",
+    "artifact": "a10052161d9d09550e46f06cf139d7b89b03bb0c9df564edcee2cf6f2db4dff4"
+  },
+  "discovery_order_reversed": true,
+  "original_with_index": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "original_after_index_removed": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "current_after_index_removed": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "authorized_retained_root": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "refusals": {
+    "stale_discovery_index": "stale-index",
+    "duplicate_rows_with_current_root": "stale-index",
+    "old_binding_at_current_root": "binding-scope",
+    "wrong_required_contract": "binding-scope",
+    "wrong_selected_function": "function-selection",
+    "wrong_artifact_identity": "artifact-selection",
+    "wrong_snapshot_contents": "snapshot-digest",
+    "replaced_artifact_bytes": "artifact-digest",
+    "missing_old_artifact": "artifact-unavailable"
+  }
+}

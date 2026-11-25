@@ -1,0 +1,1453 @@
+{
+  "gcc": "14.2.0",
+  "builds": {
+    "O0": {
+      "counts": {
+        "native_dispatch_cases": 100,
+        "receipt_queries": 50,
+        "direct_only_incorrect": 45,
+        "unbound_descriptor_incorrect": 22,
+        "pinned_accepted": 8,
+        "pinned_stale": 32,
+        "pinned_unknown": 10,
+        "incorrect_if_binding_omitted": {
+          "caller": 2,
+          "provider": 2,
+          "registry": 2
+        }
+      },
+      "profiles": [
+        {
+          "profile": "baseline",
+          "binding": {
+            "caller": "5914d99f55f613676891783d8a03af0d05cc284ea517d61717df147f8ba73f91",
+            "provider": "1848df6d1c04cf9a34506694c6e6f54249ce5dd9542e678c6445d515d746d851",
+            "registry": "b9d1dda641c17b13679557325210aefbf6fd5e8dee736532eb6f599c67cfa837",
+            "closed": true
+          },
+          "reverse": {
+            "local-alpha": [
+              [
+                "direct-alpha",
+                0
+              ],
+              [
+                "direct-alpha",
+                1
+              ],
+              [
+                "direct-alpha",
+                2
+              ],
+              [
+                "direct-alpha",
+                3
+              ],
+              [
+                "generated",
+                2
+              ],
+              [
+                "indirect",
+                0
+              ],
+              [
+                "indirect",
+                2
+              ]
+            ],
+            "external-rule0-v1": [
+              [
+                "dynamic-external",
+                0
+              ],
+              [
+                "dynamic-external",
+                3
+              ]
+            ]
+          }
+        },
+        {
+          "profile": "changed-registry",
+          "binding": {
+            "caller": "5914d99f55f613676891783d8a03af0d05cc284ea517d61717df147f8ba73f91",
+            "provider": "1848df6d1c04cf9a34506694c6e6f54249ce5dd9542e678c6445d515d746d851",
+            "registry": "0512b201cb310d3b8364ccf39c2af2015d177b56c1a195f8a9410454d518d747",
+            "closed": true
+          },
+          "reverse": {
+            "local-alpha": [
+              [
+                "direct-alpha",
+                0
+              ],
+              [
+                "direct-alpha",
+                1
+              ],
+              [
+                "direct-alpha",
+                2
+              ],
+              [
+                "direct-alpha",
+                3
+              ],
+              [
+                "generated",
+                2
+              ],
+              [
+                "indirect",
+                0
+              ],
+              [
+                "indirect",
+                2
+              ]
+            ],
+            "external-rule0-v1": [
+              [
+                "dynamic-external",
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "profile": "changed-provider",
+          "binding": {
+            "caller": "5914d99f55f613676891783d8a03af0d05cc284ea517d61717df147f8ba73f91",
+            "provider": "cf276890187834f965bf74fa1ff1f146c56aa0e68068c4012fecb9472b23a07c",
+            "registry": "b9d1dda641c17b13679557325210aefbf6fd5e8dee736532eb6f599c67cfa837",
+            "closed": true
+          },
+          "reverse": {
+            "local-alpha": [
+              [
+                "direct-alpha",
+                0
+              ],
+              [
+                "direct-alpha",
+                1
+              ],
+              [
+                "direct-alpha",
+                2
+              ],
+              [
+                "direct-alpha",
+                3
+              ],
+              [
+                "generated",
+                2
+              ],
+              [
+                "indirect",
+                0
+              ],
+              [
+                "indirect",
+                2
+              ]
+            ],
+            "external-rule0-v1": []
+          }
+        },
+        {
+          "profile": "changed-generator",
+          "binding": {
+            "caller": "292c286d158d8818deca962e6183b231b736c22ecbed47b52923b27401d13e78",
+            "provider": "1848df6d1c04cf9a34506694c6e6f54249ce5dd9542e678c6445d515d746d851",
+            "registry": "b9d1dda641c17b13679557325210aefbf6fd5e8dee736532eb6f599c67cfa837",
+            "closed": true
+          },
+          "reverse": {
+            "local-alpha": [
+              [
+                "direct-alpha",
+                0
+              ],
+              [
+                "direct-alpha",
+                1
+              ],
+              [
+                "direct-alpha",
+                2
+              ],
+              [
+                "direct-alpha",
+                3
+              ],
+              [
+                "generated",
+                1
+              ],
+              [
+                "indirect",
+                0
+              ],
+              [
+                "indirect",
+                2
+              ]
+            ],
+            "external-rule0-v1": [
+              [
+                "dynamic-external",
+                0
+              ],
+              [
+                "dynamic-external",
+                3
+              ]
+            ]
+          }
+        },
+        {
+          "profile": "open-selector-domain",
+          "binding": {
+            "caller": "5914d99f55f613676891783d8a03af0d05cc284ea517d61717df147f8ba73f91",
+            "provider": "1848df6d1c04cf9a34506694c6e6f54249ce5dd9542e678c6445d515d746d851",
+            "registry": "b9d1dda641c17b13679557325210aefbf6fd5e8dee736532eb6f599c67cfa837",
+            "closed": false
+          },
+          "reverse": {
+            "local-alpha": [
+              [
+                "direct-alpha",
+                0
+              ],
+              [
+                "direct-alpha",
+                1
+              ],
+              [
+                "direct-alpha",
+                2
+              ],
+              [
+                "direct-alpha",
+                3
+              ],
+              [
+                "generated",
+                2
+              ],
+              [
+                "indirect",
+                0
+              ],
+              [
+                "indirect",
+                2
+              ]
+            ],
+            "external-rule0-v1": [
+              [
+                "dynamic-external",
+                0
+              ],
+              [
+                "dynamic-external",
+                3
+              ]
+            ]
+          }
+        }
+      ],
+      "queries": [
+        {
+          "runtime": "baseline",
+          "receipt": "baseline",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "baseline",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-registry",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-registry",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "registry"
+          ]
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-provider",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-provider",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "provider"
+          ]
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-generator",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "caller"
+          ]
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-generator",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "open-selector-domain",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "open-selector-domain",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "baseline",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "baseline",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "registry"
+          ]
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-registry",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-registry",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-provider",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-provider",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-generator",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-generator",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "open-selector-domain",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "open-selector-domain",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "baseline",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "baseline",
+          "target": "external-rule0-v1",
+          "direct_only_equal": true,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "provider"
+          ]
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-registry",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-registry",
+          "target": "external-rule0-v1",
+          "direct_only_equal": true,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-provider",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-provider",
+          "target": "external-rule0-v1",
+          "direct_only_equal": true,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-generator",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-generator",
+          "target": "external-rule0-v1",
+          "direct_only_equal": true,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "open-selector-domain",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "open-selector-domain",
+          "target": "external-rule0-v1",
+          "direct_only_equal": true,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "baseline",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "caller"
+          ]
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "baseline",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-registry",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-registry",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-provider",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-provider",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-generator",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-generator",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "open-selector-domain",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "open-selector-domain",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "baseline",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "baseline",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-registry",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-registry",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-provider",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-provider",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-generator",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-generator",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "open-selector-domain",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "open-selector-domain",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        }
+      ]
+    },
+    "O2": {
+      "counts": {
+        "native_dispatch_cases": 100,
+        "receipt_queries": 50,
+        "direct_only_incorrect": 45,
+        "unbound_descriptor_incorrect": 22,
+        "pinned_accepted": 8,
+        "pinned_stale": 32,
+        "pinned_unknown": 10,
+        "incorrect_if_binding_omitted": {
+          "caller": 2,
+          "provider": 2,
+          "registry": 2
+        }
+      },
+      "profiles": [
+        {
+          "profile": "baseline",
+          "binding": {
+            "caller": "d1b5e43650363fcb5d01533bab48f0513417b2ba986887bbe001944aa051c0cb",
+            "provider": "88bdcafd3e144a0f03d80a5a2458e23199ec6300cc86e4e079c967400b241869",
+            "registry": "b9d1dda641c17b13679557325210aefbf6fd5e8dee736532eb6f599c67cfa837",
+            "closed": true
+          },
+          "reverse": {
+            "local-alpha": [
+              [
+                "direct-alpha",
+                0
+              ],
+              [
+                "direct-alpha",
+                1
+              ],
+              [
+                "direct-alpha",
+                2
+              ],
+              [
+                "direct-alpha",
+                3
+              ],
+              [
+                "generated",
+                2
+              ],
+              [
+                "indirect",
+                0
+              ],
+              [
+                "indirect",
+                2
+              ]
+            ],
+            "external-rule0-v1": [
+              [
+                "dynamic-external",
+                0
+              ],
+              [
+                "dynamic-external",
+                3
+              ]
+            ]
+          }
+        },
+        {
+          "profile": "changed-registry",
+          "binding": {
+            "caller": "d1b5e43650363fcb5d01533bab48f0513417b2ba986887bbe001944aa051c0cb",
+            "provider": "88bdcafd3e144a0f03d80a5a2458e23199ec6300cc86e4e079c967400b241869",
+            "registry": "0512b201cb310d3b8364ccf39c2af2015d177b56c1a195f8a9410454d518d747",
+            "closed": true
+          },
+          "reverse": {
+            "local-alpha": [
+              [
+                "direct-alpha",
+                0
+              ],
+              [
+                "direct-alpha",
+                1
+              ],
+              [
+                "direct-alpha",
+                2
+              ],
+              [
+                "direct-alpha",
+                3
+              ],
+              [
+                "generated",
+                2
+              ],
+              [
+                "indirect",
+                0
+              ],
+              [
+                "indirect",
+                2
+              ]
+            ],
+            "external-rule0-v1": [
+              [
+                "dynamic-external",
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "profile": "changed-provider",
+          "binding": {
+            "caller": "d1b5e43650363fcb5d01533bab48f0513417b2ba986887bbe001944aa051c0cb",
+            "provider": "698cc7179dc2297c820b029a2352cdd46c5613cbbb69b0aec412dc6ce2479737",
+            "registry": "b9d1dda641c17b13679557325210aefbf6fd5e8dee736532eb6f599c67cfa837",
+            "closed": true
+          },
+          "reverse": {
+            "local-alpha": [
+              [
+                "direct-alpha",
+                0
+              ],
+              [
+                "direct-alpha",
+                1
+              ],
+              [
+                "direct-alpha",
+                2
+              ],
+              [
+                "direct-alpha",
+                3
+              ],
+              [
+                "generated",
+                2
+              ],
+              [
+                "indirect",
+                0
+              ],
+              [
+                "indirect",
+                2
+              ]
+            ],
+            "external-rule0-v1": []
+          }
+        },
+        {
+          "profile": "changed-generator",
+          "binding": {
+            "caller": "282d2af8da168b01264ecdbd71a14fa85256c03698b241a6a7525343fbacc9a2",
+            "provider": "88bdcafd3e144a0f03d80a5a2458e23199ec6300cc86e4e079c967400b241869",
+            "registry": "b9d1dda641c17b13679557325210aefbf6fd5e8dee736532eb6f599c67cfa837",
+            "closed": true
+          },
+          "reverse": {
+            "local-alpha": [
+              [
+                "direct-alpha",
+                0
+              ],
+              [
+                "direct-alpha",
+                1
+              ],
+              [
+                "direct-alpha",
+                2
+              ],
+              [
+                "direct-alpha",
+                3
+              ],
+              [
+                "generated",
+                1
+              ],
+              [
+                "indirect",
+                0
+              ],
+              [
+                "indirect",
+                2
+              ]
+            ],
+            "external-rule0-v1": [
+              [
+                "dynamic-external",
+                0
+              ],
+              [
+                "dynamic-external",
+                3
+              ]
+            ]
+          }
+        },
+        {
+          "profile": "open-selector-domain",
+          "binding": {
+            "caller": "d1b5e43650363fcb5d01533bab48f0513417b2ba986887bbe001944aa051c0cb",
+            "provider": "88bdcafd3e144a0f03d80a5a2458e23199ec6300cc86e4e079c967400b241869",
+            "registry": "b9d1dda641c17b13679557325210aefbf6fd5e8dee736532eb6f599c67cfa837",
+            "closed": false
+          },
+          "reverse": {
+            "local-alpha": [
+              [
+                "direct-alpha",
+                0
+              ],
+              [
+                "direct-alpha",
+                1
+              ],
+              [
+                "direct-alpha",
+                2
+              ],
+              [
+                "direct-alpha",
+                3
+              ],
+              [
+                "generated",
+                2
+              ],
+              [
+                "indirect",
+                0
+              ],
+              [
+                "indirect",
+                2
+              ]
+            ],
+            "external-rule0-v1": [
+              [
+                "dynamic-external",
+                0
+              ],
+              [
+                "dynamic-external",
+                3
+              ]
+            ]
+          }
+        }
+      ],
+      "queries": [
+        {
+          "runtime": "baseline",
+          "receipt": "baseline",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "baseline",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-registry",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-registry",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "registry"
+          ]
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-provider",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-provider",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "provider"
+          ]
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-generator",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "caller"
+          ]
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "changed-generator",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "open-selector-domain",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "baseline",
+          "receipt": "open-selector-domain",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "baseline",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "baseline",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "registry"
+          ]
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-registry",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-registry",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-provider",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-provider",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-generator",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "changed-generator",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "open-selector-domain",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-registry",
+          "receipt": "open-selector-domain",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "baseline",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "baseline",
+          "target": "external-rule0-v1",
+          "direct_only_equal": true,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "provider"
+          ]
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-registry",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-registry",
+          "target": "external-rule0-v1",
+          "direct_only_equal": true,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-provider",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-provider",
+          "target": "external-rule0-v1",
+          "direct_only_equal": true,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-generator",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "changed-generator",
+          "target": "external-rule0-v1",
+          "direct_only_equal": true,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "open-selector-domain",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-provider",
+          "receipt": "open-selector-domain",
+          "target": "external-rule0-v1",
+          "direct_only_equal": true,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "baseline",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": [
+            "caller"
+          ]
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "baseline",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-registry",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-registry",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-provider",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-provider",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-generator",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "changed-generator",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "accepted",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "open-selector-domain",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "changed-generator",
+          "receipt": "open-selector-domain",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "stale",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "baseline",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "baseline",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-registry",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-registry",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-provider",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-provider",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-generator",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": false,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "changed-generator",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "open-selector-domain",
+          "target": "local-alpha",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        },
+        {
+          "runtime": "open-selector-domain",
+          "receipt": "open-selector-domain",
+          "target": "external-rule0-v1",
+          "direct_only_equal": false,
+          "unbound_descriptor_equal": true,
+          "pinned_disposition": "unknown",
+          "incorrect_if_binding_omitted": []
+        }
+      ]
+    }
+  }
+}

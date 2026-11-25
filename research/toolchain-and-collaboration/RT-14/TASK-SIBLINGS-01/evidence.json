@@ -1,0 +1,51 @@
+{
+  "sqlite": "3.53.1",
+  "lifecycle_controls": {
+    "scope_expansion": "scope-expansion",
+    "delegate_left": "delegated",
+    "overlapping_sibling": "overlap",
+    "delegate_right": "delegated",
+    "missing_obligation": "unsatisfied",
+    "wrong_owner": "ownership-mismatch",
+    "settle_left": "settled",
+    "partial_parent": "pending-children",
+    "redelivery_before_cancel": "replayed",
+    "conflicting_redelivery": "operation-conflict",
+    "stale_baseline": "stale-baseline",
+    "cancel_old_revision": "cancelled",
+    "new_settlement_after_cancel": "inactive",
+    "replay_immutable_old_receipt": "replayed",
+    "restart": "restarted",
+    "old_revision_cannot_delegate": "stale-revision",
+    "restart_left": "delegated",
+    "restart_right": "delegated",
+    "old_evidence_on_new_revision": "unsatisfied",
+    "new_left": "settled",
+    "new_right": "settled",
+    "complete_current_parent": "complete"
+  },
+  "concurrent_repetitions_per_scope_case": 8,
+  "overlapping_delegate_race": [
+    [
+      "delegated",
+      "overlap"
+    ],
+    2
+  ],
+  "disjoint_delegate_race": [
+    [
+      "delegated",
+      "delegated"
+    ],
+    4
+  ],
+  "settled_siblings_without_full_scope": "pending-scope",
+  "cancel_before_settle": [
+    "inactive",
+    0
+  ],
+  "settle_before_cancel": [
+    "settled",
+    1
+  ]
+}

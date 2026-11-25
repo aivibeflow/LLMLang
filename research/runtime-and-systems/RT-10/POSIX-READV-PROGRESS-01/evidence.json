@@ -1,0 +1,1736 @@
+{
+  "cases": [
+    {
+      "buffers": [
+        "___",
+        "____"
+      ],
+      "payload": "",
+      "raw_count": null,
+      "raw_error": "EAGAIN",
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "would-block",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "___",
+        "____"
+      ],
+      "payload": "",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "eof",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "A__",
+        "____"
+      ],
+      "payload": "A",
+      "raw_count": 1,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "A__",
+        "____"
+      ],
+      "payload": "A",
+      "raw_count": 1,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "AB_",
+        "____"
+      ],
+      "payload": "AB",
+      "raw_count": 2,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "AB_",
+        "____"
+      ],
+      "payload": "AB",
+      "raw_count": 2,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABC",
+        "____"
+      ],
+      "payload": "ABC",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABC",
+        "____"
+      ],
+      "payload": "ABC",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABC",
+        "D___"
+      ],
+      "payload": "ABCD",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABC",
+        "D___"
+      ],
+      "payload": "ABCD",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABC",
+        "DE__"
+      ],
+      "payload": "ABCDE",
+      "raw_count": 5,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABC",
+        "DE__"
+      ],
+      "payload": "ABCDE",
+      "raw_count": 5,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABC",
+        "DEF_"
+      ],
+      "payload": "ABCDEF",
+      "raw_count": 6,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABC",
+        "DEF_"
+      ],
+      "payload": "ABCDEF",
+      "raw_count": 6,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABC",
+        "DEFG"
+      ],
+      "payload": "ABCDEFG",
+      "raw_count": 7,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABC",
+        "DEFG"
+      ],
+      "payload": "ABCDEFG",
+      "raw_count": 7,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABC",
+        "DEFG"
+      ],
+      "payload": "ABCDEFGH",
+      "raw_count": 7,
+      "raw_error": null,
+      "remaining": "H",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABC",
+        "DEFG"
+      ],
+      "payload": "ABCDEFGH",
+      "raw_count": 7,
+      "raw_error": null,
+      "remaining": "H",
+      "shape": [
+        3,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        "___",
+        "",
+        "____"
+      ],
+      "payload": "",
+      "raw_count": null,
+      "raw_error": "EAGAIN",
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "would-block",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        "___",
+        "",
+        "____"
+      ],
+      "payload": "",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "eof",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        "A__",
+        "",
+        "____"
+      ],
+      "payload": "A",
+      "raw_count": 1,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        "A__",
+        "",
+        "____"
+      ],
+      "payload": "A",
+      "raw_count": 1,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        "AB_",
+        "",
+        "____"
+      ],
+      "payload": "AB",
+      "raw_count": 2,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        "AB_",
+        "",
+        "____"
+      ],
+      "payload": "AB",
+      "raw_count": 2,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "____"
+      ],
+      "payload": "ABC",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "____"
+      ],
+      "payload": "ABC",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "D___"
+      ],
+      "payload": "ABCD",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "D___"
+      ],
+      "payload": "ABCD",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "DE__"
+      ],
+      "payload": "ABCDE",
+      "raw_count": 5,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "DE__"
+      ],
+      "payload": "ABCDE",
+      "raw_count": 5,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "DEF_"
+      ],
+      "payload": "ABCDEF",
+      "raw_count": 6,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "DEF_"
+      ],
+      "payload": "ABCDEF",
+      "raw_count": 6,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "DEFG"
+      ],
+      "payload": "ABCDEFG",
+      "raw_count": 7,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "DEFG"
+      ],
+      "payload": "ABCDEFG",
+      "raw_count": 7,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "DEFG"
+      ],
+      "payload": "ABCDEFGH",
+      "raw_count": 7,
+      "raw_error": null,
+      "remaining": "H",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        "ABC",
+        "",
+        "DEFG"
+      ],
+      "payload": "ABCDEFGH",
+      "raw_count": 7,
+      "raw_error": null,
+      "remaining": "H",
+      "shape": [
+        0,
+        3,
+        0,
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "A",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "A",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "A",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "A",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "AB",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "AB",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "AB",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "AB",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABC",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABC",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABC",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABC",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABCD",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCD",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABCD",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCD",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABCDE",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDE",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABCDE",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDE",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABCDEF",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEF",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABCDEF",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEF",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABCDEFG",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEFG",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABCDEFG",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEFG",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABCDEFGH",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEFGH",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "",
+        ""
+      ],
+      "payload": "ABCDEFGH",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEFGH",
+      "shape": [
+        0,
+        0
+      ],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [],
+      "payload": "",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [],
+      "payload": "",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [],
+      "payload": "A",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "A",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [],
+      "payload": "A",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "A",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [],
+      "payload": "AB",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "AB",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [],
+      "payload": "AB",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "AB",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [],
+      "payload": "ABC",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABC",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [],
+      "payload": "ABC",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABC",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [],
+      "payload": "ABCD",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCD",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [],
+      "payload": "ABCD",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCD",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [],
+      "payload": "ABCDE",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDE",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [],
+      "payload": "ABCDE",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDE",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [],
+      "payload": "ABCDEF",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEF",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [],
+      "payload": "ABCDEF",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEF",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [],
+      "payload": "ABCDEFG",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEFG",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [],
+      "payload": "ABCDEFG",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEFG",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [],
+      "payload": "ABCDEFGH",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEFGH",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": false
+    },
+    {
+      "buffers": [],
+      "payload": "ABCDEFGH",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "ABCDEFGH",
+      "shape": [],
+      "typed": "zero-request",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "_",
+        "_",
+        "_"
+      ],
+      "payload": "",
+      "raw_count": null,
+      "raw_error": "EAGAIN",
+      "remaining": "",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "would-block",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "_",
+        "_",
+        "_"
+      ],
+      "payload": "",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "eof",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "A",
+        "_",
+        "_"
+      ],
+      "payload": "A",
+      "raw_count": 1,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "A",
+        "_",
+        "_"
+      ],
+      "payload": "A",
+      "raw_count": 1,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "_"
+      ],
+      "payload": "AB",
+      "raw_count": 2,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "_"
+      ],
+      "payload": "AB",
+      "raw_count": 2,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABC",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABC",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABCD",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "D",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABCD",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "D",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABCDE",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "DE",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABCDE",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "DE",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABCDEF",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "DEF",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABCDEF",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "DEF",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABCDEFG",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "DEFG",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABCDEFG",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "DEFG",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABCDEFGH",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "DEFGH",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "payload": "ABCDEFGH",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "DEFGH",
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "____"
+      ],
+      "payload": "",
+      "raw_count": null,
+      "raw_error": "EAGAIN",
+      "remaining": "",
+      "shape": [
+        4
+      ],
+      "typed": "would-block",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "____"
+      ],
+      "payload": "",
+      "raw_count": 0,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        4
+      ],
+      "typed": "eof",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "A___"
+      ],
+      "payload": "A",
+      "raw_count": 1,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "A___"
+      ],
+      "payload": "A",
+      "raw_count": 1,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "AB__"
+      ],
+      "payload": "AB",
+      "raw_count": 2,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "AB__"
+      ],
+      "payload": "AB",
+      "raw_count": 2,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABC_"
+      ],
+      "payload": "ABC",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABC_"
+      ],
+      "payload": "ABC",
+      "raw_count": 3,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABCD"
+      ],
+      "payload": "ABCD",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABCD"
+      ],
+      "payload": "ABCD",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABCD"
+      ],
+      "payload": "ABCDE",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "E",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABCD"
+      ],
+      "payload": "ABCDE",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "E",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABCD"
+      ],
+      "payload": "ABCDEF",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "EF",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABCD"
+      ],
+      "payload": "ABCDEF",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "EF",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABCD"
+      ],
+      "payload": "ABCDEFG",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "EFG",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABCD"
+      ],
+      "payload": "ABCDEFG",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "EFG",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    },
+    {
+      "buffers": [
+        "ABCD"
+      ],
+      "payload": "ABCDEFGH",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "EFGH",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": false
+    },
+    {
+      "buffers": [
+        "ABCD"
+      ],
+      "payload": "ABCDEFGH",
+      "raw_count": 4,
+      "raw_error": null,
+      "remaining": "EFGH",
+      "shape": [
+        4
+      ],
+      "typed": "progress",
+      "writer_closed": true
+    }
+  ],
+  "kernel": "6.18.57",
+  "python": "3.12.14",
+  "resume": {
+    "tracked_cursor": {
+      "after_resume": [
+        "ab",
+        "cde",
+        "fg"
+      ],
+      "before_resume": [
+        "ab",
+        "c__",
+        "__"
+      ],
+      "first_count": 3,
+      "pipe_empty": true,
+      "second_count": 4
+    },
+    "whole_vector_retry": {
+      "after_resume": [
+        "de",
+        "fg_",
+        "__"
+      ],
+      "before_resume": [
+        "ab",
+        "c__",
+        "__"
+      ],
+      "first_count": 3,
+      "pipe_empty": true,
+      "second_count": 4
+    }
+  },
+  "typed_counts": {
+    "eof": 4,
+    "progress": 64,
+    "would-block": 4,
+    "zero-request": 36
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "checker_sha256": "e1571d6593fa50c3d06ea29faeee24fc6a080b011393cc6347b3a83dccfc1cb9",
+  "input_sha256": {
+    "CHANGESET-REVIEW-SCOPE-01": "e8d42a3cc9bee3efb763e48f945f20d5d35466b8c38f768adefad68c25ccbfc2",
+    "GIT-REVIEW-PROJECTION-01": "8308b0f6fcc83513dd469aef3635ce8e3bd053e6f45388b25b2a008d5277daf4",
+    "REVIEW-PACKET-01": "2edd1a76377025b6455d0b4d9fd7282a8cb6fee922a8176e0005c1f70fc305e4"
+  },
+  "metadata_mismatches": [
+    "metadata-only",
+    "provider-stale"
+  ],
+  "refused_packet_controls": [
+    "wrong_patch",
+    "wrong_scope_with_new_digest",
+    "wrong_candidate"
+  ],
+  "rendering_examples": 5,
+  "reusable_closed_scope": [
+    "different_key_order",
+    "exact",
+    "unrelated_base",
+    "unrelated_candidate"
+  ],
+  "review_cases": 11,
+  "verified_packets": 8
+}

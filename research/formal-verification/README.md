@@ -4,6 +4,18 @@
 
 This direction groups related research studies without changing their RT identifiers, research status, or accepted decisions.
 
+## Browse by topic
+
+- [Formal semantics and program verification](program-semantics-and-verification/README.md) · RT-07, RT-32
+- [Proof methods, evidence and trust](proof-methods-and-trust/README.md) · RT-08, RT-33, RT-36
+- [Complexity and resource guarantees](complexity-and-resource-guarantees/README.md) · RT-34
+- [Resource-aware lowering](RT-34/RT-34-RESOURCE-AWARE-LOWERING-2026-11-25.md) · Native budget regressions, exact foreign binding and Lean inequalities
+- [Read lower bound and FIFO cost](RT-34/RT-34-READ-LOWER-AND-QUEUE-2026-11-25.md) · Query optimality, amortized FIFO cost and peak logical storage
+- [Parallel, expected and output costs](RT-34/RT-34-PARALLEL-EXPECTED-OUTPUT-2026-11-25.md) · Work, span, distribution-dependent probes and multivariate output
+- [Typed resource contracts](RT-34/RT-34-RESOURCE-CONTRACT-IR-2026-11-25.md) · Affine size constraints and exact Lean evidence identity
+- [Loop and call correspondence](RT-34/RT-34-LOOP-CALL-CORRESPONDENCE-2026-11-25.md) · Generated loops, decreasing recursion and exact proof dependencies
+- [Resource inference vectors](RT-34/RT-34-INFERENCE-VECTORS-2026-11-25.md) · Provisional comparison with exact kernel claims and an explicit finite-sample limit
+
 ## Studies
 
 | ID | Scope |
@@ -17,6 +29,39 @@ This direction groups related research studies without changing their RT identif
 
 ## Dedicated research artifacts
 
+- [Dafny syntax and invariant receipts](RT-07/RT-07-DAFNY-SYNTAX-AND-INVARIANT-RECEIPTS-2026-11-25.md) checks a shared typed affine-loop subset and exact receipt reuse.
+- [Dafny construct transfer](RT-07/RT-07-DAFNY-CONSTRUCT-TRANSFER-2026-11-25.md) compares thirteen documented constructs with candidate LLMLang obligations and evidence boundaries.
+- [Multi-backend integration and verification artifact cache](RT-33/VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) — candidate adapters, persistent proof and certificate reuse, exact admission and VAC-01–15 execution plan.
+
+- [Proof and test execution costs](PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-2026-11-25.md) compares pinned proof and finite-oracle phases across three evidence packages.
+- [RT-32 recursive proof discharge](RT-32/RT-32-RECURSIVE-PROOF-DISCHARGE-2026-11-25.md) — distinguishes checked recursive induction from unsupported conditional cycles.
+- [Incremental proof invalidation](RT-32/RT-32-INCREMENTAL-PROOF-INVALIDATION-2026-11-25.md) — exact modular reuse, provider freshness and transitive evidence.
+- [Generated proof route comparison](RT-32/RT-32-PROOF-ROUTE-COMPARISON-2026-11-25.md) — Lean tactics, reusable lemmas, SMT witnesses and rejection controls.
+- [SPG proof dependency occurrences](RT-32/RT-32-SPG-PDG-OCCURRENCES-2026-11-25.md) — distinct occurrence discharges and exact transitive evidence.
+- [Conditional embedding correspondence](RT-32/RT-32-CONDITIONAL-EMBEDDING-CORRESPONDENCE-2026-11-25.md) — deep and shallow semantics for ordered guard and arm effects.
+- [Admitted profiles and obligation corpus](RT-32/RT-32-CORE-OBLIGATION-CORPUS-2026-11-25.md) — six exact replays and seven adversarial categories.
+- [Exact caller evidence states](RT-32/RT-32-CALLER-EVIDENCE-STATES-2026-11-25.md) — composing version-bound evidence with pending and unknown dependencies.
+- [Persistent proof cache](RT-32/RT-32-PERSISTENT-PROOF-CACHE-2026-11-25.md) — versioned proof receipts and atomic local closure publication.
+- [RT-07 Lean and Logos proof boundary](RT-07/RT-07-LEAN-LOGOS-PROOF-BOUNDARY-RECHECK-2026-11-25.md) — distinguishes parser verdict conditions, source hypotheses and exact native axiom closure.
+- [RT-07 observation equivalence proof](RT-07/RT-07-STATE-RESULT-OBSERVATIONAL-EQUIVALENCE-2026-11-25.md) — kernel-checked equivalence of full observations and preservation of all postconditions.
+- [RT-07 operational, denotational and axiomatic comparison](RT-07/RT-07-THREE-SEMANTICS-STATE-RESULT-2026-11-25.md) — finite state/Result and ordered-history semantics.
+- [RT-07 Boolean effect order](RT-07/RT-07-BOOLEAN-EFFECT-ORDER-2026-11-25.md) — compares eager and short-circuit evaluation with ordered effects.
+- [RT-07 nondeterministic refinement](RT-07/RT-07-NONDETERMINISTIC-REFINEMENT-2026-11-25.md) — compares may, must and explicit nontermination observations.
+- [RT-07 sequential contract composition](RT-07/RT-07-SEQUENTIAL-CONTRACT-COMPOSITION-2026-11-25.md) — checks exact handoff and error-trace composition.
+- [RT-07 recovery contract composition](RT-07/RT-07-RECOVERY-CONTRACT-COMPOSITION-2026-11-25.md) — checks universal error-handler handoff and preserves ordered effects across recovery.
+- [RT-07 explicit environment boundary](RT-07/RT-07-EXPLICIT-ENVIRONMENT-BOUNDARY-2026-11-25.md) — checks conditional assumptions, observable absence and native correspondence.
+- [RT-07 state/Result reference entry](RT-07/RT-07-STATE-RESULT-REFERENCE-ENTRY-2026-11-25.md) — exposes the executable restricted reference semantics and typed admission.
+- [RT-07 dead-store alias boundary](RT-07/RT-07-DEAD-STORE-ALIAS-BOUNDARY-2026-11-25.md) — checks when declared write visibility and intervening reads permit removal.
+- [RT-07 partial-output observations](RT-07/RT-07-PARTIAL-OUTPUT-OBSERVATIONS-2026-11-25.md) — verifies accepted bytes, terminal failure and adapter traces under coalescing.
+- [RT-07 proof validity and adequacy](RT-07/RT-07-PROOF-VALIDITY-AND-ADEQUACY-2026-11-25.md) — proves the transfer condition for recorded intent and checks feasibility and coverage controls.
+- [RT-07 per-claim Lean trust](RT-07/RT-07-PER-CLAIM-LEAN-TRUST-2026-11-25.md) — checks exact theorem types, transitive assumptions and native evaluation trust.
+- [RT-07 incremental solver evidence](RT-07/RT-07-INCREMENTAL-SOLVER-EVIDENCE-2026-11-25.md) — binds validated models and independent Lean refutations to active assertion and assumption scopes.
+- [RT-07 solver session recovery](RT-07/RT-07-SOLVER-SESSION-RECOVERY-2026-11-25.md) — compares typed admission, unresolved context and fresh replay after bad incremental commands.
+- [RT-07 proof status history](RT-07/RT-07-PROOF-STATUS-HISTORY-2026-11-25.md) — derives exact claim status without losing earlier checks, rejected attempts or open premises.
+- [RT-07 source and CPC proof rebinding](RT-07/RT-07-SOURCE-CPC-PROOF-REBINDING-2026-11-25.md) — replays source-owned typed wire and exact CPC assumptions after source edits.
+- [RT-07 checked-byte proof routes](RT-07/RT-07-CHECKED-BYTE-PROOF-ROUTES-2026-11-25.md) — compares theorem, solver, specialized checker and native evidence for an exact observable claim.
+- [RT-07 proof format receipts](RT-07/RT-07-PROOF-FORMAT-RECEIPTS-2026-11-25.md) — compares format-specific checks and exact reuse under a shared typed query identity.
+- [RT-07 claim trust crosswalk](RT-07/RT-07-CLAIM-TRUST-CROSSWALK-2026-11-25.md) — records the exact basis of kernel, conditional, solver witness, CPC runtime and native claims.
 - [CONTRACT-FORMALIZATION-CORPUS](CONTRACT-FORMALIZATION-CORPUS/)
 - [PROOF-OBLIGATION-BENCHMARK](PROOF-OBLIGATION-BENCHMARK/)
 

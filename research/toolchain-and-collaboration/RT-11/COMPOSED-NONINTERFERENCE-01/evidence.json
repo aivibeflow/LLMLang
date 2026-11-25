@@ -1,0 +1,43 @@
+{
+  "schema": "llmlang-rt11-composed-noninterference/1",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "axioms": [
+    "'sequentialEquality' does not depend on any axioms",
+    "'uniformNonInterference' does not depend on any axioms",
+    "'disjointSeparateEditsInsufficient' does not depend on any axioms"
+  ],
+  "source_sha256": {
+    "run.py": "bdd398f40a0c5162d4e1ec88506b91a0fea1375b8ca042f8c2df46cd3e2eee3e",
+    "Composition.lean": "cf501995946ea3a99a1493cbe161d5bfa0770c4f1d6865022265a42f4865c88e"
+  },
+  "counts": {
+    "cases": 6144,
+    "direct": 3072,
+    "base_local": 1536,
+    "base_local_false_reuse": 768,
+    "sequential": 1536,
+    "contextual": 768,
+    "direct_safe_but_sequential_blocks": 1536
+  },
+  "first_false_reuse": {
+    "truth_table_mask": 1,
+    "base": 3,
+    "edit_bits": [
+      0,
+      1
+    ],
+    "states": [
+      3,
+      2,
+      1,
+      0
+    ],
+    "outcomes": [
+      0,
+      0,
+      0,
+      1
+    ]
+  }
+}

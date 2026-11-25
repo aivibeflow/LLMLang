@@ -1,0 +1,145 @@
+{
+  "apalache": "0.63.0",
+  "apalache_cases": {
+    "base-bound-five": {
+      "bound": 5,
+      "initialization": "Init",
+      "spec": "ac550d2eedb1fdaed65498dfa108154f86c061efb8858e190b88637030bf246f",
+      "status": "checked",
+      "witness": null
+    },
+    "base-consecution": {
+      "bound": 1,
+      "initialization": "Safe",
+      "spec": "ac550d2eedb1fdaed65498dfa108154f86c061efb8858e190b88637030bf246f",
+      "status": "checked",
+      "witness": null
+    },
+    "base-initialization": {
+      "bound": 0,
+      "initialization": "Init",
+      "spec": "ac550d2eedb1fdaed65498dfa108154f86c061efb8858e190b88637030bf246f",
+      "status": "checked",
+      "witness": null
+    },
+    "changed-initialization": {
+      "bound": 0,
+      "initialization": "Init",
+      "spec": "4438bcc5b2cd27ecb128c2dc4eab992345f5c76060fdc8e06a933075a56dfed7",
+      "status": "safety-violation",
+      "witness": [
+        5
+      ]
+    },
+    "unfair-safety-only": {
+      "bound": 5,
+      "initialization": "Init",
+      "spec": "d2fa504a9b9baaf9ecd60522c07a31bc37d9bf8f32600eaad851dabd5671ce65",
+      "status": "checked",
+      "witness": null
+    },
+    "widened-bound-five": {
+      "bound": 5,
+      "initialization": "Init",
+      "spec": "d0fe240e5c3a22ac2e9163a18212204bdfecaeb86f2832244e144afa87a86f85",
+      "status": "safety-violation",
+      "witness": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "widened-bound-four": {
+      "bound": 4,
+      "initialization": "Init",
+      "spec": "d0fe240e5c3a22ac2e9163a18212204bdfecaeb86f2832244e144afa87a86f85",
+      "status": "checked",
+      "witness": null
+    },
+    "widened-consecution": {
+      "bound": 1,
+      "initialization": "Safe",
+      "spec": "d0fe240e5c3a22ac2e9163a18212204bdfecaeb86f2832244e144afa87a86f85",
+      "status": "safety-violation",
+      "witness": [
+        4,
+        5
+      ]
+    }
+  },
+  "apalache_jar": "f2d43f2e279a657be50b2ecec3a013ba2915266008a2562b38412c3269347dc9",
+  "apalache_scope": "Init/Next safety without temporal fairness",
+  "controls": {
+    "changed-bound": "prior-checkpoint-refused",
+    "changed-config": "prior-checkpoint-refused",
+    "changed-engine": "prior-checkpoint-refused",
+    "changed-fairness": "prior-checkpoint-refused",
+    "changed-initial": "prior-checkpoint-refused",
+    "changed-raw-recovery": "reported-success",
+    "changed-worker-profile": "prior-checkpoint-refused",
+    "destroyed-queue-role": "prior-checkpoint-refused"
+  },
+  "exact_resume": {
+    "distinct": 120001,
+    "status": "checked"
+  },
+  "exact_tlc_request": {
+    "config": "a5b8f9b29bb4551c1c7c97e46150c6ecaad2eed08235bb85724590c9d6934353",
+    "engine": {
+      "java_launcher": "1a7e0b17c39003c75b457d686775ccb032e56fa9c8afe3c492d8eb3715e8951a",
+      "java_vm": "22c91f26f57d578d80306b7f6825fe684faa932dbb9b050ce79c129143fa0da7",
+      "tlc_jar": "fdffef247f563ef6edbfd44958d2a82db79e7564e07cb673262d896353fa6713"
+    },
+    "flags": [
+      "-Xmx768m",
+      "-XX:+UseParallelGC",
+      "-workers",
+      "1",
+      "-fp",
+      "0",
+      "-seed",
+      "811",
+      "-checkpoint",
+      "0"
+    ],
+    "spec": "c48d84d4945531154a3277533d86adcc3a3f98e19b9dfe8dfd10d436d72c9c7e"
+  },
+  "fresh_changed_initial": {
+    "status": "safety-violation",
+    "value": 120001
+  },
+  "fresh_original": {
+    "distinct": 120001,
+    "status": "checked"
+  },
+  "java": "openjdk version \"21.0.13\" 2026-10-20",
+  "native_forced_exit": 73,
+  "original_model": {
+    "initial_outside": false,
+    "limit": 120000,
+    "weak_fairness": true,
+    "widen_step": false
+  },
+  "recovered_nonempty_frontier": true,
+  "required_checkpoint_roles": [
+    "Counter-0.chkpt",
+    "dgraph_0.chkpt",
+    "queue.chkpt",
+    "settings.chkpt",
+    "vars.chkpt"
+  ],
+  "tlc": "2026.11.19.180144 bc1b506",
+  "tlc_fairness": {
+    "small-fair": {
+      "distinct": 5,
+      "status": "checked"
+    },
+    "small-unfair": {
+      "status": "temporal-violation",
+      "stuttering": true
+    }
+  }
+}

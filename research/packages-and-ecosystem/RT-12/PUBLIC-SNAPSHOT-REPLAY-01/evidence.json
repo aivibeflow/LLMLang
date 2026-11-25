@@ -1,0 +1,55 @@
+{
+  "sqlite": "3.53.1",
+  "missing_dependency_refused_in_old_snapshot": true,
+  "existing_destination_preserved": true,
+  "writer_committed_during_blob_read": true,
+  "old_snapshot_hid_append": true,
+  "later_snapshot_observed_append": true,
+  "closed_snapshot_refused_new_metadata": true,
+  "checked_archives": {
+    "pinned": "df544647472f477d5a5690434a9cb439ce347fcdbd960559db3a04c95e70a7d5",
+    "latest": "df544647472f477d5a5690434a9cb439ce347fcdbd960559db3a04c95e70a7d5",
+    "memory": "df544647472f477d5a5690434a9cb439ce347fcdbd960559db3a04c95e70a7d5"
+  },
+  "public_api_calls": {
+    "pinned": {
+      "metadata_reads": 2,
+      "dependency_reads": 2,
+      "edges_streamed": 131,
+      "streams_opened": 2,
+      "stream_reads": 6,
+      "bytes_read": 2099220,
+      "largest_read_returned": 1048576,
+      "streams_closed": 2
+    },
+    "latest": {
+      "metadata_reads": 2,
+      "dependency_reads": 2,
+      "edges_streamed": 131,
+      "streams_opened": 2,
+      "stream_reads": 6,
+      "bytes_read": 2099220,
+      "largest_read_returned": 1048576,
+      "streams_closed": 2
+    },
+    "memory": {
+      "metadata_reads": 2,
+      "dependency_reads": 2,
+      "edges_streamed": 131,
+      "streams_opened": 2,
+      "stream_reads": 6,
+      "bytes_read": 2099220,
+      "largest_read_returned": 1048576,
+      "streams_closed": 2
+    }
+  },
+  "source_sha256": {
+    "research/packages-and-ecosystem/RT-12/PUBLIC-SNAPSHOT-REPLAY-01/run.py": "9ec239b3fdc1b01b15377c40266d3f59af02a1fca9b60b3ba6a74e422dcbda4d",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/content_store.py": "8f6d7ed6cdae98c752f467accde214e163eb17b0566011be57c941469ff2657c",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_provider.py": "09a3ef8a07b38e72590e35d15a468cb7d167b10e59f4f429d072da9499813440",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_archive.py": "01febe052788c913ebb750561e0430a9609c50cb9b86558f74ecc680499bfff1",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_index.py": "e03e977aef9a7dd9764854468bf0c43875236dae700bcdc498b2286e1de6ae3c",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/test_content_store.py": "9dad06f160b5107a7cde08b5b0cb22b2e4140b80dcfc2defd25484c87f7df4db",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458"
+  }
+}

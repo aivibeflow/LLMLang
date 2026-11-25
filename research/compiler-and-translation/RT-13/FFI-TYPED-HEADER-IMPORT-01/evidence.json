@@ -1,0 +1,216 @@
+{
+  "behavioral_contracts": {
+    "EVP_Digest": {
+      "assumptions": "The adapter selects SHA-256 and requires a 32-byte result, keeps the buffers live, and supplies no ENGINE.",
+      "observations": [
+        "success",
+        "actual output length",
+        "digest bytes"
+      ],
+      "source": "https://docs.openssl.org/3.5/man3/EVP_DigestInit/"
+    },
+    "read": {
+      "assumptions": "Caller supplies capacity and valid mutable storage for it. The adapter refuses requests larger than capacity.",
+      "observations": [
+        "disposition",
+        "errno on failure",
+        "committed byte prefix"
+      ],
+      "source": "https://pubs.opengroup.org/onlinepubs/9699919799/functions/read.html"
+    },
+    "sqlite3_stricmp": {
+      "assumptions": "Caller supplies readable NUL-terminated strings. The fixture makes no Unicode collation claim.",
+      "observations": [
+        "comparison sign under SQLite ASCII folding"
+      ],
+      "source": "https://www.sqlite.org/c3ref/stricmp.html"
+    }
+  },
+  "declarations": {
+    "EVP_Digest": {
+      "c_parameters": [
+        "const void *",
+        "size_t",
+        "unsigned char *",
+        "unsigned int *",
+        "const EVP_MD *",
+        "ENGINE *"
+      ],
+      "c_return": "int",
+      "parameters": [
+        "pointer<const void>",
+        "usize",
+        "pointer<u8>",
+        "pointer<u32>",
+        "pointer<const opaque<EVP_MD>>",
+        "pointer<opaque<ENGINE>>"
+      ],
+      "return": "i32"
+    },
+    "read": {
+      "c_parameters": [
+        "int",
+        "void *",
+        "size_t"
+      ],
+      "c_return": "ssize_t",
+      "parameters": [
+        "i32",
+        "pointer<void>",
+        "usize"
+      ],
+      "return": "isize"
+    },
+    "sqlite3_stricmp": {
+      "c_parameters": [
+        "const char *",
+        "const char *"
+      ],
+      "c_return": "int",
+      "parameters": [
+        "pointer<const c_char>",
+        "pointer<const c_char>"
+      ],
+      "return": "i32"
+    }
+  },
+  "generated_declarations_and_adapter_include_sha256": "09d81e0c2b6247bba1c2aa14ceb7cedf7219d67209202ed0ba188d607f0e14d2",
+  "headers_sha256": {
+    "openssl": "41b42c68adfd98b9d8a80fb2d78bbdaf1094f43dd02be045c7d8605edf36a706",
+    "openssl_types": "de5422d2e621df11c17ab18473ea4f2368ecc64b1e45311c4890cc62b31f81c5",
+    "posix": "aee91ddee895a880d42e86506a7da85f8766690003f3c66eb1895d13de10d1ba",
+    "sqlite": "f319f664239fdd3154721a70b7cf37fa1475703c6a4deaf7605511851c1edb17"
+  },
+  "profiles": {
+    "O0": {
+      "elf_sha256": "c0dd9ecb1b21ae9148e591fe9676d0e327c73a708ca1deed787005ff681f9188",
+      "mismatches": {
+        "compare": 0,
+        "digest": 0,
+        "read": 0
+      },
+      "native_trace_sha256": "1200e1f3072979bfcf62f6c98a1e5373c4d49f4f36d532cedaa736dc2ad50476",
+      "needed": [
+        "libsqlite3.so.0",
+        "libcrypto.so.3",
+        "libc.so.6"
+      ],
+      "observations": {
+        "compare": 144,
+        "digest": 27,
+        "read": 56
+      },
+      "symbols": {
+        "openssl": {
+          "file": "libcrypto.so.3",
+          "sha256": "8ae56f0a9481280a68c19f59809cd242a07a91ad7142944d21a878221992244b"
+        },
+        "posix": {
+          "file": "libc.so.6",
+          "sha256": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92"
+        },
+        "sqlite": {
+          "file": "libsqlite3.so.0.8.6",
+          "sha256": "317d80bf5d592f98a71e14d2330591d6a339f631f37c5977835af748a1f26715"
+        }
+      },
+      "versions": {
+        "openssl_version": "OpenSSL 3.5.7 9 Jun 2026",
+        "sqlite_version": "3.46.1"
+      }
+    },
+    "O2": {
+      "elf_sha256": "c9d81f8736e9762ff2d78219f1433e5b44fcfe197b78ead653c9f6cac2d63964",
+      "mismatches": {
+        "compare": 0,
+        "digest": 0,
+        "read": 0
+      },
+      "native_trace_sha256": "1200e1f3072979bfcf62f6c98a1e5373c4d49f4f36d532cedaa736dc2ad50476",
+      "needed": [
+        "libsqlite3.so.0",
+        "libcrypto.so.3",
+        "libc.so.6"
+      ],
+      "observations": {
+        "compare": 144,
+        "digest": 27,
+        "read": 56
+      },
+      "symbols": {
+        "openssl": {
+          "file": "libcrypto.so.3",
+          "sha256": "8ae56f0a9481280a68c19f59809cd242a07a91ad7142944d21a878221992244b"
+        },
+        "posix": {
+          "file": "libc.so.6",
+          "sha256": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92"
+        },
+        "sqlite": {
+          "file": "libsqlite3.so.0.8.6",
+          "sha256": "317d80bf5d592f98a71e14d2330591d6a339f631f37c5977835af748a1f26715"
+        }
+      },
+      "versions": {
+        "openssl_version": "OpenSSL 3.5.7 9 Jun 2026",
+        "sqlite_version": "3.46.1"
+      }
+    },
+    "same_abi_wrong_algorithm": {
+      "elf_sha256": "0078224081b39199b5537d3065510d33790e1ea9a9d9e0db52e32760c954ff63",
+      "mismatches": {
+        "compare": 0,
+        "digest": 27,
+        "read": 0
+      },
+      "native_trace_sha256": "2d2201c24a2cabc4dbd8ee4b5d769b8206ee5808acc395a94bdad56bf0484cbc",
+      "needed": [
+        "libsqlite3.so.0",
+        "libcrypto.so.3",
+        "libc.so.6"
+      ],
+      "observations": {
+        "compare": 144,
+        "digest": 27,
+        "read": 56
+      },
+      "symbols": {
+        "openssl": {
+          "file": "libcrypto.so.3",
+          "sha256": "8ae56f0a9481280a68c19f59809cd242a07a91ad7142944d21a878221992244b"
+        },
+        "posix": {
+          "file": "libc.so.6",
+          "sha256": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92"
+        },
+        "sqlite": {
+          "file": "libsqlite3.so.0.8.6",
+          "sha256": "317d80bf5d592f98a71e14d2330591d6a339f631f37c5977835af748a1f26715"
+        }
+      },
+      "versions": {
+        "openssl_version": "OpenSSL 3.5.7 9 Jun 2026",
+        "sqlite_version": "3.46.1"
+      }
+    }
+  },
+  "source_sha256": {
+    "adapter.h.in": "387c2ae8551a864aabd431c683ccb55cbf41cb72e405d419201a60830de6ff49",
+    "contracts.json": "4ff96fcccd98d6440c46ba4e09ff4dfa399a5910f63414bfa28e137f6a9d8de6",
+    "host.c": "a1827397e977025bf37e03515ed0edf4b6953ee4e287612e9384a53720990070",
+    "import.c": "2fb87531a9d651fd40db1368e75603f8171933c776c938f53c4eb0a614923ebd",
+    "run.py": "864a1dc5fcf484920e5e321c65741a78e881a59386f0bfd9e06a37c5d4b47389"
+  },
+  "target": "Linux x86-64 LP64 little-endian",
+  "tools": {
+    "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "clang": "Debian clang version 19.1.7 (3+b1)"
+  },
+  "underlying_types": {
+    "ENGINE": "struct engine_st",
+    "EVP_MD": "struct evp_md_st",
+    "size_t": "unsigned long",
+    "ssize_t": "long"
+  },
+  "wrong_width_control": "refused by compiler static type check"
+}

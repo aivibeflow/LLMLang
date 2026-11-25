@@ -1,0 +1,74 @@
+{
+  "host": {
+    "os": "Debian GNU/Linux 13 (trixie)",
+    "kernel": "6.18.57",
+    "architecture": "x86_64",
+    "python": "3.12.14",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "locale": "C",
+    "python_hash_seed": "1"
+  },
+  "replays": [
+    {
+      "fixture": "research/semantic-representation/RT-05/DAFNY-SPG-COPY-FRAME-01",
+      "publication_commit": "591c07d3b71f813b97b1cfa5be7f2b8f98825f68",
+      "archived_evidence_path": "research/semantic-representation/RT-05/DAFNY-SPG-COPY-FRAME-01/evidence.json",
+      "publication_and_replay_sha256": "56d09a0beca623deaccbc213e6fad118329e87bd1bef78977fe5ced2ca20393b",
+      "byte_equal": true,
+      "summary": {
+        "inputs": 5663,
+        "enumerated": 5407,
+        "seed": 20261125,
+        "metrics": {
+          "SnapshotCopy": {
+            "result_mismatches": 0,
+            "outside_spans": 0,
+            "trace_differences": 0
+          },
+          "DirectedCopy": {
+            "result_mismatches": 0,
+            "outside_spans": 0,
+            "trace_differences": 1505
+          },
+          "ForwardOnly": {
+            "result_mismatches": 254,
+            "outside_spans": 0,
+            "trace_differences": 1505
+          },
+          "SnapshotWithWrite": {
+            "result_mismatches": 4045,
+            "outside_spans": 4045,
+            "trace_differences": 4045
+          }
+        },
+        "forward_scope": {
+          "admitted": 5337,
+          "refused": 326
+        }
+      }
+    },
+    {
+      "fixture": "research/formal-verification/RT-07/DAFNY-KERNEL-FOREIGN-BOUNDARY-01",
+      "publication_commit": "329f4c2082fe8dfd77f495128f3fa427111eeacd",
+      "archived_evidence_path": "research/formal-verification/RT-07/DAFNY-KERNEL-FOREIGN-BOUNDARY-01/evidence.json",
+      "publication_and_replay_sha256": "d8479c9f7f98faa1667f7bad7a215d9bf5c6d5eaaa903308ea882d7bcd56e123",
+      "byte_equal": true,
+      "summary": {
+        "inputs": 1836,
+        "directed_inputs": 1452,
+        "seed": 20261125,
+        "expected_status_counts": {
+          "1": 984,
+          "0": 476,
+          "2": 376
+        },
+        "native_mismatches_per_profile": {
+          "c_checked": 0,
+          "c_wrapping": 376,
+          "c_overflow_first": 738,
+          "abi_signed_result": 286
+        }
+      }
+    }
+  ]
+}

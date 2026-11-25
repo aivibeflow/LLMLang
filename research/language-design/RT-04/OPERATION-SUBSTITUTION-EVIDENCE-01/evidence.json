@@ -1,0 +1,972 @@
+{
+  "schema": "llmlang-rt04-operation-substitution/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "research/language-design/RT-04/OPERATION-SUBSTITUTION-EVIDENCE-01/run.py": "e028a9ba4e916ed06479faf9879697a8b90425973b5efce9a69cc2ba5f2d338e",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "contract": {
+    "domain": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "result": "2*x",
+    "trace": [
+      "account"
+    ],
+    "deadline": "x+3 abstract steps",
+    "memory": "x+2 abstract units"
+  },
+  "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+  "context": {
+    "scope": "inputs-0-through-7",
+    "model": "deterministic-v1",
+    "schedule": "single-worker-v1",
+    "resource_checker": "abstract-cost-v1"
+  },
+  "providers": {
+    "fast": {
+      "implementation": "4ae20096a5636142e0aa958919029664de4aaad33c459063efbd565bd88f3c63",
+      "observations": {
+        "0": {
+          "value": 0,
+          "trace": [
+            "account"
+          ],
+          "steps": 1,
+          "memory": 1
+        },
+        "1": {
+          "value": 2,
+          "trace": [
+            "account"
+          ],
+          "steps": 2,
+          "memory": 2
+        },
+        "2": {
+          "value": 4,
+          "trace": [
+            "account"
+          ],
+          "steps": 3,
+          "memory": 3
+        },
+        "3": {
+          "value": 6,
+          "trace": [
+            "account"
+          ],
+          "steps": 4,
+          "memory": 4
+        },
+        "4": {
+          "value": 8,
+          "trace": [
+            "account"
+          ],
+          "steps": 5,
+          "memory": 5
+        },
+        "5": {
+          "value": 10,
+          "trace": [
+            "account"
+          ],
+          "steps": 6,
+          "memory": 6
+        },
+        "6": {
+          "value": 12,
+          "trace": [
+            "account"
+          ],
+          "steps": 7,
+          "memory": 7
+        },
+        "7": {
+          "value": 14,
+          "trace": [
+            "account"
+          ],
+          "steps": 8,
+          "memory": 8
+        }
+      },
+      "refutations": {
+        "coverage": [],
+        "observation": [],
+        "progress": [],
+        "resource": []
+      },
+      "receipts": [
+        {
+          "axis": "coverage",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "4ae20096a5636142e0aa958919029664de4aaad33c459063efbd565bd88f3c63",
+          "inputs": "93bdc23ba68ee9a217fdbfba9fce04eef0d03ba94d05de317a128bcab8d84728",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "4e03d1b48917619665a6ba8aa81603d5b8258914a5dc1da4b52f42be713ab33d"
+        },
+        {
+          "axis": "observation",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "4ae20096a5636142e0aa958919029664de4aaad33c459063efbd565bd88f3c63",
+          "inputs": "22a8d3ad09a609cb7718872278643974e09faced0ba599b5c6abb1c705926386",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "dd373674aa92501dd640772c5876e276bb157bbd686da31aa298e90bf44097b3"
+        },
+        {
+          "axis": "progress",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "4ae20096a5636142e0aa958919029664de4aaad33c459063efbd565bd88f3c63",
+          "inputs": "1dd73f0b35a7d0033b594e7e8af75537740046d461a6e21648e496e7a5fad70f",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "b5ea8501022add5557e9a6991808514ccf0918544ad2b879a3cbee5f9aac6c89"
+        },
+        {
+          "axis": "resource",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "4ae20096a5636142e0aa958919029664de4aaad33c459063efbd565bd88f3c63",
+          "inputs": "d06138a61e9dccc3865f6f50d9b1e22b129a3fc1da70096d2dfebbd09019bfbc",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "7a92ebcdc367e18233600e6d1eb429d47618436b048234030196742b6b55ca2e"
+        }
+      ],
+      "observation_projection_passes": true,
+      "substitution": {
+        "axes": {
+          "coverage": "CHECKED_IN_FIXTURE",
+          "observation": "CHECKED_IN_FIXTURE",
+          "progress": "CHECKED_IN_FIXTURE",
+          "resource": "CHECKED_IN_FIXTURE"
+        },
+        "eligible": true
+      }
+    },
+    "exact_limits": {
+      "implementation": "cdd537fc0c7184a7d40ab0294128e705a103578b8b254985638c0f922f71f151",
+      "observations": {
+        "0": {
+          "value": 0,
+          "trace": [
+            "account"
+          ],
+          "steps": 3,
+          "memory": 2
+        },
+        "1": {
+          "value": 2,
+          "trace": [
+            "account"
+          ],
+          "steps": 4,
+          "memory": 3
+        },
+        "2": {
+          "value": 4,
+          "trace": [
+            "account"
+          ],
+          "steps": 5,
+          "memory": 4
+        },
+        "3": {
+          "value": 6,
+          "trace": [
+            "account"
+          ],
+          "steps": 6,
+          "memory": 5
+        },
+        "4": {
+          "value": 8,
+          "trace": [
+            "account"
+          ],
+          "steps": 7,
+          "memory": 6
+        },
+        "5": {
+          "value": 10,
+          "trace": [
+            "account"
+          ],
+          "steps": 8,
+          "memory": 7
+        },
+        "6": {
+          "value": 12,
+          "trace": [
+            "account"
+          ],
+          "steps": 9,
+          "memory": 8
+        },
+        "7": {
+          "value": 14,
+          "trace": [
+            "account"
+          ],
+          "steps": 10,
+          "memory": 9
+        }
+      },
+      "refutations": {
+        "coverage": [],
+        "observation": [],
+        "progress": [],
+        "resource": []
+      },
+      "receipts": [
+        {
+          "axis": "coverage",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cdd537fc0c7184a7d40ab0294128e705a103578b8b254985638c0f922f71f151",
+          "inputs": "f2086c6e24606bfa0e229fc8eb55301ba346489c7a8ff965e8ef7b856cf7ad24",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "7994ffb4ce86279bd0410f44edde9d086119f676ee1fd146b15b3e99165f7293"
+        },
+        {
+          "axis": "observation",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cdd537fc0c7184a7d40ab0294128e705a103578b8b254985638c0f922f71f151",
+          "inputs": "eb6dfe69b2fc6918d9297bfec26f8631e9a66071e09169ef83f2bdeed566b70a",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "304c061c4756fd95e597ee9dc309ee1e8dd41f19cfb07319d9fc938e481139b4"
+        },
+        {
+          "axis": "progress",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cdd537fc0c7184a7d40ab0294128e705a103578b8b254985638c0f922f71f151",
+          "inputs": "80e3e964f23c34dcaaebf70b822438e020ac9cde85171ddbebb3dd5f755fbef5",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "1002ca6c9e02ebcc6ab48564c075d8b012a5b3fca921e6f12eea085b7b42bf8b"
+        },
+        {
+          "axis": "resource",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cdd537fc0c7184a7d40ab0294128e705a103578b8b254985638c0f922f71f151",
+          "inputs": "1068bcea77b47e92569a7148b97ab6ecd8338379af55aec4675b421de514c76e",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "100a747e97ddbadb6abcc23174a44355c2ab6dd8f413448a2fc919a2e9873556"
+        }
+      ],
+      "observation_projection_passes": true,
+      "substitution": {
+        "axes": {
+          "coverage": "CHECKED_IN_FIXTURE",
+          "observation": "CHECKED_IN_FIXTURE",
+          "progress": "CHECKED_IN_FIXTURE",
+          "resource": "CHECKED_IN_FIXTURE"
+        },
+        "eligible": true
+      }
+    },
+    "late": {
+      "implementation": "286da0e3658b15f5fc240b4c3d032fb715d8c8e3c636a1350a2de1cb89c712c2",
+      "observations": {
+        "0": {
+          "value": 0,
+          "trace": [
+            "account"
+          ],
+          "steps": 4,
+          "memory": 1
+        },
+        "1": {
+          "value": 2,
+          "trace": [
+            "account"
+          ],
+          "steps": 5,
+          "memory": 2
+        },
+        "2": {
+          "value": 4,
+          "trace": [
+            "account"
+          ],
+          "steps": 6,
+          "memory": 3
+        },
+        "3": {
+          "value": 6,
+          "trace": [
+            "account"
+          ],
+          "steps": 7,
+          "memory": 4
+        },
+        "4": {
+          "value": 8,
+          "trace": [
+            "account"
+          ],
+          "steps": 8,
+          "memory": 5
+        },
+        "5": {
+          "value": 10,
+          "trace": [
+            "account"
+          ],
+          "steps": 9,
+          "memory": 6
+        },
+        "6": {
+          "value": 12,
+          "trace": [
+            "account"
+          ],
+          "steps": 10,
+          "memory": 7
+        },
+        "7": {
+          "value": 14,
+          "trace": [
+            "account"
+          ],
+          "steps": 11,
+          "memory": 8
+        }
+      },
+      "refutations": {
+        "coverage": [],
+        "observation": [],
+        "progress": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "resource": []
+      },
+      "receipts": [
+        {
+          "axis": "coverage",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "286da0e3658b15f5fc240b4c3d032fb715d8c8e3c636a1350a2de1cb89c712c2",
+          "inputs": "39fdbea77738daf89243037aadb0ad1ef98458695c008f21fb7eadaaa3108df6",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "4dc8e98e7c20b0bcb971f498bb473736f70178b4a92cda59e52b54d1a54bf8ae"
+        },
+        {
+          "axis": "observation",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "286da0e3658b15f5fc240b4c3d032fb715d8c8e3c636a1350a2de1cb89c712c2",
+          "inputs": "1931b39c7fadcabe255c4f27fab385f0006648bfcb4a26c6ad00c67cb3e54695",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "2283638b556cfef757b95b87c07f86f6a619d6eaddfaacbeff4bf3bb59a33982"
+        },
+        {
+          "axis": "progress",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "286da0e3658b15f5fc240b4c3d032fb715d8c8e3c636a1350a2de1cb89c712c2",
+          "inputs": "3080dff9d21b3f1c8a05c21b4241f86ea7cb404e0f75b04b3647c463eaaa19d5",
+          "outcome": "REFUTED",
+          "identity": "2e887f3719d6f5b875e3dbba7c1827151fae5343951c5f704cd37143f62692b8"
+        },
+        {
+          "axis": "resource",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "286da0e3658b15f5fc240b4c3d032fb715d8c8e3c636a1350a2de1cb89c712c2",
+          "inputs": "65e2cac9e0df83829d7097e321bc3abdfef348d39ee70cbf07bc822c8677dec3",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "e86ef4a72e3610e8028b6f6a108b81ad05306ee737e1f2f47aa7f288b829db55"
+        }
+      ],
+      "observation_projection_passes": true,
+      "substitution": {
+        "axes": {
+          "coverage": "CHECKED_IN_FIXTURE",
+          "observation": "CHECKED_IN_FIXTURE",
+          "progress": "REFUTED",
+          "resource": "CHECKED_IN_FIXTURE"
+        },
+        "eligible": false
+      }
+    },
+    "memory_over": {
+      "implementation": "cd241e5148bda54e537e2d773cc5358260a882e4b6ae3fb1b0de86db34f41e1d",
+      "observations": {
+        "0": {
+          "value": 0,
+          "trace": [
+            "account"
+          ],
+          "steps": 1,
+          "memory": 3
+        },
+        "1": {
+          "value": 2,
+          "trace": [
+            "account"
+          ],
+          "steps": 2,
+          "memory": 4
+        },
+        "2": {
+          "value": 4,
+          "trace": [
+            "account"
+          ],
+          "steps": 3,
+          "memory": 5
+        },
+        "3": {
+          "value": 6,
+          "trace": [
+            "account"
+          ],
+          "steps": 4,
+          "memory": 6
+        },
+        "4": {
+          "value": 8,
+          "trace": [
+            "account"
+          ],
+          "steps": 5,
+          "memory": 7
+        },
+        "5": {
+          "value": 10,
+          "trace": [
+            "account"
+          ],
+          "steps": 6,
+          "memory": 8
+        },
+        "6": {
+          "value": 12,
+          "trace": [
+            "account"
+          ],
+          "steps": 7,
+          "memory": 9
+        },
+        "7": {
+          "value": 14,
+          "trace": [
+            "account"
+          ],
+          "steps": 8,
+          "memory": 10
+        }
+      },
+      "refutations": {
+        "coverage": [],
+        "observation": [],
+        "progress": [],
+        "resource": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "receipts": [
+        {
+          "axis": "coverage",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cd241e5148bda54e537e2d773cc5358260a882e4b6ae3fb1b0de86db34f41e1d",
+          "inputs": "cdb6dec8ecc8af8d6ceaf8cfd309a1f4f52161d37b5ecc498bf94db48a5a71c0",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "294bccfa99843e2b4d150cc8280667361e9b66de5db187729abcf050c0142481"
+        },
+        {
+          "axis": "observation",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cd241e5148bda54e537e2d773cc5358260a882e4b6ae3fb1b0de86db34f41e1d",
+          "inputs": "7395da60f31b8cdfb60e24a576364d7655f716e0fdc8df308244d304ee84036d",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "0e4f0bb293f35d0b06c7c36c6cfae8e11a90625f3d9d3f6c8c3aacbd3643da88"
+        },
+        {
+          "axis": "progress",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cd241e5148bda54e537e2d773cc5358260a882e4b6ae3fb1b0de86db34f41e1d",
+          "inputs": "17bc7dda6b6d00ca437e0646f326cf8ba0e74765b8156eb04fecbe88017b0167",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "30e4326241156b86e7288d9d00ef2489ecf543f4147bebbeae61f72244877da6"
+        },
+        {
+          "axis": "resource",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cd241e5148bda54e537e2d773cc5358260a882e4b6ae3fb1b0de86db34f41e1d",
+          "inputs": "05001bf2f8c320ca5824ba290c87b87480bc295c92a285032f2e5e8edbc60256",
+          "outcome": "REFUTED",
+          "identity": "172861621214e86eb4f60a934054ee482b93e02880d6ce6f9cf412cb8287fc08"
+        }
+      ],
+      "observation_projection_passes": true,
+      "substitution": {
+        "axes": {
+          "coverage": "CHECKED_IN_FIXTURE",
+          "observation": "CHECKED_IN_FIXTURE",
+          "progress": "CHECKED_IN_FIXTURE",
+          "resource": "REFUTED"
+        },
+        "eligible": false
+      }
+    },
+    "divergent": {
+      "implementation": "cd3585e3cebd7308830593db16c62583311b908dc2f8e35e56594ca86d354861",
+      "observations": {
+        "0": {
+          "value": 0,
+          "trace": [
+            "account"
+          ],
+          "steps": 1,
+          "memory": 1
+        },
+        "1": {
+          "value": 2,
+          "trace": [
+            "account"
+          ],
+          "steps": 2,
+          "memory": 2
+        },
+        "2": {
+          "value": 4,
+          "trace": [
+            "account"
+          ],
+          "steps": 3,
+          "memory": 3
+        },
+        "3": {
+          "value": 6,
+          "trace": [
+            "account"
+          ],
+          "steps": 4,
+          "memory": 4
+        },
+        "4": {
+          "value": 8,
+          "trace": [
+            "account"
+          ],
+          "steps": 5,
+          "memory": 5
+        },
+        "5": {
+          "value": 10,
+          "trace": [
+            "account"
+          ],
+          "steps": 6,
+          "memory": 6
+        },
+        "6": {
+          "value": 12,
+          "trace": [
+            "account"
+          ],
+          "steps": 7,
+          "memory": 7
+        },
+        "7": {
+          "value": null,
+          "trace": [],
+          "steps": null,
+          "memory": null
+        }
+      },
+      "refutations": {
+        "coverage": [],
+        "observation": [],
+        "progress": [
+          7
+        ],
+        "resource": []
+      },
+      "receipts": [
+        {
+          "axis": "coverage",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cd3585e3cebd7308830593db16c62583311b908dc2f8e35e56594ca86d354861",
+          "inputs": "2fc5816bd6185f5a5f9bd8227908930d8accbee12e7243b21cf3ed0ca3eaf303",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "9dc8623d7a96ab95d10fd42b20f2c481f529925a986b313bd5b12bc849f57f52"
+        },
+        {
+          "axis": "observation",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cd3585e3cebd7308830593db16c62583311b908dc2f8e35e56594ca86d354861",
+          "inputs": "8cd92b8d9e84512968bae3848deefbce3967282399407187f6998ca16d53fe77",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "f8b39dfac9ae3b80760ac08d1d63f11547ed61051672ddf8d1620a4463761013"
+        },
+        {
+          "axis": "progress",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cd3585e3cebd7308830593db16c62583311b908dc2f8e35e56594ca86d354861",
+          "inputs": "5237406b80a2b63c80313d7da62381db2f9b76aae8f13217059b03575d5f3c33",
+          "outcome": "REFUTED",
+          "identity": "2eef9ac5d13c98a0e9ea198360641f4c28bd76a26bb4e389fbc4ab5d6f8f41c7"
+        },
+        {
+          "axis": "resource",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "cd3585e3cebd7308830593db16c62583311b908dc2f8e35e56594ca86d354861",
+          "inputs": "dfb031f3eb1a9b939d7efc9d9fdc975cbb377867a5a7ccee7147d25b3cd01382",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "e5edb0cf2dd97a61ccd4e82ef5ace93b9f89f91023d8ecdc13e5a978be24ad1b"
+        }
+      ],
+      "observation_projection_passes": true,
+      "substitution": {
+        "axes": {
+          "coverage": "CHECKED_IN_FIXTURE",
+          "observation": "CHECKED_IN_FIXTURE",
+          "progress": "REFUTED",
+          "resource": "CHECKED_IN_FIXTURE"
+        },
+        "eligible": false
+      }
+    },
+    "narrow": {
+      "implementation": "9f66def3e6d5b96ab7ac9021bb739f9edfdd9794c6e7a7c294c1cd3994bc2df9",
+      "observations": {
+        "0": null,
+        "1": {
+          "value": 2,
+          "trace": [
+            "account"
+          ],
+          "steps": 2,
+          "memory": 2
+        },
+        "2": {
+          "value": 4,
+          "trace": [
+            "account"
+          ],
+          "steps": 3,
+          "memory": 3
+        },
+        "3": {
+          "value": 6,
+          "trace": [
+            "account"
+          ],
+          "steps": 4,
+          "memory": 4
+        },
+        "4": {
+          "value": 8,
+          "trace": [
+            "account"
+          ],
+          "steps": 5,
+          "memory": 5
+        },
+        "5": {
+          "value": 10,
+          "trace": [
+            "account"
+          ],
+          "steps": 6,
+          "memory": 6
+        },
+        "6": {
+          "value": 12,
+          "trace": [
+            "account"
+          ],
+          "steps": 7,
+          "memory": 7
+        },
+        "7": {
+          "value": 14,
+          "trace": [
+            "account"
+          ],
+          "steps": 8,
+          "memory": 8
+        }
+      },
+      "refutations": {
+        "coverage": [
+          0
+        ],
+        "observation": [],
+        "progress": [],
+        "resource": []
+      },
+      "receipts": [
+        {
+          "axis": "coverage",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "9f66def3e6d5b96ab7ac9021bb739f9edfdd9794c6e7a7c294c1cd3994bc2df9",
+          "inputs": "64f388928ce3db831bf21f43718e0912888b86d9176fb038ec8aa9ad5138059a",
+          "outcome": "REFUTED",
+          "identity": "6d12e4786de7052e41af8641ecf2b758c3137d4bd75da1ebc3cd0a515828edd3"
+        },
+        {
+          "axis": "observation",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "9f66def3e6d5b96ab7ac9021bb739f9edfdd9794c6e7a7c294c1cd3994bc2df9",
+          "inputs": "3c3e86f6f084b270cf901088b3e26608b3c4448873ac7c306f17782767c2445b",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "2d1e0e9e1888d6b79931943813687bb3cba7e6314b25a1f6416d3699f40b566a"
+        },
+        {
+          "axis": "progress",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "9f66def3e6d5b96ab7ac9021bb739f9edfdd9794c6e7a7c294c1cd3994bc2df9",
+          "inputs": "be0b76e450c591ba3bcb855bb7a218306cc3b3905f24fef7d31346d24cfa441b",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "27804080dcd945fd354b74a06133f5d1ac17ce622ec20e9aee9aeeb48fee0a5c"
+        },
+        {
+          "axis": "resource",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "9f66def3e6d5b96ab7ac9021bb739f9edfdd9794c6e7a7c294c1cd3994bc2df9",
+          "inputs": "cae03ba73011e36803f867f7ad34146356202b132a604f7daadca4a5867ebf22",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "e47c23dae9bb3f8c02a8aa444ee0a864aea4f480fdb9957ace12ac946086df98"
+        }
+      ],
+      "observation_projection_passes": true,
+      "substitution": {
+        "axes": {
+          "coverage": "REFUTED",
+          "observation": "CHECKED_IN_FIXTURE",
+          "progress": "CHECKED_IN_FIXTURE",
+          "resource": "CHECKED_IN_FIXTURE"
+        },
+        "eligible": false
+      }
+    },
+    "wrong_trace": {
+      "implementation": "086732f2357d39f45075969b9181c684a508967178e947da06d53c2f7e49f4e2",
+      "observations": {
+        "0": {
+          "value": 0,
+          "trace": [
+            "account",
+            "more"
+          ],
+          "steps": 1,
+          "memory": 1
+        },
+        "1": {
+          "value": 2,
+          "trace": [
+            "account",
+            "more"
+          ],
+          "steps": 2,
+          "memory": 2
+        },
+        "2": {
+          "value": 4,
+          "trace": [
+            "account",
+            "more"
+          ],
+          "steps": 3,
+          "memory": 3
+        },
+        "3": {
+          "value": 6,
+          "trace": [
+            "account",
+            "more"
+          ],
+          "steps": 4,
+          "memory": 4
+        },
+        "4": {
+          "value": 8,
+          "trace": [
+            "account",
+            "more"
+          ],
+          "steps": 5,
+          "memory": 5
+        },
+        "5": {
+          "value": 10,
+          "trace": [
+            "account",
+            "more"
+          ],
+          "steps": 6,
+          "memory": 6
+        },
+        "6": {
+          "value": 12,
+          "trace": [
+            "account",
+            "more"
+          ],
+          "steps": 7,
+          "memory": 7
+        },
+        "7": {
+          "value": 14,
+          "trace": [
+            "account",
+            "more"
+          ],
+          "steps": 8,
+          "memory": 8
+        }
+      },
+      "refutations": {
+        "coverage": [],
+        "observation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "progress": [],
+        "resource": []
+      },
+      "receipts": [
+        {
+          "axis": "coverage",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "086732f2357d39f45075969b9181c684a508967178e947da06d53c2f7e49f4e2",
+          "inputs": "311de39af9e18382085f785dcafecbdb0f3933ea432ea2a3011a67c796d5a650",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "e01e6a25b7e50716b7f5f0a35f5db6e0e0abad5c6e1c0a89607ba2c7dc69a273"
+        },
+        {
+          "axis": "observation",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "086732f2357d39f45075969b9181c684a508967178e947da06d53c2f7e49f4e2",
+          "inputs": "359304667d703be578b7e8fd12e2e91cb7391d8b16e5cf278ac164ba2aa44a17",
+          "outcome": "REFUTED",
+          "identity": "95f556d8a87abd2c05ec3e5a81551ab06c7ade1e408b5b1d0464b9c461089728"
+        },
+        {
+          "axis": "progress",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "086732f2357d39f45075969b9181c684a508967178e947da06d53c2f7e49f4e2",
+          "inputs": "cd5bd1d24ec526842295f455555bc5c77882e4e994fa29ed273b1f838a012a43",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "d679579c25f101481a14008f168a711b9f7b7d16a5d8c56e278f6a6c1520ad52"
+        },
+        {
+          "axis": "resource",
+          "operation": "a9c6629fe18ce75c9de329e081df95308bda21ec16e0058d74bb694d6e899e16",
+          "implementation": "086732f2357d39f45075969b9181c684a508967178e947da06d53c2f7e49f4e2",
+          "inputs": "047e46fcbe3fb91d383d5a11c6df4a83d65086416f050fd183543bb3cfc5e70d",
+          "outcome": "CHECKED_IN_FIXTURE",
+          "identity": "ecf967f8a409131e02a472d04d4fd2bcceac0c8bdc49e899739fe9a361249373"
+        }
+      ],
+      "observation_projection_passes": false,
+      "substitution": {
+        "axes": {
+          "coverage": "CHECKED_IN_FIXTURE",
+          "observation": "REFUTED",
+          "progress": "CHECKED_IN_FIXTURE",
+          "resource": "CHECKED_IN_FIXTURE"
+        },
+        "eligible": false
+      }
+    }
+  },
+  "evidence_controls": {
+    "missing_resource": {
+      "axes": {
+        "coverage": "CHECKED_IN_FIXTURE",
+        "observation": "CHECKED_IN_FIXTURE",
+        "progress": "CHECKED_IN_FIXTURE",
+        "resource": "MISSING"
+      },
+      "eligible": false
+    },
+    "duplicate_observation": {
+      "axes": {
+        "coverage": "CHECKED_IN_FIXTURE",
+        "observation": "AMBIGUOUS",
+        "progress": "CHECKED_IN_FIXTURE",
+        "resource": "CHECKED_IN_FIXTURE"
+      },
+      "eligible": false
+    },
+    "different_implementation": {
+      "axes": {
+        "coverage": "STALE_OR_WRONG_SCOPE",
+        "observation": "STALE_OR_WRONG_SCOPE",
+        "progress": "STALE_OR_WRONG_SCOPE",
+        "resource": "STALE_OR_WRONG_SCOPE"
+      },
+      "eligible": false
+    },
+    "different_operation": {
+      "axes": {
+        "coverage": "STALE_OR_WRONG_SCOPE",
+        "observation": "STALE_OR_WRONG_SCOPE",
+        "progress": "STALE_OR_WRONG_SCOPE",
+        "resource": "STALE_OR_WRONG_SCOPE"
+      },
+      "eligible": false
+    },
+    "cost_context_changed": {
+      "axes": {
+        "coverage": "CHECKED_IN_FIXTURE",
+        "observation": "CHECKED_IN_FIXTURE",
+        "progress": "CHECKED_IN_FIXTURE",
+        "resource": "STALE_OR_WRONG_SCOPE"
+      },
+      "eligible": false
+    },
+    "schedule_context_changed": {
+      "axes": {
+        "coverage": "CHECKED_IN_FIXTURE",
+        "observation": "CHECKED_IN_FIXTURE",
+        "progress": "STALE_OR_WRONG_SCOPE",
+        "resource": "CHECKED_IN_FIXTURE"
+      },
+      "eligible": false
+    }
+  },
+  "context_effects": {
+    "resource_checker": {
+      "scoped_keys_retained": [
+        "coverage",
+        "observation",
+        "progress"
+      ],
+      "whole_context_keys_retained": []
+    },
+    "schedule": {
+      "scoped_keys_retained": [
+        "coverage",
+        "observation",
+        "resource"
+      ],
+      "whole_context_keys_retained": []
+    }
+  }
+}

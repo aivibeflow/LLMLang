@@ -1,0 +1,166 @@
+{
+  "schema": "llmlang-proof-format-comparison/1",
+  "baseline": "d0be069bc08e456dd3f173537245e42612ec7c6e",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+  "sources_sha256": {
+    "run.py": "3f131f8aa0e75529b3e19a00581b5170e46495b5ec69777887de17f714036ad5",
+    "LeanProofs.lean": "f2f31809a1489c4e11150c5104f8c911f61da986143cf41d58b1e95f9af65590",
+    "CpcFixtures.lean": "8e21251cf4a5a9eb735d88d6ebb86479499165c1b513d8b32ae2500d9752e19d"
+  },
+  "reused_gate_runner_sha256": "cfda8b4f0087b95daff932ce9b09dbc572c803ff83f890b64c26f300bb5a372d",
+  "lean_proof_axioms": [
+    "'ProofFormatFixture.seven' does not depend on any axioms",
+    "'ProofFormatFixture.eight' does not depend on any axioms"
+  ],
+  "cpc_transcript_sha256": "121a719e2e419f72d24f939f4aa4d09b7f4ccf47b49e8f51d0e39d029c16d613",
+  "proof_checks": [
+    {
+      "query_literal": 7,
+      "artifact_literal": 7,
+      "checks": {
+        "lean-source/1": {
+          "status": "kernel-type-checked",
+          "obligation_sha256": "317c6a473caff6058b3a0cf30ed92989d03eb314c4ac78deba72ba34b565a63c"
+        },
+        "cpc-text/1": {
+          "status": "runtime-cpc-accepted"
+        }
+      }
+    },
+    {
+      "query_literal": 7,
+      "artifact_literal": 8,
+      "checks": {
+        "lean-source/1": {
+          "status": "obligation-type-mismatch",
+          "obligation_sha256": "ed27d331e026bd54fe42000f1f5a1cfd6248bf3cec5874dd162dcf0e5b05204c"
+        },
+        "cpc-text/1": {
+          "status": "assumptions"
+        }
+      }
+    },
+    {
+      "query_literal": 8,
+      "artifact_literal": 7,
+      "checks": {
+        "lean-source/1": {
+          "status": "obligation-type-mismatch",
+          "obligation_sha256": "e1ba5a1a7726a033b175dfd494d02c875c321606ddf93d338131aedbb4105891"
+        },
+        "cpc-text/1": {
+          "status": "assumptions"
+        }
+      }
+    },
+    {
+      "query_literal": 8,
+      "artifact_literal": 8,
+      "checks": {
+        "lean-source/1": {
+          "status": "kernel-type-checked",
+          "obligation_sha256": "5b2b29d83c8b2bda72084365be59dd58627461f3240fed903970ebc413f2ffec"
+        },
+        "cpc-text/1": {
+          "status": "runtime-cpc-accepted"
+        }
+      }
+    }
+  ],
+  "checker_contexts": {
+    "lean-source/1": {
+      "lean": {
+        "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+        "executable_sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00"
+      },
+      "interpreter_sha256": "3f131f8aa0e75529b3e19a00581b5170e46495b5ec69777887de17f714036ad5"
+    },
+    "cpc-text/1": {
+      "lean": {
+        "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+        "executable_sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00"
+      },
+      "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+      "logos_api_sha256": "dc2d0ffeb2e3e4bc3adf1e2346f69a8849ec0d55f65abf453d3ec93693fe07bf",
+      "modules": {
+        "SourceQuerySemantics": "d13ed2e95108aefe58dfc34bad79da83b187d5f12f64d8790a22ed77cd194ef3",
+        "SourceSyntax": "635b4b6599473a39f5cfab7779107e976ee052417fcd5fb608ac1d893651e080",
+        "CheckedSourceSemantics": "fa84f3797be9c345ec8b5f685578ba80c1c44ac6c59b7e8cb352ef789e6daa89",
+        "SourceCommandSemantics": "9c4c14e7be7dd2f761e5522f852beaf4a9c0edbdfea78a47b428201d64b20a47",
+        "SymbolicCommandSemantics": "4fc91afbbb6ed037d035800b2f352d25387b8e34d436438097ae28c6dc464706",
+        "ProgramObservationSemantics": "bcb0d6631f48177c779d1f518cbc1416b150af8254dd9f00276b8fdb5a021ca1",
+        "PairedObservationSemantics": "8231975dabf48fb03c0ad3885e1b8c511939555b6b3573ea8206fb137639b079",
+        "RelationalSourceQuerySemantics": "337aca01c7ccea05e87964cd09a7ed02a1c53487c861fd3943998d624e2b6e13",
+        "CanonicalQuerySymbols": "3e61b95d4d6a520a3c4b7acaa2f5b20936588e91ff9975c63f745090f20beec2",
+        "ProgramRelationalQuery": "03825db11aa46cb215e0b469f104d4f97b4dd7da8623cd26a2bbf4fb6f27a747",
+        "QfLiaQuery": "c170e2879925101292e4d58644a1af8c001d8b217110139fa034ff96171dd80d",
+        "LogosQueryAdapter": "e7a1eb6df1f3f0205042e5e3252d506c6fb1a0f82204c3a409c6ebd5c9192d26",
+        "QfLiaAdmissibility": "97c9d0b6fbd28a4190354ec2bc446f39140bbbf2d51489d90078f25b7a5412b0",
+        "SolverRelationalQuery": "18dc85ec9b00d18af68a14445f304f357a357bb744592bc133aa1dd2f2489d75",
+        "LLMLangLogosBinding": "d97967f3743afce4e6c8d427e0fa9fed537a7d310ac8699b3745a12b598eea00",
+        "QuerySymbolRenaming": "91c55bc3f81a12322eb10aac9766441b8fcf618b7d7654c403dcb5f890d32f77",
+        "TypedQueryEquality": "6900abff02f85dea322ccb70cd5a7f99a90b9923e395dedb549002a0f9c4133b",
+        "SourceQueryEnvelope": "d653ca79036f856c75f4e5f58ccfd0780f1962c1dd5c39b2b1519156ff8cd032",
+        "SourceWireRefutation": "c3afbbc6d9d34afc783ac04bd9e7e602e780f19473eaf8042cba3527463166bb"
+      },
+      "driver_sha256": "8e21251cf4a5a9eb735d88d6ebb86479499165c1b513d8b32ae2500d9752e19d",
+      "rebuild_sha256": "cfda8b4f0087b95daff932ce9b09dbc572c803ff83f890b64c26f300bb5a372d"
+    }
+  },
+  "receipts": [
+    {
+      "schema": "llmlang-proof-receipt/1",
+      "query_sha256": "605b100449f82d49936007362d476874b6bf53c1fab551f191db7e895ad30792",
+      "format": "lean-source/1",
+      "entry": "seven",
+      "artifact_sha256": "f2f31809a1489c4e11150c5104f8c911f61da986143cf41d58b1e95f9af65590",
+      "checker_subject_sha256": "d89bc5248a38a74d3506edcf761939d80bd51ef1c7cb22ebbdb09559a4cab421",
+      "receipt_key": "a236a72e696c35dcda6b869c223af1d9ceef0025f02626501caf86220d80f1d9",
+      "checker_result": "kernel-type-checked"
+    },
+    {
+      "schema": "llmlang-proof-receipt/1",
+      "query_sha256": "8e27e0c37f66d8053cb2cef661392a2961f431048adbbf5f6308bcc2f0b2de67",
+      "format": "lean-source/1",
+      "entry": "eight",
+      "artifact_sha256": "f2f31809a1489c4e11150c5104f8c911f61da986143cf41d58b1e95f9af65590",
+      "checker_subject_sha256": "d89bc5248a38a74d3506edcf761939d80bd51ef1c7cb22ebbdb09559a4cab421",
+      "receipt_key": "a08610751e2d32b4cf89b28f2e60c0bb24acbe61896ad5f37ec3bada67242922",
+      "checker_result": "kernel-type-checked"
+    },
+    {
+      "schema": "llmlang-proof-receipt/1",
+      "query_sha256": "605b100449f82d49936007362d476874b6bf53c1fab551f191db7e895ad30792",
+      "format": "cpc-text/1",
+      "entry": "proof",
+      "artifact_sha256": "189416a6495157637adf7254aafe3ea2cad1acc2f473e828bf50218666d0ef8d",
+      "checker_subject_sha256": "be78afce8f7c456b775a59c2921451ea2d6f76d1e3e88240afe697ef8941f59d",
+      "receipt_key": "4bc3db00e4ca65de05e421c59a3a2a20d0239de1c1bacb92afb28b4334c0e097",
+      "checker_result": "runtime-cpc-accepted"
+    },
+    {
+      "schema": "llmlang-proof-receipt/1",
+      "query_sha256": "8e27e0c37f66d8053cb2cef661392a2961f431048adbbf5f6308bcc2f0b2de67",
+      "format": "cpc-text/1",
+      "entry": "proof",
+      "artifact_sha256": "a9495f7e1b580e05638d1db67a0e798aa0aa3b47234cb1c818536cd0869c6401",
+      "checker_subject_sha256": "be78afce8f7c456b775a59c2921451ea2d6f76d1e3e88240afe697ef8941f59d",
+      "receipt_key": "92a8a7bc410242362a3004928ec4cda25b38d0a9a0e3d2ee552a03185a4218ba",
+      "checker_result": "runtime-cpc-accepted"
+    }
+  ],
+  "reuse_controls": {
+    "same_lean": "kernel-type-checked",
+    "same_cpc": "runtime-cpc-accepted",
+    "same_lean_bytes_wrong_query": "query-mismatch",
+    "same_query_wrong_lean_entry": "entry-mismatch",
+    "relabelled_cpc_as_lean": "format-mismatch",
+    "different_cpc_bytes": "artifact-mismatch",
+    "different_wire_same_format": "query-mismatch",
+    "changed_checker": "checker-changed",
+    "unrecorded_checker_result": "no-recorded-check",
+    "missing_schema": "schema-mismatch"
+  }
+}

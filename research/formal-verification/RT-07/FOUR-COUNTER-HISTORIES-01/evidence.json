@@ -1,0 +1,378 @@
+{
+  "adapted_c_sha256": "5dcf45191779ec9677c1d8124d706b2aab6a8051e4deedef58b3c4c2d1b226e9",
+  "base": "95a2a64c38b217f97874c0712a196fa2466894e6",
+  "compiler": "x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0",
+  "compiler_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+  "controls": {
+    "same_final_duplicate_rank": {
+      "observed_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "refused": true,
+      "same_final": 4
+    },
+    "same_final_forged_prior_value": {
+      "observed_pairs": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "refused": true,
+      "same_final": 4
+    },
+    "same_final_swapped_nonoverlapping_calls": {
+      "observed_pairs": [
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "refused": true,
+      "same_final": 4
+    }
+  },
+  "flags": [
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pthread"
+  ],
+  "host": {
+    "kernel": "6.18.57",
+    "libc": "glibc 2.41",
+    "machine": "x86_64"
+  },
+  "initial_values": [
+    0,
+    1,
+    4294967291
+  ],
+  "input_count_per_route_and_optimization": 7560,
+  "profiles": {
+    "-O0": {
+      "rmw": {
+        "counts_by_base": {
+          "0": {
+            "correct_final": 2520,
+            "linearizable": 2520
+          },
+          "1": {
+            "correct_final": 2520,
+            "linearizable": 2520
+          },
+          "4294967291": {
+            "correct_final": 2520,
+            "linearizable": 2520
+          }
+        },
+        "first_refusal_by_base": {},
+        "native_output_sha256": "3ee92518d83e248739788844211003e21b4147b3a693f9e0fa5fcefe821996f3"
+      },
+      "split": {
+        "counts_by_base": {
+          "0": {
+            "correct_final": 24,
+            "linearizable": 24,
+            "refused": 2496,
+            "wrong_final": 2496
+          },
+          "1": {
+            "correct_final": 24,
+            "linearizable": 24,
+            "refused": 2496,
+            "wrong_final": 2496
+          },
+          "4294967291": {
+            "correct_final": 24,
+            "linearizable": 24,
+            "refused": 2496,
+            "wrong_final": 2496
+          }
+        },
+        "first_refusal_by_base": {
+          "0": {
+            "events": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              6,
+              5,
+              7
+            ],
+            "final": 3,
+            "per_actor": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ]
+          },
+          "1": {
+            "events": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              6,
+              5,
+              7
+            ],
+            "final": 4,
+            "per_actor": [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                4
+              ]
+            ]
+          },
+          "4294967291": {
+            "events": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              6,
+              5,
+              7
+            ],
+            "final": 4294967294,
+            "per_actor": [
+              [
+                4294967291,
+                4294967292
+              ],
+              [
+                4294967292,
+                4294967293
+              ],
+              [
+                4294967293,
+                4294967294
+              ],
+              [
+                4294967293,
+                4294967294
+              ]
+            ]
+          }
+        },
+        "native_output_sha256": "45a73eef4b5db12ce88adc759478d4f049475546c79e78c9bc40473d67c6dab9"
+      }
+    },
+    "-O2": {
+      "rmw": {
+        "counts_by_base": {
+          "0": {
+            "correct_final": 2520,
+            "linearizable": 2520
+          },
+          "1": {
+            "correct_final": 2520,
+            "linearizable": 2520
+          },
+          "4294967291": {
+            "correct_final": 2520,
+            "linearizable": 2520
+          }
+        },
+        "first_refusal_by_base": {},
+        "native_output_sha256": "3ee92518d83e248739788844211003e21b4147b3a693f9e0fa5fcefe821996f3"
+      },
+      "split": {
+        "counts_by_base": {
+          "0": {
+            "correct_final": 24,
+            "linearizable": 24,
+            "refused": 2496,
+            "wrong_final": 2496
+          },
+          "1": {
+            "correct_final": 24,
+            "linearizable": 24,
+            "refused": 2496,
+            "wrong_final": 2496
+          },
+          "4294967291": {
+            "correct_final": 24,
+            "linearizable": 24,
+            "refused": 2496,
+            "wrong_final": 2496
+          }
+        },
+        "first_refusal_by_base": {
+          "0": {
+            "events": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              6,
+              5,
+              7
+            ],
+            "final": 3,
+            "per_actor": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ]
+          },
+          "1": {
+            "events": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              6,
+              5,
+              7
+            ],
+            "final": 4,
+            "per_actor": [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                4
+              ]
+            ]
+          },
+          "4294967291": {
+            "events": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              6,
+              5,
+              7
+            ],
+            "final": 4294967294,
+            "per_actor": [
+              [
+                4294967291,
+                4294967292
+              ],
+              [
+                4294967292,
+                4294967293
+              ],
+              [
+                4294967293,
+                4294967294
+              ],
+              [
+                4294967293,
+                4294967294
+              ]
+            ]
+          }
+        },
+        "native_output_sha256": "45a73eef4b5db12ce88adc759478d4f049475546c79e78c9bc40473d67c6dab9"
+      }
+    }
+  },
+  "python": "3.12.14",
+  "request_sha256": "117d7002afb7ad89cec2c4418171f2d4bae7d3780527e3ac48e8b471d08f25e4",
+  "schedules_per_initial_value": 2520,
+  "source_blobs": {
+    "research/formal-verification/RT-07/DAFNY-CONCURRENT-FRAME-HISTORY-01/counter.c": "6c3e774fafc7178ca699c8a74baf208a8a461738",
+    "research/formal-verification/RT-07/DAFNY-CONCURRENT-FRAME-HISTORY-01/run.py": "985f6e09763105c7701b03ba3fb62f08cad579a3"
+  },
+  "total_histories": 30240
+}

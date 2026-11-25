@@ -1,0 +1,82 @@
+{
+  "format": "dependent-boundary-values-01",
+  "lean_proofs": [
+    "'exact_conversion' does not depend on any axioms",
+    "'advance_value' does not depend on any axioms",
+    "'advance_cannot_keep_original_bound' does not depend on any axioms",
+    "'fixed_machine_bound_matters' does not depend on any axioms"
+  ],
+  "native": {
+    "0": {
+      "byte_digest": "33289be70148e01deaa75803216c672cca9aad9291c8aa6842f4233ce98e0db3",
+      "dispositions": {
+        "destination": 650,
+        "overflow": 874,
+        "source": 12294,
+        "value": 3732
+      },
+      "refusals": {
+        "computed-index": "generic parameters may not be used in const operations",
+        "forge": "E0603",
+        "wrong-index": "E0308"
+      },
+      "tests": 17550,
+      "wrap_false_accepts": 863
+    },
+    "2": {
+      "byte_digest": "33289be70148e01deaa75803216c672cca9aad9291c8aa6842f4233ce98e0db3",
+      "dispositions": {
+        "destination": 650,
+        "overflow": 874,
+        "source": 12294,
+        "value": 3732
+      },
+      "refusals": {
+        "computed-index": "generic parameters may not be used in const operations",
+        "forge": "E0603",
+        "wrong-index": "E0308"
+      },
+      "tests": 17550,
+      "wrap_false_accepts": 863
+    }
+  },
+  "pairs": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      16
+    ],
+    [
+      16,
+      4
+    ],
+    [
+      255,
+      256
+    ],
+    [
+      256,
+      255
+    ],
+    [
+      65535,
+      65535
+    ],
+    [
+      16,
+      65535
+    ]
+  ],
+  "rust": "rustc 1.85.1 (4eb161250 2025-03-15)"
+}

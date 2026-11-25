@@ -402,3 +402,7 @@ Related: [Public interfaces and verified contract refinement](../../semantic-rep
 ## RT-36 follow-up: explicit assumptions (proposed)
 
 Research separate cache keys for local theorem, transitive proof closure and policy admission. Changes to provider, premise, correspondence or authorization invalidate relevant derived claims; preserve historical and reusable abstract theorem artifacts. See [RT-36 — Formal Verification Assumptions, Trust Boundaries and Conditional Proof Management](../../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md). This cross-reference does not change adopted rules or previously reported evidence.
+
+## Verification artifact cache follow-up (2026-11-25; proposed)
+
+See [multi-backend integration and verification artifact cache](../../formal-verification/RT-33/VERIFICATION-BACKEND-INTEGRATION-AND-ARTIFACT-CACHE.md) and [PLAN §3.5](../../../PLAN.md#35-verification-artifact-cache-and-incremental-proof-reuse-rt-11323336). The verification artifact cache is a specialization of the existing ActionKey/CAS architecture. The brief separates proof generation, independent artifact checking, exact dependency closure and current admission, and defines real-backend and cost-weighted benchmarks. This is a research proposal, not a normative decision or new experimental observation.

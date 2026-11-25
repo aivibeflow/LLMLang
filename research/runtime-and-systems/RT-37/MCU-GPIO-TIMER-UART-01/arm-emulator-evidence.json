@@ -1,0 +1,40 @@
+{
+  "emulator": "Renode v1.16.1.16908",
+  "emulator_sha256": "16d52d69b9d04036fc013abd23ae37ee0ee6f9581e4daeaae1b829b2506fbfd1",
+  "native_reference": [
+    "P:1:0",
+    "P:2:1",
+    "P:3:1",
+    "P:4:0",
+    "P:5:0",
+    "P:6:1"
+  ],
+  "profiles": {
+    "f1": {
+      "gpio_latch_address": "0x4001080C",
+      "gpio_level": 1,
+      "model_sha256": "6fc49804f4483cc6b9d97120736809cee42b5a005c5ce537559d99e2dd008e41",
+      "trace": [
+        "P:1:0",
+        "P:2:1",
+        "P:3:1",
+        "P:4:0",
+        "P:5:0",
+        "P:6:1"
+      ]
+    },
+    "f4": {
+      "gpio_latch_address": "0x40020C14",
+      "gpio_level": 1,
+      "model_sha256": "f3886f83c35e352fe3fedfb59863b05320cb668b9499f3068651e0c3703781b4",
+      "trace": [
+        "P:1:0",
+        "P:2:1",
+        "P:3:1",
+        "P:4:0",
+        "P:5:0",
+        "P:6:1"
+      ]
+    }
+  }
+}

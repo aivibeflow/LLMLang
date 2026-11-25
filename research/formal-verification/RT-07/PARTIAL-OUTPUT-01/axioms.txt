@@ -1,0 +1,2 @@
+'PartialOutput.acceptedPrefix' depends on axioms: [propext, Quot.sound]
+'PartialOutput.coalesce' depends on axioms: [propext, Quot.sound]

@@ -1,0 +1,446 @@
+{
+  "finite_rule_table": {
+    "independent_poison": {
+      "0/0": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "0/1": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "1/0": [
+        0
+      ],
+      "1/1": [
+        3
+      ]
+    },
+    "independent_undef": {
+      "0/0": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "0/1": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "1/0": [
+        0
+      ],
+      "1/1": [
+        3
+      ]
+    },
+    "inverted_defined": {
+      "0/0": [
+        1,
+        2
+      ],
+      "0/1": [
+        1,
+        2
+      ],
+      "1/0": [
+        1
+      ],
+      "1/1": [
+        2
+      ]
+    },
+    "single_poison": {
+      "0/0": [
+        0,
+        3
+      ],
+      "0/1": [
+        0,
+        3
+      ],
+      "1/0": [
+        0
+      ],
+      "1/1": [
+        3
+      ]
+    },
+    "single_undef": {
+      "0/0": [
+        0,
+        3
+      ],
+      "0/1": [
+        0,
+        3
+      ],
+      "1/0": [
+        0
+      ],
+      "1/1": [
+        3
+      ]
+    },
+    "unsafe_poison": {
+      "0/0": null,
+      "0/1": null,
+      "1/0": [
+        0
+      ],
+      "1/1": [
+        3
+      ]
+    },
+    "unsafe_undef": {
+      "0/0": null,
+      "0/1": null,
+      "1/0": [
+        0
+      ],
+      "1/1": [
+        3
+      ]
+    }
+  },
+  "inputs_per_native_route": 520,
+  "llvm_input_sha256": "3359ccaae0d3d4ee24531b67066b199c8ee699cb7d990c27502be63fab113cf9",
+  "llvm_pipelines": {
+    "default<O0>": {
+      "native_sha256": "86b49cb3326d0b439f2a7c3c2136bacc5e2c4dafd7db7be0d5d88ae0410c6279",
+      "observations": {
+        "independent_poison": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "independent_undef": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "inverted_defined": {
+          "executed": 520,
+          "native_trace_sha256": "db9cf9a15c828adb716af2d4e8431ffd9f9e332f1522a4a9956f83ca6a171e5e",
+          "observed_when_known": [
+            1,
+            2
+          ],
+          "observed_when_unknown": [
+            1,
+            2
+          ],
+          "outside_source": 520,
+          "withheld": 0
+        },
+        "single_poison": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "single_undef": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "unsafe_poison": {
+          "executed": 260,
+          "native_trace_sha256": "ba02f3d58fd0889daad45ab7b0471fcc164d607cf0e15bb32a00e0df72dd84e4",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [],
+          "outside_source": 0,
+          "withheld": 260
+        },
+        "unsafe_undef": {
+          "executed": 260,
+          "native_trace_sha256": "ba02f3d58fd0889daad45ab7b0471fcc164d607cf0e15bb32a00e0df72dd84e4",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [],
+          "outside_source": 0,
+          "withheld": 260
+        }
+      },
+      "optimized_ir_sha256": "a7f3f9d5aaf2d6e55ca5689efb79f9f4df8c1f248967db1ea7ea5f6e5d54ce89",
+      "remaining_freeze_instructions": 7
+    },
+    "default<O2>": {
+      "native_sha256": "a106e960d1b8b1ba8674b7eb6fd14ea22f08276753e12e55fa743af579b86d4b",
+      "observations": {
+        "independent_poison": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "independent_undef": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "inverted_defined": {
+          "executed": 520,
+          "native_trace_sha256": "db9cf9a15c828adb716af2d4e8431ffd9f9e332f1522a4a9956f83ca6a171e5e",
+          "observed_when_known": [
+            1,
+            2
+          ],
+          "observed_when_unknown": [
+            1,
+            2
+          ],
+          "outside_source": 520,
+          "withheld": 0
+        },
+        "single_poison": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "single_undef": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "unsafe_poison": {
+          "executed": 260,
+          "native_trace_sha256": "ba02f3d58fd0889daad45ab7b0471fcc164d607cf0e15bb32a00e0df72dd84e4",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [],
+          "outside_source": 0,
+          "withheld": 260
+        },
+        "unsafe_undef": {
+          "executed": 260,
+          "native_trace_sha256": "ba02f3d58fd0889daad45ab7b0471fcc164d607cf0e15bb32a00e0df72dd84e4",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [],
+          "outside_source": 0,
+          "withheld": 260
+        }
+      },
+      "optimized_ir_sha256": "909c3a450dfd3311de00aa617fd6dd790e797b63c40d1efae0e2bd1e32ff3799",
+      "remaining_freeze_instructions": 2
+    },
+    "default<O3>": {
+      "native_sha256": "a106e960d1b8b1ba8674b7eb6fd14ea22f08276753e12e55fa743af579b86d4b",
+      "observations": {
+        "independent_poison": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "independent_undef": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "inverted_defined": {
+          "executed": 520,
+          "native_trace_sha256": "db9cf9a15c828adb716af2d4e8431ffd9f9e332f1522a4a9956f83ca6a171e5e",
+          "observed_when_known": [
+            1,
+            2
+          ],
+          "observed_when_unknown": [
+            1,
+            2
+          ],
+          "outside_source": 520,
+          "withheld": 0
+        },
+        "single_poison": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "single_undef": {
+          "executed": 520,
+          "native_trace_sha256": "19c1cf8c98346b2b25dfaa5c96461bcdc538e9a8ab2eac9c7c9c05e5749d4d66",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [
+            0,
+            3
+          ],
+          "outside_source": 0,
+          "withheld": 0
+        },
+        "unsafe_poison": {
+          "executed": 260,
+          "native_trace_sha256": "ba02f3d58fd0889daad45ab7b0471fcc164d607cf0e15bb32a00e0df72dd84e4",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [],
+          "outside_source": 0,
+          "withheld": 260
+        },
+        "unsafe_undef": {
+          "executed": 260,
+          "native_trace_sha256": "ba02f3d58fd0889daad45ab7b0471fcc164d607cf0e15bb32a00e0df72dd84e4",
+          "observed_when_known": [
+            0,
+            3
+          ],
+          "observed_when_unknown": [],
+          "outside_source": 0,
+          "withheld": 260
+        }
+      },
+      "optimized_ir_sha256": "909c3a450dfd3311de00aa617fd6dd790e797b63c40d1efae0e2bd1e32ff3799",
+      "remaining_freeze_instructions": 2
+    }
+  },
+  "portable_c": {
+    "executed": 520,
+    "native_sha256": "374d89cf98af562f3cdacf189f6cb7392c24542c85fad99ba267ac229f88cb63",
+    "native_trace_sha256": "33bb4d660fa93224656a0f278301a8c21aa26af3886626513148eab5c2ac2d5b",
+    "observed_when_known": [
+      0,
+      3
+    ],
+    "observed_when_unknown": [
+      0
+    ],
+    "outside_source": 0,
+    "withheld": 0
+  },
+  "proof_audit": [
+    "'singleChoice' does not depend on any axioms",
+    "'independentChoiceCanEscape' does not depend on any axioms",
+    "'invertedChoiceEscapes' does not depend on any axioms",
+    "'fixedChoiceRequiresSeed' does not depend on any axioms",
+    "'unknownAllowsEitherCorrelatedPair' does not depend on any axioms"
+  ],
+  "source_files": {
+    "Choice.lean": "1d6d10691edcd22a1bc6d6b1f0414f8c364f19b2631eaa7c0102016e2ddeb531",
+    "choice.c": "1d118e042761cbe1430cf3717cdc6a5960503f57c1f07329c4e43c714d3fabe4",
+    "run.py": "649eb84e01918c752734bb41f39ae19d5db378a992dc53b907d2d3068514cc12"
+  },
+  "source_model": "one shared Boolean, explicit fixed value when known",
+  "toolchain": {
+    "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "opt": "Debian LLVM version 19.1.7"
+  }
+}

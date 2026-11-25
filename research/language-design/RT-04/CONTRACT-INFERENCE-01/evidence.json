@@ -1,0 +1,158 @@
+{
+  "schema": "llmlang-contract-inference/1",
+  "python": "3.12.14",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "sources_sha256": {
+    "run.py": "e452cd1ac0dc5da0412af6f6807a3e3edf1965efd57b87fde5aab44187adf6cc",
+    "Inference.lean": "8bae2707e8d46702b2eefb0bc1ccd751ca0052a72f2e9494fa0656cb3937243d",
+    "axioms.txt": "40246ef9b02ee5c9f4e85e31108a3a61c66b2adcc875d5a7793625a3d505e071",
+    "joint_native_runner": "33ce6716d61e4c54b441abf619f1c7150d31bdc25ad71b82ed3b5ed5b1d43817",
+    "joint_native_probe": "73601941f32830b8ec8d71fc2509c8d1e800818694a68fff5f39c4697fc3dea6"
+  },
+  "counts": {
+    "claims": 49152,
+    "entailed": 2096,
+    "existential_false_admission": 29696,
+    "complete_input_coverage_unestablished": 1536
+  },
+  "by_projection": {
+    "complete": {
+      "claims": 16384,
+      "entailed": 1296,
+      "existential_false_admission": 7168,
+      "complete_input_coverage_unestablished": 0
+    },
+    "result_only": {
+      "claims": 16384,
+      "entailed": 400,
+      "existential_false_admission": 11264,
+      "complete_input_coverage_unestablished": 768
+    },
+    "event_only": {
+      "claims": 16384,
+      "entailed": 400,
+      "existential_false_admission": 11264,
+      "complete_input_coverage_unestablished": 768
+    }
+  },
+  "native_rows_sha256": {
+    "-O0": "1774de380f21247af2251be21468116ac20ba43627d467349abb61330d27799c",
+    "-O2": "1774de380f21247af2251be21468116ac20ba43627d467349abb61330d27799c"
+  },
+  "witnesses": {
+    "some_inputs_complete": {
+      "anchor_provider": 0,
+      "recorded_inputs": [],
+      "property_masks": [
+        1,
+        1
+      ],
+      "alternative_provider": 1,
+      "anchor_observation": [
+        0,
+        0
+      ],
+      "alternative_observation": [
+        1,
+        0
+      ]
+    },
+    "some_inputs_result_only": {
+      "anchor_provider": 0,
+      "recorded_inputs": [],
+      "property_masks": [
+        1,
+        1
+      ],
+      "alternative_provider": 1,
+      "anchor_observation": [
+        0,
+        0
+      ],
+      "alternative_observation": [
+        1,
+        0
+      ]
+    },
+    "some_inputs_event_only": {
+      "anchor_provider": 0,
+      "recorded_inputs": [],
+      "property_masks": [
+        1,
+        1
+      ],
+      "alternative_provider": 1,
+      "anchor_observation": [
+        0,
+        0
+      ],
+      "alternative_observation": [
+        1,
+        0
+      ]
+    },
+    "all_inputs_result_only": {
+      "anchor_provider": 0,
+      "recorded_inputs": [
+        0,
+        1
+      ],
+      "property_masks": [
+        1,
+        1
+      ],
+      "alternative_provider": 2,
+      "anchor_observation": [
+        0,
+        0
+      ],
+      "alternative_observation": [
+        2,
+        0
+      ]
+    },
+    "all_inputs_event_only": {
+      "anchor_provider": 0,
+      "recorded_inputs": [
+        0,
+        1
+      ],
+      "property_masks": [
+        1,
+        1
+      ],
+      "alternative_provider": 1,
+      "anchor_observation": [
+        0,
+        0
+      ],
+      "alternative_observation": [
+        1,
+        0
+      ]
+    }
+  },
+  "approval_controls": {
+    "request": {
+      "revision": "provider-v2",
+      "property_id": "identity-with-no-event",
+      "target": "fixture-c17",
+      "policy": "policy-1"
+    },
+    "property_masks": [
+      1,
+      2
+    ],
+    "decisions": {
+      "full_output_and_approval": "eligible",
+      "full_output_without_approval": "approval-required",
+      "projected_without_approval_or_exact_check": "behavior-unestablished",
+      "approval_cannot_discharge_behavior": "behavior-unestablished",
+      "exact_check_without_approval": "approval-required",
+      "exact_check_and_approval": "eligible",
+      "wrong_revision_check": "behavior-unestablished",
+      "wrong_property_approval": "approval-required",
+      "proof_sufficient_for_policy_without_approval": "eligible"
+    }
+  }
+}

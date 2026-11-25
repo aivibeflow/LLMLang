@@ -1,0 +1,1020 @@
+{
+  "baseline": "f62bdbced7488ecf244f3028dd51826c5ddfd3b0",
+  "python": "3.12.14",
+  "runner_sha256": "fb56b820953031d4acf6a59a022c0243e6e937c50c64d5a6a5b5357d0abbe7d3",
+  "source_sha256": {
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/persistence.py": "9a3aaeae773808d2195253e2cb0e3f2c39cc140a53c94080b7644f1854ac7da3",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_representation.py": "385a6fe2ffd5267a45760a1f9b460ec4a97bb1434faeff27a7cbe60283c58ea1"
+  },
+  "inputs": [
+    -2,
+    0,
+    3
+  ],
+  "cases": {
+    "baseline": {
+      "archive_sha256": "6e408a37fdffd6399860f25b00fbdf50d3593d5833b15a58231ba4304f2abcbe",
+      "selection_root": "420f7023e1b634228c19e0b61afdaaa0fdb1f46e35d7808d921c3df3a54e0333",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "admitted",
+      "stored_values": 18,
+      "reachable_values": 17,
+      "selected_values": 12,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {
+        "direct": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ],
+        "late": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ]
+      }
+    },
+    "remove-unused-selection": {
+      "archive_sha256": "06e061d0ec4283bed38e539d883ea1eb78797394973e04cf3870cb332535b078",
+      "selection_root": "bdbc209ee33045a447483c8133349e1264d4f16a74899389b5b7d56051ca9f32",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "admitted",
+      "stored_values": 18,
+      "reachable_values": 16,
+      "selected_values": 11,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": false,
+          "selected": false
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {
+        "direct": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ],
+        "late": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ]
+      }
+    },
+    "rename-selected-primary": {
+      "archive_sha256": "44699a2ac586ffad6660bde28186546f73eadd91b825147437483d6ee167567d",
+      "selection_root": "5007c6f30be78badebc96cc0e22a8a59d4e9d1e11edbbbf6ad242f10a51f2fa2",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:retained": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "admitted",
+      "stored_values": 18,
+      "reachable_values": 17,
+      "selected_values": 12,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {
+        "direct": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ],
+        "late": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ]
+      }
+    },
+    "extra-alias-to-primary": {
+      "archive_sha256": "3f92e0299f8f19a7099bead5ade92130df84f7c83102be881f57b8d34fd11ff5",
+      "selection_root": "7a84ac31cae6e1615d37e501edc11a40dc30cfc00dc6d1f0cb73e8ac331ab6d4",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "implementation:second_name": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "admitted",
+      "stored_values": 18,
+      "reachable_values": 17,
+      "selected_values": 12,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {
+        "direct": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ],
+        "late": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ]
+      }
+    },
+    "selected-contract-alias-remains": {
+      "archive_sha256": "4baf939abf7108368e2bb0eec1ada928de215d42235c40c89dd33127d40e1522",
+      "selection_root": "659b9b3f68836df14cff28f72690184c8a07d3a4d671c2fac126db7b6a0b7842",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "admitted",
+      "stored_values": 18,
+      "reachable_values": 17,
+      "selected_values": 12,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {
+        "direct": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ],
+        "late": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ]
+      }
+    },
+    "no-selected-contract": {
+      "archive_sha256": "fb95e5e995bbfed167d28c7a2ab0cee8b6a17fab0e3ed23d4b134bd343a6e13f",
+      "selection_root": "2e8717b3a4f411b5278313e0dc809412f2a137b00fd1942e314899cc0ce341ff",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "refused",
+      "reason": "contract missing from selection",
+      "stored_values": 18,
+      "reachable_values": 17,
+      "selected_values": 11,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": false
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {}
+    },
+    "unbind-and-remove-late-body": {
+      "archive_sha256": "4e08bb2d795a220a235b71032a901c4da506a21e904122a212523c61a73edd48",
+      "selection_root": "5ffab1721471c8546467e8078ccba4083677afccf9abbc9a5dfecd8ad1980111",
+      "selected_slots": {
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "admitted",
+      "stored_values": 18,
+      "reachable_values": 15,
+      "selected_values": 10,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": false,
+          "selected": false
+        }
+      },
+      "observations": {
+        "direct": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ]
+      }
+    },
+    "late-body-without-binding": {
+      "archive_sha256": "0434a39323cb1325a8445e2a860edd7441be806e51f7e87d717ba41d25635522",
+      "selection_root": "2473232f28db5aadbb3700a6b8055cc532b08c0d1e74f5b613cce7a6dd387f0c",
+      "selected_slots": {
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "refused",
+      "reason": "operation binding missing",
+      "stored_values": 18,
+      "reachable_values": 16,
+      "selected_values": 11,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": false,
+          "selected": false
+        }
+      },
+      "observations": {}
+    },
+    "binding-target-not-selected": {
+      "archive_sha256": "bc970142c566c2dc6575bf0f2bb21fd699aa62bfc61b9e76036b8f5e74cff276",
+      "selection_root": "f6a3d254870bb8968bb64d770e6a6b17e6ad845496640189eb1bf34cab5f6ee4",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "refused",
+      "reason": "binding provider mismatch",
+      "stored_values": 18,
+      "reachable_values": 17,
+      "selected_values": 11,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": false
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {}
+    },
+    "pin-target-not-selected": {
+      "archive_sha256": "4c2433e53599591ad3f70312a42907547ec6a589506b97c431b7affbe5953135",
+      "selection_root": "638b02c8ab722978453f8eab1f85271b8b162c284c0d68367660f19f30d37cbf",
+      "selected_slots": {
+        "binding:provider": "3a3c8c292b82a433045c2efb2181a73425f010b751d9d85c4753997fd2f26b4b",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "refused",
+      "reason": "exact call target missing from selection",
+      "stored_values": 18,
+      "reachable_values": 17,
+      "selected_values": 11,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": false
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {}
+    },
+    "owner-operation-not-selected": {
+      "archive_sha256": "8ca3d352097c5168b1cc2b95af0a147996df1225a29c531124b6192d2c1f4315",
+      "selection_root": "f1b194595db0ab9b6763d6d7e7ef872ef251f8d18a8bbe2eb3b68c817506cfc6",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91"
+      },
+      "persistence": "admitted",
+      "typed_admission": "refused",
+      "reason": "body owner missing from selection",
+      "stored_values": 18,
+      "reachable_values": 17,
+      "selected_values": 11,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": false
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {}
+    },
+    "wrong-selected-kind": {
+      "archive_sha256": "12fb337449e060578ac5a7642722f747158a017cc88becae469d0cfd45160256",
+      "selection_root": "0a6c98d6df45feb7c710f2ecf1f578ec7cd6aa8b8681a3ebc5c7228139e0fc15",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "refused",
+      "reason": "unsupported implementation value",
+      "stored_values": 18,
+      "reachable_values": 17,
+      "selected_values": 11,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": false
+        },
+        "alternate": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {}
+    },
+    "prune-unreachable-storage": {
+      "archive_sha256": "2b2d90c09ca9c4f01ca98d387592bd1447ff495b7866823d74f1f2712881c8c3",
+      "selection_root": "bdbc209ee33045a447483c8133349e1264d4f16a74899389b5b7d56051ca9f32",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "admitted",
+      "typed_admission": "admitted",
+      "stored_values": 17,
+      "reachable_values": 16,
+      "selected_values": 11,
+      "address_membership": {
+        "primary": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "alternate": {
+          "stored": false,
+          "reachable": false,
+          "selected": false
+        },
+        "provider_contract": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "provider_operation": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        },
+        "active_binding": {
+          "stored": true,
+          "reachable": true,
+          "selected": true
+        }
+      },
+      "observations": {
+        "direct": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ],
+        "late": [
+          [
+            -1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            1,
+            [
+              "first",
+              "last"
+            ]
+          ],
+          [
+            4,
+            [
+              "first",
+              "last"
+            ]
+          ]
+        ]
+      }
+    },
+    "missing-physical-reference": {
+      "archive_sha256": "a4908c143418d024c424c3c23ae58969d63a3b892fe63c384867301f46382acb",
+      "selection_root": "420f7023e1b634228c19e0b61afdaaa0fdb1f46e35d7808d921c3df3a54e0333",
+      "selected_slots": {
+        "binding:provider": "41575caec7c36ade580e6eb6d979d8c7784f0cf66e0a50eb63deb07b35fc2bbc",
+        "contract:forward": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:provider": "dfd2b0afb601361a16d3ebb1420d410ea0fb31cb8672ed89cbe7e067bdc454e5",
+        "contract:quiet": "63429a22985421106d63180f2e4aaf34e5a4c0edc746ec0d1a93bcdfea31d6ba",
+        "implementation:alternate": "34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399",
+        "implementation:direct": "788266703e872d6168690fea1383e1789494c6c842f4be530b470dacc5a74556",
+        "implementation:late": "d0b7ca789f4d1fc24874501292527dd1e2f0eadcda5fb13d6b5b4749df9efad6",
+        "implementation:other": "b7e802e6a34472021060ddea8844566f77066e5398291cde6ab2f6bd2fd4293d",
+        "implementation:primary": "5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34",
+        "operation:direct": "47dffab9b78026d4032f99c32be549975a9a6616dddc77848b6e97ef77739974",
+        "operation:late": "7b25d243983558f0acbd01a31f283e498ed8452e733bb1439d241540b4e7ff64",
+        "operation:other": "4771257eefb204e19cfd81fe4cb50af89c27647ada6cd0d92aeef855697a5b91",
+        "operation:provider": "872ee1d5202b52b3a46bf129f1a5ecfeca9c9b59767d11e74aa2392ab793d08b"
+      },
+      "persistence": "refused",
+      "typed_admission": "not-run",
+      "reason": "missing dependency or dependency cycle"
+    }
+  }
+}

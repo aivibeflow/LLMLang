@@ -1,0 +1,44 @@
+{
+  "baseline": "71dc00a9d5b3c80367955d0914a7ae690ee6b812",
+  "provenance": {
+    "archives": {
+      "AUDIT-AUTHORITY-01": "30cc591ed6e13ce6fca4e28ff176f3cb05e9074105464c862dc945e7bfcc165c",
+      "CIP-COORDINATOR-01": "f7ad33e46afd7e168d05be83fc6e34076fca5e4d9247c59dbe31ffb2501fca76",
+      "MERGE-COVERAGE-01": "16c74fc42ba604fea6c1649e3d1adf60e67875781116589d12f8d1f4cd900cf8"
+    },
+    "sources": {
+      "checker": "30ba72cff9341b8a9b57fdb9e2a164ff1188a1c42b5381ed3548ca83dcb811ca",
+      "coverage": "4a44411bf47f5abcf835c82be5009474d65a36aa8b3ec8204c737986cea0bc9c",
+      "planner": "0d76d5b7be22b2ebb7f8f4622e717f140871665784b3a644e1847e5ffb513d4b",
+      "verifier": "c0f5e4223b8aa607f9b8031038ae2a46f3be3a5ece96d8ccbb4604aa4c04645e"
+    }
+  },
+  "results": {
+    "candidate": "380802f97425ccff68eee52f41e98a47c92373c944839984072fd85bdd18c75e",
+    "outcomes": {
+      "call-decision-required": 1,
+      "eligible-within-profile": 1,
+      "full-revalidation": 6,
+      "source-withheld": 8
+    },
+    "plan_ids": {
+      "exact/exact/current/absent": "630a0364327aab1bcf83029ce86fefded717121e7075e5cf7d6e0e042c9c29e1",
+      "exact/exact/current/exact": "2aa78a6a39c8bc982c659554c108b6f8636a3fedd8fcc29f6e217f534a09591a",
+      "exact/exact/unknown/absent": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "exact/exact/unknown/exact": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "exact/old-root/current/absent": "97587bad7ec5adc6a4d530003a2650c77ead0daf7e4dcc0fa532b5f45b94466a",
+      "exact/old-root/current/exact": "97587bad7ec5adc6a4d530003a2650c77ead0daf7e4dcc0fa532b5f45b94466a",
+      "exact/old-root/unknown/absent": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "exact/old-root/unknown/exact": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "omitted/exact/current/absent": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "omitted/exact/current/exact": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "omitted/exact/unknown/absent": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "omitted/exact/unknown/exact": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "omitted/old-root/current/absent": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "omitted/old-root/current/exact": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "omitted/old-root/unknown/absent": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2",
+      "omitted/old-root/unknown/exact": "8c2038c3409c0885af5beed9ca4038873a5aba79ba6d11bdd6d177957e7d05d2"
+    },
+    "target": "81aae3d0c438950443940c00b81b768d866eb348651c1b2f740fea5862f3f45e"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "authority": {
+    "compiled-artifact": "compiler",
+    "execution-grant": "runtime-supervisor",
+    "observed-result": "external-verifier",
+    "package-integrity": "artifact-registry",
+    "plugin-request": "plugin",
+    "proposal": "llm-author"
+  },
+  "candidate_context": {
+    "artifact": "artifact-a",
+    "candidate": "candidate-a",
+    "effect": "fixture:write-result",
+    "epoch": 10,
+    "profile": "bounded-profile",
+    "project": "fixture-project"
+  },
+  "counts": {
+    "accept-artifact/accept": 4,
+    "accept-artifact/refuse": 332,
+    "perform-host-effect/accept": 4,
+    "perform-host-effect/refuse": 332,
+    "validate-candidate/accept": 2,
+    "validate-candidate/refuse": 166
+  },
+  "handoffs": {
+    "accept-artifact": [
+      "proposal",
+      "package-integrity",
+      "compiled-artifact",
+      "observed-result"
+    ],
+    "perform-host-effect": [
+      "compiled-artifact",
+      "observed-result",
+      "plugin-request",
+      "execution-grant"
+    ],
+    "validate-candidate": [
+      "proposal",
+      "package-integrity"
+    ]
+  },
+  "python": "3.12.14",
+  "sole_wrong_context_controls": {
+    "accept-artifact": 24,
+    "perform-host-effect": 24,
+    "validate-candidate": 12
+  },
+  "sole_wrong_role_controls": {
+    "accept-artifact": 20,
+    "perform-host-effect": 20,
+    "validate-candidate": 10
+  },
+  "source_sha256": "28e3494d235c4b7c6f2796475208460a0712a36aad50de427754670e82a1c70a",
+  "structural_controls": {
+    "accept-artifact": {
+      "changed_handoff_subject": false,
+      "duplicated_required": false,
+      "missing_required": false
+    },
+    "perform-host-effect": {
+      "changed_handoff_subject": false,
+      "duplicated_required": false,
+      "missing_required": false
+    },
+    "validate-candidate": {
+      "changed_handoff_subject": false,
+      "duplicated_required": false,
+      "missing_required": false
+    }
+  },
+  "total": 840
+}

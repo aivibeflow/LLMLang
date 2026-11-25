@@ -1,0 +1,3046 @@
+{
+  "schema": "llmlang-operation-lifetime/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "runner": "0ac30d1e8a15b9b164816d72b86d5111696eac89a8b0b5bb7744a78a33dedda0",
+    "semantic_graph": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "values": [
+    "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac",
+    "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c",
+    "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+  ],
+  "histories": [
+    {
+      "renamed": false,
+      "revised": false,
+      "replacement_uses_original_value": false,
+      "archived_execution_allowed": false,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-02",
+          "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+            ],
+            "selected_equal_value": null
+          }
+        }
+      ]
+    },
+    {
+      "renamed": false,
+      "revised": false,
+      "replacement_uses_original_value": false,
+      "archived_execution_allowed": true,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-02",
+          "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+            ],
+            "selected_equal_value": null
+          }
+        }
+      ]
+    },
+    {
+      "renamed": false,
+      "revised": false,
+      "replacement_uses_original_value": true,
+      "archived_execution_allowed": false,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-02",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "renamed": false,
+      "revised": false,
+      "replacement_uses_original_value": true,
+      "archived_execution_allowed": true,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-02",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "renamed": false,
+      "revised": true,
+      "replacement_uses_original_value": false,
+      "archived_execution_allowed": false,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-01",
+          "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+        ],
+        [
+          "operation-02",
+          "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "original_alias": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+            ],
+            "selected_equal_value": null
+          }
+        }
+      ]
+    },
+    {
+      "renamed": false,
+      "revised": true,
+      "replacement_uses_original_value": false,
+      "archived_execution_allowed": true,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-01",
+          "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+        ],
+        [
+          "operation-02",
+          "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "original_alias": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+            ],
+            "selected_equal_value": null
+          }
+        }
+      ]
+    },
+    {
+      "renamed": false,
+      "revised": true,
+      "replacement_uses_original_value": true,
+      "archived_execution_allowed": false,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-01",
+          "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+        ],
+        [
+          "operation-02",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "original_alias": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "renamed": false,
+      "revised": true,
+      "replacement_uses_original_value": true,
+      "archived_execution_allowed": true,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-01",
+          "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+        ],
+        [
+          "operation-02",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "original_alias": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "renamed": true,
+      "revised": false,
+      "replacement_uses_original_value": false,
+      "archived_execution_allowed": false,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-02",
+          "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+            ],
+            "selected_equal_value": null
+          }
+        }
+      ]
+    },
+    {
+      "renamed": true,
+      "revised": false,
+      "replacement_uses_original_value": false,
+      "archived_execution_allowed": true,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-02",
+          "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+            ],
+            "selected_equal_value": null
+          }
+        }
+      ]
+    },
+    {
+      "renamed": true,
+      "revised": false,
+      "replacement_uses_original_value": true,
+      "archived_execution_allowed": false,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-02",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "renamed": true,
+      "revised": false,
+      "replacement_uses_original_value": true,
+      "archived_execution_allowed": true,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-02",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "renamed": true,
+      "revised": true,
+      "replacement_uses_original_value": false,
+      "archived_execution_allowed": false,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-01",
+          "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+        ],
+        [
+          "operation-02",
+          "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+            ],
+            "selected_equal_value": null
+          }
+        }
+      ]
+    },
+    {
+      "renamed": true,
+      "revised": true,
+      "replacement_uses_original_value": false,
+      "archived_execution_allowed": true,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-01",
+          "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+        ],
+        [
+          "operation-02",
+          "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9f049f72eeaec756e734a410581647023de4d4c4ec4d88e2b9c60b9c5ad7c812"
+            ],
+            "selected_equal_value": null
+          }
+        }
+      ]
+    },
+    {
+      "renamed": true,
+      "revised": true,
+      "replacement_uses_original_value": true,
+      "archived_execution_allowed": false,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-01",
+          "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+        ],
+        [
+          "operation-02",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": null,
+          "compared_resolutions": {
+            "exact": null,
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "renamed": true,
+      "revised": true,
+      "replacement_uses_original_value": true,
+      "archived_execution_allowed": true,
+      "known_historical_pairs": [
+        [
+          "operation-01",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ],
+        [
+          "operation-01",
+          "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+        ],
+        [
+          "operation-02",
+          "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+        ]
+      ],
+      "lifecycle_refusals": [
+        "reactivate_retired",
+        "revise_retired",
+        "publish_retired_id"
+      ],
+      "original_value_retrievable": true,
+      "checkpoints": [
+        {
+          "label": "initial",
+          "original_state": "active",
+          "original_alias_owner": "operation-01",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "renamed or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "deprecated",
+          "original_state": "deprecated",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "reactivated",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "original_alias": null,
+            "selected_equal_value": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        },
+        {
+          "label": "revised or unchanged",
+          "original_state": "active",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": [
+              "operation-01",
+              "e6b9aa35b32c5d03dd8f1b5b06667ed0509193513636ce824c7aa128f50b182c"
+            ],
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "retired",
+          "original_state": "retired",
+          "original_alias_owner": null,
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": null,
+            "selected_equal_value": null
+          }
+        },
+        {
+          "label": "replacement at original alias",
+          "original_state": "retired",
+          "original_alias_owner": "operation-02",
+          "expected_exact": [
+            "operation-01",
+            "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+          ],
+          "compared_resolutions": {
+            "exact": [
+              "operation-01",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "latest_stable_id": null,
+            "original_alias": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ],
+            "selected_equal_value": [
+              "operation-02",
+              "9eba2390891950b8dfdf8faab2554ea4adcd25619e6bc09911d2c370de3d41ac"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "resolution_comparison": {
+    "exact": {
+      "wrong_exact_target": 0,
+      "unexpected_denial": 0,
+      "unexpected_execution": 0
+    },
+    "latest_stable_id": {
+      "wrong_exact_target": 8,
+      "unexpected_denial": 16,
+      "unexpected_execution": 0
+    },
+    "original_alias": {
+      "wrong_exact_target": 12,
+      "unexpected_denial": 40,
+      "unexpected_execution": 8
+    },
+    "selected_equal_value": {
+      "wrong_exact_target": 4,
+      "unexpected_denial": 20,
+      "unexpected_execution": 4
+    }
+  },
+  "queries": 112
+}

@@ -1,0 +1,231 @@
+{
+  "schema": "llmlang-rt02-revision-impact/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "research/language-design/RT-02/REVISION-IMPACT-01/run.py": "75998319b55cc09d38842815366215499914a9b09eace2b2e234c80d61dd21bd",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/requirement_evolution.py": "05d5581ea0e4df4cc9890d6e09355681f424a233f3f5b73cdb1dcf53b50a5198",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "baseline_required_facts": {
+    "deadline": [
+      "clock",
+      "limit",
+      "action"
+    ],
+    "exception": [
+      "action",
+      "exception"
+    ],
+    "notification": [
+      "notification"
+    ]
+  },
+  "revision_controls": {
+    "unchanged": {
+      "changed_facts": [],
+      "changed_formal": [],
+      "changed_explanations": [],
+      "graph_active_impact": [],
+      "unchanged_evidence_keys": [
+        "deadline",
+        "exception",
+        "notification"
+      ],
+      "eligible_evidence_reuse": [
+        "deadline",
+        "exception",
+        "notification"
+      ],
+      "coverage_gaps": {},
+      "review_package_changed": false,
+      "base_package": "b69d4d73692fcf48b4485fd809ef36720826eb9cfa7a6ec1984276441c50f6fe",
+      "candidate_package": "b69d4d73692fcf48b4485fd809ef36720826eb9cfa7a6ec1984276441c50f6fe"
+    },
+    "deadline_only": {
+      "changed_facts": [
+        "limit"
+      ],
+      "changed_formal": [
+        "deadline"
+      ],
+      "changed_explanations": [
+        "deadline"
+      ],
+      "graph_active_impact": [
+        "formal:deadline",
+        "obligation:deadline",
+        "rendered:deadline",
+        "review"
+      ],
+      "unchanged_evidence_keys": [
+        "exception",
+        "notification"
+      ],
+      "eligible_evidence_reuse": [
+        "exception",
+        "notification"
+      ],
+      "coverage_gaps": {},
+      "review_package_changed": true,
+      "base_package": "b69d4d73692fcf48b4485fd809ef36720826eb9cfa7a6ec1984276441c50f6fe",
+      "candidate_package": "4afe7d00d35ab29f624e32399a044ef3295ee18e1854348383b5bdfbf8ddbde1"
+    },
+    "exception_only": {
+      "changed_facts": [
+        "exception"
+      ],
+      "changed_formal": [
+        "exception"
+      ],
+      "changed_explanations": [
+        "exception"
+      ],
+      "graph_active_impact": [
+        "formal:exception",
+        "obligation:exception",
+        "rendered:exception",
+        "review"
+      ],
+      "unchanged_evidence_keys": [
+        "deadline",
+        "notification"
+      ],
+      "eligible_evidence_reuse": [
+        "deadline",
+        "notification"
+      ],
+      "coverage_gaps": {},
+      "review_package_changed": true,
+      "base_package": "b69d4d73692fcf48b4485fd809ef36720826eb9cfa7a6ec1984276441c50f6fe",
+      "candidate_package": "14afbd37ed34c2d6c5b5b3e27855870789f11560aa0b3b9f0345de6c5935106e"
+    },
+    "shared_action": {
+      "changed_facts": [
+        "action"
+      ],
+      "changed_formal": [
+        "deadline",
+        "exception"
+      ],
+      "changed_explanations": [
+        "deadline",
+        "exception"
+      ],
+      "graph_active_impact": [
+        "formal:deadline",
+        "formal:exception",
+        "obligation:deadline",
+        "obligation:exception",
+        "rendered:deadline",
+        "rendered:exception",
+        "review"
+      ],
+      "unchanged_evidence_keys": [
+        "notification"
+      ],
+      "eligible_evidence_reuse": [
+        "notification"
+      ],
+      "coverage_gaps": {},
+      "review_package_changed": true,
+      "base_package": "b69d4d73692fcf48b4485fd809ef36720826eb9cfa7a6ec1984276441c50f6fe",
+      "candidate_package": "f350f83821bcb6a1ace15b1b8a10be5f9ec9aad1405434220eb03d5f4de32afc"
+    },
+    "provenance_only": {
+      "changed_facts": [],
+      "changed_formal": [],
+      "changed_explanations": [],
+      "graph_active_impact": [],
+      "unchanged_evidence_keys": [
+        "deadline",
+        "exception",
+        "notification"
+      ],
+      "eligible_evidence_reuse": [
+        "deadline",
+        "exception",
+        "notification"
+      ],
+      "coverage_gaps": {},
+      "review_package_changed": true,
+      "base_package": "b69d4d73692fcf48b4485fd809ef36720826eb9cfa7a6ec1984276441c50f6fe",
+      "candidate_package": "2398ccf6f488ab33eb27031a735d8e131748bceb7fe445b2c72f53df1438fcf0"
+    },
+    "wording_only": {
+      "changed_facts": [],
+      "changed_formal": [],
+      "changed_explanations": [
+        "deadline"
+      ],
+      "graph_active_impact": [],
+      "unchanged_evidence_keys": [
+        "deadline",
+        "exception",
+        "notification"
+      ],
+      "eligible_evidence_reuse": [
+        "deadline",
+        "exception",
+        "notification"
+      ],
+      "coverage_gaps": {},
+      "review_package_changed": true,
+      "base_package": "b69d4d73692fcf48b4485fd809ef36720826eb9cfa7a6ec1984276441c50f6fe",
+      "candidate_package": "a94cd49640f2985f0fe62d0751ed6193ecfe570aaecc777fe472844c7e8e003e"
+    },
+    "unrelated_fact": {
+      "changed_facts": [
+        "audit-note"
+      ],
+      "changed_formal": [],
+      "changed_explanations": [],
+      "graph_active_impact": [],
+      "unchanged_evidence_keys": [
+        "deadline",
+        "exception",
+        "notification"
+      ],
+      "eligible_evidence_reuse": [
+        "deadline",
+        "exception",
+        "notification"
+      ],
+      "coverage_gaps": {},
+      "review_package_changed": false,
+      "base_package": "b69d4d73692fcf48b4485fd809ef36720826eb9cfa7a6ec1984276441c50f6fe",
+      "candidate_package": "b69d4d73692fcf48b4485fd809ef36720826eb9cfa7a6ec1984276441c50f6fe"
+    }
+  },
+  "missing_edge_control": {
+    "changed_facts": [
+      "action"
+    ],
+    "changed_formal": [
+      "deadline"
+    ],
+    "changed_explanations": [
+      "deadline"
+    ],
+    "graph_active_impact": [
+      "formal:deadline",
+      "obligation:deadline",
+      "rendered:deadline",
+      "review"
+    ],
+    "unchanged_evidence_keys": [
+      "exception",
+      "notification"
+    ],
+    "eligible_evidence_reuse": [
+      "notification"
+    ],
+    "coverage_gaps": {
+      "exception": [
+        "action"
+      ]
+    },
+    "review_package_changed": true,
+    "base_package": "2eb73611a681dbef73a0c8366aea43443e4102135edcdf17b8ef2e0d79537a11",
+    "candidate_package": "2259b71685500af72fb5ef7ca9ab6675c90ce9f5863875618a79b38d008b06e0"
+  }
+}

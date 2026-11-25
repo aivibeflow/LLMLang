@@ -1,0 +1,37 @@
+{
+  "assembler": "Debian LLVM version 19.1.7",
+  "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+  "linker": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+  "profiles": {
+    "equal_priority": {
+      "image_sha256": "3040226f838231eea5048b032c8569ca17caa885881379483446895a3352419a",
+      "peak_frame_bytes": 32,
+      "pendsv_frame_bytes": 32,
+      "systick_frame_bytes": 32,
+      "trace": "LlH"
+    },
+    "higher_priority": {
+      "image_sha256": "173fb83361bed50cda1104dec351b56aeba22b083b844fe26b05dbbded42f3a4",
+      "peak_frame_bytes": 64,
+      "pendsv_frame_bytes": 32,
+      "systick_frame_bytes": 64,
+      "trace": "LHl"
+    },
+    "unmask_in_thread": {
+      "image_sha256": "43f0ac087c056ab2b6cb3317ca7a65d27d48d693b7675fe65c6b8fb1eb9bfe7c",
+      "peak_frame_bytes": 32,
+      "pendsv_frame_bytes": 32,
+      "systick_frame_bytes": 32,
+      "trace": "LlH"
+    },
+    "unmask_inside_handler": {
+      "image_sha256": "8177073ecce5aa6fa172b6f37da644134ef7c2d95ed958a03d508274880d46b8",
+      "peak_frame_bytes": 64,
+      "pendsv_frame_bytes": 32,
+      "systick_frame_bytes": 64,
+      "trace": "LlH"
+    }
+  },
+  "python": "3.12.14",
+  "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)"
+}

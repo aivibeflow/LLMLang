@@ -1,0 +1,9 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "libllmlang_tcmalloc.so",
+    srcs = ["bridge.cc"],
+    deps = ["//tcmalloc:tcmalloc"],
+    linkshared = True,
+    linkstatic = True,
+)

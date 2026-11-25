@@ -1,0 +1,222 @@
+{
+  "agreed_common_codes": [
+    0
+  ],
+  "common_codes": 2,
+  "layouts": {
+    "clang": {
+      "variants": {
+        "-O0": {
+          "dense": {
+            "accepted_codes": 258,
+            "exhaustive_encode_decode_sha256": "e124ce376167d0a684c3c9ae25a673171b938b09ad194e57754ae843a2664a06",
+            "rejected_codes": 65278,
+            "rejected_ordinals": 65278,
+            "semantic_boundaries": [
+              [
+                "absent",
+                0
+              ],
+              [
+                "present-empty",
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                255,
+                257
+              ]
+            ]
+          },
+          "tagged": {
+            "accepted_codes": 258,
+            "exhaustive_encode_decode_sha256": "96324eeac50c9ee7bf03198a3e9bba255a0ad302049156ccd02830a948ba308b",
+            "rejected_codes": 65278,
+            "rejected_ordinals": 65278,
+            "semantic_boundaries": [
+              [
+                "absent",
+                0
+              ],
+              [
+                "present-empty",
+                256
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                255,
+                767
+              ]
+            ]
+          }
+        },
+        "-O2": {
+          "dense": {
+            "accepted_codes": 258,
+            "exhaustive_encode_decode_sha256": "e124ce376167d0a684c3c9ae25a673171b938b09ad194e57754ae843a2664a06",
+            "rejected_codes": 65278,
+            "rejected_ordinals": 65278,
+            "semantic_boundaries": [
+              [
+                "absent",
+                0
+              ],
+              [
+                "present-empty",
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                255,
+                257
+              ]
+            ]
+          },
+          "tagged": {
+            "accepted_codes": 258,
+            "exhaustive_encode_decode_sha256": "96324eeac50c9ee7bf03198a3e9bba255a0ad302049156ccd02830a948ba308b",
+            "rejected_codes": 65278,
+            "rejected_ordinals": 65278,
+            "semantic_boundaries": [
+              [
+                "absent",
+                0
+              ],
+              [
+                "present-empty",
+                256
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                255,
+                767
+              ]
+            ]
+          }
+        }
+      },
+      "version": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)"
+    },
+    "gcc": {
+      "variants": {
+        "-O0": {
+          "dense": {
+            "accepted_codes": 258,
+            "exhaustive_encode_decode_sha256": "e124ce376167d0a684c3c9ae25a673171b938b09ad194e57754ae843a2664a06",
+            "rejected_codes": 65278,
+            "rejected_ordinals": 65278,
+            "semantic_boundaries": [
+              [
+                "absent",
+                0
+              ],
+              [
+                "present-empty",
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                255,
+                257
+              ]
+            ]
+          },
+          "tagged": {
+            "accepted_codes": 258,
+            "exhaustive_encode_decode_sha256": "96324eeac50c9ee7bf03198a3e9bba255a0ad302049156ccd02830a948ba308b",
+            "rejected_codes": 65278,
+            "rejected_ordinals": 65278,
+            "semantic_boundaries": [
+              [
+                "absent",
+                0
+              ],
+              [
+                "present-empty",
+                256
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                255,
+                767
+              ]
+            ]
+          }
+        },
+        "-O2": {
+          "dense": {
+            "accepted_codes": 258,
+            "exhaustive_encode_decode_sha256": "e124ce376167d0a684c3c9ae25a673171b938b09ad194e57754ae843a2664a06",
+            "rejected_codes": 65278,
+            "rejected_ordinals": 65278,
+            "semantic_boundaries": [
+              [
+                "absent",
+                0
+              ],
+              [
+                "present-empty",
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                255,
+                257
+              ]
+            ]
+          },
+          "tagged": {
+            "accepted_codes": 258,
+            "exhaustive_encode_decode_sha256": "96324eeac50c9ee7bf03198a3e9bba255a0ad302049156ccd02830a948ba308b",
+            "rejected_codes": 65278,
+            "rejected_ordinals": 65278,
+            "semantic_boundaries": [
+              [
+                "absent",
+                0
+              ],
+              [
+                "present-empty",
+                256
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                255,
+                767
+              ]
+            ]
+          }
+        }
+      },
+      "version": "gcc (Debian 14.2.0-19) 14.2.0"
+    }
+  },
+  "logical_value_count": 258,
+  "minimum_fixed_bit_count": 9,
+  "native_platform": "x86_64",
+  "python": "3.12.14"
+}

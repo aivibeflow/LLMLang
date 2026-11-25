@@ -1,0 +1,272 @@
+{
+  "cases": 5265,
+  "example_code": [
+    [
+      "charge",
+      null
+    ],
+    [
+      "charge",
+      null
+    ],
+    [
+      "event",
+      "condition"
+    ],
+    [
+      "push",
+      0
+    ],
+    [
+      "if-zero",
+      9
+    ],
+    [
+      "charge",
+      null
+    ],
+    [
+      "event",
+      "yes"
+    ],
+    [
+      "push",
+      1
+    ],
+    [
+      "jump",
+      12
+    ],
+    [
+      "charge",
+      null
+    ],
+    [
+      "event",
+      "no"
+    ],
+    [
+      "push",
+      2
+    ],
+    [
+      "halt",
+      null
+    ]
+  ],
+  "example_cuts": {
+    "0": {
+      "opcode_vm": [
+        "exhausted",
+        null,
+        [],
+        0
+      ],
+      "reference": [
+        "exhausted",
+        null,
+        [],
+        0
+      ],
+      "source_vm": [
+        "exhausted",
+        null,
+        [],
+        0
+      ]
+    },
+    "1": {
+      "opcode_vm": [
+        "exhausted",
+        null,
+        [
+          "condition"
+        ],
+        0
+      ],
+      "reference": [
+        "exhausted",
+        null,
+        [],
+        0
+      ],
+      "source_vm": [
+        "exhausted",
+        null,
+        [],
+        0
+      ]
+    },
+    "2": {
+      "opcode_vm": [
+        "exhausted",
+        null,
+        [
+          "condition"
+        ],
+        0
+      ],
+      "reference": [
+        "exhausted",
+        null,
+        [
+          "condition"
+        ],
+        0
+      ],
+      "source_vm": [
+        "exhausted",
+        null,
+        [
+          "condition"
+        ],
+        0
+      ]
+    },
+    "3": {
+      "opcode_vm": [
+        "exhausted",
+        null,
+        [
+          "condition"
+        ],
+        0
+      ],
+      "reference": [
+        "returned",
+        2,
+        [
+          "condition",
+          "no"
+        ],
+        0
+      ],
+      "source_vm": [
+        "returned",
+        2,
+        [
+          "condition",
+          "no"
+        ],
+        0
+      ]
+    },
+    "4": {
+      "opcode_vm": [
+        "exhausted",
+        null,
+        [
+          "condition",
+          "no"
+        ],
+        0
+      ],
+      "reference": [
+        "returned",
+        2,
+        [
+          "condition",
+          "no"
+        ],
+        1
+      ],
+      "source_vm": [
+        "returned",
+        2,
+        [
+          "condition",
+          "no"
+        ],
+        1
+      ]
+    },
+    "5": {
+      "opcode_vm": [
+        "returned",
+        2,
+        [
+          "condition",
+          "no"
+        ],
+        0
+      ],
+      "reference": [
+        "returned",
+        2,
+        [
+          "condition",
+          "no"
+        ],
+        2
+      ],
+      "source_vm": [
+        "returned",
+        2,
+        [
+          "condition",
+          "no"
+        ],
+        2
+      ]
+    },
+    "6": {
+      "opcode_vm": [
+        "returned",
+        2,
+        [
+          "condition",
+          "no"
+        ],
+        1
+      ],
+      "reference": [
+        "returned",
+        2,
+        [
+          "condition",
+          "no"
+        ],
+        3
+      ],
+      "source_vm": [
+        "returned",
+        2,
+        [
+          "condition",
+          "no"
+        ],
+        3
+      ]
+    }
+  },
+  "example_tree": [
+    "if",
+    [
+      "emit",
+      "condition",
+      0
+    ],
+    [
+      "emit",
+      "yes",
+      1
+    ],
+    [
+      "emit",
+      "no",
+      2
+    ]
+  ],
+  "fuel_values": [
+    0,
+    12
+  ],
+  "mismatches": {
+    "opcode_step_effect_mismatches": 580,
+    "opcode_step_terminal_mismatches": 898,
+    "opcode_step_value_or_effect_or_terminal_mismatches": 1280,
+    "source_step_mismatches": 0
+  },
+  "python": "3.12.14",
+  "tree_count": 405
+}

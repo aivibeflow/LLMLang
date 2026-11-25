@@ -1,0 +1,631 @@
+{
+  "schema": "llmlang-rt12-reverse-index-scope/1",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "runner_sha256": "b68838c33e07bd0594746bc1f06bcc1b034d2c7b5611aeefd5f7637d2fb52a52",
+  "journal_mode": "wal",
+  "authoritative_current_edge_digest": "dd32f43c64ab8503634d9f7d3382bdcac3fa8ca88ce50a17e11f21edb85dd8c4",
+  "authoritative_current_edges": [
+    [
+      "caller",
+      "provider",
+      "invoke",
+      "site-0"
+    ],
+    [
+      "caller",
+      "provider",
+      "contract",
+      "site-1"
+    ],
+    [
+      "caller",
+      "provider",
+      "invoke",
+      "site-2"
+    ],
+    [
+      "checker",
+      "replacement",
+      "invoke",
+      "site-0"
+    ],
+    [
+      "tests",
+      "fixture",
+      "input",
+      "site-0"
+    ]
+  ],
+  "queries": [
+    [
+      "provider",
+      null
+    ],
+    [
+      "provider",
+      "invoke"
+    ],
+    [
+      "provider",
+      "contract"
+    ],
+    [
+      "replacement",
+      null
+    ],
+    [
+      "fixture",
+      null
+    ],
+    [
+      "absent",
+      null
+    ]
+  ],
+  "cases": {
+    "exact": {
+      "validated": true,
+      "raw_wrong_queries": [],
+      "strict": "INDEX",
+      "with_authoritative_fallback": "INDEX"
+    },
+    "reordered_rows": {
+      "validated": true,
+      "raw_wrong_queries": [],
+      "strict": "INDEX",
+      "with_authoritative_fallback": "INDEX"
+    },
+    "stale_rows_under_current_label": {
+      "validated": false,
+      "raw_wrong_queries": [
+        {
+          "target": "provider",
+          "role": null,
+          "raw": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "checker",
+              "provider",
+              "invoke",
+              "site-0"
+            ]
+          ],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        },
+        {
+          "target": "provider",
+          "role": "invoke",
+          "raw": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "checker",
+              "provider",
+              "invoke",
+              "site-0"
+            ]
+          ],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        },
+        {
+          "target": "replacement",
+          "role": null,
+          "raw": [],
+          "canonical": [
+            [
+              "checker",
+              "replacement",
+              "invoke",
+              "site-0"
+            ]
+          ]
+        }
+      ],
+      "strict": "UNKNOWN",
+      "with_authoritative_fallback": "FORWARD_SCAN"
+    },
+    "missing_occurrence": {
+      "validated": false,
+      "raw_wrong_queries": [
+        {
+          "target": "provider",
+          "role": null,
+          "raw": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        },
+        {
+          "target": "provider",
+          "role": "contract",
+          "raw": [],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ]
+          ]
+        }
+      ],
+      "strict": "UNKNOWN",
+      "with_authoritative_fallback": "FORWARD_SCAN"
+    },
+    "inactive_edge": {
+      "validated": false,
+      "raw_wrong_queries": [
+        {
+          "target": "provider",
+          "role": null,
+          "raw": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ],
+            [
+              "inactive-caller",
+              "provider",
+              "invoke",
+              "site-3"
+            ]
+          ],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        },
+        {
+          "target": "provider",
+          "role": "invoke",
+          "raw": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ],
+            [
+              "inactive-caller",
+              "provider",
+              "invoke",
+              "site-3"
+            ]
+          ],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        }
+      ],
+      "strict": "UNKNOWN",
+      "with_authoritative_fallback": "FORWARD_SCAN"
+    },
+    "role_drift": {
+      "validated": false,
+      "raw_wrong_queries": [
+        {
+          "target": "provider",
+          "role": null,
+          "raw": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ],
+            [
+              "caller",
+              "provider",
+              "read",
+              "site-0"
+            ]
+          ],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        },
+        {
+          "target": "provider",
+          "role": "invoke",
+          "raw": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        }
+      ],
+      "strict": "UNKNOWN",
+      "with_authoritative_fallback": "FORWARD_SCAN"
+    },
+    "collapsed_pair": {
+      "validated": false,
+      "raw_wrong_queries": [
+        {
+          "target": "provider",
+          "role": null,
+          "raw": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ]
+          ],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        },
+        {
+          "target": "provider",
+          "role": "invoke",
+          "raw": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ]
+          ],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        },
+        {
+          "target": "provider",
+          "role": "contract",
+          "raw": [],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ]
+          ]
+        }
+      ],
+      "strict": "UNKNOWN",
+      "with_authoritative_fallback": "FORWARD_SCAN"
+    },
+    "absent_index": {
+      "validated": false,
+      "raw_wrong_queries": [
+        {
+          "target": "provider",
+          "role": null,
+          "raw": [],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        },
+        {
+          "target": "provider",
+          "role": "invoke",
+          "raw": [],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-0"
+            ],
+            [
+              "caller",
+              "provider",
+              "invoke",
+              "site-2"
+            ]
+          ]
+        },
+        {
+          "target": "provider",
+          "role": "contract",
+          "raw": [],
+          "canonical": [
+            [
+              "caller",
+              "provider",
+              "contract",
+              "site-1"
+            ]
+          ]
+        },
+        {
+          "target": "replacement",
+          "role": null,
+          "raw": [],
+          "canonical": [
+            [
+              "checker",
+              "replacement",
+              "invoke",
+              "site-0"
+            ]
+          ]
+        },
+        {
+          "target": "fixture",
+          "role": null,
+          "raw": [],
+          "canonical": [
+            [
+              "tests",
+              "fixture",
+              "input",
+              "site-0"
+            ]
+          ]
+        }
+      ],
+      "strict": "UNKNOWN",
+      "with_authoritative_fallback": "FORWARD_SCAN"
+    }
+  },
+  "validation_lookup_interleaving": {
+    "validation_passed_before_write": true,
+    "same_read_transaction": [
+      [
+        "caller",
+        "provider",
+        "contract",
+        "site-1"
+      ],
+      [
+        "caller",
+        "provider",
+        "invoke",
+        "site-0"
+      ],
+      [
+        "caller",
+        "provider",
+        "invoke",
+        "site-2"
+      ]
+    ],
+    "later_unbound_lookup": [
+      [
+        "caller",
+        "provider",
+        "contract",
+        "site-1"
+      ],
+      [
+        "caller",
+        "provider",
+        "invoke",
+        "site-0"
+      ]
+    ],
+    "canonical": [
+      [
+        "caller",
+        "provider",
+        "contract",
+        "site-1"
+      ],
+      [
+        "caller",
+        "provider",
+        "invoke",
+        "site-0"
+      ],
+      [
+        "caller",
+        "provider",
+        "invoke",
+        "site-2"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "baseline": "7464b5277edd6c0c987b85e02377fd963791219d",
+  "observations": [
+    {
+      "attempted_publication": "updated",
+      "case": "unchecked",
+      "current_closure_present": false,
+      "current_root": "beta",
+      "first_sweep": "swept",
+      "present": [
+        "alpha",
+        "old-leaf",
+        "shared"
+      ],
+      "retry": null
+    },
+    {
+      "attempted_publication": "updated",
+      "case": "generation",
+      "current_closure_present": true,
+      "current_root": "beta",
+      "first_sweep": "stale-generation",
+      "present": [
+        "beta",
+        "new-leaf",
+        "shared"
+      ],
+      "retry": "swept"
+    },
+    {
+      "attempted_publication": "writer-busy",
+      "case": "locked",
+      "current_closure_present": true,
+      "current_root": "alpha",
+      "first_sweep": "swept",
+      "present": [
+        "alpha",
+        "old-leaf",
+        "shared"
+      ],
+      "retry": "root-incomplete"
+    },
+    {
+      "case": "reader-leases",
+      "historical_root_present": [
+        true,
+        true,
+        false
+      ],
+      "present": [
+        "beta",
+        "new-leaf",
+        "shared"
+      ]
+    },
+    {
+      "case": "cycle",
+      "reclaimed_after_unpin": true,
+      "retained_while_rooted": true
+    },
+    {
+      "case": "incomplete-dependencies",
+      "present": [
+        "alpha",
+        "beta",
+        "cycle-a",
+        "cycle-b",
+        "garbage",
+        "new-leaf",
+        "old-leaf",
+        "shared"
+      ],
+      "sweep": "unknown-closure"
+    }
+  ],
+  "python": "3.12.14",
+  "runner_sha256": "56c7bcad43a36eea533671b48fb3b73c7fee3da8cfc4de1146ce4b820941e514",
+  "schema": "rt12-reachability-sweep-comparison-v1",
+  "sqlite": "3.53.1",
+  "sqlite_source_id": "2026-05-05 10:34:17 c88b22011a54b4f6fbd149e9f8e4de77658ce58143a1af0e3785e4e6475127e9"
+}

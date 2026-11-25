@@ -1,0 +1,100 @@
+{
+  "git": "git version 2.56.1",
+  "sqlite": "3.53.1",
+  "cases": [
+    {
+      "case": "normal",
+      "git_commit": "fabfa1d41d0458deccb7d8952493a9fd091d7e6d",
+      "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+      "advanced_head": null,
+      "final_state": "exported",
+      "exact_retry": "same-result",
+      "different_retry": "operation-conflict",
+      "damaged_generation": "refused"
+    },
+    {
+      "case": "sql-before-commit",
+      "git_commit": "fabfa1d41d0458deccb7d8952493a9fd091d7e6d",
+      "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+      "advanced_head": null,
+      "final_state": "exported",
+      "exact_retry": "same-result",
+      "different_retry": "operation-conflict",
+      "interrupted_observation": [
+        "absent",
+        false,
+        false
+      ]
+    },
+    {
+      "case": "sql-prepared",
+      "git_commit": "fabfa1d41d0458deccb7d8952493a9fd091d7e6d",
+      "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+      "advanced_head": null,
+      "final_state": "exported",
+      "exact_retry": "same-result",
+      "different_retry": "operation-conflict",
+      "interrupted_observation": [
+        "prepared",
+        false,
+        false
+      ]
+    },
+    {
+      "case": "git-published",
+      "git_commit": "fabfa1d41d0458deccb7d8952493a9fd091d7e6d",
+      "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+      "advanced_head": "230890966ce353d12bbde0c5974c74071bccdbe0",
+      "final_state": "exported",
+      "exact_retry": "same-result",
+      "different_retry": "operation-conflict",
+      "interrupted_observation": [
+        "prepared",
+        true,
+        false
+      ]
+    },
+    {
+      "case": "sql-recorded",
+      "git_commit": "fabfa1d41d0458deccb7d8952493a9fd091d7e6d",
+      "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+      "advanced_head": "230890966ce353d12bbde0c5974c74071bccdbe0",
+      "final_state": "exported",
+      "exact_retry": "same-result",
+      "different_retry": "operation-conflict",
+      "interrupted_observation": [
+        "git-accepted",
+        true,
+        false
+      ]
+    },
+    {
+      "case": "after-generation-stage",
+      "git_commit": "fabfa1d41d0458deccb7d8952493a9fd091d7e6d",
+      "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+      "advanced_head": "230890966ce353d12bbde0c5974c74071bccdbe0",
+      "final_state": "exported",
+      "exact_retry": "same-result",
+      "different_retry": "operation-conflict",
+      "interrupted_observation": [
+        "git-accepted",
+        true,
+        false
+      ]
+    },
+    {
+      "case": "after-export-pointer",
+      "git_commit": "fabfa1d41d0458deccb7d8952493a9fd091d7e6d",
+      "tree": "219fe5f2cc6ae3aa7f668ba42c03987e9c131287",
+      "advanced_head": "230890966ce353d12bbde0c5974c74071bccdbe0",
+      "final_state": "exported",
+      "exact_retry": "same-result",
+      "different_retry": "operation-conflict",
+      "interrupted_observation": [
+        "git-accepted",
+        true,
+        true
+      ]
+    }
+  ]
+}

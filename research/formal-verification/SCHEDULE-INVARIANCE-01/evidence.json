@@ -1,0 +1,27 @@
+{
+  "axioms": [
+    "'ResourceSchedule.scalar_normal_form' does not depend on any axioms",
+    "'ResourceSchedule.invariant_scalar_iff' does not depend on any axioms",
+    "'ResourceSchedule.terminal_order_projection' does not depend on any axioms",
+    "'ResourceSchedule.terminal_order_injective' does not depend on any axioms"
+  ],
+  "classification": {
+    "commute_0_cancellation_invisible_0": 32,
+    "commute_0_cancellation_invisible_1": 64,
+    "commute_1_cancellation_invisible_0": 504,
+    "commute_1_cancellation_invisible_1": 936
+  },
+  "finite_invariance_checks": 1536,
+  "finite_scalar_comparisons": 9216,
+  "finite_terminal_projection_comparisons": 9216,
+  "input_blobs": {
+    "research/language-design/RT-03/COMMON-RESOURCE-PROFILES-01/check.py": "09b4b0b532eb678699dc995f13a5f3f0ca670d5f",
+    "research/language-design/RT-03/COMMON-RESOURCE-PROFILES-01/evidence.json": "720a5713d2b5b1f3fb6606400e26aa9d7fb7ec3b"
+  },
+  "input_commit": "ccbb3e5202d703f4e2c95b85b088ceeed57fcc39",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "lean_model_sha256": "92d22763bb43b64a84e83bf964b366bd901cea814ad06b5620e512157813bfc1",
+  "matrix_inputs_sha256": "29287c2a9c4a1a1de420764979262429ad38b4c8f9784034da30df59e1bf3103",
+  "matrix_outputs_sha256": "16f5e9ff9c44f7576ae9c6ed1bab89e4b23f551e242e12633de7059f493f0037",
+  "python": "3.12.14"
+}

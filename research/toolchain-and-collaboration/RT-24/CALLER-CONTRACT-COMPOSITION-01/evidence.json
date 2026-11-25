@@ -1,0 +1,36 @@
+{
+  "caller_body": "b74198fca289d257279f78ed09c5d6936175e8985a078e751f63db88b460dc16",
+  "checks_per_gate": 10530,
+  "controls": {
+    "new_checked_receipt": "refuse",
+    "old_receipt_exact": "unknown",
+    "old_receipt_unbound": "accept",
+    "wrong_semantic_profile": "unknown"
+  },
+  "false_accepts": {
+    "caller-body-only": 600,
+    "exact-callee": 0
+  },
+  "false_refusals": {
+    "caller-body-only": 600,
+    "exact-callee": 0
+  },
+  "python": "3.12.14",
+  "sources": {
+    "Bounds.lean": "cf8318f808a364cfdcd09456044a7d4f2a68b1e79b099be2e466250e4807702e",
+    "axioms.txt": "b782cde71de195e1d7979df403724fbf0ba42dec1dd35b2729e90b470cc486f8",
+    "check.py": "d9a716abda6f0721135060fa0520ad1c9629f90654f4a7cc9082d06fc073e898"
+  },
+  "totals": {
+    "caller-body-only": {
+      "accept": 2835,
+      "refuse": 2430,
+      "unknown": 5265
+    },
+    "exact-callee": {
+      "accept": 315,
+      "refuse": 270,
+      "unknown": 9945
+    }
+  }
+}

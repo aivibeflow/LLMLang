@@ -1,5 +1,7 @@
 # RT-38 — Operating-system kernels and verified microkernel feasibility
 
+The exact tracked-archive replay checks six RT-38 ledgers, 25 single-hart guest configurations and 11 Lean theorem outputs. The audit records separate emulator and conditional protocol scopes. [RV64 cohort replay](../../research-management/RT-00/RT-00-RV64-COHORT-REPLAY-2026-11-25.md)
+
 **Status:** Bounded RV64 boot and trap isolation checked in QEMU. Broader kernel evidence remains open.
 
 **Priority:** P1 feasibility; P0 prerequisite compatibility questions through RT-37.  
@@ -65,6 +67,21 @@ Negative controls: double allocation, premature publication, stale TLB, wrong pe
 - Exit: documented feasible or falsified profile with explicit gaps; reproducible bootable minimal kernel (or documented blocking discriminator), independently checked frame-allocation/isolation/IPC properties for the declared model, trust and translation boundaries explicit; no claim of complete kernel verification without corresponding evidence.
 
 The [RV64 trap and isolation study](RT-38-RV64-PMP-SV39-TRAP-ISOLATION-2026-11-24.md) boots five freestanding images with identical user code and compares bare/PMP and Sv39 permissions. It checks U-mode syscall and fault recovery before scheduler and IPC research. The [Sv39 remap and revocation study](RT-38-SV39-REMAP-REVOKE-2026-11-24.md) separates PTE readback from translation visibility. Its wrong-address control exposes QEMU's whole-CPU flush behavior and requires a linked operand check. The [RV64 frame allocator comparison](RT-38-RV64-FRAME-ALLOCATOR-2026-11-24.md) checks zero-on-allocation and zero-on-release against independent ownership traces with three fault controls and U-mode probes. The [cooperative scheduling experiment](RT-38-RV64-COOPERATIVE-SCHEDULER-2026-11-24.md) compares two dispatch policies and checks linked integer context restoration against masked-interrupt QEMU traces. The [IPC revocation experiment](RT-38-RV64-IPC-REVOCATION-2026-11-24.md) checks send-only delegation, stale handle rejection after regrant and retirement on generation exhaustion in a two-principal mailbox. The [isolated IPC pilot](RT-38-RV64-ISOLATED-IPC-PILOT-2026-11-24.md) joins the cooperative switch and endpoint with two Sv39 roots and measures which incorrect switches or mappings the pinned emulator can discriminate.
+
+The [pinned RV64 freestanding profile](RT-38-RV64-FREESTANDING-PROFILE-2026-11-25.md) records shared startup requirements, privileged ABI, local translation and the scope of the archived pilot results.
+
+The [blocking endpoint lifecycle](RT-38-BLOCKING-ENDPOINT-LIFECYCLE-2026-11-25.md) checks a separate serialized model for wakeup, preemption, cancellation and generation changes.
+
+The [live frame lifecycle](RT-38-LIVE-FRAME-QUIESCENCE-2026-11-25.md) checks publication and deferred frame reuse under explicit visibility and quiescence premises.
+
+The [HAL lowering comparison](RT-38-RV64-HAL-AND-INTRINSICS-2026-11-25.md) checks three exact linked leaf operations and guest link closure.
+The [executable HAL comparison](RT-38-RV64-HAL-QEMU-2026-11-25.md) boots the exact assembly and LLVM leaves through local Sv39 remap and revocation.
+The [timer preemption pilot](RT-38-RV64-TIMER-PREEMPTION-2026-11-25.md) checks interrupt-driven context restoration and bounded progress for two user tasks.
+The [preemptive IPC pilot](RT-38-RV64-PREEMPTIVE-IPC-2026-11-25.md) checks blocked receivers, timer scheduling, generation revocation and private stack mappings in one guest.
+The [live frame replacement pilot](RT-38-RV64-LIVE-FRAME-IPC-2026-11-25.md) checks endpoint revocation, zeroing, allocation and mapping publication before wakeup.
+The [scoped SMP and DMA reuse model](RT-38-SCOPED-SMP-DMA-REUSE-2026-11-25.md) checks the exact completion obligations that must precede frame reassignment.
+
+The [joint mapping and IPC model](RT-38-COMPOSED-MAPPING-AND-IPC-2026-11-25.md) checks admission and suspension over the existing frame and receiver proofs.
 
 ## 5. seL4 precedent and a first translation check
 
@@ -137,7 +154,7 @@ An alternative is to port the required specifications and proofs to Lean. That a
 
 ## 8. Research plan for implementing against an existing specification
 
-- **Status** · Selected RISCV64 ASpec and ExecSpec sessions replayed. A standalone Isabelle session checked equality of a restricted capability lookup wrapper and refactor to the original executable design. The full Refine chain and LLMLang source binding remain open. [Experiment](RT-38-SEL4-CAPABILITY-LOOKUP-ISABELLE-2026-11-24.md)
+- **Status** · Archived RISCV64 ASpec, ExecSpec, AInvs, BaseRefine and Refine receipts bind the scoped capability lookup wrapper and its checked byte decoder to the original executable design. Stock Isabelle/HOL confirms the separate safe-lookup model and automatic counterexample controls. Production source semantics and C/binary correspondence remain open. [Lookup proof transfer](RT-38-SEL4-LOOKUP-TRANSFER-AND-CONTROLS-2026-11-25.md)
 - **LLMLang baseline** · `fe229c3215c42d8bded531d77bbef47761ac5770`.
 - **Candidate upstream baseline** · seL4 17.0.0, single-core RISCV64 without MCS, l4v `12c300e75bb0ca0c82f76496fafacd7e614c0aba`, seL4 source `62e345c240a15671484530b4e6e069ce266c28d7` and Isabelle2025-2 from the release manifest. Record the resolved manifest revision, prover commit and exact build configuration at replay. [Release manifest](https://github.com/seL4/verification-manifest/blob/master/17.0.0.xml) · [Verified configurations](https://docs.sel4.systems/projects/sel4/verified-configurations.html)
 
@@ -185,4 +202,4 @@ Use the same candidate theorem and adverse variants for tool evaluation. Record 
 | **Execution of specifications** | Try evaluation or code generation only for executable model definitions. Compare model outputs to the selected examples and document any required executable equations or code mappings. Treat the generated artifact as a possible testing oracle within its stated scope. [Isabelle code generation documentation](https://isabelle.in.tum.de/dist/Isabelle2025-2/doc/codegen.pdf) |
 | **Replay and maintenance** | Run a fresh session and an incremental rebuild after the valid refactor. Record installation dependencies, build time, peak memory, theorem assumptions and changed proof obligations. Compare with the existing Lean path in [RT-32](../../formal-verification/RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md) on a shared small obligation if both models can be justified. The seL4 case primarily measures direct reuse of Isabelle theories. |
 
-**Decision and completion criteria.** A successful source-level pilot has a machine-checked theorem tied to the reviewed LLMLang source, the original fixed l4v contract and explicit premises. Each seeded violation has a confirmed witness or checked refutation. Publish the replay procedure, report what was reused and what had to be written, and give a scoped recommendation on using Isabelle/HOL for similar LLMLang work. Record bounded results and open obligations separately if the full theorem cannot be closed. The plan records no new experiment or proof and proposes no draft changes. [PLAN §6.5](../../../PLAN.md#65-os-kernels-and-verified-microkernel-feasibility-rt-38) · [RT-36 trust boundaries](../../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md)
+**Decision and completion criteria.** A successful source-level pilot has a machine-checked theorem tied to the reviewed LLMLang source, the original fixed l4v contract and explicit premises. Each seeded violation has a confirmed witness or checked refutation. Publish the replay procedure, report what was reused and what had to be written, and give a scoped recommendation on using Isabelle/HOL for similar LLMLang work. Record bounded results and open obligations separately if the full theorem cannot be closed. The reports above record the scoped experiments and proof results. Production source semantics and native proof transfer remain open. [PLAN §6.5](../../../PLAN.md#65-os-kernels-and-verified-microkernel-feasibility-rt-38) · [RT-36 trust boundaries](../../formal-verification/RT-36/RT-36-FORMAL-VERIFICATION-ASSUMPTIONS-AND-TRUST.md)

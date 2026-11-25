@@ -1,0 +1,1846 @@
+{
+  "schema": "llmlang-rt02-evidence-gates/1",
+  "python": "3.12.14",
+  "runner_sha256": "4d30eb396f042ec6781dc02bb4f78f23de1bdbceda2d7d02c2cb56e40ac4988d",
+  "factorial_controls": {
+    "all_applicable": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": true,
+      "closed_implementation_claim": true
+    },
+    "reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "incomplete_source_coverage": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "incomplete_source_coverage+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "incomplete_source_coverage+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "incomplete_source_coverage+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "missing_provenance": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "missing_provenance+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "missing_provenance+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "missing_provenance+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "missing_provenance+incomplete_source_coverage": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "missing_provenance+incomplete_source_coverage+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "missing_provenance+incomplete_source_coverage+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "missing_provenance+incomplete_source_coverage+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+incomplete_source_coverage": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+incomplete_source_coverage+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+incomplete_source_coverage+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+incomplete_source_coverage+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+missing_provenance": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+missing_provenance+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+missing_provenance+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+missing_provenance+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+missing_provenance+incomplete_source_coverage": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+missing_provenance+incomplete_source_coverage+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+missing_provenance+incomplete_source_coverage+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "open_assumption+missing_provenance+incomplete_source_coverage+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+incomplete_source_coverage": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+incomplete_source_coverage+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+incomplete_source_coverage+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+incomplete_source_coverage+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+missing_provenance": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+missing_provenance+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+missing_provenance+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+missing_provenance+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+missing_provenance+incomplete_source_coverage": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+missing_provenance+incomplete_source_coverage+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+missing_provenance+incomplete_source_coverage+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+missing_provenance+incomplete_source_coverage+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+incomplete_source_coverage": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+incomplete_source_coverage+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+incomplete_source_coverage+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+incomplete_source_coverage+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+missing_provenance": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+missing_provenance+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+missing_provenance+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+missing_provenance+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+missing_provenance+incomplete_source_coverage": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+missing_provenance+incomplete_source_coverage+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+missing_provenance+incomplete_source_coverage+analyzer_unknown": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unsupported+open_assumption+missing_provenance+incomplete_source_coverage+analyzer_unknown+reconstruction_failure": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "missing-provenance",
+            "incomplete-source-coverage",
+            "reconstruction-failure"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unsupported-construct",
+            "unresolved-assumption",
+            "analyzer-unknown"
+          ],
+          "reported_outcome": "UNKNOWN",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    }
+  },
+  "typed_evidence_controls": {
+    "review_only_current": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "formal-model-mismatch"
+          ],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [
+            "implementation-tuple-mismatch"
+          ],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": false
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "formal_only_current": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "review-package-mismatch"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [
+            "implementation-tuple-mismatch"
+          ],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": false
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "exact_implementation_with_unresolved_intent": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "review-clarify"
+          ],
+          "reported_outcome": "CLARIFY",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "unauthorized_review": {
+      "gates": {
+        "intent": {
+          "open_reasons": [
+            "unauthorized-review"
+          ],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": false
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "valid_contract_with_tests_only": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [
+            "evidence-bounded_test"
+          ],
+          "reported_outcome": "BOUNDED_TEST",
+          "satisfies_gate": false
+        }
+      },
+      "contract_admission": true,
+      "closed_implementation_claim": false
+    },
+    "valid_contract_with_conditional_proof": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [
+            "evidence-conditional_proof"
+          ],
+          "reported_outcome": "CONDITIONAL_PROOF",
+          "satisfies_gate": false
+        }
+      },
+      "contract_admission": true,
+      "closed_implementation_claim": false
+    },
+    "formal_refutation_and_open_assumption": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [
+            "unresolved-assumption",
+            "analyzer-refuted"
+          ],
+          "reported_outcome": "REFUTED",
+          "satisfies_gate": false
+        },
+        "implementation": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED_PROOF",
+          "satisfies_gate": true
+        }
+      },
+      "contract_admission": false,
+      "closed_implementation_claim": false
+    },
+    "implementation_refutation": {
+      "gates": {
+        "intent": {
+          "open_reasons": [],
+          "reported_outcome": "ACCEPT",
+          "satisfies_gate": true
+        },
+        "formal_contract": {
+          "open_reasons": [],
+          "reported_outcome": "CHECKED",
+          "satisfies_gate": true
+        },
+        "implementation": {
+          "open_reasons": [
+            "evidence-refuted"
+          ],
+          "reported_outcome": "REFUTED",
+          "satisfies_gate": false
+        }
+      },
+      "contract_admission": true,
+      "closed_implementation_claim": false
+    }
+  }
+}

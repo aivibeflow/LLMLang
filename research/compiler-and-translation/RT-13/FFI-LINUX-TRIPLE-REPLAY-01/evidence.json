@@ -1,0 +1,178 @@
+{
+  "cross_architecture_object_control": "refused",
+  "profiles": {
+    "aarch64": {
+      "architecture_flags": [],
+      "elf_machine": 183,
+      "emulator_sha256": "73cc2584f119f9e74c85c0a8549dbb6fd104ae3897a06a7500797f9e5b4d0943",
+      "execution": "qemu-linux-user",
+      "glibc": "2.41",
+      "glibc_sha256": "ce67859ef338d8558a7fd7cff9a1effe5677ff9f7eea90641a2c051c51fab7ac",
+      "loader_sha256": "393ca646b316f6cb31dc82dc72becff344bf6491458f98c07036fea73f1db55e",
+      "routes": {
+        "same_abi_omitted_event": {
+          "artifact_sha256": "eaca316ebab5ed44dead87fdac0f6ef077428eba743ec2c50ae476a7746d1a8a",
+          "complete_mismatches": 92,
+          "needed": [
+            "libc.so.6",
+            "libmutated.so"
+          ],
+          "observations": 224,
+          "provider_sha256": "524351fb8686a98fba6042c68cf79fa516fb3d1cf119b22821e3c8ce52679d8f",
+          "scalar_mismatches": 0,
+          "trace_sha256": "c4cd1ef8c0b3e86d7b5d2bfe71d1c64e848da8e7de1aad92de15a21305ae7045"
+        },
+        "shared-provider": {
+          "artifact_sha256": "45bc9713d8fe96649e64ac23c1ea57026ef70646f72e77a28d08b8a92b687f9d",
+          "complete_mismatches": 0,
+          "needed": [
+            "libc.so.6",
+            "libtransition.so"
+          ],
+          "observations": 224,
+          "provider_sha256": "70b7d8b27f6faa8687d2eabf2ef70ad344eae4c50f14b946282dd184fca525ae",
+          "scalar_mismatches": 0,
+          "trace_sha256": "cedc3ee46ac484a04e7da325862d478da4aa8b594370c5afa21f7b5622bbceab"
+        },
+        "static-provider": {
+          "artifact_sha256": "483142f502be0cc8c8897ec227504c5202690623b37b7048962ced1c9139ab44",
+          "complete_mismatches": 0,
+          "needed": [
+            "libc.so.6"
+          ],
+          "observations": 224,
+          "provider_sha256": "483142f502be0cc8c8897ec227504c5202690623b37b7048962ced1c9139ab44",
+          "scalar_mismatches": 0,
+          "trace_sha256": "cedc3ee46ac484a04e7da325862d478da4aa8b594370c5afa21f7b5622bbceab"
+        }
+      },
+      "startup_sha256": {
+        "crt1.o": "dcb22c83c2382211d3bf03be7dc430e45e2e902e1947e1f525c2905c3123cd40",
+        "crti.o": "4cd4fb7ae57f7925a641e857510ac8cbb5bc5d78b8586c28d8a1b788c82c63ad",
+        "crtn.o": "d215867c82f4b5b5cc82c3472b5c1500322e82798fb204e0a6bb1ead36b7d528"
+      },
+      "target": "aarch64-linux-gnu"
+    },
+    "riscv64": {
+      "architecture_flags": [
+        "-march=rv64gc",
+        "-mabi=lp64d"
+      ],
+      "elf_machine": 243,
+      "emulator_sha256": "f2bb9b35eb97fc6b67c43a65d944ea9dcd7b1908df95faf28cea68511e762dc5",
+      "execution": "qemu-linux-user",
+      "glibc": "2.41",
+      "glibc_sha256": "1e622659e9326dc1ac21ec914fa09343489c5c1341df7ec3b37b3acb0db9077f",
+      "loader_sha256": "7e97103205227da46cf46b338dba685e4ecc9b6b652a48bb3dd927c3ec8d666f",
+      "routes": {
+        "same_abi_omitted_event": {
+          "artifact_sha256": "a223231554147970cf0683855403f4c8a52401972d8667a3c616e6fd4f3429bb",
+          "complete_mismatches": 92,
+          "needed": [
+            "libc.so.6",
+            "libmutated.so"
+          ],
+          "observations": 224,
+          "provider_sha256": "8f8780d8ac95c5074896aad2c07d0cccf750cb8f9626c2c44b7da49652df9cf7",
+          "scalar_mismatches": 0,
+          "trace_sha256": "c4cd1ef8c0b3e86d7b5d2bfe71d1c64e848da8e7de1aad92de15a21305ae7045"
+        },
+        "shared-provider": {
+          "artifact_sha256": "d6eca0c0f2412969ab0262467435c1267db835f6501e18d17e7bad29bee0a643",
+          "complete_mismatches": 0,
+          "needed": [
+            "libc.so.6",
+            "libtransition.so"
+          ],
+          "observations": 224,
+          "provider_sha256": "aa24b6b1f362ed407e1b6123d7734f178b5ae864a9b19140182b5596b90288a5",
+          "scalar_mismatches": 0,
+          "trace_sha256": "cedc3ee46ac484a04e7da325862d478da4aa8b594370c5afa21f7b5622bbceab"
+        },
+        "static-provider": {
+          "artifact_sha256": "d37e9ec43e7af2a62d9286c6a4e5bd07cf7e5c01300088b09e0198321a5f8ad8",
+          "complete_mismatches": 0,
+          "needed": [
+            "libc.so.6"
+          ],
+          "observations": 224,
+          "provider_sha256": "d37e9ec43e7af2a62d9286c6a4e5bd07cf7e5c01300088b09e0198321a5f8ad8",
+          "scalar_mismatches": 0,
+          "trace_sha256": "cedc3ee46ac484a04e7da325862d478da4aa8b594370c5afa21f7b5622bbceab"
+        }
+      },
+      "startup_sha256": {
+        "crt1.o": "6527188eed3c2bc1bb67d4587900824bc3210255c01d1c70146bc9a6e98c6687",
+        "crti.o": "1eae9f0c551637d7c62aeb82378bf189c178aad4d79fb7f36eb5c07e2c7b459e",
+        "crtn.o": "1eae9f0c551637d7c62aeb82378bf189c178aad4d79fb7f36eb5c07e2c7b459e"
+      },
+      "target": "riscv64-linux-gnu"
+    },
+    "x86_64": {
+      "architecture_flags": [],
+      "elf_machine": 62,
+      "emulator_sha256": null,
+      "execution": "native",
+      "glibc": "2.41",
+      "glibc_sha256": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+      "loader_sha256": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307",
+      "routes": {
+        "same_abi_omitted_event": {
+          "artifact_sha256": "b701618197630c3a2b3b81d83711340b982df41dd410a64bb6a0b812736e44e8",
+          "complete_mismatches": 92,
+          "needed": [
+            "libc.so.6",
+            "libmutated.so"
+          ],
+          "observations": 224,
+          "provider_sha256": "82469ef3b4062334ae1017c691c5a92f3a8b3120633bc0a6658f4938434478d6",
+          "scalar_mismatches": 0,
+          "trace_sha256": "c4cd1ef8c0b3e86d7b5d2bfe71d1c64e848da8e7de1aad92de15a21305ae7045"
+        },
+        "shared-provider": {
+          "artifact_sha256": "b92549018e84493e2e3a605372db1c6f6640a88d9fe97d56c74266806ccf6655",
+          "complete_mismatches": 0,
+          "needed": [
+            "libc.so.6",
+            "libtransition.so"
+          ],
+          "observations": 224,
+          "provider_sha256": "8f05c54c64aa84cf83b6b42e868edba5529a9bbf59566d78fbb5d7b1b2bf194b",
+          "scalar_mismatches": 0,
+          "trace_sha256": "cedc3ee46ac484a04e7da325862d478da4aa8b594370c5afa21f7b5622bbceab"
+        },
+        "static-provider": {
+          "artifact_sha256": "147b036a2fc60b68223a943b692475f4f3a1f671447e0b67d980e1dd91e5a26e",
+          "complete_mismatches": 0,
+          "needed": [
+            "libc.so.6"
+          ],
+          "observations": 224,
+          "provider_sha256": "147b036a2fc60b68223a943b692475f4f3a1f671447e0b67d980e1dd91e5a26e",
+          "scalar_mismatches": 0,
+          "trace_sha256": "cedc3ee46ac484a04e7da325862d478da4aa8b594370c5afa21f7b5622bbceab"
+        }
+      },
+      "startup_sha256": {
+        "crt1.o": "8cd1a50edd44a4ded5856bf2254dc106401b37c285dcc55a594475438cd6ec1a",
+        "crti.o": "78acef26a7007f5320c98633376f2903e33895e694fbc2b91d189b38addbca8a",
+        "crtn.o": "121f2a5f12b13471dd8c7dabe3ff334df08540c270564d1a2b3c47ecbd8d3101"
+      },
+      "target": "x86_64-linux-gnu"
+    }
+  },
+  "sources": {
+    "abi.h": "51554a98baa48a90613c1f316e413bb6d293d9a8c8b6726d602eed0bf099312d",
+    "host.c": "094299b79d5ac8e8c7e66bee04ee067499205ad5ddf67a9a051e461ab2564417",
+    "provider.c": "3217c68a235602045a154380546d006401d78a5985c629da84a3f6f28d264d83",
+    "run.py": "f2309090cc983fb72526fcbee628447f606ee5f074897b4141b820e114910075"
+  },
+  "tools": {
+    "ar": "Debian LLVM version 19.1.7",
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "linker": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+    "qemu_aarch64": "qemu-aarch64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+    "qemu_riscv64": "qemu-riscv64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+    "readelf": "GNU readelf (GNU Binutils for Debian) 2.44"
+  }
+}

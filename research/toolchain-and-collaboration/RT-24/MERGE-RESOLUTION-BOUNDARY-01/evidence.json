@@ -1,0 +1,23 @@
+{
+  "checker_sha256": "9b08a0f925ab7dbaa0b2716eb87da78c19367e2ba31028b0b46a5424fd5db831",
+  "git_clean_candidates": 3,
+  "git_clean_ineligible": 2,
+  "pending_rechecks": {
+    "conflict": 3,
+    "eligible": 4
+  },
+  "profile_eligible": 1,
+  "sources": {
+    "CONFLICT-RESOLUTION-01": "8b06849b3089d119276382c4100a022441f1fc2f85a47b12add7015998c45872",
+    "CONSERVATIVE-MERGE-01": "ee1c4a82475a1159e22eabceb44af23fe2231418fb6e30dff5a40c19104fa42d",
+    "MERGE-COVERAGE-01": "16c74fc42ba604fea6c1649e3d1adf60e67875781116589d12f8d1f4cd900cf8",
+    "MERGE-FALLBACK-01": "29e779da320e7d535ed8084aaf83223ab01d61d290a6248b25d8593ebd96aa50"
+  },
+  "stale_local_review_refusals": [
+    "affected_guard_change",
+    "dependent_and_removed_retention",
+    "new_affected_caller"
+  ],
+  "structural_candidates": 110,
+  "unmerged_original_stage_sets": 3
+}

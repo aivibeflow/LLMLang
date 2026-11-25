@@ -1,0 +1,1966 @@
+{
+  "counts": {
+    "in-place": {
+      "old": 5,
+      "new": 1,
+      "inconsistent": 64,
+      "unavailable": 0,
+      "retirement_deferred": 0
+    },
+    "resolve-each": {
+      "old": 1,
+      "new": 11,
+      "inconsistent": 9,
+      "unavailable": 0,
+      "retirement_deferred": 0
+    },
+    "pin-directory": {
+      "old": 5,
+      "new": 6,
+      "inconsistent": 0,
+      "unavailable": 10,
+      "retirement_deferred": 0
+    },
+    "leased": {
+      "old": 15,
+      "new": 6,
+      "inconsistent": 0,
+      "unavailable": 0,
+      "retirement_deferred": 20
+    }
+  },
+  "cases": [
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:manifest.json",
+        "write:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:manifest.json",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "read:manifest.json",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "read:manifest.json",
+        "write:evidence.txt",
+        "read:spec.txt",
+        "write:manifest.json",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "read:manifest.json",
+        "write:evidence.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "read:manifest.json",
+        "write:evidence.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "write:body.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:spec.txt",
+        "write:manifest.json",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "write:body.txt",
+        "read:spec.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "write:body.txt",
+        "read:spec.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "write:body.txt",
+        "read:spec.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "write:body.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "write:body.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "write:body.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:body.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:body.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:body.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:body.txt",
+        "read:evidence.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "write:spec.txt",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:spec.txt",
+        "write:manifest.json",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "write:body.txt",
+        "read:spec.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "write:body.txt",
+        "read:spec.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "write:body.txt",
+        "read:spec.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "write:body.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "write:body.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "write:body.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "read:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "read:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "read:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "read:spec.txt",
+        "write:body.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "read:spec.txt",
+        "write:body.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "read:spec.txt",
+        "write:body.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:body.txt",
+        "read:evidence.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "write:spec.txt",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:spec.txt",
+        "write:body.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:spec.txt",
+        "write:body.txt",
+        "read:body.txt",
+        "write:evidence.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:spec.txt",
+        "write:body.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:spec.txt",
+        "read:body.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:spec.txt",
+        "read:body.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:spec.txt",
+        "read:body.txt",
+        "write:body.txt",
+        "read:evidence.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "write:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "read:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:spec.txt",
+        "write:body.txt",
+        "read:evidence.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "write:spec.txt",
+        "read:evidence.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "in-place",
+      "schedule": [
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "write:spec.txt",
+        "write:body.txt",
+        "write:evidence.txt",
+        "write:manifest.json"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "switch:live",
+        "retire:old",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "retire:old",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "retire:old",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "retire:old",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "retire:old",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "retire:old",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "read:spec.txt",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "read:spec.txt",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "switch:live",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "switch:live",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "switch:live",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "switch:live",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "switch:live",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "inconsistent",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "resolve-each",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "switch:live",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "switch:live",
+        "retire:old",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "retire:old",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "retire:old",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "retire:old",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "unavailable",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "retire:old",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "unavailable",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "unavailable",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "unavailable",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "retire:old",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "unavailable",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "read:spec.txt",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "unavailable",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "read:spec.txt",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "unavailable",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "switch:live",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "unavailable",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "switch:live",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "unavailable",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "switch:live",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "switch:live",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "unavailable",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "switch:live",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "pin-directory",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "switch:live",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "switch:live",
+        "retire:old",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": false
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "retire:old",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "retire:old",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "new",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "switch:live",
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "new",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "retire:old",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "retire:old",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "switch:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "retire:old",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "read:spec.txt",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "read:spec.txt",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "switch:live",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "switch:live",
+        "retire:old",
+        "read:body.txt",
+        "read:evidence.txt"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "switch:live",
+        "read:body.txt",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "switch:live",
+        "read:body.txt",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "switch:live",
+        "retire:old",
+        "read:evidence.txt"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "switch:live",
+        "read:evidence.txt",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    },
+    {
+      "policy": "leased",
+      "schedule": [
+        "pin:live",
+        "read:manifest.json",
+        "read:spec.txt",
+        "read:body.txt",
+        "read:evidence.txt",
+        "switch:live",
+        "retire:old"
+      ],
+      "outcome": "old",
+      "retirement_deferred": true
+    }
+  ]
+}

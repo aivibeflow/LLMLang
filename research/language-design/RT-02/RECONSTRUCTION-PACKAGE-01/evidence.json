@@ -1,0 +1,798 @@
+{
+  "python": "3.12.14",
+  "source_sha256": {
+    "research/language-design/RT-02/RECONSTRUCTION-PACKAGE-01/run.py": "16c4b5e963adf0a94985f2633987002e87964293acf062fdcef9135349480a07",
+    "research/language-design/RT-02/SEMANTIC-DIRECTION-01/run.py": "44dd78980b6748c4012d8725cecc12a96f1683ec9322809efdd792cafc5059ac",
+    "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+    "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/render.py": "815c62433f1bef359c04cf69d96f28e13a66ff92ad04f4f3db6fcf99c7ee821e",
+    "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "cases": {
+    "original": {
+      "schema": "llmlang-rt02-reconstruction-package/1",
+      "formal_identity": "15f67105d959df638392dec25849a34cc4ee36b20a38266a7d6a74b520af1219",
+      "status": "ELIGIBLE_FOR_REVIEW",
+      "outputs": {
+        "contract_text": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ],
+        "business_rules": [
+          {
+            "id": "deadline",
+            "scope": "retail",
+            "condition": "succeeded",
+            "mode": "require",
+            "action": "confirmation",
+            "origin": "payment registration",
+            "deadline": 5
+          },
+          {
+            "id": "exception",
+            "scope": "retail",
+            "condition": "failed",
+            "mode": "forbid",
+            "action": "confirmation",
+            "origin": null,
+            "deadline": null
+          }
+        ],
+        "scenarios": [
+          {
+            "name": "satisfying",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 4,
+              "notification_s": null
+            },
+            "outcome": "SATISFIES",
+            "explanation": "Applicable rules: deadline",
+            "applicable_windows_s": [
+              {
+                "clause": "deadline",
+                "start": 0,
+                "end_inclusive": 5
+              }
+            ]
+          },
+          {
+            "name": "late",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 8,
+              "notification_s": null
+            },
+            "outcome": "VIOLATES",
+            "explanation": "Applicable rules: deadline",
+            "applicable_windows_s": [
+              {
+                "clause": "deadline",
+                "start": 0,
+                "end_inclusive": 5
+              }
+            ]
+          },
+          {
+            "name": "exception",
+            "trace": {
+              "scope": "retail",
+              "reservation": "failed",
+              "confirmation_s": 3,
+              "notification_s": null
+            },
+            "outcome": "VIOLATES",
+            "explanation": "Applicable rules: exception",
+            "applicable_windows_s": [
+              {
+                "clause": "exception",
+                "start": 0,
+                "end_inclusive": 9
+              }
+            ]
+          },
+          {
+            "name": "incomplete_observation",
+            "trace": {
+              "scope": "retail",
+              "reservation": null,
+              "confirmation_s": null,
+              "notification_s": null
+            },
+            "outcome": "UNKNOWN",
+            "explanation": "Reservation outcome has not been observed.",
+            "applicable_windows_s": []
+          }
+        ],
+        "counterexamples": [
+          {
+            "kind": "candidate_scenario_violation",
+            "name": "late",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 8,
+              "notification_s": null
+            }
+          },
+          {
+            "kind": "candidate_scenario_violation",
+            "name": "exception",
+            "trace": {
+              "scope": "retail",
+              "reservation": "failed",
+              "confirmation_s": 3,
+              "notification_s": null
+            }
+          }
+        ],
+        "semantic_differences": {
+          "traces": 484,
+          "source_allowed": 319,
+          "candidate_allowed": 319,
+          "candidate_only": 0,
+          "source_only": 0,
+          "direction": "EQUIVALENT_IN_DOMAIN",
+          "candidate_only_witness": null,
+          "source_only_witness": null,
+          "emptied_observed_contexts": [],
+          "typed_delta": {
+            "removed_clause_ids": [],
+            "added_clause_ids": [],
+            "changed_fields": {}
+          }
+        },
+        "unresolved_questions": [],
+        "provenance": {
+          "deadline": [
+            {
+              "fragment": "intent",
+              "authorized_in_fixture": true,
+              "source_identity": "045c41fed6641f2903ba1bd2b52348ac13c2a6e2fdaa075131c817c73ce4dc28"
+            },
+            {
+              "fragment": "operator",
+              "authorized_in_fixture": true,
+              "source_identity": "d6368e1717bd8427b92b473e78711284ae25b7b850da6ab55df8be61c39ade78"
+            },
+            {
+              "fragment": "clock",
+              "authorized_in_fixture": true,
+              "source_identity": "29c095705f18cf021437a7af9a2ba08e3a63c57b5ca2c7346c01f3409840ee85"
+            }
+          ],
+          "exception": [
+            {
+              "fragment": "operator",
+              "authorized_in_fixture": true,
+              "source_identity": "d6368e1717bd8427b92b473e78711284ae25b7b850da6ab55df8be61c39ade78"
+            },
+            {
+              "fragment": "exception",
+              "authorized_in_fixture": true,
+              "source_identity": "40ad8b9d6a74a085a12866ca80b368cc01c002df768fc9c82a8e143b6ec104e6"
+            }
+          ]
+        }
+      },
+      "package_identity": "f9d42b8cb41d2942b7eff214d92f628f2da0f32cf10cd728969fccb9afd48b98"
+    },
+    "shifted_clock": {
+      "schema": "llmlang-rt02-reconstruction-package/1",
+      "formal_identity": "c319a0e0a9b266e464d92a9f48f2456b7a8e29e5341869bfb47fd1a23eca57cb",
+      "status": "NEEDS_REVISION",
+      "outputs": {
+        "contract_text": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from reservation observation through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ],
+        "business_rules": [
+          {
+            "id": "deadline",
+            "scope": "retail",
+            "condition": "succeeded",
+            "mode": "require",
+            "action": "confirmation",
+            "origin": "reservation observation",
+            "deadline": 5
+          },
+          {
+            "id": "exception",
+            "scope": "retail",
+            "condition": "failed",
+            "mode": "forbid",
+            "action": "confirmation",
+            "origin": null,
+            "deadline": null
+          }
+        ],
+        "scenarios": [
+          {
+            "name": "satisfying",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 4,
+              "notification_s": null
+            },
+            "outcome": "SATISFIES",
+            "explanation": "Applicable rules: deadline",
+            "applicable_windows_s": [
+              {
+                "clause": "deadline",
+                "start": 2,
+                "end_inclusive": 7
+              }
+            ]
+          },
+          {
+            "name": "late",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 8,
+              "notification_s": null
+            },
+            "outcome": "VIOLATES",
+            "explanation": "Applicable rules: deadline",
+            "applicable_windows_s": [
+              {
+                "clause": "deadline",
+                "start": 2,
+                "end_inclusive": 7
+              }
+            ]
+          },
+          {
+            "name": "exception",
+            "trace": {
+              "scope": "retail",
+              "reservation": "failed",
+              "confirmation_s": 3,
+              "notification_s": null
+            },
+            "outcome": "VIOLATES",
+            "explanation": "Applicable rules: exception",
+            "applicable_windows_s": [
+              {
+                "clause": "exception",
+                "start": 0,
+                "end_inclusive": 9
+              }
+            ]
+          },
+          {
+            "name": "incomplete_observation",
+            "trace": {
+              "scope": "retail",
+              "reservation": null,
+              "confirmation_s": null,
+              "notification_s": null
+            },
+            "outcome": "UNKNOWN",
+            "explanation": "Reservation outcome has not been observed.",
+            "applicable_windows_s": []
+          }
+        ],
+        "counterexamples": [
+          {
+            "kind": "candidate_only",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 6,
+              "notification_s": null
+            }
+          },
+          {
+            "kind": "source_only",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 0,
+              "notification_s": null
+            }
+          },
+          {
+            "kind": "candidate_scenario_violation",
+            "name": "late",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 8,
+              "notification_s": null
+            }
+          },
+          {
+            "kind": "candidate_scenario_violation",
+            "name": "exception",
+            "trace": {
+              "scope": "retail",
+              "reservation": "failed",
+              "confirmation_s": 3,
+              "notification_s": null
+            }
+          }
+        ],
+        "semantic_differences": {
+          "traces": 484,
+          "source_allowed": 319,
+          "candidate_allowed": 319,
+          "candidate_only": 22,
+          "source_only": 22,
+          "direction": "INCOMPARABLE",
+          "candidate_only_witness": {
+            "scope": "retail",
+            "reservation": "succeeded",
+            "confirmation_s": 6,
+            "notification_s": null
+          },
+          "source_only_witness": {
+            "scope": "retail",
+            "reservation": "succeeded",
+            "confirmation_s": 0,
+            "notification_s": null
+          },
+          "emptied_observed_contexts": [],
+          "typed_delta": {
+            "removed_clause_ids": [],
+            "added_clause_ids": [],
+            "changed_fields": {
+              "deadline": [
+                "origin"
+              ]
+            }
+          }
+        },
+        "unresolved_questions": [],
+        "provenance": {
+          "deadline": [
+            {
+              "fragment": "intent",
+              "authorized_in_fixture": true,
+              "source_identity": "045c41fed6641f2903ba1bd2b52348ac13c2a6e2fdaa075131c817c73ce4dc28"
+            },
+            {
+              "fragment": "operator",
+              "authorized_in_fixture": true,
+              "source_identity": "d6368e1717bd8427b92b473e78711284ae25b7b850da6ab55df8be61c39ade78"
+            },
+            {
+              "fragment": "clock",
+              "authorized_in_fixture": true,
+              "source_identity": "29c095705f18cf021437a7af9a2ba08e3a63c57b5ca2c7346c01f3409840ee85"
+            }
+          ],
+          "exception": [
+            {
+              "fragment": "operator",
+              "authorized_in_fixture": true,
+              "source_identity": "d6368e1717bd8427b92b473e78711284ae25b7b850da6ab55df8be61c39ade78"
+            },
+            {
+              "fragment": "exception",
+              "authorized_in_fixture": true,
+              "source_identity": "40ad8b9d6a74a085a12866ca80b368cc01c002df768fc9c82a8e143b6ec104e6"
+            }
+          ]
+        }
+      },
+      "package_identity": "188dcf92a0c42f59bc8f414a2c513f3fcb29bd4104d5ee5c8a4fa4fa709a92b8"
+    },
+    "dangling_source": {
+      "schema": "llmlang-rt02-reconstruction-package/1",
+      "formal_identity": "15f67105d959df638392dec25849a34cc4ee36b20a38266a7d6a74b520af1219",
+      "status": "UNKNOWN",
+      "outputs": {
+        "contract_text": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ],
+        "business_rules": [
+          {
+            "id": "deadline",
+            "scope": "retail",
+            "condition": "succeeded",
+            "mode": "require",
+            "action": "confirmation",
+            "origin": "payment registration",
+            "deadline": 5
+          },
+          {
+            "id": "exception",
+            "scope": "retail",
+            "condition": "failed",
+            "mode": "forbid",
+            "action": "confirmation",
+            "origin": null,
+            "deadline": null
+          }
+        ],
+        "scenarios": [
+          {
+            "name": "satisfying",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 4,
+              "notification_s": null
+            },
+            "outcome": "SATISFIES",
+            "explanation": "Applicable rules: deadline",
+            "applicable_windows_s": [
+              {
+                "clause": "deadline",
+                "start": 0,
+                "end_inclusive": 5
+              }
+            ]
+          },
+          {
+            "name": "late",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 8,
+              "notification_s": null
+            },
+            "outcome": "VIOLATES",
+            "explanation": "Applicable rules: deadline",
+            "applicable_windows_s": [
+              {
+                "clause": "deadline",
+                "start": 0,
+                "end_inclusive": 5
+              }
+            ]
+          },
+          {
+            "name": "exception",
+            "trace": {
+              "scope": "retail",
+              "reservation": "failed",
+              "confirmation_s": 3,
+              "notification_s": null
+            },
+            "outcome": "VIOLATES",
+            "explanation": "Applicable rules: exception",
+            "applicable_windows_s": [
+              {
+                "clause": "exception",
+                "start": 0,
+                "end_inclusive": 9
+              }
+            ]
+          },
+          {
+            "name": "incomplete_observation",
+            "trace": {
+              "scope": "retail",
+              "reservation": null,
+              "confirmation_s": null,
+              "notification_s": null
+            },
+            "outcome": "UNKNOWN",
+            "explanation": "Reservation outcome has not been observed.",
+            "applicable_windows_s": []
+          }
+        ],
+        "counterexamples": [
+          {
+            "kind": "candidate_scenario_violation",
+            "name": "late",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 8,
+              "notification_s": null
+            }
+          },
+          {
+            "kind": "candidate_scenario_violation",
+            "name": "exception",
+            "trace": {
+              "scope": "retail",
+              "reservation": "failed",
+              "confirmation_s": 3,
+              "notification_s": null
+            }
+          }
+        ],
+        "semantic_differences": {
+          "traces": 484,
+          "source_allowed": 319,
+          "candidate_allowed": 319,
+          "candidate_only": 0,
+          "source_only": 0,
+          "direction": "EQUIVALENT_IN_DOMAIN",
+          "candidate_only_witness": null,
+          "source_only_witness": null,
+          "emptied_observed_contexts": [],
+          "typed_delta": {
+            "removed_clause_ids": [],
+            "added_clause_ids": [],
+            "changed_fields": {}
+          }
+        },
+        "unresolved_questions": [
+          {
+            "kind": "provenance-gap",
+            "clause": "deadline",
+            "detail": [
+              "dangling",
+              "incomplete"
+            ]
+          }
+        ],
+        "provenance": {
+          "deadline": [
+            {
+              "fragment": "intent",
+              "authorized_in_fixture": true,
+              "source_identity": "045c41fed6641f2903ba1bd2b52348ac13c2a6e2fdaa075131c817c73ce4dc28"
+            },
+            {
+              "fragment": "operator",
+              "authorized_in_fixture": true,
+              "source_identity": "d6368e1717bd8427b92b473e78711284ae25b7b850da6ab55df8be61c39ade78"
+            },
+            {
+              "fragment": "missing",
+              "authorized_in_fixture": false,
+              "source_identity": null
+            }
+          ],
+          "exception": [
+            {
+              "fragment": "operator",
+              "authorized_in_fixture": true,
+              "source_identity": "d6368e1717bd8427b92b473e78711284ae25b7b850da6ab55df8be61c39ade78"
+            },
+            {
+              "fragment": "exception",
+              "authorized_in_fixture": true,
+              "source_identity": "40ad8b9d6a74a085a12866ca80b368cc01c002df768fc9c82a8e143b6ec104e6"
+            }
+          ]
+        }
+      },
+      "package_identity": "091fa117baad7a25eb82f3d0975ca4929d69b9aea3464f7e315511122e82a943"
+    },
+    "unsupported_action": {
+      "schema": "llmlang-rt02-reconstruction-package/1",
+      "formal_identity": "71db6deb72f51ff41d608a048499136de7bc408370eaf396a8472a72299783d3",
+      "status": "UNKNOWN",
+      "outputs": {
+        "contract_text": null,
+        "business_rules": null,
+        "scenarios": null,
+        "counterexamples": null,
+        "semantic_differences": null,
+        "unresolved_questions": [
+          {
+            "kind": "unsupported-formal-model",
+            "detail": "unsupported deontic mode or action"
+          }
+        ],
+        "provenance": {
+          "deadline": [
+            {
+              "fragment": "intent",
+              "authorized_in_fixture": true,
+              "source_identity": "045c41fed6641f2903ba1bd2b52348ac13c2a6e2fdaa075131c817c73ce4dc28"
+            },
+            {
+              "fragment": "operator",
+              "authorized_in_fixture": true,
+              "source_identity": "d6368e1717bd8427b92b473e78711284ae25b7b850da6ab55df8be61c39ade78"
+            },
+            {
+              "fragment": "clock",
+              "authorized_in_fixture": true,
+              "source_identity": "29c095705f18cf021437a7af9a2ba08e3a63c57b5ca2c7346c01f3409840ee85"
+            }
+          ],
+          "exception": [
+            {
+              "fragment": "operator",
+              "authorized_in_fixture": true,
+              "source_identity": "d6368e1717bd8427b92b473e78711284ae25b7b850da6ab55df8be61c39ade78"
+            },
+            {
+              "fragment": "exception",
+              "authorized_in_fixture": true,
+              "source_identity": "40ad8b9d6a74a085a12866ca80b368cc01c002df768fc9c82a8e143b6ec104e6"
+            }
+          ]
+        }
+      },
+      "package_identity": "46b3e7dcbddc8b6e075d1e50739720e1db3e0cee8f6e81cc759c8685a7f80446"
+    },
+    "altered_rendering": {
+      "schema": "llmlang-rt02-reconstruction-package/1",
+      "formal_identity": "15f67105d959df638392dec25849a34cc4ee36b20a38266a7d6a74b520af1219",
+      "status": "NEEDS_REVISION",
+      "outputs": {
+        "contract_text": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 7 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ],
+        "business_rules": [
+          {
+            "id": "deadline",
+            "scope": "retail",
+            "condition": "succeeded",
+            "mode": "require",
+            "action": "confirmation",
+            "origin": "payment registration",
+            "deadline": 5
+          },
+          {
+            "id": "exception",
+            "scope": "retail",
+            "condition": "failed",
+            "mode": "forbid",
+            "action": "confirmation",
+            "origin": null,
+            "deadline": null
+          }
+        ],
+        "scenarios": [
+          {
+            "name": "satisfying",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 4,
+              "notification_s": null
+            },
+            "outcome": "SATISFIES",
+            "explanation": "Applicable rules: deadline",
+            "applicable_windows_s": [
+              {
+                "clause": "deadline",
+                "start": 0,
+                "end_inclusive": 5
+              }
+            ]
+          },
+          {
+            "name": "late",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 8,
+              "notification_s": null
+            },
+            "outcome": "VIOLATES",
+            "explanation": "Applicable rules: deadline",
+            "applicable_windows_s": [
+              {
+                "clause": "deadline",
+                "start": 0,
+                "end_inclusive": 5
+              }
+            ]
+          },
+          {
+            "name": "exception",
+            "trace": {
+              "scope": "retail",
+              "reservation": "failed",
+              "confirmation_s": 3,
+              "notification_s": null
+            },
+            "outcome": "VIOLATES",
+            "explanation": "Applicable rules: exception",
+            "applicable_windows_s": [
+              {
+                "clause": "exception",
+                "start": 0,
+                "end_inclusive": 9
+              }
+            ]
+          },
+          {
+            "name": "incomplete_observation",
+            "trace": {
+              "scope": "retail",
+              "reservation": null,
+              "confirmation_s": null,
+              "notification_s": null
+            },
+            "outcome": "UNKNOWN",
+            "explanation": "Reservation outcome has not been observed.",
+            "applicable_windows_s": []
+          }
+        ],
+        "counterexamples": [
+          {
+            "kind": "candidate_scenario_violation",
+            "name": "late",
+            "trace": {
+              "scope": "retail",
+              "reservation": "succeeded",
+              "confirmation_s": 8,
+              "notification_s": null
+            }
+          },
+          {
+            "kind": "candidate_scenario_violation",
+            "name": "exception",
+            "trace": {
+              "scope": "retail",
+              "reservation": "failed",
+              "confirmation_s": 3,
+              "notification_s": null
+            }
+          }
+        ],
+        "semantic_differences": {
+          "traces": 484,
+          "source_allowed": 319,
+          "candidate_allowed": 319,
+          "candidate_only": 0,
+          "source_only": 0,
+          "direction": "EQUIVALENT_IN_DOMAIN",
+          "candidate_only_witness": null,
+          "source_only_witness": null,
+          "emptied_observed_contexts": [],
+          "typed_delta": {
+            "removed_clause_ids": [],
+            "added_clause_ids": [],
+            "changed_fields": {}
+          }
+        },
+        "unresolved_questions": [
+          {
+            "kind": "reconstruction-mismatch",
+            "detail": "Text has a different typed reading.",
+            "typed_delta": {
+              "removed_clause_ids": [],
+              "added_clause_ids": [],
+              "changed_fields": {
+                "deadline": [
+                  "deadline"
+                ]
+              }
+            }
+          }
+        ],
+        "provenance": {
+          "deadline": [
+            {
+              "fragment": "intent",
+              "authorized_in_fixture": true,
+              "source_identity": "045c41fed6641f2903ba1bd2b52348ac13c2a6e2fdaa075131c817c73ce4dc28"
+            },
+            {
+              "fragment": "operator",
+              "authorized_in_fixture": true,
+              "source_identity": "d6368e1717bd8427b92b473e78711284ae25b7b850da6ab55df8be61c39ade78"
+            },
+            {
+              "fragment": "clock",
+              "authorized_in_fixture": true,
+              "source_identity": "29c095705f18cf021437a7af9a2ba08e3a63c57b5ca2c7346c01f3409840ee85"
+            }
+          ],
+          "exception": [
+            {
+              "fragment": "operator",
+              "authorized_in_fixture": true,
+              "source_identity": "d6368e1717bd8427b92b473e78711284ae25b7b850da6ab55df8be61c39ade78"
+            },
+            {
+              "fragment": "exception",
+              "authorized_in_fixture": true,
+              "source_identity": "40ad8b9d6a74a085a12866ca80b368cc01c002df768fc9c82a8e143b6ec104e6"
+            }
+          ]
+        }
+      },
+      "package_identity": "2699c19e4f3503b82cee86914f7f2a81280758b5aa07ed3ef8ad4c9a27123a87"
+    }
+  }
+}

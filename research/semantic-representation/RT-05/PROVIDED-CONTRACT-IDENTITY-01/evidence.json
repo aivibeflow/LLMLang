@@ -1,0 +1,933 @@
+{
+  "schema": "llmlang-provided-contract-identity/1",
+  "python": "3.12.14",
+  "native_ledger_sha256": "61c4d7bf9d35c8eee5ebf42265eaf4cfc1fc2d6242f2d45ff09ba5fceb2d84c7",
+  "source_sha256": {
+    "run.py": "5c07e0454e496040145f7eaee1689d0d9d0a9213e894589ca7a03b2f2e88d8da",
+    "Admission.lean": "b4d106987f8b689d3148287d655326f24e4f603b92002f4bb6e8207dbf89d785",
+    "axioms.txt": "aee94058b53599c74005acac9405a87b97c366ae34c3f92a68943bfb95bf6df4"
+  },
+  "contracts": {
+    "general": "a134bba7784c4f1f6397c83b60e082b6e832e28697d1bd68c4aa40a7361ce042",
+    "parity": "46335754b7a253889f940f42e45556fd4fff0a81fdb8b4de6408f3ce49986d2f",
+    "stay": "efaf4b881654df64f9a72d762bb13cff6a5a564332b2b792c6cd56c98fe9a176",
+    "advance": "dfda4a3e94e9fcab01f1943aa0dffe7d7159843eba229af553f35ea98934035c",
+    "permits-mixed": "673e633ad667ca4d4e2964023ab8ba353d75601e9ba6d69fcf3e027b4008421d",
+    "omits-255": "b2b3f0cc3ecbdb285d2ef8305c53203d0e61dd565f5419c6dae6dbff9bf6b8b1"
+  },
+  "cases": [
+    {
+      "provider": "stay",
+      "provided": "general",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": null,
+      "two_stage_admitted": true,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "36a7034c9436a9d13d963a17eb086ac91ae37ca09e4149a18275b486a6ebddac",
+        "declaration_and_public": "f8f1dea9da2dcc10898c6e9f815906b892d761e0c30459ee90a2713c5285780d",
+        "body_judgment": "b219603780f6f90687e7c4705bcea4766be35d067af8cbe1aef730e269ff6d81",
+        "refinement_judgment": "5230434e057927f20e00fac448b559327b0eb792b67fbae077aca7050c3d3710"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "general",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 1,
+      "keys": {
+        "executable_and_public": "855ecb46a7af662f26c69736c290ac18bf9a88339bac0ee3aa3ab53111d58b45",
+        "declaration_and_public": "e3f125d5daff670269f11e707ebd438e401b00d3d036048c1f9ee8fc5d644f46",
+        "body_judgment": "b219603780f6f90687e7c4705bcea4766be35d067af8cbe1aef730e269ff6d81",
+        "refinement_judgment": "38c57380802d0d1ed6c149b4d5c4b7736b3422e65401b9a38e30231505a4a063"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "parity",
+      "required": "general",
+      "body_first_failure": 1,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "36a7034c9436a9d13d963a17eb086ac91ae37ca09e4149a18275b486a6ebddac",
+        "declaration_and_public": "f23c51e7b7b41197ebfbd9b58056d7fa97e0f2d3087ff333f86f17d3563056d9",
+        "body_judgment": "289c8fa81d5b3773d8d32f56c59934b6a7c133ef161926f67ca1ac62f0c0eb50",
+        "refinement_judgment": "c4911cc3debda655bb83b98ee8913a6c8fec38899134b483bcf8ac73c61e547d"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "parity",
+      "required": "parity",
+      "body_first_failure": 1,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 1,
+      "keys": {
+        "executable_and_public": "855ecb46a7af662f26c69736c290ac18bf9a88339bac0ee3aa3ab53111d58b45",
+        "declaration_and_public": "55e544f9e7c8a18a6c4587a8754523895e0bdb26b0adb9d7f71472794c7476f6",
+        "body_judgment": "289c8fa81d5b3773d8d32f56c59934b6a7c133ef161926f67ca1ac62f0c0eb50",
+        "refinement_judgment": "7c25026242815ca3da220195a746ef56cbd3f20b1220e4c5e2558388ea851681"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "stay",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": null,
+      "two_stage_admitted": true,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "36a7034c9436a9d13d963a17eb086ac91ae37ca09e4149a18275b486a6ebddac",
+        "declaration_and_public": "8a259fee14f24398de094d59c551a25dca55fd785fafb68098480ddd742ab3e8",
+        "body_judgment": "5acf5732d8271f713d0f0bec316c610ce0622ff7e0d7ebed35cabbf34a72a056",
+        "refinement_judgment": "09fd4807bb73bb9af23c389a32f7840a6652da53268542787aaf5bd92324ae85"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "stay",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 1,
+      "two_stage_admitted": false,
+      "direct_first_failure": 1,
+      "keys": {
+        "executable_and_public": "855ecb46a7af662f26c69736c290ac18bf9a88339bac0ee3aa3ab53111d58b45",
+        "declaration_and_public": "6d15a52aa66ff642c0cb3d054311f02154d64699208a62b0874c21f01b25c4bf",
+        "body_judgment": "5acf5732d8271f713d0f0bec316c610ce0622ff7e0d7ebed35cabbf34a72a056",
+        "refinement_judgment": "0e8f339c815292d905f7de15380c31b5bae659ebbbd9f620cb235a40eb3fd468"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "advance",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "36a7034c9436a9d13d963a17eb086ac91ae37ca09e4149a18275b486a6ebddac",
+        "declaration_and_public": "55d2932bfe8daba363863531f142a8d8a27d2f1936538c98d905441452a2e836",
+        "body_judgment": "145cf06c264ae158ac42fe59ddcf8d5b5bb20b96a2b3ebadcc40ba1cfc7ff2e8",
+        "refinement_judgment": "c8523291d55cddf1bc16c028996954f865d771c1571a15020921446fc0c7e724"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "advance",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 1,
+      "keys": {
+        "executable_and_public": "855ecb46a7af662f26c69736c290ac18bf9a88339bac0ee3aa3ab53111d58b45",
+        "declaration_and_public": "cc9be4ce3242a05d45987e395c09ddda71f5a5d9990c9e618ad11cbc3df11ad1",
+        "body_judgment": "145cf06c264ae158ac42fe59ddcf8d5b5bb20b96a2b3ebadcc40ba1cfc7ff2e8",
+        "refinement_judgment": "582e51b566803193202c340ec847876e69b8076d2d10c61342c239e72d66bd9a"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "permits-mixed",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "36a7034c9436a9d13d963a17eb086ac91ae37ca09e4149a18275b486a6ebddac",
+        "declaration_and_public": "fc8b89a3fe4586a2bad776744fbc4fdbd2038f44b3b67148a342aed1bcccd7d1",
+        "body_judgment": "e9ba305ac9885588eceaadc1b581aebacc381eeb3b09306829f780130a174f50",
+        "refinement_judgment": "2eeaf8c74cae0eb75d7e48713beed151e78e111c1eacecc360adfb485ffeb66d"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "permits-mixed",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 1,
+      "keys": {
+        "executable_and_public": "855ecb46a7af662f26c69736c290ac18bf9a88339bac0ee3aa3ab53111d58b45",
+        "declaration_and_public": "55df0e9a25c862646a2fa46892426abfb6712c77011d253ea615636373f60bbc",
+        "body_judgment": "e9ba305ac9885588eceaadc1b581aebacc381eeb3b09306829f780130a174f50",
+        "refinement_judgment": "927f38f88d72b6d7f54d9b2bda5fa7d4f19621cb07ebed3b88dca4d29ce930c3"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "omits-255",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": 255,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "36a7034c9436a9d13d963a17eb086ac91ae37ca09e4149a18275b486a6ebddac",
+        "declaration_and_public": "0a6c254f24c519c4cec569cb933a4e895ef8f1bba90f1fdc4fd30b8c9d62f274",
+        "body_judgment": "7cb7336ca2e63fdbb134d358de9bc61324f57a98ead9f507218660a504b85534",
+        "refinement_judgment": "418f8f7e67725c2fddb455587f865c5343f2ad04f07f54cb05f62309a515ee04"
+      }
+    },
+    {
+      "provider": "stay",
+      "provided": "omits-255",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 1,
+      "keys": {
+        "executable_and_public": "855ecb46a7af662f26c69736c290ac18bf9a88339bac0ee3aa3ab53111d58b45",
+        "declaration_and_public": "6f4255fb6326f342e0cd590c5e4516ee17707ca11ab7f88e870bb5bee43d86d4",
+        "body_judgment": "7cb7336ca2e63fdbb134d358de9bc61324f57a98ead9f507218660a504b85534",
+        "refinement_judgment": "0ce8b60b4a6f9f762fe1fe1724d9a1dd612ee5cd7e9269b5144a5e94cd07b883"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "general",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": null,
+      "two_stage_admitted": true,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "b8d056db3b9f213f5c38f2563e352ab038ff0c2d1ba1d79532e1f6cfc2cce872",
+        "declaration_and_public": "402be89dca2e25705fd0cd2eb6d6bb5dd3bf2133aef37aa2d55903a68ba78d73",
+        "body_judgment": "42bf7808b83806d1d205a119f5d4a74b067fa036e640d994d04d5087a450799f",
+        "refinement_judgment": "5230434e057927f20e00fac448b559327b0eb792b67fbae077aca7050c3d3710"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "general",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "6ff117b4dbbd7bd35f7ee27a7a92fa1d4b47d279413229c2f82ee34ad04865e1",
+        "declaration_and_public": "1a4735986b165bbe9f650acfa714be75c9f2fa614bad1ad6f0938e1b55c08be4",
+        "body_judgment": "42bf7808b83806d1d205a119f5d4a74b067fa036e640d994d04d5087a450799f",
+        "refinement_judgment": "38c57380802d0d1ed6c149b4d5c4b7736b3422e65401b9a38e30231505a4a063"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "parity",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "b8d056db3b9f213f5c38f2563e352ab038ff0c2d1ba1d79532e1f6cfc2cce872",
+        "declaration_and_public": "546f9a7d7ab462515f6b95e84cc14e4a70b1fe700d0a2f4cb88d6c83dac54b38",
+        "body_judgment": "0e3952d83b7f16a54e6afc77455deb3325c14604db85fbb14cda1bd00cf93129",
+        "refinement_judgment": "c4911cc3debda655bb83b98ee8913a6c8fec38899134b483bcf8ac73c61e547d"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "parity",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "6ff117b4dbbd7bd35f7ee27a7a92fa1d4b47d279413229c2f82ee34ad04865e1",
+        "declaration_and_public": "adc44340f76c22b9f1c4bb721f18eb4a55eaa2f0e61939da1671a6fd893b306a",
+        "body_judgment": "0e3952d83b7f16a54e6afc77455deb3325c14604db85fbb14cda1bd00cf93129",
+        "refinement_judgment": "7c25026242815ca3da220195a746ef56cbd3f20b1220e4c5e2558388ea851681"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "stay",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "b8d056db3b9f213f5c38f2563e352ab038ff0c2d1ba1d79532e1f6cfc2cce872",
+        "declaration_and_public": "0412dff017eee4b39a1d7656654962cc4ba42c210e09d3f3cc80e1451ae2938d",
+        "body_judgment": "25cfbff9fb1ba2d3a457f841a551745ee1889e342ae12de1ac020c95469ec91c",
+        "refinement_judgment": "09fd4807bb73bb9af23c389a32f7840a6652da53268542787aaf5bd92324ae85"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "stay",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 1,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "6ff117b4dbbd7bd35f7ee27a7a92fa1d4b47d279413229c2f82ee34ad04865e1",
+        "declaration_and_public": "f70f5f26881e28db116bb74f00edadcf356f5ae5f6dacf7f32a31c825fa35e1c",
+        "body_judgment": "25cfbff9fb1ba2d3a457f841a551745ee1889e342ae12de1ac020c95469ec91c",
+        "refinement_judgment": "0e8f339c815292d905f7de15380c31b5bae659ebbbd9f620cb235a40eb3fd468"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "advance",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": null,
+      "two_stage_admitted": true,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "b8d056db3b9f213f5c38f2563e352ab038ff0c2d1ba1d79532e1f6cfc2cce872",
+        "declaration_and_public": "d1e1d2f685abf0cf83b3693f108f96ded367fe283efd671a9a5e8dc432424c2c",
+        "body_judgment": "4c8b0fafa211154da69683d431c34bd779eca1317a239e72001c62920a7d5619",
+        "refinement_judgment": "c8523291d55cddf1bc16c028996954f865d771c1571a15020921446fc0c7e724"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "advance",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "6ff117b4dbbd7bd35f7ee27a7a92fa1d4b47d279413229c2f82ee34ad04865e1",
+        "declaration_and_public": "781daf422e8503950be697229bad980c499015140154bcecb570d959ced1723d",
+        "body_judgment": "4c8b0fafa211154da69683d431c34bd779eca1317a239e72001c62920a7d5619",
+        "refinement_judgment": "582e51b566803193202c340ec847876e69b8076d2d10c61342c239e72d66bd9a"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "permits-mixed",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "b8d056db3b9f213f5c38f2563e352ab038ff0c2d1ba1d79532e1f6cfc2cce872",
+        "declaration_and_public": "1a8ea25695f9167e9cab28cdedd96757968b40e2b286b73f25ba1c7afb61b95b",
+        "body_judgment": "f64caf37d62947892ba79181658a695c480563b3ab78bbfd16bbed461f60804d",
+        "refinement_judgment": "2eeaf8c74cae0eb75d7e48713beed151e78e111c1eacecc360adfb485ffeb66d"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "permits-mixed",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "6ff117b4dbbd7bd35f7ee27a7a92fa1d4b47d279413229c2f82ee34ad04865e1",
+        "declaration_and_public": "74567dde8f2217e5626fb0bca9ff5fdf4320fa361e6075dec5be6324df0eb49c",
+        "body_judgment": "f64caf37d62947892ba79181658a695c480563b3ab78bbfd16bbed461f60804d",
+        "refinement_judgment": "927f38f88d72b6d7f54d9b2bda5fa7d4f19621cb07ebed3b88dca4d29ce930c3"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "omits-255",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": 255,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "b8d056db3b9f213f5c38f2563e352ab038ff0c2d1ba1d79532e1f6cfc2cce872",
+        "declaration_and_public": "a4e5959f26acd04474e98fad58c6e59187093aaf5814a656ceb0f9a90f5a32f8",
+        "body_judgment": "783f0329512bb1f015231476ba5785480ff8e0b57f620920e7b7e518804ed242",
+        "refinement_judgment": "418f8f7e67725c2fddb455587f865c5343f2ad04f07f54cb05f62309a515ee04"
+      }
+    },
+    {
+      "provider": "advance",
+      "provided": "omits-255",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "6ff117b4dbbd7bd35f7ee27a7a92fa1d4b47d279413229c2f82ee34ad04865e1",
+        "declaration_and_public": "0ed9248a3e59aa1e11f130dbbaebb713535967426b57b34c649d59fec005625f",
+        "body_judgment": "783f0329512bb1f015231476ba5785480ff8e0b57f620920e7b7e518804ed242",
+        "refinement_judgment": "0ce8b60b4a6f9f762fe1fe1724d9a1dd612ee5cd7e9269b5144a5e94cd07b883"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "general",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": null,
+      "two_stage_admitted": true,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "c58ae22ff4c6dbb7d0f23618b332710e9ec5a4e042996f130d4f61576d95507e",
+        "declaration_and_public": "2ad23fc4a7b1104609aa59e102c6295a9b5000ffac7eb00bd0d9cc50d6f8439e",
+        "body_judgment": "f042bff899b8547b779040322770dc27616cccd353b6d6dab4b5c308556049ed",
+        "refinement_judgment": "5230434e057927f20e00fac448b559327b0eb792b67fbae077aca7050c3d3710"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "general",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "8509303c5b316ea0cd78cc70cb2b335be541884b9155d23588a6de5d694cee98",
+        "declaration_and_public": "ddc9a3b3c7fec72c6b5564f42bf6c0cbe6045fefc562bab67d716a5050b10059",
+        "body_judgment": "f042bff899b8547b779040322770dc27616cccd353b6d6dab4b5c308556049ed",
+        "refinement_judgment": "38c57380802d0d1ed6c149b4d5c4b7736b3422e65401b9a38e30231505a4a063"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "parity",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": null,
+      "two_stage_admitted": true,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "c58ae22ff4c6dbb7d0f23618b332710e9ec5a4e042996f130d4f61576d95507e",
+        "declaration_and_public": "1c8aaf4ddfa957462abe86a5a9f6da37bd966a752dd839d8ad8327b08f580146",
+        "body_judgment": "d03678b0644fddafbf087c8f96aab05b680bebf8f8c5afe8ba23528e64acf166",
+        "refinement_judgment": "c4911cc3debda655bb83b98ee8913a6c8fec38899134b483bcf8ac73c61e547d"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "parity",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": null,
+      "two_stage_admitted": true,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "8509303c5b316ea0cd78cc70cb2b335be541884b9155d23588a6de5d694cee98",
+        "declaration_and_public": "e7ecf853404a9865c6b37415418f5cb1bc070acf16029a64087d70d5a03b3f79",
+        "body_judgment": "d03678b0644fddafbf087c8f96aab05b680bebf8f8c5afe8ba23528e64acf166",
+        "refinement_judgment": "7c25026242815ca3da220195a746ef56cbd3f20b1220e4c5e2558388ea851681"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "stay",
+      "required": "general",
+      "body_first_failure": 1,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "c58ae22ff4c6dbb7d0f23618b332710e9ec5a4e042996f130d4f61576d95507e",
+        "declaration_and_public": "6b04f418df94e65606604b760768986befd56c3a10b23888f9a27c063c5a30d6",
+        "body_judgment": "6989cfaa31c575cd5f0a8a8b614a58082176471ed1d2f70cc6f19c6fdd3242ea",
+        "refinement_judgment": "09fd4807bb73bb9af23c389a32f7840a6652da53268542787aaf5bd92324ae85"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "stay",
+      "required": "parity",
+      "body_first_failure": 1,
+      "refinement_first_failure": 1,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "8509303c5b316ea0cd78cc70cb2b335be541884b9155d23588a6de5d694cee98",
+        "declaration_and_public": "e3ce9a1aef579a420eadf543e8a1fb26fa2720d3532d53c64a62647c199c6718",
+        "body_judgment": "6989cfaa31c575cd5f0a8a8b614a58082176471ed1d2f70cc6f19c6fdd3242ea",
+        "refinement_judgment": "0e8f339c815292d905f7de15380c31b5bae659ebbbd9f620cb235a40eb3fd468"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "advance",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "c58ae22ff4c6dbb7d0f23618b332710e9ec5a4e042996f130d4f61576d95507e",
+        "declaration_and_public": "07c6ab743f50caf055fbcf4227b41c9920af208e5f76ac6d54f44eebb6562a06",
+        "body_judgment": "c192ad25228931a12759a34e73a2d8526ad9f95370b1d14ca43286407bd45170",
+        "refinement_judgment": "c8523291d55cddf1bc16c028996954f865d771c1571a15020921446fc0c7e724"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "advance",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "8509303c5b316ea0cd78cc70cb2b335be541884b9155d23588a6de5d694cee98",
+        "declaration_and_public": "37be68871e2aa4711abad44da4be46ba640504ce27700d53234ab0c3882fd6fa",
+        "body_judgment": "c192ad25228931a12759a34e73a2d8526ad9f95370b1d14ca43286407bd45170",
+        "refinement_judgment": "582e51b566803193202c340ec847876e69b8076d2d10c61342c239e72d66bd9a"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "permits-mixed",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "c58ae22ff4c6dbb7d0f23618b332710e9ec5a4e042996f130d4f61576d95507e",
+        "declaration_and_public": "ed0560d3dca9fba7e3c3812e671c3d24f41bd739f19f6a70f1be7ef121317b42",
+        "body_judgment": "c1b6766b7289697ef413df57e1a04199d0c5b320399e6e30a5fc0551d5ddb641",
+        "refinement_judgment": "2eeaf8c74cae0eb75d7e48713beed151e78e111c1eacecc360adfb485ffeb66d"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "permits-mixed",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "8509303c5b316ea0cd78cc70cb2b335be541884b9155d23588a6de5d694cee98",
+        "declaration_and_public": "8feee6b3842e919771e20cd79430713eb3aa6174c6e16f403fa1562fe96278da",
+        "body_judgment": "c1b6766b7289697ef413df57e1a04199d0c5b320399e6e30a5fc0551d5ddb641",
+        "refinement_judgment": "927f38f88d72b6d7f54d9b2bda5fa7d4f19621cb07ebed3b88dca4d29ce930c3"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "omits-255",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": 255,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "c58ae22ff4c6dbb7d0f23618b332710e9ec5a4e042996f130d4f61576d95507e",
+        "declaration_and_public": "4a2c8899ce0cf57d3bf35ac2e17a930e7c68e08b7e8f31ded25765a0acd2a267",
+        "body_judgment": "65545a709d9cba90877288963b443233fcb4448993fdc31e50ac9acb083777fd",
+        "refinement_judgment": "418f8f7e67725c2fddb455587f865c5343f2ad04f07f54cb05f62309a515ee04"
+      }
+    },
+    {
+      "provider": "parity",
+      "provided": "omits-255",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": null,
+      "keys": {
+        "executable_and_public": "8509303c5b316ea0cd78cc70cb2b335be541884b9155d23588a6de5d694cee98",
+        "declaration_and_public": "dc22d0130a48b3eb4594de80cfbca2e829be447e2674b9fb858a00c7e29c3540",
+        "body_judgment": "65545a709d9cba90877288963b443233fcb4448993fdc31e50ac9acb083777fd",
+        "refinement_judgment": "0ce8b60b4a6f9f762fe1fe1724d9a1dd612ee5cd7e9269b5144a5e94cd07b883"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "general",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "c648b3900585f64844995c85af0ebb1417a6ced13a47dd4703bad6169ff630ac",
+        "declaration_and_public": "7e6d88d75491e053af9e3c115476b9e0aa3442815189bbe9317ec4b729f4f019",
+        "body_judgment": "4a5c4b58141b2ee8510b54c504d065b37b97af23ab5600d927de0b1b2d1cb2ab",
+        "refinement_judgment": "5230434e057927f20e00fac448b559327b0eb792b67fbae077aca7050c3d3710"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "general",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "7115869a70aa2faf8443a53980f7fed5283c4071f2e319490fa9b19c5c8748ca",
+        "declaration_and_public": "05e5c081847ed2807644b3bdcd30a93620ce1706d6db84218a256e14ed23ea76",
+        "body_judgment": "4a5c4b58141b2ee8510b54c504d065b37b97af23ab5600d927de0b1b2d1cb2ab",
+        "refinement_judgment": "38c57380802d0d1ed6c149b4d5c4b7736b3422e65401b9a38e30231505a4a063"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "parity",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "c648b3900585f64844995c85af0ebb1417a6ced13a47dd4703bad6169ff630ac",
+        "declaration_and_public": "0eb53efb3b5b6b9f5c4735e23aa08285d43842ae8adafd18a9f78827d59bd5b7",
+        "body_judgment": "566ffadfa92133d1bf6516a2b984c5ecb1763e28e7f057b47a9f8cc3f623f8b7",
+        "refinement_judgment": "c4911cc3debda655bb83b98ee8913a6c8fec38899134b483bcf8ac73c61e547d"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "parity",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "7115869a70aa2faf8443a53980f7fed5283c4071f2e319490fa9b19c5c8748ca",
+        "declaration_and_public": "bed808856a4e742b8b2964e8d9d40e179c0f4b449d2af6fce0c1f1afe983d79c",
+        "body_judgment": "566ffadfa92133d1bf6516a2b984c5ecb1763e28e7f057b47a9f8cc3f623f8b7",
+        "refinement_judgment": "7c25026242815ca3da220195a746ef56cbd3f20b1220e4c5e2558388ea851681"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "stay",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "c648b3900585f64844995c85af0ebb1417a6ced13a47dd4703bad6169ff630ac",
+        "declaration_and_public": "2d989e9b6860d7b3cc0f122a56b030bb118997ea91f2291e7a6238799d9e8bd2",
+        "body_judgment": "b9221bb6dfd21b2211d99ae3c0a993bc5de8a7924722c4e08692e0ff1ef220c8",
+        "refinement_judgment": "09fd4807bb73bb9af23c389a32f7840a6652da53268542787aaf5bd92324ae85"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "stay",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 1,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "7115869a70aa2faf8443a53980f7fed5283c4071f2e319490fa9b19c5c8748ca",
+        "declaration_and_public": "26f1d2d8d088222b2b38aa5c1960aa7055c7a39653ffa1f0b6c3d2c7055d0268",
+        "body_judgment": "b9221bb6dfd21b2211d99ae3c0a993bc5de8a7924722c4e08692e0ff1ef220c8",
+        "refinement_judgment": "0e8f339c815292d905f7de15380c31b5bae659ebbbd9f620cb235a40eb3fd468"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "advance",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "c648b3900585f64844995c85af0ebb1417a6ced13a47dd4703bad6169ff630ac",
+        "declaration_and_public": "7cb409b940ceb98fc072dde6bc259d98eed8a60c128994086e0bc3b474bac2e8",
+        "body_judgment": "bf6373be0db271d48fe744339c22af82ba66939438f24b41bb0da4345be27497",
+        "refinement_judgment": "c8523291d55cddf1bc16c028996954f865d771c1571a15020921446fc0c7e724"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "advance",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "7115869a70aa2faf8443a53980f7fed5283c4071f2e319490fa9b19c5c8748ca",
+        "declaration_and_public": "c405d4701dfa81c064e55af7572286a33e98a3bc301dd366279ae886734a3d35",
+        "body_judgment": "bf6373be0db271d48fe744339c22af82ba66939438f24b41bb0da4345be27497",
+        "refinement_judgment": "582e51b566803193202c340ec847876e69b8076d2d10c61342c239e72d66bd9a"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "permits-mixed",
+      "required": "general",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "c648b3900585f64844995c85af0ebb1417a6ced13a47dd4703bad6169ff630ac",
+        "declaration_and_public": "944cbab6055c2993a1e740e8587f1cbac098c91002662ff014cbff232607c2ef",
+        "body_judgment": "911ac86f6fdc1b72af0e890ec1dc3ef14feeeefc14e660ec489d6d7c80101f51",
+        "refinement_judgment": "2eeaf8c74cae0eb75d7e48713beed151e78e111c1eacecc360adfb485ffeb66d"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "permits-mixed",
+      "required": "parity",
+      "body_first_failure": null,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "7115869a70aa2faf8443a53980f7fed5283c4071f2e319490fa9b19c5c8748ca",
+        "declaration_and_public": "a9d86438b82bb7051b98c5b95018bd3a47fdfe93df23e29b16111d98ee392b98",
+        "body_judgment": "911ac86f6fdc1b72af0e890ec1dc3ef14feeeefc14e660ec489d6d7c80101f51",
+        "refinement_judgment": "927f38f88d72b6d7f54d9b2bda5fa7d4f19621cb07ebed3b88dca4d29ce930c3"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "omits-255",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": 255,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "c648b3900585f64844995c85af0ebb1417a6ced13a47dd4703bad6169ff630ac",
+        "declaration_and_public": "cb6a6a5ec3797659a1127fa3524cd274b04cefc5acb2825427808449f4c67153",
+        "body_judgment": "f4eda9bb6f8cbb2c70e23bd7be1905d9d99d56823a5a1b21aae7e39f20286875",
+        "refinement_judgment": "418f8f7e67725c2fddb455587f865c5343f2ad04f07f54cb05f62309a515ee04"
+      }
+    },
+    {
+      "provider": "mixed",
+      "provided": "omits-255",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "7115869a70aa2faf8443a53980f7fed5283c4071f2e319490fa9b19c5c8748ca",
+        "declaration_and_public": "30e61789fd059a025f326961e0f21b4ce6b263e9d805f7f2bb6594a41fec8b09",
+        "body_judgment": "f4eda9bb6f8cbb2c70e23bd7be1905d9d99d56823a5a1b21aae7e39f20286875",
+        "refinement_judgment": "0ce8b60b4a6f9f762fe1fe1724d9a1dd612ee5cd7e9269b5144a5e94cd07b883"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "general",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "b7b186929377d46b6a1020d5d62bc7d277d261555df8aa1bb0bfdd5019518bca",
+        "declaration_and_public": "e8595a62ce6605f3bd8e11fd73047916432f22a2e80fb8c2ea4eeb419cc76ff5",
+        "body_judgment": "94e35916fdfe734a6ab0736cee8470dd78f1844fd91552298df2198f11b3a533",
+        "refinement_judgment": "5230434e057927f20e00fac448b559327b0eb792b67fbae077aca7050c3d3710"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "general",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "422a569c8fc3f2d823085f98d3101a60b079eaf45c80f43ad2bdb043239f3f3b",
+        "declaration_and_public": "06f9c15fce37f4cbefb1be420eedcdabf8238a70d97df84bcc12339e9ae8243a",
+        "body_judgment": "94e35916fdfe734a6ab0736cee8470dd78f1844fd91552298df2198f11b3a533",
+        "refinement_judgment": "38c57380802d0d1ed6c149b4d5c4b7736b3422e65401b9a38e30231505a4a063"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "parity",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "b7b186929377d46b6a1020d5d62bc7d277d261555df8aa1bb0bfdd5019518bca",
+        "declaration_and_public": "e8db33658bb2b720ac8ebcbab0808a93861f3106b5605461514ca96d1b4ffbf2",
+        "body_judgment": "baec3078e559c861957f1218cc54fcd1fb1fe7d8fedd4385f8581c66ffb45d69",
+        "refinement_judgment": "c4911cc3debda655bb83b98ee8913a6c8fec38899134b483bcf8ac73c61e547d"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "parity",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "422a569c8fc3f2d823085f98d3101a60b079eaf45c80f43ad2bdb043239f3f3b",
+        "declaration_and_public": "4574943aa32e86e970caba40edb397bde5bf729f0bfed3e757722cbfdf5b9df0",
+        "body_judgment": "baec3078e559c861957f1218cc54fcd1fb1fe7d8fedd4385f8581c66ffb45d69",
+        "refinement_judgment": "7c25026242815ca3da220195a746ef56cbd3f20b1220e4c5e2558388ea851681"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "stay",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "b7b186929377d46b6a1020d5d62bc7d277d261555df8aa1bb0bfdd5019518bca",
+        "declaration_and_public": "24480e453e7db4e4bff9ef82953fab1b8ec9425efecf242c072bc723c01508fe",
+        "body_judgment": "720be5f7021e9625e72af1217b52a2755bae38a0680b160df2518feb2a85491b",
+        "refinement_judgment": "09fd4807bb73bb9af23c389a32f7840a6652da53268542787aaf5bd92324ae85"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "stay",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 1,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "422a569c8fc3f2d823085f98d3101a60b079eaf45c80f43ad2bdb043239f3f3b",
+        "declaration_and_public": "ea530e5e152360bfdc55dfc5b114420af39866507344a889bf9bc41c98cf8d25",
+        "body_judgment": "720be5f7021e9625e72af1217b52a2755bae38a0680b160df2518feb2a85491b",
+        "refinement_judgment": "0e8f339c815292d905f7de15380c31b5bae659ebbbd9f620cb235a40eb3fd468"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "advance",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": null,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "b7b186929377d46b6a1020d5d62bc7d277d261555df8aa1bb0bfdd5019518bca",
+        "declaration_and_public": "b8e0f3d5b51515d852876bc8684dd095249e88efe081ad7a1ebbf65bf838cb08",
+        "body_judgment": "655690d89373ea179e6043097192ca115880db25adf6dff6399f2b021ee6214c",
+        "refinement_judgment": "c8523291d55cddf1bc16c028996954f865d771c1571a15020921446fc0c7e724"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "advance",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "422a569c8fc3f2d823085f98d3101a60b079eaf45c80f43ad2bdb043239f3f3b",
+        "declaration_and_public": "a9af79d935ffd2917a3f90a7ba749761f7bd71b1ac0b73a2f61ec112bec4ed6f",
+        "body_judgment": "655690d89373ea179e6043097192ca115880db25adf6dff6399f2b021ee6214c",
+        "refinement_judgment": "582e51b566803193202c340ec847876e69b8076d2d10c61342c239e72d66bd9a"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "permits-mixed",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "b7b186929377d46b6a1020d5d62bc7d277d261555df8aa1bb0bfdd5019518bca",
+        "declaration_and_public": "b25b04ead8ae1fa169a249bf6b0b15bdf7a153612dd40706bbfe6507cdff6ae3",
+        "body_judgment": "d3d92a74e3e56fd5298d6453009ce4dd88e28096f84c59ae619037e49d5855d4",
+        "refinement_judgment": "2eeaf8c74cae0eb75d7e48713beed151e78e111c1eacecc360adfb485ffeb66d"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "permits-mixed",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "422a569c8fc3f2d823085f98d3101a60b079eaf45c80f43ad2bdb043239f3f3b",
+        "declaration_and_public": "cdc2ff0a61f494ca3e6728854901c525098c02324aeabda0074ecb012a523dd8",
+        "body_judgment": "d3d92a74e3e56fd5298d6453009ce4dd88e28096f84c59ae619037e49d5855d4",
+        "refinement_judgment": "927f38f88d72b6d7f54d9b2bda5fa7d4f19621cb07ebed3b88dca4d29ce930c3"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "omits-255",
+      "required": "general",
+      "body_first_failure": 0,
+      "refinement_first_failure": 255,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "b7b186929377d46b6a1020d5d62bc7d277d261555df8aa1bb0bfdd5019518bca",
+        "declaration_and_public": "73d66a411aa1d2316a2a60d6a1f21559a6a6ad018abaa654852540548c49fc09",
+        "body_judgment": "257df38b9f534d989b29982db54176ac83146934158a9af7e1e6355ac7d6030d",
+        "refinement_judgment": "418f8f7e67725c2fddb455587f865c5343f2ad04f07f54cb05f62309a515ee04"
+      }
+    },
+    {
+      "provider": "reordered",
+      "provided": "omits-255",
+      "required": "parity",
+      "body_first_failure": 0,
+      "refinement_first_failure": 0,
+      "two_stage_admitted": false,
+      "direct_first_failure": 0,
+      "keys": {
+        "executable_and_public": "422a569c8fc3f2d823085f98d3101a60b079eaf45c80f43ad2bdb043239f3f3b",
+        "declaration_and_public": "1c5328c637e24f3ef4f9541a3bf6eb38e009c2e10124fbd659d4cdb3fb45b728",
+        "body_judgment": "257df38b9f534d989b29982db54176ac83146934158a9af7e1e6355ac7d6030d",
+        "refinement_judgment": "0ce8b60b4a6f9f762fe1fe1724d9a1dd612ee5cd7e9269b5144a5e94cd07b883"
+      }
+    }
+  ],
+  "summary": {
+    "body_first_failure": 34,
+    "refinement_first_failure": 35,
+    "direct_first_failure": 36,
+    "two_stage_admitted": 7,
+    "direct_pass_and_two_stage_refused": 17
+  },
+  "distinct_judgment_pairs_sharing_key": {
+    "executable_and_public": 29,
+    "declaration_and_public": 0,
+    "body_judgment": 0,
+    "refinement_judgment": 0
+  }
+}

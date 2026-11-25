@@ -1,0 +1,21 @@
+{
+  "attempts": {
+    "bazel-9.0.0-embedded-trust": "registry certificate chain rejected",
+    "bazel-9.0.0-system-trust": "resolved protobuf 35.0 and rejected the Abseil compatibility-level difference",
+    "bazel-9.3.0-gcc-attributes-demotion": "GCC class-memaccess diagnostic treated as an error",
+    "bazel-9.3.0-gcc-default": "GCC attributes diagnostic treated as an error",
+    "bazel-9.3.0-gcc-two-targeted-demotions": "shared ELF build and symbol check succeeded",
+    "bazel-9.3.0-locked-replay": "same build target and ELF SHA-256 over the retained dependency lock"
+  },
+  "bazel_sha256": {
+    "9.0.0": "c44a93f25398c68f904fa1d19b61d321de6c0d2f09dca375d7bc0dc9b9428403",
+    "9.3.0": "d302d22ed77ee5658b87857249baa579db84300ecebe0a1e9a357b5b20f80eb8"
+  },
+  "lock_sha256": "2fa2d9bca04cebb16c7385cb44a44a863985e379983213ba4fd625f685c4c6fe",
+  "reproduction_script_sha256": "56226360ecdefc603d297cdc96418b0f9b0d41bd9b85fc11fa3f146bd03b9915",
+  "runtime_artifact_bytes": 2096432,
+  "runtime_artifact_sha256": "b1471ea864eebc4b21597df9a462d99e55929ea920b8a7f3aa09cbd1b3b50955",
+  "source_archive_sha256": "18e05f20fa4bf1d0e5729daf4eeb477628f486445bcedfde219f2cc6c0e6c6f6",
+  "upstream_module_sha256": "657d6485581f40d6c78d84edf10bf3add11905acbf777eb0a146860995c94615",
+  "upstream_revision": "afcf25e3c76f099ca410b994c3621312d438ed10"
+}

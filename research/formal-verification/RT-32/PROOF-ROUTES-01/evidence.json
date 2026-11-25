@@ -1,0 +1,455 @@
+{
+  "approved_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "counts": {
+    "foreign_premise/unapproved_axiom": 1,
+    "omega/checked": 6,
+    "omega/lean_rejected": 4,
+    "placeholder/lean_rejected": 1,
+    "reuse/checked": 6,
+    "reuse/lean_rejected": 4,
+    "simp/checked": 3,
+    "simp/lean_rejected": 7,
+    "solver_sat": 4,
+    "solver_triage_then_kernel/checked": 6,
+    "solver_unsat": 6
+  },
+  "obligations": {
+    "conserves": {
+      "proof_routes": {
+        "omega": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "dbeda2763b5142c769c6f19e9ac0480a2ae80b091189b06126634ec70cd91e50",
+          "status": "checked"
+        },
+        "reuse": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "859cfdc7dc941294f0f27f2916ac2cdce2eb5909d97918afd634cb700037db96",
+          "status": "checked"
+        },
+        "simp": {
+          "axioms": [],
+          "generated_sha256": "c1ac77523243b1f89e4215579b4df0eb2a5265074f879fe2598b92e33b731e91",
+          "status": "lean_rejected"
+        },
+        "solver_triage_then_kernel": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "dbeda2763b5142c769c6f19e9ac0480a2ae80b091189b06126634ec70cd91e50",
+          "status": "checked"
+        }
+      },
+      "smt_assumptions_sha256": "b9fea7fc228c6c93a3880b6a837440f6b5b53b145ad996b52c050aecad0cf533",
+      "solvers": {
+        "cvc5": {
+          "status": "unsat"
+        },
+        "z3": {
+          "status": "unsat"
+        }
+      }
+    },
+    "decrease_stride_one": {
+      "proof_routes": {
+        "omega": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "19136ced37211e5c2b1aa0aac8eaa85cce12f26ec1a7e319d404bce07d7fa1ff",
+          "status": "checked"
+        },
+        "reuse": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "c3262d9bf49229274ff27d433357bdc5aad1eedaf09202a2be812985781722aa",
+          "status": "checked"
+        },
+        "simp": {
+          "axioms": [],
+          "generated_sha256": "9acddd2cde95a71607a1f32a139b3793ba4c48a224b0ed394c664cb23b6b3920",
+          "status": "lean_rejected"
+        },
+        "solver_triage_then_kernel": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "19136ced37211e5c2b1aa0aac8eaa85cce12f26ec1a7e319d404bce07d7fa1ff",
+          "status": "checked"
+        }
+      },
+      "smt_assumptions_sha256": "a35c8d8713d1fd8c96656258b63051bf64b10b93327d455a09fb9935cb810ae4",
+      "solvers": {
+        "cvc5": {
+          "status": "unsat"
+        },
+        "z3": {
+          "status": "unsat"
+        }
+      }
+    },
+    "decrease_stride_two": {
+      "proof_routes": {
+        "omega": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "0dbfdc331a538f98ec45940211627c9fe7fbb9558d88ba64dbd55c40b4731698",
+          "status": "checked"
+        },
+        "reuse": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "21ba14299cda3bff687f0330670b82ecf5e48ab9c96101c7f180b113655145b1",
+          "status": "checked"
+        },
+        "simp": {
+          "axioms": [],
+          "generated_sha256": "99cdd9aae87a3f98de98162d767eb8c26aad0082ae0f35ffef8be53ab7d00b5f",
+          "status": "lean_rejected"
+        },
+        "solver_triage_then_kernel": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "0dbfdc331a538f98ec45940211627c9fe7fbb9558d88ba64dbd55c40b4731698",
+          "status": "checked"
+        }
+      },
+      "smt_assumptions_sha256": "4fbc7d19436223f5869711e2f69b700aeac023573d2180db41f454e7b7e3e8bb",
+      "solvers": {
+        "cvc5": {
+          "status": "unsat"
+        },
+        "z3": {
+          "status": "unsat"
+        }
+      }
+    },
+    "exits": {
+      "proof_routes": {
+        "omega": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "612afd8a665f34c026b1ab7fe5a7779aa8114f0eeb6ca6c0c4860c53cee116e7",
+          "status": "checked"
+        },
+        "reuse": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "d356b2cad98105fa586390fb39c20f028589dedc3c9b2c251b43088dd32db233",
+          "status": "checked"
+        },
+        "simp": {
+          "axioms": [
+            "propext"
+          ],
+          "generated_sha256": "588f7f66142c4fc023f25a222e6dc399115bea25de92e589e614425c684ffb95",
+          "status": "checked"
+        },
+        "solver_triage_then_kernel": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "612afd8a665f34c026b1ab7fe5a7779aa8114f0eeb6ca6c0c4860c53cee116e7",
+          "status": "checked"
+        }
+      },
+      "smt_assumptions_sha256": "ee3aaf43b954fb3bcb85157fdd55e145ab70349911ec8d30bd009a01a238509b",
+      "solvers": {
+        "cvc5": {
+          "status": "unsat"
+        },
+        "z3": {
+          "status": "unsat"
+        }
+      }
+    },
+    "extra_update": {
+      "proof_routes": {
+        "omega": {
+          "axioms": [],
+          "generated_sha256": "1c6559f215b647bb32f344e11da2b6098b8dc08dee036754abfd16de1d79f625",
+          "status": "lean_rejected"
+        },
+        "reuse": {
+          "axioms": [],
+          "generated_sha256": "84f9a0a7282e92bd3829ea9e57f1ab271780ad6fb891b4ef2b632dbba9f129d1",
+          "status": "lean_rejected"
+        },
+        "simp": {
+          "axioms": [],
+          "generated_sha256": "442ac5ee21634fd74eb9db1d2e256d1c89b5d4d13e0cb78ce6bbe1434e737b3d",
+          "status": "lean_rejected"
+        }
+      },
+      "smt_assumptions_sha256": "68eafaf57f305b98e4ab95169fa79d06e84f2ddcb6ba494e4970b7b920d44cd4",
+      "solvers": {
+        "cvc5": {
+          "status": "sat",
+          "validated_witness": {
+            "n": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        "z3": {
+          "status": "sat",
+          "validated_witness": {
+            "n": 0,
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    "initializes": {
+      "proof_routes": {
+        "omega": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "d47f10d3726f154028aa5c5660de1a75f18c200496eb6c3677c2493a239552de",
+          "status": "checked"
+        },
+        "reuse": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "591c2b346930b84caa0d45dcb2ee3cf69f4579ebfff15ad8995cac9df65101af",
+          "status": "checked"
+        },
+        "simp": {
+          "axioms": [
+            "propext"
+          ],
+          "generated_sha256": "2dd4e2a1e66ef557701e010d372dfb56785d1d9cd1139cbfbea8e419e5d92fc6",
+          "status": "checked"
+        },
+        "solver_triage_then_kernel": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "d47f10d3726f154028aa5c5660de1a75f18c200496eb6c3677c2493a239552de",
+          "status": "checked"
+        }
+      },
+      "smt_assumptions_sha256": "6e725ba8449ec738f69110c967705274cbb20ef740bc9d0ac01d9b944665ab47",
+      "solvers": {
+        "cvc5": {
+          "status": "unsat"
+        },
+        "z3": {
+          "status": "unsat"
+        }
+      }
+    },
+    "missing_invariant": {
+      "proof_routes": {
+        "omega": {
+          "axioms": [],
+          "generated_sha256": "3d4a119d1c9cbe769a5837b782d32162f3b423c5b31e03c53585d5b83a522883",
+          "status": "lean_rejected"
+        },
+        "reuse": {
+          "axioms": [],
+          "generated_sha256": "3fef9402db1668367aa0295926acfa36637d1507f179397057000ef470287254",
+          "status": "lean_rejected"
+        },
+        "simp": {
+          "axioms": [],
+          "generated_sha256": "fe4efc9cc343fc48b9439974c71836414c694e86e8cc11c3045122ea2d881cf4",
+          "status": "lean_rejected"
+        }
+      },
+      "smt_assumptions_sha256": "0b0aafe6f1ae6615c33ae5a6a92d723d308b93422285ff12a9a4faa06256cf0d",
+      "solvers": {
+        "cvc5": {
+          "status": "sat",
+          "validated_witness": {
+            "n": 0,
+            "x": 0,
+            "y": 1
+          }
+        },
+        "z3": {
+          "status": "sat",
+          "validated_witness": {
+            "n": 0,
+            "x": 0,
+            "y": 1
+          }
+        }
+      }
+    },
+    "stays_nonnegative": {
+      "proof_routes": {
+        "omega": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "642dd873c9c306b0502c4c62fc6d12858f3614c2833589470874646578edd508",
+          "status": "checked"
+        },
+        "reuse": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "92e60c9e043919464b1c14cf8684488deb1086bd538fc5c54f781c480e781a03",
+          "status": "checked"
+        },
+        "simp": {
+          "axioms": [
+            "propext"
+          ],
+          "generated_sha256": "8a5314d5a43cfb844dc5c1855f553c323c039eb97e6681c844860247e6d6c810",
+          "status": "checked"
+        },
+        "solver_triage_then_kernel": {
+          "axioms": [
+            "propext",
+            "Quot.sound"
+          ],
+          "generated_sha256": "642dd873c9c306b0502c4c62fc6d12858f3614c2833589470874646578edd508",
+          "status": "checked"
+        }
+      },
+      "smt_assumptions_sha256": "c5862ef0b4260953ea5ac655972ab65b9973dbd82988e73e6651ca14b00da3bb",
+      "solvers": {
+        "cvc5": {
+          "status": "unsat"
+        },
+        "z3": {
+          "status": "unsat"
+        }
+      }
+    },
+    "weakened_guard": {
+      "proof_routes": {
+        "omega": {
+          "axioms": [],
+          "generated_sha256": "992f054a704d916b3e190adfb4a957050cf250e292a3d0cf946667d1dfd632ee",
+          "status": "lean_rejected"
+        },
+        "reuse": {
+          "axioms": [],
+          "generated_sha256": "47d8860b8d7b5bd58f94e96d7aa90a9121cb968cfe14134f1b25973f66fead95",
+          "status": "lean_rejected"
+        },
+        "simp": {
+          "axioms": [],
+          "generated_sha256": "d095fa52f2fcd6def687e24a48c33d47cd71f8d075272c85ed05a1e1187093aa",
+          "status": "lean_rejected"
+        }
+      },
+      "smt_assumptions_sha256": "e44398c605e5f68d7a5db9e3ab3c2ba7878a1d9c3cae1d775308d127fb1f2a49",
+      "solvers": {
+        "cvc5": {
+          "status": "sat",
+          "validated_witness": {
+            "n": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        "z3": {
+          "status": "sat",
+          "validated_witness": {
+            "n": 0,
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    "zero_decrease": {
+      "proof_routes": {
+        "foreign_premise": {
+          "axioms": [
+            "foreignClaim"
+          ],
+          "generated_sha256": "341dff8b949293b19ce3772ccfa65a0c0cb3f6b363119b6dbe5aabbbe8041c48",
+          "status": "unapproved_axiom"
+        },
+        "omega": {
+          "axioms": [],
+          "generated_sha256": "4a3bd2966fb988d06f4b818ecf29586e9d897eecbdf866665fb9542e38ea80a1",
+          "status": "lean_rejected"
+        },
+        "placeholder": {
+          "axioms": [],
+          "generated_sha256": "e17207b7fd7e14c25cb34dfe7b3974a96771ed9bc36fa59b73aad85a1ac5dca0",
+          "status": "lean_rejected"
+        },
+        "reuse": {
+          "axioms": [],
+          "generated_sha256": "577b22259f9e2ef7752f04b2b65bcab8e2e8df2ce4e449326c98a8ed2ed31298",
+          "status": "lean_rejected"
+        },
+        "simp": {
+          "axioms": [],
+          "generated_sha256": "8366a7e4d8b9aa88745fea42f233ceb4eb94f9741b325cbed73e3e85c71989a9",
+          "status": "lean_rejected"
+        }
+      },
+      "smt_assumptions_sha256": "eb3184f680108ccf2f047076d45132f0f028eece9b1e7495dfe2b84f9273d70d",
+      "solvers": {
+        "cvc5": {
+          "status": "sat",
+          "validated_witness": {
+            "n": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+        "z3": {
+          "status": "sat",
+          "validated_witness": {
+            "n": 0,
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    }
+  },
+  "python": "3.12.14",
+  "schema": "llmlang-proof-route-comparison/1",
+  "sources_sha256": {
+    "ArithmeticRules.lean": "2737316f3e59dbec7e95eeabf26868067895c3213c5d9fb956919341385f22db",
+    "run.py": "7a00fbe019b184f01cabeeb36a18b2fb2797e2c5a129237920d65c6f35438dc8"
+  },
+  "tools": {
+    "cvc5": "cvc5 1.4.2 [git 282d5e0 on branch HEAD]",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "z3": "Z3 version 4.13.3 - 64 bit"
+  }
+}

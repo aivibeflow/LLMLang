@@ -1,0 +1,28 @@
+{
+  "baseline": "09bb147f0d8cfd054956dd385889e7853e2011c0",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "python_hash_seeds": [
+    1,
+    2
+  ],
+  "fixture_sha256": {
+    "run.py": "dd41382ba2a80db13a2a7824f359c387f30199f9c37e8bea8cc1158f23658c61",
+    "driver.py": "0192d330e2816138f6d78644c2807916eb7369699bfcf1c149e33a3138ea837a",
+    "evidence.json": "868e39c0fea5fbec6e6bfc02a82c7079850e9a163833cf1393e2075b868e34dc",
+    "chart.py": "d3fa53820d5949c9d9f08d4d31d3cdf800c7639703e056f2ad251ba8dbb6742f"
+  },
+  "generated_table_sha256": "701f2c51cacc3af2faf4d448d44c73f2995dc8c8185e1898bb813892e65fe1ee",
+  "replay_sha256": [
+    "868e39c0fea5fbec6e6bfc02a82c7079850e9a163833cf1393e2075b868e34dc",
+    "868e39c0fea5fbec6e6bfc02a82c7079850e9a163833cf1393e2075b868e34dc"
+  ],
+  "native_cases": 12,
+  "assembled_graph_counts": {
+    "closed": 3,
+    "unclosed": 3,
+    "pending": 6
+  },
+  "native_commits_before_semantic_gate": 4,
+  "focused_unit_tests_passed": 13
+}

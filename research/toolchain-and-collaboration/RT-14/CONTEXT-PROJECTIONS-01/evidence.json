@@ -1,0 +1,126 @@
+{
+  "counts": {
+    "cases": 864,
+    "role_or_rank_only_incorrect_mandatory": 824,
+    "binding_only_incorrect_mandatory": 240
+  },
+  "formats": {
+    "exact": {
+      "mandatory": 24,
+      "support-only": 0,
+      "refused": 192
+    },
+    "excerpt": {
+      "mandatory": 16,
+      "support-only": 0,
+      "refused": 200
+    },
+    "summary": {
+      "mandatory": 0,
+      "support-only": 80,
+      "refused": 136
+    },
+    "ranked": {
+      "mandatory": 0,
+      "support-only": 80,
+      "refused": 136
+    }
+  },
+  "compound_context_controls": {
+    "exact-plus-excerpt": "complete",
+    "exact-plus-summary": "incomplete",
+    "excerpt-plus-ranked": "incomplete"
+  },
+  "equal_summary_text_hides_source_difference": true,
+  "witnesses": {
+    "excerpt/current": {
+      "entry": {
+        "snapshot": "snapshot-b",
+        "purpose": "call-validation",
+        "reader": "reader-a",
+        "role": "contract",
+        "form": "excerpt",
+        "original_digest": "4961e2acb90d263b72c88302872b3e94e3fcd3d62cadba434ac7a63b4ca4152c",
+        "visible": [
+          [
+            "error",
+            "retry"
+          ],
+          [
+            "precondition",
+            "length<=16"
+          ]
+        ],
+        "check": {
+          "snapshot": "snapshot-b",
+          "purpose": "call-validation",
+          "reader": "reader-a",
+          "role": "contract",
+          "original_digest": "4961e2acb90d263b72c88302872b3e94e3fcd3d62cadba434ac7a63b4ca4152c",
+          "projection_digest": "c318ad328b1bafc7ec79968a26fcfe72863e2b623b708642b5eec2da42083613",
+          "fields": [
+            "error",
+            "precondition"
+          ],
+          "issuer": "trusted-projection"
+        }
+      },
+      "outcome": "mandatory"
+    },
+    "excerpt/missing-field": {
+      "entry": {
+        "snapshot": "snapshot-b",
+        "purpose": "call-validation",
+        "reader": "reader-a",
+        "role": "contract",
+        "form": "excerpt",
+        "original_digest": "4961e2acb90d263b72c88302872b3e94e3fcd3d62cadba434ac7a63b4ca4152c",
+        "visible": [
+          [
+            "precondition",
+            "length<=16"
+          ]
+        ],
+        "check": {
+          "snapshot": "snapshot-b",
+          "purpose": "call-validation",
+          "reader": "reader-a",
+          "role": "contract",
+          "original_digest": "4961e2acb90d263b72c88302872b3e94e3fcd3d62cadba434ac7a63b4ca4152c",
+          "projection_digest": "488e04363e58766f86d9d1d3da543981922a63a867ac8f50c1e0f7da3d002977",
+          "fields": [
+            "precondition"
+          ],
+          "issuer": "trusted-projection"
+        }
+      },
+      "outcome": "refused"
+    },
+    "summary/current": {
+      "entry": {
+        "snapshot": "snapshot-b",
+        "purpose": "call-validation",
+        "reader": "reader-a",
+        "role": "contract",
+        "form": "summary",
+        "original_digest": "4961e2acb90d263b72c88302872b3e94e3fcd3d62cadba434ac7a63b4ca4152c",
+        "visible": "candidate may help explain the reviewed operation",
+        "check": null
+      },
+      "outcome": "support-only"
+    },
+    "summary/stale-source": {
+      "entry": {
+        "snapshot": "snapshot-b",
+        "purpose": "call-validation",
+        "reader": "reader-a",
+        "role": "contract",
+        "form": "summary",
+        "original_digest": "2a7df54991b62953dfce07a48e7d5e5d0cf507ef3e29ecaf879b9bde9e56061d",
+        "visible": "candidate may help explain the reviewed operation",
+        "check": null
+      },
+      "outcome": "refused"
+    }
+  }
+}

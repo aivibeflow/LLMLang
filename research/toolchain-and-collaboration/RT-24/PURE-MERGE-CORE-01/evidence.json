@@ -1,0 +1,86 @@
+{
+  "exhaustive": {
+    "single_slot_oracle_classes": {
+      "delete-update": 12,
+      "identity-lineage": 9,
+      "resolved": 37,
+      "update-update": 6
+    },
+    "two_slot_results": {
+      "conflicted": 2727,
+      "resolved": 1369
+    },
+    "side_order_checks": 4096
+  },
+  "structural_controls": {
+    "retarget": {
+      "kind": "retarget",
+      "subject": "caller",
+      "baseline": "493af69fc25d8019aa20f7aae52747637dd5e1c3903074845f27778eb2d8e2f3",
+      "ours": "d91d64dc50a2fc08df41acc3be7dd5641f1b39f02805af3c9b9fbd33f2961d48",
+      "theirs": "0c73dd3fa5c332e1534e2c9566aea13d56a19b340b27acf37de498f6f5924f22",
+      "details": [
+        "dispatch/direct"
+      ]
+    },
+    "missing_candidate_dependency": {
+      "kind": "dependency",
+      "subject": "candidate",
+      "baseline": null,
+      "ours": null,
+      "theirs": null,
+      "details": [
+        "unselected dependency 4d506f0e46331fd066b00758bdad67e11dda1adc4e68409f1241a3c38ea963ee"
+      ]
+    },
+    "retained_candidate_root": "e2f387553f139cf8cbf7806048b7ac5158e5993a23b615cea1927716fa31b0a5",
+    "divergent_roots": {
+      "kind": "root",
+      "subject": "entry",
+      "baseline": "x",
+      "ours": "y",
+      "theirs": "z",
+      "details": []
+    },
+    "lost_entrypoint": {
+      "kind": "root",
+      "subject": "entry",
+      "baseline": null,
+      "ours": null,
+      "theirs": null,
+      "details": [
+        "entrypoint selects missing slot y"
+      ]
+    },
+    "stale_pin": {
+      "kind": "root",
+      "subject": "ours",
+      "baseline": null,
+      "ours": null,
+      "theirs": null,
+      "details": [
+        "input does not match its exact pin"
+      ]
+    },
+    "stale_semantic_root": {
+      "kind": "root",
+      "subject": "theirs",
+      "baseline": null,
+      "ours": null,
+      "theirs": null,
+      "details": [
+        "input does not match its exact pin"
+      ]
+    },
+    "unsupported_context": {
+      "kind": "unsupported-context",
+      "subject": "ours",
+      "baseline": null,
+      "ours": null,
+      "theirs": null,
+      "details": [
+        "open-world"
+      ]
+    }
+  }
+}

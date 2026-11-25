@@ -1,0 +1,277 @@
+{
+  "schema": "llmlang-rt05-shared-instruction-provenance/1",
+  "python": "3.12.14",
+  "runner_sha256": "78d47038d32778691f8413aba423a6da4ce0ad6ef774870e2f58b06f91018bf4",
+  "execution": {
+    "pure_total": {
+      "lazy": {
+        "inputs": 20,
+        "mismatches": 0,
+        "first_mismatch": null
+      },
+      "eager": {
+        "inputs": 20,
+        "mismatches": 0,
+        "first_mismatch": null
+      }
+    },
+    "pure_partial": {
+      "lazy": {
+        "inputs": 20,
+        "mismatches": 0,
+        "first_mismatch": null
+      },
+      "eager": {
+        "inputs": 20,
+        "mismatches": 2,
+        "first_mismatch": {
+          "input": [
+            -2,
+            false,
+            false
+          ],
+          "source": {
+            "status": "return",
+            "slots": [
+              null,
+              null
+            ],
+            "trace": []
+          },
+          "lowered": {
+            "status": "error",
+            "slots": [
+              null,
+              null
+            ],
+            "trace": []
+          }
+        }
+      }
+    },
+    "observable_emit": {
+      "lazy": {
+        "inputs": 20,
+        "mismatches": 5,
+        "first_mismatch": {
+          "input": [
+            -2,
+            true,
+            true
+          ],
+          "source": {
+            "status": "return",
+            "slots": [
+              -4,
+              -4
+            ],
+            "trace": [
+              -2,
+              -2
+            ]
+          },
+          "lowered": {
+            "status": "return",
+            "slots": [
+              -4,
+              -4
+            ],
+            "trace": [
+              -2
+            ]
+          }
+        }
+      },
+      "eager": {
+        "inputs": 20,
+        "mismatches": 10,
+        "first_mismatch": {
+          "input": [
+            -2,
+            false,
+            false
+          ],
+          "source": {
+            "status": "return",
+            "slots": [
+              null,
+              null
+            ],
+            "trace": []
+          },
+          "lowered": {
+            "status": "return",
+            "slots": [
+              null,
+              null
+            ],
+            "trace": [
+              -2
+            ]
+          }
+        }
+      }
+    },
+    "read_across_write": {
+      "lazy": {
+        "inputs": 20,
+        "mismatches": 5,
+        "first_mismatch": {
+          "input": [
+            -2,
+            true,
+            true
+          ],
+          "source": {
+            "status": "return",
+            "slots": [
+              -2,
+              -1
+            ],
+            "trace": []
+          },
+          "lowered": {
+            "status": "return",
+            "slots": [
+              -2,
+              -2
+            ],
+            "trace": []
+          }
+        }
+      },
+      "eager": {
+        "inputs": 20,
+        "mismatches": 10,
+        "first_mismatch": {
+          "input": [
+            -2,
+            false,
+            true
+          ],
+          "source": {
+            "status": "return",
+            "slots": [
+              null,
+              -1
+            ],
+            "trace": []
+          },
+          "lowered": {
+            "status": "return",
+            "slots": [
+              null,
+              -2
+            ],
+            "trace": []
+          }
+        }
+      }
+    }
+  },
+  "mapping": {
+    "source_texts": [
+      "left = twice(x) when p\nright = twice(x) when q\n",
+      "left=twice( x )  when p\n  right = twice(x) when q\n",
+      "\n  left = twice(x) when p\n\nright=twice( x) when q\n"
+    ],
+    "target": {
+      "instructions": [
+        {
+          "operation": "twice",
+          "operand": "x",
+          "instruction": 0
+        }
+      ],
+      "uses": {
+        "left": 0,
+        "right": 0
+      }
+    },
+    "version_maps": [
+      {
+        "source": "e40420bf7d39a387c17e0ed19b7b277dca354cad66deedd535159eccd6d7eed8",
+        "graph": "b88a5ec03d55b8b783cec79c0eb5b3a05121ebe2682655c09a8d8e9a47309701",
+        "target": "e147a1de3156d40a4d6df61833bfb180409f1ee9d815a8783af2e0c452ecb7a8",
+        "links": [
+          {
+            "slot": "left",
+            "guard": "p",
+            "span": [
+              7,
+              15
+            ],
+            "target_instruction": 0
+          },
+          {
+            "slot": "right",
+            "guard": "q",
+            "span": [
+              31,
+              39
+            ],
+            "target_instruction": 0
+          }
+        ]
+      },
+      {
+        "source": "64439f81de5db8308bb4099ad4e55399b139e5ad2f533541663c19a9a3e6a2d4",
+        "graph": "b88a5ec03d55b8b783cec79c0eb5b3a05121ebe2682655c09a8d8e9a47309701",
+        "target": "e147a1de3156d40a4d6df61833bfb180409f1ee9d815a8783af2e0c452ecb7a8",
+        "links": [
+          {
+            "slot": "left",
+            "guard": "p",
+            "span": [
+              5,
+              15
+            ],
+            "target_instruction": 0
+          },
+          {
+            "slot": "right",
+            "guard": "q",
+            "span": [
+              34,
+              42
+            ],
+            "target_instruction": 0
+          }
+        ]
+      },
+      {
+        "source": "4a62dfbbf8f4e3505c48bce5f4ba9c8292cd05b00c78091b0a17a0f386a1657c",
+        "graph": "b88a5ec03d55b8b783cec79c0eb5b3a05121ebe2682655c09a8d8e9a47309701",
+        "target": "e147a1de3156d40a4d6df61833bfb180409f1ee9d815a8783af2e0c452ecb7a8",
+        "links": [
+          {
+            "slot": "left",
+            "guard": "p",
+            "span": [
+              10,
+              18
+            ],
+            "target_instruction": 0
+          },
+          {
+            "slot": "right",
+            "guard": "q",
+            "span": [
+              33,
+              42
+            ],
+            "target_instruction": 0
+          }
+        ]
+      }
+    ],
+    "controls": {
+      "one_source_span_for_shared_instruction": "wrong-occurrence-coverage",
+      "swapped_spans_for_identical_source_expressions": "wrong-occurrence-coverage",
+      "wrong_generated_identity": "wrong-artifact",
+      "stale_source_revision": "stale-source",
+      "fresh_source_revision": "accepted-exact-map",
+      "exact_map_without_semantic_preservation": "accepted-exact-map"
+    }
+  }
+}

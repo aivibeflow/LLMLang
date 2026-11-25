@@ -1,0 +1,167 @@
+{
+  "binding_controls": {
+    "altered_mirror": "divergent",
+    "latest_exact": "admitted",
+    "latest_without_native_observations": "unknown",
+    "middle_with_old_receipt": "stale-receipt",
+    "original": "admitted",
+    "rollback": "restored exact original binding"
+  },
+  "bindings": {
+    "1.2.13": {
+      "abi": "LP64 adler32_z unsigned-long pointer size_t",
+      "mirror_artifact": "2a5985ac2fbb2bddcb5544f6c2b32dd607f772313012f1e6f5157bc88a6e8b0d",
+      "native_provider": "dcb29a6fcd232265945778d891376a1f562c6b517b94d2b3ed55e85db0e97d7b",
+      "observation": "938ca711ba42055f85757dd640f5759b20a6caccffec8a3e1916330ba4d418aa",
+      "release": "1.2.13",
+      "upstream_material": "9d746f57c7d85568b980db67f11180791e5db224ced5d59f5019a16c24cbae44"
+    },
+    "1.3.1": {
+      "abi": "LP64 adler32_z unsigned-long pointer size_t",
+      "mirror_artifact": "2a5985ac2fbb2bddcb5544f6c2b32dd607f772313012f1e6f5157bc88a6e8b0d",
+      "native_provider": "dcb29a6fcd232265945778d891376a1f562c6b517b94d2b3ed55e85db0e97d7b",
+      "observation": "938ca711ba42055f85757dd640f5759b20a6caccffec8a3e1916330ba4d418aa",
+      "release": "1.3.1",
+      "upstream_material": "9d10dd952ab13377ab34bf924107abb92698f53ba5b1158e95b2f8af211c0d98"
+    },
+    "1.3.2": {
+      "abi": "LP64 adler32_z unsigned-long pointer size_t",
+      "mirror_artifact": "2a5985ac2fbb2bddcb5544f6c2b32dd607f772313012f1e6f5157bc88a6e8b0d",
+      "native_provider": "dcb29a6fcd232265945778d891376a1f562c6b517b94d2b3ed55e85db0e97d7b",
+      "observation": "938ca711ba42055f85757dd640f5759b20a6caccffec8a3e1916330ba4d418aa",
+      "release": "1.3.2",
+      "upstream_material": "9818df90e8b40d5bcfbf918757d5e2fb76da051f802fb862c8ff7a7bdb1cd35e"
+    }
+  },
+  "body_projection_unique_count": 1,
+  "cases_per_provider": 212,
+  "fixture_sha256": {
+    "mirror.rs": "09066c93143b0343ac837da43e41fa50afca3bbb149aad690fa59a3606e0c2b6",
+    "run.py": "7c488f3d926aaa94c2113fc20800470f1d92700db22a817648e3378c2fd79f27"
+  },
+  "mirror": {
+    "alternate_modulus": {
+      "artifact_sha256": "300e3a2128b3b519d13d83c1467cb125f6191f7c722fd05c2a9aaa3c3afdde72",
+      "mismatches": 124,
+      "trace_sha256": "2145ab441824a761cb29f63112ce1ff21b02672b75b219fe532447a6c1f0a93d"
+    },
+    "preserving": {
+      "artifact_sha256": "2a5985ac2fbb2bddcb5544f6c2b32dd607f772313012f1e6f5157bc88a6e8b0d",
+      "mismatches": 0,
+      "trace_sha256": "938ca711ba42055f85757dd640f5759b20a6caccffec8a3e1916330ba4d418aa"
+    }
+  },
+  "observation_shape": "exact full checksum and independently chunked continuation",
+  "toolchain": {
+    "cc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "rustc": "rustc 1.85.1 (4eb161250 2025-03-15)"
+  },
+  "upstream": {
+    "1.2.13": {
+      "archive_sha256": "1525952a0a567581792613a9723333d7f8cc20b87a81f920fb8bc7e3f2251428",
+      "native_sha256": "dcb29a6fcd232265945778d891376a1f562c6b517b94d2b3ed55e85db0e97d7b",
+      "trace_sha256": "938ca711ba42055f85757dd640f5759b20a6caccffec8a3e1916330ba4d418aa",
+      "transitive_release_inputs": {
+        "adler32.c": "d7f1b6e44fee20ab41cef1d650776a039a2348935eb96bcbd294a4096139be3a",
+        "zconf.h": "80e0a31a4c0e6f20d1bad0df99271b9d535aa9f7c4e62f1a54f643adb4c6dfa2",
+        "zlib.h": "a980a0d104198a53cc220c51ab5856e5be901bec8a2d02e0ee79a8754219dfed",
+        "zutil.h": "cf94d865e3a9162c0571cba7f74c8f01efbdca26b981d6cc9c545d4c3991e3c2"
+      },
+      "typed_source": {
+        "body_semantic_projection": "7342ef00ae284d5b8a93ec968dada0476e25b7d6c152ebf53a063171c0eb9f40",
+        "function_type": "uLong (uLong, const Bytef *, z_size_t)",
+        "operation": "adler32_z",
+        "parameters": [
+          {
+            "kind": "ParmVarDecl",
+            "name": "adler",
+            "type": "unsigned long"
+          },
+          {
+            "kind": "ParmVarDecl",
+            "name": "buf",
+            "type": "const Bytef *"
+          },
+          {
+            "kind": "ParmVarDecl",
+            "name": "len",
+            "type": "unsigned long"
+          }
+        ],
+        "source_file_sha256": "d7f1b6e44fee20ab41cef1d650776a039a2348935eb96bcbd294a4096139be3a",
+        "syntax": "K&R"
+      }
+    },
+    "1.3.1": {
+      "archive_sha256": "17e88863f3600672ab49182f217281b6fc4d3c762bde361935e436a95214d05c",
+      "native_sha256": "dcb29a6fcd232265945778d891376a1f562c6b517b94d2b3ed55e85db0e97d7b",
+      "trace_sha256": "938ca711ba42055f85757dd640f5759b20a6caccffec8a3e1916330ba4d418aa",
+      "transitive_release_inputs": {
+        "adler32.c": "9cd1443a24ff2a3053961695bd432035c58347386a420d3388232376ebabe211",
+        "zconf.h": "f5134250a67d57459234b63858f0d9d3ef8dcc48e9e1028d3f4fdcf6eae677ae",
+        "zlib.h": "8a5579af72ea4f427ff00a4150f0ccb3fc5c1e4379f726e101133b1ab9fc600c",
+        "zutil.h": "dddb2dc7a1dc339ecf2c8e089b366f08bb731c0839c7110240d17ce731bb4fea"
+      },
+      "typed_source": {
+        "body_semantic_projection": "7342ef00ae284d5b8a93ec968dada0476e25b7d6c152ebf53a063171c0eb9f40",
+        "function_type": "uLong (uLong, const Bytef *, z_size_t)",
+        "operation": "adler32_z",
+        "parameters": [
+          {
+            "kind": "ParmVarDecl",
+            "name": "adler",
+            "type": "unsigned long"
+          },
+          {
+            "kind": "ParmVarDecl",
+            "name": "buf",
+            "type": "const Bytef *"
+          },
+          {
+            "kind": "ParmVarDecl",
+            "name": "len",
+            "type": "unsigned long"
+          }
+        ],
+        "source_file_sha256": "9cd1443a24ff2a3053961695bd432035c58347386a420d3388232376ebabe211",
+        "syntax": "prototype"
+      }
+    },
+    "1.3.2": {
+      "archive_sha256": "b99a0b86c0ba9360ec7e78c4f1e43b1cbdf1e6936c8fa0f6835c0cd694a495a1",
+      "native_sha256": "dcb29a6fcd232265945778d891376a1f562c6b517b94d2b3ed55e85db0e97d7b",
+      "trace_sha256": "938ca711ba42055f85757dd640f5759b20a6caccffec8a3e1916330ba4d418aa",
+      "transitive_release_inputs": {
+        "adler32.c": "9cd1443a24ff2a3053961695bd432035c58347386a420d3388232376ebabe211",
+        "zconf.h": "cb7c2c84211473b4699223edd363d3207b43b9578e739b5bf638f42204ea6e0f",
+        "zlib.h": "818667d6ab6a37fe7469cb06a7f0cb2c2cb2f2c948a03e5accf1a4a74bf3020a",
+        "zutil.h": "a12243cc6d338ffad0c8e3500fbc05bc7fdcdc25a469393b1c2f7e5df307fff3"
+      },
+      "typed_source": {
+        "body_semantic_projection": "7342ef00ae284d5b8a93ec968dada0476e25b7d6c152ebf53a063171c0eb9f40",
+        "function_type": "uLong (uLong, const Bytef *, z_size_t)",
+        "operation": "adler32_z",
+        "parameters": [
+          {
+            "kind": "ParmVarDecl",
+            "name": "adler",
+            "type": "unsigned long"
+          },
+          {
+            "kind": "ParmVarDecl",
+            "name": "buf",
+            "type": "const Bytef *"
+          },
+          {
+            "kind": "ParmVarDecl",
+            "name": "len",
+            "type": "unsigned long"
+          }
+        ],
+        "source_file_sha256": "9cd1443a24ff2a3053961695bd432035c58347386a420d3388232376ebabe211",
+        "syntax": "prototype"
+      }
+    }
+  }
+}

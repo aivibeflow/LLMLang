@@ -1,0 +1,42 @@
+{
+  "base": "0d845c854b290999f05aeccfe86c2ec3f388b907",
+  "evidence_sha256_by_study": {
+    "CROSS-TOOLCHAIN-CACHE-01": "ee3c3187086fbcb5ebfba10fdde1a390c229a02ef0ade92b0855325d75cc14a8",
+    "ELF-METADATA-REUSE-01": "518f682316c50a8464b85b7f7be32db0453e5d0c108e60aa086e3b956aa231e3",
+    "NATIVE-RUNTIME-CLOSURE-01": "ce6390497df8a9ad1ee53a576d19b2c890edd2ab5f11f60369334cf29de54bc9",
+    "TYPED-ACTION-RECEIPTS-01": "03360ae269fd2f5f64e0cb8b9ddb1f51f315ea4010da133dc622905797361111"
+  },
+  "findings": {
+    "CROSS-TOOLCHAIN-CACHE-01": {
+      "different_return_inputs": [
+        255
+      ],
+      "directional_receipt_only": true,
+      "exact_object_identity_retained": true,
+      "native_returns_compared": 1024
+    },
+    "ELF-METADATA-REUSE-01": {
+      "equal_by_consumer_role": {
+        "exact_artifact": 12,
+        "normal_result": 72,
+        "normal_result_and_exact_artifact": 12,
+        "self_inspection": 12
+      },
+      "pairs_considered": 72
+    },
+    "NATIVE-RUNTIME-CLOSURE-01": {
+      "decisions": {
+        "hit": 4,
+        "load-error": 2,
+        "policy-denied": 2,
+        "publish": 4,
+        "uncached": 2
+      },
+      "observations_with_no_cache_key": 2
+    },
+    "TYPED-ACTION-RECEIPTS-01": {
+      "changed_compile_key_same_link_receipt": true,
+      "role_and_order_controls_rejected": 2
+    }
+  }
+}

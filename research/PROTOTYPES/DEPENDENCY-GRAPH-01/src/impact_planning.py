@@ -194,6 +194,12 @@ def _call_site_decision_payload(decision: CallSiteDecision) -> dict:
     }
 
 
+def _call_site_decision_sort_key(decision: CallSiteDecision) -> tuple:
+    # Keep field order while giving absent and explicit optional values a total order.
+    return tuple((value is not None, value)
+                 for value in _call_site_decision_payload(decision).values())
+
+
 def compute_call_site_decision_id(decision: CallSiteDecision) -> str:
     import hashlib
     import json
@@ -282,7 +288,7 @@ def impact_plan_payload(plan: ImpactPlan) -> dict:
              d.decision_evidence_id, d.required_contract_hash,
              d.compatibility_status, d.candidate_required_contract_hash,
              d.consumer_path_id, d.resulting_output_id, d.selected_output_id)
-            for d in sorted(plan.call_site_decisions)
+            for d in sorted(plan.call_site_decisions, key=_call_site_decision_sort_key)
         ],
         "planned_outputs": [
             (o.output_id, o.logical_key, o.operation.value, o.base_hash,
@@ -811,14 +817,15 @@ def plan_impact(
         a.kind.value, a.artifact_hash, a.reason, a.prerequisite_hashes,
         a.action_id, a.prerequisite_action_ids,
     )))
+    ordered_decisions = tuple(sorted(normalized_decisions, key=_call_site_decision_sort_key))
     provisional = ImpactPlan(
         "", baseline_root, candidate_root, policy_id, ordered,
         tuple(sorted(statuses)), tuple(sorted(audit_bindings)),
-        tuple(sorted(normalized_decisions)), output_rows, edge_change_rows,
+        ordered_decisions, output_rows, edge_change_rows,
     )
     plan_id = compute_impact_plan_id(provisional)
     return ImpactPlan(
         plan_id, baseline_root, candidate_root, policy_id,
         ordered, tuple(sorted(statuses)), tuple(sorted(audit_bindings)),
-        tuple(sorted(normalized_decisions)), output_rows, edge_change_rows,
+        ordered_decisions, output_rows, edge_change_rows,
     )

@@ -1,0 +1,315 @@
+{
+  "case_count": 16468,
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "equivalent_presentation_sha256": "5025a091c071b150f3ab2293e1ab4afe047f1ff0d53eadb44c41b7db210809de",
+  "four_node_cases": 72,
+  "input_sha256": "b09700200468d5acbf5ec9e40588d230d385dcf3b4b809558663134138e17d2d",
+  "native_routes": {
+    "-O0": {
+      "binary_sha256": "9f9617a7b2d991be4f010dcf93a47c77efd0c8d63f4a383c578464acc72cca05",
+      "generated_source_sha256": "8cb35644dc03cad854b211eddb8bac90ea37ba988d1253aa114efab61522df28",
+      "matched": 16468,
+      "output_sha256": "8072d42f4197ab1bc8ef1a0a96348d4c1f9f7561ea98715463d596b9acc5beeb"
+    },
+    "-O2": {
+      "binary_sha256": "eeaddbcaaf23e214851ba89bff4890a5e83cfb45f27d8db259bad0109a2e7054",
+      "generated_source_sha256": "8cb35644dc03cad854b211eddb8bac90ea37ba988d1253aa114efab61522df28",
+      "matched": 16468,
+      "output_sha256": "8072d42f4197ab1bc8ef1a0a96348d4c1f9f7561ea98715463d596b9acc5beeb"
+    }
+  },
+  "oracle_sha256": "8072d42f4197ab1bc8ef1a0a96348d4c1f9f7561ea98715463d596b9acc5beeb",
+  "outcomes_by_status": {
+    "0": 1698,
+    "1": 10240,
+    "2": 4530
+  },
+  "profile_implementation_sha256": "9c3513c602d3e0aa8d153cd4f29a6ca4de5a8d058663f7b7f79e93d88215581c",
+  "refused_controls": {
+    "duplicate-member": "duplicate JSON member profile",
+    "non-Boolean-guard": "if expects a Bool and two same-typed branches",
+    "out-of-range-carrier": "native carrier refused",
+    "out-of-range-literal": "Mask4 literal out of range",
+    "self-recursion": "call must name an earlier procedure",
+    "truncated-record": "native carrier refused",
+    "unsupported-effect": "unsupported operation or ill-typed arguments",
+    "wrong-call-arity": "incorrect Mask4 call arguments"
+  },
+  "register_cases": 12,
+  "register_projections": {
+    "groups": [
+      {
+        "edge_ids": [
+          "DEP-005",
+          "DEP-007",
+          "DEP-061",
+          "DEP-094"
+        ],
+        "expected": [
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            10
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            8
+          ]
+        ],
+        "inputs": [
+          [
+            15,
+            1,
+            14,
+            8,
+            0,
+            0
+          ],
+          [
+            15,
+            2,
+            14,
+            8,
+            0,
+            0
+          ],
+          [
+            15,
+            4,
+            14,
+            8,
+            0,
+            0
+          ],
+          [
+            15,
+            8,
+            14,
+            8,
+            0,
+            0
+          ]
+        ],
+        "nodes": [
+          "RT-03",
+          "RT-05",
+          "RT-07",
+          "RT-21"
+        ]
+      },
+      {
+        "edge_ids": [
+          "DEP-004",
+          "DEP-005",
+          "DEP-006",
+          "DEP-009",
+          "DEP-010"
+        ],
+        "expected": [
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            12
+          ],
+          [
+            0,
+            8
+          ]
+        ],
+        "inputs": [
+          [
+            15,
+            1,
+            14,
+            4,
+            8,
+            0
+          ],
+          [
+            15,
+            2,
+            14,
+            4,
+            8,
+            0
+          ],
+          [
+            15,
+            4,
+            14,
+            4,
+            8,
+            0
+          ],
+          [
+            15,
+            8,
+            14,
+            4,
+            8,
+            0
+          ]
+        ],
+        "nodes": [
+          "RT-03",
+          "RT-04",
+          "RT-05",
+          "RT-06"
+        ]
+      },
+      {
+        "edge_ids": [
+          "DEP-047",
+          "DEP-050",
+          "DEP-056",
+          "DEP-058",
+          "DEP-059",
+          "DEP-263",
+          "DEP-264"
+        ],
+        "expected": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            15
+          ]
+        ],
+        "inputs": [
+          [
+            15,
+            1,
+            0,
+            12,
+            11,
+            4
+          ],
+          [
+            15,
+            2,
+            0,
+            12,
+            11,
+            4
+          ],
+          [
+            15,
+            4,
+            0,
+            12,
+            11,
+            4
+          ],
+          [
+            15,
+            8,
+            0,
+            12,
+            11,
+            4
+          ]
+        ],
+        "nodes": [
+          "RT-11",
+          "RT-15",
+          "RT-19",
+          "RT-20"
+        ]
+      }
+    ],
+    "register_sha256": "4432b3a679447295e38f2166391b3281b640e8c4f43890eea59ff5fc3296dac2",
+    "revision": "b1b1579bd21e164c45c4c93e24dafca9945239ee"
+  },
+  "semantic_mutants": {
+    "allow-edges-from-absent-vertex": {
+      "binary_sha256": "9e91efb4e9fd25c3388d2faef12a77958666b6f2f5be7310a14122bc3dda9697",
+      "different_cases": 306,
+      "expected_result": [
+        2,
+        0
+      ],
+      "first_input": [
+        2,
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "mutant_result": [
+        0,
+        2
+      ],
+      "semantic_sha256": "41cd45ed2d5f78f90da14b527b6e7a91c5fb37bcbd5c7b224f24430f0af92294"
+    },
+    "allow-edges-to-absent-vertex": {
+      "binary_sha256": "0d922b25ca8c94adb09962b427a3ed5bf331d28cf87ab93daf8b2dd51069dff5",
+      "different_cases": 330,
+      "expected_result": [
+        2,
+        0
+      ],
+      "first_input": [
+        1,
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "mutant_result": [
+        0,
+        3
+      ],
+      "semantic_sha256": "dce2966a16b61b2fd77e79e65fef4b0eb2d3be2008c8ddf9420149861927eaec"
+    },
+    "one-propagation": {
+      "binary_sha256": "975ebf79e2f1eb22001d0c2096d5aa2ac5b15bebcaba82aa5175c3cb0efdbfca",
+      "different_cases": 435,
+      "expected_result": [
+        0,
+        7
+      ],
+      "first_input": [
+        7,
+        2,
+        4,
+        1,
+        0,
+        0
+      ],
+      "mutant_result": [
+        0,
+        3
+      ],
+      "semantic_sha256": "61b9b4edefc1e89a89cd9a9c2d8a231532c5981fa8819c7e9cea3e6cf87ca0b9"
+    }
+  },
+  "semantic_sha256": "57b8cce096dd61fc1ecc6dbc2c396361983ee6602064c865cdace18e814caead",
+  "source_sha256": "a408151ea92d97533b902d1d694b963bfd75525b8e2b88656d685d15c05666ac",
+  "three_node_cases": 16384
+}

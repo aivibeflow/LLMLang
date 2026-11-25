@@ -1,0 +1,4 @@
+'JointContracts.jointConformance' does not depend on any axioms
+'JointContracts.jointFeasibility' depends on axioms: [Classical.choice]
+'JointContracts.eventVariantsConform' does not depend on any axioms
+'JointContracts.eventVariantsDiffer' does not depend on any axioms

@@ -1,0 +1,255 @@
+{
+  "bootstrap": {
+    "resamples": 5000,
+    "seed": 332,
+    "unit": "recorded trial within one profile"
+  },
+  "exact_observed_cache_counts": {
+    "cold": {
+      "actions": 100,
+      "fraction": 0.0,
+      "hits": 0,
+      "trials": 10
+    },
+    "policy-changed": {
+      "actions": 100,
+      "fraction": 0.9,
+      "hits": 90,
+      "trials": 10
+    },
+    "restored": {
+      "actions": 100,
+      "fraction": 1.0,
+      "hits": 100,
+      "trials": 10
+    }
+  },
+  "metrics": {
+    "dense_graph_verification_rate": {
+      "median": 5968731.524470122,
+      "median_bootstrap_95_interval": [
+        4412103.512969244,
+        6618811.151698995
+      ],
+      "n": 7,
+      "p10_p90": [
+        4262590.914354273,
+        6755648.676257995
+      ],
+      "unit": "decoded edges/s"
+    },
+    "eight_writer_publication_rate": {
+      "median": 98.02910065384944,
+      "median_bootstrap_95_interval": [
+        97.36139982127447,
+        98.45889280035288
+      ],
+      "n": 10,
+      "p10_p90": [
+        97.27136471166702,
+        98.60662360422693
+      ],
+      "unit": "commits/s"
+    },
+    "finite_oracle_peak_rss": {
+      "median": 13.5,
+      "median_bootstrap_95_interval": [
+        13.5,
+        13.5
+      ],
+      "n": 10,
+      "p10_p90": [
+        13.5,
+        13.5
+      ],
+      "unit": "MiB"
+    },
+    "graph_query_speedup_including_index": {
+      "median": 3.6046833553360855,
+      "median_bootstrap_95_interval": [
+        3.1879861261919142,
+        4.128929666376099
+      ],
+      "n": 10,
+      "p10_p90": [
+        3.086438420479337,
+        4.554138536282908
+      ],
+      "unit": "ratio"
+    },
+    "graph_retained_index_memory": {
+      "median": 5.8177642822265625,
+      "median_bootstrap_95_interval": [
+        5.8177642822265625,
+        5.8177642822265625
+      ],
+      "n": 10,
+      "p10_p90": [
+        5.8177642822265625,
+        5.8177642822265625
+      ],
+      "unit": "MiB"
+    },
+    "grouped_impact_plan_latency": {
+      "median": 18.951211999999998,
+      "median_bootstrap_95_interval": [
+        17.47289,
+        21.544802500000003
+      ],
+      "n": 10,
+      "p10_p90": [
+        17.254921599999996,
+        22.9041899
+      ],
+      "unit": "ms"
+    },
+    "indexed_collection_rate": {
+      "median": 109073.33261770905,
+      "median_bootstrap_95_interval": [
+        101810.96249538669,
+        112337.81481618823
+      ],
+      "n": 10,
+      "p10_p90": [
+        99116.1021735943,
+        115483.58117015244
+      ],
+      "unit": "removed objects/s"
+    },
+    "nested_payload_encode_latency": {
+      "median": 461.7775234375,
+      "median_bootstrap_95_interval": [
+        438.88346874999996,
+        576.5445
+      ],
+      "n": 10,
+      "p10_p90": [
+        433.36839062499996,
+        649.7738671875
+      ],
+      "unit": "us/object"
+    },
+    "nested_payload_encode_rate": {
+      "median": 2166.590693538547,
+      "median_bootstrap_95_interval": [
+        1734.471493527386,
+        2278.509151525202
+      ],
+      "n": 10,
+      "p10_p90": [
+        1576.710497131374,
+        2307.50741575353
+      ],
+      "unit": "objects/s"
+    },
+    "proof_child_peak_rss": {
+      "median": 305.052734375,
+      "median_bootstrap_95_interval": [
+        302.66015625,
+        311.78125
+      ],
+      "n": 10,
+      "p10_p90": [
+        302.3203125,
+        313.019140625
+      ],
+      "unit": "MiB"
+    },
+    "restored_build_process_latency": {
+      "median": 47.053011999999995,
+      "median_bootstrap_95_interval": [
+        45.3659315,
+        53.141760999999995
+      ],
+      "n": 10,
+      "p10_p90": [
+        43.8768566,
+        54.087876200000004
+      ],
+      "unit": "ms"
+    }
+  },
+  "script_sha256": "1a4388051924a8906e309277820c4b6305692b29cac265e2f2aa579534a954c4",
+  "sources": {
+    "build": {
+      "config_sha256": "5af2ef5a8f003a9a72ceab4706b89340bee51e7f441a3d68c8e71bdb0a6d050a",
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "kernel": "6.18.57",
+      "rows": 40,
+      "samples": "toolchain-and-collaboration/RT-11/PERSISTENT-BUILD-CACHE-01/evidence/samples.csv",
+      "samples_sha256": "982758a9059029590ef4b6395c8c8c3f3130c678781dcd4a443621094de61be6",
+      "summary_sha256": "c433397ccf430b3bc5ba3edfc2c3d1e2a3e3e3c59771693274dcf1d43af41a37",
+      "trials_per_profile": 10
+    },
+    "encoding": {
+      "config_sha256": "f74f9a7c66fc2e12bc06d88d1fc20b44f0e33b3b2fbaead61c2728c362ae6843",
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "kernel": "6.18.57",
+      "rows": 60,
+      "samples": "semantic-representation/RT-05/CANONICAL-HASH-COST-01/evidence/samples.csv",
+      "samples_sha256": "5287f374d638f1edbf94f3718a0815d2f0034fa2e3ed976c746c26fca1affe63",
+      "summary_sha256": "2b5c2374507ea9e1ac5695f7b71dfbcf7e556e73e3cafe56e3bac8080a83ebc6",
+      "trials_per_profile": 10
+    },
+    "gc": {
+      "config_sha256": "99c3ca09cf3a9f9fda50d575e457d4ad792a4af43a118e0efe5bbb06189e525d",
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "kernel": "6.18.57",
+      "rows": 40,
+      "samples": "toolchain-and-collaboration/RT-27/SQLITE-RETENTION-BENCHMARK-01/evidence/samples.csv",
+      "samples_sha256": "5688374793785ca25e00853481ed3aa8d3112f42ae720d13c08f0c43903a92de",
+      "summary_sha256": "03d84acbdcc116cba5bf411dac5c592d7c9765b17dc6fbf1392d78028a7b08fa",
+      "trials_per_profile": 10
+    },
+    "graph": {
+      "config_sha256": "06378e325e89c7be1d830b38c696e3dab4e74d2655fe568deed55e63d0e04372",
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "kernel": "6.18.57",
+      "rows": 60,
+      "samples": "semantic-representation/RT-05/REVERSE-TRAVERSAL-01/evidence/samples.csv",
+      "samples_sha256": "2cd33c17eed65ec607bb5d083026cf3f85787a2180847cf591dc5a40ddd4b8cd",
+      "summary_sha256": "302c2b4fcfcf2615d2fe7b6b5ba4e3c389a8f74d5f31f62ab84de35a9d1dfba5",
+      "trials_per_profile": 10
+    },
+    "impact": {
+      "config_sha256": "a6c9754c454729f7b9c504770e92108df006acc4a8b53e5936877870b7023899",
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "kernel": "6.18.57",
+      "rows": 60,
+      "samples": "semantic-representation/RT-06/IMPACT-PLANNING-BENCHMARK-01/evidence/samples.csv",
+      "samples_sha256": "6db23363e94d7691b6ac2d30dd3c5cc1cab653354e3d49db08ea4a21f8eb051e",
+      "summary_sha256": "bcd6103e95249145a0bd31f1526196a8319754084dc706fc585ff3f883e4482d",
+      "trials_per_profile": 10
+    },
+    "large": {
+      "config_sha256": "b7922a91f3f65f07791c3b3ff6fe866e65b67b61e476d9e2c461635dfd4456a8",
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "kernel": "6.18.57",
+      "rows": 14,
+      "samples": "toolchain-and-collaboration/RT-27/LARGE-GIT-GRAPH-BENCHMARK-01/evidence/samples.csv",
+      "samples_sha256": "d604f82df34c97762a7e55cdb0c64e4da2cd5f25da00a24bf76bf91d4a7f4838",
+      "summary_sha256": "6f13d6055fad4e058309e2f88502327c9781d4411a356e76361dae60c3c5a2fc",
+      "trials_per_profile": 7
+    },
+    "proof": {
+      "config_sha256": "6fb91a80dafa9253df78338d31186186f3f659b39d7b69f32dd05ae9e5a676e6",
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "kernel": "6.18.57",
+      "rows": 60,
+      "samples": "formal-verification/PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-01/evidence/samples.csv",
+      "samples_sha256": "9d6390f77d9d7e3a42626f30b98523886b3b29611605744d19060c4f1d8184a2",
+      "summary_sha256": "3ee1662d017d1f3898e98ffdd2d7ef583b08eb0cf05a656c263ce18616501df1",
+      "trials_per_profile": 10
+    },
+    "publication": {
+      "config_sha256": "a2612e0f9f63985d8ee932280ccf4b4c7c041af999714390406ee806920619bc",
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "kernel": "6.18.57",
+      "rows": 120,
+      "samples": "toolchain-and-collaboration/RT-24/CONCURRENT-PUBLICATION-BENCHMARK-01/evidence/samples.csv",
+      "samples_sha256": "bfe4a6f14b5839fa920eaa1fce185e67f1bc36e8174c0f07cbe846b849bf8b7d",
+      "summary_sha256": "abdb9b4b793c1dadb7bed4a4eabc792f2b205e2bb7f0080fda7c9d2232c84aa5",
+      "trials_per_profile": 10
+    }
+  }
+}

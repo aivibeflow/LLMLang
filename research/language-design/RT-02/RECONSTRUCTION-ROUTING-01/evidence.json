@@ -1,0 +1,122 @@
+{
+  "schema": "llmlang-rt02-reconstruction-routing/1",
+  "python": "3.12.14",
+  "source_sha256": {
+    "research/language-design/RT-02/RECONSTRUCTION-ROUTING-01/run.py": "2dc333e595ecd6ee06f44a1c553bac92e6dab4f7f37e2927321f5d7a2a96660d",
+    "research/language-design/RT-02/SEMANTIC-DIRECTION-01/run.py": "44dd78980b6748c4012d8725cecc12a96f1683ec9322809efdd792cafc5059ac",
+    "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/run.py": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a",
+    "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/render.py": "815c62433f1bef359c04cf69d96f28e13a66ff92ad04f4f3db6fcf99c7ee821e",
+    "research/language-design/RT-02/RECONSTRUCTION-ROUNDTRIP-01/corpus.json": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf"
+  },
+  "proposal_artifact_type": "seeded-drafts",
+  "real_model_measurements": false,
+  "cases": {
+    "faithful": {
+      "parse_only_accepts": true,
+      "deterministic_checked": "eligible-for-review",
+      "independent_check": "eligible-for-review",
+      "hybrid_fallback_used": false,
+      "hybrid_checked": "eligible-for-review",
+      "seeded_draft": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+        "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+      ]
+    },
+    "formatting_only": {
+      "parse_only_accepts": true,
+      "deterministic_checked": "eligible-for-review",
+      "independent_check": "eligible-for-review",
+      "hybrid_fallback_used": false,
+      "hybrid_checked": "eligible-for-review",
+      "seeded_draft": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive. ",
+        "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval. "
+      ]
+    },
+    "incorrect_deadline": {
+      "parse_only_accepts": true,
+      "deterministic_checked": "eligible-for-review",
+      "independent_check": "draft-changes-typed-meaning",
+      "hybrid_fallback_used": true,
+      "hybrid_checked": "eligible-for-review",
+      "seeded_draft": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 7 seconds after it, inclusive.",
+        "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+      ]
+    },
+    "omitted_exception": {
+      "parse_only_accepts": true,
+      "deterministic_checked": "eligible-for-review",
+      "independent_check": "draft-changes-typed-meaning",
+      "hybrid_fallback_used": true,
+      "hybrid_checked": "eligible-for-review",
+      "seeded_draft": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive."
+      ]
+    },
+    "added_action": {
+      "parse_only_accepts": true,
+      "deterministic_checked": "eligible-for-review",
+      "independent_check": "draft-changes-typed-meaning",
+      "hybrid_fallback_used": true,
+      "hybrid_checked": "eligible-for-review",
+      "seeded_draft": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+        "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval.",
+        "[extra] For retail orders when reservation succeeded, require notification from payment registration through 5 seconds after it, inclusive."
+      ]
+    },
+    "malformed_output": {
+      "parse_only_accepts": false,
+      "deterministic_checked": "eligible-for-review",
+      "independent_check": "unreadable-draft",
+      "hybrid_fallback_used": true,
+      "hybrid_checked": "eligible-for-review",
+      "seeded_draft": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it.",
+        "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+      ]
+    },
+    "missing_output": {
+      "parse_only_accepts": false,
+      "deterministic_checked": "eligible-for-review",
+      "independent_check": "unreadable-draft",
+      "hybrid_fallback_used": true,
+      "hybrid_checked": "eligible-for-review",
+      "seeded_draft": null
+    },
+    "faithful_to_wrong_formal_input": {
+      "parse_only_accepts": true,
+      "deterministic_checked": "candidate-differs-from-source",
+      "independent_check": "candidate-differs-from-source",
+      "hybrid_fallback_used": false,
+      "hybrid_checked": "candidate-differs-from-source",
+      "seeded_draft": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 7 seconds after it, inclusive.",
+        "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+      ]
+    },
+    "unresolved_provenance": {
+      "parse_only_accepts": true,
+      "deterministic_checked": "unresolved-provenance",
+      "independent_check": "unresolved-provenance",
+      "hybrid_fallback_used": false,
+      "hybrid_checked": "unresolved-provenance",
+      "seeded_draft": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+        "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+      ]
+    },
+    "unsupported_formal_with_readable_draft": {
+      "parse_only_accepts": true,
+      "deterministic_checked": "unsupported-rendering",
+      "independent_check": "draft-changes-typed-meaning",
+      "hybrid_fallback_used": true,
+      "hybrid_checked": "unsupported-rendering",
+      "seeded_draft": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+        "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+      ]
+    }
+  }
+}

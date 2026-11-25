@@ -1,0 +1,45 @@
+{
+  "baseline": "839fe94a6a915f5045b70859e89a8f55bcb852b0",
+  "claims": {
+    "bootstrap_cases_per_route": 16468,
+    "bootstrap_register_cases": 12,
+    "candidate_states": 4032,
+    "delivery_process_exits": 8,
+    "exact_pinned_reads": 96,
+    "faults_by_visible_vector": {
+      "new/new": 3,
+      "new/old": 1,
+      "old/old": 9
+    },
+    "independently_checked_traces": 7,
+    "schedules": 308,
+    "superseded_pinned_reads": 44,
+    "two_repository_schedules": 24
+  },
+  "matched_fixture_sha256": {
+    "bootstrap": {
+      "dependency-tool.json": "a408151ea92d97533b902d1d694b963bfd75525b8e2b88656d685d15c05666ac",
+      "fragment.py": "9c3513c602d3e0aa8d153cd4f29a6ca4de5a8d058663f7b7f79e93d88215581c",
+      "observations.json": "1643c990b27d04a0001f4df9f7723158676dbfd893216143d74ce9ddbd3022ae",
+      "run.py": "36e5034a10b59215b10dba8687561ddb1dfa1cb666be9424211497cdb4e8cc01"
+    },
+    "coherent": {
+      "observations.json": "a1697d1fca71312bf080408718e9757793cb1634253e566cebf39b21207af563",
+      "run.py": "b0b1d9a843d1c0c07d27734b3bf528c8b6b995c24199ae8032625ddeba3b40ef"
+    },
+    "contract": {
+      "Publication.tla": "e63a125be3a59a8db9a88e635fa00aaf9a40d7b77cb0bc65a412709983ff03db",
+      "observations.json": "da725d3ac0912e332d1ee26ec79882e4a3cffb966c9db111862f31564d9d15cf",
+      "run.py": "aeac90c8550dca3261622c4b02c6a53c17ee75cefc03534d6bb8b1de154a6600"
+    },
+    "delivery": {
+      "observations.json": "128615c7d25b0c0b52384bc47baec0117889dea98605e40fb422cf87651f3202",
+      "run.py": "7bdc50ee312a9390e0d5a8874eecee94cff9be540760e8d08484afaa98403062"
+    },
+    "faults": {
+      "fault.c": "69d737fcc7a089076147270265e91bdc89df6b156005feea00288a88b7ceb38b",
+      "observations.json": "a2e51f19d6c9f24d86d7e138c38c1a9c819975bc1b56cab3d393774afa264937",
+      "run.py": "2ff677f724f5122bf7840f9793e21c69e8eda6d35dbecc3f425f47b5069da97e"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "elf_sha256": "a1b96f9a16f9f3f4afd36630ac14cb78967397b30bd180a6638f260c82f728d1",
+  "esp32_uart": [
+    "P:1:0",
+    "P:2:1",
+    "P:3:1",
+    "P:4:0",
+    "P:5:0",
+    "P:6:1"
+  ],
+  "firmware_flash_sha256": "c1b970cf5a18165765b158a59c9914cf0d08f9f9328a8527b1e48828f8d75c7a",
+  "flash_offsets": [
+    "0x1000",
+    "0x10000",
+    "0x8000"
+  ],
+  "flash_size": "4MB",
+  "gpio34_output": "ESP_ERR_INVALID_ARG",
+  "gpio34_output_trace": [],
+  "id": "esp32-multicore-qemu-only",
+  "invalid_flash_sha256": "6ca9ba833248b2a90e519f171a3757b9bb9968cffa8ace739f2bfc4b60f300b7",
+  "linked_symbols": [
+    "app_main",
+    "gpio_config",
+    "gptimer_new_timer",
+    "pilot_emit_result",
+    "pilot_step",
+    "uart_write_bytes"
+  ],
+  "native_controls": 10,
+  "native_reference": [
+    "P:1:0",
+    "P:2:1",
+    "P:3:1",
+    "P:4:0",
+    "P:5:0",
+    "P:6:1"
+  ],
+  "qemu": "QEMU emulator version 9.2.2 (esp_develop_9.2.2_20250817)",
+  "qemu_sha256": "57cd2d1909c08c2b810f4bf7f6fb2c1d2523fc8d3b564e9d5e871c0f471381f7"
+}

@@ -1,0 +1,41 @@
+{
+  "arm_toolchain": "Debian clang version 19.1.7 (3+b1)",
+  "manifest_sha256": "6f49dd3b90a574eee7910a284bffeab4561ffb5922344a77af6fc94bdd01a3c9",
+  "objects": {
+    "esp-call0-control": {
+      "calls": [
+        "callx0"
+      ],
+      "sha256": "5867b228fd6ac43c77256bc0235623d9cb4721d34724e3c5fb007ce795ed3d79",
+      "windowed": false
+    },
+    "esp-default": {
+      "calls": [
+        "callx8"
+      ],
+      "sha256": "6b25b99ca5607e1c845e837177683825f5028e32272ba1dc8774453d79a34dfa",
+      "windowed": true
+    },
+    "f1": {
+      "sha256": "901e44eb1a39eaa5554bde1399d4ed4c583d53209a2f9b6fd6a2300bd3edecca",
+      "vfp_parameter_registers": false
+    },
+    "f4": {
+      "sha256": "1151aedeb7facd5b8acb373a07e47ce74c604aa3549cc53cefb0e8ed38504b5c",
+      "vfp_parameter_registers": true
+    },
+    "f4-softfp-control": {
+      "sha256": "650e38d20c418157a1c787d996a808c41fd4458e1e7d5c626db0f73e4f22c8c1",
+      "vfp_parameter_registers": false
+    }
+  },
+  "runner_sha256": "ce6a298b4a230616173947f1fc4008e09b54c1f22c323d9e3b60c17c16907267",
+  "vendor_files_verified": 14,
+  "xtensa_toolchain": "xtensa-esp-elf-gcc (crosstool-NG esp-14.2.0_20251107) 14.2.0",
+  "xtensa_toolchain_vendor_pin": {
+    "name": "esp-14.2.0_20251107",
+    "sha256": "b0065b3b28d2b5d3bf4868f2fda6bc95d6081025583d1c17b286884bead0305d",
+    "size": 176948400,
+    "url": "https://github.com/espressif/crosstool-NG/releases/download/esp-14.2.0_20251107/xtensa-esp-elf-14.2.0_20251107-x86_64-linux-gnu.tar.xz"
+  }
+}

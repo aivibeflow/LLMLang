@@ -1,0 +1,12 @@
+/* Independent fixture with a plain C call signature. */
+@OPEN@
+unsigned @FUNCTION@(unsigned a, unsigned b,unsigned enabled,
+                     void (*emit)(unsigned), unsigned *out) {
+  emit(a);
+  unsigned value=b;
+  if (enabled != 0u) { value=@LEFT@ @OP@ @RIGHT@; }
+  emit(value);
+  *out=value;
+  return 0u;
+}
+@CLOSE@

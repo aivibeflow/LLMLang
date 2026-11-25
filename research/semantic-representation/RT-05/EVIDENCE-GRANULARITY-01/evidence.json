@@ -1,0 +1,185 @@
+{
+  "schema": "llmlang-rt05-evidence-granularity/1",
+  "python": "3.12.14",
+  "runner_sha256": "300876a404b357f911a23793c9e40d9a10059ee38003e6ec05087dc909314613",
+  "inputs_per_original_claim": 64,
+  "storage_accounting": "logical uncompressed canonical JSON object bytes",
+  "measurements": {
+    "4": {
+      "subject_only": {
+        "bundle": {
+          "old_objects": 1,
+          "old_bytes": 2983,
+          "new_unique_objects": 1,
+          "new_unique_bytes": 2983
+        },
+        "embedded_per_receipt": {
+          "old_objects": 5,
+          "old_bytes": 3261,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 1050
+        },
+        "shared_payload": {
+          "old_objects": 6,
+          "old_bytes": 1600,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 500
+        }
+      },
+      "new_payload": {
+        "bundle": {
+          "old_objects": 1,
+          "old_bytes": 2983,
+          "new_unique_objects": 1,
+          "new_unique_bytes": 2965
+        },
+        "embedded_per_receipt": {
+          "old_objects": 5,
+          "old_bytes": 3261,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 1032
+        },
+        "shared_payload": {
+          "old_objects": 6,
+          "old_bytes": 1600,
+          "new_unique_objects": 3,
+          "new_unique_bytes": 1003
+        }
+      }
+    },
+    "16": {
+      "subject_only": {
+        "bundle": {
+          "old_objects": 1,
+          "old_bytes": 11839,
+          "new_unique_objects": 1,
+          "new_unique_bytes": 11839
+        },
+        "embedded_per_receipt": {
+          "old_objects": 17,
+          "old_bytes": 12909,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 1854
+        },
+        "shared_payload": {
+          "old_objects": 18,
+          "old_bytes": 4720,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 1304
+        }
+      },
+      "new_payload": {
+        "bundle": {
+          "old_objects": 1,
+          "old_bytes": 11839,
+          "new_unique_objects": 1,
+          "new_unique_bytes": 11821
+        },
+        "embedded_per_receipt": {
+          "old_objects": 17,
+          "old_bytes": 12909,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 1836
+        },
+        "shared_payload": {
+          "old_objects": 18,
+          "old_bytes": 4720,
+          "new_unique_objects": 3,
+          "new_unique_bytes": 1807
+        }
+      }
+    },
+    "64": {
+      "subject_only": {
+        "bundle": {
+          "old_objects": 1,
+          "old_bytes": 47263,
+          "new_unique_objects": 1,
+          "new_unique_bytes": 47263
+        },
+        "embedded_per_receipt": {
+          "old_objects": 65,
+          "old_bytes": 51501,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 5070
+        },
+        "shared_payload": {
+          "old_objects": 66,
+          "old_bytes": 17200,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 4520
+        }
+      },
+      "new_payload": {
+        "bundle": {
+          "old_objects": 1,
+          "old_bytes": 47263,
+          "new_unique_objects": 1,
+          "new_unique_bytes": 47245
+        },
+        "embedded_per_receipt": {
+          "old_objects": 65,
+          "old_bytes": 51501,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 5052
+        },
+        "shared_payload": {
+          "old_objects": 66,
+          "old_bytes": 17200,
+          "new_unique_objects": 3,
+          "new_unique_bytes": 5023
+        }
+      }
+    },
+    "256": {
+      "subject_only": {
+        "bundle": {
+          "old_objects": 1,
+          "old_bytes": 188959,
+          "new_unique_objects": 1,
+          "new_unique_bytes": 188959
+        },
+        "embedded_per_receipt": {
+          "old_objects": 257,
+          "old_bytes": 205869,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 17934
+        },
+        "shared_payload": {
+          "old_objects": 258,
+          "old_bytes": 67120,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 17384
+        }
+      },
+      "new_payload": {
+        "bundle": {
+          "old_objects": 1,
+          "old_bytes": 188959,
+          "new_unique_objects": 1,
+          "new_unique_bytes": 188941
+        },
+        "embedded_per_receipt": {
+          "old_objects": 257,
+          "old_bytes": 205869,
+          "new_unique_objects": 2,
+          "new_unique_bytes": 17916
+        },
+        "shared_payload": {
+          "old_objects": 258,
+          "old_bytes": 67120,
+          "new_unique_objects": 3,
+          "new_unique_bytes": 17887
+        }
+      }
+    }
+  },
+  "exact_binding_controls": {
+    "same_payload_old_subject": false,
+    "same_payload_after_exact_recheck": true,
+    "same_payload_after_domain_expansion": false,
+    "same_payload_for_different_behavior": false,
+    "payload_without_typed_receipt": false,
+    "wrong_checker": false
+  }
+}

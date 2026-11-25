@@ -1,0 +1,33 @@
+{
+  "schema": "rt31-staged-authoring-corpus/v1",
+  "integer_inputs": [-17, -2, -1, 0, 1, 7, 23],
+  "tasks": [
+    {
+      "id": "rebind-and-adjust",
+      "objective": "Switch the late-bound operation to the alternate provider, then change only its false-branch fallback offset.",
+      "initial": {"mode": "op", "binding": "primary", "delta": 2, "fallback": 1, "reverse": false},
+      "steps": [
+        {"instruction": "Select alternate. Preserve the entry implementation and fallback behavior.", "changes": {"binding": "alternate"}, "selection_slots": ["binding:provider"]},
+        {"instruction": "Change the fallback offset to minus one and preserve the operation binding.", "changes": {"fallback": -1}, "selection_slots": ["implementation:entry"]}
+      ]
+    },
+    {
+      "id": "pin-and-change-argument",
+      "objective": "Pin the entry call to the primary provider, then change the right operand's offset.",
+      "initial": {"mode": "op", "binding": "alternate", "delta": 2, "fallback": -1, "reverse": false},
+      "steps": [
+        {"instruction": "Pin the current operation call to primary. Keep the selected late provider alternate.", "changes": {"mode": "pin"}, "selection_slots": ["implementation:entry"]},
+        {"instruction": "Change the right operand's offset to minus three without reverting the pin.", "changes": {"delta": -3}, "selection_slots": ["implementation:entry"]}
+      ]
+    },
+    {
+      "id": "change-trace-and-fallback",
+      "objective": "Reverse the two equal-valued argument effects, then adjust only the false branch.",
+      "initial": {"mode": "op", "binding": "primary", "delta": 0, "fallback": 0, "reverse": false},
+      "steps": [
+        {"instruction": "Reverse the two arguments so the right effect precedes the left. Preserve all result values.", "changes": {"reverse": true}, "selection_slots": ["implementation:entry"]},
+        {"instruction": "Change only the fallback offset to three. Keep the reversed effect order for the true branch.", "changes": {"fallback": 3}, "selection_slots": ["implementation:entry"]}
+      ]
+    }
+  ]
+}

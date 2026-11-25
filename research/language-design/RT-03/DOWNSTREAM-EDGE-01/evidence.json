@@ -1,0 +1,156 @@
+{
+  "baseline": "5254e1a74ae4aff6d820e3b36c8a651e7dd59db4",
+  "dispositions": {
+    "Proxy": 1,
+    "Scoped check": 23
+  },
+  "entries": {
+    "DEP-004": {
+      "blob": "64b8ddfdda1059d6137f1478857dc34ec9776112",
+      "disposition": "Scoped check",
+      "report_path": "research/language-design/RT-04/RT-04-QUEUED-FOREIGN-OWNERSHIP-2026-11-25.md",
+      "target": "RT-04"
+    },
+    "DEP-005": {
+      "blob": "9cd35ad48e536e3af04a95cf443212a73a0e0ed2",
+      "disposition": "Scoped check",
+      "report_path": "research/semantic-representation/RT-05/RT-05-NORMALIZATION-BOUNDARIES-2026-11-25.md",
+      "target": "RT-05"
+    },
+    "DEP-007": {
+      "blob": "33c3e1bd6efaeba178d5c63324bdd40bcf1ad1d7",
+      "disposition": "Scoped check",
+      "report_path": "research/formal-verification/RT-07/RT-07-OBSERVABLE-REWRITE-CORRECTNESS.md",
+      "target": "RT-07"
+    },
+    "DEP-010": {
+      "blob": "5f9f9b4beaedb53e0057fa44b284d1a891c39e76",
+      "disposition": "Scoped check",
+      "report_path": "research/semantic-representation/RT-06/RT-06-CONDITIONAL-DEPENDENCY-CLOSURE-2026-11-25.md",
+      "target": "RT-06"
+    },
+    "DEP-013": {
+      "blob": "ae5572602f467993bbec6f1422ce21606393bb11",
+      "disposition": "Scoped check",
+      "report_path": "research/research-management/RT-00/RT-00-OBSERVATION-EVIDENCE-DEPENDENCY-RECHECK-2026-11-25.md",
+      "target": "RT-08"
+    },
+    "DEP-016": {
+      "blob": "c5a0963c9ad1bbf34a85679c3888aa124236fc1c",
+      "disposition": "Scoped check",
+      "report_path": "research/compiler-and-translation/RT-09/RT-09-13-MUTABLE-BYTE-VIEW-PRESERVATION.md",
+      "target": "RT-09"
+    },
+    "DEP-018": {
+      "blob": "f9f5372ab05ee12a60b57ea41b41a3957cb85929",
+      "disposition": "Scoped check",
+      "report_path": "research/runtime-and-systems/RT-10/RT-10-RESUMABLE-EXECUTION-2026-11-25.md",
+      "target": "RT-10"
+    },
+    "DEP-028": {
+      "blob": "5194077bb85fa2d4279d2131195cba90337db915",
+      "disposition": "Scoped check",
+      "report_path": "research/toolchain-and-collaboration/RT-14/RT-14-OBLIGATION-ROSTER-AND-INSPECTION-2026-11-25.md",
+      "target": "RT-14"
+    },
+    "DEP-036": {
+      "blob": "d83784df78a697a17647373cf9f76b37ddd8dbdb",
+      "disposition": "Scoped check",
+      "report_path": "research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md",
+      "target": "RT-11"
+    },
+    "DEP-037": {
+      "blob": "d83784df78a697a17647373cf9f76b37ddd8dbdb",
+      "disposition": "Scoped check",
+      "report_path": "research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md",
+      "target": "RT-15"
+    },
+    "DEP-038": {
+      "blob": "d83784df78a697a17647373cf9f76b37ddd8dbdb",
+      "disposition": "Scoped check",
+      "report_path": "research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md",
+      "target": "RT-16"
+    },
+    "DEP-039": {
+      "blob": "d83784df78a697a17647373cf9f76b37ddd8dbdb",
+      "disposition": "Scoped check",
+      "report_path": "research/language-design/RT-03/RT-03-HANDLER-DOWNSTREAM-2026-11-25.md",
+      "target": "RT-18"
+    },
+    "DEP-086": {
+      "blob": "a07721ff4c9a63a71da8629ae488ad8b0b9b50ac",
+      "disposition": "Scoped check",
+      "report_path": "research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-GIT-LAYOUTS-2026-11-24.md",
+      "target": "RT-24"
+    },
+    "DEP-094": {
+      "blob": "812b358385cbadbc50cf5ba26e9b61775defd90c",
+      "disposition": "Proxy",
+      "report_path": "research/language-design/RT-01/RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md",
+      "target": "RT-21"
+    },
+    "DEP-100": {
+      "blob": "f839a135dd9398e69cb9aa2ce18be22e5dacffd4",
+      "disposition": "Scoped check",
+      "report_path": "research/runtime-and-systems/RT-26/RT-26-RESOURCE-AUTHORITY-BOUNDARY-2026-11-25.md",
+      "target": "RT-26"
+    },
+    "DEP-117": {
+      "blob": "687856110b71fe1c50594b93c864bf89f4d50d34",
+      "disposition": "Scoped check",
+      "report_path": "research/compiler-and-translation/RT-28/RT-28-MIXED-LANGUAGE-SETTLEMENT-2026-11-25.md",
+      "target": "RT-28"
+    },
+    "DEP-136": {
+      "blob": "a507b2635d7ab8bb205b088a96a682db104d0809",
+      "disposition": "Scoped check",
+      "report_path": "research/compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md",
+      "target": "RT-29"
+    },
+    "DEP-148": {
+      "blob": "a512fa36ed0ee2182cb7a672f746f7a855e6f214",
+      "disposition": "Scoped check",
+      "report_path": "research/compiler-and-translation/RT-30/RT-30-SHARED-C-RUNTIME-2026-11-25.md",
+      "target": "RT-30"
+    },
+    "DEP-162": {
+      "blob": "d7781e066c0a7fd5c31dc3819f5eb5b8b84f5eb0",
+      "disposition": "Scoped check",
+      "report_path": "research/language-design/RT-31/RT-31-SYNTAX-AND-SEMANTIC-LAYER-BOUNDARIES-2026-11-25.md",
+      "target": "RT-31"
+    },
+    "DEP-178": {
+      "blob": "050685b220d7529d1d395ee26e74579c688e620e",
+      "disposition": "Scoped check",
+      "report_path": "research/formal-verification/RT-32/RT-32-SOURCE-CLEANUP-KERNEL-2026-11-25.md",
+      "target": "RT-32"
+    },
+    "DEP-191": {
+      "blob": "69527653fb2cb2599d8552419c65b1097fa08169",
+      "disposition": "Scoped check",
+      "report_path": "research/formal-verification/RT-33/RT-33-SMT-ARTIFACT-REPLAY-2026-11-25.md",
+      "target": "RT-33"
+    },
+    "DEP-201": {
+      "blob": "d4395440d4f09b643fbf374f1c17590631486755",
+      "disposition": "Scoped check",
+      "report_path": "research/formal-verification/RT-34/RT-34-RESOURCE-AWARE-LOWERING-2026-11-25.md",
+      "target": "RT-34"
+    },
+    "DEP-212": {
+      "blob": "8aad1c8185561afc3400478feed273d07efbd408",
+      "disposition": "Scoped check",
+      "report_path": "research/semantic-representation/RT-35/RT-35-HARD-COMPATIBILITY-AND-AMBIGUITY-2026-11-25.md",
+      "target": "RT-35"
+    },
+    "DEP-245": {
+      "blob": "b88e419a8df74115c9c909e618504ec8ac4f0176",
+      "disposition": "Scoped check",
+      "report_path": "research/runtime-and-systems/RT-37/RT-37-CORTEX-M3-FREESTANDING-CLOSURE-2026-11-24.md",
+      "target": "RT-37"
+    }
+  },
+  "map_sha256": "013a22c2fe6b4e754c0118a0068899475dd97c9f3b0da277893a546921ea338e",
+  "outgoing_edges": 24,
+  "report_sha256": "373412e3a620250b6576ed9f36c77631a2e07fe03fb701d025e0944df29de5a0"
+}

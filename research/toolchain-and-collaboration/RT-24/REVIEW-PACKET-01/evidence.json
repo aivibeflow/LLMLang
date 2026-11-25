@@ -1,0 +1,91 @@
+{
+  "baseline": "cd4d59dcd8b698e54d5a081b7e31ea958c8f6f03",
+  "git": "git version 2.52.0",
+  "python": "3.12.14",
+  "runner_sha256": "e7b26b3420e1804db3713f54c722424c54f5032186ba59c576beadb638035273",
+  "source_sha256": {
+    "research/toolchain-and-collaboration/RT-24/DIFF-OBSERVATION-LAYERS-01/run.py": "9e0a6a0d1d0aa33a957085b73b88879b48f94c059356c63d3a27e07c50f7fad0",
+    "research/toolchain-and-collaboration/RT-24/COMMIT-TREE-SEMANTIC-ROOT-01/run.py": "8988ba2211978258c5aefd95fd6c85ca16f0e78c167f14c799e4abb63f86ba16",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517"
+  },
+  "bundle_summaries": {
+    "identical": {
+      "state": "checked",
+      "has_source_patch": false,
+      "changed_slots": [],
+      "packet_digest": "21908f9c77f5c3b7764267a89b7be66d401328245e9fa6ebbc3c5686f6252a93",
+      "render_sha256": "91944eebd5350ab8ae4b8d4154d2753ed051dc8f6bc620252fbeda4c2d710056",
+      "exactly_verified": true
+    },
+    "docs-only": {
+      "state": "checked",
+      "has_source_patch": true,
+      "changed_slots": [],
+      "packet_digest": "210f3d82dc65a5a9b01d0a74f000b675915327d49f604e7ee00c8964b298ca7f",
+      "render_sha256": "dbd3a73e300a67536ce7a27953f038f9ebdbb205677a9e0a791c48530e88a932",
+      "exactly_verified": true
+    },
+    "source-format": {
+      "state": "checked",
+      "has_source_patch": true,
+      "changed_slots": [],
+      "packet_digest": "4cf6e385200b4fb8da4a4757539caa5efe296aea2082a249545755af16a36d57",
+      "render_sha256": "410380679dae52b53ebfedfee57d95230be9476f4a7efcf3c05a7eb53037d322",
+      "exactly_verified": true
+    },
+    "different-surface": {
+      "state": "checked",
+      "has_source_patch": true,
+      "changed_slots": [],
+      "packet_digest": "c6bc5441fa948cb4da18fc43f42f3339f8abc75b8a76c7b39bb9deadc1491041",
+      "render_sha256": "6832867be41a04b9866f360056472bdd4b7386b22837cab80b3fd16d6e35b41f",
+      "exactly_verified": true
+    },
+    "retarget-provider": {
+      "state": "checked",
+      "has_source_patch": true,
+      "changed_slots": [
+        "binding:compute"
+      ],
+      "packet_digest": "f33424b1c710338d76cf100bbd95c667059e3f0332b4dd36ca8532a94672a8be",
+      "render_sha256": "6cb7b3f35857e31ca71e59dbb8ae2f57690c249a2f6aa835809978f17690776c",
+      "exactly_verified": true
+    },
+    "explicit-neutral-add": {
+      "state": "checked",
+      "has_source_patch": true,
+      "changed_slots": [
+        "implementation:entry"
+      ],
+      "packet_digest": "74c5fb4eb11f63355335ff68686bb40b586611106b3d68ec261c8db333a87f10",
+      "render_sha256": "0892607f06473957627c51d054a749dbe41d4f35ee766ad914ff430d22aed254",
+      "exactly_verified": true
+    },
+    "value-changing-body": {
+      "state": "checked",
+      "has_source_patch": true,
+      "changed_slots": [
+        "implementation:entry"
+      ],
+      "packet_digest": "11b198f0d1143de1a163cb8733a19aec6c94bb0d9bd51c89dd89516da2f2c88d",
+      "render_sha256": "f9cc131aed07d940383a26a4f9d4a347bc3f597f05bc5206e9ffbb5ea36e4c19",
+      "exactly_verified": true
+    },
+    "invalid-provider": {
+      "state": "unavailable",
+      "has_source_patch": true,
+      "changed_slots": [],
+      "packet_digest": "3f107199dd4994b40dcf7cc5e25fa457453ed35a3e2f6e1c7c0d7b32740d5273",
+      "render_sha256": "147a08d1de462b22e16b79fd109a347fb4b95ba8b6566cbfb484ebe46183bcac",
+      "exactly_verified": true
+    }
+  },
+  "refused_controls": [
+    "wrong_patch",
+    "wrong_scope_with_new_digest",
+    "wrong_candidate"
+  ]
+}

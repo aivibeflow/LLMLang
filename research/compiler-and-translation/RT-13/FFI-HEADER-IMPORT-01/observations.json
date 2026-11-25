@@ -1,0 +1,935 @@
+{
+  "behaviors": {
+    "crypto": [
+      {
+        "inputs": [
+          ""
+        ],
+        "native_and_generated": {
+          "EVP_DigestFinal": [
+            "1",
+            "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "0",
+            "0",
+            "-"
+          ],
+          "EVP_DigestFinal_ex": [
+            "1",
+            "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "1",
+            "1",
+            "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          "abc"
+        ],
+        "native_and_generated": {
+          "EVP_DigestFinal": [
+            "1",
+            "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+            "0",
+            "0",
+            "-"
+          ],
+          "EVP_DigestFinal_ex": [
+            "1",
+            "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+            "1",
+            "1",
+            "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          "hello"
+        ],
+        "native_and_generated": {
+          "EVP_DigestFinal": [
+            "1",
+            "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+            "0",
+            "0",
+            "-"
+          ],
+          "EVP_DigestFinal_ex": [
+            "1",
+            "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+            "1",
+            "1",
+            "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"
+        ],
+        "native_and_generated": {
+          "EVP_DigestFinal": [
+            "1",
+            "248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1",
+            "0",
+            "0",
+            "-"
+          ],
+          "EVP_DigestFinal_ex": [
+            "1",
+            "248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1",
+            "1",
+            "1",
+            "248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1"
+          ]
+        },
+        "same_native_observations": false
+      }
+    ],
+    "libc": [
+      {
+        "inputs": [
+          0
+        ],
+        "native_and_generated": {
+          "close": [
+            0,
+            0,
+            9,
+            -1
+          ],
+          "dup": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          1
+        ],
+        "native_and_generated": {
+          "close": [
+            0,
+            0,
+            9,
+            -1
+          ],
+          "dup": [
+            1,
+            1,
+            0,
+            1
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          42
+        ],
+        "native_and_generated": {
+          "close": [
+            0,
+            0,
+            9,
+            -1
+          ],
+          "dup": [
+            1,
+            1,
+            0,
+            42
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          255
+        ],
+        "native_and_generated": {
+          "close": [
+            0,
+            0,
+            9,
+            -1
+          ],
+          "dup": [
+            1,
+            1,
+            0,
+            255
+          ]
+        },
+        "same_native_observations": false
+      }
+    ],
+    "sqlite": [
+      {
+        "inputs": [
+          0,
+          0
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            0,
+            -1
+          ],
+          "sqlite3_close_v2": [
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": true
+      },
+      {
+        "inputs": [
+          0,
+          1
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            0,
+            -1
+          ],
+          "sqlite3_close_v2": [
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": true
+      },
+      {
+        "inputs": [
+          0,
+          7
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            0,
+            -1
+          ],
+          "sqlite3_close_v2": [
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": true
+      },
+      {
+        "inputs": [
+          0,
+          111
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            0,
+            -1
+          ],
+          "sqlite3_close_v2": [
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": true
+      },
+      {
+        "inputs": [
+          1,
+          0
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            5,
+            100,
+            0,
+            0,
+            0
+          ],
+          "sqlite3_close_v2": [
+            0,
+            100,
+            0,
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          1,
+          1
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            5,
+            100,
+            1,
+            0,
+            0
+          ],
+          "sqlite3_close_v2": [
+            0,
+            100,
+            1,
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          1,
+          7
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            5,
+            100,
+            7,
+            0,
+            0
+          ],
+          "sqlite3_close_v2": [
+            0,
+            100,
+            7,
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          1,
+          111
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            5,
+            100,
+            111,
+            0,
+            0
+          ],
+          "sqlite3_close_v2": [
+            0,
+            100,
+            111,
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          2,
+          0
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            5,
+            100,
+            0,
+            0,
+            100,
+            1,
+            0,
+            0
+          ],
+          "sqlite3_close_v2": [
+            0,
+            100,
+            0,
+            0,
+            100,
+            1,
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          2,
+          1
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            5,
+            100,
+            1,
+            0,
+            100,
+            2,
+            0,
+            0
+          ],
+          "sqlite3_close_v2": [
+            0,
+            100,
+            1,
+            0,
+            100,
+            2,
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          2,
+          7
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            5,
+            100,
+            7,
+            0,
+            100,
+            8,
+            0,
+            0
+          ],
+          "sqlite3_close_v2": [
+            0,
+            100,
+            7,
+            0,
+            100,
+            8,
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": false
+      },
+      {
+        "inputs": [
+          2,
+          111
+        ],
+        "native_and_generated": {
+          "sqlite3_close": [
+            5,
+            100,
+            111,
+            0,
+            100,
+            112,
+            0,
+            0
+          ],
+          "sqlite3_close_v2": [
+            0,
+            100,
+            111,
+            0,
+            100,
+            112,
+            0,
+            -1
+          ]
+        },
+        "same_native_observations": false
+      }
+    ]
+  },
+  "contract_binding": {
+    "contracts": {
+      "EVP_DigestFinal": "Finish SHA-256 and reset the context in this OpenSSL profile.",
+      "EVP_DigestFinal_ex": "Finish SHA-256 and retain the digest selection for reinitialization.",
+      "close": "Release the named descriptor on success.",
+      "dup": "Return a new descriptor for the same open file description and preserve the original.",
+      "sqlite3_close": "Return BUSY while prepared statements remain live. On success close the connection.",
+      "sqlite3_close_v2": "On success retire the caller's connection handle and defer final closure while statements remain."
+    },
+    "refused_identity_controls": {
+      "EVP_DigestFinal": {
+        "alternate-contract": "3edc5fe9081ed2e3ab3e7d569be64bcccf4d42ec22b48ff3eba194b91755792d",
+        "alternate-symbol": "5470b689faa122cea5445e8ebf0e52a2a81e2f879bce70557a0649c53f1a91a4",
+        "different-library": "6d28a9bfdf8bcae24159802593c20e893db72c27bae3403becfa2d43e29e7286"
+      },
+      "EVP_DigestFinal_ex": {
+        "alternate-contract": "5470b689faa122cea5445e8ebf0e52a2a81e2f879bce70557a0649c53f1a91a4",
+        "alternate-symbol": "3edc5fe9081ed2e3ab3e7d569be64bcccf4d42ec22b48ff3eba194b91755792d",
+        "different-library": "5aa3c38d4177b7ccb6e46c52345c47e5249feaa5c8592a902091ab17630b2b9c"
+      },
+      "close": {
+        "alternate-contract": "68747d1ab8c17edb22bae370da77adfbf61859a4b4193fd7d1733f213ec7cc7e",
+        "alternate-symbol": "e58e6da104ef53b60d9f79a1dcfa25521a5a86a94483f8c1bd1da791afdd4c36",
+        "different-library": "0ec799f458afaa4b3ba7f81cf3fea8d52c37e80a9080e8abb289bd14517bf63e"
+      },
+      "dup": {
+        "alternate-contract": "e58e6da104ef53b60d9f79a1dcfa25521a5a86a94483f8c1bd1da791afdd4c36",
+        "alternate-symbol": "68747d1ab8c17edb22bae370da77adfbf61859a4b4193fd7d1733f213ec7cc7e",
+        "different-library": "c8065088c2ca1c0ace789574a05f5091972059ab578f25af0dfb7e4e6c5d3053"
+      },
+      "sqlite3_close": {
+        "alternate-contract": "dd05e1647d92f6655a53ef2f578110d26d90206e38b1059742344d05c4716f62",
+        "alternate-symbol": "de403acae9b4d918d6a1b8374562fa047f1934788f04072ab0d5b79961cae686",
+        "different-library": "622e122e2631b9bfe32c273d5a3e6e7a01adc058a78981d4b39f51095014299a"
+      },
+      "sqlite3_close_v2": {
+        "alternate-contract": "de403acae9b4d918d6a1b8374562fa047f1934788f04072ab0d5b79961cae686",
+        "alternate-symbol": "dd05e1647d92f6655a53ef2f578110d26d90206e38b1059742344d05c4716f62",
+        "different-library": "ed7d92ab30ba12e1aaf4b69aee50d9eba04ddb8c3a8826a8b1d46937a72716c5"
+      }
+    },
+    "scoped_binding_sha256": {
+      "EVP_DigestFinal": "561256993c2db79f9b993ade3d8fe46c2ffc7070e84248c7ed7822dc1b3a3265",
+      "EVP_DigestFinal_ex": "366252af7af13fb876f27bb55b40d4112e0057c6a7e41afcdeaeef0d5f1f60d9",
+      "close": "fce5e5165d0ea729a7abfb0ba5da5828fb7718118e122eab56d688725a56f1ee",
+      "dup": "0e8705665376040ede423ccde3162c16878f84709de762780fbe457596a3fd64",
+      "sqlite3_close": "eab0ae2884540dbcc65db8c8b0895402617d9e0b6f3f2206dcd501e3baf87118",
+      "sqlite3_close_v2": "8d268e1e98bfe0b6ded29c7207ad80795f776900669ab4e15616ec5750e9ee5a"
+    }
+  },
+  "declarations": {
+    "EVP_DigestFinal": {
+      "attributes": [],
+      "declaration_type": "int (EVP_MD_CTX *, unsigned char *, unsigned int *)",
+      "family": "crypto",
+      "ffi_parameters": [
+        "c_void_p",
+        "p_ubyte",
+        "p_uint"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "EVP_MD_CTX *",
+        "unsigned char *",
+        "unsigned int *"
+      ],
+      "result": "int"
+    },
+    "EVP_DigestFinal_ex": {
+      "attributes": [],
+      "declaration_type": "int (EVP_MD_CTX *, unsigned char *, unsigned int *)",
+      "family": "crypto",
+      "ffi_parameters": [
+        "c_void_p",
+        "p_ubyte",
+        "p_uint"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "EVP_MD_CTX *",
+        "unsigned char *",
+        "unsigned int *"
+      ],
+      "result": "int"
+    },
+    "EVP_DigestInit_ex": {
+      "attributes": [],
+      "declaration_type": "int (EVP_MD_CTX *, const EVP_MD *, ENGINE *)",
+      "family": "crypto",
+      "ffi_parameters": [
+        "c_void_p",
+        "c_void_p",
+        "c_void_p"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "EVP_MD_CTX *",
+        "const EVP_MD *",
+        "ENGINE *"
+      ],
+      "result": "int"
+    },
+    "EVP_DigestUpdate": {
+      "attributes": [],
+      "declaration_type": "int (EVP_MD_CTX *, const void *, size_t)",
+      "family": "crypto",
+      "ffi_parameters": [
+        "c_void_p",
+        "c_void_p",
+        "c_size_t"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "EVP_MD_CTX *",
+        "const void *",
+        "size_t"
+      ],
+      "result": "int"
+    },
+    "EVP_MD_CTX_free": {
+      "attributes": [],
+      "declaration_type": "void (EVP_MD_CTX *)",
+      "family": "crypto",
+      "ffi_parameters": [
+        "c_void_p"
+      ],
+      "ffi_result": "void",
+      "parameters": [
+        "EVP_MD_CTX *"
+      ],
+      "result": "void"
+    },
+    "EVP_MD_CTX_get0_md": {
+      "attributes": [],
+      "declaration_type": "const EVP_MD *(const EVP_MD_CTX *)",
+      "family": "crypto",
+      "ffi_parameters": [
+        "c_void_p"
+      ],
+      "ffi_result": "c_void_p",
+      "parameters": [
+        "const EVP_MD_CTX *"
+      ],
+      "result": "const EVP_MD *"
+    },
+    "EVP_MD_CTX_new": {
+      "attributes": [],
+      "declaration_type": "EVP_MD_CTX *(void)",
+      "family": "crypto",
+      "ffi_parameters": [],
+      "ffi_result": "c_void_p",
+      "parameters": [],
+      "result": "EVP_MD_CTX *"
+    },
+    "EVP_sha256": {
+      "attributes": [],
+      "declaration_type": "const EVP_MD *(void)",
+      "family": "crypto",
+      "ffi_parameters": [],
+      "ffi_result": "c_void_p",
+      "parameters": [],
+      "result": "const EVP_MD *"
+    },
+    "OpenSSL_version": {
+      "attributes": [],
+      "declaration_type": "const char *(int)",
+      "family": "crypto",
+      "ffi_parameters": [
+        "c_int"
+      ],
+      "ffi_result": "c_char_p",
+      "parameters": [
+        "int"
+      ],
+      "result": "const char *"
+    },
+    "close": {
+      "attributes": [],
+      "declaration_type": "int (int)",
+      "family": "libc",
+      "ffi_parameters": [
+        "c_int"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "int"
+      ],
+      "result": "int"
+    },
+    "dup": {
+      "attributes": [
+        "NoThrowAttr"
+      ],
+      "declaration_type": "int (int)",
+      "family": "libc",
+      "ffi_parameters": [
+        "c_int"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "int"
+      ],
+      "result": "int"
+    },
+    "sqlite3_close": {
+      "attributes": [],
+      "declaration_type": "int (sqlite3 *)",
+      "family": "sqlite",
+      "ffi_parameters": [
+        "c_void_p"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "sqlite3 *"
+      ],
+      "result": "int"
+    },
+    "sqlite3_close_v2": {
+      "attributes": [],
+      "declaration_type": "int (sqlite3 *)",
+      "family": "sqlite",
+      "ffi_parameters": [
+        "c_void_p"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "sqlite3 *"
+      ],
+      "result": "int"
+    },
+    "sqlite3_column_int": {
+      "attributes": [],
+      "declaration_type": "int (sqlite3_stmt *, int)",
+      "family": "sqlite",
+      "ffi_parameters": [
+        "c_void_p",
+        "c_int"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "sqlite3_stmt *",
+        "int"
+      ],
+      "result": "int"
+    },
+    "sqlite3_finalize": {
+      "attributes": [],
+      "declaration_type": "int (sqlite3_stmt *)",
+      "family": "sqlite",
+      "ffi_parameters": [
+        "c_void_p"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "sqlite3_stmt *"
+      ],
+      "result": "int"
+    },
+    "sqlite3_libversion": {
+      "attributes": [],
+      "declaration_type": "const char *(void)",
+      "family": "sqlite",
+      "ffi_parameters": [],
+      "ffi_result": "c_char_p",
+      "parameters": [],
+      "result": "const char *"
+    },
+    "sqlite3_open": {
+      "attributes": [],
+      "declaration_type": "int (const char *, sqlite3 **)",
+      "family": "sqlite",
+      "ffi_parameters": [
+        "c_char_p",
+        "p_void_p"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "const char *",
+        "sqlite3 **"
+      ],
+      "result": "int"
+    },
+    "sqlite3_prepare_v2": {
+      "attributes": [],
+      "declaration_type": "int (sqlite3 *, const char *, int, sqlite3_stmt **, const char **)",
+      "family": "sqlite",
+      "ffi_parameters": [
+        "c_void_p",
+        "c_char_p",
+        "c_int",
+        "p_void_p",
+        "p_char_p"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "sqlite3 *",
+        "const char *",
+        "int",
+        "sqlite3_stmt **",
+        "const char **"
+      ],
+      "result": "int"
+    },
+    "sqlite3_step": {
+      "attributes": [],
+      "declaration_type": "int (sqlite3_stmt *)",
+      "family": "sqlite",
+      "ffi_parameters": [
+        "c_void_p"
+      ],
+      "ffi_result": "c_int",
+      "parameters": [
+        "sqlite3_stmt *"
+      ],
+      "result": "int"
+    }
+  },
+  "headers_sha256": {
+    "/usr/include/fcntl.h": "6ec7f899b9cbb06442afef4934fae7906fa8a53d2387de774770525d1fbfcb49",
+    "/usr/include/features-time64.h": "89036fa88ac19881ddfb07d4e65beb620a083d770cbf1c925f148c9ea1ce5a63",
+    "/usr/include/features.h": "20c5358da5ab2353b26bda1b36e66400290fbd2b16d30a6a21dc16f4f22ab280",
+    "/usr/include/inttypes.h": "551dfff797d3f445de7045e134e5e7b057320febea176f9e5e0fb33ece1b8d69",
+    "/usr/include/limits.h": "59dccd0e0f84037a0be75a01efe840b7b1ebe8502cdfb49742697c49290ce18f",
+    "/usr/include/linux/limits.h": "567dbb4893d20bb986996f0a8b8f774b02ca6cb7df8e4b642895eade7e7ffcd9",
+    "/usr/include/openssl/asn1.h": "4fa5c0b192a3eb73927fbec13c8a399831afd09bf4c0b5f551f025c7c8044a02",
+    "/usr/include/openssl/asn1err.h": "9d60638b3d0c52170d390fe566c0b96a6381590590cc3dd71339eb85140fe1d6",
+    "/usr/include/openssl/bio.h": "c2aa5855e8b17a316d5ec8222db127816c601ce5f19ef239788ad4cc24a1ea53",
+    "/usr/include/openssl/bioerr.h": "fe1bf57251e4eaab30d2a6aa2048ee93deb1f0f15ef6634f61093b4d405586c6",
+    "/usr/include/openssl/bn.h": "da179e5d98e8351e3e29f148bd88b42cba84fe60c7927a584f213bf2d09c38ed",
+    "/usr/include/openssl/bnerr.h": "beeb78746fbcc2c09e1f833f4c2ea72e845e757390aad7dc8699f7787b580204",
+    "/usr/include/openssl/core.h": "4d4e63e2e01d06530515adbbe3c93601c5f0f5e1a96754d34d3470bccfcbdbc3",
+    "/usr/include/openssl/core_dispatch.h": "877d786bd366e80baa763d2c6c0b94e1d91c92cb0b6fa26d4004e6b0c3e6dd81",
+    "/usr/include/openssl/crypto.h": "345267a63492320c5c23550bf10b6b94744c6250bcbb17a87954e324c7a51faf",
+    "/usr/include/openssl/cryptoerr.h": "c457c0591449551657a69ff9727784a79cc1afd899ac733c682c1a41fefdaa19",
+    "/usr/include/openssl/cryptoerr_legacy.h": "985664cb71a62441b2822028340bb4ad5e3f98d6c74ba4c1bc7c997e188b97d3",
+    "/usr/include/openssl/e_os2.h": "d7300e16ec04f764e8fd45ae5288c37ab5af09dd1ea204d17c54c0155c69921c",
+    "/usr/include/openssl/evp.h": "41b42c68adfd98b9d8a80fb2d78bbdaf1094f43dd02be045c7d8605edf36a706",
+    "/usr/include/openssl/evperr.h": "ee0a462f1985667434a2b8a91d5df67ce2ee74e4ad9246f660dece5fafcf4474",
+    "/usr/include/openssl/indicator.h": "4be987d4fe4a4b39feac27c2ee85000e1b6ca7188d8ca9f75689a8205c2b4563",
+    "/usr/include/openssl/macros.h": "dc27bc9e94abbb9e49bbcb604da5c061a65145586ac388c3fb4fc311daaccf96",
+    "/usr/include/openssl/obj_mac.h": "d51cb3f619888a0485ba46ad886f76ac605ce78a3cfbc080460947ab2dbb3a02",
+    "/usr/include/openssl/objects.h": "b6227db488aa39ed20a29e67d48fe8fefb2f649a1afcc3149cba22ac26510057",
+    "/usr/include/openssl/objectserr.h": "fc14e6c9e71fb550363394f912cb72e6078dd11e300bdddfdd17ec118c88dc4b",
+    "/usr/include/openssl/opensslv.h": "a039c3c8a9de832c01e18586691a109e064518647a43e322367d11a972f67a13",
+    "/usr/include/openssl/params.h": "b76d73449d8d44d14a7da9918caf3d1feee85b384e2d62ace73a8a1126152702",
+    "/usr/include/openssl/safestack.h": "0468b87ce8ea20069f621cc4dfc25fe6788408d5f46ce3baec738c89b64c2591",
+    "/usr/include/openssl/stack.h": "c81fbb17b5476dca609b96eb11372d1d246a49096838c2cf7e81ad6b25f69316",
+    "/usr/include/openssl/symhacks.h": "2b54552189bfbf4204c28c6a421b21702a3cd3dba37570dbcdadb7ee648f155b",
+    "/usr/include/openssl/types.h": "de5422d2e621df11c17ab18473ea4f2368ecc64b1e45311c4890cc62b31f81c5",
+    "/usr/include/pthread.h": "512a6c8b07a201b4e8b5b8644744c3f4c1a9e3c76c58708cf9a958f29d124d52",
+    "/usr/include/sched.h": "e7f62b1566aa210bf65da19d44c1b0a516fdb1089d0d79995f7ce26898560209",
+    "/usr/include/stdc-predef.h": "82975831ea2d1f95b60225f37ddd6130225f0c3de2318674cb178fea661ad87b",
+    "/usr/include/stdint.h": "38751c3803361248b73bba3d8b48aa7015ccb94c2c31f247f587b157c4ee344a",
+    "/usr/include/stdio.h": "e5094b40bd7ab3bea3a4e80a4071069882c2e9a4488ff2b1b03174352a0db0b1",
+    "/usr/include/stdlib.h": "999cb2acafbb64984f99ee410a42dfd79815de184a0312d7c136e31795a952d2",
+    "/usr/include/time.h": "502077dfa1b92bb9d166d69ab07ba536afbc5188ff0ed4e55308845e7ef9752a",
+    "/usr/include/unistd.h": "aee91ddee895a880d42e86506a7da85f8766690003f3c66eb1895d13de10d1ba",
+    "/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h": "05531d0ae2a64ce741fe96a6c992190ef77eff1dc72e9e8f9bd0ff3b6bd7ff57",
+    "/usr/include/x86_64-linux-gnu/bits/cloexec.h": "fe4bf3585d48939dc11fe267943518a6714acc3cd6abd07efab46bb805376946",
+    "/usr/include/x86_64-linux-gnu/bits/confname.h": "6ce8f12a1e5f43905079b49528ab4a0b26cf6bdac64cee572e7e3be9b9d6d0e1",
+    "/usr/include/x86_64-linux-gnu/bits/cpu-set.h": "df8b69ed158512eec73529d91f4e3e5b9d2633a7606a38b521993b87064e54b0",
+    "/usr/include/x86_64-linux-gnu/bits/endian.h": "f559fd70d8a24202805d1d8a3546e28c427f6ce7808296002687cb6c636fd21f",
+    "/usr/include/x86_64-linux-gnu/bits/endianness.h": "659a7060004eda113671a38852c4d1e9cb97a35932bcd1d8540f98c09c180747",
+    "/usr/include/x86_64-linux-gnu/bits/environments.h": "443741b2af4b0669bb9dae4ad09f5c713e7dc2ebb02eb32c48c4f6fdf2d1f436",
+    "/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h": "ee8d1185514a759f3e9bc14bb0cf8c479e4072374328510f76c1af08d407ae10",
+    "/usr/include/x86_64-linux-gnu/bits/fcntl.h": "252bf5adc70ddfc09e059adac0acd4dea7694d3714ad47208c9f51ece0a4e43d",
+    "/usr/include/x86_64-linux-gnu/bits/floatn-common.h": "a8a1a20b3e3c9811b348f9f7c4a3825d0eae6b27615991d1ca50dd1338e32a00",
+    "/usr/include/x86_64-linux-gnu/bits/floatn.h": "959a6fafb663ca665daa89066124c126291603e14d727d8a1d59823e9fd92451",
+    "/usr/include/x86_64-linux-gnu/bits/getopt_core.h": "8ad97c20671f0ca03f8bb35412a5b69699ca4c641744bd66cac4943e30088df5",
+    "/usr/include/x86_64-linux-gnu/bits/getopt_posix.h": "73f792a9876b4505701e8f5cb569b76d8a6fcef873c5659fb0c58674499b65e4",
+    "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h": "06256b79e2535489e5dce8c21854d3b0bd72d5479a3d013170f09261defc0a4f",
+    "/usr/include/x86_64-linux-gnu/bits/local_lim.h": "b38fad51045d65239da3868ea94c4f31850901ec1f7e56349452fca45f70717e",
+    "/usr/include/x86_64-linux-gnu/bits/long-double.h": "30f74e9207fbbbe7fafb7b5e3e54124997abc44549506c514f2adae054ee3d56",
+    "/usr/include/x86_64-linux-gnu/bits/posix1_lim.h": "ea4252c4bb02abfad2e734c657d9f323e98f406b35be6377f43c7eb78699b8d6",
+    "/usr/include/x86_64-linux-gnu/bits/posix2_lim.h": "53647564016cc8ecba361bd9cb7c706b9755ef604213ece31a1307ebc4cd08d1",
+    "/usr/include/x86_64-linux-gnu/bits/posix_opt.h": "578156ff9f7525a65a01c40ff99e143612ef626acaa329b13721473387642bbb",
+    "/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h": "aa07727cdcd5a7d9e2159e03b2db63f0e9ab75efd5332b565b5c8623ab9b714f",
+    "/usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h": "d91d2b37f8e1d47a8d2da1960ff67873f8a1e5ee069905ab4dee9adb5321b2f9",
+    "/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h": "c838de98779156e73b927940c1db8d3e385624980d2c4ca37c352ad69955074b",
+    "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h": "acad99a6a3ef489327e806c8d29b25797ca2126cd5489233837e5c9c01516cd1",
+    "/usr/include/x86_64-linux-gnu/bits/sched.h": "2fb6537fb0cbaf6712115cb6241c043e2ccdaf80dddacdbeced8ade2d90a2dea",
+    "/usr/include/x86_64-linux-gnu/bits/setjmp.h": "2c953ac477ba1060a84f7fbad27dffd2f4fe5e8b5847b382ec19bff1270ef5ef",
+    "/usr/include/x86_64-linux-gnu/bits/stat.h": "b9bad094f74412615c3c9f05397e44f44874c23666a6e30b8aabaafcd7610f33",
+    "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h": "88f639a4e588077b6edfad36b3bb045f0cc052b5f9d194f8e706ee27cd846f67",
+    "/usr/include/x86_64-linux-gnu/bits/stdint-least.h": "f2f6cc431ef00e9182f7367cd06fb1130740c41a1f4dd1c61f146a1e761a4474",
+    "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h": "8ce3858074e8073db1eed4d25d69b3c14d41e826fa2351c5fc5246bb546161f8",
+    "/usr/include/x86_64-linux-gnu/bits/stdio_lim.h": "436ad57abe906d460631967c822c0622dc100da1e1bd3e0fa8879b6f7f2c6654",
+    "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h": "fdd6c94e471e2aa2e03bae449f993392a6593044490fc82601b77d7116381201",
+    "/usr/include/x86_64-linux-gnu/bits/struct_mutex.h": "700e77ca8b5d27b19649358abe229e64b238cb4ce79474fc1194d7831dc3a34f",
+    "/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h": "7d1b998c8def8d264af5114e869bcb37c484daa23ec8ac54a2110dbdd9c05a95",
+    "/usr/include/x86_64-linux-gnu/bits/struct_stat.h": "c2fc9fb4ff5a18c254ab08219b019aff42190b0136e2ea626b4b3c6af8275c77",
+    "/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h": "f16fd912b0b1e8a222af4acb11dbbc9c68ba485c381a0dcf49be60b38e581c37",
+    "/usr/include/x86_64-linux-gnu/bits/time.h": "9b34f004f183bea846379580cb3d2f19588d96b4c7faafb3ebb7c9ffd9bafd59",
+    "/usr/include/x86_64-linux-gnu/bits/time64.h": "b0c5f25ce84037dda2c42408543a4616e129d70d6ebf10bd3ecc8b756466582a",
+    "/usr/include/x86_64-linux-gnu/bits/timesize.h": "d949eed9646ca5916b338e1f02ffaf31a4c62907738805aba4ffa329a365f8f2",
+    "/usr/include/x86_64-linux-gnu/bits/types.h": "74d92766725404961cc2908de587aeaf24a5a8ef49a0103c5d3fb9f9fe9dead0",
+    "/usr/include/x86_64-linux-gnu/bits/types/FILE.h": "37515f78be386f2edad4746f2947c928f480728c56d9a94e25302ebbdaef3c96",
+    "/usr/include/x86_64-linux-gnu/bits/types/__FILE.h": "26c909942e8a6bc82725e9c402f393aed9e32d94190257ddf71e1b5f819b4e5e",
+    "/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h": "8afae3abf006beb39fd9d4d4bae38745cdf08a91e6217ddf25833c8d4b04751b",
+    "/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h": "603e58ab31ed75b7e0ab09a2ca94e99955f7fbc63310466321ce27c906227eb4",
+    "/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h": "d2513e510029ea0f2fc3868e9f1c990173b2df593d40bb8957b63c8035a1eb35",
+    "/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h": "c561df72d5b987ccbd022059fdb1bcb6899c3e94b403997a0576ef3e1afb0f94",
+    "/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h": "05291a7d38bb1d0da1ed01c09fe85fa2b1f4d5bc708e06bb930efec672db08d5",
+    "/usr/include/x86_64-linux-gnu/bits/types/clock_t.h": "81e60e8a8d99b28bc723c14b156d7f7fc8ff663d98a857a3f5aea90431f577e3",
+    "/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h": "dcd64d184855b245e5c7acf21910a0aaca590f1faf094e400da5d30551d11eb0",
+    "/usr/include/x86_64-linux-gnu/bits/types/locale_t.h": "aee0f473e9900ae9c3f9845cfabce44fb4d60ddf2706a30f802ea89bc6411d4c",
+    "/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h": "5b1e0312496e150398e71409ffd203e00cdff92365772ffa6aa4a198c3b8ea53",
+    "/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h": "05e69f8d10ee12c3ad50204ff9e55926d9b57d3a24634c04b2c718547573f735",
+    "/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h": "d6299fbc46fc57e7d14635cd5cf69125710ed021ab7305586c84644a03a39f8e",
+    "/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h": "f302ecf26419064eacddd110ed6fd8758c2e390d7958af69ceae3177f616e1b4",
+    "/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h": "798e773d0c7f3796033c043910db2b093d1e43116c4b3d2cf3be85f8c4304cf1",
+    "/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h": "e7bdda3f42eb0633850ed150fef0a0cf6193cbba8fa740e7505925424a595566",
+    "/usr/include/x86_64-linux-gnu/bits/types/time_t.h": "d1cc45e24a80009117f61ee4ae9cae5d12f69f38d691e0a933f989f7a1d27bb0",
+    "/usr/include/x86_64-linux-gnu/bits/types/timer_t.h": "d96a2452da0d933941273d11d1048ea525f033306892835b0a7a0999b13853aa",
+    "/usr/include/x86_64-linux-gnu/bits/typesizes.h": "49656ffcee2a7091ae16f8ad737c63c1d3e06ecdb84c3fa1c6f65b0b6784262a",
+    "/usr/include/x86_64-linux-gnu/bits/unistd_ext.h": "bd6de799b64036885d60171cd13b9dbb760451090176855ab2fe19499e5092e6",
+    "/usr/include/x86_64-linux-gnu/bits/waitflags.h": "fe55139021b16f8d4a2b00309ce9818b679626ba2d685a63ea527414d852d7b3",
+    "/usr/include/x86_64-linux-gnu/bits/waitstatus.h": "af2b2a279b806c772f9dafe54473029d42a06d3c9547a76718745a29565fdbbb",
+    "/usr/include/x86_64-linux-gnu/bits/wchar.h": "169453a3eb0c5e504b513fb3bad0bda7780bb84c7139c501e3deeb75ac731f35",
+    "/usr/include/x86_64-linux-gnu/bits/wordsize.h": "948177c0fc84c4746588f62252029880ec4c6f88b743ba55d952f980303ebfbb",
+    "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h": "0b6ab3e2ed3ba79b30fe6ba81a68fc41f57965b8d56662763633431b703c9289",
+    "/usr/include/x86_64-linux-gnu/gnu/stubs.h": "ef444295a0a9e8f5c40918399a00cc91ba0bd79774110cdf6e652baa6cfadb2e",
+    "/usr/include/x86_64-linux-gnu/openssl/configuration.h": "77a77ad46a82d8a44b9da69d561036ec7ad01a599e9a08e403cc2835c7fd8c83",
+    "/usr/include/x86_64-linux-gnu/openssl/opensslconf.h": "7f4b522c049d0bd0d651e6f6ebe71d6df0c37231a94e32524da3f4642ebda3be",
+    "/usr/include/x86_64-linux-gnu/sys/cdefs.h": "69a3c3625bac01b58ab781d02c7800592b5082c4ea962a456260dcf288216f68",
+    "/usr/include/x86_64-linux-gnu/sys/types.h": "3134ee1a8359f7d4d69e40db42b70f94c10f1e9e40b9925454bccbf7608d5ced",
+    "compiler-resource/include/__stdarg___gnuc_va_list.h": "feca975bfdfb254d17458a8e3d51f8ad6d9bdc9fd6287727f0f8b2fb81fcb0b0",
+    "compiler-resource/include/__stdarg___va_copy.h": "f0a8d3c963338173f2d57b2cbc209dde38c90536107b15eb0cf78166d4caee1f",
+    "compiler-resource/include/__stdarg_header_macro.h": "7b3fbcc442af2508f36bb2dc98d9ad2b8a1f5c0f5333394fb2159c8bd5ecd5b8",
+    "compiler-resource/include/__stdarg_va_arg.h": "db0cca3b7768cf07807553fb88ea74e00cba4503e08a5f5504989fb3cc3e4cf1",
+    "compiler-resource/include/__stdarg_va_copy.h": "bb195f56cb08d4cee6a60bd9f62f34466e8ac4f89f6fed043b044cb2f7ead010",
+    "compiler-resource/include/__stdarg_va_list.h": "81c3055f7033e26e7f53705653bc9d69b5202f25c2692e03b3a4f77ff44a7d76",
+    "compiler-resource/include/__stddef_header_macro.h": "4cf46e8fbb809df048eecbbd63686fa741da27afa8db4245bd1f61c1fb1611dc",
+    "compiler-resource/include/__stddef_max_align_t.h": "3c1e4de47f4f06b35e2c5890d670052e84f716760505ff51b022fc8b21a9400f",
+    "compiler-resource/include/__stddef_null.h": "b1d71b08563ab3d2c22a1e4f8ddf4d9a1111c89e9404b859a45c307e8ebc6c69",
+    "compiler-resource/include/__stddef_offsetof.h": "e5f0f4ff8ff5fc6a1cc8b535f5065f1728eadd2bf1e1401f021f803ec7b4222f",
+    "compiler-resource/include/__stddef_ptrdiff_t.h": "b4178a57f3711b7013cba747a72a2f178c29fa9364e77d75b2159754072ced43",
+    "compiler-resource/include/__stddef_size_t.h": "d86ddc0238da09b385846ebef814ffc50a44e40cf85d4e3793f485952b7e73ad",
+    "compiler-resource/include/__stddef_wchar_t.h": "1900d4998aef3698b06399ed686db0c21e26509b08638a25734fb97ae89b1001",
+    "compiler-resource/include/inttypes.h": "5433291db785860ede1e69d234a77f0536e004d4f9b2db916def7748432fe84d",
+    "compiler-resource/include/limits.h": "55620ec210ddaa6e6142b0e7df4e643a942bee4d35f7b0cac82f9268c605946f",
+    "compiler-resource/include/stdarg.h": "ce6e43d79dc89b50208ecf259b1ffd519f5a78cd3a2c7fcaac6386f376b89fef",
+    "compiler-resource/include/stddef.h": "b3e62a046ddf28d09eedebe6eb9461cb7060e47cad2c69964b222c4eea10347e",
+    "compiler-resource/include/stdint.h": "655616d8fcb2c92b38c039019685c658c2346b3dd0021aed4ea057b43f621247",
+    "fixture/input.c": "50bad6c8faa6dd7403a8b009884483257bcc75dcf4fbd73d7b44759446bb9279",
+    "sqlite-include/sqlite3.h": "f319f664239fdd3154721a70b7cf37fa1475703c6a4deaf7605511851c1edb17"
+  },
+  "libraries_sha256": {
+    "crypto": "8ae56f0a9481280a68c19f59809cd242a07a91ad7142944d21a878221992244b",
+    "libc": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+    "sqlite": "317d80bf5d592f98a71e14d2330591d6a339f631f37c5977835af748a1f26715"
+  },
+  "refusals": {
+    "open": "variadic-signature",
+    "sqlite3_exec": "function-pointer-parameter",
+    "sqlite3_fixture_missing": "missing-symbol"
+  },
+  "same_signature_pairs": [
+    [
+      "sqlite3_close",
+      "sqlite3_close_v2"
+    ],
+    [
+      "EVP_DigestFinal",
+      "EVP_DigestFinal_ex"
+    ],
+    [
+      "close",
+      "dup"
+    ]
+  ],
+  "signature_only_wrong_pairs": {
+    "crypto": 4,
+    "libc": 4,
+    "sqlite": 8
+  },
+  "tool_versions": {
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "openssl": "OpenSSL 3.5.7 9 Jun 2026",
+    "sqlite": "3.46.1"
+  }
+}

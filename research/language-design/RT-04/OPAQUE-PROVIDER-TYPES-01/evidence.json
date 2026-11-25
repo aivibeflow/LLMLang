@@ -1,0 +1,121 @@
+{
+  "python": "3.12.14",
+  "results": {
+    "erased": {
+      "inline_array": {
+        "operation_client": {
+          "native_size": 16,
+          "status": "accepted",
+          "sum": 10
+        },
+        "provider": {
+          "status": "accepted"
+        },
+        "send_client": {
+          "diagnostic": "E0277",
+          "status": "refused"
+        }
+      },
+      "shared_rc": {
+        "operation_client": {
+          "native_size": 16,
+          "status": "accepted",
+          "sum": 10
+        },
+        "provider": {
+          "status": "accepted"
+        },
+        "send_client": {
+          "diagnostic": "E0277",
+          "status": "refused"
+        }
+      }
+    },
+    "erased_send": {
+      "inline_array": {
+        "operation_client": {
+          "native_size": 16,
+          "status": "accepted",
+          "sum": 10
+        },
+        "provider": {
+          "status": "accepted"
+        },
+        "send_client": {
+          "native_size": 16,
+          "status": "accepted",
+          "sum": 10
+        }
+      },
+      "shared_rc": {
+        "provider": {
+          "diagnostic": "E0277",
+          "status": "refused"
+        }
+      }
+    },
+    "opaque": {
+      "inline_array": {
+        "operation_client": {
+          "native_size": 4,
+          "status": "accepted",
+          "sum": 10
+        },
+        "provider": {
+          "status": "accepted"
+        },
+        "send_client": {
+          "native_size": 4,
+          "status": "accepted",
+          "sum": 10
+        }
+      },
+      "shared_rc": {
+        "operation_client": {
+          "native_size": 8,
+          "status": "accepted",
+          "sum": 10
+        },
+        "provider": {
+          "status": "accepted"
+        },
+        "send_client": {
+          "diagnostic": "E0277",
+          "status": "refused"
+        }
+      }
+    },
+    "opaque_send": {
+      "inline_array": {
+        "operation_client": {
+          "native_size": 4,
+          "status": "accepted",
+          "sum": 10
+        },
+        "provider": {
+          "status": "accepted"
+        },
+        "send_client": {
+          "native_size": 4,
+          "status": "accepted",
+          "sum": 10
+        }
+      },
+      "shared_rc": {
+        "provider": {
+          "diagnostic": "E0277",
+          "status": "refused"
+        }
+      }
+    }
+  },
+  "rustc": [
+    "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "binary: rustc",
+    "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+    "commit-date: 2025-03-15",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.85.1",
+    "LLVM version: 19.1.7"
+  ]
+}

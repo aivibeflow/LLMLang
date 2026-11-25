@@ -1,0 +1,25 @@
+{
+  "controls": {
+    "aarch64_lse_object_from_codegen": "covered",
+    "aarch64_user_emulation": "covered",
+    "native_x86_64_linux": "covered",
+    "physical_aarch64_from_emulation": "unverified",
+    "physical_cortex_from_machine_emulation": "unverified",
+    "runtime_aarch64_lse_from_object_only": "unverified",
+    "unrelated_native_operation": "unverified",
+    "unresolved_atomic_runtime_as_linked": "unverified",
+    "windows_from_linux_calling_convention": "unverified"
+  },
+  "levels": {
+    "hosted-engine": 1,
+    "machine-emulated": 3,
+    "native": 2,
+    "object-only": 2,
+    "unknown": 1,
+    "unresolved-runtime": 1,
+    "user-emulated": 1
+  },
+  "matrix_sha256": "5831becb2fbaca5283365fc257d746cc0e802b0dc94000cf4509ed425d4aa28e",
+  "python": "3.12.14",
+  "verified_source_ledgers": 5
+}

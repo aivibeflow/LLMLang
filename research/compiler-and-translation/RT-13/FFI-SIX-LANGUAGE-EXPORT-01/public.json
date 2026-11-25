@@ -1,0 +1,10 @@
+{
+  "operation": "checked_add",
+  "interface": 1,
+  "symbol_version": "LLM_CHECKED_1",
+  "parameters": ["u64", "u32", "mut pointer<u64>"],
+  "return": "u32",
+  "increment": 7,
+  "failure_status": 1,
+  "overflow_preserves_slot": true
+}

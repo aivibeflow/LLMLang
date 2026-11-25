@@ -1,0 +1,181 @@
+{
+  "schema": "llmlang-rt12-concrete-storage-layouts/1",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "dbm": "CPython stdlib dbm.dumb",
+  "runner_sha256": "4af7073aaddc6e5df197dadd4b8eb39f05c34a3342807ae2e2e499381ce2000f",
+  "storage": "sum of persisted regular-file byte lengths after close",
+  "results": {
+    "32": {
+      "root": "e1f5671768ce541f45b97d08da037f2ed9babf8758b6b4aafc0a2af691bb504e",
+      "canonical_payload_bytes": 6217,
+      "edge_count": 61,
+      "queried_targets": [
+        "247b545ca09ec22ac359e9618679dde58323359fc05aa811323e2371d4e15a23",
+        "ac63c8d3a91e75a505f4887ab6107aba123770795824ca7e6f5a8057d5972fa5",
+        "e1f5671768ce541f45b97d08da037f2ed9babf8758b6b4aafc0a2af691bb504e",
+        "a301a4f6bebe922d0f284d8336d90ce672337caff5acffb2b8272fca41c6dee7"
+      ],
+      "layouts": {
+        "filesystem_cas": {
+          "reached_objects": 32,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 33,
+          "regular_file_bytes": 6282
+        },
+        "stdlib_dbm_kv": {
+          "reached_objects": 32,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 4,
+          "regular_file_bytes": 21273
+        },
+        "sqlite_kv": {
+          "reached_objects": 32,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 2,
+          "regular_file_bytes": 20545
+        },
+        "sqlite_with_reverse_index": {
+          "reached_objects": 32,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 2,
+          "regular_file_bytes": 49217
+        }
+      }
+    },
+    "256": {
+      "root": "f8783a163b6ea6caf6d5f7f28e948245ca415ccdf40cea2f7cf1cf60f2f88d47",
+      "canonical_payload_bytes": 51621,
+      "edge_count": 509,
+      "queried_targets": [
+        "247b545ca09ec22ac359e9618679dde58323359fc05aa811323e2371d4e15a23",
+        "2c0b8341df7b6c04979cb26951f15222d0b2c38b6fb29b09d989136fd5f2941c",
+        "f8783a163b6ea6caf6d5f7f28e948245ca415ccdf40cea2f7cf1cf60f2f88d47",
+        "a301a4f6bebe922d0f284d8336d90ce672337caff5acffb2b8272fca41c6dee7"
+      ],
+      "layouts": {
+        "filesystem_cas": {
+          "reached_objects": 256,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 257,
+          "regular_file_bytes": 51686
+        },
+        "stdlib_dbm_kv": {
+          "reached_objects": 256,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 4,
+          "regular_file_bytes": 172370
+        },
+        "sqlite_kv": {
+          "reached_objects": 256,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 2,
+          "regular_file_bytes": 86081
+        },
+        "sqlite_with_reverse_index": {
+          "reached_objects": 256,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 2,
+          "regular_file_bytes": 213057
+        }
+      }
+    },
+    "1024": {
+      "root": "1c5c6fff4a0ec40e2bcc70ea48cd658ba124bd6fac9a53e116b3796b21744b1a",
+      "canonical_payload_bytes": 207549,
+      "edge_count": 2045,
+      "queried_targets": [
+        "247b545ca09ec22ac359e9618679dde58323359fc05aa811323e2371d4e15a23",
+        "412c0fd5d3603bf91a3d6565ce5aab30286bc417a5a0ededb46399b608df4ee4",
+        "1c5c6fff4a0ec40e2bcc70ea48cd658ba124bd6fac9a53e116b3796b21744b1a",
+        "a301a4f6bebe922d0f284d8336d90ce672337caff5acffb2b8272fca41c6dee7"
+      ],
+      "layouts": {
+        "filesystem_cas": {
+          "reached_objects": 1024,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 1025,
+          "regular_file_bytes": 207614
+        },
+        "stdlib_dbm_kv": {
+          "reached_objects": 1024,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 4,
+          "regular_file_bytes": 691539
+        },
+        "sqlite_kv": {
+          "reached_objects": 1024,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 2,
+          "regular_file_bytes": 311361
+        },
+        "sqlite_with_reverse_index": {
+          "reached_objects": 1024,
+          "matched_query_counts": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "regular_files": 2,
+          "regular_file_bytes": 798785
+        }
+      }
+    }
+  }
+}

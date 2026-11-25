@@ -1,0 +1,25 @@
+{
+  "lineage_profiles": 704,
+  "native_invocations": 2376,
+  "path_decisions": 6,
+  "preserved_roles": [
+    "left",
+    "legacy",
+    "old-leaf",
+    "old-shared",
+    "peer"
+  ],
+  "rebound_roles": [
+    "chain",
+    "join",
+    "modern",
+    "multi",
+    "right"
+  ],
+  "receipts": {
+    "RT-20/FORK-IDENTITY-01": "a9750b62ff445c259b4d4a7887ef60a2c8e967b9b1e805be1b0ae6bbdef52a6e",
+    "RT-20/NATIVE-PROPAGATION-01": "1e4ccdc732ed3a0dec548ff2ad02a05b7737155d70d2f4c66d00a74ae6f648fc",
+    "RT-24/IDENTITY-LINEAGE-01": "5c0126baa4d2a8668ef5b49f93984c5403d7f64711fb3367654618f1020f5f1d"
+  },
+  "source_sha256": "c6937afc2dc0c9a148532f3a21115a29bc5e5b2f4078882f8731759b42209ffb"
+}

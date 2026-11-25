@@ -1,0 +1,276 @@
+{
+  "schema": "llmlang-rt00-quality-warning-coverage/1",
+  "base": "2bd6f37b4b10f92434fbdfa9ca7233ccd6166041",
+  "head": "bf4308bd7519859f82e1a520aa2cef2c19295c7d",
+  "checker_blob": "28e2969b99d9c155abda3cfb7fa126f9597e6fb4",
+  "historical_sample": {
+    "scope": "frozen historical structure sample, NOT research claim correctness",
+    "source_mode": "git-baseline",
+    "baseline_commit": "419ae2c02b27eb52c63eef3a255a83004444222e",
+    "reports_checked": 10,
+    "total_warnings": 62,
+    "blob_mismatches": 0,
+    "warning_snapshot_mismatches": 0
+  },
+  "current_diff_root_selection": [],
+  "explicit_nested_selection": [
+    {
+      "path": "research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md",
+      "warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-DAFNY-KERNEL-FOREIGN-BOUNDARY-2026-11-25.md",
+      "warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-07/RT-07-DAFNY-MODULAR-PROOF-CLOSURE-2026-11-25.md",
+      "warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-B-14-DAFNY-RELATIONSHIP-REVIEW-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-B-15-F64-RELATIONSHIP-REVIEW-2026-11-25.md",
+      "warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-B-16-EXPLICIT-RELATIONSHIP-SCREEN-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline",
+        "no recognizable evidence class; human claim-level review required",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-DAFNY-CONTRACT-BOUNDARIES-REPLAY-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-DAFNY-MODULAR-PROOF-REPLAY-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-DRAFT-BOUNDARY-CURRENT-MAIN-RECHECK-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-DRAFT-CITATION-RESEARCH-ALL-AUDIT-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-EVIDENCE-CLASS-CURRENT-MAIN-RECHECK-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-EVIDENCE-LEDGER-IDENTITIES-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline",
+        "no recognizable evidence class; human claim-level review required",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-GENERATED-SOURCE-REPLAY-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-NEGATIVE-RESULT-CURRENT-MAIN-RECHECK-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for limitations",
+        "missing section for draft impact/traceability"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-NESTED-SOURCE-IDENTITIES-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-C-REPORT-STRUCTURE-CURRENT-MAIN-RECHECK-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for results",
+        "missing section for limitations",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability"
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RT-00-RT19-RT23-RECOVERY-RELATIONSHIPS-2026-11-25.md",
+      "warnings": [
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for results",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline",
+        "negative/rejected/UNKNOWN cases or justified N/A not located"
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-05/RT-05-DAFNY-SPG-COPY-FRAME-2026-11-25.md",
+      "warnings": [
+        "missing section for question/problem",
+        "missing section for hypotheses/alternatives",
+        "missing section for prior art/sources",
+        "missing section for formal model/assumptions",
+        "missing section for experiments/method",
+        "missing section for decision boundary",
+        "missing section for draft impact/traceability",
+        "missing metadata: Status",
+        "missing metadata: Baseline"
+      ]
+    }
+  ],
+  "explicit_nested_warning_counts": {
+    "missing metadata: Baseline": 14,
+    "missing metadata: Status": 14,
+    "missing section for decision boundary": 17,
+    "missing section for draft impact/traceability": 18,
+    "missing section for experiments/method": 7,
+    "missing section for formal model/assumptions": 13,
+    "missing section for hypotheses/alternatives": 18,
+    "missing section for limitations": 13,
+    "missing section for prior art/sources": 17,
+    "missing section for question/problem": 5,
+    "missing section for results": 7,
+    "negative/rejected/UNKNOWN cases or justified N/A not located": 7,
+    "no recognizable evidence class; human claim-level review required": 2
+  },
+  "empty_evidence_control_warnings": []
+}

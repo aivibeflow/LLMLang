@@ -1,0 +1,712 @@
+{
+  "baseline": "e2e41096c5eeaba8bd35f7aa94e31eea02a45ca7",
+  "python": "3.12.14",
+  "horizon_s": 9,
+  "file_sha256": {
+    "corpus.json": "dbe648cc4e88e3e9d2e7ac04e4b552220eeaa3499db507f371b76910ef01a7cf",
+    "render.py": "815c62433f1bef359c04cf69d96f28e13a66ff92ad04f4f3db6fcf99c7ee821e",
+    "run.py": "8757b943a5e66fe51fffd7c6ba9800222a0ff46cd058242f149ce7b4f4b5558a"
+  },
+  "trace_count": 484,
+  "case_counts": {
+    "ELIGIBLE": 4,
+    "DIFFERENT": 9,
+    "UNKNOWN": 6
+  },
+  "model_mutants_passing_roundtrip_only": 8,
+  "model_mutants_passing_roundtrip_and_provenance_only": 7,
+  "results": {
+    "baseline": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "ELIGIBLE",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 0,
+        "newly_forbidden": 0
+      },
+      "witnesses": {},
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "ELIGIBLE"
+    },
+    "reordered": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval.",
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "exception": [
+          "operator",
+          "exception"
+        ],
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "ELIGIBLE",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 0,
+        "newly_forbidden": 0
+      },
+      "witnesses": {},
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "ELIGIBLE"
+    },
+    "cosmetic-whitespace": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "ELIGIBLE",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 0,
+        "newly_forbidden": 0
+      },
+      "witnesses": {},
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "ELIGIBLE"
+    },
+    "provenance-only": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock-copy"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "ELIGIBLE",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 0,
+        "newly_forbidden": 0
+      },
+      "witnesses": {},
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "ELIGIBLE"
+    },
+    "omitted-exception": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ]
+      },
+      "clauses_with_required_provenance": 1,
+      "status": "DIFFERENT",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 110,
+        "newly_forbidden": 0
+      },
+      "witnesses": {
+        "newly_allowed": {
+          "scope": "retail",
+          "reservation": "failed",
+          "confirmation_s": 0,
+          "notification_s": null
+        }
+      },
+      "decoded_clauses": 1,
+      "structurally_faithful": true,
+      "expected_status": "DIFFERENT"
+    },
+    "added-notification": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval.",
+          "[notification] For retail orders when reservation succeeded, require notification from payment registration through 5 seconds after it, inclusive."
+        ]
+      },
+      "provenance_problems": {
+        "notification": [
+          "incomplete"
+        ]
+      },
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ],
+        "notification": []
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "DIFFERENT",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 0,
+        "newly_forbidden": 30
+      },
+      "witnesses": {
+        "newly_forbidden": {
+          "scope": "retail",
+          "reservation": "succeeded",
+          "confirmation_s": 0,
+          "notification_s": null
+        }
+      },
+      "decoded_clauses": 3,
+      "structurally_faithful": true,
+      "expected_status": "DIFFERENT"
+    },
+    "weaker-deadline": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 7 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "DIFFERENT",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 22,
+        "newly_forbidden": 0
+      },
+      "witnesses": {
+        "newly_allowed": {
+          "scope": "retail",
+          "reservation": "succeeded",
+          "confirmation_s": 6,
+          "notification_s": null
+        }
+      },
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "DIFFERENT"
+    },
+    "stronger-deadline": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 3 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "DIFFERENT",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 0,
+        "newly_forbidden": 22
+      },
+      "witnesses": {
+        "newly_forbidden": {
+          "scope": "retail",
+          "reservation": "succeeded",
+          "confirmation_s": 4,
+          "notification_s": null
+        }
+      },
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "DIFFERENT"
+    },
+    "flipped-prohibition": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, require confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "DIFFERENT",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 110,
+        "newly_forbidden": 11
+      },
+      "witnesses": {
+        "newly_forbidden": {
+          "scope": "retail",
+          "reservation": "failed",
+          "confirmation_s": null,
+          "notification_s": null
+        },
+        "newly_allowed": {
+          "scope": "retail",
+          "reservation": "failed",
+          "confirmation_s": 0,
+          "notification_s": null
+        }
+      },
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "DIFFERENT"
+    },
+    "shifted-clock": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from reservation observation through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "DIFFERENT",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 22,
+        "newly_forbidden": 22
+      },
+      "witnesses": {
+        "newly_forbidden": {
+          "scope": "retail",
+          "reservation": "succeeded",
+          "confirmation_s": 0,
+          "notification_s": null
+        },
+        "newly_allowed": {
+          "scope": "retail",
+          "reservation": "succeeded",
+          "confirmation_s": 6,
+          "notification_s": null
+        }
+      },
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "DIFFERENT"
+    },
+    "expanded-scope": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For all orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "DIFFERENT",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 0,
+        "newly_forbidden": 55
+      },
+      "witnesses": {
+        "newly_forbidden": {
+          "scope": "wholesale",
+          "reservation": "succeeded",
+          "confirmation_s": null,
+          "notification_s": null
+        }
+      },
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "DIFFERENT"
+    },
+    "shifted-trigger": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation failed, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "DIFFERENT",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 55,
+        "newly_forbidden": 11
+      },
+      "witnesses": {
+        "newly_allowed": {
+          "scope": "retail",
+          "reservation": "succeeded",
+          "confirmation_s": null,
+          "notification_s": null
+        },
+        "newly_forbidden": {
+          "scope": "retail",
+          "reservation": "failed",
+          "confirmation_s": null,
+          "notification_s": null
+        }
+      },
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "DIFFERENT"
+    },
+    "missing-provenance": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {
+        "deadline": [
+          "incomplete"
+        ]
+      },
+      "provenance": {
+        "deadline": [
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 1,
+      "status": "UNKNOWN",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 0,
+        "newly_forbidden": 0
+      },
+      "witnesses": {},
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "UNKNOWN"
+    },
+    "dangling-provenance": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {
+        "deadline": [
+          "dangling",
+          "incomplete"
+        ]
+      },
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "ghost"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 1,
+      "status": "UNKNOWN",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 0,
+        "newly_forbidden": 0
+      },
+      "witnesses": {},
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "UNKNOWN"
+    },
+    "conflicting-unapproved-provenance": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {
+        "deadline": [
+          "unapproved"
+        ]
+      },
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock",
+          "conflicting-clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 1,
+      "status": "UNKNOWN",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 0,
+        "newly_forbidden": 0
+      },
+      "witnesses": {},
+      "decoded_clauses": 2,
+      "structurally_faithful": true,
+      "expected_status": "UNKNOWN"
+    },
+    "unsupported-action": {
+      "rendered": {
+        "status": "UNKNOWN",
+        "reason": "unsupported deontic mode or action"
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "UNKNOWN",
+      "reason": "unsupported-formal-clause",
+      "expected_status": "UNKNOWN"
+    },
+    "unreadable-reconstruction": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "UNKNOWN",
+      "reason": "unrecognized-rendering",
+      "observed_lines": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it.",
+        "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+      ],
+      "expected_status": "UNKNOWN"
+    },
+    "unfaithful-reconstruction": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "observed_lines": [
+        "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 7 seconds after it, inclusive.",
+        "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+      ],
+      "status": "DIFFERENT",
+      "trace_count": 484,
+      "differences": {
+        "newly_allowed": 22,
+        "newly_forbidden": 0
+      },
+      "witnesses": {
+        "newly_allowed": {
+          "scope": "retail",
+          "reservation": "succeeded",
+          "confirmation_s": 6,
+          "notification_s": null
+        }
+      },
+      "decoded_clauses": 2,
+      "structurally_faithful": false,
+      "expected_status": "DIFFERENT"
+    },
+    "incomplete-trace": {
+      "rendered": {
+        "status": "RECONSTRUCTED",
+        "lines": [
+          "[deadline] For retail orders when reservation succeeded, require confirmation from payment registration through 5 seconds after it, inclusive.",
+          "[exception] For retail orders when reservation failed, forbid confirmation throughout the observed interval."
+        ]
+      },
+      "provenance_problems": {},
+      "provenance": {
+        "deadline": [
+          "intent",
+          "operator",
+          "clock"
+        ],
+        "exception": [
+          "operator",
+          "exception"
+        ]
+      },
+      "clauses_with_required_provenance": 2,
+      "status": "UNKNOWN",
+      "reason": "reservation-outcome-unobserved",
+      "trace": {
+        "scope": "retail",
+        "reservation": null,
+        "observed_through_s": 1
+      },
+      "expected_status": "UNKNOWN"
+    }
+  }
+}

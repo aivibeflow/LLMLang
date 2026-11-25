@@ -1,0 +1,33 @@
+{
+  "clean_session_outcomes": [
+    "pass",
+    "pass"
+  ],
+  "expected_genuine_nitpick_counterexamples": [
+    "bad_state"
+  ],
+  "expected_quickcheck_counterexamples": [
+    "bad_fault",
+    "bad_slot",
+    "bad_state"
+  ],
+  "image": "makarius/isabelle@sha256:9bd33b183c399327c5d554fc8cde27c29b5d2b20cdc6fe7a604caa3f951018fc",
+  "input_sha256": {
+    "LookupControls.thy": "1e734d4d3133fff3ca13c968044df78442749ee3a95927f39313cf66e3da0764",
+    "ROOT": "6636058ac644cf8237c72c4a66f42450a762a4618a1a0d28641ca50beb09ec63"
+  },
+  "isabelle": "Isabelle2025-2",
+  "polyml": "5.9.2",
+  "proof_options": {
+    "quick_and_dirty": false,
+    "skip_proofs": false,
+    "threads": 1
+  },
+  "proofs": [
+    "candidate_agrees",
+    "reachable_fault",
+    "reachable_slot",
+    "reachable_state"
+  ],
+  "session": "RT38_LookupControls"
+}

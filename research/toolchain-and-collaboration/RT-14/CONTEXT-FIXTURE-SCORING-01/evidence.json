@@ -1,0 +1,23 @@
+{
+  "exact_gate_matches": 15,
+  "incorrect_ranked_readiness": {
+    "conflicting-required": "false_positive",
+    "optional-trims-to-budget": "false_negative"
+  },
+  "input_sha256": "b43c30661b1e7ebc60fe7c70163f47161a7782f866a1f60dd94af7e7d97db51f",
+  "ranked_precision": [
+    8,
+    9
+  ],
+  "ranked_readiness_surrogate": {
+    "false_negative": 1,
+    "false_positive": 1,
+    "true_negative": 5,
+    "true_positive": 8
+  },
+  "ranked_recall": [
+    8,
+    9
+  ],
+  "source_sha256": "1c06a98ff9ca684e47f42bbff952e732dda81ab7630409a39b633b992e6b46d3"
+}

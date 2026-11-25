@@ -1,0 +1,61 @@
+{
+  "counter_delta": {
+    "burst_usec": 0,
+    "nice_usec": 0,
+    "nr_bursts": 0,
+    "nr_periods": 62,
+    "nr_throttled": 0,
+    "system_usec": 1099239,
+    "throttled_usec": 0,
+    "usage_usec": 6095116,
+    "user_usec": 4995878
+  },
+  "cpu": 4,
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "git": "git version 2.56.1",
+  "kernel": "6.18.57",
+  "layer_width": 64,
+  "nodes": 65536,
+  "python": "3.12.14",
+  "repositories": {
+    "2": {
+      "checkout_bytes": 2883584,
+      "commits": [
+        "5c87143c74132fd36e6e4f4ce9f3655993d43e7f",
+        "a09db4eb267114b02db6d11c06ac0c5b54d4ff50",
+        "d6d2cf67c63789f5b8c60e5f8489ffad5a44d0f1"
+      ],
+      "manifest_sha256": [
+        "6869297c1c8a52f68520d24b4ba99ea8de9e845945022655c4074237d75ccaf7",
+        "0df305a0458519d7c721db8f3c68a472f903c950cdc286f6e4b5a52413f027b8",
+        "2dc9ff7d825c25a6c7a8434cb154b46223cd6d16de914836aa95f1d1bf07d48c"
+      ],
+      "pack_bytes": 2673889
+    },
+    "32": {
+      "checkout_bytes": 10747904,
+      "commits": [
+        "45b4d48cda09892efaf7f4aec7601d768cbf441d",
+        "bae8615f315896572d22fc7cf0ef9a6241fcbb50",
+        "10b83f2e55a2930adb7e92d5ae2798d9e0693cff"
+      ],
+      "manifest_sha256": [
+        "5193b4ad89493d986dafc5656eb4e473e546b36f81db9cba12e35e49c14eed7c",
+        "19109c9c29d9117ec57861f641c4c166199edda8cf570e9f1d0a95d24d073be8",
+        "ee73f1e070728d4dbfcb44d9b7f1e110f08faf62376125f35a88002bd0ac7206"
+      ],
+      "pack_bytes": 3292068
+    }
+  },
+  "roots": [
+    65535,
+    49151,
+    32767,
+    16383,
+    65
+  ],
+  "seed": 20261125,
+  "shard": 512,
+  "source_sha256": "9388fd036ff37b03d1dd20cd709a458fdd76f6333490f75d8fd0504fb882af56",
+  "trials": 7
+}

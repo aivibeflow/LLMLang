@@ -1,0 +1,659 @@
+{
+  "pinned_tree": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+  "counts": {
+    "cases": 36,
+    "file_paths": 52,
+    "sha256_matches": 37,
+    "git_blob_matches": 26,
+    "anchor_matches": 11,
+    "timing_sets": 8,
+    "timing_rows": 454
+  },
+  "ledgers": [
+    {
+      "path": "research/research-management/SCALABILITY-METRICS-01/evidence.json",
+      "blob": "d12f9e6db8eca2d6f8bda7d33ee5f94fbd4c9173",
+      "observations": [
+        {
+          "label": "build",
+          "kind": "timing-set",
+          "checks": [
+            {
+              "role": "samples",
+              "source": "research/toolchain-and-collaboration/RT-11/PERSISTENT-BUILD-CACHE-01/evidence/samples.csv",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "a7a60cf620efff4223766212d6d271acf53be402",
+              "sha256": "982758a9059029590ef4b6395c8c8c3f3130c678781dcd4a443621094de61be6"
+            },
+            {
+              "role": "config",
+              "source": "research/toolchain-and-collaboration/RT-11/PERSISTENT-BUILD-CACHE-01/evidence/config.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "83d7fc8b269bbaf538cef173fbc90fe7de660783",
+              "sha256": "5af2ef5a8f003a9a72ceab4706b89340bee51e7f441a3d68c8e71bdb0a6d050a"
+            },
+            {
+              "role": "summary",
+              "source": "research/toolchain-and-collaboration/RT-11/PERSISTENT-BUILD-CACHE-01/evidence/summary.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "8f7c228248778916c12f28efd5c201e355d890d1",
+              "sha256": "c433397ccf430b3bc5ba3edfc2c3d1e2a3e3e3c59771693274dcf1d43af41a37"
+            }
+          ],
+          "rows": 40
+        },
+        {
+          "label": "encoding",
+          "kind": "timing-set",
+          "checks": [
+            {
+              "role": "samples",
+              "source": "research/semantic-representation/RT-05/CANONICAL-HASH-COST-01/evidence/samples.csv",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "e7078dc0257269d6abc4815d8159127193e036a6",
+              "sha256": "5287f374d638f1edbf94f3718a0815d2f0034fa2e3ed976c746c26fca1affe63"
+            },
+            {
+              "role": "config",
+              "source": "research/semantic-representation/RT-05/CANONICAL-HASH-COST-01/evidence/config.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "b4b1fec2da0beb058abf2fa77ca00b0766e38024",
+              "sha256": "f74f9a7c66fc2e12bc06d88d1fc20b44f0e33b3b2fbaead61c2728c362ae6843"
+            },
+            {
+              "role": "summary",
+              "source": "research/semantic-representation/RT-05/CANONICAL-HASH-COST-01/evidence/summary.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "744b1dcb5292902728a0bc4349ed78347b2d4bbb",
+              "sha256": "2b5c2374507ea9e1ac5695f7b71dfbcf7e556e73e3cafe56e3bac8080a83ebc6"
+            }
+          ],
+          "rows": 60
+        },
+        {
+          "label": "gc",
+          "kind": "timing-set",
+          "checks": [
+            {
+              "role": "samples",
+              "source": "research/toolchain-and-collaboration/RT-27/SQLITE-RETENTION-BENCHMARK-01/evidence/samples.csv",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "540f48609265e270c184775c47a10429d004a31b",
+              "sha256": "5688374793785ca25e00853481ed3aa8d3112f42ae720d13c08f0c43903a92de"
+            },
+            {
+              "role": "config",
+              "source": "research/toolchain-and-collaboration/RT-27/SQLITE-RETENTION-BENCHMARK-01/evidence/config.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "07f7d6c77c5e667e8503b5d67e587f261e060295",
+              "sha256": "99c3ca09cf3a9f9fda50d575e457d4ad792a4af43a118e0efe5bbb06189e525d"
+            },
+            {
+              "role": "summary",
+              "source": "research/toolchain-and-collaboration/RT-27/SQLITE-RETENTION-BENCHMARK-01/evidence/summary.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "fca28642972780383d79347b26434d53eca59024",
+              "sha256": "03d84acbdcc116cba5bf411dac5c592d7c9765b17dc6fbf1392d78028a7b08fa"
+            }
+          ],
+          "rows": 40
+        },
+        {
+          "label": "graph",
+          "kind": "timing-set",
+          "checks": [
+            {
+              "role": "samples",
+              "source": "research/semantic-representation/RT-05/REVERSE-TRAVERSAL-01/evidence/samples.csv",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "4a6538a1a0d55f8d6b932153bb01d97fdfe04ed5",
+              "sha256": "2cd33c17eed65ec607bb5d083026cf3f85787a2180847cf591dc5a40ddd4b8cd"
+            },
+            {
+              "role": "config",
+              "source": "research/semantic-representation/RT-05/REVERSE-TRAVERSAL-01/evidence/config.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "622f54cf03fb8603b3eefa2224c34f1ed8a3cf2e",
+              "sha256": "06378e325e89c7be1d830b38c696e3dab4e74d2655fe568deed55e63d0e04372"
+            },
+            {
+              "role": "summary",
+              "source": "research/semantic-representation/RT-05/REVERSE-TRAVERSAL-01/evidence/summary.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "c236ff65060867161ff3c6b71071f208c909b59f",
+              "sha256": "302c2b4fcfcf2615d2fe7b6b5ba4e3c389a8f74d5f31f62ab84de35a9d1dfba5"
+            }
+          ],
+          "rows": 60
+        },
+        {
+          "label": "impact",
+          "kind": "timing-set",
+          "checks": [
+            {
+              "role": "samples",
+              "source": "research/semantic-representation/RT-06/IMPACT-PLANNING-BENCHMARK-01/evidence/samples.csv",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "01fd315a7e6a128d75c96b8774d52cbd09624782",
+              "sha256": "6db23363e94d7691b6ac2d30dd3c5cc1cab653354e3d49db08ea4a21f8eb051e"
+            },
+            {
+              "role": "config",
+              "source": "research/semantic-representation/RT-06/IMPACT-PLANNING-BENCHMARK-01/evidence/config.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "200c09137e2cb6068885f00d5b182e6bc4abdd3b",
+              "sha256": "a6c9754c454729f7b9c504770e92108df006acc4a8b53e5936877870b7023899"
+            },
+            {
+              "role": "summary",
+              "source": "research/semantic-representation/RT-06/IMPACT-PLANNING-BENCHMARK-01/evidence/summary.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "64ed447de17bd65f9dc7a1778a35758135ae2289",
+              "sha256": "bcd6103e95249145a0bd31f1526196a8319754084dc706fc585ff3f883e4482d"
+            }
+          ],
+          "rows": 60
+        },
+        {
+          "label": "large",
+          "kind": "timing-set",
+          "checks": [
+            {
+              "role": "samples",
+              "source": "research/toolchain-and-collaboration/RT-27/LARGE-GIT-GRAPH-BENCHMARK-01/evidence/samples.csv",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "430bb04276ff7eacbfd92efaa375460a2d30c64d",
+              "sha256": "d604f82df34c97762a7e55cdb0c64e4da2cd5f25da00a24bf76bf91d4a7f4838"
+            },
+            {
+              "role": "config",
+              "source": "research/toolchain-and-collaboration/RT-27/LARGE-GIT-GRAPH-BENCHMARK-01/evidence/config.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "10af020ff95918c75083d08e4d839e3b1e431e99",
+              "sha256": "b7922a91f3f65f07791c3b3ff6fe866e65b67b61e476d9e2c461635dfd4456a8"
+            },
+            {
+              "role": "summary",
+              "source": "research/toolchain-and-collaboration/RT-27/LARGE-GIT-GRAPH-BENCHMARK-01/evidence/summary.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "c69f06753db406c88706a3006abcc4025c1ca71b",
+              "sha256": "6f13d6055fad4e058309e2f88502327c9781d4411a356e76361dae60c3c5a2fc"
+            }
+          ],
+          "rows": 14
+        },
+        {
+          "label": "proof",
+          "kind": "timing-set",
+          "checks": [
+            {
+              "role": "samples",
+              "source": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-01/evidence/samples.csv",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "e60042a0da2cab192f28f12f51b5176af9bec2fd",
+              "sha256": "9d6390f77d9d7e3a42626f30b98523886b3b29611605744d19060c4f1d8184a2"
+            },
+            {
+              "role": "config",
+              "source": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-01/evidence/config.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "c1d49dcf715f0aac3bc8d83ef518ae0a9fde33d6",
+              "sha256": "6fb91a80dafa9253df78338d31186186f3f659b39d7b69f32dd05ae9e5a676e6"
+            },
+            {
+              "role": "summary",
+              "source": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/PROOF-AND-TEST-COST-01/evidence/summary.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "d5f8957ab2764d71c58b5d6ee414131a73518a68",
+              "sha256": "3ee1662d017d1f3898e98ffdd2d7ef583b08eb0cf05a656c263ce18616501df1"
+            }
+          ],
+          "rows": 60
+        },
+        {
+          "label": "publication",
+          "kind": "timing-set",
+          "checks": [
+            {
+              "role": "samples",
+              "source": "research/toolchain-and-collaboration/RT-24/CONCURRENT-PUBLICATION-BENCHMARK-01/evidence/samples.csv",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "69749a744c289c926b6dcf9a2f09bf1ff46c5235",
+              "sha256": "bfe4a6f14b5839fa920eaa1fce185e67f1bc36e8174c0f07cbe846b849bf8b7d"
+            },
+            {
+              "role": "config",
+              "source": "research/toolchain-and-collaboration/RT-24/CONCURRENT-PUBLICATION-BENCHMARK-01/evidence/config.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "dfa94235ed930a111b63f7e1194bf1053a219fb6",
+              "sha256": "a2612e0f9f63985d8ee932280ccf4b4c7c041af999714390406ee806920619bc"
+            },
+            {
+              "role": "summary",
+              "source": "research/toolchain-and-collaboration/RT-24/CONCURRENT-PUBLICATION-BENCHMARK-01/evidence/summary.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "9880c7e192f09a37e862a1b05f083c24f4ba2723",
+              "sha256": "abdb9b4b793c1dadb7bed4a4eabc792f2b205e2bb7f0080fda7c9d2232c84aa5"
+            }
+          ],
+          "rows": 120
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/planning-and-synthesis/CONCURRENT-RELEASE-01/evidence.json",
+      "blob": "2decd5fb7830a1774073bad238ddaa6b594dfdf4",
+      "observations": [
+        {
+          "label": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/__init__.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/__init__.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "a611c5c0ef8f5d435524387e328c928550f5cd9b",
+              "git_blob": "a611c5c0ef8f5d435524387e328c928550f5cd9b"
+            }
+          ]
+        },
+        {
+          "label": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "0e86564830d3668ee888ee7f7f5994be953a2598",
+              "git_blob": "0e86564830d3668ee888ee7f7f5994be953a2598"
+            }
+          ]
+        },
+        {
+          "label": "research/PROTOTYPES/RT-04-01/rt04_backup_roles.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/PROTOTYPES/RT-04-01/rt04_backup_roles.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "cbf002088284e6bf76b4064cdfa3e8e2dbe4adb3",
+              "git_blob": "cbf002088284e6bf76b4064cdfa3e8e2dbe4adb3"
+            }
+          ]
+        },
+        {
+          "label": "research/PROTOTYPES/RT-04-01/rt04_owned_call_match.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/PROTOTYPES/RT-04-01/rt04_owned_call_match.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "7c84fa78e36ae8c8032de32e8bd8646ccee0f527",
+              "git_blob": "7c84fa78e36ae8c8032de32e8bd8646ccee0f527"
+            }
+          ]
+        },
+        {
+          "label": "research/PROTOTYPES/RT-04-01/rt04_return_disposition.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/PROTOTYPES/RT-04-01/rt04_return_disposition.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "5364ca4c707d36117692936e35437f7a9b2b5b65",
+              "git_blob": "5364ca4c707d36117692936e35437f7a9b2b5b65"
+            }
+          ]
+        },
+        {
+          "label": "research/PROTOTYPES/RT-04-01/rt04_rust_owned_probe.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/PROTOTYPES/RT-04-01/rt04_rust_owned_probe.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "7d7c5b8eba2aa62dbc71230cd7499e57fbbe01c2",
+              "git_blob": "7d7c5b8eba2aa62dbc71230cd7499e57fbbe01c2"
+            }
+          ]
+        },
+        {
+          "label": "research/PROTOTYPES/RT-04-01/rt04_shared_owned_handlers.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/PROTOTYPES/RT-04-01/rt04_shared_owned_handlers.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "0b03261129c54c2d2aa350c2a7bbe6e54dc245eb",
+              "git_blob": "0b03261129c54c2d2aa350c2a7bbe6e54dc245eb"
+            }
+          ]
+        },
+        {
+          "label": "research/PROTOTYPES/RT-04-01/rt04_shared_owned_workload.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/PROTOTYPES/RT-04-01/rt04_shared_owned_workload.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "0d94450eaf177337fe84689cdd51fa931c15a487",
+              "git_blob": "0d94450eaf177337fe84689cdd51fa931c15a487"
+            }
+          ]
+        },
+        {
+          "label": "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/caller.c",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/caller.c",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "a04c89d9cd921724acf70ffa815c39cd8a6c3065",
+              "git_blob": "a04c89d9cd921724acf70ffa815c39cd8a6c3065"
+            }
+          ]
+        },
+        {
+          "label": "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/run.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/compiler-and-translation/RT-13/BOUND-OWNED-PROVIDERS-01/run.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "a681cb5569e40d92abf7363bf85ff0e1d1a6790f",
+              "git_blob": "a681cb5569e40d92abf7363bf85ff0e1d1a6790f"
+            }
+          ]
+        },
+        {
+          "label": "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/provider.c",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/provider.c",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "878ad8bf8595b7780bc463234aa0ac6aba675962",
+              "git_blob": "878ad8bf8595b7780bc463234aa0ac6aba675962"
+            }
+          ]
+        },
+        {
+          "label": "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/run.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/compiler-and-translation/RT-13/NATIVE-OWNED-ABI-01/run.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "281c739207fc9737596b52d809f306c60d048177",
+              "git_blob": "281c739207fc9737596b52d809f306c60d048177"
+            }
+          ]
+        },
+        {
+          "label": "research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-01/evidence.json",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-01/evidence.json",
+              "revision": "c92e9e3c168741ef6b96d2f21c90af5970794923",
+              "observed_blob": "0eb035d0c2fcae152f1a12739f1b659e17ec7784",
+              "git_blob": "0eb035d0c2fcae152f1a12739f1b659e17ec7784"
+            }
+          ]
+        },
+        {
+          "label": "research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-01/run.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-01/run.py",
+              "revision": "c92e9e3c168741ef6b96d2f21c90af5970794923",
+              "observed_blob": "8f290dc932bf170e3a74abc87dff97120cf062c1",
+              "git_blob": "8f290dc932bf170e3a74abc87dff97120cf062c1"
+            }
+          ]
+        },
+        {
+          "label": "research/toolchain-and-collaboration/RT-11/SIGNED-REBUILD-ADMISSION-01/run.py",
+          "kind": "git-source",
+          "checks": [
+            {
+              "role": "source",
+              "source": "research/toolchain-and-collaboration/RT-11/SIGNED-REBUILD-ADMISSION-01/run.py",
+              "revision": "685c3a13ef600ce76bfe9d36446b970cc7c6c3da",
+              "observed_blob": "aa0df25eb15f2b9fa779967fd4ade0c71ae8a1e3",
+              "git_blob": "aa0df25eb15f2b9fa779967fd4ade0c71ae8a1e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/POSIX-PROFILE-EVIDENCE-01/evidence.json",
+      "blob": "fb2cc908c1ee0f0c0049d553e889fcaf8a906575",
+      "observations": [
+        {
+          "label": "cancellation",
+          "kind": "pinned-posix-ledger",
+          "checks": [
+            {
+              "role": "ledger",
+              "source": "research/runtime-and-systems/RT-10/LIBC-SYSCALL-CANCELLATION-01/evidence.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "96046909629505ec2e3e456c9cd6c7e5e406f662",
+              "sha256": "82c0f47f7ebad66ff43bdd33c864aa176722f82d645f9d3433213b39a809497f"
+            }
+          ]
+        },
+        {
+          "label": "descriptors",
+          "kind": "pinned-posix-ledger",
+          "checks": [
+            {
+              "role": "ledger",
+              "source": "research/runtime-and-systems/RT-10/POSIX-EDITION-DESCRIPTORS-01/evidence.json",
+              "revision": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+              "observed_blob": "fdf1868fdcb1d46ee368a5366273f5ff936582a8",
+              "sha256": "3c6bf9fb2245f9fd9a78bdbe900a512896c8757a55c68e6eda8822bb011afe11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/SOURCE-INVENTORY-01/evidence.json",
+      "blob": "f8beeaa1faa1f7629b23761b44456eee08bbdd31",
+      "observations": [
+        {
+          "label": "contract",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "3cfedfb455ec3c60409d177c90decb00661b417e",
+              "git_blob": "3cfedfb455ec3c60409d177c90decb00661b417e",
+              "sha256": "1b01f2ba2be9d6e82eb789cfa034c6fa3f0913f537f7e2e3db14a92d598417af",
+              "line": 27,
+              "anchor": "| ContractHash | Exact contract value |"
+            }
+          ]
+        },
+        {
+          "label": "dependency",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "research/toolchain-and-collaboration/RT-24/TYPED-SEMANTIC-DIFF-01/evidence.json",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "8151320ee9c15e38b3e035bb2130c6924fe4df93",
+              "git_blob": "8151320ee9c15e38b3e035bb2130c6924fe4df93",
+              "sha256": "bf5d55473a202a504674e26d9cb0271b2065515b875002e98b3f6315c3b9ed0b",
+              "line": 5,
+              "anchor": "\"difference_id\": \"4da4012b6d1f7953a26362a17b277fb094df8e310b47bb63c74d10883df57030\""
+            }
+          ]
+        },
+        {
+          "label": "design",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "74a9f6ac59eade126fa6106f57ff07c3f0b1e631",
+              "git_blob": "74a9f6ac59eade126fa6106f57ff07c3f0b1e631",
+              "sha256": "6b2c14b147bddcd9b73c5ffa7efe5f6503515567a96ebf147def4c0ecfbde723",
+              "line": 1,
+              "anchor": "# RT-24 — Canonical Semantic Representation, Diff, and Three-Way Merge"
+            }
+          ]
+        },
+        {
+          "label": "diagnostic",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/lean-transition-state-results/false-claim-output.txt",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "55eb44470a9bc5434d54366698afbbebea0c1a1e",
+              "git_blob": "55eb44470a9bc5434d54366698afbbebea0c1a1e",
+              "sha256": "378e1790e3de35cd96beb05db731b47783ecc9901d078cdb035f663c89d3a1bd",
+              "line": 3,
+              "anchor": "error: Tactic `decide` proved that the proposition"
+            }
+          ]
+        },
+        {
+          "label": "documentation",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "README.md",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "81db303e1550ef0454b5fe1fb01bd09e29da8ff4",
+              "git_blob": "81db303e1550ef0454b5fe1fb01bd09e29da8ff4",
+              "sha256": "fc4050c289b29112d35511ee6211491a51b872669cda88dd38c8675d58c43205",
+              "line": 9,
+              "anchor": "## How the language is designed"
+            }
+          ]
+        },
+        {
+          "label": "external-reference",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "research/references/README.md",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "4c51e134316d1fdb5941fd60f069ff40f13d212a",
+              "git_blob": "4c51e134316d1fdb5941fd60f069ff40f13d212a",
+              "sha256": "59769d129401eb4ef5734c8f4a514893bb7901fd5561c566cbde199417b592d5",
+              "line": 31,
+              "anchor": "https://smt-lib.org/papers/smt-lib-reference-v2.7-r2026-09-09.pdf"
+            }
+          ]
+        },
+        {
+          "label": "implementation",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "draft/examples/0003-calculator/main.llmlang",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "14208e777ded0b1a991d3f9495adf40e085cb899",
+              "git_blob": "14208e777ded0b1a991d3f9495adf40e085cb899",
+              "sha256": "f94159a53d13df1fa99d0b94aec294bf2ab0a3bd8785453904f201b36e76e8f5",
+              "line": 19,
+              "anchor": "operation parse_expression(line: String) -> Result<Expression, CalcError>:"
+            }
+          ]
+        },
+        {
+          "label": "proof-evidence",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/lean-transition-state-results/summary.json",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "9b8b1ab7a26359e2b0134ba4a32c41d2d61eb0e6",
+              "git_blob": "9b8b1ab7a26359e2b0134ba4a32c41d2d61eb0e6",
+              "sha256": "6123a1b5e55c9d74faacac28754b2e4c715a250da95a4e93f3e7c7e3640631c3",
+              "line": 17,
+              "anchor": "\"status\": \"kernel-checked\""
+            }
+          ]
+        },
+        {
+          "label": "requirement",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "research/language-design/RT-02/REQUIREMENT-BACKENDS-01/requirements.json",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "87734ab2f265d2b33177cd9ae055979c7d7b76a8",
+              "git_blob": "87734ab2f265d2b33177cd9ae055979c7d7b76a8",
+              "sha256": "7ad2eaff17802c3350894fc51e8903ebb0dd6732a3f220c037050d994eeb774a",
+              "line": 6,
+              "anchor": "\"failure_frame\": \"BankAccount shall always satisfy !success -> (new_balance = old_balance)\""
+            }
+          ]
+        },
+        {
+          "label": "specification",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "examples/0003-calculator.md",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "26eb7aa09090fc68d94b13c0978e1a09e4267d1e",
+              "git_blob": "26eb7aa09090fc68d94b13c0978e1a09e4267d1e",
+              "sha256": "92e6bc0311a6e7458508731aaa24e703cec17faac09677f2f2616cce15e2edf3",
+              "line": 1,
+              "anchor": "# 0003 — Integer Calculator"
+            }
+          ]
+        },
+        {
+          "label": "test",
+          "kind": "source-anchor",
+          "checks": [
+            {
+              "role": "anchor",
+              "source": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_call_site_refactor.py",
+              "revision": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+              "observed_blob": "2e45c57fbe44bf5cb4971b2457141d134fa26ddf",
+              "git_blob": "2e45c57fbe44bf5cb4971b2457141d134fa26ddf",
+              "sha256": "52da2b3d154a83c6bd2862aad796bec16b141b0b89ad2116bdd6f938a553d344",
+              "line": 88,
+              "anchor": "def test_all_added_edges_and_all_removed_paths_need_an_explicit_account"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

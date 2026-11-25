@@ -1,0 +1,127 @@
+{
+  "branch_revision": "23e5e3c808fdb4da21ed363cc69e568bffedb668",
+  "gpio": {
+    "checked_three_bit_inputs": 512,
+    "clear_irq": "0x4002541c",
+    "gpio_irq_clear": "manufacturer_rule_only",
+    "manual_masked_read_example": "0x30",
+    "masked_writes_preserve_pin_zero": true,
+    "pin_1_alias": "0x40025008",
+    "port_f": "0x40025000",
+    "timer_profiles": 4,
+    "wrong_full_port_write": "BG02X"
+  },
+  "manual": {
+    "cover_revision": "I",
+    "date": "2014-07-15",
+    "document": "SPMS144I",
+    "part": "LM3S6965",
+    "printed_pages": {
+      "GPIODATA": [
+        293,
+        294,
+        300
+      ],
+      "GPIOICR": [
+        308
+      ],
+      "PEND0": [
+        114
+      ],
+      "STCTRL": [
+        106
+      ],
+      "STCURRENT": [
+        109
+      ],
+      "UNPEND0": [
+        116
+      ]
+    },
+    "url": "https://www.ti.com/lit/ds/symlink/lm3s6965.pdf"
+  },
+  "nvic": {
+    "cases": {
+      "clear_selected_bit": [
+        {
+          "final": 2,
+          "initial": 3,
+          "selected_mask": 1
+        },
+        {
+          "final": 1,
+          "initial": 3,
+          "selected_mask": 2
+        }
+      ],
+      "read_and_not_then_write_clear": [
+        {
+          "final": 1,
+          "initial": 3,
+          "selected_mask": 1
+        },
+        {
+          "final": 2,
+          "initial": 3,
+          "selected_mask": 2
+        }
+      ],
+      "read_or_then_write_clear": [
+        {
+          "final": 0,
+          "initial": 3,
+          "selected_mask": 1
+        },
+        {
+          "final": 0,
+          "initial": 3,
+          "selected_mask": 2
+        }
+      ],
+      "write_selected_bit_to_set_alias": [
+        {
+          "final": 3,
+          "initial": 3,
+          "selected_mask": 1
+        },
+        {
+          "final": 3,
+          "initial": 3,
+          "selected_mask": 2
+        }
+      ]
+    },
+    "pending_clear_address": "0xe000e280",
+    "pending_set_address": "0xe000e200"
+  },
+  "pinned_ledgers": {
+    "metadata": {
+      "blob": "844eeb11256896a99946447b349ebd748bbe553a",
+      "path": "research/runtime-and-systems/RT-37/mmio-metadata/results.json",
+      "sha256": "5ad341ce7d775675a8d21fe01119e311ac1a09aac10627350abffb502ed5410f"
+    },
+    "nvic": {
+      "blob": "0a46fe8e1d57cf307e2afc3162019abb68a8a927",
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-nvic-clear/evidence.json",
+      "sha256": "91c3b5a636a24b986ded0f72b4aec8c5efeb670d7b2fd3ecd3ff9dae8c895994"
+    },
+    "systick": {
+      "blob": "d619d71be078dc227ed848f850f9d7657c95367f",
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-volatile/results.json",
+      "sha256": "79fc829b7e54da2f4a96c7706a6766c3463f2a7f7e0b4698835943398d142d04"
+    },
+    "timer": {
+      "blob": "035dc104cc3ccf2f7aeaeec8d655d6a8afb34a9b",
+      "path": "research/runtime-and-systems/RT-37/cortex-m3-timer/results.json",
+      "sha256": "b8be6689903b79314312fad3a67045160c2b49d42ad4279790d43aa0da48f48a"
+    }
+  },
+  "python": "3.12.14",
+  "systick": {
+    "ctrl_address": "0xe000e010",
+    "current_address": "0xe000e018",
+    "dap_disposition": "manufacturer_rule_only",
+    "observed_current_write_control": "B00!",
+    "observed_volatile_control": "B10!"
+  }
+}

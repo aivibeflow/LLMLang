@@ -1,0 +1,181 @@
+{
+  "profile": "closed u32 wrapping, returning callbacks and writable noninterfering slot",
+  "toolchain": {
+    "clang": [
+      "Debian clang version 19.1.7 (3+b1)",
+      "Target: x86_64-pc-linux-gnu",
+      "Thread model: posix",
+      "InstalledDir: /workspace/work/llmlang-clang19/extracted/usr/lib/llvm-19/bin"
+    ],
+    "go": "go version go1.27.4 linux/amd64",
+    "rustc": [
+      "rustc 1.85.1 (4eb161250 2025-03-15)",
+      "binary: rustc",
+      "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+      "commit-date: 2025-03-15",
+      "host: x86_64-unknown-linux-gnu",
+      "release: 1.85.1",
+      "LLVM version: 19.1.7"
+    ]
+  },
+  "observed_fields": [
+    "status",
+    "output_slot",
+    "ordered_callbacks"
+  ],
+  "programs_per_source": 12,
+  "request_sha256": "752d04e35f6cc6e2ecde45a18a4b5d0aa74b74c7294efa0f42e17e51ed4e55d8",
+  "required_trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37",
+  "observed_native_routes": 20,
+  "total_native_observations": 740400,
+  "matrix": {
+    "llmlang-fixture": {
+      "llmlang-fixture": {
+        "status": "not-a-translation"
+      },
+      "c": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "cpp": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "go": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "rust": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      }
+    },
+    "c": {
+      "llmlang-fixture": {
+        "status": "restricted-checked-import",
+        "checked_programs": 12
+      },
+      "c": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "cpp": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "go": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "rust": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      }
+    },
+    "cpp": {
+      "llmlang-fixture": {
+        "status": "restricted-checked-import",
+        "checked_programs": 12
+      },
+      "c": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "cpp": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "go": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "rust": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      }
+    },
+    "go": {
+      "llmlang-fixture": {
+        "status": "restricted-checked-import",
+        "checked_programs": 12
+      },
+      "c": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "cpp": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "go": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "rust": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      }
+    },
+    "rust": {
+      "llmlang-fixture": {
+        "status": "restricted-checked-import",
+        "checked_programs": 12
+      },
+      "c": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "cpp": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "go": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      },
+      "rust": {
+        "status": "restricted-differential-pass",
+        "observations": 37020,
+        "trace_sha256": "4ebf99c9f7ead0643e905c6d8ff92a5befc503b70f2233b2d3122e60217a9b37"
+      }
+    }
+  },
+  "source_sha256": {
+    "research/compiler-and-translation/RT-30/WRAPPING-TRANSLATION-MATRIX-01/matrix.py": "afc1346733096772110fae4aa2c8a3defb0b9abc768d1c57f343e9355bb2b49c",
+    "research/compiler-and-translation/RT-30/C-FAMILY-ROUNDTRIP-01/roundtrip.py": "94fff47fa40442b9c22f152e0a095bbb08c791a03aba90171cd221cd86ab76b2",
+    "research/compiler-and-translation/RT-30/GO-ROUNDTRIP-01/roundtrip.py": "dde64303b2ae3f93895ebc34477a1b4f93ccc55c5b84e49ef854a2db53bef42b",
+    "research/compiler-and-translation/RT-30/RUST-WRAPPING-ROUNDTRIP-01/roundtrip.py": "4dfb5fa2bcc886cb231c512689f783382b138010a02b82cece8b1eeb439030ce",
+    "research/compiler-and-translation/RT-30/C-FAMILY-ROUNDTRIP-01/original.c.in": "c33f8423c1656ca764b1a84f6f6092663267c5f845715e247799cd144a958b1c",
+    "research/compiler-and-translation/RT-30/GO-ROUNDTRIP-01/import.go": "51abf8b30a9e742e71bcc68b1e9964b1b1a058eb1ee377910cb98aa27e9fd983",
+    "research/compiler-and-translation/RT-30/GO-ROUNDTRIP-01/original.go.in": "04fe663e39cd614cb3fa9501f6c8fd5516b796c5f519d1530c1b14cbe51cec8e",
+    "research/compiler-and-translation/RT-30/RUST-WRAPPING-ROUNDTRIP-01/src/main.rs": "f0644f017dd4a0d4e69ac0036aa554712bd98c684a93a41a835ca83174ae98aa",
+    "research/compiler-and-translation/RT-30/RUST-WRAPPING-ROUNDTRIP-01/Cargo.toml": "b81a15ec2647c10b623603fc0499609be8d31dd980b2b143bd2d65fb59dea122",
+    "research/compiler-and-translation/RT-30/RUST-WRAPPING-ROUNDTRIP-01/Cargo.lock": "597435314299dddf3511221b6531136aa53adc5d9423c7d668f23969e73d2d21",
+    "research/compiler-and-translation/RT-30/RUST-WRAPPING-ROUNDTRIP-01/original.rs.in": "369417d26e73c00226c7ab351e6d7ee1a758417015d037259e4315faa11fbe46",
+    "research/compiler-and-translation/RT-30/RUST-WRAPPING-ROUNDTRIP-01/host.rs.in": "57cffe8baa58360c4832ea88293a43d385fe6ebba9a0d7787268507d66e358ea",
+    "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/lower_go.py": "ce112e486fa9cfce940eaea2a3aff3826a8cdc55ece5acc3a6be71fd8654875b",
+    "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/run.py": "66627d08c7336389953db30ec9ded770529d1b38f14ea5713b59f67b298c0cd9",
+    "research/compiler-and-translation/RT-13/GENERATED-GO-INTEGERS-01/host.go": "50ce99bafed1eba6bcebb5f0e61191469e54f7f30614e11f034ffab0ba74832d",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a"
+  }
+}

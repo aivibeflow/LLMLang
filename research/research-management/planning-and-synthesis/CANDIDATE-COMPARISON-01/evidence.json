@@ -1,0 +1,142 @@
+{
+  "audit_revision": "dcb74a975687e0305f03d81bbb8bb547c95eb479",
+  "candidates": [
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "criteria": [
+    "Semantic clarity",
+    "Correctness assurance",
+    "Expressiveness",
+    "Simplicity",
+    "AI-agent usability",
+    "Incremental behavior",
+    "Runtime feasibility",
+    "Interoperability",
+    "Security and trust",
+    "Evolution"
+  ],
+  "criterion_coverage": {
+    "bounded_shared": 4,
+    "component_only": 4,
+    "protocol_only": 2
+  },
+  "git": "git version 2.56.1",
+  "integrated_rating": "unknown",
+  "matrix_blob": "35a7146e825217f038daf95551bf4decef7ffd83",
+  "negative_controls": {
+    "missing_exit_requirement": "refused",
+    "numeric_cell": "refused",
+    "numeric_rating": "refused",
+    "removed_candidate": "refused",
+    "removed_criterion": "refused",
+    "unresolved_source": "refused"
+  },
+  "pinned_evidence": {
+    "adoption": {
+      "blob": "13920a143c2348a538baed3457d622537e58c757",
+      "path": "research/language-design/RT-01/RT-01-ADOPTION-AND-MIGRATION-READINESS-2026-11-25.md",
+      "sha256": "62e560f99c686fa64cca7802c7e365bb574b26e8e8441d7a463606a9b07c4566"
+    },
+    "cli": {
+      "blob": "812b358385cbadbc50cf5ba26e9b61775defd90c",
+      "path": "research/language-design/RT-01/RT-01-TYPED-CLI-VERTICAL-SLICE-2026-11-25.md",
+      "sha256": "87778bf19b0120eb642c250da0afb98d6df1bf8ad43ea21236fa4df0fad0d006"
+    },
+    "concurrent": {
+      "blob": "c46475946ebc519d5d3cc3933c6589e2e474f383",
+      "path": "research/research-management/planning-and-synthesis/CONCURRENT-RELEASE-2026-11-25.md",
+      "sha256": "6fa4771971ef95e264e3af552d73004a2d9d732d179237bebb8940d494383a1e"
+    },
+    "identities": {
+      "blob": "847b4a64c860b834bb0c42f366199115603c117b",
+      "path": "research/semantic-representation/RT-05/RT-05-CANDIDATE-IDENTITY-ENVELOPES-2026-11-25.md",
+      "sha256": "b26d22bf82548d03aaa579fcc999ddfbffddfc51116a3a0e1f28c383d8fbac01"
+    },
+    "independent": {
+      "blob": "45e44807ec92748a0b187c7f2cba8f76701ea478",
+      "path": "research/security/RT-16/RT-16-INDEPENDENT-VALIDATION-2026-11-25.md",
+      "sha256": "31dcf5d545935a913be98280a568cd12333876d288181538f1e139b693eafd65"
+    },
+    "lifetime": {
+      "blob": "0488301b9b9071c963a417fa780d68c401819926",
+      "path": "research/research-management/RT-00/RT-00-RT32-LIFETIME-REPLAY-2026-11-25.md",
+      "sha256": "7eee29e1ef183a53d573bc161f7f15447cb7ded224755f16a7d4db3ff87e9013"
+    },
+    "native_edit": {
+      "blob": "a92365f70aa99654d54278e0f8c34f8b84fd7756",
+      "path": "research/toolchain-and-collaboration/RT-11/RT-11-NATIVE-EDIT-LOCALITY-2026-11-25.md",
+      "sha256": "1ba2a274d68ba0f1504362261c299b0520adf75aa6b25fd0aa5e647f93ef40c3"
+    },
+    "native_release": {
+      "blob": "a20b99f9dbb621b18c4e4119fe4d51fb7fa2b050",
+      "path": "research/research-management/planning-and-synthesis/EXACT-PROVIDER-RELEASE-2026-11-25.md",
+      "sha256": "a0d1df92719891473525ef08c1f8f07fd60beeb0eca78fbf31f04e1ccb03780b"
+    },
+    "profiles": {
+      "blob": "91098fb8833164116cc6b73f26ab3a0d93cddec6",
+      "path": "research/language-design/RT-03/RT-03-FOUR-RESOURCE-PROFILES-2026-11-25.md",
+      "sha256": "58dd2e2bbd7bffc50d3d6100033e0898558f228ca58cccdd88c4b2f9f7907df9"
+    },
+    "provider": {
+      "blob": "a507b2635d7ab8bb205b088a96a682db104d0809",
+      "path": "research/compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md",
+      "sha256": "35706e8bba60516746511da173f0f17a6f956b4515542eadb410a6f89d65abbe"
+    },
+    "receipts": {
+      "blob": "4d4fabddc88f5bb465653c295299936d78983d14",
+      "path": "research/toolchain-and-collaboration/RT-11/RT-11-CROSS-LANGUAGE-RECEIPTS-2026-11-25.md",
+      "sha256": "4ec748233201d184821b33ebad2d5574e652c0f905b16c2b11f94fc480bcaa81"
+    },
+    "resource": {
+      "blob": "47277c95fd8baf3b9c5daf48355fa701fcb37f68",
+      "path": "research/runtime-and-systems/RT-26/RT-26-HIERARCHICAL-RESOURCE-ACCOUNTING-AND-ENFORCEMENT.md",
+      "sha256": "4008e13ecc2ceeeefe89dc8de9e85cbca6903508ba468a6f5892593268d323a8"
+    },
+    "review": {
+      "blob": "4114eef507c01b56f35673f0bbf2e1f64cc29bf6",
+      "path": "research/language-design/RT-02/RT-02-CONTROLLED-REVIEW-PROTOCOL-2026-11-25.md",
+      "sha256": "1c6c7c28f3cabbd8a6cff1b8a4d059c6682a053ad43d470b415f7a3077e1cd4d"
+    },
+    "rt32": {
+      "blob": "91dc52c76601e9bf5d7bc57b32c2dc4708e8c7b6",
+      "path": "research/formal-verification/RT-32/RT-32-VERIFIED-SPG-TO-LEAN-PIPELINE.md",
+      "sha256": "02c38f9ed9efb18962d5f6ae1fad26e38507b7432d217260cd74ef7951435a78"
+    },
+    "schedule": {
+      "blob": "981548e3992089a790d98d79cf1f6d6c10ecd0f9",
+      "path": "research/formal-verification/SCHEDULE-INVARIANCE-2026-11-25.md",
+      "sha256": "54068c24705f2a8e32b84d5e9dfdefd26425458125d5059db09390000ccffa4c"
+    },
+    "survey": {
+      "blob": "696f09d2a7e161a1c1aa01bbcfc32b64d8383a82",
+      "path": "research/language-design/RT-03/RT-03-SEMANTIC-PROFILES-FOR-SYNTHESIS-2026-11-25.md",
+      "sha256": "88134b2601c1a20468a8e031b9c5dfa1eb2ce3604c102808dd6f5bfb88bc0920"
+    },
+    "typed_diff": {
+      "blob": "1d0a7b50bc52fc18e0e270c42fcfadbf97b5d2fe",
+      "path": "research/toolchain-and-collaboration/RT-24/RT-24-TYPED-SEMANTIC-DIFF-2026-11-25.md",
+      "sha256": "34196a3aacc54a0f16e5e2469601312e954e99c2392ec8de803f7d8cc5aa8736"
+    },
+    "wire": {
+      "blob": "3f332faa4cd8e6ec1a01c11d5c0474527ae9d8ab",
+      "path": "research/packages-and-ecosystem/RT-18/RESEARCH-SCENARIO-134-WIRE-SCHEMA-EVOLUTION-INTEROPERABILITY.md",
+      "sha256": "3c0b73436da44b0fceefcc57144e550b542173dcabb21b27ff20f18e5b4cccef"
+    },
+    "worker": {
+      "blob": "48124fd138de20616e7b753597af96a3927beadc",
+      "path": "research/language-design/RT-01/RT-01-RESOURCE-WORKER-SETTLEMENT-2026-11-25.md",
+      "sha256": "5f6a504b5e52e7f28c012474521bec90b5509dfb8e0f84e020e87f665b5635d7"
+    },
+    "workloads": {
+      "blob": "3d0f871850fff2b1c603b6756a6fb83977310b36",
+      "path": "research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md",
+      "sha256": "6790df8ec90ae063bbceefa823c49b9e4f14cd364b6ba1935f7deb98e6b24f7d"
+    }
+  },
+  "profile_requirement_count": 40,
+  "python": "3.12.14",
+  "scored_profiles": 0
+}

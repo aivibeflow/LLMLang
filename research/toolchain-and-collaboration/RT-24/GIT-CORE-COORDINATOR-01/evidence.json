@@ -1,0 +1,190 @@
+{
+  "git": "git version 2.56.1",
+  "coordinated_cases": 24,
+  "published_candidates": 3,
+  "native_text_conflicts": {
+    "merge": [
+      "program/state.json"
+    ],
+    "rebase": [
+      "program/state.json"
+    ],
+    "cherry-pick": [
+      "program/state.json"
+    ]
+  },
+  "cases": [
+    {
+      "mode": "merge",
+      "case": "independent",
+      "status": "published",
+      "source_trees": [
+        "f85420056822415310e5bf7212a6f5f1a77c8cee",
+        "6c19778cd8865bee0e5c6fb9af577bde43b62635",
+        "6784917f1f129fac31335ecd1c77a74074978882"
+      ],
+      "candidate_tree": "7508277807743ca62320c11e0d5f404c2e57b10e",
+      "candidate_root": "7d83518c4369914659b5798ea10f46b3b04ed28da9dcf621c6ae680554a3e1e8",
+      "commit": "28f8fee7cb3acc9cf6d9c6ee7478a6c6a5cfa2ea",
+      "parents": [
+        "45aee88ca4c9831772b9725c972b09d6bde6dc01",
+        "f2b58857e8b75cb86ed47356bb1b7ff3d547ad7e"
+      ]
+    },
+    {
+      "mode": "merge",
+      "case": "same-slot",
+      "status": "semantic-conflict",
+      "kinds": [
+        "update-update"
+      ]
+    },
+    {
+      "mode": "merge",
+      "case": "dangling-dependency",
+      "status": "semantic-conflict",
+      "kinds": [
+        "dependency"
+      ]
+    },
+    {
+      "mode": "merge",
+      "case": "missing-source",
+      "status": "invalid-inventory"
+    },
+    {
+      "mode": "merge",
+      "case": "outside-source",
+      "status": "unsupported-tree"
+    },
+    {
+      "mode": "merge",
+      "case": "wrong-base",
+      "status": "wrong-base-or-operation"
+    },
+    {
+      "mode": "merge",
+      "case": "absent-commit",
+      "status": "wrong-base-or-operation"
+    },
+    {
+      "mode": "merge",
+      "case": "head-race",
+      "status": "stale-head"
+    },
+    {
+      "mode": "rebase",
+      "case": "independent",
+      "status": "published",
+      "source_trees": [
+        "f85420056822415310e5bf7212a6f5f1a77c8cee",
+        "6c19778cd8865bee0e5c6fb9af577bde43b62635",
+        "6784917f1f129fac31335ecd1c77a74074978882"
+      ],
+      "candidate_tree": "7508277807743ca62320c11e0d5f404c2e57b10e",
+      "candidate_root": "7d83518c4369914659b5798ea10f46b3b04ed28da9dcf621c6ae680554a3e1e8",
+      "commit": "978607da6e5e53870d90273e3bed14a9a47305ae",
+      "parents": [
+        "45aee88ca4c9831772b9725c972b09d6bde6dc01"
+      ]
+    },
+    {
+      "mode": "rebase",
+      "case": "same-slot",
+      "status": "semantic-conflict",
+      "kinds": [
+        "update-update"
+      ]
+    },
+    {
+      "mode": "rebase",
+      "case": "dangling-dependency",
+      "status": "semantic-conflict",
+      "kinds": [
+        "dependency"
+      ]
+    },
+    {
+      "mode": "rebase",
+      "case": "missing-source",
+      "status": "invalid-inventory"
+    },
+    {
+      "mode": "rebase",
+      "case": "outside-source",
+      "status": "unsupported-tree"
+    },
+    {
+      "mode": "rebase",
+      "case": "wrong-base",
+      "status": "wrong-base-or-operation"
+    },
+    {
+      "mode": "rebase",
+      "case": "absent-commit",
+      "status": "wrong-base-or-operation"
+    },
+    {
+      "mode": "rebase",
+      "case": "head-race",
+      "status": "stale-head"
+    },
+    {
+      "mode": "cherry-pick",
+      "case": "independent",
+      "status": "published",
+      "source_trees": [
+        "f85420056822415310e5bf7212a6f5f1a77c8cee",
+        "6c19778cd8865bee0e5c6fb9af577bde43b62635",
+        "6784917f1f129fac31335ecd1c77a74074978882"
+      ],
+      "candidate_tree": "7508277807743ca62320c11e0d5f404c2e57b10e",
+      "candidate_root": "7d83518c4369914659b5798ea10f46b3b04ed28da9dcf621c6ae680554a3e1e8",
+      "commit": "baca1a462487cb157904b8413b002037e6640632",
+      "parents": [
+        "45aee88ca4c9831772b9725c972b09d6bde6dc01"
+      ]
+    },
+    {
+      "mode": "cherry-pick",
+      "case": "same-slot",
+      "status": "semantic-conflict",
+      "kinds": [
+        "update-update"
+      ]
+    },
+    {
+      "mode": "cherry-pick",
+      "case": "dangling-dependency",
+      "status": "semantic-conflict",
+      "kinds": [
+        "dependency"
+      ]
+    },
+    {
+      "mode": "cherry-pick",
+      "case": "missing-source",
+      "status": "invalid-inventory"
+    },
+    {
+      "mode": "cherry-pick",
+      "case": "outside-source",
+      "status": "unsupported-tree"
+    },
+    {
+      "mode": "cherry-pick",
+      "case": "wrong-base",
+      "status": "wrong-base-or-operation"
+    },
+    {
+      "mode": "cherry-pick",
+      "case": "absent-commit",
+      "status": "wrong-base-or-operation"
+    },
+    {
+      "mode": "cherry-pick",
+      "case": "head-race",
+      "status": "stale-head"
+    }
+  ]
+}

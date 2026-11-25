@@ -1,0 +1,182 @@
+{
+  "runtime": [
+    "CPython",
+    "3.12.14",
+    "Linux",
+    "x86_64"
+  ],
+  "source_sha256": {
+    "research/compiler-and-translation/RT-13/GENERATED-PYTHON-INTEGERS-01/host.py": "60bbe69f3782ee1ea550aa7d591ca8c21ac11c119286e5d71e631aa5119870be",
+    "research/compiler-and-translation/RT-13/GENERATED-PYTHON-INTEGERS-01/lower_python.py": "510af2d036207031669418146209737e359fac3502ead65e6833c8afefcf47c2",
+    "research/compiler-and-translation/RT-13/GENERATED-PYTHON-INTEGERS-01/run.py": "012558920c4e528f36ad31cf0d5868c1bdf212b5468d649d2e0a780bd069721d",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/integer_fixture.py": "6bed6b7656e9da90f82c14d8fa8d14cf0e560ec3f5d315cc231b979fcfdd020e",
+    "research/compiler-and-translation/PROTOTYPES/LLVM-PRESERVATION-01/llvm_integer_probe.py": "7f73edf6053bab7e39312af51b06e02611bb9ddcef6734befb749296ed30901a",
+    "research/compiler-and-translation/RT-13/GENERATED-RUST-INTEGERS-01/run.py": "2d818461d81a4596e2849386e9df41ba142efc584efd12d1a63b9d174da563b1"
+  },
+  "generated_source_sha256": "59967412f10ddd9dfe4cb401a530ca862db77b1e13adc477b8e9cc67b1df2d07",
+  "request_sha256": "761c37523e6edc085713b7c79af13517f24356ebdf9c4fa910a69e3e4e76a63e",
+  "profiles": {
+    "normal": {
+      "bytecode_sha256": "7e96d2d14b5320c21451abb043fc4b313e2b3337c3c22c018a939d4cfb6c0bb1",
+      "optimization": 0,
+      "entries": 64,
+      "response_sha256": "87020a3a2f592b58ea46ce169b78b91ab2f381491eb811c4fe84f251987482e2",
+      "observations": 197440,
+      "statuses": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      }
+    },
+    "optimized": {
+      "bytecode_sha256": "7e96d2d14b5320c21451abb043fc4b313e2b3337c3c22c018a939d4cfb6c0bb1",
+      "optimization": 1,
+      "entries": 64,
+      "response_sha256": "87020a3a2f592b58ea46ce169b78b91ab2f381491eb811c4fe84f251987482e2",
+      "observations": 197440,
+      "statuses": {
+        "ok": 146048,
+        "overflow": 25120,
+        "shift_count": 25056,
+        "zero_divisor": 1216
+      }
+    }
+  },
+  "controls": {
+    "floor_instead_of_truncation": {
+      "profile": "normal",
+      "input": [
+        4294967289,
+        2,
+        1
+      ],
+      "expected": [
+        "ok",
+        4294967293,
+        [
+          4294967289,
+          4294967293
+        ]
+      ],
+      "actual": [
+        "ok",
+        4294967292,
+        [
+          4294967289,
+          4294967292
+        ]
+      ],
+      "changed": [
+        "events",
+        "slot"
+      ]
+    },
+    "divisor_sign_instead_of_dividend": {
+      "profile": "normal",
+      "input": [
+        4294967289,
+        2,
+        1
+      ],
+      "expected": [
+        "ok",
+        4294967295,
+        [
+          4294967289,
+          4294967295
+        ]
+      ],
+      "actual": [
+        "ok",
+        1,
+        [
+          4294967289,
+          1
+        ]
+      ],
+      "changed": [
+        "events",
+        "slot"
+      ]
+    },
+    "assert_guard_in_normal_profile": {
+      "profile": "normal",
+      "input": [
+        7,
+        32,
+        1
+      ],
+      "expected": [
+        "shift_count",
+        2880246324,
+        [
+          7
+        ]
+      ],
+      "actual": [
+        "shift_count",
+        2880246324,
+        [
+          7
+        ]
+      ],
+      "changed": []
+    },
+    "assert_guard_in_optimized_profile": {
+      "profile": "optimized",
+      "input": [
+        7,
+        32,
+        1
+      ],
+      "expected": [
+        "shift_count",
+        2880246324,
+        [
+          7
+        ]
+      ],
+      "actual": [
+        "ok",
+        0,
+        [
+          7,
+          0
+        ]
+      ],
+      "changed": [
+        "events",
+        "slot",
+        "status"
+      ]
+    },
+    "reverse_effects": {
+      "profile": "normal",
+      "input": [
+        7,
+        2,
+        1
+      ],
+      "expected": [
+        "ok",
+        9,
+        [
+          7,
+          9
+        ]
+      ],
+      "actual": [
+        "ok",
+        9,
+        [
+          9,
+          7
+        ]
+      ],
+      "changed": [
+        "events"
+      ]
+    }
+  }
+}

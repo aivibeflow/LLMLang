@@ -1,0 +1,410 @@
+{
+  "core_identity": {
+    "core_archive": "sha256:089e251f761157a2eddfd03733acd9c42e889476659c118d46e04f7d7ab7fff3",
+    "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6",
+    "package_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8"
+  },
+  "families": {
+    "analyze": {
+      "action_key": "sha256:a0580cfce1b64375b7d8c037ce88ea61802608f6e36847eecb9ba56e0537516a",
+      "artifact": "sha256:e4ac2e6a1f0a457cdc51a487f2f05350d8d470be55b6b11ccf6d8789653de9ee",
+      "bytes": 364
+    },
+    "compile": {
+      "action_key": "sha256:abb4c049f696bab711b0d3eb062883f97769c6a8649af06b92e971d6fe6fa9c6",
+      "artifact": "sha256:d0c7212d5e78530a95cca4a3945038cb4c50170b2b26006e1a628a7864b674f6",
+      "bytes": 1080
+    },
+    "proof": {
+      "action_key": "sha256:ed0e39c21592b034dc8189f903fc2f029415b26542e733ddac9bbb4d8ee926a5",
+      "artifact": "sha256:a549ef816edfa8d2f965982ea32a2ff2c4142b3e79983a4e186d3ed33e263d7b",
+      "bytes": 180
+    },
+    "test": {
+      "action_key": "sha256:5eddcbe9e732f1ec75d22504b0fed55a44efae402b4d9498371ea6c2c2db5551",
+      "artifact": "sha256:2001460a8689bfb0ddefa715a4c151b7ac93b56870ce157679740231ac1d68fb",
+      "bytes": 49
+    },
+    "validate": {
+      "action_key": "sha256:56a01e59c7fe159f761cc599d6c8b7c26d94661ece733fbce5544a25997c4d4e",
+      "artifact": "sha256:396200845f24730ef8cec7bb118d3274c476c55550bcc1ac4710535d62b64bee",
+      "bytes": 270
+    }
+  },
+  "faults": [
+    {
+      "control": "corruption",
+      "detached_bytes": 7135,
+      "detached_reads": 6,
+      "family": "validate",
+      "initial_download_bytes": 2512,
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "digest-refused"
+      }
+    },
+    {
+      "control": "cross-family",
+      "detached_bytes": 7118,
+      "detached_reads": 5,
+      "family": "validate",
+      "initial_download_bytes": 2512,
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "receipt-refused"
+      }
+    },
+    {
+      "control": "corruption",
+      "detached_bytes": 6325,
+      "detached_reads": 6,
+      "family": "compile",
+      "initial_download_bytes": 2512,
+      "results": {
+        "analyze": "hit",
+        "compile": "digest-refused",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "hit"
+      }
+    },
+    {
+      "control": "cross-family",
+      "detached_bytes": 6308,
+      "detached_reads": 5,
+      "family": "compile",
+      "initial_download_bytes": 2512,
+      "results": {
+        "analyze": "hit",
+        "compile": "receipt-refused",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "hit"
+      }
+    },
+    {
+      "control": "corruption",
+      "detached_bytes": 7041,
+      "detached_reads": 6,
+      "family": "analyze",
+      "initial_download_bytes": 2512,
+      "results": {
+        "analyze": "digest-refused",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "hit"
+      }
+    },
+    {
+      "control": "cross-family",
+      "detached_bytes": 7024,
+      "detached_reads": 5,
+      "family": "analyze",
+      "initial_download_bytes": 2512,
+      "results": {
+        "analyze": "receipt-refused",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "hit"
+      }
+    },
+    {
+      "control": "corruption",
+      "detached_bytes": 7356,
+      "detached_reads": 6,
+      "family": "test",
+      "initial_download_bytes": 2512,
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "digest-refused",
+        "validate": "hit"
+      }
+    },
+    {
+      "control": "cross-family",
+      "detached_bytes": 7339,
+      "detached_reads": 5,
+      "family": "test",
+      "initial_download_bytes": 2512,
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "receipt-refused",
+        "validate": "hit"
+      }
+    },
+    {
+      "control": "corruption",
+      "detached_bytes": 7225,
+      "detached_reads": 6,
+      "family": "proof",
+      "initial_download_bytes": 2512,
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "digest-refused",
+        "test": "hit",
+        "validate": "hit"
+      }
+    },
+    {
+      "control": "cross-family",
+      "detached_bytes": 7208,
+      "detached_reads": 5,
+      "family": "proof",
+      "initial_download_bytes": 2512,
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "receipt-refused",
+        "test": "hit",
+        "validate": "hit"
+      }
+    }
+  ],
+  "format": "package-cache-delivery-01",
+  "index_bytes": 5445,
+  "measurements": [
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 2512,
+      "layout": "bare",
+      "profile": "package-only",
+      "results": {}
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 2512,
+      "layout": "bare",
+      "profile": "compile-only",
+      "results": {
+        "compile": "index-unavailable"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 2512,
+      "layout": "bare",
+      "profile": "all-online",
+      "results": {
+        "analyze": "index-unavailable",
+        "compile": "index-unavailable",
+        "proof": "index-unavailable",
+        "test": "index-unavailable",
+        "validate": "index-unavailable"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 2512,
+      "layout": "bare",
+      "profile": "all-offline",
+      "results": {
+        "analyze": "index-unavailable",
+        "compile": "index-unavailable",
+        "proof": "index-unavailable",
+        "test": "index-unavailable",
+        "validate": "index-unavailable"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 11188,
+      "layout": "all-embedded",
+      "profile": "package-only",
+      "results": {}
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 11188,
+      "layout": "all-embedded",
+      "profile": "compile-only",
+      "results": {
+        "compile": "hit"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 11188,
+      "layout": "all-embedded",
+      "profile": "all-online",
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "hit"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 11188,
+      "layout": "all-embedded",
+      "profile": "all-offline",
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "hit"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 8065,
+      "layout": "embedded-index",
+      "profile": "package-only",
+      "results": {}
+    },
+    {
+      "detached_bytes": 1080,
+      "detached_reads": 1,
+      "initial_download_bytes": 8065,
+      "layout": "embedded-index",
+      "profile": "compile-only",
+      "results": {
+        "compile": "hit"
+      }
+    },
+    {
+      "detached_bytes": 1943,
+      "detached_reads": 5,
+      "initial_download_bytes": 8065,
+      "layout": "embedded-index",
+      "profile": "all-online",
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "hit"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 8065,
+      "layout": "embedded-index",
+      "profile": "all-offline",
+      "results": {
+        "analyze": "result-unavailable",
+        "compile": "result-unavailable",
+        "proof": "result-unavailable",
+        "test": "result-unavailable",
+        "validate": "result-unavailable"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 5635,
+      "layout": "embedded-results",
+      "profile": "package-only",
+      "results": {}
+    },
+    {
+      "detached_bytes": 5445,
+      "detached_reads": 1,
+      "initial_download_bytes": 5635,
+      "layout": "embedded-results",
+      "profile": "compile-only",
+      "results": {
+        "compile": "hit"
+      }
+    },
+    {
+      "detached_bytes": 5445,
+      "detached_reads": 1,
+      "initial_download_bytes": 5635,
+      "layout": "embedded-results",
+      "profile": "all-online",
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "hit"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 5635,
+      "layout": "embedded-results",
+      "profile": "all-offline",
+      "results": {
+        "analyze": "index-unavailable",
+        "compile": "index-unavailable",
+        "proof": "index-unavailable",
+        "test": "index-unavailable",
+        "validate": "index-unavailable"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 2512,
+      "layout": "fully-detached",
+      "profile": "package-only",
+      "results": {}
+    },
+    {
+      "detached_bytes": 6525,
+      "detached_reads": 2,
+      "initial_download_bytes": 2512,
+      "layout": "fully-detached",
+      "profile": "compile-only",
+      "results": {
+        "compile": "hit"
+      }
+    },
+    {
+      "detached_bytes": 7388,
+      "detached_reads": 6,
+      "initial_download_bytes": 2512,
+      "layout": "fully-detached",
+      "profile": "all-online",
+      "results": {
+        "analyze": "hit",
+        "compile": "hit",
+        "proof": "hit",
+        "test": "hit",
+        "validate": "hit"
+      }
+    },
+    {
+      "detached_bytes": 0,
+      "detached_reads": 0,
+      "initial_download_bytes": 2512,
+      "layout": "fully-detached",
+      "profile": "all-offline",
+      "results": {
+        "analyze": "index-unavailable",
+        "compile": "index-unavailable",
+        "proof": "index-unavailable",
+        "test": "index-unavailable",
+        "validate": "index-unavailable"
+      }
+    }
+  ]
+}

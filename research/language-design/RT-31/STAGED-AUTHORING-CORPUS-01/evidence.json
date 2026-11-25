@@ -1,0 +1,1578 @@
+{
+  "baseline": "ff3e7cd2a938fbda7e67c6b43a4818a666b30e1f",
+  "python": "3.12.14",
+  "source_sha256": {
+    "research/language-design/RT-31/HYBRID-PROFILE-01/replay.py": "d39bfa565edfb8c3e01bd6d5b9e16ac98ac7d0d8339ef6532a7ea34385f36ff5",
+    "research/language-design/RT-31/HYBRID-PROFILE-01/hybrid.py": "5d749682e057822f0cb232e0852fe27f08f9b1cc33a542f9e992976e35f6b887",
+    "research/language-design/RT-31/CROSS-PROFILE-SPG-01/run.py": "344cdab493a1981021ab5d9096e473888761de4f8bcd24dd233b76301e58145a",
+    "research/language-design/RT-31/CROSS-PROFILE-SPG-01/profiles.py": "8fc88d9b8d9af652783e9f3d3c43d66edb061d1e22ff62d622d46e6d307b6dcf",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_representation.py": "385a6fe2ffd5267a45760a1f9b460ec4a97bb1434faeff27a7cbe60283c58ea1"
+  },
+  "runner_sha256": "baf5cf05c745c653ba63e0b37a64ad969a0c757b5bc3b26f6a171077220b22b9",
+  "tasks_sha256": "8b2783753b0d140f7e1a14fe64a1ae068a343e9dd136795f3dac7b23dd8e78c9",
+  "inputs": [
+    [
+      -17,
+      false
+    ],
+    [
+      -17,
+      true
+    ],
+    [
+      -2,
+      false
+    ],
+    [
+      -2,
+      true
+    ],
+    [
+      -1,
+      false
+    ],
+    [
+      -1,
+      true
+    ],
+    [
+      0,
+      false
+    ],
+    [
+      0,
+      true
+    ],
+    [
+      1,
+      false
+    ],
+    [
+      1,
+      true
+    ],
+    [
+      7,
+      false
+    ],
+    [
+      7,
+      true
+    ],
+    [
+      23,
+      false
+    ],
+    [
+      23,
+      true
+    ]
+  ],
+  "profile_observations": 504,
+  "task_results": {
+    "rebind-and-adjust": {
+      "oracle_observations_by_stage": [
+        [
+          [
+            -16,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            0,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            2,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            8,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            24,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ]
+        ],
+        [
+          [
+            -16,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            0,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            2,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            8,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            24,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ]
+        ],
+        [
+          [
+            -18,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -3,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -2,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            0,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            6,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            22,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ]
+        ]
+      ],
+      "profiles": {
+        "infix/1": [
+          {
+            "source": "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + 1)))",
+            "selected_binding": "primary",
+            "graph_root": "3a8f9407a30dd4d74c352c04f1e31e46e533cbd57e02ab5804dd68828ef2e3c9"
+          },
+          {
+            "source": "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + 1)))",
+            "selected_binding": "alternate",
+            "graph_root": "f17cb7decbfdf2a50c38201a65d957403ec30770fa8471d11bdbc4556b325523"
+          },
+          {
+            "source": "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + -1)))",
+            "selected_binding": "alternate",
+            "graph_root": "cc81fc74ee86f126e4e2a7ad8367a9b88dfa556ffa42139476134fe46ec97c94"
+          }
+        ],
+        "json-tree/1": [
+          {
+            "source": "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],1]]]",
+            "selected_binding": "primary",
+            "graph_root": "3a8f9407a30dd4d74c352c04f1e31e46e533cbd57e02ab5804dd68828ef2e3c9"
+          },
+          {
+            "source": "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],1]]]",
+            "selected_binding": "alternate",
+            "graph_root": "f17cb7decbfdf2a50c38201a65d957403ec30770fa8471d11bdbc4556b325523"
+          },
+          {
+            "source": "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "selected_binding": "alternate",
+            "graph_root": "cc81fc74ee86f126e4e2a7ad8367a9b88dfa556ffa42139476134fe46ec97c94"
+          }
+        ],
+        "s-expression/1": [
+          {
+            "source": "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") 1)))",
+            "selected_binding": "primary",
+            "graph_root": "3a8f9407a30dd4d74c352c04f1e31e46e533cbd57e02ab5804dd68828ef2e3c9"
+          },
+          {
+            "source": "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") 1)))",
+            "selected_binding": "alternate",
+            "graph_root": "f17cb7decbfdf2a50c38201a65d957403ec30770fa8471d11bdbc4556b325523"
+          },
+          {
+            "source": "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "selected_binding": "alternate",
+            "graph_root": "cc81fc74ee86f126e4e2a7ad8367a9b88dfa556ffa42139476134fe46ec97c94"
+          }
+        ],
+        "hybrid/1": [
+          {
+            "source": "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 1)\"}}}}",
+            "selected_binding": "primary",
+            "graph_root": "3a8f9407a30dd4d74c352c04f1e31e46e533cbd57e02ab5804dd68828ef2e3c9"
+          },
+          {
+            "source": "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 1)\"}}}}",
+            "selected_binding": "alternate",
+            "graph_root": "f17cb7decbfdf2a50c38201a65d957403ec30770fa8471d11bdbc4556b325523"
+          },
+          {
+            "source": "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "selected_binding": "alternate",
+            "graph_root": "cc81fc74ee86f126e4e2a7ad8367a9b88dfa556ffa42139476134fe46ec97c94"
+          }
+        ]
+      }
+    },
+    "pin-and-change-argument": {
+      "oracle_observations_by_stage": [
+        [
+          [
+            -18,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -3,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -2,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            0,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            6,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            22,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            7,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ]
+        ],
+        [
+          [
+            -18,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -3,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -2,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            0,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            6,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            22,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            -2,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ]
+        ],
+        [
+          [
+            -18,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            3,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -3,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            3,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -2,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            3,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            3,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            0,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            3,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            6,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            3,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            22,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            3,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ]
+        ]
+      ],
+      "profiles": {
+        "infix/1": [
+          {
+            "source": "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + -1)))",
+            "selected_binding": "alternate",
+            "graph_root": "cc81fc74ee86f126e4e2a7ad8367a9b88dfa556ffa42139476134fe46ec97c94"
+          },
+          {
+            "source": "(pin(\"primary\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + -1)))",
+            "selected_binding": "alternate",
+            "graph_root": "0ccd28758058973c68e32ff369d20fa7dae79549ea592f2c781b8ff9d9584eb1"
+          },
+          {
+            "source": "(pin(\"primary\", emit(\"left\", x), emit(\"right\", (x + -3))) if choose else emit(\"fallback\", (x + -1)))",
+            "selected_binding": "alternate",
+            "graph_root": "415a6481aedf1c85e9b37983c0259c8279ec0441ba0a730805f74e062d262578"
+          }
+        ],
+        "json-tree/1": [
+          {
+            "source": "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "selected_binding": "alternate",
+            "graph_root": "cc81fc74ee86f126e4e2a7ad8367a9b88dfa556ffa42139476134fe46ec97c94"
+          },
+          {
+            "source": "[\"if\",[\"arg\",\"choose\"],[\"pin\",\"primary\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "selected_binding": "alternate",
+            "graph_root": "0ccd28758058973c68e32ff369d20fa7dae79549ea592f2c781b8ff9d9584eb1"
+          },
+          {
+            "source": "[\"if\",[\"arg\",\"choose\"],[\"pin\",\"primary\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],-3]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "selected_binding": "alternate",
+            "graph_root": "415a6481aedf1c85e9b37983c0259c8279ec0441ba0a730805f74e062d262578"
+          }
+        ],
+        "s-expression/1": [
+          {
+            "source": "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "selected_binding": "alternate",
+            "graph_root": "cc81fc74ee86f126e4e2a7ad8367a9b88dfa556ffa42139476134fe46ec97c94"
+          },
+          {
+            "source": "(if (arg \"choose\") (pin \"primary\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "selected_binding": "alternate",
+            "graph_root": "0ccd28758058973c68e32ff369d20fa7dae79549ea592f2c781b8ff9d9584eb1"
+          },
+          {
+            "source": "(if (arg \"choose\") (pin \"primary\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") -3))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "selected_binding": "alternate",
+            "graph_root": "415a6481aedf1c85e9b37983c0259c8279ec0441ba0a730805f74e062d262578"
+          }
+        ],
+        "hybrid/1": [
+          {
+            "source": "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "selected_binding": "alternate",
+            "graph_root": "cc81fc74ee86f126e4e2a7ad8367a9b88dfa556ffa42139476134fe46ec97c94"
+          },
+          {
+            "source": "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"pin\",\"target\":\"primary\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "selected_binding": "alternate",
+            "graph_root": "0ccd28758058973c68e32ff369d20fa7dae79549ea592f2c781b8ff9d9584eb1"
+          },
+          {
+            "source": "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"pin\",\"target\":\"primary\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -3)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "selected_binding": "alternate",
+            "graph_root": "415a6481aedf1c85e9b37983c0259c8279ec0441ba0a730805f74e062d262578"
+          }
+        ]
+      }
+    },
+    "change-trace-and-fallback": {
+      "oracle_observations_by_stage": [
+        [
+          [
+            -17,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -2,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            -1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            0,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            7,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ],
+          [
+            23,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "left",
+              "right",
+              "compute"
+            ]
+          ]
+        ],
+        [
+          [
+            -17,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            -2,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            -1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            0,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            7,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            23,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ]
+        ],
+        [
+          [
+            -14,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            1,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            2,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            3,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            4,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            10,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ],
+          [
+            26,
+            [
+              "fallback"
+            ]
+          ],
+          [
+            0,
+            [
+              "right",
+              "left",
+              "compute"
+            ]
+          ]
+        ]
+      ],
+      "profiles": {
+        "infix/1": [
+          {
+            "source": "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 0))) if choose else emit(\"fallback\", (x + 0)))",
+            "selected_binding": "primary",
+            "graph_root": "e2a95d78bbdcbba4574433eabcaea49dad69e084bca115f518ba6af41bf58f3c"
+          },
+          {
+            "source": "(op(\"provider\", emit(\"right\", (x + 0)), emit(\"left\", x)) if choose else emit(\"fallback\", (x + 0)))",
+            "selected_binding": "primary",
+            "graph_root": "dfdd134e2fcba60ae5cf7e6a7f0197e113124ac76a54703283c3aa9a079183b5"
+          },
+          {
+            "source": "(op(\"provider\", emit(\"right\", (x + 0)), emit(\"left\", x)) if choose else emit(\"fallback\", (x + 3)))",
+            "selected_binding": "primary",
+            "graph_root": "c2493156871bda633461b4caf75e40a0ab643045dbc1f5285ddf449db1ab1315"
+          }
+        ],
+        "json-tree/1": [
+          {
+            "source": "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],0]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],0]]]",
+            "selected_binding": "primary",
+            "graph_root": "e2a95d78bbdcbba4574433eabcaea49dad69e084bca115f518ba6af41bf58f3c"
+          },
+          {
+            "source": "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],0]],[\"emit\",\"left\",[\"arg\",\"x\"]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],0]]]",
+            "selected_binding": "primary",
+            "graph_root": "dfdd134e2fcba60ae5cf7e6a7f0197e113124ac76a54703283c3aa9a079183b5"
+          },
+          {
+            "source": "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],0]],[\"emit\",\"left\",[\"arg\",\"x\"]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],3]]]",
+            "selected_binding": "primary",
+            "graph_root": "c2493156871bda633461b4caf75e40a0ab643045dbc1f5285ddf449db1ab1315"
+          }
+        ],
+        "s-expression/1": [
+          {
+            "source": "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 0))) (emit \"fallback\" (add (arg \"x\") 0)))",
+            "selected_binding": "primary",
+            "graph_root": "e2a95d78bbdcbba4574433eabcaea49dad69e084bca115f518ba6af41bf58f3c"
+          },
+          {
+            "source": "(if (arg \"choose\") (op \"provider\" (emit \"right\" (add (arg \"x\") 0)) (emit \"left\" (arg \"x\"))) (emit \"fallback\" (add (arg \"x\") 0)))",
+            "selected_binding": "primary",
+            "graph_root": "dfdd134e2fcba60ae5cf7e6a7f0197e113124ac76a54703283c3aa9a079183b5"
+          },
+          {
+            "source": "(if (arg \"choose\") (op \"provider\" (emit \"right\" (add (arg \"x\") 0)) (emit \"left\" (arg \"x\"))) (emit \"fallback\" (add (arg \"x\") 3)))",
+            "selected_binding": "primary",
+            "graph_root": "c2493156871bda633461b4caf75e40a0ab643045dbc1f5285ddf449db1ab1315"
+          }
+        ],
+        "hybrid/1": [
+          {
+            "source": "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 0)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 0)\"}}}}",
+            "selected_binding": "primary",
+            "graph_root": "e2a95d78bbdcbba4574433eabcaea49dad69e084bca115f518ba6af41bf58f3c"
+          },
+          {
+            "source": "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 0)\"}},{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 0)\"}}}}",
+            "selected_binding": "primary",
+            "graph_root": "dfdd134e2fcba60ae5cf7e6a7f0197e113124ac76a54703283c3aa9a079183b5"
+          },
+          {
+            "source": "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 0)\"}},{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 3)\"}}}}",
+            "selected_binding": "primary",
+            "graph_root": "c2493156871bda633461b4caf75e40a0ab643045dbc1f5285ddf449db1ab1315"
+          }
+        ]
+      }
+    }
+  },
+  "controls": {
+    "infix/1": {
+      "skip_required_stage": {
+        "submitted_steps": [
+          [
+            "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + -1)))",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "missing-required-stage",
+          null
+        ]
+      },
+      "wrong_first_stage_correct_terminal": {
+        "submitted_steps": [
+          [
+            "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + -1)))",
+            "alternate"
+          ],
+          [
+            "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + -1)))",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "value-mismatch",
+          1
+        ]
+      },
+      "malformed_surface": {
+        "submitted_steps": [
+          [
+            "",
+            "alternate"
+          ],
+          [
+            "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + -1)))",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "frontend-or-admission",
+          1
+        ]
+      },
+      "lost_exact_pin": {
+        "submitted_steps": [
+          [
+            "(pin(\"primary\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + -1)))",
+            "alternate"
+          ],
+          [
+            "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + -3))) if choose else emit(\"fallback\", (x + -1)))",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "value-mismatch",
+          2
+        ]
+      },
+      "lost_order_with_equal_value": {
+        "submitted_steps": [
+          [
+            "(op(\"provider\", emit(\"right\", (x + 0)), emit(\"left\", x)) if choose else emit(\"fallback\", (x + 0)))",
+            "primary"
+          ],
+          [
+            "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 0))) if choose else emit(\"fallback\", (x + 3)))",
+            "primary"
+          ]
+        ],
+        "decision": [
+          "trace-mismatch",
+          2
+        ]
+      },
+      "unchanged_values_and_trace_extra_mutation": {
+        "submitted_steps": [
+          [
+            "((op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + 1))) + 0)",
+            "alternate"
+          ],
+          [
+            "(op(\"provider\", emit(\"left\", x), emit(\"right\", (x + 2))) if choose else emit(\"fallback\", (x + -1)))",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "semantic-edit-scope",
+          1
+        ]
+      }
+    },
+    "json-tree/1": {
+      "skip_required_stage": {
+        "submitted_steps": [
+          [
+            "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "missing-required-stage",
+          null
+        ]
+      },
+      "wrong_first_stage_correct_terminal": {
+        "submitted_steps": [
+          [
+            "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "alternate"
+          ],
+          [
+            "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "value-mismatch",
+          1
+        ]
+      },
+      "malformed_surface": {
+        "submitted_steps": [
+          [
+            "",
+            "alternate"
+          ],
+          [
+            "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "frontend-or-admission",
+          1
+        ]
+      },
+      "lost_exact_pin": {
+        "submitted_steps": [
+          [
+            "[\"if\",[\"arg\",\"choose\"],[\"pin\",\"primary\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "alternate"
+          ],
+          [
+            "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],-3]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "value-mismatch",
+          2
+        ]
+      },
+      "lost_order_with_equal_value": {
+        "submitted_steps": [
+          [
+            "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],0]],[\"emit\",\"left\",[\"arg\",\"x\"]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],0]]]",
+            "primary"
+          ],
+          [
+            "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],0]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],3]]]",
+            "primary"
+          ]
+        ],
+        "decision": [
+          "trace-mismatch",
+          2
+        ]
+      },
+      "unchanged_values_and_trace_extra_mutation": {
+        "submitted_steps": [
+          [
+            "[\"add\",[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],1]]],0]",
+            "alternate"
+          ],
+          [
+            "[\"if\",[\"arg\",\"choose\"],[\"op\",\"provider\",[\"emit\",\"left\",[\"arg\",\"x\"]],[\"emit\",\"right\",[\"add\",[\"arg\",\"x\"],2]]],[\"emit\",\"fallback\",[\"add\",[\"arg\",\"x\"],-1]]]",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "semantic-edit-scope",
+          1
+        ]
+      }
+    },
+    "s-expression/1": {
+      "skip_required_stage": {
+        "submitted_steps": [
+          [
+            "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "missing-required-stage",
+          null
+        ]
+      },
+      "wrong_first_stage_correct_terminal": {
+        "submitted_steps": [
+          [
+            "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "alternate"
+          ],
+          [
+            "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "value-mismatch",
+          1
+        ]
+      },
+      "malformed_surface": {
+        "submitted_steps": [
+          [
+            "",
+            "alternate"
+          ],
+          [
+            "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "frontend-or-admission",
+          1
+        ]
+      },
+      "lost_exact_pin": {
+        "submitted_steps": [
+          [
+            "(if (arg \"choose\") (pin \"primary\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "alternate"
+          ],
+          [
+            "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") -3))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "value-mismatch",
+          2
+        ]
+      },
+      "lost_order_with_equal_value": {
+        "submitted_steps": [
+          [
+            "(if (arg \"choose\") (op \"provider\" (emit \"right\" (add (arg \"x\") 0)) (emit \"left\" (arg \"x\"))) (emit \"fallback\" (add (arg \"x\") 0)))",
+            "primary"
+          ],
+          [
+            "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 0))) (emit \"fallback\" (add (arg \"x\") 3)))",
+            "primary"
+          ]
+        ],
+        "decision": [
+          "trace-mismatch",
+          2
+        ]
+      },
+      "unchanged_values_and_trace_extra_mutation": {
+        "submitted_steps": [
+          [
+            "(add (if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") 1))) 0)",
+            "alternate"
+          ],
+          [
+            "(if (arg \"choose\") (op \"provider\" (emit \"left\" (arg \"x\")) (emit \"right\" (add (arg \"x\") 2))) (emit \"fallback\" (add (arg \"x\") -1)))",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "semantic-edit-scope",
+          1
+        ]
+      }
+    },
+    "hybrid/1": {
+      "skip_required_stage": {
+        "submitted_steps": [
+          [
+            "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "missing-required-stage",
+          null
+        ]
+      },
+      "wrong_first_stage_correct_terminal": {
+        "submitted_steps": [
+          [
+            "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "alternate"
+          ],
+          [
+            "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "value-mismatch",
+          1
+        ]
+      },
+      "malformed_surface": {
+        "submitted_steps": [
+          [
+            "",
+            "alternate"
+          ],
+          [
+            "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "frontend-or-admission",
+          1
+        ]
+      },
+      "lost_exact_pin": {
+        "submitted_steps": [
+          [
+            "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"pin\",\"target\":\"primary\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "alternate"
+          ],
+          [
+            "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -3)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "value-mismatch",
+          2
+        ]
+      },
+      "lost_order_with_equal_value": {
+        "submitted_steps": [
+          [
+            "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 0)\"}},{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 0)\"}}}}",
+            "primary"
+          ],
+          [
+            "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 0)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 3)\"}}}}",
+            "primary"
+          ]
+        ],
+        "decision": [
+          "trace-mismatch",
+          2
+        ]
+      },
+      "unchanged_values_and_trace_extra_mutation": {
+        "submitted_steps": [
+          [
+            "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"binary\",\"operator\":\"add\",\"left\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 1)\"}}},\"right\":{\"kind\":\"scalar\",\"expr\":\"0\"}}}",
+            "alternate"
+          ],
+          [
+            "{\"profile\":\"hybrid/1\",\"expression\":{\"kind\":\"if\",\"condition\":{\"kind\":\"scalar\",\"expr\":\"choose\"},\"then\":{\"kind\":\"call\",\"binding\":\"op\",\"target\":\"provider\",\"arguments\":[{\"kind\":\"emit\",\"event\":\"left\",\"value\":{\"kind\":\"scalar\",\"expr\":\"x\"}},{\"kind\":\"emit\",\"event\":\"right\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + 2)\"}}]},\"else\":{\"kind\":\"emit\",\"event\":\"fallback\",\"value\":{\"kind\":\"scalar\",\"expr\":\"(x + -1)\"}}}}",
+            "alternate"
+          ]
+        ],
+        "decision": [
+          "semantic-edit-scope",
+          1
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "format": "external-cas-collection-01",
+  "interrupted_exit": 28,
+  "rows": [
+    {
+      "case": "new leases invalidate a stale plan",
+      "decision": "stale-plan"
+    },
+    {
+      "case": "new root invalidates a plan that could collect its closure",
+      "decision": "stale-plan"
+    },
+    {
+      "case": "a dishonest plan cannot quarantine a protected object",
+      "decision": "plan-touches-live-object"
+    },
+    {
+      "case": "latest root and both leases pin complete graphs",
+      "decision": "two-orphans-only"
+    },
+    {
+      "case": "child exit after first quarantine move",
+      "decision": "both-real-graphs-readable"
+    },
+    {
+      "case": "resume collection from fresh catalog view",
+      "decision": "only-orphans-collected"
+    },
+    {
+      "case": "old snapshot after both leases were released",
+      "decision": "missing object"
+    },
+    {
+      "case": "shared dependency survives historical collection",
+      "decision": "current-verified"
+    },
+    {
+      "case": "ordinary marks halt on missing live graph",
+      "decision": "missing object"
+    },
+    {
+      "case": "recovery salvages checked protected bytes",
+      "decision": "current-restored"
+    },
+    {
+      "case": "recovery cannot publish a corrupted replacement",
+      "decision": "object digest mismatch"
+    },
+    {
+      "case": "unreadable root cannot acquire a new lease",
+      "decision": "missing object"
+    }
+  ],
+  "sqlite": "3.53.1"
+}

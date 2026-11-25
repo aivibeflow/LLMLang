@@ -1,0 +1,182 @@
+{
+  "c_string_truncations": 5,
+  "capacity_controls_per_level": 196,
+  "cases": {
+    "ascii": {
+      "binary_capacity_refusals": 4,
+      "byte_length": 4,
+      "c_string_capacity_refusals": 4,
+      "c_string_hex": "74657874",
+      "c_string_length": 4,
+      "c_string_utf8_scalars": 4,
+      "original_hex": "74657874",
+      "utf8_scalars": 4
+    },
+    "beyond_scalar_range": {
+      "binary_capacity_refusals": 4,
+      "byte_length": 4,
+      "c_string_capacity_refusals": 4,
+      "c_string_hex": "f4908080",
+      "c_string_length": 4,
+      "c_string_utf8_scalars": null,
+      "original_hex": "f4908080",
+      "utf8_scalars": null
+    },
+    "combining": {
+      "binary_capacity_refusals": 3,
+      "byte_length": 3,
+      "c_string_capacity_refusals": 3,
+      "c_string_hex": "65cc81",
+      "c_string_length": 3,
+      "c_string_utf8_scalars": 2,
+      "original_hex": "65cc81",
+      "utf8_scalars": 2
+    },
+    "embedded_zero": {
+      "binary_capacity_refusals": 15,
+      "byte_length": 15,
+      "c_string_capacity_refusals": 8,
+      "c_string_hex": "656d626564646564",
+      "c_string_length": 8,
+      "c_string_utf8_scalars": 8,
+      "original_hex": "656d626564646564006d6964646c65",
+      "utf8_scalars": 15
+    },
+    "empty": {
+      "binary_capacity_refusals": 0,
+      "byte_length": 0,
+      "c_string_capacity_refusals": 0,
+      "c_string_hex": "",
+      "c_string_length": 0,
+      "c_string_utf8_scalars": 0,
+      "original_hex": "",
+      "utf8_scalars": 0
+    },
+    "invalid_octet": {
+      "binary_capacity_refusals": 1,
+      "byte_length": 1,
+      "c_string_capacity_refusals": 1,
+      "c_string_hex": "ff",
+      "c_string_length": 1,
+      "c_string_utf8_scalars": null,
+      "original_hex": "ff",
+      "utf8_scalars": null
+    },
+    "leading_zero": {
+      "binary_capacity_refusals": 8,
+      "byte_length": 8,
+      "c_string_capacity_refusals": 0,
+      "c_string_hex": "",
+      "c_string_length": 0,
+      "c_string_utf8_scalars": 0,
+      "original_hex": "006c656164696e67",
+      "utf8_scalars": 8
+    },
+    "overlong_zero": {
+      "binary_capacity_refusals": 2,
+      "byte_length": 2,
+      "c_string_capacity_refusals": 2,
+      "c_string_hex": "c080",
+      "c_string_length": 2,
+      "c_string_utf8_scalars": null,
+      "original_hex": "c080",
+      "utf8_scalars": null
+    },
+    "precomposed": {
+      "binary_capacity_refusals": 2,
+      "byte_length": 2,
+      "c_string_capacity_refusals": 2,
+      "c_string_hex": "c3a9",
+      "c_string_length": 2,
+      "c_string_utf8_scalars": 1,
+      "original_hex": "c3a9",
+      "utf8_scalars": 1
+    },
+    "stray_continuation": {
+      "binary_capacity_refusals": 1,
+      "byte_length": 1,
+      "c_string_capacity_refusals": 1,
+      "c_string_hex": "80",
+      "c_string_length": 1,
+      "c_string_utf8_scalars": null,
+      "original_hex": "80",
+      "utf8_scalars": null
+    },
+    "supplementary": {
+      "binary_capacity_refusals": 4,
+      "byte_length": 4,
+      "c_string_capacity_refusals": 4,
+      "c_string_hex": "f09f9880",
+      "c_string_length": 4,
+      "c_string_utf8_scalars": 1,
+      "original_hex": "f09f9880",
+      "utf8_scalars": 1
+    },
+    "surrogate": {
+      "binary_capacity_refusals": 3,
+      "byte_length": 3,
+      "c_string_capacity_refusals": 3,
+      "c_string_hex": "eda080",
+      "c_string_length": 3,
+      "c_string_utf8_scalars": null,
+      "original_hex": "eda080",
+      "utf8_scalars": null
+    },
+    "trailing_zero": {
+      "binary_capacity_refusals": 9,
+      "byte_length": 9,
+      "c_string_capacity_refusals": 8,
+      "c_string_hex": "747261696c696e67",
+      "c_string_length": 8,
+      "c_string_utf8_scalars": 8,
+      "original_hex": "747261696c696e6700",
+      "utf8_scalars": 9
+    },
+    "truncated_sequence": {
+      "binary_capacity_refusals": 2,
+      "byte_length": 2,
+      "c_string_capacity_refusals": 2,
+      "c_string_hex": "e282",
+      "c_string_length": 2,
+      "c_string_utf8_scalars": null,
+      "original_hex": "e282",
+      "utf8_scalars": null
+    },
+    "zero_and_supplementary": {
+      "binary_capacity_refusals": 6,
+      "byte_length": 6,
+      "c_string_capacity_refusals": 1,
+      "c_string_hex": "78",
+      "c_string_length": 1,
+      "c_string_utf8_scalars": 1,
+      "original_hex": "7800f09f9880",
+      "utf8_scalars": 3
+    },
+    "zero_hides_invalid_octet": {
+      "binary_capacity_refusals": 2,
+      "byte_length": 2,
+      "c_string_capacity_refusals": 0,
+      "c_string_hex": "",
+      "c_string_length": 0,
+      "c_string_utf8_scalars": 0,
+      "original_hex": "00ff",
+      "utf8_scalars": null
+    }
+  },
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "optimization_levels": [
+    0,
+    2
+  ],
+  "python": "3.12.14",
+  "rejected_full_utf8": 7,
+  "rustc": [
+    "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "binary: rustc",
+    "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+    "commit-date: 2025-03-15",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.85.1",
+    "LLVM version: 19.1.7"
+  ]
+}

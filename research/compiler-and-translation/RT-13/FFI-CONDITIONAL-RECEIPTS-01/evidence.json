@@ -1,0 +1,80 @@
+{
+  "control_outcomes": {
+    "different caller": "unknown-stale-scope",
+    "different environment": "unknown-stale-scope",
+    "different observation": "unknown-stale-scope",
+    "different output pointee ABI": "unknown-stale-scope",
+    "different public contract": "unknown-stale-scope",
+    "different target": "unknown-stale-scope",
+    "exact compatible replacement": "conditional-on-provider-contract",
+    "exact original": "conditional-on-provider-contract",
+    "incomplete observation": "unknown-incomplete-observation",
+    "independent proof has other subject": "unknown-proof-scope",
+    "known incompatible provider": "observed-contradiction",
+    "stale original after replacement": "unknown-stale-scope",
+    "storage premise missing": "caller-premise-missing",
+    "unknown provider": "unknown-no-observation",
+    "unverified observation": "unknown-unverified-observation"
+  },
+  "environment": {
+    "kernel": "6.18.57",
+    "libc": "9792e3cbb541c8f44c7acf5f14f4022ea62998ecc787d326bed4d8b6547dfd92",
+    "loader": "c8438e4fde1934e61c88311633f00949ff645d5c04cdb8671fa3d78164d2f307"
+  },
+  "lean_audit": [
+    "'checkedSuccess' does not depend on any axioms",
+    "'checkedOverflow' does not depend on any axioms",
+    "'unknownPreservesRaw' does not depend on any axioms",
+    "'abiShapeAloneAllowsWrongOverflow' does not depend on any axioms"
+  ],
+  "native_compared": 1440,
+  "native_replay_sha256": "d006a7136a7621aca1ac4938b223a2c8cf9e0a3138c4b88885949e7bfa1e91c9",
+  "source_sha256": {
+    "Caller.lean": "597237594a669c39663b782c20bdab3a29745f7481b6151fe509fed45eb0db06",
+    "run.py": "9b1a12907a5fb408e21cf0e61a115cc891b11d17edbec48b7e51ec31b6b64c3c"
+  },
+  "witness_scopes": {
+    "base": {
+      "native_observations": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e",
+      "outcome": "checked",
+      "scope": {
+        "abi": "06e5bbf06880a2db115cf2099e9fd66f770614e37721076edc63411c8009bd5f",
+        "caller_profile": "c-shared",
+        "environment": "7a37c89bd3b41aecd086b5a57798e3d55f8296f90a796d2ed6bc9b5609177f50",
+        "observation": "checked_add/status-and-initialized-output",
+        "provider": "c2d31e1e25cfa216e5116aa9796c027eba30d5abc202183f792e84b3e889d665",
+        "public_contract": "390309749bee604e832055391d89f3851407035443a3c50faf0a08c280382aad",
+        "target": "Linux x86-64 SysV LP64, generated C interface version 1"
+      },
+      "source_proof": "f32ed31bdbc2e0638d833fe8b1398487969e4a750816bedc6524fc5a167b0cb6"
+    },
+    "compatible_revision": {
+      "native_observations": "8730ab5bb623b9c2a72ef100aecd438b9806554bd5a7a638e1f9ba0e0b65d92e",
+      "outcome": "checked",
+      "scope": {
+        "abi": "06e5bbf06880a2db115cf2099e9fd66f770614e37721076edc63411c8009bd5f",
+        "caller_profile": "c-shared",
+        "environment": "7a37c89bd3b41aecd086b5a57798e3d55f8296f90a796d2ed6bc9b5609177f50",
+        "observation": "checked_add/status-and-initialized-output",
+        "provider": "2361d782a677f3dc24c6c3b6bcb21ea0b571ef245dcbef5b52e62fe7d28453c2",
+        "public_contract": "390309749bee604e832055391d89f3851407035443a3c50faf0a08c280382aad",
+        "target": "Linux x86-64 SysV LP64, generated C interface version 1"
+      },
+      "source_proof": "f32ed31bdbc2e0638d833fe8b1398487969e4a750816bedc6524fc5a167b0cb6"
+    },
+    "different_contract": {
+      "native_observations": "b289796aa025d7497d0d1fce05e80d9fdbdfe418c8e4bd7283cf7702bb0790e9",
+      "outcome": "contract-refused",
+      "scope": {
+        "abi": "06e5bbf06880a2db115cf2099e9fd66f770614e37721076edc63411c8009bd5f",
+        "caller_profile": "c-shared",
+        "environment": "7a37c89bd3b41aecd086b5a57798e3d55f8296f90a796d2ed6bc9b5609177f50",
+        "observation": "checked_add/status-and-initialized-output",
+        "provider": "6f2a0f502b5454d3225e3c182ffc93a7c33ed6447ed8ba50d00ca72d65141adf",
+        "public_contract": "390309749bee604e832055391d89f3851407035443a3c50faf0a08c280382aad",
+        "target": "Linux x86-64 SysV LP64, generated C interface version 1"
+      },
+      "source_proof": "f32ed31bdbc2e0638d833fe8b1398487969e4a750816bedc6524fc5a167b0cb6"
+    }
+  }
+}

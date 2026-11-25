@@ -1,0 +1,45 @@
+{
+  "revision": "e2e41096c5eeaba8bd35f7aa94e31eea02a45ca7",
+  "feature_rows": 143,
+  "decision_docs": [
+    {
+      "path": "docs/adr/014-git-semantic-merge.md",
+      "status": "Proposed",
+      "blob": "2260d3be8376ddedf15856f8b13b35a4309af94d"
+    },
+    {
+      "path": "docs/adr/015-toolchain-server-semantic-api.md",
+      "status": "Proposed; validation required before acceptance",
+      "blob": "3c668796f7bd174155c66404afa10a0169846432"
+    },
+    {
+      "path": "docs/adr/016-compiler-bootstrap.md",
+      "status": "Proposed, pending prototype validation",
+      "blob": "76f3f6f8777f5a4a0f64df4dbff0ae69c568f624"
+    },
+    {
+      "path": "docs/adr/017-mcp-agent-object-format.md",
+      "status": "Accepted",
+      "blob": "5a1b41e579e318f018a8e94cc8cbf1790c082097"
+    },
+    {
+      "path": "draft/ARCHITECTURE-DECISIONS.md",
+      "status": "Accepted project architecture decision",
+      "blob": "c1cdc4c6c2aafbcb6dadb144d3355cd90a1e96eb"
+    }
+  ],
+  "accepted_mappings": [
+    {
+      "feature_id": "F-TOOL-003",
+      "registry_line": 184,
+      "registry_status": "Accepted (scoped)",
+      "decision_source": "docs/adr/017-mcp-agent-object-format.md"
+    },
+    {
+      "feature_id": "F-PORT-002",
+      "registry_line": 211,
+      "registry_status": "Accepted",
+      "decision_source": "draft/ARCHITECTURE-DECISIONS.md"
+    }
+  ]
+}

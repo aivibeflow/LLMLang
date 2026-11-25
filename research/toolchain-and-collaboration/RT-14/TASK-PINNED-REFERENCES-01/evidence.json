@@ -1,0 +1,24 @@
+{
+  "controls": {
+    "no_write_grant": "refused",
+    "old_policy_grant": "refused",
+    "other_knowledge_baseline": "refused",
+    "pins_do_not_modify_producer_state": "checked"
+  },
+  "profiles": {
+    "exact": 1,
+    "unresolved": 2186
+  },
+  "python": "3.12.14",
+  "references": {
+    "baseline": "RT-19",
+    "change-set": "RT-19",
+    "dependency-inventory": "RT-06",
+    "impact-plan": "RT-20",
+    "knowledge-context": "RT-14",
+    "requirement": "RT-02",
+    "target-object": "RT-05"
+  },
+  "source_sha256": "288ba19ced39b8117777c2373175f2ded832c4d9868d020e93c0a85dd6f4b4ff",
+  "task_identity": "cb85858ca1069652c1d5bc31e90a4b544eb69ee73b8d199dbf9f39e0f9062543"
+}

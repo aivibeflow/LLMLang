@@ -1,0 +1,171 @@
+{
+  "sqlite": "3.53.1",
+  "combined_logical_index": "sha256:0c3d365f42ebc7ad9dd136bb65c471237febe8fb2687f064354f89254636d430",
+  "logical_conflict_rejected": true,
+  "scenarios": 13,
+  "counts": {
+    "exact_matches": 25,
+    "wrong_availability_only_selection": 19
+  },
+  "observations": {
+    "known-single-source": {
+      "provider": "b",
+      "attempts": [
+        "verified"
+      ],
+      "availability_only_provider": "b",
+      "payloads_opened": {
+        "b": [
+          "beta"
+        ]
+      }
+    },
+    "advertised-missing": {
+      "provider": "b",
+      "attempts": [
+        "missing-exact-object",
+        "verified"
+      ],
+      "availability_only_provider": "a",
+      "payloads_opened": {
+        "b": [
+          "beta"
+        ]
+      }
+    },
+    "reported-unavailable": {
+      "provider": "b",
+      "attempts": [
+        "verified"
+      ],
+      "availability_only_provider": "b",
+      "payloads_opened": {
+        "b": [
+          "beta"
+        ]
+      }
+    },
+    "stale-offer-with-fallback": {
+      "provider": "b",
+      "attempts": [
+        "unavailable-exact-snapshot",
+        "verified"
+      ],
+      "availability_only_provider": "a",
+      "payloads_opened": {
+        "b": [
+          "alpha"
+        ]
+      }
+    },
+    "stale-offer-alone": {
+      "provider": null,
+      "attempts": [
+        "unavailable-exact-snapshot"
+      ],
+      "availability_only_provider": "a",
+      "payloads_opened": {}
+    },
+    "old-view-still-retained": {
+      "provider": "a",
+      "attempts": [
+        "verified"
+      ],
+      "availability_only_provider": "a",
+      "payloads_opened": {
+        "a": [
+          "alpha"
+        ]
+      }
+    },
+    "unapproved-source": {
+      "provider": "b",
+      "attempts": [
+        "unauthorized-provider",
+        "verified"
+      ],
+      "availability_only_provider": "c",
+      "payloads_opened": {
+        "b": [
+          "alpha"
+        ]
+      }
+    },
+    "payload-claim-mismatch": {
+      "provider": "b",
+      "attempts": [
+        "payload-mismatch",
+        "verified"
+      ],
+      "availability_only_provider": "a",
+      "payloads_opened": {
+        "a": [
+          "alpha"
+        ],
+        "b": [
+          "alpha"
+        ]
+      }
+    },
+    "reported-size-mismatch": {
+      "provider": "b",
+      "attempts": [
+        "metadata-mismatch",
+        "verified"
+      ],
+      "availability_only_provider": "a",
+      "payloads_opened": {
+        "b": [
+          "alpha"
+        ]
+      }
+    },
+    "missing-alternate": {
+      "provider": null,
+      "attempts": [
+        "missing-exact-object"
+      ],
+      "availability_only_provider": "a",
+      "payloads_opened": {}
+    },
+    "wrong-object-offer": {
+      "provider": "b",
+      "attempts": [
+        "verified"
+      ],
+      "availability_only_provider": "b",
+      "payloads_opened": {
+        "b": [
+          "beta"
+        ]
+      }
+    },
+    "outside-approved-catalogue": {
+      "provider": null,
+      "attempts": [
+        "outside-catalogue"
+      ],
+      "availability_only_provider": "a",
+      "payloads_opened": {}
+    },
+    "three-overlapping-offers": {
+      "provider": "b",
+      "attempts": [
+        "unauthorized-provider",
+        "unavailable-exact-snapshot",
+        "verified"
+      ],
+      "availability_only_provider": "c",
+      "payloads_opened": {
+        "b": [
+          "alpha"
+        ]
+      }
+    }
+  },
+  "source_sha256": {
+    "research/packages-and-ecosystem/RT-12/MULTI-PROVIDER-RETRIEVAL-01/run.py": "6bc125043749b2d00b6a21650629b5c8d19548070e42b5460256af45d06183a5",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/content_store.py": "8f6d7ed6cdae98c752f467accde214e163eb17b0566011be57c941469ff2657c",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_index.py": "e03e977aef9a7dd9764854468bf0c43875236dae700bcdc498b2286e1de6ae3c"
+  }
+}

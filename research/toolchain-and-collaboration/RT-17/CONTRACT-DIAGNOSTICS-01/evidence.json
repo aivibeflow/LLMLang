@@ -1,0 +1,145 @@
+{
+  "cases": 576,
+  "counts": {
+    "event-order": 18,
+    "observed-match": 18,
+    "output-upper-bound": 18,
+    "output-upper-bound+event-order": 18,
+    "unavailable": 504
+  },
+  "examples": {
+    "event-order": {
+      "context": {
+        "call_path": [
+          "entry",
+          "call:reserve",
+          "provider:reserve"
+        ],
+        "contract": "reserve:contract-1",
+        "profile": "finite:profile-1",
+        "snapshot": "e73da16ccf8f59da2ef50d500924c76996edf3f1632010a14cb18d3103aa1f7e"
+      },
+      "failures": [
+        {
+          "clause": "event-order",
+          "expected": [
+            "read",
+            "commit"
+          ],
+          "observed": [
+            "commit",
+            "read"
+          ]
+        }
+      ],
+      "input": 0,
+      "state": "observed-failure"
+    },
+    "observed-match": {
+      "context": {
+        "call_path": [
+          "entry",
+          "call:reserve",
+          "provider:reserve"
+        ],
+        "contract": "reserve:contract-1",
+        "profile": "finite:profile-1",
+        "snapshot": "69dc4019d794de295d2055dedd234bc23567c5acb65e3336a5156318d16cfccd"
+      },
+      "failures": [],
+      "input": 0,
+      "state": "observed-match"
+    },
+    "output-upper-bound": {
+      "context": {
+        "call_path": [
+          "entry",
+          "call:reserve",
+          "provider:reserve"
+        ],
+        "contract": "reserve:contract-1",
+        "profile": "finite:profile-1",
+        "snapshot": "0d344060e9d960c40aee467ab4ddc8262f766f5b8881395f8b2965c78fd229c0"
+      },
+      "failures": [
+        {
+          "clause": "output-upper-bound",
+          "expected_max": 0,
+          "observed": 1
+        }
+      ],
+      "input": 0,
+      "state": "observed-failure"
+    },
+    "output-upper-bound+event-order": {
+      "context": {
+        "call_path": [
+          "entry",
+          "call:reserve",
+          "provider:reserve"
+        ],
+        "contract": "reserve:contract-1",
+        "profile": "finite:profile-1",
+        "snapshot": "5fb44aa85abd037f9bbe758bb286e173d443e20cb8a8b0a0cd2b1770b68ebb06"
+      },
+      "failures": [
+        {
+          "clause": "output-upper-bound",
+          "expected_max": 0,
+          "observed": 1
+        },
+        {
+          "clause": "event-order",
+          "expected": [
+            "read",
+            "commit"
+          ],
+          "observed": [
+            "commit",
+            "read"
+          ]
+        }
+      ],
+      "input": 0,
+      "state": "observed-failure"
+    },
+    "unavailable": {
+      "context": {
+        "call_path": [
+          "entry",
+          "call:reserve",
+          "provider:reserve"
+        ],
+        "contract": "reserve:contract-1",
+        "profile": "finite:profile-1",
+        "snapshot": "69dc4019d794de295d2055dedd234bc23567c5acb65e3336a5156318d16cfccd"
+      },
+      "failures": [],
+      "input": 0,
+      "state": "unavailable"
+    }
+  },
+  "impact": {
+    "incomplete_inventory": {
+      "affected": [],
+      "state": "unavailable"
+    },
+    "selected_provider": {
+      "affected": [
+        "call:reserve",
+        "entry",
+        "provider:reserve"
+      ],
+      "state": "known"
+    },
+    "unrelated_provider": {
+      "affected": [
+        "audit",
+        "provider:other"
+      ],
+      "state": "known"
+    }
+  },
+  "python": "3.12.14",
+  "source_sha256": "8836f728dc1fc1433dead9ab0c7a2cc909284681582481e3d43f09808b5e7131"
+}

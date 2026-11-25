@@ -1,0 +1,138 @@
+{
+  "baseline": "97c373cf8c67156e13a03161787b3d7153f3908c",
+  "calibration_states_per_body": 108,
+  "candidate_runtime": "integer-affine-loop/1",
+  "dafny": "4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2",
+  "exact_repeat_hits": {
+    "Z3 version 4.12.1 - 64 bit": "verified",
+    "Z3 version 4.14.1 - 64 bit": "verified"
+  },
+  "python": "3.12.14",
+  "results": {
+    "Z3 version 4.12.1 - 64 bit": {
+      "body-edit": {
+        "candidate_source": "22289606a8a49f8ad3d9ba200ab7e3fa9301363ef291e6e307afccfdf52b5c5f",
+        "dafny_source": "492a4bac8673fc58b33a56cf767a5ea6772ab4769c0589c9d399d3e0a5b4f665",
+        "disposition": "invariant-failure",
+        "key": "d8eee7852d79fc33246cfb731e3ede029707330839d679d41cb8e8c4033cbf5d",
+        "typed": "b68e3be29c6248197a14949ef9de6ab94ea37967c395158ca02cb28a74cdcb0e"
+      },
+      "exact": {
+        "candidate_source": "dc82652c9007c2062efe5482841463be8499182fe5079b4b60c1700e40bfa0c4",
+        "dafny_source": "164f4d38b33cf85650c83c04a966c119a53886785af997d8026f2ffaa264a7dd",
+        "disposition": "verified",
+        "key": "302b50edd7fc3d69d3f6ddda3ac79099b12de6e5805e8a5c7048f964ca48fabc",
+        "typed": "00a505f9085f1fdb6ef96b61827cf1115f865f79fca6d2b70575dcdc1126ae95"
+      },
+      "missing-invariant": {
+        "candidate_source": "44792e76bbe4eacfb6da02deee824806e7434de90df16066f4de3dba1fd63a94",
+        "dafny_source": "42dcc1c5471a2a77af095b90ff98f2a08784c8016783acc63f474bd55a73bdc8",
+        "disposition": "postcondition-failure",
+        "key": "2e1426ac30d89c7905fe5852f77b93efc42c473e4d3e2502f3929b1f35ad6b8d",
+        "typed": "954af019f63e8057eda823ad5157a584cb9e1902fd78db0a9c66d392564d11d4"
+      },
+      "recovered": {
+        "candidate_source": "c68647192aeb3918ae8ca1a7f64ab135b28e0870ba344203db72fb9fbf96bcc5",
+        "dafny_source": "8c66cf84f3f513df2809b69d7c4f2b132c83541f5569a30409da59ba5df20e0b",
+        "disposition": "verified",
+        "key": "9ed471a700b3e0da04b5e18f5ad61e05060396cfee40a501425854e09ef10bf2",
+        "typed": "d8267b38ca320fa2e358836728c4172ec57fd8781d33be43da4b1474ef056e4c"
+      },
+      "renamed-entry": {
+        "candidate_source": "dc82652c9007c2062efe5482841463be8499182fe5079b4b60c1700e40bfa0c4",
+        "dafny_source": "5fe20474eca98334e853f9df1a32082e0414de55b0e7d6d7a2cc39250161be4f",
+        "disposition": "verified",
+        "key": "3c993dbe478b2c50e2e29db533b19728bb2b5990daf1f400f7567ec78fa2e716",
+        "typed": "00a505f9085f1fdb6ef96b61827cf1115f865f79fca6d2b70575dcdc1126ae95"
+      },
+      "spec-edit": {
+        "candidate_source": "544a5ac4191329749e2f86056c66bfc1e9394cdb47a0a96fe8ef07e6885db293",
+        "dafny_source": "02f6566a52d82c00a76d0e21ae543513bdddbba183ebcb331384f61c43f3a5a5",
+        "disposition": "postcondition-failure",
+        "key": "f24a23e1407e11d920192536552cc557970fba125ca8770647dada9622484c5b",
+        "typed": "3dbd7ea8cb290348ff0177614c9d925a85dcdd0895c6dd32a153b939eb4e0200"
+      },
+      "work-exhaustion": {
+        "candidate_source": "dc82652c9007c2062efe5482841463be8499182fe5079b4b60c1700e40bfa0c4",
+        "dafny_source": "164f4d38b33cf85650c83c04a966c119a53886785af997d8026f2ffaa264a7dd",
+        "disposition": "unknown-resource",
+        "key": "2c354b57a329dbb2dc5402a518bcfd7e049f16077391e7ef7b718e6c9bd5b609",
+        "typed": "00a505f9085f1fdb6ef96b61827cf1115f865f79fca6d2b70575dcdc1126ae95"
+      }
+    },
+    "Z3 version 4.14.1 - 64 bit": {
+      "body-edit": {
+        "candidate_source": "22289606a8a49f8ad3d9ba200ab7e3fa9301363ef291e6e307afccfdf52b5c5f",
+        "dafny_source": "492a4bac8673fc58b33a56cf767a5ea6772ab4769c0589c9d399d3e0a5b4f665",
+        "disposition": "invariant-failure",
+        "key": "45247e642b0e64de93c6e89751cc84147a7803f796bc8b59e6e1fa5ff9dfb711",
+        "typed": "b68e3be29c6248197a14949ef9de6ab94ea37967c395158ca02cb28a74cdcb0e"
+      },
+      "exact": {
+        "candidate_source": "dc82652c9007c2062efe5482841463be8499182fe5079b4b60c1700e40bfa0c4",
+        "dafny_source": "164f4d38b33cf85650c83c04a966c119a53886785af997d8026f2ffaa264a7dd",
+        "disposition": "verified",
+        "key": "42122e47f17f4fb0f7ddefe7816300e186160970906ae191b945bb06dc57deb3",
+        "typed": "00a505f9085f1fdb6ef96b61827cf1115f865f79fca6d2b70575dcdc1126ae95"
+      },
+      "missing-invariant": {
+        "candidate_source": "44792e76bbe4eacfb6da02deee824806e7434de90df16066f4de3dba1fd63a94",
+        "dafny_source": "42dcc1c5471a2a77af095b90ff98f2a08784c8016783acc63f474bd55a73bdc8",
+        "disposition": "postcondition-failure",
+        "key": "f5e18e777315930c3fd56b865e0184a2dcca7025d12279c7e24f9880ce4269de",
+        "typed": "954af019f63e8057eda823ad5157a584cb9e1902fd78db0a9c66d392564d11d4"
+      },
+      "recovered": {
+        "candidate_source": "c68647192aeb3918ae8ca1a7f64ab135b28e0870ba344203db72fb9fbf96bcc5",
+        "dafny_source": "8c66cf84f3f513df2809b69d7c4f2b132c83541f5569a30409da59ba5df20e0b",
+        "disposition": "verified",
+        "key": "62cf06fc43f5204d34af654a0b306baa2c7382daf33808aa249298f255c69fec",
+        "typed": "d8267b38ca320fa2e358836728c4172ec57fd8781d33be43da4b1474ef056e4c"
+      },
+      "renamed-entry": {
+        "candidate_source": "dc82652c9007c2062efe5482841463be8499182fe5079b4b60c1700e40bfa0c4",
+        "dafny_source": "5fe20474eca98334e853f9df1a32082e0414de55b0e7d6d7a2cc39250161be4f",
+        "disposition": "verified",
+        "key": "825500308e97f3fdcdfc06c447060930c6af5c9a48611cddba7926500f0a696e",
+        "typed": "00a505f9085f1fdb6ef96b61827cf1115f865f79fca6d2b70575dcdc1126ae95"
+      },
+      "spec-edit": {
+        "candidate_source": "544a5ac4191329749e2f86056c66bfc1e9394cdb47a0a96fe8ef07e6885db293",
+        "dafny_source": "02f6566a52d82c00a76d0e21ae543513bdddbba183ebcb331384f61c43f3a5a5",
+        "disposition": "postcondition-failure",
+        "key": "349e1fba2b139b8e14a5288b1b1c4bee0e2e0822fa73adbfffc76dbf5c7831e3",
+        "typed": "3dbd7ea8cb290348ff0177614c9d925a85dcdd0895c6dd32a153b939eb4e0200"
+      },
+      "work-exhaustion": {
+        "candidate_source": "dc82652c9007c2062efe5482841463be8499182fe5079b4b60c1700e40bfa0c4",
+        "dafny_source": "164f4d38b33cf85650c83c04a966c119a53886785af997d8026f2ffaa264a7dd",
+        "disposition": "unknown-resource",
+        "key": "2d2218e2091ae8663728e8b2cc6137011b49da9787d70035d7cd97835c70c92b",
+        "typed": "00a505f9085f1fdb6ef96b61827cf1115f865f79fca6d2b70575dcdc1126ae95"
+      }
+    }
+  },
+  "runner_sha256": "11b14e97868d149a918c4ae5385eae084b70b1b02562ac1b79da870465eca364",
+  "solvers": [
+    [
+      "Z3 version 4.12.1 - 64 bit",
+      "22214e518eed9eec867d18b485e7b2570d09cbf1d94a47c8eec6ec4de0287eff"
+    ],
+    [
+      "Z3 version 4.14.1 - 64 bit",
+      "5a4f295b2e64abd2e2463a321d33f8054585083230203a55fa57982a1843d559"
+    ]
+  ],
+  "status_totals": {
+    "invariant-failure": 2,
+    "postcondition-failure": 4,
+    "unknown-resource": 2,
+    "verified": 6
+  },
+  "verifier_component_sha256": {
+    "Boogie.ExecutionEngine.dll": "9a9ad82d4e5a7a1052a11e549a6a721d9e9b7cab683c813650e87e04d8f48ab0",
+    "Boogie.Provers.SMTLib.dll": "20a832feeee8146afe7379b00c64c9e153bd287c175176059d45ce9a28993877",
+    "DafnyCore.dll": "6911a615966a3cfbcf81a43c3b8e9706cc1509fe64880dd5ba24307492d5c2ea",
+    "dafny": "e540b4826363afb87c326446239a682d45086905425fa6299c103eca9693846d"
+  }
+}

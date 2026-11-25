@@ -1,0 +1,30 @@
+{
+  "collection": {
+    "already-absent": 1,
+    "collected": 1,
+    "retained": 22,
+    "retry-mark": 24
+  },
+  "controls": {
+    "drop_last_lease_requires_remark": "retry-mark",
+    "fresh_signature_for_repacked_archive": "deliver",
+    "historical_reader_with_lease": true,
+    "historical_reader_without_approval": false,
+    "historical_reader_without_lease": false,
+    "refreshed_collection_after_release": "collected",
+    "revoked_exact_mirror": "publication-unavailable",
+    "revoked_with_lease": "retained"
+  },
+  "delivery": {
+    "archive-mismatch": 16,
+    "deliver": 1,
+    "permission-unavailable": 15,
+    "publication-unavailable": 224
+  },
+  "native_evidence_sha256": {
+    "DECLARED-PACKAGE-RIGHTS-01": "96cd6a2a14deed87811b3c01107bf6630947e84068ac4d3ad88d02cb499f5611",
+    "REACHABILITY-SWEEP-01": "c52f2d38ae209f1c9af6af7dfa664d1039d192c9a033f8c0fa65149b1bae574e"
+  },
+  "python": "3.12.14",
+  "sources_sha256": "419e2a9f1dceecf298790cb145849188440b4a32375d5195ac1e512703686fcb"
+}

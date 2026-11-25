@@ -1,0 +1,149 @@
+{
+  "profiles": {
+    "discovery/proof": {
+      "archive_sha256": "35a9522745a5f1fe800bd551c9ce0ee6b441d53a225f670fcf98dc8b6544114e",
+      "harness_sha256": "168fb7dcbfccbb8b9ef654c8eee11294b561149717cd663f07b0881f619fe712",
+      "inner_ns": {
+        "median": 370312645.5,
+        "n": 10,
+        "p10": 342220277.3,
+        "p90": 423393633.4
+      },
+      "peak_kib": {
+        "median": 279970.0,
+        "n": 10,
+        "p10": 278911.6,
+        "p90": 281060.4
+      },
+      "process_ns": {
+        "median": 415638005.0,
+        "n": 10,
+        "p10": 382650513.7,
+        "p90": 470113413.3
+      },
+      "receipt_sha256": "ac4b971ee2b4041a4eaf42ffa678d643b3dce1cfd25bb938d196ba690adea01f",
+      "work": 3
+    },
+    "discovery/test": {
+      "archive_sha256": "35a9522745a5f1fe800bd551c9ce0ee6b441d53a225f670fcf98dc8b6544114e",
+      "harness_sha256": "168fb7dcbfccbb8b9ef654c8eee11294b561149717cd663f07b0881f619fe712",
+      "inner_ns": {
+        "median": 9336120.0,
+        "n": 10,
+        "p10": 8728068.0,
+        "p90": 10843242.8
+      },
+      "peak_kib": {
+        "median": 13056.0,
+        "n": 10,
+        "p10": 13056.0,
+        "p90": 13056.0
+      },
+      "process_ns": {
+        "median": 53200657.5,
+        "n": 10,
+        "p10": 49607896.2,
+        "p90": 65068567.5
+      },
+      "receipt_sha256": "4195cc1fb47c2a96419145fc79009b5f91526272f525086813a76702f592b72c",
+      "work": 2400
+    },
+    "mapping-ipc/proof": {
+      "archive_sha256": "f898c0068e7fefaee072b3797241ca6c3c6b16b4c0e823ca31ffe510ddad88d8",
+      "harness_sha256": "7e518a9d94ba5a0fb140ec6a94689a12f1c9cc27ac9f45b85052c687547e03d6",
+      "inner_ns": {
+        "median": 1306242150.0,
+        "n": 10,
+        "p10": 1188754383.4,
+        "p90": 1332131386.5
+      },
+      "peak_kib": {
+        "median": 312374.0,
+        "n": 10,
+        "p10": 309576.0,
+        "p90": 320531.6
+      },
+      "process_ns": {
+        "median": 1355064687.0,
+        "n": 10,
+        "p10": 1232994545.0,
+        "p90": 1380656045.0
+      },
+      "receipt_sha256": "94bb71f66bd84bd34c49f92fdb6a153efac8c155243467a13a349162599eaeab",
+      "work": 5
+    },
+    "mapping-ipc/test": {
+      "archive_sha256": "f898c0068e7fefaee072b3797241ca6c3c6b16b4c0e823ca31ffe510ddad88d8",
+      "harness_sha256": "7e518a9d94ba5a0fb140ec6a94689a12f1c9cc27ac9f45b85052c687547e03d6",
+      "inner_ns": {
+        "median": 123787699.0,
+        "n": 10,
+        "p10": 120734843.5,
+        "p90": 130992953.4
+      },
+      "peak_kib": {
+        "median": 13824.0,
+        "n": 10,
+        "p10": 13824.0,
+        "p90": 13824.0
+      },
+      "process_ns": {
+        "median": 171586899.5,
+        "n": 10,
+        "p10": 164734539.8,
+        "p90": 180403219.6
+      },
+      "receipt_sha256": "90c1e6bb11fae06c1c3a037e104556721b33fdfc260fefaaeb7b46a2562e2b11",
+      "work": 20976
+    },
+    "multiversion/proof": {
+      "archive_sha256": "f550d4bf30881526af352dbadc04b558e166e388f4831f67a73380967b1e4bc7",
+      "harness_sha256": "be9dfb21e7b78d85a5a49e5c4d1f034e542922efeff8be9fb6d9e4b5563b930b",
+      "inner_ns": {
+        "median": 408874678.0,
+        "n": 10,
+        "p10": 387655878.7,
+        "p90": 455580603.9
+      },
+      "peak_kib": {
+        "median": 283340.0,
+        "n": 10,
+        "p10": 283312.8,
+        "p90": 285433.2
+      },
+      "process_ns": {
+        "median": 443425735.5,
+        "n": 10,
+        "p10": 420580752.5,
+        "p90": 489548776.5
+      },
+      "receipt_sha256": "fa170df0c832b0c98fe275f775a042907adbd572d6b934878e3052916e160c9a",
+      "work": 4
+    },
+    "multiversion/test": {
+      "archive_sha256": "f550d4bf30881526af352dbadc04b558e166e388f4831f67a73380967b1e4bc7",
+      "harness_sha256": "be9dfb21e7b78d85a5a49e5c4d1f034e542922efeff8be9fb6d9e4b5563b930b",
+      "inner_ns": {
+        "median": 36270433.0,
+        "n": 10,
+        "p10": 34556652.7,
+        "p90": 38430112.6
+      },
+      "peak_kib": {
+        "median": 11904.0,
+        "n": 10,
+        "p10": 11904.0,
+        "p90": 11904.0
+      },
+      "process_ns": {
+        "median": 72717382.0,
+        "n": 10,
+        "p10": 67157031.3,
+        "p90": 78978006.2
+      },
+      "receipt_sha256": "6efdb25d2fa924b912c36d213443fe7b830adfdce162ea8c6e61c4ac5b629fcf",
+      "work": 19602
+    }
+  },
+  "sample_sha256": "9d6390f77d9d7e3a42626f30b98523886b3b29611605744d19060c4f1d8184a2"
+}

@@ -1,0 +1,609 @@
+{
+  "cases": [
+    {
+      "effects": [],
+      "fetch": "found",
+      "grants": [],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "found",
+      "grants": [
+        "read"
+      ],
+      "handler_enabled": false,
+      "outcome": "found",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "found",
+      "grants": [
+        "audit"
+      ],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "found",
+      "grants": [
+        "audit",
+        "read"
+      ],
+      "handler_enabled": false,
+      "outcome": "found",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "found",
+      "grants": [
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "found",
+      "grants": [
+        "read",
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "found",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "found",
+      "grants": [
+        "audit",
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "found",
+      "grants": [
+        "audit",
+        "read",
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "found",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "found",
+      "grants": [],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "found",
+      "grants": [
+        "read"
+      ],
+      "handler_enabled": true,
+      "outcome": "found",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "found",
+      "grants": [
+        "audit"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "found",
+      "grants": [
+        "audit",
+        "read"
+      ],
+      "handler_enabled": true,
+      "outcome": "found",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "found",
+      "grants": [
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "found",
+      "grants": [
+        "read",
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "found",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "found",
+      "grants": [
+        "audit",
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "found",
+      "grants": [
+        "audit",
+        "read",
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "found",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "missing",
+      "grants": [],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "missing",
+      "grants": [
+        "read"
+      ],
+      "handler_enabled": false,
+      "outcome": "missing",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "missing",
+      "grants": [
+        "audit"
+      ],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "missing",
+      "grants": [
+        "audit",
+        "read"
+      ],
+      "handler_enabled": false,
+      "outcome": "missing",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "missing",
+      "grants": [
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "missing",
+      "grants": [
+        "read",
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "missing",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "missing",
+      "grants": [
+        "audit",
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "missing",
+      "grants": [
+        "audit",
+        "read",
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "missing",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "missing",
+      "grants": [],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "missing",
+      "grants": [
+        "read"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "missing",
+      "grants": [
+        "audit"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read",
+        "audit"
+      ],
+      "fetch": "missing",
+      "grants": [
+        "audit",
+        "read"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "missing",
+      "grants": [
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "missing",
+      "grants": [
+        "read",
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "missing",
+      "grants": [
+        "audit",
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read",
+        "audit",
+        "repair"
+      ],
+      "fetch": "missing",
+      "grants": [
+        "audit",
+        "read",
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "recovered",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "io-error",
+      "grants": [],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "io-error",
+      "grants": [
+        "read"
+      ],
+      "handler_enabled": false,
+      "outcome": "io-error",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "io-error",
+      "grants": [
+        "audit"
+      ],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "io-error",
+      "grants": [
+        "audit",
+        "read"
+      ],
+      "handler_enabled": false,
+      "outcome": "io-error",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "io-error",
+      "grants": [
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "io-error",
+      "grants": [
+        "read",
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "io-error",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "io-error",
+      "grants": [
+        "audit",
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "io-error",
+      "grants": [
+        "audit",
+        "read",
+        "repair"
+      ],
+      "handler_enabled": false,
+      "outcome": "io-error",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "io-error",
+      "grants": [],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "io-error",
+      "grants": [
+        "read"
+      ],
+      "handler_enabled": true,
+      "outcome": "io-error",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "io-error",
+      "grants": [
+        "audit"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "io-error",
+      "grants": [
+        "audit",
+        "read"
+      ],
+      "handler_enabled": true,
+      "outcome": "io-error",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "io-error",
+      "grants": [
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "io-error",
+      "grants": [
+        "read",
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "io-error",
+      "path_admission": true,
+      "read_only_admission": true
+    },
+    {
+      "effects": [],
+      "fetch": "io-error",
+      "grants": [
+        "audit",
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "denied",
+      "path_admission": false,
+      "read_only_admission": false
+    },
+    {
+      "effects": [
+        "read"
+      ],
+      "fetch": "io-error",
+      "grants": [
+        "audit",
+        "read",
+        "repair"
+      ],
+      "handler_enabled": true,
+      "outcome": "io-error",
+      "path_admission": true,
+      "read_only_admission": true
+    }
+  ],
+  "failed_recovery_with_completed_audit": 1,
+  "matching_builds": 4,
+  "python": "3.12.14",
+  "read_only_false_admissions": 3,
+  "toolchains": {
+    "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+  }
+}

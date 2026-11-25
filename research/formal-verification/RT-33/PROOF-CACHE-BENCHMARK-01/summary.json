@@ -1,0 +1,790 @@
+{
+  "artifact_byte_range": [
+    143,
+    145
+  ],
+  "benchmark_rows": 693,
+  "memory": {
+    "carcara": {
+      "median_peak_rss_kib": 3212.0,
+      "range_peak_rss_kib": [
+        3024,
+        3332
+      ],
+      "runs": 330
+    },
+    "cvc5": {
+      "median_peak_rss_kib": 7040.0,
+      "range_peak_rss_kib": [
+        7040,
+        7040
+      ],
+      "runs": 330
+    }
+  },
+  "modes": {
+    "cold": {
+      "matched_oracle_median_ms": 117.284309,
+      "median_cost_weighted_hit_rate": 0.0,
+      "median_final_sqlite_bytes": 20480,
+      "median_hit_rate": 0.0,
+      "median_ms": 149.522415,
+      "median_stage_ms": {
+        "check_ns": 17.673415,
+        "lookup_ns": 0.288172,
+        "project_ns": 0.409554,
+        "publish_ns": 28.128077,
+        "solve_ns": 63.712481
+      },
+      "paired_bootstrap_median_95": [
+        0.7396869821230406,
+        0.9212620370271151
+      ],
+      "paired_oracle_over_actual_median": 0.859630394897013,
+      "quartiles_ms": [
+        128.062682,
+        166.610339
+      ]
+    },
+    "edit": {
+      "matched_oracle_median_ms": 121.14315,
+      "median_cost_weighted_hit_rate": 0.7509033398772827,
+      "median_final_sqlite_bytes": 20480,
+      "median_hit_rate": 0.75,
+      "median_ms": 34.639826,
+      "median_stage_ms": {
+        "check_ns": 4.151737,
+        "lookup_ns": 0.127319,
+        "project_ns": 0.184138,
+        "publish_ns": 6.098932,
+        "solve_ns": 15.59242
+      },
+      "paired_bootstrap_median_95": [
+        3.1590034545785537,
+        3.5661042078759047
+      ],
+      "paired_oracle_over_actual_median": 3.3464024322938535,
+      "quartiles_ms": [
+        32.586543500000005,
+        37.7542315
+      ]
+    },
+    "revert": {
+      "matched_oracle_median_ms": 117.284309,
+      "median_cost_weighted_hit_rate": 1.0,
+      "median_final_sqlite_bytes": 20480,
+      "median_hit_rate": 1.0,
+      "median_ms": 0.215256,
+      "median_stage_ms": {
+        "check_ns": 0.0,
+        "lookup_ns": 0.090003,
+        "project_ns": 0.129588,
+        "publish_ns": 0.0,
+        "solve_ns": 0.0
+      },
+      "paired_bootstrap_median_95": [
+        458.18657681414203,
+        757.5388398401058
+      ],
+      "paired_oracle_over_actual_median": 521.8388371978535,
+      "quartiles_ms": [
+        0.182884,
+        0.24595450000000002
+      ]
+    },
+    "warm": {
+      "matched_oracle_median_ms": 117.284309,
+      "median_cost_weighted_hit_rate": 1.0,
+      "median_final_sqlite_bytes": 20480,
+      "median_hit_rate": 1.0,
+      "median_ms": 0.239619,
+      "median_stage_ms": {
+        "check_ns": 0.0,
+        "lookup_ns": 0.10255,
+        "project_ns": 0.126243,
+        "publish_ns": 0.0,
+        "solve_ns": 0.0
+      },
+      "paired_bootstrap_median_95": [
+        442.3736139454718,
+        585.339297468283
+      ],
+      "paired_oracle_over_actual_median": 496.64208464250135,
+      "quartiles_ms": [
+        0.212023,
+        0.26043550000000004
+      ]
+    }
+  },
+  "paired_blocks": 11,
+  "paired_observations": {
+    "cold": [
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 193.572343,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 155.622403,
+        "oracle_over_actual": 0.8039495755858057,
+        "stage_ms": {
+          "check_ns": 26.275477,
+          "lookup_ns": 0.388772,
+          "project_ns": 0.474837,
+          "publish_ns": 29.348411,
+          "solve_ns": 94.297684
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 126.932057,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 114.66094,
+        "oracle_over_actual": 0.9033253120604514,
+        "stage_ms": {
+          "check_ns": 14.639819,
+          "lookup_ns": 0.274604,
+          "project_ns": 0.368863,
+          "publish_ns": 24.090938,
+          "solve_ns": 58.594869
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 149.522415,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 117.284309,
+        "oracle_over_actual": 0.784392821638147,
+        "stage_ms": {
+          "check_ns": 17.116825,
+          "lookup_ns": 0.294221,
+          "project_ns": 0.402861,
+          "publish_ns": 35.701571,
+          "solve_ns": 63.712481
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 126.154545,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 143.429127,
+        "oracle_over_actual": 1.1369319036424728,
+        "stage_ms": {
+          "check_ns": 17.225247,
+          "lookup_ns": 0.270475,
+          "project_ns": 0.397397,
+          "publish_ns": 20.11498,
+          "solve_ns": 59.918111
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 167.457366,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 106.001123,
+        "oracle_over_actual": 0.6330036446411083,
+        "stage_ms": {
+          "check_ns": 19.513166,
+          "lookup_ns": 0.345318,
+          "project_ns": 0.406927,
+          "publish_ns": 28.128077,
+          "solve_ns": 78.970732
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 174.08957,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 103.690921,
+        "oracle_over_actual": 0.5956182268702255,
+        "stage_ms": {
+          "check_ns": 18.352619,
+          "lookup_ns": 0.250867,
+          "project_ns": 0.409554,
+          "publish_ns": 32.141954,
+          "solve_ns": 84.502431
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 165.763312,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 122.612964,
+        "oracle_over_actual": 0.7396869821230406,
+        "stage_ms": {
+          "check_ns": 18.560988,
+          "lookup_ns": 0.321461,
+          "project_ns": 0.726037,
+          "publish_ns": 33.626897,
+          "solve_ns": 74.950652
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 132.155697,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 113.605054,
+        "oracle_over_actual": 0.859630394897013,
+        "stage_ms": {
+          "check_ns": 17.673415,
+          "lookup_ns": 0.241284,
+          "project_ns": 0.484562,
+          "publish_ns": 23.399488,
+          "solve_ns": 59.634788
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 129.193307,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 123.809705,
+        "oracle_over_actual": 0.9583290951751858,
+        "stage_ms": {
+          "check_ns": 16.981328,
+          "lookup_ns": 0.296675,
+          "project_ns": 0.436561,
+          "publish_ns": 21.369171,
+          "solve_ns": 59.586589
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 152.111781,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 139.680042,
+        "oracle_over_actual": 0.9182723460453073,
+        "stage_ms": {
+          "check_ns": 19.965146,
+          "lookup_ns": 0.274904,
+          "project_ns": 0.625297,
+          "publish_ns": 28.720756,
+          "solve_ns": 70.198379
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.0,
+        "elapsed_ms": 126.91672,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.0,
+        "oracle_ms": 116.923556,
+        "oracle_over_actual": 0.9212620370271151,
+        "stage_ms": {
+          "check_ns": 15.893449,
+          "lookup_ns": 0.288172,
+          "project_ns": 0.406879,
+          "publish_ns": 25.471643,
+          "solve_ns": 54.839955
+        }
+      }
+    ],
+    "edit": [
+      {
+        "cost_weighted_hit_rate": 0.7250030348836203,
+        "elapsed_ms": 43.464162,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 154.997731,
+        "oracle_over_actual": 3.5661042078759047,
+        "stage_ms": {
+          "check_ns": 5.402042,
+          "lookup_ns": 0.306748,
+          "project_ns": 0.184582,
+          "publish_ns": 8.79099,
+          "solve_ns": 18.512996
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.689435816788849,
+        "elapsed_ms": 37.254586,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 114.396567,
+        "oracle_over_actual": 3.0706707356780183,
+        "stage_ms": {
+          "check_ns": 4.014837,
+          "lookup_ns": 0.123049,
+          "project_ns": 0.158594,
+          "publish_ns": 9.454151,
+          "solve_ns": 15.058003
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.7909976060145514,
+        "elapsed_ms": 34.639826,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 109.42733,
+        "oracle_over_actual": 3.1590034545785537,
+        "stage_ms": {
+          "check_ns": 3.848021,
+          "lookup_ns": 0.121789,
+          "project_ns": 0.185885,
+          "publish_ns": 6.098932,
+          "solve_ns": 16.547221
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.7699759481462148,
+        "elapsed_ms": 32.915751,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 130.73116,
+        "oracle_over_actual": 3.971690027670947,
+        "stage_ms": {
+          "check_ns": 4.151737,
+          "lookup_ns": 0.126659,
+          "project_ns": 0.175225,
+          "publish_ns": 5.25027,
+          "solve_ns": 15.59242
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.7557575393037954,
+        "elapsed_ms": 32.386588,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 107.321145,
+        "oracle_over_actual": 3.3137527485142924,
+        "stage_ms": {
+          "check_ns": 4.298623,
+          "lookup_ns": 0.128829,
+          "project_ns": 0.17738,
+          "publish_ns": 4.931681,
+          "solve_ns": 15.163063
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.7411190504656083,
+        "elapsed_ms": 31.62155,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 106.041769,
+        "oracle_over_actual": 3.3534652475922275,
+        "stage_ms": {
+          "check_ns": 4.064218,
+          "lookup_ns": 0.328552,
+          "project_ns": 0.191443,
+          "publish_ns": 5.703697,
+          "solve_ns": 14.584236
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.7178677314835457,
+        "elapsed_ms": 36.678459,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 125.170084,
+        "oracle_over_actual": 3.4126320301515394,
+        "stage_ms": {
+          "check_ns": 4.188612,
+          "lookup_ns": 0.122158,
+          "project_ns": 0.179074,
+          "publish_ns": 7.019764,
+          "solve_ns": 16.800672
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.7199592748779589,
+        "elapsed_ms": 29.548714,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 121.14315,
+        "oracle_over_actual": 4.099777404864388,
+        "stage_ms": {
+          "check_ns": 3.954377,
+          "lookup_ns": 0.128358,
+          "project_ns": 0.176601,
+          "publish_ns": 4.632354,
+          "solve_ns": 13.396413
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.8142580611092414,
+        "elapsed_ms": 38.253877,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 121.417562,
+        "oracle_over_actual": 3.1739936320702866,
+        "stage_ms": {
+          "check_ns": 4.625543,
+          "lookup_ns": 0.127319,
+          "project_ns": 0.184138,
+          "publish_ns": 5.656318,
+          "solve_ns": 19.068051
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.7509033398772827,
+        "elapsed_ms": 43.748746,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 135.833361,
+        "oracle_over_actual": 3.1048515310587415,
+        "stage_ms": {
+          "check_ns": 5.984068,
+          "lookup_ns": 0.282194,
+          "project_ns": 0.208526,
+          "publish_ns": 8.80191,
+          "solve_ns": 19.466163
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 0.773808408020734,
+        "elapsed_ms": 32.786499,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 0.75,
+        "oracle_ms": 109.71682,
+        "oracle_over_actual": 3.3464024322938535,
+        "stage_ms": {
+          "check_ns": 3.836213,
+          "lookup_ns": 0.114548,
+          "project_ns": 0.188476,
+          "publish_ns": 6.33575,
+          "solve_ns": 15.1736
+        }
+      }
+    ],
+    "revert": [
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.326778,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 155.622403,
+        "oracle_over_actual": 476.23280330989235,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.122532,
+          "project_ns": 0.202546,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.235934,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 114.66094,
+        "oracle_over_actual": 485.98735239516134,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.104943,
+          "project_ns": 0.129588,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.255975,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 117.284309,
+        "oracle_over_actual": 458.18657681414203,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.091282,
+          "project_ns": 0.163412,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.155909,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 143.429127,
+        "oracle_over_actual": 919.9541206729566,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.069653,
+          "project_ns": 0.085015,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.20313,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 106.001123,
+        "oracle_over_actual": 521.8388371978535,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.087478,
+          "project_ns": 0.114278,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.228625,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 103.690921,
+        "oracle_over_actual": 453.54148059048663,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.096525,
+          "project_ns": 0.130629,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.161857,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 122.612964,
+        "oracle_over_actual": 757.5388398401058,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.072285,
+          "project_ns": 0.08836,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.387698,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 113.605054,
+        "oracle_over_actual": 293.0246067815671,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.15687,
+          "project_ns": 0.229197,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.162638,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 123.809705,
+        "oracle_over_actual": 761.2593920240042,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.072717,
+          "project_ns": 0.08875,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.215256,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 139.680042,
+        "oracle_over_actual": 648.9019678893968,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.07592,
+          "project_ns": 0.138085,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.203506,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 116.923556,
+        "oracle_over_actual": 574.5459888160545,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.090003,
+          "project_ns": 0.112053,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      }
+    ],
+    "warm": [
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.265867,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 155.622403,
+        "oracle_over_actual": 585.339297468283,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.127347,
+          "project_ns": 0.137189,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.198653,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 114.66094,
+        "oracle_over_actual": 577.1920887175124,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.086186,
+          "project_ns": 0.110935,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.251838,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 117.284309,
+        "oracle_over_actual": 465.71331173214526,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.10255,
+          "project_ns": 0.147696,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.23893,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 143.429127,
+        "oracle_over_actual": 600.2976896999121,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.094336,
+          "project_ns": 0.14299,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.239619,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 106.001123,
+        "oracle_over_actual": 442.3736139454718,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.106536,
+          "project_ns": 0.131222,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.208784,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 103.690921,
+        "oracle_over_actual": 496.64208464250135,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.089,
+          "project_ns": 0.118443,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.29993,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 122.612964,
+        "oracle_over_actual": 408.80526789584235,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.172254,
+          "project_ns": 0.126243,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.255004,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 113.605054,
+        "oracle_over_actual": 445.5030274034917,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.124444,
+          "project_ns": 0.128908,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.208889,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 123.809705,
+        "oracle_over_actual": 592.7057193054685,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.08935,
+          "project_ns": 0.118205,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.316997,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 139.680042,
+        "oracle_over_actual": 440.6352173679877,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.195008,
+          "project_ns": 0.120157,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      },
+      {
+        "cost_weighted_hit_rate": 1.0,
+        "elapsed_ms": 0.215157,
+        "final_sqlite_bytes": 20480,
+        "hit_rate": 1.0,
+        "oracle_ms": 116.923556,
+        "oracle_over_actual": 543.4336600714827,
+        "stage_ms": {
+          "check_ns": 0.0,
+          "lookup_ns": 0.093917,
+          "project_ns": 0.119687,
+          "publish_ns": 0.0,
+          "solve_ns": 0.0
+        }
+      }
+    ]
+  }
+}

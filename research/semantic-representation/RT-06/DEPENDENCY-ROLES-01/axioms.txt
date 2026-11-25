@@ -1,0 +1,2 @@
+'unrelated_note_preserves' does not depend on any axioms
+'consumed_note_is_relevant' does not depend on any axioms

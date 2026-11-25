@@ -1,0 +1,142 @@
+{
+  "toolchain": {
+    "compiler_version": "x86_64-linux-gnu-gcc-14 (Debian 14.2.0-19) 14.2.0",
+    "compiler_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+    "linker_version": "GNU ld (GNU Binutils for Debian) 2.44",
+    "linker_sha256": "d2766988b6a1b1d1518cdc09242e726d1f24e151e16410ada3092b11ffd9081b",
+    "target": "x86_64-linux-gnu"
+  },
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "trusted_profile": {
+    "recipe": "467e94048ed43a80ff063f835e2701302b5db45886e9bb0d4e1039fb8514d884",
+    "source_sha256": "fc2a36f7e0eefbd73136af4d77cdfebcc0fb3342e397804e0e6afde58e1792c0",
+    "subject_sha256": "3fee9e14dd72b202f188e12eaf5ccb6c0bd5d02c73286ff344ae9afd569bdefd",
+    "policy": "build-attestation-v1"
+  },
+  "native_reproducibility": {
+    "reference-a": {
+      "same_artifact": true,
+      "same_recipe": true,
+      "observations": {
+        "path": "mapped",
+        "timestamp": "Nov 14 2023 22:13:20",
+        "value": 42
+      },
+      "selected_artifact_sha256": "3fee9e14dd72b202f188e12eaf5ccb6c0bd5d02c73286ff344ae9afd569bdefd"
+    },
+    "independent-checkout-b": {
+      "same_artifact": true,
+      "same_recipe": true,
+      "observations": {
+        "path": "mapped",
+        "timestamp": "Nov 14 2023 22:13:20",
+        "value": 42
+      },
+      "selected_artifact_sha256": "3fee9e14dd72b202f188e12eaf5ccb6c0bd5d02c73286ff344ae9afd569bdefd"
+    },
+    "comment-only": {
+      "same_artifact": true,
+      "same_recipe": false,
+      "observations": {
+        "path": "mapped",
+        "timestamp": "Nov 14 2023 22:13:20",
+        "value": 42
+      },
+      "selected_artifact_sha256": "3fee9e14dd72b202f188e12eaf5ccb6c0bd5d02c73286ff344ae9afd569bdefd"
+    },
+    "unused-flag": {
+      "same_artifact": true,
+      "same_recipe": false,
+      "observations": {
+        "path": "mapped",
+        "timestamp": "Nov 14 2023 22:13:20",
+        "value": 42
+      },
+      "selected_artifact_sha256": "3fee9e14dd72b202f188e12eaf5ccb6c0bd5d02c73286ff344ae9afd569bdefd"
+    },
+    "physical-checkout-path-a": {
+      "same_artifact": false,
+      "same_recipe": false,
+      "observations": {
+        "path": "physical",
+        "timestamp": "Nov 14 2023 22:13:20",
+        "value": 42
+      }
+    },
+    "physical-checkout-path-b": {
+      "same_artifact": false,
+      "same_recipe": false,
+      "observations": {
+        "path": "physical",
+        "timestamp": "Nov 14 2023 22:13:20",
+        "value": 42
+      }
+    },
+    "new-epoch": {
+      "same_artifact": false,
+      "same_recipe": false,
+      "observations": {
+        "path": "mapped",
+        "timestamp": "Nov 14 2023 22:14:20",
+        "value": 42
+      },
+      "selected_artifact_sha256": "3a1b832944dd1a1db6b57239b317fd3607f8b1eeffedaa7bc6eba594f3d3bba7"
+    },
+    "changed-output": {
+      "same_artifact": false,
+      "same_recipe": false,
+      "observations": {
+        "path": "mapped",
+        "timestamp": "Nov 14 2023 22:13:20",
+        "value": 43
+      },
+      "selected_artifact_sha256": "e5d7084e5b4c63f43b2941cba53d2921b906b2bf18be9a93ee0da7d8b7357145"
+    }
+  },
+  "admissions": {
+    "reference-a": {
+      "signed_subject_only": true,
+      "exact_signed_predicate": true
+    },
+    "independent-builder-b": {
+      "signed_subject_only": true,
+      "exact_signed_predicate": true
+    },
+    "identical-artifact-different-source": {
+      "signed_subject_only": true,
+      "exact_signed_predicate": false
+    },
+    "identical-artifact-different-flags": {
+      "signed_subject_only": true,
+      "exact_signed_predicate": false
+    },
+    "wrong-policy": {
+      "signed_subject_only": true,
+      "exact_signed_predicate": false
+    },
+    "subject-only": {
+      "signed_subject_only": true,
+      "exact_signed_predicate": false
+    },
+    "changed-artifact": {
+      "signed_subject_only": false,
+      "exact_signed_predicate": false
+    },
+    "untrusted-builder": {
+      "signed_subject_only": false,
+      "exact_signed_predicate": false
+    },
+    "signature-by-wrong-builder": {
+      "signed_subject_only": false,
+      "exact_signed_predicate": false
+    },
+    "tampered-signed-predicate": {
+      "signed_subject_only": false,
+      "exact_signed_predicate": false
+    }
+  },
+  "sources": {
+    "probe.c": "fc2a36f7e0eefbd73136af4d77cdfebcc0fb3342e397804e0e6afde58e1792c0",
+    "run.py": "226c4316aa95db2b1600fcc9efbb2ba636747c6ce363b8b6d2d33f670372fbef"
+  }
+}

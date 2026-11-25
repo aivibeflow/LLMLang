@@ -1,0 +1,208 @@
+{
+  "counts": {
+    "acknowledge-without-proof": 8,
+    "publish-without-visibility": 10,
+    "release-while-revoking": 16,
+    "states": 67,
+    "transitions": 5400
+  },
+  "first_witnesses": {
+    "acknowledge-without-proof": {
+      "action": [
+        "acknowledge",
+        [
+          0,
+          1
+        ],
+        false
+      ],
+      "correct": [
+        "revoking",
+        [
+          0,
+          1
+        ]
+      ],
+      "history": [
+        [
+          "allocate",
+          [
+            0,
+            0
+          ],
+          false
+        ],
+        [
+          "scrub",
+          [
+            0,
+            1
+          ],
+          false
+        ],
+        [
+          "install",
+          [
+            0,
+            1
+          ],
+          false
+        ],
+        [
+          "publish",
+          [
+            0,
+            1
+          ],
+          true
+        ],
+        [
+          "detach",
+          [
+            0,
+            1
+          ],
+          false
+        ]
+      ],
+      "mutant": [
+        "quiescent",
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "publish-without-visibility": {
+      "action": [
+        "publish",
+        [
+          0,
+          1
+        ],
+        false
+      ],
+      "correct": [
+        "installed",
+        [
+          0,
+          1
+        ]
+      ],
+      "history": [
+        [
+          "allocate",
+          [
+            0,
+            0
+          ],
+          false
+        ],
+        [
+          "scrub",
+          [
+            0,
+            1
+          ],
+          false
+        ],
+        [
+          "install",
+          [
+            0,
+            1
+          ],
+          false
+        ]
+      ],
+      "mutant": [
+        "published",
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "release-while-revoking": {
+      "action": [
+        "release",
+        [
+          0,
+          1
+        ],
+        false
+      ],
+      "correct": [
+        "revoking",
+        [
+          0,
+          1
+        ]
+      ],
+      "history": [
+        [
+          "allocate",
+          [
+            0,
+            0
+          ],
+          false
+        ],
+        [
+          "scrub",
+          [
+            0,
+            1
+          ],
+          false
+        ],
+        [
+          "install",
+          [
+            0,
+            1
+          ],
+          false
+        ],
+        [
+          "publish",
+          [
+            0,
+            1
+          ],
+          true
+        ],
+        [
+          "detach",
+          [
+            0,
+            1
+          ],
+          false
+        ]
+      ],
+      "mutant": [
+        "free",
+        [
+          -1,
+          1
+        ]
+      ]
+    }
+  },
+  "lean": {
+    "axioms": [
+      "'absent_acknowledgment_keeps_ownership' depends on axioms: [propext]",
+      "'outstanding_translation_blocks_reuse' depends on axioms: [propext]",
+      "'publishing_requires_visibility' depends on axioms: [propext]",
+      "'retirement_stops_new_calls_but_retains_old_lease' depends on axioms: [propext]",
+      "'acknowledged_reuse_advances_generation' depends on axioms: [propext]"
+    ],
+    "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "maximum_search_depth": 12,
+  "sources_sha256": {
+    "Mapping.lean": "87e92e5eee9ec0b2124263dc08a87ca544954438c62ad70ecb9987e5a9f9dd3c",
+    "run.py": "672348a65767763594a7569c2cb2484bbb632456ecbbe284ba27ae44594f493c"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "llvm": "Debian LLVM version 19.1.7",
+  "profiles": {
+    "dirty_publication": {
+      "elf_sha256": "62687315e1e0f9a38de256b9e82fdb812318694d82613e568d458e95a9586a7e",
+      "old_frame": "0x80008000",
+      "replacement_frame": "0x80009000",
+      "translation_fences_in_transaction": 2,
+      "uart": "WIBCM",
+      "user_sha256": "7dd8576f2fa340d26c9131dbedceabc09382a713050dd8ff18e73f7c8188b749"
+    },
+    "publish_old_frame": {
+      "elf_sha256": "aff063ff8d7dd1ca0a831937b4be37604b7424f0a4619f2005c2873277a4fb94",
+      "old_frame": "0x80008000",
+      "replacement_frame": "0x80009000",
+      "translation_fences_in_transaction": 2,
+      "uart": "WIBCO",
+      "user_sha256": "7dd8576f2fa340d26c9131dbedceabc09382a713050dd8ff18e73f7c8188b749"
+    },
+    "sanitized_replacement": {
+      "elf_sha256": "29aee164cacb87c1349e6cfe7be8d5072f3fe4aa8ae8eadbd529d51f2906395c",
+      "old_frame": "0x80008000",
+      "replacement_frame": "0x80009000",
+      "translation_fences_in_transaction": 2,
+      "uart": "WIBCARba!",
+      "user_sha256": "7dd8576f2fa340d26c9131dbedceabc09382a713050dd8ff18e73f7c8188b749"
+    },
+    "wake_before_mapping": {
+      "elf_sha256": "420d4e5ea4e238bc1ed28625e68d72e9280962b86f1d5c92027b78cfc42ea3bf",
+      "old_frame": "0x80008000",
+      "replacement_frame": "0x80009000",
+      "translation_fences_in_transaction": 1,
+      "uart": "WIBCF",
+      "user_sha256": "7dd8576f2fa340d26c9131dbedceabc09382a713050dd8ff18e73f7c8188b749"
+    }
+  },
+  "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "qemu_sha256": "5f8ec06281e48c4155a8646aa65959e0d9adc8b915c146b93cc0419b6576ba5f",
+  "sources": {
+    "RV64-LIVE-FRAME-IPC-01/compose.py": "26674739bc03553780dfdc4a0c201b5f043227fd2f87792eea1b64c50c811fac",
+    "RV64-LIVE-FRAME-IPC-01/replace.s.in": "51bcc39c5e8f2f5492f34c4799924ab26c2e71688a8a61e9e80354221665d35d",
+    "RV64-LIVE-FRAME-IPC-01/run.py": "3ec43c0836b8a5a9f1cbb0f529872e6c625fa4b11ee90d38939747077f7365c0",
+    "RV64-PREEMPTIVE-IPC-01/compose.py": "f5a25dd8652c25ee096e456d45fdd9f711b3aa63b3f1829e85aeb05dc73f2577",
+    "RV64-PREEMPTIVE-IPC-01/dispatch.s.in": "0aa0b5e81d45134e7ccc82f3fb80c56fac0275fcd57bfa486b87fde8d14acf5c",
+    "RV64-PREEMPTIVE-IPC-01/mapping.s.in": "975f249b88f78779a8dae2ab667091326c1829728b67ab92b693fde8221b52a9",
+    "RV64-PREEMPTIVE-IPC-01/tasks.s.in": "9e1e61ea54895f033e1929762904cc874a14138733137d5e69f2d9a5c7380bf4",
+    "RV64-TIMER-PREEMPTION-01/transform.py": "1b8e760b24c6ae26a635d7a90d03465ac51bbcef687dd006ae24a117ea3aa91d",
+    "riscv-cooperative-scheduler/boot.s": "cc872c1bedf92e86c5ee116dabbff5529a4524fa21bb29d20ac010d2d60bef27",
+    "riscv-cooperative-scheduler/layout.ld": "e192428aee29f2a09cbdbd670b1dc42156277b032d7ca4a4772363839d481f1c"
+  }
+}

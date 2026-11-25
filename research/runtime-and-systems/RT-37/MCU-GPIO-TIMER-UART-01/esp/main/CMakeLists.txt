@@ -1,0 +1,8 @@
+idf_component_register(SRCS "main.c" REQUIRES esp_driver_gpio esp_driver_gptimer esp_driver_uart)
+add_library(pilot STATIC "../../pilot.c" "../../format.c")
+target_include_directories(pilot PUBLIC "../..")
+target_link_libraries(${COMPONENT_LIB} PRIVATE pilot)
+option(PILOT_INVALID_PIN "Exercise rejection of input-only GPIO34" OFF)
+if(PILOT_INVALID_PIN)
+    target_compile_definitions(${COMPONENT_LIB} PRIVATE PILOT_INVALID_PIN=1)
+endif()

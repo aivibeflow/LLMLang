@@ -1,0 +1,76 @@
+{
+  "schema": "llmlang-rt05-per-input-refinement/1",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "axiom_audit": [
+    "'refinementsCompose' does not depend on any axioms",
+    "'lowerCoverageTransfers' does not depend on any axioms",
+    "'sameProjectedOutcomes' does not depend on any axioms",
+    "'projectionMissesWrongInput' does not depend on any axioms",
+    "'emptyRefinementWithoutCoverage' does not depend on any axioms"
+  ],
+  "source_sha256": {
+    "run.py": "322415a2617f15dc1f5b1efbaf2d6d75b6f014ef79e8b304ba0fbbada0d26065",
+    "InputCoverage.lean": "66d324214e3080f71ae6e7b540ad3f8613880fb4ce023af5c8040a0757570ba0"
+  },
+  "input_domain": [
+    0,
+    1
+  ],
+  "outcome_domain": [
+    0,
+    1
+  ],
+  "counts": {
+    "cases": 2304,
+    "projected": 1089,
+    "pointwise_only": 225,
+    "pointwise_lacks_coverage": 176,
+    "layered_admission": 49,
+    "projected_misses_pointwise_violation": 928,
+    "projected_misses_coverage_gap": 112,
+    "endpoint_only_ignores_layer_violation": 351
+  },
+  "controls": {
+    "swapped_input_outcomes": {
+      "projected": true,
+      "pointwise": false,
+      "implementation_coverage": true,
+      "design_coverage": true,
+      "layered_admission": false,
+      "endpoint_only": false
+    },
+    "missing_implementation_input": {
+      "projected": true,
+      "pointwise": true,
+      "implementation_coverage": false,
+      "design_coverage": true,
+      "layered_admission": false,
+      "endpoint_only": false
+    },
+    "unsafe_design_outcome_unused_by_implementation": {
+      "projected": true,
+      "pointwise": false,
+      "implementation_coverage": true,
+      "design_coverage": true,
+      "layered_admission": false,
+      "endpoint_only": true
+    },
+    "submitted_scope_only": {
+      "projected": true,
+      "pointwise": true,
+      "implementation_coverage": true,
+      "design_coverage": true,
+      "layered_admission": true,
+      "endpoint_only": true
+    },
+    "pinned_required_scope": {
+      "projected": true,
+      "pointwise": true,
+      "implementation_coverage": false,
+      "design_coverage": true,
+      "layered_admission": false,
+      "endpoint_only": false
+    }
+  }
+}

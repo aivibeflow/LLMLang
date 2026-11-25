@@ -1,0 +1,35 @@
+#include <errno.h>
+
+struct read_result {
+    int status;
+    int error;
+    size_t length;
+};
+
+static struct read_result checked_read(int fd, unsigned char *buffer,
+                                       size_t capacity, size_t request) {
+    if (request > capacity) {
+        return (struct read_result){2, 0, 0};
+    }
+    const ssize_t received = read(fd, buffer, request);
+    if (received < 0) {
+        return (struct read_result){1, errno, 0};
+    }
+    return (struct read_result){0, 0, (size_t)received};
+}
+
+static int ascii_compare(const char *first, const char *second) {
+    const int order = sqlite3_stricmp(first, second);
+    return (order > 0) - (order < 0);
+}
+
+static int sha256_checked(const unsigned char *input, size_t size,
+                          unsigned char output[64], unsigned int *written) {
+#ifdef CHANGE_DIGEST
+    const EVP_MD *algorithm = EVP_sha512();
+#else
+    const EVP_MD *algorithm = EVP_sha256();
+#endif
+    const int ok = EVP_Digest(input, size, output, written, algorithm, NULL);
+    return ok == 1 && *written == 32;
+}

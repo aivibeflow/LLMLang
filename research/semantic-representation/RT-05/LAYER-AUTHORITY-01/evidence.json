@@ -1,0 +1,53 @@
+{
+  "controls": {
+    "cross_revision_coordinate_mismatches": 28,
+    "kernel_axiom_audit": [
+      "'refinementsCompose' does not depend on any axioms",
+      "'lowerCoverageTransfers' does not depend on any axioms",
+      "'sameProjectedOutcomes' does not depend on any axioms",
+      "'projectionMissesWrongInput' does not depend on any axioms",
+      "'emptyRefinementWithoutCoverage' does not depend on any axioms"
+    ],
+    "layer_counts": {
+      "cases": 2304,
+      "endpoint_only_ignores_layer_violation": 351,
+      "layered_admission": 49,
+      "pointwise_lacks_coverage": 176,
+      "pointwise_only": 225,
+      "projected": 1089,
+      "projected_misses_coverage_gap": 112,
+      "projected_misses_pointwise_violation": 928
+    },
+    "pinned_sha256": {
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/src/spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_admission.py": "016df7f85f5acddc348f03e24a971241ae67ddf2a9f68a006f30ce3f7d57037e",
+      "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_spg_representation.py": "385a6fe2ffd5267a45760a1f9b460ec4a97bb1434faeff27a7cbe60283c58ea1",
+      "research/semantic-representation/RT-05/PER-INPUT-REFINEMENT-01/evidence.json": "aa4daa85b278c2ea12fc403aec3f8fca28b1ead1bf995d0f50dfa54e713e4225",
+      "research/semantic-representation/RT-05/SHARED-INSTRUCTION-PROVENANCE-01/evidence.json": "9c2712907b6cbc77b89c6ef4546aa762f09b76d0aca2d3c228b45d9e7eef1a11",
+      "research/semantic-representation/RT-05/SOURCE-OCCURRENCE-01/evidence.json": "2c344d6b6bd33ddff9810db0d60082375a6dfebe093bb68f4bc4454287018484"
+    },
+    "shared_instruction_controls": {
+      "exact_map_without_semantic_preservation": "accepted-exact-map",
+      "fresh_source_revision": "accepted-exact-map",
+      "one_source_span_for_shared_instruction": "wrong-occurrence-coverage",
+      "stale_source_revision": "stale-source",
+      "swapped_spans_for_identical_source_expressions": "wrong-occurrence-coverage",
+      "wrong_generated_identity": "wrong-artifact"
+    },
+    "shared_typed_roots": 1,
+    "source_revisions": 6
+  },
+  "policy_checks": {
+    "eligible": {
+      "attribute-generated": 4,
+      "claim-layered-refinement": 8,
+      "evaluate-typed": 32,
+      "locate-source": 16,
+      "use-generated": 16
+    },
+    "states": 128
+  },
+  "revision": "262b1e140cf2d4cef191ac94f89faf94c64bb86f",
+  "runner_sha256": "d26002ab6f71a1fc7f86051cd88e5b051fbf146cc065d8d720de02b6db072857"
+}

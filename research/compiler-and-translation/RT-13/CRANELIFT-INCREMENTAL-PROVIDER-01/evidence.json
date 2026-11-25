@@ -1,0 +1,199 @@
+{
+  "cranelift": "0.116.1",
+  "profiles": {
+    "none": {
+      "admission_controls": {
+        "current-generation-with-old-provider": "refused",
+        "different-optimization-profile": "refused",
+        "exact-new-direct": "admitted",
+        "exact-new-relay": "admitted",
+        "exact-old-while-retained": "admitted",
+        "released-generation": "refused",
+        "stale-direct": "refused",
+        "stale-relay": "refused"
+      },
+      "compiled_functions_on_edit": {
+        "direct": 2,
+        "relay": 1
+      },
+      "duplicate_definition": "refused",
+      "native_comparisons": 1040,
+      "native_trace_sha256": "8a8832ad71b3e12a0e3d1d8a268c87d23b6cf15f958cbc9f565c61395d820f0e",
+      "old_results_incorrect_for_new_request": 520,
+      "pre_relocation_code": {
+        "direct-after": [
+          {
+            "bytes": 12,
+            "sha256": "9d452846d04c8d88c70787fb35d5111edb2c899e2f81c6de9a6bd4ebd678d62b"
+          },
+          {
+            "bytes": 17,
+            "sha256": "83e75937cabcbbe76c8e35e85d4e23e42561622221711f168fd90480dded58b3"
+          }
+        ],
+        "direct-before": [
+          {
+            "bytes": 12,
+            "sha256": "e5971b7be688ecf70277bcb467e489855ce607fbc2d7d3d8f1bf248dfd34dbde"
+          },
+          {
+            "bytes": 17,
+            "sha256": "83e75937cabcbbe76c8e35e85d4e23e42561622221711f168fd90480dded58b3"
+          }
+        ],
+        "provider-after": [
+          {
+            "bytes": 12,
+            "sha256": "9d452846d04c8d88c70787fb35d5111edb2c899e2f81c6de9a6bd4ebd678d62b"
+          }
+        ],
+        "provider-before": [
+          {
+            "bytes": 12,
+            "sha256": "e5971b7be688ecf70277bcb467e489855ce607fbc2d7d3d8f1bf248dfd34dbde"
+          }
+        ],
+        "relay": [
+          {
+            "bytes": 14,
+            "sha256": "f058f572c035e03dd600c42fcd87e3198ed9ad340eb9aadcf1dfca54552426fa"
+          }
+        ]
+      },
+      "receipts": {
+        "direct-after": [
+          "direct",
+          2,
+          "83e75937cabcbbe76c8e35e85d4e23e42561622221711f168fd90480dded58b3",
+          "9d452846d04c8d88c70787fb35d5111edb2c899e2f81c6de9a6bd4ebd678d62b",
+          "none"
+        ],
+        "direct-before": [
+          "direct",
+          1,
+          "83e75937cabcbbe76c8e35e85d4e23e42561622221711f168fd90480dded58b3",
+          "e5971b7be688ecf70277bcb467e489855ce607fbc2d7d3d8f1bf248dfd34dbde",
+          "none"
+        ],
+        "relay-after": [
+          "relay",
+          2,
+          "f058f572c035e03dd600c42fcd87e3198ed9ad340eb9aadcf1dfca54552426fa",
+          "9d452846d04c8d88c70787fb35d5111edb2c899e2f81c6de9a6bd4ebd678d62b",
+          "none"
+        ],
+        "relay-before": [
+          "relay",
+          1,
+          "f058f572c035e03dd600c42fcd87e3198ed9ad340eb9aadcf1dfca54552426fa",
+          "e5971b7be688ecf70277bcb467e489855ce607fbc2d7d3d8f1bf248dfd34dbde",
+          "none"
+        ]
+      },
+      "remaining_new_entry_calls_after_release": [
+        33,
+        33
+      ]
+    },
+    "speed": {
+      "admission_controls": {
+        "current-generation-with-old-provider": "refused",
+        "different-optimization-profile": "refused",
+        "exact-new-direct": "admitted",
+        "exact-new-relay": "admitted",
+        "exact-old-while-retained": "admitted",
+        "released-generation": "refused",
+        "stale-direct": "refused",
+        "stale-relay": "refused"
+      },
+      "compiled_functions_on_edit": {
+        "direct": 2,
+        "relay": 1
+      },
+      "duplicate_definition": "refused",
+      "native_comparisons": 1040,
+      "native_trace_sha256": "8a8832ad71b3e12a0e3d1d8a268c87d23b6cf15f958cbc9f565c61395d820f0e",
+      "old_results_incorrect_for_new_request": 520,
+      "pre_relocation_code": {
+        "direct-after": [
+          {
+            "bytes": 12,
+            "sha256": "9d452846d04c8d88c70787fb35d5111edb2c899e2f81c6de9a6bd4ebd678d62b"
+          },
+          {
+            "bytes": 17,
+            "sha256": "83e75937cabcbbe76c8e35e85d4e23e42561622221711f168fd90480dded58b3"
+          }
+        ],
+        "direct-before": [
+          {
+            "bytes": 12,
+            "sha256": "e5971b7be688ecf70277bcb467e489855ce607fbc2d7d3d8f1bf248dfd34dbde"
+          },
+          {
+            "bytes": 17,
+            "sha256": "83e75937cabcbbe76c8e35e85d4e23e42561622221711f168fd90480dded58b3"
+          }
+        ],
+        "provider-after": [
+          {
+            "bytes": 12,
+            "sha256": "9d452846d04c8d88c70787fb35d5111edb2c899e2f81c6de9a6bd4ebd678d62b"
+          }
+        ],
+        "provider-before": [
+          {
+            "bytes": 12,
+            "sha256": "e5971b7be688ecf70277bcb467e489855ce607fbc2d7d3d8f1bf248dfd34dbde"
+          }
+        ],
+        "relay": [
+          {
+            "bytes": 14,
+            "sha256": "f058f572c035e03dd600c42fcd87e3198ed9ad340eb9aadcf1dfca54552426fa"
+          }
+        ]
+      },
+      "receipts": {
+        "direct-after": [
+          "direct",
+          2,
+          "83e75937cabcbbe76c8e35e85d4e23e42561622221711f168fd90480dded58b3",
+          "9d452846d04c8d88c70787fb35d5111edb2c899e2f81c6de9a6bd4ebd678d62b",
+          "speed"
+        ],
+        "direct-before": [
+          "direct",
+          1,
+          "83e75937cabcbbe76c8e35e85d4e23e42561622221711f168fd90480dded58b3",
+          "e5971b7be688ecf70277bcb467e489855ce607fbc2d7d3d8f1bf248dfd34dbde",
+          "speed"
+        ],
+        "relay-after": [
+          "relay",
+          2,
+          "f058f572c035e03dd600c42fcd87e3198ed9ad340eb9aadcf1dfca54552426fa",
+          "9d452846d04c8d88c70787fb35d5111edb2c899e2f81c6de9a6bd4ebd678d62b",
+          "speed"
+        ],
+        "relay-before": [
+          "relay",
+          1,
+          "f058f572c035e03dd600c42fcd87e3198ed9ad340eb9aadcf1dfca54552426fa",
+          "e5971b7be688ecf70277bcb467e489855ce607fbc2d7d3d8f1bf248dfd34dbde",
+          "speed"
+        ]
+      },
+      "remaining_new_entry_calls_after_release": [
+        33,
+        33
+      ]
+    }
+  },
+  "source_sha256": {
+    "Cargo.lock": "c65e542ad07a0644a141365e0496221a2f876c7cf47adb2d2d18769883643a7a",
+    "Cargo.toml": "39ab74e5db39286e4e88527d55c1c05c8bc3e3bd26cacb8d7f674b55df90d485",
+    "run.py": "2e97f42d0e136671f6207c19f2cec1730d449baf81e2d92e6bbb9b67d79171c3",
+    "src/main.rs": "8ee7aae3bcfc01330caaa7010cea3d1f695c751749a593e8d3537ad3b1161329"
+  }
+}

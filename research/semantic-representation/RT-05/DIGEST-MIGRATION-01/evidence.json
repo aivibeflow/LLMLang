@@ -1,0 +1,141 @@
+{
+  "alias_addresses": {
+    "sha256:1b484b75067a97516892aa298e6e83ee1e6b73a9e0b80f99e1dc03f3c3d474ef": "sha512:bbb315d4d351e47d666c9d77f07175ccde0907f7d834402fc3202d4e3c3854f94ae50619a17733996cf7b257234bcd3b27baf791e6178f7f931f348cda023eba",
+    "sha256:3d4d5c876dd1ac472d71412bf179fea41e5f791c06de91b5e627059a8f775ed3": "sha512:eed3edf7e293687928f0f79b312ef26b54a23246e16d72c86b23a3f4b81f1b0132ca6da23924fe7cab92c368b51a5e78834ed764f644ae73436eb68da23581d6",
+    "sha256:5da2cdada9a062e7b0027b6012dbb9dce399bcf4d6510b33a356905e0558d623": "sha512:cbe389325762444dce1debbc0ac0332f595c27bc455726a82e1c422574c45ca925973c36edd4c925e32eb67c4d6f288cd85e209738a8ccf44be18d3f04c06490",
+    "sha256:899c1a0be20722a7fa1ec28af80ddb464e320fc2154e47858da63c2946cf7421": "sha512:337d8e06f2ba6540d2be2e5c3ea2188376a6c6b3968d2f8d48d81690ab8a88a92ca06499743ff6546ff5689f0943678e3890fc20c9f21869e71d78975e37cfab",
+    "sha256:9c048bd1e2cbc4ed253f3cd949f2f800ff19cc42997e25fd4bf211975a5c5fcc": "sha512:c49ed83090f3f473a1eaae0e20e972e5c89f76b5b85824585e8473ba51edf5af3ef29edf994957df7fbdcb819d755935c40333f57fd7cdcfd48497d5f76de8f9",
+    "sha256:a1289f1e63d372a5fed7bea9fe7b5b687cf1f6973ec962a43bc0b28c4973deeb": "sha512:c4212e51e9f0b2b5d590201bf0195cf3d4aa7338416949da008b6268a46c5ec24d0de4804830bd86abd5e45ec2851bf4955103b3ffd47aca140b46ebe30eb45c",
+    "sha256:ec1f78087a9c3cf4d852a91c6eb14abf33245fffa951d60c44ccbb84c6511e5e": "sha512:76c8ac88e7ba21225cdc31368c81407dc938d8c657fae34bb9a45650a8633ac7631f3f6a6e23d93151e70441e1a6b621c5d9d68f93d1be55b56e3bfacdb6b78b",
+    "sha256:f566268f875db6b63d9b5af9a348de8e4619ead850bf8ddcf32eb6d919fa5cba": "sha512:9e02b94b00eee3dcf7d46476a2838f648201ce3789032f2f52053900128026cbc173d14b07dbaef67354ea641a4a75d0a365a10f9726a102c6d6b545f762eeba"
+  },
+  "baseline": "2a780731513f21c0028bf43e94bfae9d37041ac5",
+  "controls": [
+    {
+      "case": "identical bytes alias sha256:1b484b75067a97516892aa298e6e83ee1e6b73a9e0b80f99e1dc03f3c3d474ef",
+      "outcome": "accepted"
+    },
+    {
+      "case": "identical bytes alias sha256:3d4d5c876dd1ac472d71412bf179fea41e5f791c06de91b5e627059a8f775ed3",
+      "outcome": "accepted"
+    },
+    {
+      "case": "identical bytes alias sha256:5da2cdada9a062e7b0027b6012dbb9dce399bcf4d6510b33a356905e0558d623",
+      "outcome": "accepted"
+    },
+    {
+      "case": "identical bytes alias sha256:899c1a0be20722a7fa1ec28af80ddb464e320fc2154e47858da63c2946cf7421",
+      "outcome": "accepted"
+    },
+    {
+      "case": "identical bytes alias sha256:9c048bd1e2cbc4ed253f3cd949f2f800ff19cc42997e25fd4bf211975a5c5fcc",
+      "outcome": "accepted"
+    },
+    {
+      "case": "identical bytes alias sha256:a1289f1e63d372a5fed7bea9fe7b5b687cf1f6973ec962a43bc0b28c4973deeb",
+      "outcome": "accepted"
+    },
+    {
+      "case": "identical bytes alias sha256:ec1f78087a9c3cf4d852a91c6eb14abf33245fffa951d60c44ccbb84c6511e5e",
+      "outcome": "accepted"
+    },
+    {
+      "case": "identical bytes alias sha256:f566268f875db6b63d9b5af9a348de8e4619ead850bf8ddcf32eb6d919fa5cba",
+      "outcome": "accepted"
+    },
+    {
+      "case": "dual locator on a new-suite-only reader",
+      "outcome": "unsupported suite"
+    },
+    {
+      "case": "missing or incomplete alias",
+      "outcome": "missing address"
+    },
+    {
+      "case": "alias points at another verified payload",
+      "outcome": "alias payload differs"
+    },
+    {
+      "case": "reverse alias supplied as forward",
+      "outcome": "unsupported alias direction"
+    },
+    {
+      "case": "cached bytes fail their declared digest",
+      "outcome": "digest mismatch"
+    },
+    {
+      "case": "rewritten graph on a new-suite-only reader",
+      "outcome": "accepted"
+    },
+    {
+      "case": "rewritten graph on a legacy-only reader",
+      "outcome": "unsupported suite"
+    },
+    {
+      "case": "partial rewrite is ineligible for publication",
+      "outcome": "missing address"
+    },
+    {
+      "case": "legacy snapshot remains readable after interrupted staging",
+      "outcome": "accepted"
+    },
+    {
+      "case": "synthetic equal digest with distinct typed bytes",
+      "outcome": "collision"
+    },
+    {
+      "case": "read of quarantined name",
+      "outcome": "quarantined"
+    },
+    {
+      "case": "retry cannot overwrite quarantined original",
+      "outcome": "quarantined"
+    }
+  ],
+  "dual_distinct_payloads": 8,
+  "original_graph": {
+    "bytes": 1810,
+    "objects": 8
+  },
+  "python": "3.12.14",
+  "receipt": {
+    "new_exact_binding": "dfe0d587125d54f5f6589f00e64aa0b27208f372a39184646c0b8c16821f3d00",
+    "old_exact_binding": "c761ccd7aeadc7c3a547624e244a1f2ceeea58f79a65ffd73a554fd101bae849",
+    "old_subject": {
+      "class": "sha256:5da2cdada9a062e7b0027b6012dbb9dce399bcf4d6510b33a356905e0558d623",
+      "implementation": "sha256:f566268f875db6b63d9b5af9a348de8e4619ead850bf8ddcf32eb6d919fa5cba",
+      "operation": "sha256:1b484b75067a97516892aa298e6e83ee1e6b73a9e0b80f99e1dc03f3c3d474ef"
+    },
+    "rewritten_subject": {
+      "class": "sha512:46c65ab4dd0db235934b1298a160b45ce641a473cfc701a0a7f8c4fdd585d32546bf1be249ebd6991466720742913a9b675e2462d82269ec7c6366f8f928f162",
+      "implementation": "sha512:54bf214aed504712ec1eea4973e0dc154e4359a36b9d054fecdd0fde36a97635e4e6089f6e0b3d6644eabcc4900559527dab28a9213e2a97bbea8eea9f31c9b1",
+      "operation": "sha512:baa01074c55b39a5679349926deb708f8ff2698c55bf704ccc473f050991a83f111699fd1644d12030991d56806c7c87e376a780d61ebb3b2e0c05644777c4ee"
+    }
+  },
+  "rewrite_addresses": {
+    "sha256:1b484b75067a97516892aa298e6e83ee1e6b73a9e0b80f99e1dc03f3c3d474ef": "sha512:baa01074c55b39a5679349926deb708f8ff2698c55bf704ccc473f050991a83f111699fd1644d12030991d56806c7c87e376a780d61ebb3b2e0c05644777c4ee",
+    "sha256:3d4d5c876dd1ac472d71412bf179fea41e5f791c06de91b5e627059a8f775ed3": "sha512:fe7738590de9d34e93918808a2b374344545c833b4f591eb84b394d8be33af4c1ce45f62648252c9c7730ee2cf8447f8d13e196c59767cae35e7e14957afb511",
+    "sha256:5da2cdada9a062e7b0027b6012dbb9dce399bcf4d6510b33a356905e0558d623": "sha512:46c65ab4dd0db235934b1298a160b45ce641a473cfc701a0a7f8c4fdd585d32546bf1be249ebd6991466720742913a9b675e2462d82269ec7c6366f8f928f162",
+    "sha256:899c1a0be20722a7fa1ec28af80ddb464e320fc2154e47858da63c2946cf7421": "sha512:9ba8c1b95258040225b5cde43d7cf917194915823ef2afd442b173afc5b58ad7f3ea9341b92b8713c5ac86a7f0aa30143484eb5c3fe7a492895aaa61874d22b3",
+    "sha256:9c048bd1e2cbc4ed253f3cd949f2f800ff19cc42997e25fd4bf211975a5c5fcc": "sha512:32c8a167b0ea9f34f5ad2a169de712829740182a874b7cba9f85b3cacafdd59703e1f07f25d82720ad31f41f24495f3af6693d0f60856243da591314cede76d7",
+    "sha256:a1289f1e63d372a5fed7bea9fe7b5b687cf1f6973ec962a43bc0b28c4973deeb": "sha512:8c331eff7b9b0e982084ce588037dedf77c413100e41c8b3e66ac8daa9a1e4ffe89208c26b1538324b388779a71c68a75fac97645da7fd573c3ac4064452f787",
+    "sha256:ec1f78087a9c3cf4d852a91c6eb14abf33245fffa951d60c44ccbb84c6511e5e": "sha512:76c8ac88e7ba21225cdc31368c81407dc938d8c657fae34bb9a45650a8633ac7631f3f6a6e23d93151e70441e1a6b621c5d9d68f93d1be55b56e3bfacdb6b78b",
+    "sha256:f566268f875db6b63d9b5af9a348de8e4619ead850bf8ddcf32eb6d919fa5cba": "sha512:54bf214aed504712ec1eea4973e0dc154e4359a36b9d054fecdd0fde36a97635e4e6089f6e0b3d6644eabcc4900559527dab28a9213e2a97bbea8eea9f31c9b1"
+  },
+  "rewritten_distinct_payloads": 15,
+  "rewritten_graph": {
+    "bytes": 2450,
+    "objects": 8
+  },
+  "root_addresses": {
+    "dual": "sha512:c4212e51e9f0b2b5d590201bf0195cf3d4aa7338416949da008b6268a46c5ec24d0de4804830bd86abd5e45ec2851bf4955103b3ffd47aca140b46ebe30eb45c",
+    "historical": "sha256:a1289f1e63d372a5fed7bea9fe7b5b687cf1f6973ec962a43bc0b28c4973deeb",
+    "rewritten": "sha512:8c331eff7b9b0e982084ce588037dedf77c413100e41c8b3e66ac8daa9a1e4ffe89208c26b1538324b388779a71c68a75fac97645da7fd573c3ac4064452f787"
+  },
+  "schema": "rt05-digest-migration-comparison-v1",
+  "source_sha256": {
+    "migration.py": "4b9fd7c0a87a87761793a78c2198654e771f2dfe928815797992061a842e6958",
+    "run.py": "a3411411649e71791286b5dc254ffda5dbc66e32a132fa89005554e5451c8f14",
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  }
+}

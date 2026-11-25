@@ -1,0 +1,300 @@
+{
+  "schema": "llmlang-scoped-fallback/1",
+  "python": "3.12.14",
+  "runner_sha256": "addb0b6eb5288942d612ccdaf6b3b2dbea4bcc4518e51eccee04ae656f682919",
+  "case_count": 576,
+  "nodes": [
+    "left-body",
+    "left-analysis",
+    "left-emit",
+    "right-body",
+    "right-analysis",
+    "right-emit",
+    "package"
+  ],
+  "baseline": {
+    "left-body": [
+      [
+        5,
+        0
+      ],
+      5
+    ],
+    "left-analysis": [
+      [
+        5
+      ],
+      2
+    ],
+    "left-emit": [
+      [
+        2
+      ],
+      22
+    ],
+    "right-body": [
+      [
+        10,
+        0
+      ],
+      10
+    ],
+    "right-analysis": [
+      [
+        10
+      ],
+      1
+    ],
+    "right-emit": [
+      [
+        1
+      ],
+      21
+    ],
+    "package": [
+      [
+        22,
+        21
+      ],
+      [
+        22,
+        21
+      ]
+    ]
+  },
+  "required_certificates": {
+    "left": [
+      "extractor/2",
+      "left-body",
+      [
+        "source",
+        "environment"
+      ]
+    ],
+    "right": [
+      "extractor/2",
+      "right-body",
+      [
+        "source",
+        "environment"
+      ]
+    ]
+  },
+  "policies": {
+    "optimistic": {
+      "reuse": 1513,
+      "stale_results": 696,
+      "packages_admitted": 289,
+      "stale_packages": 120,
+      "reuse_without_evidence": 384,
+      "blocked": 1295,
+      "compute": 648,
+      "compute_ephemeral": 192
+    },
+    "whole_graph": {
+      "reuse": 137,
+      "stale_results": 0,
+      "packages_admitted": 153,
+      "stale_packages": 0,
+      "blocked": 2103,
+      "compute_ephemeral": 384,
+      "compute": 1408
+    },
+    "scoped": {
+      "reuse": 817,
+      "stale_results": 0,
+      "packages_admitted": 169,
+      "stale_packages": 0,
+      "blocked": 1991,
+      "compute_ephemeral": 384,
+      "compute": 840
+    }
+  },
+  "witnesses": {
+    "unavailable_left_complete_right": [
+      {
+        "left": [
+          5,
+          0
+        ],
+        "right": [
+          10,
+          0
+        ]
+      },
+      {
+        "left": [
+          "extractor/1",
+          "left-body",
+          [
+            "source"
+          ]
+        ],
+        "right": [
+          "extractor/2",
+          "right-body",
+          [
+            "source",
+            "environment"
+          ]
+        ]
+      },
+      {
+        "left": false,
+        "right": false
+      },
+      [
+        {
+          "left-body": null,
+          "left-analysis": null,
+          "left-emit": null,
+          "right-body": 10,
+          "right-analysis": 1,
+          "right-emit": 21,
+          "package": null
+        },
+        {
+          "left-body": "blocked",
+          "left-analysis": "blocked",
+          "left-emit": "blocked",
+          "right-body": "reuse",
+          "right-analysis": "reuse",
+          "right-emit": "reuse",
+          "package": "blocked"
+        }
+      ]
+    ],
+    "stale_package": [
+      {
+        "left": [
+          5,
+          0
+        ],
+        "right": [
+          10,
+          -1
+        ]
+      },
+      {
+        "left": [
+          "extractor/2",
+          "left-body",
+          [
+            "source",
+            "environment"
+          ]
+        ],
+        "right": [
+          "extractor/1",
+          "right-body",
+          [
+            "source"
+          ]
+        ]
+      },
+      {
+        "left": false,
+        "right": false
+      },
+      [
+        {
+          "left-body": 5,
+          "left-analysis": 2,
+          "left-emit": 22,
+          "right-body": 10,
+          "right-analysis": 1,
+          "right-emit": 21,
+          "package": [
+            22,
+            21
+          ]
+        },
+        {
+          "left-body": "reuse",
+          "left-analysis": "reuse",
+          "left-emit": "reuse",
+          "right-body": "reuse_without_evidence",
+          "right-analysis": "reuse",
+          "right-emit": "reuse",
+          "package": "reuse"
+        }
+      ],
+      [
+        {
+          "left-body": 5,
+          "left-analysis": 2,
+          "left-emit": 22,
+          "right-body": null,
+          "right-analysis": null,
+          "right-emit": null,
+          "package": null
+        },
+        {
+          "left-body": "reuse",
+          "left-analysis": "reuse",
+          "left-emit": "reuse",
+          "right-body": "blocked",
+          "right-analysis": "blocked",
+          "right-emit": "blocked",
+          "package": "blocked"
+        }
+      ]
+    ],
+    "fresh_identical_input": [
+      {
+        "left": [
+          6,
+          -1
+        ],
+        "right": [
+          10,
+          0
+        ]
+      },
+      {
+        "left": [
+          "extractor/1",
+          "left-body",
+          [
+            "source"
+          ]
+        ],
+        "right": [
+          "extractor/2",
+          "right-body",
+          [
+            "source",
+            "environment"
+          ]
+        ]
+      },
+      {
+        "left": true,
+        "right": false
+      },
+      [
+        {
+          "left-body": 5,
+          "left-analysis": 2,
+          "left-emit": 22,
+          "right-body": 10,
+          "right-analysis": 1,
+          "right-emit": 21,
+          "package": [
+            22,
+            21
+          ]
+        },
+        {
+          "left-body": "compute_ephemeral",
+          "left-analysis": "reuse",
+          "left-emit": "reuse",
+          "right-body": "reuse",
+          "right-analysis": "reuse",
+          "right-emit": "reuse",
+          "package": "reuse"
+        }
+      ]
+    ]
+  }
+}

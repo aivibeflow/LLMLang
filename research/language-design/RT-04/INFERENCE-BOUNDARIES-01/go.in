@@ -1,0 +1,14 @@
+package main
+
+import "fmt"
+
+func consume(number uint64) {}
+
+@API@
+
+func main() {
+    @DECLARATION@
+    priorType := fmt.Sprintf("%T", number)
+    @LATER_USE@
+    fmt.Printf("%s:%v\n", priorType, number)
+}

@@ -1,0 +1,25 @@
+{
+  "counter_delta": {
+    "burst_usec": 0,
+    "nice_usec": 0,
+    "nr_bursts": 0,
+    "nr_periods": 98,
+    "nr_throttled": 0,
+    "system_usec": 567095,
+    "throttled_usec": 0,
+    "usage_usec": 9800667,
+    "user_usec": 9233572
+  },
+  "cpu": 4,
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "kernel": "6.18.57",
+  "python": "3.12.14",
+  "seed": 20261125,
+  "source_sha256": {
+    "impact_planning.py": "0d76d5b7be22b2ebb7f8f4622e717f140871665784b3a644e1847e5ffb513d4b",
+    "measure.py": "b661ab5063e939f407825dfa28ad60db8b4e5f522ddc01fab6f62b3300cd9880",
+    "semantic_dependency_index.py": "c0f5e4223b8aa607f9b8031038ae2a46f3be3a5ece96d8ccbb4604aa4c04645e",
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea"
+  },
+  "trials": 10
+}

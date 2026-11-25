@@ -1,0 +1,65 @@
+{
+  "controls": {
+    "altered_proposal": "invalid-proposal",
+    "detached_migration": "detached",
+    "missing_capability": "capability-unavailable",
+    "parameter_order": "same-instance-hash",
+    "stale_instance": "stale-instance",
+    "typed_boolean": "invalid-graph",
+    "unknown_parameter": "unknown-parameter",
+    "wrong_dependency": "incorrect-input-identity",
+    "wrong_target_shape": "invalid-graph"
+  },
+  "coverage": {
+    "local_states": 24,
+    "upstream_profiles": 27
+  },
+  "example_migration": {
+    "candidate": {
+      "attempts": 3,
+      "backoff_ms": 200,
+      "mode": "bounded"
+    },
+    "expected_instance": "sha256:abd495d7c68e9000f191e1110b3a3d7c068331dceb67812549c2f4e8013080de",
+    "new_baseline": {
+      "attempts": 3,
+      "backoff_ms": 200,
+      "mode": "bounded"
+    },
+    "new_template": "sha256:3e3a6082ff9ab13be744feee2cf0d19f2a52c41e9513dd55124139bbfb3d98fb",
+    "old_template": "sha256:85073d45b87ffaef6506f8766a126ecaa072456ba149fdaab3ff79cd83f66d27"
+  },
+  "instantiation": {
+    "baseline": {
+      "attempts": 3,
+      "backoff_ms": 100,
+      "mode": "bounded"
+    },
+    "component": "retry:fixture/instance-01",
+    "detached": false,
+    "graph": {
+      "attempts": 3,
+      "backoff_ms": 100,
+      "mode": "bounded"
+    },
+    "migration_trace": [],
+    "origin": [
+      "template:retry-fixture",
+      "sha256:85073d45b87ffaef6506f8766a126ecaa072456ba149fdaab3ff79cd83f66d27",
+      "sha256:720e3f72308a83ebc1fc4ce5f5862d9460ab63c4c02b8a8478d14ce33f2a3d72"
+    ],
+    "parameters": {
+      "attempts": 3,
+      "mode": "bounded"
+    }
+  },
+  "matrix": {
+    "conflict": 333,
+    "invalid-graph": 35,
+    "proposed": 280
+  },
+  "python": "3.12.14",
+  "sources_sha256": "1c65fd0c6a7db2318f82c56382bada1aab8b05d6bc154f87b9b0dde56617959f",
+  "template": "sha256:85073d45b87ffaef6506f8766a126ecaa072456ba149fdaab3ff79cd83f66d27",
+  "total": 648
+}

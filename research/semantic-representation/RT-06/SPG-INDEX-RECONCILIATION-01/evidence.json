@@ -1,0 +1,42 @@
+{
+  "schema": "llmlang-spg-index-reconciliation/1",
+  "python": "3.12.14",
+  "archive_revision": "ba145588905bda1c80b150a87bccf75d8da1a647",
+  "document_sha256": {
+    "TODO.md": "c604450c011e5896069d249a6d94e52a58c12c0b3185a39f0db7ca813594ca9d",
+    "docs/adr/014-git-semantic-merge.md": "d265bdbce23cf41d1068235702d7d003f6ffe798f9f68b3a8a4a12caac42ca23",
+    "docs/adr/015-toolchain-server-semantic-api.md": "1d631f18842eb62c46cc38479a1c018aed618f61c473517db1ae44d0e0f55f4f",
+    "research/semantic-representation/RT-06/SEMANTIC-DEPENDENCY-INDEX.md": "cb7b5a0cf8e245be636e42f0b35749c847c7aa44567adf4f23fb227bf2befb4c"
+  },
+  "runner_sha256": "1ef6a028617e0e800ac587b29d7a3b624e7f2fd9077cc67bbeb2f7a760458bcc",
+  "candidate_schemas": {
+    "semantic_declaration": 2,
+    "dependency_index": 3,
+    "impact_plan": 5
+  },
+  "suites": {
+    "test_semantic_dependency_index": 23,
+    "test_spg_representation": 11,
+    "test_spg_ordered_lowering": 5,
+    "test_spg_admission": 5,
+    "test_recursive_identity": 9,
+    "test_impact_planning": 36,
+    "test_scoped_binding": 8,
+    "test_call_site_refactor": 7
+  },
+  "total_tests": 104,
+  "recorded_statuses": {
+    "decision_register": {
+      "LL-001": "Open",
+      "LL-004": "Open",
+      "LL-005": "Open",
+      "LL-006": "Open",
+      "LL-008": "Open"
+    },
+    "architecture_records": {
+      "014-git-semantic-merge": "Proposed",
+      "015-toolchain-server-semantic-api": "Proposed; validation required before acceptance"
+    },
+    "index_candidate_status": "Research proposal; not a canonical SPG schema or accepted language rule"
+  }
+}

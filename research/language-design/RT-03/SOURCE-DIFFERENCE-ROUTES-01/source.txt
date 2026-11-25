@@ -1,0 +1,6 @@
+def route(x, y, z):
+    if y - x <= -1:
+        if z - y <= -1:
+            if x - z <= 1:
+                return "target"
+    return "fallback"

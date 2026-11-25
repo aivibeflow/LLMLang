@@ -1,0 +1,3675 @@
+{
+  "accepted_inputs": 38,
+  "checked_axioms": [
+    "'guardExact' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'checkedAdapter' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'boundaryWrapViolates' does not depend on any axioms",
+    "'traceErasureViolates' does not depend on any axioms",
+    "'wrongScaleViolates' does not depend on any axioms",
+    "'providerAssumptionMatters' does not depend on any axioms"
+  ],
+  "input_count": 65,
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "mismatch_counts": {
+    "checked": 0,
+    "erase_trace": 38,
+    "extra_provider_event": 38,
+    "unchecked_u32_wrap": 27,
+    "wrong_input_scale": 64
+  },
+  "observations": [
+    {
+      "millis": 0,
+      "observations": {
+        "checked": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          0,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        0,
+        [
+          [
+            "arm",
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 1,
+      "observations": {
+        "checked": [
+          "armed",
+          1,
+          [
+            [
+              "arm",
+              1000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          1,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          1,
+          [
+            [
+              "arm",
+              1000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          1,
+          [
+            [
+              "arm",
+              1000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              1
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        1,
+        [
+          [
+            "arm",
+            1000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 2,
+      "observations": {
+        "checked": [
+          "armed",
+          2,
+          [
+            [
+              "arm",
+              2000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          2,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          2,
+          [
+            [
+              "arm",
+              2000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          2,
+          [
+            [
+              "arm",
+              2000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              2
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        2,
+        [
+          [
+            "arm",
+            2000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 3,
+      "observations": {
+        "checked": [
+          "armed",
+          3,
+          [
+            [
+              "arm",
+              3000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          3,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          3,
+          [
+            [
+              "arm",
+              3000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          3,
+          [
+            [
+              "arm",
+              3000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              3
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        3,
+        [
+          [
+            "arm",
+            3000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4,
+      "observations": {
+        "checked": [
+          "armed",
+          4,
+          [
+            [
+              "arm",
+              4000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4,
+          [
+            [
+              "arm",
+              4000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4,
+          [
+            [
+              "arm",
+              4000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              4
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4,
+        [
+          [
+            "arm",
+            4000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 5,
+      "observations": {
+        "checked": [
+          "armed",
+          5,
+          [
+            [
+              "arm",
+              5000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          5,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          5,
+          [
+            [
+              "arm",
+              5000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          5,
+          [
+            [
+              "arm",
+              5000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              5
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        5,
+        [
+          [
+            "arm",
+            5000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 6,
+      "observations": {
+        "checked": [
+          "armed",
+          6,
+          [
+            [
+              "arm",
+              6000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          6,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          6,
+          [
+            [
+              "arm",
+              6000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          6,
+          [
+            [
+              "arm",
+              6000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              6
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        6,
+        [
+          [
+            "arm",
+            6000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 7,
+      "observations": {
+        "checked": [
+          "armed",
+          7,
+          [
+            [
+              "arm",
+              7000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          7,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          7,
+          [
+            [
+              "arm",
+              7000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          7,
+          [
+            [
+              "arm",
+              7000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              7
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        7,
+        [
+          [
+            "arm",
+            7000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 8,
+      "observations": {
+        "checked": [
+          "armed",
+          8,
+          [
+            [
+              "arm",
+              8000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          8,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          8,
+          [
+            [
+              "arm",
+              8000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          8,
+          [
+            [
+              "arm",
+              8000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              8
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        8,
+        [
+          [
+            "arm",
+            8000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 9,
+      "observations": {
+        "checked": [
+          "armed",
+          9,
+          [
+            [
+              "arm",
+              9000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          9,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          9,
+          [
+            [
+              "arm",
+              9000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          9,
+          [
+            [
+              "arm",
+              9000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              9
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        9,
+        [
+          [
+            "arm",
+            9000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 10,
+      "observations": {
+        "checked": [
+          "armed",
+          10,
+          [
+            [
+              "arm",
+              10000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          10,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          10,
+          [
+            [
+              "arm",
+              10000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          10,
+          [
+            [
+              "arm",
+              10000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              10
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        10,
+        [
+          [
+            "arm",
+            10000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 11,
+      "observations": {
+        "checked": [
+          "armed",
+          11,
+          [
+            [
+              "arm",
+              11000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          11,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          11,
+          [
+            [
+              "arm",
+              11000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          11,
+          [
+            [
+              "arm",
+              11000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              11
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        11,
+        [
+          [
+            "arm",
+            11000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 12,
+      "observations": {
+        "checked": [
+          "armed",
+          12,
+          [
+            [
+              "arm",
+              12000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          12,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          12,
+          [
+            [
+              "arm",
+              12000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          12,
+          [
+            [
+              "arm",
+              12000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              12
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        12,
+        [
+          [
+            "arm",
+            12000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 13,
+      "observations": {
+        "checked": [
+          "armed",
+          13,
+          [
+            [
+              "arm",
+              13000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          13,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          13,
+          [
+            [
+              "arm",
+              13000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          13,
+          [
+            [
+              "arm",
+              13000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              13
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        13,
+        [
+          [
+            "arm",
+            13000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 14,
+      "observations": {
+        "checked": [
+          "armed",
+          14,
+          [
+            [
+              "arm",
+              14000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          14,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          14,
+          [
+            [
+              "arm",
+              14000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          14,
+          [
+            [
+              "arm",
+              14000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              14
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        14,
+        [
+          [
+            "arm",
+            14000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 15,
+      "observations": {
+        "checked": [
+          "armed",
+          15,
+          [
+            [
+              "arm",
+              15000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          15,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          15,
+          [
+            [
+              "arm",
+              15000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          15,
+          [
+            [
+              "arm",
+              15000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              15
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        15,
+        [
+          [
+            "arm",
+            15000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 16,
+      "observations": {
+        "checked": [
+          "armed",
+          16,
+          [
+            [
+              "arm",
+              16000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          16,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          16,
+          [
+            [
+              "arm",
+              16000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          16,
+          [
+            [
+              "arm",
+              16000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              16
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        16,
+        [
+          [
+            "arm",
+            16000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 256,
+      "observations": {
+        "checked": [
+          "armed",
+          256,
+          [
+            [
+              "arm",
+              256000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          256,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          256,
+          [
+            [
+              "arm",
+              256000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          256,
+          [
+            [
+              "arm",
+              256000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              256
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        256,
+        [
+          [
+            "arm",
+            256000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4096,
+      "observations": {
+        "checked": [
+          "armed",
+          4096,
+          [
+            [
+              "arm",
+              4096000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4096,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4096,
+          [
+            [
+              "arm",
+              4096000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4096,
+          [
+            [
+              "arm",
+              4096000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4,
+          [
+            [
+              "arm",
+              4096
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4096,
+        [
+          [
+            "arm",
+            4096000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 65536,
+      "observations": {
+        "checked": [
+          "armed",
+          65536,
+          [
+            [
+              "arm",
+              65536000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          65536,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          65536,
+          [
+            [
+              "arm",
+              65536000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          65536,
+          [
+            [
+              "arm",
+              65536000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          65,
+          [
+            [
+              "arm",
+              65536
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        65536,
+        [
+          [
+            "arm",
+            65536000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 1048576,
+      "observations": {
+        "checked": [
+          "armed",
+          1048576,
+          [
+            [
+              "arm",
+              1048576000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          1048576,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          1048576,
+          [
+            [
+              "arm",
+              1048576000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          1048576,
+          [
+            [
+              "arm",
+              1048576000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          1048,
+          [
+            [
+              "arm",
+              1048576
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        1048576,
+        [
+          [
+            "arm",
+            1048576000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294951,
+      "observations": {
+        "checked": [
+          "armed",
+          4294951,
+          [
+            [
+              "arm",
+              4294951000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294951,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294951,
+          [
+            [
+              "arm",
+              4294951000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294951,
+          [
+            [
+              "arm",
+              4294951000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294951
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294951,
+        [
+          [
+            "arm",
+            4294951000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294952,
+      "observations": {
+        "checked": [
+          "armed",
+          4294952,
+          [
+            [
+              "arm",
+              4294952000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294952,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294952,
+          [
+            [
+              "arm",
+              4294952000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294952,
+          [
+            [
+              "arm",
+              4294952000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294952
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294952,
+        [
+          [
+            "arm",
+            4294952000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294953,
+      "observations": {
+        "checked": [
+          "armed",
+          4294953,
+          [
+            [
+              "arm",
+              4294953000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294953,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294953,
+          [
+            [
+              "arm",
+              4294953000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294953,
+          [
+            [
+              "arm",
+              4294953000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294953
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294953,
+        [
+          [
+            "arm",
+            4294953000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294954,
+      "observations": {
+        "checked": [
+          "armed",
+          4294954,
+          [
+            [
+              "arm",
+              4294954000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294954,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294954,
+          [
+            [
+              "arm",
+              4294954000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294954,
+          [
+            [
+              "arm",
+              4294954000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294954
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294954,
+        [
+          [
+            "arm",
+            4294954000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294955,
+      "observations": {
+        "checked": [
+          "armed",
+          4294955,
+          [
+            [
+              "arm",
+              4294955000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294955,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294955,
+          [
+            [
+              "arm",
+              4294955000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294955,
+          [
+            [
+              "arm",
+              4294955000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294955
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294955,
+        [
+          [
+            "arm",
+            4294955000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294956,
+      "observations": {
+        "checked": [
+          "armed",
+          4294956,
+          [
+            [
+              "arm",
+              4294956000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294956,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294956,
+          [
+            [
+              "arm",
+              4294956000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294956,
+          [
+            [
+              "arm",
+              4294956000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294956
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294956,
+        [
+          [
+            "arm",
+            4294956000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294957,
+      "observations": {
+        "checked": [
+          "armed",
+          4294957,
+          [
+            [
+              "arm",
+              4294957000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294957,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294957,
+          [
+            [
+              "arm",
+              4294957000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294957,
+          [
+            [
+              "arm",
+              4294957000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294957
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294957,
+        [
+          [
+            "arm",
+            4294957000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294958,
+      "observations": {
+        "checked": [
+          "armed",
+          4294958,
+          [
+            [
+              "arm",
+              4294958000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294958,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294958,
+          [
+            [
+              "arm",
+              4294958000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294958,
+          [
+            [
+              "arm",
+              4294958000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294958
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294958,
+        [
+          [
+            "arm",
+            4294958000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294959,
+      "observations": {
+        "checked": [
+          "armed",
+          4294959,
+          [
+            [
+              "arm",
+              4294959000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294959,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294959,
+          [
+            [
+              "arm",
+              4294959000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294959,
+          [
+            [
+              "arm",
+              4294959000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294959
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294959,
+        [
+          [
+            "arm",
+            4294959000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294960,
+      "observations": {
+        "checked": [
+          "armed",
+          4294960,
+          [
+            [
+              "arm",
+              4294960000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294960,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294960,
+          [
+            [
+              "arm",
+              4294960000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294960,
+          [
+            [
+              "arm",
+              4294960000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294960
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294960,
+        [
+          [
+            "arm",
+            4294960000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294961,
+      "observations": {
+        "checked": [
+          "armed",
+          4294961,
+          [
+            [
+              "arm",
+              4294961000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294961,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294961,
+          [
+            [
+              "arm",
+              4294961000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294961,
+          [
+            [
+              "arm",
+              4294961000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294961
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294961,
+        [
+          [
+            "arm",
+            4294961000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294962,
+      "observations": {
+        "checked": [
+          "armed",
+          4294962,
+          [
+            [
+              "arm",
+              4294962000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294962,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294962,
+          [
+            [
+              "arm",
+              4294962000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294962,
+          [
+            [
+              "arm",
+              4294962000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294962
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294962,
+        [
+          [
+            "arm",
+            4294962000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294963,
+      "observations": {
+        "checked": [
+          "armed",
+          4294963,
+          [
+            [
+              "arm",
+              4294963000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294963,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294963,
+          [
+            [
+              "arm",
+              4294963000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294963,
+          [
+            [
+              "arm",
+              4294963000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294963
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294963,
+        [
+          [
+            "arm",
+            4294963000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294964,
+      "observations": {
+        "checked": [
+          "armed",
+          4294964,
+          [
+            [
+              "arm",
+              4294964000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294964,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294964,
+          [
+            [
+              "arm",
+              4294964000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294964,
+          [
+            [
+              "arm",
+              4294964000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294964
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294964,
+        [
+          [
+            "arm",
+            4294964000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294965,
+      "observations": {
+        "checked": [
+          "armed",
+          4294965,
+          [
+            [
+              "arm",
+              4294965000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294965,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294965,
+          [
+            [
+              "arm",
+              4294965000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294965,
+          [
+            [
+              "arm",
+              4294965000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294965
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294965,
+        [
+          [
+            "arm",
+            4294965000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294966,
+      "observations": {
+        "checked": [
+          "armed",
+          4294966,
+          [
+            [
+              "arm",
+              4294966000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294966,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294966,
+          [
+            [
+              "arm",
+              4294966000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294966,
+          [
+            [
+              "arm",
+              4294966000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294966
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294966,
+        [
+          [
+            "arm",
+            4294966000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294967,
+      "observations": {
+        "checked": [
+          "armed",
+          4294967,
+          [
+            [
+              "arm",
+              4294967000
+            ]
+          ]
+        ],
+        "erase_trace": [
+          "armed",
+          4294967,
+          []
+        ],
+        "extra_provider_event": [
+          "armed",
+          4294967,
+          [
+            [
+              "arm",
+              4294967000
+            ],
+            [
+              "audit",
+              null
+            ]
+          ]
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4294967,
+          [
+            [
+              "arm",
+              4294967000
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294967
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "armed",
+        4294967,
+        [
+          [
+            "arm",
+            4294967000
+          ]
+        ]
+      ]
+    },
+    {
+      "millis": 4294968,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294968
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294969,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          1,
+          [
+            [
+              "arm",
+              1704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294969
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294970,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          2,
+          [
+            [
+              "arm",
+              2704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294970
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294971,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          3,
+          [
+            [
+              "arm",
+              3704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294971
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294972,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          4,
+          [
+            [
+              "arm",
+              4704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294972
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294973,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          5,
+          [
+            [
+              "arm",
+              5704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294973
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294974,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          6,
+          [
+            [
+              "arm",
+              6704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294974
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294975,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          7,
+          [
+            [
+              "arm",
+              7704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294975
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294976,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          8,
+          [
+            [
+              "arm",
+              8704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294976
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294977,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          9,
+          [
+            [
+              "arm",
+              9704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294977
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294978,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          10,
+          [
+            [
+              "arm",
+              10704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294978
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294979,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          11,
+          [
+            [
+              "arm",
+              11704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294979
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294980,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          12,
+          [
+            [
+              "arm",
+              12704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294980
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294981,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          13,
+          [
+            [
+              "arm",
+              13704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294981
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294982,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          14,
+          [
+            [
+              "arm",
+              14704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294982
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294983,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          15,
+          [
+            [
+              "arm",
+              15704
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294,
+          [
+            [
+              "arm",
+              4294983
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 16777216,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          3892314,
+          [
+            [
+              "arm",
+              3892314112
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          16777,
+          [
+            [
+              "arm",
+              16777216
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 268435456,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          2147483,
+          [
+            [
+              "arm",
+              2147483648
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          268435,
+          [
+            [
+              "arm",
+              268435456
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4294967296,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4294967,
+          [
+            [
+              "arm",
+              4294967296
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 68719476736,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          68719476,
+          [
+            [
+              "arm",
+              68719476736
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 1099511627776,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          1099511627,
+          [
+            [
+              "arm",
+              1099511627776
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 17592186044416,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          17592186044,
+          [
+            [
+              "arm",
+              17592186044416
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 281474976710656,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          281474976710,
+          [
+            [
+              "arm",
+              281474976710656
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 4503599627370496,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          4503599627370,
+          [
+            [
+              "arm",
+              4503599627370496
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 72057594037927936,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          72057594037927,
+          [
+            [
+              "arm",
+              72057594037927936
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 1152921504606846976,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          1152921504606846,
+          [
+            [
+              "arm",
+              1152921504606846976
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    },
+    {
+      "millis": 18446744073709551616,
+      "observations": {
+        "checked": [
+          "range",
+          null,
+          []
+        ],
+        "erase_trace": [
+          "range",
+          null,
+          []
+        ],
+        "extra_provider_event": [
+          "range",
+          null,
+          []
+        ],
+        "unchecked_u32_wrap": [
+          "armed",
+          0,
+          [
+            [
+              "arm",
+              0
+            ]
+          ]
+        ],
+        "wrong_input_scale": [
+          "armed",
+          18446744073709551,
+          [
+            [
+              "arm",
+              18446744073709551616
+            ]
+          ]
+        ]
+      },
+      "required": [
+        "range",
+        null,
+        []
+      ]
+    }
+  ],
+  "python": "3.12.14",
+  "schema": "rt04-verified-unit-adapter-v1",
+  "source_sha256": {
+    "Adapter.lean": "c6e46a72185b12ea67c59b1bbd6795a1f37c37520ebf572d414e82e9daad5a24",
+    "run.py": "dc624c53af9507f3749a2e9e033e91ed836ac10e3d7296e0a6576e7d46e498d9"
+  }
+}

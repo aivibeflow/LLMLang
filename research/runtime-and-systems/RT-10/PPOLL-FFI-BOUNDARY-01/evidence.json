@@ -1,0 +1,32 @@
+{
+  "format": "ppoll-ffi-boundary-01",
+  "kernel": "6.18.57",
+  "observed_contract": [
+    "libc expired timeout=retained stale-errno=E2BIG mask=restored",
+    "libc ready event=POLLIN delivered=L mask=restored",
+    "libc invalid-timeout result=EINVAL mask=restored",
+    "syscall expired timeout=zero stale-errno=E2BIG mask=restored",
+    "syscall ready event=POLLIN delivered=L mask=restored",
+    "syscall invalid-timeout result=EINVAL mask=restored",
+    "syscall libc-mask-size=128 kernel-mask-size=8 result=EINVAL"
+  ],
+  "rows": {
+    "glibc/-O0": {
+      "libc_artifact": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+      "native_observations": 35
+    },
+    "glibc/-O2": {
+      "libc_artifact": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+      "native_observations": 35
+    },
+    "musl/-O0": {
+      "libc_artifact": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0",
+      "native_observations": 35
+    },
+    "musl/-O2": {
+      "libc_artifact": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0",
+      "native_observations": 35
+    }
+  },
+  "target": "linux-x86-64"
+}

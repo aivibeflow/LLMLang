@@ -1,0 +1,96 @@
+{
+  "compiler": {
+    "clang": "Debian clang version 19.1.7 (3+b1)",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+  },
+  "format": "atomic-store-buffering-01",
+  "host_machine": "x86_64",
+  "kernels": [
+    "'no_both_old_in_a_total_order' does not depend on any axioms",
+    "'release_acquire_edges_need_observed_writes' depends on axioms: [propext]"
+  ],
+  "read_pair_order": [
+    "00",
+    "01",
+    "10",
+    "11"
+  ],
+  "source_digests": {
+    "Order.lean": "66687b5c21079c1b2b8b03113ad79bed734254a92a1af7486cdb5b13f38c4d5d",
+    "probe.c": "f5a507182a3d574ecd45d15d2f186a93a239cc040e1a6bcba676e603db52f192"
+  },
+  "total_order_witnesses": [
+    {
+      "loads": [
+        0,
+        1
+      ],
+      "order": [
+        "store-x",
+        "load-y",
+        "store-y",
+        "load-x"
+      ]
+    },
+    {
+      "loads": [
+        1,
+        1
+      ],
+      "order": [
+        "store-x",
+        "store-y",
+        "load-y",
+        "load-x"
+      ]
+    },
+    {
+      "loads": [
+        1,
+        1
+      ],
+      "order": [
+        "store-x",
+        "store-y",
+        "load-x",
+        "load-y"
+      ]
+    },
+    {
+      "loads": [
+        1,
+        1
+      ],
+      "order": [
+        "store-y",
+        "store-x",
+        "load-y",
+        "load-x"
+      ]
+    },
+    {
+      "loads": [
+        1,
+        1
+      ],
+      "order": [
+        "store-y",
+        "store-x",
+        "load-x",
+        "load-y"
+      ]
+    },
+    {
+      "loads": [
+        1,
+        0
+      ],
+      "order": [
+        "store-y",
+        "load-x",
+        "store-x",
+        "load-y"
+      ]
+    }
+  ]
+}

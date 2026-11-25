@@ -1,0 +1,2044 @@
+{
+  "baseline": "41ca1e1b2722abc9889d949f0b4a9f8da8310999",
+  "python": "3.12.14",
+  "lean_versions": {
+    "4.34.0": "Lean (version 4.34.0, x86_64-unknown-linux-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+    "4.36.0": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "prototype_sha256": {
+    "semantic_graph.py": "7bd76ce205ae9b569421856bb5379141103f0aa31d203cf41deecdac4fadf0ea",
+    "spg_admission.py": "052548b2741958aebd9e5cd6faffc7ca83dae41792db8fed8ea55b54669bae0e",
+    "spg_representation.py": "44c61db14a6b4bd467c85382174020216dacdb5749dfd436f162cd3e053e1517",
+    "recursive_identity.py": "9fbdf8dca6f3b15a7866ec1855cc9f8f94e52d64f78e056c11aea70440d2e556"
+  },
+  "model_sha256": "0d12ad1e130ad7d3cf6db507938618547a065ec2b28e87874afae880e44e8163",
+  "runner_sha256": "23fcc6618f0236351b9dcbd750b7481eff86fb382b61d1d098e64560b705ad15",
+  "kernel_source_checks": {
+    "4.34.0": {
+      "axioms": "'returnsInput' does not depend on any axioms",
+      "object_sha256": "705b75ba16c47ab108de1b535f9383e3f4bd82efdc2da115e071a4bcd2e9e2ec"
+    },
+    "4.36.0": {
+      "axioms": "'returnsInput' does not depend on any axioms",
+      "object_sha256": "6b29190eb383464c2f3bb81f78513e832303586a2791edab61d5ebe7e183f380"
+    }
+  },
+  "compiled_imports": {
+    "4.34.0->4.34.0": {
+      "accepted": true,
+      "reason": ""
+    },
+    "4.36.0->4.34.0": {
+      "accepted": false,
+      "reason": "ImportProof.lean:1:0: error: failed to read file '<fixture>/4.36.0/Proof.olean', incompatible header"
+    },
+    "4.34.0->4.36.0": {
+      "accepted": false,
+      "reason": "ImportProof.lean:1:0: error: failed to read file '<fixture>/4.34.0/Proof.olean', incompatible header"
+    },
+    "4.36.0->4.36.0": {
+      "accepted": true,
+      "reason": ""
+    }
+  },
+  "inputs": [
+    -2,
+    -1,
+    0,
+    1,
+    2
+  ],
+  "graphs": {
+    "original": {
+      "root": "5891a090e5d31c995cecab75010ef6de45da80a54157605ca8082a8b77cde4c3",
+      "text_sha256": "bcf1dffeb4bd26bafdea3aa984a598906d8c4526179998ac2de0c3c281676174",
+      "text": "emit(\"first\", emit(\"second\", x))",
+      "observations": [
+        [
+          -2,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          -1,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          0,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          1,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          2,
+          [
+            "first",
+            "second"
+          ]
+        ]
+      ]
+    },
+    "formatting": {
+      "root": "5891a090e5d31c995cecab75010ef6de45da80a54157605ca8082a8b77cde4c3",
+      "text_sha256": "c2785651d84f14a1f600c8770c06cf354bd8b07f77d539ff92288115e1de0713",
+      "text": "(emit(\"first\",\n    emit(\"second\", x))) # formatting",
+      "observations": [
+        [
+          -2,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          -1,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          0,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          1,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          2,
+          [
+            "first",
+            "second"
+          ]
+        ]
+      ]
+    },
+    "equal-result-and-trace": {
+      "root": "41cfaa0798a590efa461b424bf41ebe518de49c6206276330ed6829df60af8e2",
+      "text_sha256": "32dcb8e6ce7fae857434a013515dc22d2cffbaefb7b5129c3e382dcc05e2b2be",
+      "text": "emit(\"first\", emit(\"second\", x + 0))",
+      "observations": [
+        [
+          -2,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          -1,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          0,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          1,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          2,
+          [
+            "first",
+            "second"
+          ]
+        ]
+      ]
+    },
+    "changed-trace": {
+      "root": "0507ebd852b54147823bc67c5b25ae1cc0a83c2a7de1aa223d18f953747cada2",
+      "text_sha256": "53993a40d631ba45dedcf9cbf3281990f4fea77bc2f0cb30f72e9916ff62cd68",
+      "text": "emit(\"second\", emit(\"first\", x))",
+      "observations": [
+        [
+          -2,
+          [
+            "second",
+            "first"
+          ]
+        ],
+        [
+          -1,
+          [
+            "second",
+            "first"
+          ]
+        ],
+        [
+          0,
+          [
+            "second",
+            "first"
+          ]
+        ],
+        [
+          1,
+          [
+            "second",
+            "first"
+          ]
+        ],
+        [
+          2,
+          [
+            "second",
+            "first"
+          ]
+        ]
+      ]
+    },
+    "changed-value": {
+      "root": "e9dfea5c1739ee72d19103c9bd67a83a425396f7d3f5dd9d4b5964d156a22dae",
+      "text_sha256": "b49fb5629309d415e98459bb86b1b8dfa9bdd4ccb5f8a155ffbb342f62cf4977",
+      "text": "emit(\"first\", emit(\"second\", x + 1))",
+      "observations": [
+        [
+          -1,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          0,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          1,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          2,
+          [
+            "first",
+            "second"
+          ]
+        ],
+        [
+          3,
+          [
+            "first",
+            "second"
+          ]
+        ]
+      ]
+    }
+  },
+  "cases": 160,
+  "statuses": {
+    "ABSENT": 80,
+    "CURRENT": 2,
+    "EXACT_NOT_AUTHORIZED": 2,
+    "STALE": 76
+  },
+  "impact_cross_tab": {
+    "false": {
+      "ABSENT": 56,
+      "CURRENT": 2,
+      "EXACT_NOT_AUTHORIZED": 2,
+      "STALE": 52
+    },
+    "true": {
+      "ABSENT": 24,
+      "STALE": 24
+    }
+  },
+  "comparisons": [
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": true,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": true,
+      "observed_impact": false,
+      "evidence": "CURRENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": true,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": true,
+      "observed_impact": false,
+      "evidence": "EXACT_NOT_AUTHORIZED"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "original",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": true,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": true,
+      "observed_impact": false,
+      "evidence": "CURRENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": true,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": true,
+      "observed_impact": false,
+      "evidence": "EXACT_NOT_AUTHORIZED"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "formatting",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "equal-result-and-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-trace",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": false,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value-and-trace",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.34.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "all-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "allow-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": false,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "ABSENT"
+    },
+    {
+      "edit": "changed-value",
+      "projection": "value",
+      "verifier": "4.36.0",
+      "assumption": "nonnegative-inputs",
+      "policy": "exclude-recorded",
+      "cached_receipt_present": true,
+      "execution_key_matches": false,
+      "observed_impact": true,
+      "evidence": "STALE"
+    }
+  ]
+}

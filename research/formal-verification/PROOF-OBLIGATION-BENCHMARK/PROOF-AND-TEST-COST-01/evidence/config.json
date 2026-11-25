@@ -1,0 +1,21 @@
+{
+  "counter_delta": {
+    "burst_usec": 0,
+    "nice_usec": 0,
+    "nr_bursts": 0,
+    "nr_periods": 251,
+    "nr_throttled": 0,
+    "system_usec": 4434251,
+    "throttled_usec": 0,
+    "usage_usec": 25049574,
+    "user_usec": 20615324
+  },
+  "cpu": 4,
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "kernel": "6.18.57",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "python": "3.12.14",
+  "runner_sha256": "25501025f64e17d0b6d5a98db07bf4c7850e2492621c7e5216afa0c6eeddfbfa",
+  "seed": 20261125,
+  "trials": 10
+}

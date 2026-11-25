@@ -1,0 +1,13 @@
+{
+  "input_length_bound": 4,
+  "python": "3.12.14",
+  "totals": {
+    "declared_length_admissions": 341,
+    "declared_length_cases": 4805,
+    "equal_length_pairs_with_a_rejected_declaration": 341,
+    "list_pairs": 961,
+    "local_admissions_that_truncate": 620,
+    "local_bound_admissions": 961,
+    "relational_admissions": 341
+  }
+}

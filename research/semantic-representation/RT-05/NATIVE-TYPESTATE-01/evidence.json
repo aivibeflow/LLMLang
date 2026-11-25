@@ -1,0 +1,42 @@
+{
+  "rustc": [
+    "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "binary: rustc",
+    "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+    "commit-date: 2025-03-15",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.85.1",
+    "LLVM version: 19.1.7"
+  ],
+  "sources": {
+    "typestate.rs": "2dc90952e6e67432d0bd191e2c58dab9baf3fe60768e44ff4b78747f601ff809",
+    "probe.rs": "280d3a8c5e3652ad72b87a1a82a55e677e540dcf911cae7016a5e9597a1eeb08",
+    "run.py": "c5c40f97bc46ae3d7c30fda6360d62b62bd73a9ab5ac160371649f575f76a5d4"
+  },
+  "compiler_controls": {
+    "typed-flow": "admitted",
+    "submit-draft": "E0599",
+    "clone-prepared": "E0599",
+    "reuse-consumed": "E0382",
+    "construct-unchecked-units": "E0423"
+  },
+  "results_per_profile": {
+    "committed": 24,
+    "exhausted": 36,
+    "invalid-units": 320,
+    "stale": 36,
+    "wrong-owner": 96
+  },
+  "builds": {
+    "O0": {
+      "matrix_rows": 512,
+      "same_generation_consumption_checked": true,
+      "trace_sha256": "2fe184f180f5a556685ff669451d869e54fbe81654099d8619227b2567422bff"
+    },
+    "O3": {
+      "matrix_rows": 512,
+      "same_generation_consumption_checked": true,
+      "trace_sha256": "2fe184f180f5a556685ff669451d869e54fbe81654099d8619227b2567422bff"
+    }
+  }
+}

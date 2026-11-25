@@ -1,0 +1,49 @@
+{
+  "binding_diff": [
+    "-Binding provider uses primary (5a9abf501a4c14b94bfabb42425cbb5981529268d2a40bd01cdcf47aa7b19b34)",
+    "+Binding provider uses alternate (34bd7a3fcbb5650464ee0c97e2c7a855d5e0b6b3e4fc9cf4aea89c696aad2399)"
+  ],
+  "format": "spg-review-projection-01",
+  "git": "git version 2.52.0",
+  "repacked_file_names": [
+    "locations.json",
+    "manifest.json",
+    "records/0.bin",
+    "records/1.bin",
+    "records/2.bin",
+    "records/3.bin"
+  ],
+  "repacked_review_changes": 0,
+  "rows": [
+    {
+      "case": "base",
+      "pin": "c6c4dc953fe75b13582805e4aa29a962ec65c306568dc6e0b67976708e9164ba",
+      "review": "d5bc9bf3f75d017936d51b39ab0ca56a08bbcbfc05c29b2dc91c579811dcbadd",
+      "semantic_root": "420f7023e1b634228c19e0b61afdaaa0fdb1f46e35d7808d921c3df3a54e0333"
+    },
+    {
+      "case": "repacked",
+      "pin": "8a7c753854d79cde19b610b9d5b4fae2885125ceb34c302704f553f0a8e6a01f",
+      "review": "d5bc9bf3f75d017936d51b39ab0ca56a08bbcbfc05c29b2dc91c579811dcbadd",
+      "semantic_root": "420f7023e1b634228c19e0b61afdaaa0fdb1f46e35d7808d921c3df3a54e0333"
+    },
+    {
+      "case": "rebound",
+      "pin": "6ed691c6ddee0f7e818c713d0d368591b7f55138947832af8ce52612c6dfa510",
+      "review": "4e3290183ec9c00ed1a630b4d4f4e8d7612045092d9cdd594886de91d5c4bb2c",
+      "semantic_root": "411fbba03422adc829b4b069aba77fe6cf8e6c157e010b890af84f3705e40c26"
+    },
+    {
+      "case": "stale-metadata",
+      "pin": "5e5c721d007a897f9a56ebe23b826db2b7ce81b545a6ee435ff9bf7c0166d18a",
+      "review": "wrong review receipt scope or digest",
+      "semantic_root": "411fbba03422adc829b4b069aba77fe6cf8e6c157e010b890af84f3705e40c26"
+    },
+    {
+      "case": "internally-consistent-stale-review",
+      "pin": "9d57c148d629b6c9b6c1daa2854d1a432c8c3f7e85af683d363b330d50a19c98",
+      "review": "review differs from exact restored SPG",
+      "semantic_root": "411fbba03422adc829b4b069aba77fe6cf8e6c157e010b890af84f3705e40c26"
+    }
+  ]
+}

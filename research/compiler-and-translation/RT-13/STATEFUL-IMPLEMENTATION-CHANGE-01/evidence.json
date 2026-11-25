@@ -1,0 +1,72 @@
+{
+  "finite_controls": {
+    "compared_traces": 18724,
+    "future_divergence": {
+      "actions": [
+        [
+          "credit",
+          4
+        ],
+        [
+          "split",
+          0
+        ],
+        [
+          "credit",
+          1
+        ],
+        [
+          "debit",
+          5
+        ]
+      ],
+      "preserved": [
+        [
+          [
+            "credited",
+            4
+          ],
+          [
+            "credited",
+            1
+          ],
+          [
+            "debited",
+            5
+          ]
+        ],
+        0
+      ],
+      "reset_fault": [
+        [
+          [
+            "credited",
+            4
+          ],
+          [
+            "credited",
+            1
+          ],
+          [
+            "refused",
+            null
+          ]
+        ],
+        1
+      ]
+    },
+    "reset_fault_mismatches": 8524
+  },
+  "lean": {
+    "axioms": [
+      "'migration_preserves_state' depends on axioms: [propext]",
+      "'execution_refines' depends on axioms: [propext, Quot.sound]",
+      "'complete_trace_refines' depends on axioms: [propext, Quot.sound]"
+    ],
+    "version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "source_sha256": {
+    "Migration.lean": "e184f4999c91fe2935dbaf04e5875da54c29c146b5cdfdb3397162a83da9a27b",
+    "run.py": "70dc884927cb40b7fc526b3d032b7a9ec0107d5db0f44c03ce3515d39a59d88c"
+  }
+}

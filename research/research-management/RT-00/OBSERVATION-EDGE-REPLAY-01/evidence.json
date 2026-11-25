@@ -1,0 +1,44 @@
+{
+  "schema": "llmlang-observation-edge-replay/1",
+  "baseline": "3eb5482a04232a129e6f71496587e2dd3cf7872d",
+  "tools": {
+    "python": "3.12.14",
+    "git": "git version 2.52.0",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0"
+  },
+  "replays": {
+    "executable_reference": {
+      "path": "research/formal-verification/RT-07/STATE-RESULT-REFERENCE-01",
+      "ledger_sha256": "80b7b3a5b9312fc597d169f36481a9c7df7b5284d4f2e57e4283ad34aebea4bc"
+    },
+    "dead_store": {
+      "axioms_sha256": "3456a185e1980cd81dab031d2fb874988e445e9c52efd9e6fafb599479625263",
+      "path": "research/formal-verification/RT-07/DEAD-STORE-BOUNDARY-01",
+      "ledger_sha256": "e2ff5f2aa25ac99d518cd8bf1c6ddee5cf7a965195049b8572e7c2fe44896527"
+    },
+    "partial_output": {
+      "axioms_sha256": "ff274af3bc870e1bd89ce41c53884ebbc1a29b84da4b0f19ce81387e945f78a0",
+      "path": "research/formal-verification/RT-07/PARTIAL-OUTPUT-01",
+      "ledger_sha256": "dfc5ab91454ec415f7d0f9c1e55592abb7157e67b0dbdc2e7d56000c0528093c"
+    },
+    "rewrite_mutation": {
+      "path": "research/compiler-and-translation/RT-13/STATE-RESULT-MUTATIONS-01",
+      "ledger_sha256": "eb05a5dd8f287d4b4a1195e88d470bc3640a73898e14b9d14cafcc2c921bf32e"
+    },
+    "exact_swap": {
+      "path": "research/compiler-and-translation/RT-13/WRITE-SWAP-VALIDATION-01",
+      "ledger_sha256": "851491f98defbce39c9664880b880af0c70f7e09c3dcb1730aba06b751ceb405"
+    }
+  },
+  "edge_discriminators": {
+    "reference_comparisons": 8210,
+    "final_cell_false_store_admissions": 297,
+    "exact_store_guard_false_admissions": 0,
+    "coalescing_call_trace_differences": 996,
+    "order_mismatches_hidden_by_multiset": 16,
+    "overwritten_writes_hidden_by_result_and_cell": 240,
+    "swap_false_admissions_from_final_heap": 8,
+    "wrong_emitted_target_same_subject": false
+  }
+}

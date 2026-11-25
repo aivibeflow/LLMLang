@@ -76,7 +76,9 @@ These are not equivalent. The migration fixture should record member addresses, 
 
 ## 6. Discriminating research and falsifiers
 
-No LLMLang migration implementation or performance experiment has been run. A matched future study should:
+**Follow-up on 2026-11-25:** the [closed migration fixture](RT-05-DIGEST-MIGRATION-AND-COLLISION-2026-11-25.md) compares byte-identical dual digests with a new-suite graph rewrite and checks alias, quarantine and exact receipt boundaries. The remaining items below describe the broader research programme.
+
+At the 2026-11-19 baseline, no LLMLang migration implementation or performance experiment had been run. The proposed comparative study covered these questions:
 
 1. Encode the same typed artifact with two candidate digest suites while holding canonical bytes fixed; verify that algorithm-tagged addresses differ but payload identity can be reconciled.
 2. Change schema version, artifact kind/domain, canonical field ordering, and semantic content independently; test whether addresses separate or intentionally alias each case.

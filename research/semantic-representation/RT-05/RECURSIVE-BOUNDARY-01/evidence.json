@@ -1,0 +1,23 @@
+{
+  "edit_checks_by_changed_member_count": {
+    "1": 1728,
+    "2": 2160,
+    "3": 8016
+  },
+  "pinned_ledgers": {
+    "DIRECTED-RECURSIVE-01": "e98e0719fb2d690d6dff3722ca1551c065401370e8658b32fab8d97b38da5bd9",
+    "ORDERED-OCCURRENCES-01": "9de19cb7fce0ba8679476640390728155272b4a22f9f6ea8125783070be22d83",
+    "RECURSIVE-CANONICAL-02": "700c1ef0cb62c3c4457becafb494a8f93c931bb2aaacb6fbe1ff20314c55e7e0",
+    "RECURSIVE-STORAGE-01": "35c1ecc23c0e169c067301480a068968661f2b51f2016bed1d8c7f8838bcea7c",
+    "RECURSIVE-TYPES-01": "18f1b991c4273d3767eed850ab517bf6f7474f11eb033938c76e1a33ddc69a23",
+    "UNORDERED-RECURSIVE-01": "0a55521afc596dee74b4c52530d2a48f86751ee9b0d74e767619f8d0630cd729"
+  },
+  "revision": "a75fc77de15d7bbe18ea7f990d1d730c9db6d5af",
+  "runner_sha256": "f39aa9d539369469a4a848a4820862b020cb6fe4d6c575db50ec1bd88d535ee4",
+  "totals": {
+    "admitted": 3968,
+    "admitted_with_recursive_edges": 3859,
+    "graphs": 19683,
+    "rejected_by_value_cycle": 15715
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "kernel": "6.18.57",
+  "musl_specs_sha256": "ffaa141b9ca85cc25ab5b29e8317846b9bf8e2c221044ec8ea240f00fc7ebace",
+  "builds": {
+    "glibc-O0": {
+      "binary_sha256": "7afa159cf96030df6f7b567eb0bda0f7d874ffc723837069250b2b10a0fb3368",
+      "runtime_archive_sha256": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+      "verified_runs": 4
+    },
+    "glibc-O2": {
+      "binary_sha256": "4e87fac92aa9552f1877340a73ab470b95e1ec4080da049de70a8a2da5f61b5f",
+      "runtime_archive_sha256": "679612af043ab6a3eb9af24136b8d0c9ba1e10114f047271386ee7fa37031326",
+      "verified_runs": 4
+    },
+    "musl-O0": {
+      "binary_sha256": "f9370e94e07943b7dd44f8838c586f5ed6d0bd5bda053a731fce20795590dc1b",
+      "runtime_archive_sha256": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0",
+      "verified_runs": 4
+    },
+    "musl-O2": {
+      "binary_sha256": "f584a3904ffe1d6a778d14efeb0737f69670a0e574dbe8888f017cf58ba5862a",
+      "runtime_archive_sha256": "8bc2e4ae908fd91ffeb8ad004b339e6e6b52c29c058d28c28a62e8d62cb379c0",
+      "verified_runs": 4
+    }
+  },
+  "observations": 416,
+  "numeric_collision_control": {
+    "ordinary_exit": 143,
+    "128_plus_sigterm": 143
+  },
+  "trace": [
+    {
+      "scenario": "exit-143",
+      "step": "empty_waitid",
+      "kind": "none",
+      "detail": "0"
+    },
+    {
+      "scenario": "exit-143",
+      "step": "empty_waitpid",
+      "kind": "none",
+      "detail": "0"
+    },
+    {
+      "scenario": "exit-143",
+      "step": "peek_exit_a",
+      "kind": "exit",
+      "detail": "143"
+    },
+    {
+      "scenario": "exit-143",
+      "step": "peek_exit_b",
+      "kind": "exit",
+      "detail": "143"
+    },
+    {
+      "scenario": "exit-143",
+      "step": "reap",
+      "kind": "exit",
+      "detail": "143"
+    },
+    {
+      "scenario": "exit-143",
+      "step": "after_reap",
+      "kind": "no_child",
+      "detail": "0"
+    },
+    {
+      "scenario": "signal-term",
+      "step": "empty_waitid",
+      "kind": "none",
+      "detail": "0"
+    },
+    {
+      "scenario": "signal-term",
+      "step": "empty_waitpid",
+      "kind": "none",
+      "detail": "0"
+    },
+    {
+      "scenario": "signal-term",
+      "step": "peek_exit_a",
+      "kind": "signal",
+      "detail": "TERM"
+    },
+    {
+      "scenario": "signal-term",
+      "step": "peek_exit_b",
+      "kind": "signal",
+      "detail": "TERM"
+    },
+    {
+      "scenario": "signal-term",
+      "step": "reap",
+      "kind": "signal",
+      "detail": "TERM"
+    },
+    {
+      "scenario": "signal-term",
+      "step": "after_reap",
+      "kind": "no_child",
+      "detail": "0"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "empty_waitid",
+      "kind": "none",
+      "detail": "0"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "empty_waitpid",
+      "kind": "none",
+      "detail": "0"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "peek_stop_a",
+      "kind": "stopped",
+      "detail": "STOP"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "peek_stop_b",
+      "kind": "stopped",
+      "detail": "STOP"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "consume_stop",
+      "kind": "stopped",
+      "detail": "STOP"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "drained_stop",
+      "kind": "none",
+      "detail": "0"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "peek_continue_a",
+      "kind": "continued",
+      "detail": "CONT"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "peek_continue_b",
+      "kind": "continued",
+      "detail": "CONT"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "consume_continue",
+      "kind": "continued",
+      "detail": "CONT"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "drained_continue",
+      "kind": "none",
+      "detail": "0"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "peek_exit_a",
+      "kind": "exit",
+      "detail": "7"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "peek_exit_b",
+      "kind": "exit",
+      "detail": "7"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "reap",
+      "kind": "exit",
+      "detail": "7"
+    },
+    {
+      "scenario": "stop-continue-exit",
+      "step": "after_reap",
+      "kind": "no_child",
+      "detail": "0"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "archives": {
+    "alternate_carriers": [
+      {
+        "artifact": "1758496bce6f6bad0b46b3cffadb162910f0922852ec8c919e67e79e52c4ace8",
+        "reversed_entries": false,
+        "timestamp_year": 2000
+      },
+      {
+        "artifact": "b171c1e6914746e492ae435516f02348ee04605db906d758a6b041aaf939de2f",
+        "reversed_entries": true,
+        "timestamp_year": 2000
+      },
+      {
+        "artifact": "1a823c18ef8d9ba20dd2ad76df9db277ff19f2fb60e4b85063585a0d93202e13",
+        "reversed_entries": false,
+        "timestamp_year": 2020
+      },
+      {
+        "artifact": "8cf6152ee13e5465cfd1f1a29fb7009c6d2e4a108f3ddba18ecc37dcf6a0b164",
+        "reversed_entries": true,
+        "timestamp_year": 2020
+      }
+    ],
+    "canonical_hash": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+    "canonical_runs": 6,
+    "invalid_object_refused": true,
+    "projected_observation": {
+      "content_root": "sha256:be828db306f2dc9d057b8f4f2657865d0687f92e8d7eac315bf1d589c91656a8",
+      "expanded_entry_digests": {
+        "index/dependencies.jsonl": "de4f89a2c7146cb8ace6e2f6a65d40df979ddf2e80896ab0f44e648e9d5dd38a",
+        "index/exports.jsonl": "79a5fa93550a99905c221795b33c1e97589874faf0fa3897fcc6a333e9602055",
+        "index/modules.jsonl": "294a118918ff2f1ecaeb0f630b0f79f4c7b6e119c30fa7637157368190431309",
+        "index/objects.jsonl": "3687e36ee536d7ba63ef99a48def4379641891d0acd3e6967098118f0238c269",
+        "manifest.toml": "ab02dbeac889f18c9d4b207ab8ac144fe94aa17d668893cb3944bd9e5290f103",
+        "objects/8ed3f6ad685b959ead7022518e1af76cd816f8e8ec7ccdda1ed4018e8f2223f8": "8ed3f6ad685b959ead7022518e1af76cd816f8e8ec7ccdda1ed4018e8f2223f8",
+        "objects/f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753": "f44e64e75f3948e9f73f8dfa94721c4ce8cbb4f265c4790c702b2d41cfbf2753"
+      },
+      "logical_index": "sha256:4ff32cd8b15818e4cdf05ca5fcce0e29422339cbe763698fcc706070e03695a6"
+    }
+  },
+  "base": "d4e0ba59695dfdd9e43f1227cab75c4940b0bb39",
+  "inputs_sha256": {
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_archive.py": "01febe052788c913ebb750561e0430a9609c50cb9b86558f74ecc680499bfff1",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_index.py": "e03e977aef9a7dd9764854468bf0c43875236dae700bcdc498b2286e1de6ae3c",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/test_package_archive.py": "3f43628810fb3898b2c6c8e40173ce59b1cb157478d847952f7dcb24dd6b1764"
+  },
+  "ordered_append": {
+    "artifact_only_events": [
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "register"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "activate"
+      }
+    ],
+    "artifact_only_execution_receipts": [
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "executed": true,
+        "status": "ok"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "executed": false,
+        "status": "ok"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "executed": false,
+        "status": "ok"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "executed": false,
+        "status": "ok"
+      }
+    ],
+    "exact_required_events": [
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "register"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "activate"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "activate"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "register"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "register"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "activate"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "activate"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "register"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "event": "activate"
+      }
+    ],
+    "exact_required_execution_receipts": [
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "executed": true,
+        "status": "ok"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "executed": true,
+        "status": "ok"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "executed": true,
+        "status": "ok"
+      },
+      {
+        "artifact": "21a3327b1ade1e3be43df45bdfeba72f6935c44ebd56225e8c2e808283583b0b",
+        "executed": true,
+        "status": "ok"
+      }
+    ],
+    "requests": 4,
+    "schedule_pairs_sharing_event_set": 6,
+    "schedule_pairs_with_unequal_order_or_multiplicity": 5
+  },
+  "python": "3.12.14",
+  "system": [
+    "Linux",
+    "6.18.57",
+    "x86_64"
+  ]
+}

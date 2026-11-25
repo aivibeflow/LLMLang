@@ -1,0 +1,419 @@
+{
+  "host": {
+    "kernel": "6.18.57",
+    "machine": "x86_64"
+  },
+  "manual_reconciliation_blob": "27665bb6618a6772c3e2a0ef41cf2e3fd1c08fe3",
+  "observations": 68,
+  "ports": {
+    "A": {
+      "base": "0x40004000",
+      "irq": 0,
+      "qom_device_index": 1
+    },
+    "F": {
+      "base": "0x40025000",
+      "irq": 30,
+      "qom_device_index": 6
+    }
+  },
+  "profiles": 16,
+  "python": "3.12.14",
+  "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "qemu_arguments": [
+    "-machine",
+    "lm3s6965evb",
+    "-display",
+    "none",
+    "-serial",
+    "none",
+    "-monitor",
+    "none",
+    "-S",
+    "-qtest",
+    "stdio",
+    "-qtest-log",
+    "/dev/null"
+  ],
+  "qemu_sha256": "0dfd6c04c472cf2e6478092caf090a963a6e9ae354ffe39cfc309966430c093e",
+  "reference_revision": "3ed06f02de091592f83a9d359a2d128c8cea7656",
+  "traces": {
+    "A/0/controller_only": {
+      "controller_only_keeps_latches": [
+        3,
+        3,
+        1
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ]
+    },
+    "A/0/mask_without_clear": {
+      "controller_clear_with_masked_sources": [
+        3,
+        0,
+        0
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "port_masked_with_raw_edges": [
+        3,
+        0,
+        1
+      ],
+      "unmask_reasserts_latched_edge": [
+        3,
+        1,
+        1
+      ]
+    },
+    "A/0/selected_then_peer": {
+      "attempted_controller_clear_high_line": [
+        2,
+        2,
+        1
+      ],
+      "controller_cleared_after_gpio": [
+        0,
+        0,
+        0
+      ],
+      "fresh_rising_edge": [
+        1,
+        1,
+        1
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "peripheral_idle_controller_still_pending": [
+        0,
+        0,
+        1
+      ],
+      "selected_edge_acknowledged": [
+        2,
+        2,
+        1
+      ],
+      "unchanged_high_input": [
+        0,
+        0,
+        0
+      ]
+    },
+    "A/0/zero_and_wide_mask": {
+      "controller_clear_after_wider_mask": [
+        0,
+        0,
+        0
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "wider_mask_also_clears_peer": [
+        0,
+        0,
+        1
+      ],
+      "write_zero_keeps_latches": [
+        3,
+        3,
+        1
+      ]
+    },
+    "A/1/controller_only": {
+      "controller_only_keeps_latches": [
+        3,
+        3,
+        1
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ]
+    },
+    "A/1/mask_without_clear": {
+      "controller_clear_with_masked_sources": [
+        3,
+        0,
+        0
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "port_masked_with_raw_edges": [
+        3,
+        0,
+        1
+      ],
+      "unmask_reasserts_latched_edge": [
+        3,
+        2,
+        1
+      ]
+    },
+    "A/1/selected_then_peer": {
+      "attempted_controller_clear_high_line": [
+        1,
+        1,
+        1
+      ],
+      "controller_cleared_after_gpio": [
+        0,
+        0,
+        0
+      ],
+      "fresh_rising_edge": [
+        2,
+        2,
+        1
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "peripheral_idle_controller_still_pending": [
+        0,
+        0,
+        1
+      ],
+      "selected_edge_acknowledged": [
+        1,
+        1,
+        1
+      ],
+      "unchanged_high_input": [
+        0,
+        0,
+        0
+      ]
+    },
+    "A/1/zero_and_wide_mask": {
+      "controller_clear_after_wider_mask": [
+        0,
+        0,
+        0
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "wider_mask_also_clears_peer": [
+        0,
+        0,
+        1
+      ],
+      "write_zero_keeps_latches": [
+        3,
+        3,
+        1
+      ]
+    },
+    "F/0/controller_only": {
+      "controller_only_keeps_latches": [
+        3,
+        3,
+        1
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ]
+    },
+    "F/0/mask_without_clear": {
+      "controller_clear_with_masked_sources": [
+        3,
+        0,
+        0
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "port_masked_with_raw_edges": [
+        3,
+        0,
+        1
+      ],
+      "unmask_reasserts_latched_edge": [
+        3,
+        1,
+        1
+      ]
+    },
+    "F/0/selected_then_peer": {
+      "attempted_controller_clear_high_line": [
+        2,
+        2,
+        1
+      ],
+      "controller_cleared_after_gpio": [
+        0,
+        0,
+        0
+      ],
+      "fresh_rising_edge": [
+        1,
+        1,
+        1
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "peripheral_idle_controller_still_pending": [
+        0,
+        0,
+        1
+      ],
+      "selected_edge_acknowledged": [
+        2,
+        2,
+        1
+      ],
+      "unchanged_high_input": [
+        0,
+        0,
+        0
+      ]
+    },
+    "F/0/zero_and_wide_mask": {
+      "controller_clear_after_wider_mask": [
+        0,
+        0,
+        0
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "wider_mask_also_clears_peer": [
+        0,
+        0,
+        1
+      ],
+      "write_zero_keeps_latches": [
+        3,
+        3,
+        1
+      ]
+    },
+    "F/1/controller_only": {
+      "controller_only_keeps_latches": [
+        3,
+        3,
+        1
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ]
+    },
+    "F/1/mask_without_clear": {
+      "controller_clear_with_masked_sources": [
+        3,
+        0,
+        0
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "port_masked_with_raw_edges": [
+        3,
+        0,
+        1
+      ],
+      "unmask_reasserts_latched_edge": [
+        3,
+        2,
+        1
+      ]
+    },
+    "F/1/selected_then_peer": {
+      "attempted_controller_clear_high_line": [
+        1,
+        1,
+        1
+      ],
+      "controller_cleared_after_gpio": [
+        0,
+        0,
+        0
+      ],
+      "fresh_rising_edge": [
+        2,
+        2,
+        1
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "peripheral_idle_controller_still_pending": [
+        0,
+        0,
+        1
+      ],
+      "selected_edge_acknowledged": [
+        1,
+        1,
+        1
+      ],
+      "unchanged_high_input": [
+        0,
+        0,
+        0
+      ]
+    },
+    "F/1/zero_and_wide_mask": {
+      "controller_clear_after_wider_mask": [
+        0,
+        0,
+        0
+      ],
+      "initial_two_edges": [
+        3,
+        3,
+        1
+      ],
+      "wider_mask_also_clears_peer": [
+        0,
+        0,
+        1
+      ],
+      "write_zero_keeps_latches": [
+        3,
+        3,
+        1
+      ]
+    }
+  },
+  "tuple": [
+    "gpio_raw",
+    "gpio_masked",
+    "nvic_pending_for_port"
+  ]
+}

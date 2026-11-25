@@ -1,0 +1,144 @@
+{
+  "sqlite": "3.53.1",
+  "request_profiles": 12,
+  "verified_archives": 36,
+  "distinct_logical_roots": 12,
+  "profiles": {
+    "roots_only/linux/False": {
+      "request_digest": "70c848d6cc9f245d55a7c7b512e4864e21f79bd1455dc347809c4d73afadaec2",
+      "members": [
+        "app"
+      ],
+      "package_root": "sha256:515b32615d8e531fd56bc09baafea67dfd2e1b2bbd5dd346dfb0fbd3a05c7f19",
+      "three_archive_digests_equal": "ea4fb8ee8490ceb1b3fb91ed5c5bbfecbbfd58b3a6988548f6f6c042da2abffa"
+    },
+    "roots_only/linux/True": {
+      "request_digest": "8f98077f179fede9768db9e5175367a0be2385c829784a00c6b517de30193dd6",
+      "members": [
+        "app"
+      ],
+      "package_root": "sha256:ee02488398ea40bcee251ea06a8a50e051889046fc96f34a88fe33640b5e12a1",
+      "three_archive_digests_equal": "994b4171f80293ee26fa0e9b2c34d41f793a4ec155fde6a5efaffdbe8fca6226"
+    },
+    "roots_only/windows/False": {
+      "request_digest": "f1a10a76ac0dd4ad67ed25d18de8c6c6fe0028a570603e64646a00f42daac545",
+      "members": [
+        "app"
+      ],
+      "package_root": "sha256:61c578a41c62d8fa2edbe2c7f6e36f3500e9f181ae1908630c3e7d0aab5ac44e",
+      "three_archive_digests_equal": "937657b3b4fe1030ff3c36c235c703592ff585e384d910d5fec6191b8ab9bba3"
+    },
+    "roots_only/windows/True": {
+      "request_digest": "77c70a2b1f4082f0b8d47225d6e774e66fe9cda756a59cf8b56e5884d88ea7d9",
+      "members": [
+        "app"
+      ],
+      "package_root": "sha256:6ff231ee0e1b3a5546079bda83a7ffef9c2ac6544a4e72633d55cd5b521e8049",
+      "three_archive_digests_equal": "c4b90621c67c3af8f5975d079e108d583569ef0959cf2fc3c31067ecfb0831ec"
+    },
+    "closure/linux/False": {
+      "request_digest": "7f25ced53a999b36fcb1c1691692a5bc541c18dfe2c20ddeb51c4187720ab3a3",
+      "members": [
+        "app",
+        "kernel",
+        "linux"
+      ],
+      "package_root": "sha256:544476e5304223183caaea53878149a59d3a5dc58c362faf01954bcd5141618b",
+      "three_archive_digests_equal": "5cc8c5d2f7ec29b47eca2cc754cb8398ab3ea21424c1326195b71ce4b8ade102"
+    },
+    "closure/linux/True": {
+      "request_digest": "3e01488be0e02ad6408a0bfa00a9a9e1a38ea9d6af38961d2415506d0e7ce286",
+      "members": [
+        "app",
+        "kernel",
+        "linux"
+      ],
+      "package_root": "sha256:6f3f35fe7dadaa2d04c5215895ee94438293e40e62b4f871991dfeb5aa579881",
+      "three_archive_digests_equal": "eccb5f7d021d570920114239374e84754074779c546f2b5479aaa4187a2f3378"
+    },
+    "closure/windows/False": {
+      "request_digest": "4143a5b7bb470760ed48f5c00640f78b882c0daf8db04a3509a0d6cb7a0e9ef2",
+      "members": [
+        "app",
+        "kernel"
+      ],
+      "package_root": "sha256:bed9379eec28a80db25b4d3859ca3830b4e060c011f10186f776d24c2215689d",
+      "three_archive_digests_equal": "a4d472d8c37193ebdf1f046232b10a52fd6a62e4890770e07137c43483c17456"
+    },
+    "closure/windows/True": {
+      "request_digest": "5a377733cdc07812266cfc16d17b985a0bc9812420253daf4e592302348cefa8",
+      "members": [
+        "app",
+        "kernel"
+      ],
+      "package_root": "sha256:b51f99c69f0552e4fcc6d83abad85300fe56e4f1db687ad6992171b0934fd6ef",
+      "three_archive_digests_equal": "8273be4247a9f29f333581a93df7e47139778575c4f8d0b50895e7f1e2e7d81a"
+    },
+    "closure_with_optional/linux/False": {
+      "request_digest": "79575ad122cca4a11edb8ad8bd924c1910d0e518fa59a7668e0a6b8dbfc34742",
+      "members": [
+        "app",
+        "kernel",
+        "linux"
+      ],
+      "package_root": "sha256:7823485e14deda8e39ada2be5f4a9d0089fa225c3c3d7d7fd84ab423bd8ce112",
+      "three_archive_digests_equal": "cc3f1977688fb1d6a6b980469b40258ae3fe5d45005d6d39b63846d3f3ef1407"
+    },
+    "closure_with_optional/linux/True": {
+      "request_digest": "0273abadcfc278cac475e8812a291321c209dbc4c9990e139457b35dc158394a",
+      "members": [
+        "app",
+        "documentation",
+        "kernel",
+        "linux"
+      ],
+      "package_root": "sha256:80c33564095a097b9f8f4584f5a895952bd1eebab1ad82b268dfe5a6f4a9506d",
+      "three_archive_digests_equal": "2a181aed5523e64df8cf1e6fc8d7c6f810f92e62f52e827f62bca5fc2594481d"
+    },
+    "closure_with_optional/windows/False": {
+      "request_digest": "a0319b01caf9c7d4f3820b0ae7034116b953f0ca3597600f5b894732ac8e63e0",
+      "members": [
+        "app",
+        "kernel"
+      ],
+      "package_root": "sha256:a13c3146573f7515305a2cad740b06350bc0f5d8ec978c26439a18b92f4b73b0",
+      "three_archive_digests_equal": "0d01e0e5851ec812df0594cd1354e525cf974b5469809e4e4b867e8b17498119"
+    },
+    "closure_with_optional/windows/True": {
+      "request_digest": "e1c41c3261c903e53b2338c4a10144703ff2abba3b3b475d708c23ea4b705fbd",
+      "members": [
+        "app",
+        "documentation",
+        "kernel"
+      ],
+      "package_root": "sha256:fc363965c8ea8ed202f5917fd0580630b66d9c09bd906bb983560fd632c2dacf",
+      "three_archive_digests_equal": "8c88716bdee1e3dbda3ff46dead1917dd90e9f9eb96f9a383575422d6f9cc78d"
+    }
+  },
+  "rejected_requests": [
+    "nonobject-request",
+    "display-name-root",
+    "malformed-hash-root",
+    "duplicate-root",
+    "empty-roots",
+    "missing-policy",
+    "unknown-policy",
+    "unknown-target",
+    "nonboolean-feature",
+    "delivery-label-in-request"
+  ],
+  "root_order_canonical": true,
+  "absent_active_dependency_refused": true,
+  "absent_inactive_dependency_safe": true,
+  "prior_publication_preserved": true,
+  "underlying_provider_admits_stale_profile_with_equal_closure": true,
+  "exact_request_gate_refuses_stale_profile_with_equal_closure": true,
+  "source_sha256": {
+    "research/packages-and-ecosystem/RT-12/DYNAMIC-REQUEST-01/run.py": "2de7ff915257136070668993be1774d1dff63008921118f9d5fa88e186d9023b",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_archive.py": "01febe052788c913ebb750561e0430a9609c50cb9b86558f74ecc680499bfff1",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_index.py": "e03e977aef9a7dd9764854468bf0c43875236dae700bcdc498b2286e1de6ae3c",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_provider.py": "09a3ef8a07b38e72590e35d15a468cb7d167b10e59f4f429d072da9499813440",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/content_store.py": "8f6d7ed6cdae98c752f467accde214e163eb17b0566011be57c941469ff2657c",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-IDENTITY-01/package_identity.py": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458"
+  }
+}

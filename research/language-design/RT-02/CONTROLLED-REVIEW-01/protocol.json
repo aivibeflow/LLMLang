@@ -1,0 +1,18 @@
+{
+  "pilot_revision": "b7b1d63dfcde9f3cadf5a0c8b1b8e8cdc82b12e1",
+  "assignment_seed": 28720261125,
+  "arms": ["prompt", "formal", "reconstruction", "expanded"],
+  "roles": ["domain", "engineering"],
+  "replicates_per_arm_case_role": 2,
+  "decisions": ["ACCEPT", "REVISE", "CLARIFY", "REJECT"],
+  "reason_codes": [
+    "none", "missing-rule", "added-obligation", "timing-window", "polarity", "scope",
+    "trigger", "source-reference", "unsupported-action", "unreadable", "missing-observation"
+  ],
+  "criteria": {
+    "expanded_detection_gain": 0.15,
+    "max_expanded_unsafe_acceptance_wilson_upper": 0.10,
+    "min_expanded_eligible_acceptance": 0.75,
+    "confidence": 0.95
+  }
+}

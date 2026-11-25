@@ -31,7 +31,7 @@ Use Python 3.12.14 and lxml 6.1.1. Copy the exact input blobs to a directory und
 
 | Checkout and revision | Paths |
 | --- | --- |
-| [ARM-software/CMSIS_5](https://github.com/ARM-software/CMSIS_5/tree/61e36449f53c25ef7825c40f7dd93685736f457f) | `Device/ARM/SVD/ARMCM3.svd`, `CMSIS/Utilities/CMSIS-SVD.xsd`, `CMSIS/Core/Include/core_cm3.h` |
+| [ARM-software/CMSIS_5](https://github.com/ARM-software/CMSIS_5/tree/2b7495b8535bdcb306dac29b9ded4cfb679d7e5c) | `Device/ARM/SVD/ARMCM3.svd`, `CMSIS/Utilities/CMSIS-SVD.xsd`, `CMSIS/Core/Include/core_cm3.h` |
 | [cmsis-svd/cmsis-svd-data](https://github.com/cmsis-svd/cmsis-svd-data/blob/c65f8551e57c770344d229dcaa0bf838fa29aff4/data/TexasInstruments/TM4C123GH6PM.svd) | `data/TexasInstruments/TM4C123GH6PM.svd` |
 | [QEMU v10.0.13](https://github.com/qemu/qemu/tree/98f88efe8f07067667b8d9b1a5ce9551d34036c1) | `hw/arm/stellaris.c`, `hw/intc/armv7m_nvic.c`, `hw/timer/armv7m_systick.c`, `hw/gpio/pl061.c` |
 

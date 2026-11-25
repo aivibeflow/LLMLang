@@ -1,0 +1,189 @@
+{
+  "all_unresolved": [
+    {
+      "source": "research/references/snapshots/Alive2/README.md",
+      "target": "imgs/alive2.png"
+    },
+    {
+      "source": "research/references/snapshots/Alive2/README.md",
+      "target": "imgs/google.svg"
+    },
+    {
+      "source": "research/references/snapshots/Alive2/README.md",
+      "target": "imgs/nlnet.svg"
+    },
+    {
+      "source": "research/references/snapshots/Alive2/README.md",
+      "target": "imgs/woven.svg"
+    },
+    {
+      "source": "research/references/snapshots/Alive2/README.md",
+      "target": "imgs/matterlabs.svg"
+    },
+    {
+      "source": "research/references/snapshots/Alive2/README.md",
+      "target": "BugList.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/descriptor.md",
+      "target": "media-types.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/descriptor.md",
+      "target": "media-types.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/descriptor.md",
+      "target": "annotations.md#rules"
+    },
+    {
+      "source": "research/references/snapshots/OCI/descriptor.md",
+      "target": "image-index.md#image-index-property-descriptions"
+    },
+    {
+      "source": "research/references/snapshots/OCI/descriptor.md",
+      "target": "considerations.md#ebnf"
+    },
+    {
+      "source": "research/references/snapshots/OCI/descriptor.md",
+      "target": "considerations.md#canonicalization"
+    },
+    {
+      "source": "research/references/snapshots/OCI/image-layout.md",
+      "target": "image-index.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/image-layout.md",
+      "target": "layer.md#applying-changesets"
+    },
+    {
+      "source": "research/references/snapshots/OCI/image-layout.md",
+      "target": "config.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/image-layout.md",
+      "target": "image-index.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/image-layout.md",
+      "target": "media-types.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/image-layout.md",
+      "target": "image-index.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/image-layout.md",
+      "target": "annotations.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "image-index.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "conversion.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "media-types.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "media-types.md#compatibility-matrix"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "image-index.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "media-types.md#compatibility-matrix"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "config.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "config.md#imageid"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "layer.md#applying-changesets"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "layer.md#file-attributes"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "layer.md"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "layer.md#gzip-media-types"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "layer.md#non-distributable-layers"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "./layer.md#non-distributable-layers"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "layer.md#gzip-media-types"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "./layer.md#non-distributable-layers"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "layer.md#zstd-media-types"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "annotations.md#rules"
+    },
+    {
+      "source": "research/references/snapshots/OCI/manifest.md",
+      "target": "annotations.md#pre-defined-annotation-keys"
+    }
+  ],
+  "architecture": "x86_64",
+  "baseline": "877db318a2c63f51116b63714001b3e96640a4a9",
+  "baseline_navigation": {
+    "artifacts": 4116,
+    "artifacts_reachable_by_document_links": 3111,
+    "artifacts_reachable_with_directory_links": 4116,
+    "documents_reachable_by_document_links": 1203,
+    "documents_reachable_with_directory_links": 1210,
+    "documents_without_a_direct_index_link": 38,
+    "documents_without_an_incoming_document_link": 5,
+    "markdown_mdx_documents": 1210
+  },
+  "first_party_unresolved": [],
+  "git": "git version 2.56.1",
+  "navigation": {
+    "artifacts": 4116,
+    "artifacts_reachable_by_document_links": 3111,
+    "artifacts_reachable_with_directory_links": 4116,
+    "documents_reachable_by_document_links": 1203,
+    "documents_reachable_with_directory_links": 1210,
+    "documents_without_a_direct_index_link": 38,
+    "documents_without_an_incoming_document_link": 5,
+    "markdown_mdx_documents": 1210
+  },
+  "python": "3.12.14",
+  "repaired_first_party_citation": {
+    "from": "RT-10-POSIX-PPOLL-FFI-BOUNDARY-2026-11-25.md",
+    "source": "research/runtime-and-systems/RT-10/RT-10-LINUX-SYSCALL-ABI-ISOLATION-2026-11-25.md",
+    "to": "RT-10-PPOLL-FFI-BOUNDARY-2026-11-25.md"
+  },
+  "unresolved_path_origins": {
+    "copied_snapshot": 38
+  }
+}

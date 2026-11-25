@@ -1,0 +1,55 @@
+use std::io::{self, BufRead, BufWriter, Write};
+
+fn main() -> io::Result<()> {
+    let mut out = BufWriter::new(io::stdout().lock());
+    for row in io::stdin().lock().lines() {
+        let row = row?;
+        let input: Vec<i32> = row.split_whitespace().map(|part| part.parse().unwrap()).collect();
+        let [initial, delta, acquisition, write, rollback, release] = input[..] else {
+            panic!("invalid observation input");
+        };
+        let (mut state, mut primary, mut cleanup, mut value, mut owned) = (initial, 0, 0, -1, acquisition);
+        let mut events = Vec::with_capacity(4);
+        if acquisition == 0 {
+            primary = @P_ACQUIRE@;
+            events.push(@E_ACQUIRE_DENIED@);
+        } else {
+            events.push(@E_ACQUIRED@);
+            let proposed = initial + delta;
+            match proposed {
+                0..=@MAX@ if write != 0 => {
+                    (state, value) = (proposed, proposed);
+                    events.push(@E_COMMITTED@);
+                }
+                0..=@MAX@ => {
+                    primary = @P_WRITE@;
+                    events.push(@E_WRITE_PARTIAL@);
+                    if rollback != 0 {
+                        events.push(@E_ROLLED_BACK@);
+                    } else {
+                        state = proposed;
+                        cleanup |= @C_ROLLBACK@;
+                        events.push(@E_ROLLBACK_FAILED@);
+                    }
+                }
+                _ => {
+                    primary = @P_RANGE@;
+                    events.push(@E_RANGE@);
+                }
+            }
+            if release != 0 {
+                owned = 0;
+                events.push(@E_RELEASED@);
+            } else {
+                cleanup |= @C_RELEASE@;
+                events.push(@E_RELEASE_FAILED@);
+            }
+        }
+        write!(out, "{primary} {cleanup} {value} {state} {owned}")?;
+        for event in events {
+            write!(out, " {event}")?;
+        }
+        writeln!(out)?;
+    }
+    out.flush()
+}

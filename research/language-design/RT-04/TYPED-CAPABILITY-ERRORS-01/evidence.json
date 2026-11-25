@@ -1,0 +1,76 @@
+{
+  "format": "typed-capability-errors-01",
+  "outcomes": {
+    "0": {
+      "audit_before_error": 8,
+      "compile_refusals": {
+        "no-amplification-method": "E0599",
+        "no-public-authority-constructor": "E0624",
+        "private-permit-constructor": "E0603",
+        "resume-after-unhandled-error": "E0004",
+        "substitute-reader-for-writer": "E0308"
+      },
+      "dispositions": {
+        "Err(AuditFailure)": 6,
+        "Err(Busy)": 36,
+        "Err(DeniedAudit)": 12,
+        "Err(DeniedRead)": 108,
+        "Err(DeniedWrite)": 6,
+        "Err(WriteFailure)": 3,
+        "Ok(None)": 36,
+        "Ok(Some(7))": 9
+      },
+      "example": {
+        "events": [
+          "read",
+          "audit"
+        ],
+        "result": "Err(DeniedWrite)",
+        "scope": [
+          3,
+          0,
+          1,
+          1
+        ]
+      },
+      "native_digest": "68132479fb4bbf0b07cf7b51cc0c155b0f99fa0febabfe6ee77f468b4aafc491",
+      "runtime_cells": 216
+    },
+    "2": {
+      "audit_before_error": 8,
+      "compile_refusals": {
+        "no-amplification-method": "E0599",
+        "no-public-authority-constructor": "E0624",
+        "private-permit-constructor": "E0603",
+        "resume-after-unhandled-error": "E0004",
+        "substitute-reader-for-writer": "E0308"
+      },
+      "dispositions": {
+        "Err(AuditFailure)": 6,
+        "Err(Busy)": 36,
+        "Err(DeniedAudit)": 12,
+        "Err(DeniedRead)": 108,
+        "Err(DeniedWrite)": 6,
+        "Err(WriteFailure)": 3,
+        "Ok(None)": 36,
+        "Ok(Some(7))": 9
+      },
+      "example": {
+        "events": [
+          "read",
+          "audit"
+        ],
+        "result": "Err(DeniedWrite)",
+        "scope": [
+          3,
+          0,
+          1,
+          1
+        ]
+      },
+      "native_digest": "68132479fb4bbf0b07cf7b51cc0c155b0f99fa0febabfe6ee77f468b4aafc491",
+      "runtime_cells": 216
+    }
+  },
+  "rust": "rustc 1.85.1 (4eb161250 2025-03-15)"
+}

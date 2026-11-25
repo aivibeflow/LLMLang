@@ -1,0 +1,20 @@
+{
+  "candidate_scope_matrix": {
+    "admitted": 1,
+    "refused": 107
+  },
+  "prior_evidence": {
+    "archived_graphs": 14,
+    "bound_method_contexts": 108,
+    "graph_alias_classes": 184,
+    "ledgers": {
+      "MUTABLE-REFERENCE-TOPOLOGY-01": "f5cf419721818a2d256e1fbfbf12a8a8e3583349fc0fadf05f745e7378c25bf1",
+      "PARTIAL-RECORD-01": "74590da73dcb4216f0e9d14463362cc3059a1a810410f758a1fe0a0cde701336",
+      "SPG-SELECTION-BOUNDARY-01": "f6d43eed67383949e9bbfb7622e0c941ec59964ce3f3016c6fafa285a3eb4d4c",
+      "STATEFUL-BOUND-METHOD-01": "c8676019a02362fa156d2d1039b7a4281a1de586535b9b191ba1dc1d8e143abd"
+    },
+    "native_ownership_vectors": 4608
+  },
+  "revision": "a10c1376ea697afe907f31365b0f4cbaf994f284",
+  "runner_sha256": "836cda0d12da279221b4ac5fcfa3746a02888de230ece0f0a1c62f1088234e4c"
+}

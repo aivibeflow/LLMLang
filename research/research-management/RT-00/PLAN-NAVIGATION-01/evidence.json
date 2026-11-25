@@ -1,0 +1,177 @@
+{
+  "baseline": "600173d375b4bdf6b1634381bba2dfea1c77469b",
+  "python": "3.12.14",
+  "git": "git version 2.52.0",
+  "source_sha256": {
+    "run.py": "73413127368c22196d43e77e94bb2aa7054e2d3b1fcab614688435b60c28448f",
+    "audit_research_index_coverage.py": "d2fcb40f5e3a94b05facefdf2c2d83fe06bc2cf3c3a69bdc4bff5d8e5feb3399",
+    "audit_research_index_reachability.py": "e37f162d8fe6e37387cea4b37729f6bb9902e4513b39ca9752063fb9170932ec"
+  },
+  "before": {
+    "metrics": {
+      "artifacts": 2591,
+      "markdown_mdx_documents": 827,
+      "artifacts_reachable_by_document_links": 2169,
+      "documents_reachable_by_document_links": 820,
+      "artifacts_reachable_with_directory_links": 2591,
+      "documents_reachable_with_directory_links": 827,
+      "documents_without_a_direct_index_link": 37,
+      "documents_without_an_incoming_document_link": 5
+    },
+    "unresolved_origins": {
+      "copied-reference": 38,
+      "first-party": 1
+    },
+    "first_party_unresolved": [
+      {
+        "source": "research/compiler-and-translation/RT-13/RT-13-WIDE-DIVISION-CAPABILITY-2026-11-25.md",
+        "target": "../TRANSLATION-AND-TARGET-BACKENDS.md"
+      }
+    ]
+  },
+  "after_overlay": {
+    "metrics": {
+      "artifacts": 2591,
+      "markdown_mdx_documents": 827,
+      "artifacts_reachable_by_document_links": 2169,
+      "documents_reachable_by_document_links": 820,
+      "artifacts_reachable_with_directory_links": 2591,
+      "documents_reachable_with_directory_links": 827,
+      "documents_without_a_direct_index_link": 37,
+      "documents_without_an_incoming_document_link": 5
+    },
+    "unresolved_origins": {
+      "copied-reference": 38
+    },
+    "first_party_unresolved": []
+  },
+  "plan_path_repairs": [
+    {
+      "line": 341,
+      "old": "research/LLMLang-CONCEPT.md",
+      "new": "research/language-design/RT-01/LLMLang-CONCEPT.md"
+    },
+    {
+      "line": 383,
+      "old": "research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md",
+      "new": "research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md"
+    },
+    {
+      "line": 383,
+      "old": "research/LLMLang-CONCEPT.md",
+      "new": "research/language-design/RT-01/LLMLang-CONCEPT.md"
+    },
+    {
+      "line": 605,
+      "old": "research/LLMLang-FORMAL-VERIFICATION.md",
+      "new": "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md"
+    },
+    {
+      "line": 605,
+      "old": "research/LLMLang-CONCEPT.md",
+      "new": "research/language-design/RT-01/LLMLang-CONCEPT.md"
+    },
+    {
+      "line": 631,
+      "old": "research/LLMLang-FORMAL-VERIFICATION.md",
+      "new": "research/formal-verification/RT-07/LLMLang-FORMAL-VERIFICATION.md"
+    },
+    {
+      "line": 813,
+      "old": "research/SEMANTIC-DEPENDENCY-INDEX.md",
+      "new": "research/semantic-representation/RT-06/SEMANTIC-DEPENDENCY-INDEX.md"
+    },
+    {
+      "line": 836,
+      "old": "research/SEMANTIC-COMPILATION-CACHE.md",
+      "new": "research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md"
+    },
+    {
+      "line": 846,
+      "old": "research/LANGUAGE-VERSIONING.md",
+      "new": "research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md"
+    },
+    {
+      "line": 868,
+      "old": "research/SEMANTIC-COMPILATION-CACHE.md",
+      "new": "research/toolchain-and-collaboration/RT-11/SEMANTIC-COMPILATION-CACHE.md"
+    },
+    {
+      "line": 868,
+      "old": "research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md",
+      "new": "research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md"
+    },
+    {
+      "line": 868,
+      "old": "research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md",
+      "new": "research/toolchain-and-collaboration/RT-11/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md"
+    },
+    {
+      "line": 935,
+      "old": "research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md",
+      "new": "research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md"
+    },
+    {
+      "line": 962,
+      "old": "research/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md",
+      "new": "research/toolchain-and-collaboration/RT-15/GIT-REPRESENTATION-AND-SEMANTIC-MERGE.md"
+    },
+    {
+      "line": 1216,
+      "old": "research/POSIX-RUNTIME-ARCHITECTURE.md",
+      "new": "research/runtime-and-systems/RT-10/POSIX-RUNTIME-ARCHITECTURE.md"
+    },
+    {
+      "line": 1269,
+      "old": "research/TRANSLATION-AND-TARGET-BACKENDS.md",
+      "new": "research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md"
+    },
+    {
+      "line": 1269,
+      "old": "research/LLVM-BACKEND-ARCHITECTURE.md",
+      "new": "research/compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md"
+    },
+    {
+      "line": 1321,
+      "old": "research/TRANSLATION-AND-TARGET-BACKENDS.md",
+      "new": "research/compiler-and-translation/RT-13/TRANSLATION-AND-TARGET-BACKENDS.md"
+    },
+    {
+      "line": 1367,
+      "old": "research/LLVM-BACKEND-ARCHITECTURE.md",
+      "new": "research/compiler-and-translation/RT-13/LLVM-BACKEND-ARCHITECTURE.md"
+    },
+    {
+      "line": 1494,
+      "old": "research/LIBRARIES-AND-TEMPLATES.md",
+      "new": "research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md"
+    },
+    {
+      "line": 1494,
+      "old": "research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md",
+      "new": "research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md"
+    },
+    {
+      "line": 1496,
+      "old": "research/LIBRARIES-AND-TEMPLATES.md",
+      "new": "research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md"
+    },
+    {
+      "line": 1496,
+      "old": "research/GLOBAL-SEMANTIC-ARTIFACT-STORE.md",
+      "new": "research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md"
+    },
+    {
+      "line": 1496,
+      "old": "research/PACKAGE-SYSTEM.md",
+      "new": "research/packages-and-ecosystem/RT-12/PACKAGE-SYSTEM.md"
+    }
+  ],
+  "preserved_missing_designation": [
+    {
+      "line": 1929,
+      "path": "research/FEATURE-COMPATIBILITY-AND-FEASIBILITY-AUDIT.md",
+      "classification": "future-output"
+    }
+  ]
+}

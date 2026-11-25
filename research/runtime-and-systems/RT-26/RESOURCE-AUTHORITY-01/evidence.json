@@ -1,0 +1,84 @@
+{
+  "comparison": {
+    "controls": {
+      "exact_thread_clock": "accepted",
+      "explicit_cpu_time": "fallback-only",
+      "mixed_witnesses": "unsupported",
+      "revoked_fallback": "unsupported",
+      "unavailable_cycles": "unsupported"
+    },
+    "exact_admissions": {
+      "file_broker": 1,
+      "process_mapping": 1,
+      "thread_clock": 1,
+      "udp_delivered": 1,
+      "udp_dequeued": 1
+    },
+    "false_grants_by_omitted_check": {
+      "capability": 5,
+      "effect_domain": 20,
+      "epoch": 10,
+      "metric": 40,
+      "mode": 10,
+      "scope": 15
+    },
+    "requests": 1620,
+    "single_witness_probes": 16200
+  },
+  "modeled_boundaries": {
+    "file_broker": {
+      "effect_domain": "brokered-write",
+      "epoch": "linux-current",
+      "metric": "logical-file-length",
+      "mode": "cooperative",
+      "scope": "task-tree"
+    },
+    "process_mapping": {
+      "effect_domain": "mmap",
+      "epoch": "linux-current",
+      "metric": "virtual-address",
+      "mode": "hard",
+      "scope": "process"
+    },
+    "thread_clock": {
+      "effect_domain": "native-thread",
+      "epoch": "linux-current",
+      "metric": "cpu-time",
+      "mode": "observe",
+      "scope": "thread"
+    },
+    "udp_delivered": {
+      "effect_domain": "udp-receive",
+      "epoch": "linux-current",
+      "metric": "application-bytes",
+      "mode": "observe",
+      "scope": "socket"
+    },
+    "udp_dequeued": {
+      "effect_domain": "udp-receive",
+      "epoch": "linux-current",
+      "metric": "dequeued-bytes",
+      "mode": "observe",
+      "scope": "socket"
+    }
+  },
+  "python": "3.12.14",
+  "rechecked": {
+    "discarded_mapping_resident_pages": 0,
+    "local_file_limit_group_overshoot": 2048,
+    "local_process_cpu_exceeds_comparison_group": true,
+    "mapping_refusal_after_discard": "ENOMEM",
+    "pmu_cycles": "EPERM",
+    "thread_cpu_control_passed": true,
+    "udp_delivered_bytes": 4,
+    "udp_dequeued_bytes": 16
+  },
+  "source_sha256": "324624971ab772790b3f90236eb2aef1f5ead0f52333e9e6664fed4e4945db49",
+  "witnesses": {
+    "LINUX-CPU-BUDGET-01": "dad2157550a16e89951dbf03da4d75c7bd9b51a72f79cf439e0c5272103f0bf1",
+    "LINUX-FILE-BUDGET-01": "1255893f1312c680c06bb541341adf7d2734833beb255085d80e96d5998e1ea3",
+    "LINUX-MAPPING-BUDGET-01": "2dd126948d63844c55ae1dc13439da791eb9af18f367cfde87311db83022e67e",
+    "LINUX-PERF-COUNTERS-01": "210ac910db0b52fd42afefb06adc747b9c3f8f43ca0eae365de8fd8145d918dd",
+    "LINUX-SOCKET-BUDGET-01": "a0b9053c09d3478f152aa51c7f899bdd6bf6cdc1722939de506e74ead46d1ba2"
+  }
+}

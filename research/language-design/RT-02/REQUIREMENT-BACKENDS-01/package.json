@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "antlr4": "4.8.0",
+    "immutable": "3.8.2",
+    "lodash": "4.17.21",
+    "mathjs": "4.4.2",
+    "node-uuid": "1.4.8",
+    "product-iterable": "3.0.1"
+  }
+}

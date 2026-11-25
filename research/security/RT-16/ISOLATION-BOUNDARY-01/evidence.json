@@ -1,0 +1,18 @@
+{
+  "effect_schedules": 45,
+  "effects_without_receipt": 5,
+  "launch_fields": 336,
+  "launches": 48,
+  "source_ledgers": {
+    "language-design/RT-04/EXTERNAL-REVOCATION-01": "a6961d10631f395ad2856c53309d053826981a6318f7ef1a8b611eb864b8a45e",
+    "security/RT-16/WORKER-ISOLATION-01": "90b0c2e6bfdaf86b03e3df7a3802f00f073d07a9928c362014bd6306b137fdb8"
+  },
+  "source_sha256": "8a4c9221b98ab203a2dc7685d592759bc3097e6243e912b937feb2ee2d086e45",
+  "stale_effects": {
+    "ancestry_lock": 1,
+    "cached": 4,
+    "db_writer": 0,
+    "fresh": 3,
+    "leaf_lock": 2
+  }
+}

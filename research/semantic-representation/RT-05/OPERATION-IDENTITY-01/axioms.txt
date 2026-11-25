@@ -1,0 +1,4 @@
+'OperationIdentity.anySelectionSatisfiesContract' does not depend on any axioms
+'OperationIdentity.validChoicesAreDistinguishable' does not depend on any axioms
+'OperationIdentity.marginalRefutation' does not depend on any axioms
+'OperationIdentity.wrapBoundaryIsOutsideSaturatedContract' does not depend on any axioms

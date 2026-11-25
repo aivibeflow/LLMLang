@@ -1,0 +1,191 @@
+{
+  "action": "934b1c95cf304536a1069821e19b0268c30d74c5cd5147322344d309bae46e5c",
+  "artifacts": {
+    "expected": "510ed5e4de2edd713ee87b9e6e4347ecce7fb01fef0d91fae870fd60a3ba114a",
+    "other": "f7d730250bbe34c215866b4f764851062e6132e831ba913fc22085efb87602f9"
+  },
+  "candidate_orders": 120,
+  "exact_rebuilds": 3,
+  "format": "signed-rebuild-admission-01",
+  "input_closure": "40b96566a31558193b1c7693dfa1df8efb8c0a9d08f21bd2d2de553c486ef6b9",
+  "openssl": "OpenSSL 3.5.7 9 Jun 2026 (Library: OpenSSL 3.5.7 9 Jun 2026)",
+  "rows": [
+    {
+      "attestations": [
+        "alice",
+        "bob-agrees"
+      ],
+      "authorized_results": [
+        "510ed5e4de2edd713ee87b9e6e4347ecce7fb01fef0d91fae870fd60a3ba114a"
+      ],
+      "decision": "exact-hit",
+      "name": "agree"
+    },
+    {
+      "attestations": [
+        "alice",
+        "alice"
+      ],
+      "authorized_results": [
+        "510ed5e4de2edd713ee87b9e6e4347ecce7fb01fef0d91fae870fd60a3ba114a"
+      ],
+      "decision": "exact-hit",
+      "name": "duplicate"
+    },
+    {
+      "attestations": [
+        "alice"
+      ],
+      "authorized_results": [],
+      "decision": "view-unavailable",
+      "name": "untrusted-view-incomplete"
+    },
+    {
+      "attestations": [
+        "alice",
+        "bob-disagrees"
+      ],
+      "authorized_results": [
+        "510ed5e4de2edd713ee87b9e6e4347ecce7fb01fef0d91fae870fd60a3ba114a",
+        "f7d730250bbe34c215866b4f764851062e6132e831ba913fc22085efb87602f9"
+      ],
+      "decision": "conflict",
+      "name": "conflict"
+    },
+    {
+      "attestations": [
+        "alice",
+        "bob-disagrees"
+      ],
+      "authorized_results": [
+        "510ed5e4de2edd713ee87b9e6e4347ecce7fb01fef0d91fae870fd60a3ba114a",
+        "f7d730250bbe34c215866b4f764851062e6132e831ba913fc22085efb87602f9"
+      ],
+      "decision": "conflict",
+      "name": "conflict-with-missing-alternative"
+    },
+    {
+      "attestations": [
+        "alice",
+        "bob-disagrees"
+      ],
+      "authorized_results": [
+        "510ed5e4de2edd713ee87b9e6e4347ecce7fb01fef0d91fae870fd60a3ba114a"
+      ],
+      "decision": "exact-hit",
+      "name": "explicit-revocation"
+    },
+    {
+      "attestations": [
+        "visitor"
+      ],
+      "authorized_results": [],
+      "decision": "no-attestation",
+      "name": "untrusted-signer"
+    },
+    {
+      "attestations": [
+        "alice",
+        "visitor"
+      ],
+      "authorized_results": [
+        "510ed5e4de2edd713ee87b9e6e4347ecce7fb01fef0d91fae870fd60a3ba114a"
+      ],
+      "decision": "exact-hit",
+      "name": "untrusted-cannot-conflict"
+    },
+    {
+      "attestations": [
+        "older-generation"
+      ],
+      "authorized_results": [],
+      "decision": "no-attestation",
+      "name": "stale-policy"
+    },
+    {
+      "attestations": [
+        "other-workspace"
+      ],
+      "authorized_results": [],
+      "decision": "no-attestation",
+      "name": "wrong-workspace"
+    },
+    {
+      "attestations": [
+        "other-closure"
+      ],
+      "authorized_results": [],
+      "decision": "no-attestation",
+      "name": "wrong-closure"
+    },
+    {
+      "attestations": [
+        "other-action"
+      ],
+      "authorized_results": [],
+      "decision": "no-attestation",
+      "name": "wrong-action"
+    },
+    {
+      "attestations": [
+        "changed-message"
+      ],
+      "authorized_results": [],
+      "decision": "no-attestation",
+      "name": "changed-message"
+    },
+    {
+      "attestations": [
+        "bad-signature"
+      ],
+      "authorized_results": [],
+      "decision": "no-attestation",
+      "name": "bad-signature"
+    },
+    {
+      "attestations": [
+        "alice"
+      ],
+      "authorized_results": [
+        "510ed5e4de2edd713ee87b9e6e4347ecce7fb01fef0d91fae870fd60a3ba114a"
+      ],
+      "decision": "payload-unavailable",
+      "name": "no-payload"
+    },
+    {
+      "attestations": [
+        "alice"
+      ],
+      "authorized_results": [
+        "510ed5e4de2edd713ee87b9e6e4347ecce7fb01fef0d91fae870fd60a3ba114a"
+      ],
+      "decision": "payload-refused",
+      "name": "wrong-bytes"
+    },
+    {
+      "attestations": [
+        "alice"
+      ],
+      "authorized_results": [
+        "510ed5e4de2edd713ee87b9e6e4347ecce7fb01fef0d91fae870fd60a3ba114a"
+      ],
+      "decision": "rebuild-unavailable",
+      "name": "no-independent-rebuild"
+    },
+    {
+      "attestations": [
+        "bob-disagrees"
+      ],
+      "authorized_results": [
+        "f7d730250bbe34c215866b4f764851062e6132e831ba913fc22085efb87602f9"
+      ],
+      "decision": "rebuild-disagrees",
+      "name": "signed-disagrees-with-rebuild"
+    }
+  ],
+  "tool": {
+    "digest": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+    "target": "x86_64-linux-gnu",
+    "version": "14.2.0"
+  }
+}

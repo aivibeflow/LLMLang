@@ -1,0 +1,4 @@
+'image_mono' does not depend on any axioms
+'context_refines_iff_constant_on_projection' does not depend on any axioms
+'marginals_agree' does not depend on any axioms
+'marginals_can_disagree_in_context' does not depend on any axioms

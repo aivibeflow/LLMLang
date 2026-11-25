@@ -1,0 +1,90 @@
+{
+  "builds": {
+    "0": {
+      "already-published": {
+        "cancelled": false,
+        "item_remaining": false,
+        "observed_rewait_after_irrelevant_notification": false,
+        "outcome": "work"
+      },
+      "both-cancel-first": {
+        "cancelled": true,
+        "item_remaining": true,
+        "observed_rewait_after_irrelevant_notification": false,
+        "outcome": "cancelled"
+      },
+      "both-work-first": {
+        "cancelled": true,
+        "item_remaining": false,
+        "observed_rewait_after_irrelevant_notification": false,
+        "outcome": "work"
+      },
+      "cancel-only": {
+        "cancelled": true,
+        "item_remaining": false,
+        "observed_rewait_after_irrelevant_notification": false,
+        "outcome": "cancelled"
+      },
+      "pulse-only": {
+        "cancelled": false,
+        "item_remaining": false,
+        "observed_rewait_after_irrelevant_notification": false,
+        "outcome": "empty-reported-as-work"
+      },
+      "pulse-then-work": {
+        "cancelled": false,
+        "item_remaining": false,
+        "observed_rewait_after_irrelevant_notification": true,
+        "outcome": "work"
+      }
+    },
+    "2": {
+      "already-published": {
+        "cancelled": false,
+        "item_remaining": false,
+        "observed_rewait_after_irrelevant_notification": false,
+        "outcome": "work"
+      },
+      "both-cancel-first": {
+        "cancelled": true,
+        "item_remaining": true,
+        "observed_rewait_after_irrelevant_notification": false,
+        "outcome": "cancelled"
+      },
+      "both-work-first": {
+        "cancelled": true,
+        "item_remaining": false,
+        "observed_rewait_after_irrelevant_notification": false,
+        "outcome": "work"
+      },
+      "cancel-only": {
+        "cancelled": true,
+        "item_remaining": false,
+        "observed_rewait_after_irrelevant_notification": false,
+        "outcome": "cancelled"
+      },
+      "pulse-only": {
+        "cancelled": false,
+        "item_remaining": false,
+        "observed_rewait_after_irrelevant_notification": false,
+        "outcome": "empty-reported-as-work"
+      },
+      "pulse-then-work": {
+        "cancelled": false,
+        "item_remaining": false,
+        "observed_rewait_after_irrelevant_notification": true,
+        "outcome": "work"
+      }
+    }
+  },
+  "python": "3.12.14",
+  "rustc": [
+    "rustc 1.85.1 (4eb161250 2025-03-15)",
+    "binary: rustc",
+    "commit-hash: 4eb161250e340c8f48f66e2b929ef4a5bed7c181",
+    "commit-date: 2025-03-15",
+    "host: x86_64-unknown-linux-gnu",
+    "release: 1.85.1",
+    "LLVM version: 19.1.7"
+  ]
+}

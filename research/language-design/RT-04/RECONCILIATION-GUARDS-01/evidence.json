@@ -1,0 +1,66 @@
+{
+  "delivery_cases": {
+    "provider-c/allocation": [
+      "closed",
+      "stale-or-unrelated"
+    ],
+    "provider-c/disposition": [
+      "closed",
+      "stale-or-unrelated"
+    ],
+    "provider-c/generation": [
+      "closed",
+      "stale-or-unrelated"
+    ],
+    "provider-c/invocation": [
+      "closed",
+      "stale-or-unrelated"
+    ],
+    "provider-c/none": [
+      "closed",
+      "idempotent"
+    ],
+    "provider-c/provider": [
+      "closed",
+      "stale-or-unrelated"
+    ],
+    "provider-py/allocation": [
+      "closed",
+      "stale-or-unrelated"
+    ],
+    "provider-py/disposition": [
+      "closed",
+      "stale-or-unrelated"
+    ],
+    "provider-py/generation": [
+      "closed",
+      "stale-or-unrelated"
+    ],
+    "provider-py/invocation": [
+      "closed",
+      "stale-or-unrelated"
+    ],
+    "provider-py/none": [
+      "closed",
+      "idempotent"
+    ],
+    "provider-py/provider": [
+      "closed",
+      "stale-or-unrelated"
+    ]
+  },
+  "guard_cases": {
+    "authorized": 1,
+    "refused": 7,
+    "unknown": 19
+  },
+  "prior_sha256": {
+    "research/language-design/RT-04/QUEUED-FOREIGN-OWNERSHIP-01/evidence.json": "9f1a22f4b01023ebef4ded38ef55eab0c895dd3a346a32628169ca1278671f59",
+    "research/language-design/RT-04/RESEARCH-SCENARIO-125-CLOSE-REENTRY-AND-COVERAGE.md": "bd32b132714e56cadcce542661bb0f8a047a0156794da6abd4dd25c311a769b3",
+    "research/runtime-and-systems/RT-10/RESEARCH-SCENARIO-129-CANCELLATION-AND-INVOCATION-EVIDENCE.md": "9f32632b09ede27564634e6228b4b0edcdecf70cfedbd41844c4bba947f49821",
+    "research/runtime-and-systems/RT-10/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md": "cd398ed19b1181f1a0599806765710db27231f906df4d8cb535c868db86a22d6"
+  },
+  "revision": "16f21b6df3ef3668477973bfad94e5974177c2f2",
+  "runner_sha256": "8a2bdc355897fe7089d83a11b55f0ce24c788db22c5e1b283a43375ffc1382c8",
+  "sqlite": "3.53.1"
+}

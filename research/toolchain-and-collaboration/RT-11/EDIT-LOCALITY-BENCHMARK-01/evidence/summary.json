@@ -1,0 +1,95 @@
+{
+  "schema": "llmlang-native-edit-locality/1",
+  "profile": {
+    "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+    "flags": [
+      "-std=c11",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Werror"
+    ],
+    "blocks": 7,
+    "python": "3.12.14",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "cpu_affinity": [
+      4
+    ],
+    "cgroup_cpu_max": "400000 100000",
+    "measured_script_sha256": "5ca32461036be9416ae4b56163463d4fba74d3b15bf90db762069ce8849aaf32",
+    "baseline_units": 17
+  },
+  "samples_sha256": "d35bb1887bd7ee26c0a4131e392b036a41a5630645ebef8b33fad0d0f4a97ab8",
+  "paired_comparisons": 21,
+  "scopes": {
+    "local": {
+      "full": {
+        "compiles": 17,
+        "links": 1,
+        "wall_ms_median": 241.99557,
+        "wall_ms_min": 228.118831,
+        "wall_ms_max": 266.68037,
+        "child_cpu_ms_median": 237.151
+      },
+      "incremental": {
+        "compiles": 1,
+        "links": 1,
+        "wall_ms_median": 28.374358,
+        "wall_ms_min": 27.509467,
+        "wall_ms_max": 33.740903,
+        "child_cpu_ms_median": 26.566
+      },
+      "output": 170,
+      "paired_binary_matches": 7,
+      "full_over_incremental_wall_median": 8.305151,
+      "full_over_incremental_wall_min": 7.535331,
+      "full_over_incremental_wall_max": 9.161371
+    },
+    "shared": {
+      "full": {
+        "compiles": 17,
+        "links": 1,
+        "wall_ms_median": 232.212247,
+        "wall_ms_min": 221.319675,
+        "wall_ms_max": 271.036906,
+        "child_cpu_ms_median": 226.945
+      },
+      "incremental": {
+        "compiles": 4,
+        "links": 1,
+        "wall_ms_median": 66.068231,
+        "wall_ms_min": 63.799701,
+        "wall_ms_max": 81.614662,
+        "child_cpu_ms_median": 63.546
+      },
+      "output": 204,
+      "paired_binary_matches": 7,
+      "full_over_incremental_wall_median": 3.409617,
+      "full_over_incremental_wall_min": 3.320934,
+      "full_over_incremental_wall_max": 3.553289
+    },
+    "broad": {
+      "full": {
+        "compiles": 17,
+        "links": 1,
+        "wall_ms_median": 267.363961,
+        "wall_ms_min": 223.344528,
+        "wall_ms_max": 276.265079,
+        "child_cpu_ms_median": 261.336
+      },
+      "incremental": {
+        "compiles": 16,
+        "links": 1,
+        "wall_ms_median": 224.162191,
+        "wall_ms_min": 211.283124,
+        "wall_ms_max": 256.010536,
+        "child_cpu_ms_median": 216.723
+      },
+      "output": 480,
+      "paired_binary_matches": 7,
+      "full_over_incremental_wall_median": 1.128317,
+      "full_over_incremental_wall_min": 1.042139,
+      "full_over_incremental_wall_max": 1.210443
+    }
+  }
+}

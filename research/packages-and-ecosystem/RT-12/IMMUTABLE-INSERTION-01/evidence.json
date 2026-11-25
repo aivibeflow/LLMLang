@@ -1,0 +1,33 @@
+{
+  "canonical_address": "986e31298286b4408aa1aaff6cddb0815bdcabfb9bc1c8e7732aaebd236ac8c3",
+  "duplicate_retry_preserves_inode": true,
+  "duplicate_writers": [
+    "already-exact",
+    "published"
+  ],
+  "equal_decoded_noncanonical_address": "a98135ea63d512234f57c9e814896182e886bf351770bb2dce36b6d8f5d3c4fb",
+  "equal_decoded_noncanonical_under_canonical_address": "input-mismatch",
+  "interruptions": {
+    "direct-partial": {
+      "after_retry_and_staging_cleanup": "invalid",
+      "immediately_after_exit": "invalid",
+      "retry": "occupied-invalid",
+      "staged_after_exit": 0
+    },
+    "linked": {
+      "after_retry_and_staging_cleanup": "exact",
+      "immediately_after_exit": "exact",
+      "retry": "already-exact",
+      "staged_after_exit": 1
+    },
+    "staged": {
+      "after_retry_and_staging_cleanup": "exact",
+      "immediately_after_exit": "absent",
+      "retry": "published",
+      "staged_after_exit": 1
+    }
+  },
+  "old_and_revised_read_exact": true,
+  "revised_address": "008f5c8dc1b752b406f1a9507dffa58f66836159d3206dc2375488047197913e",
+  "runtime": "3.12.14"
+}

@@ -1,0 +1,23 @@
+{
+  "cli_entries": [
+    "calculator",
+    "echo",
+    "hello"
+  ],
+  "cli_native_and_interpreter_case_count": 34,
+  "cli_observations": 170,
+  "source_ledgers": {
+    "language-design/RT-01/TYPED-CLI-01": "0daaaa03372da335608eae60222f5ff4e1ede98264a2b5f4cdc67c97fc96d9b9",
+    "toolchain-and-collaboration/RT-19/TOOLCHAIN-ROUNDTRIP-01": "457cf793e805349312c6eefea7e8781c5609780285877bf981e31bfbf6787c58"
+  },
+  "source_sha256": "9a03b0fd8e7f0bfd25f3863beeb4792916599c2377c5c313c6b5af65102a6889",
+  "toolchain_control_names": [
+    "direct_accept_control",
+    "external_edit",
+    "malformed_domain_value",
+    "semantic_failure",
+    "stale_validation",
+    "tampered_entity_import"
+  ],
+  "toolchain_replays": 864
+}

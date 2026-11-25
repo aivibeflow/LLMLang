@@ -1,0 +1,91 @@
+{
+  "baseline": "4132c237b5f60e4326a5d1254a603085dd3cf4e3",
+  "python": "3.12.14",
+  "runner_sha256": "abe515a1931657d171af7dddf930779c30e3f6661083c7560bd1ae67c9fa776b",
+  "input_domain": [
+    -1,
+    0,
+    1
+  ],
+  "callsite_input": 0,
+  "outcomes": {
+    "1": {
+      "result": [
+        "Ok",
+        0
+      ],
+      "effects": [
+        "left",
+        "right"
+      ]
+    },
+    "2": {
+      "result": [
+        "Ok",
+        0
+      ],
+      "effects": [
+        "right",
+        "left"
+      ]
+    },
+    "4": {
+      "result": [
+        "Range",
+        null
+      ],
+      "effects": [
+        "failed"
+      ]
+    }
+  },
+  "contracts": 511,
+  "counts": {
+    "ordered_pairs": 261121,
+    "equal_tables": 511,
+    "mutual_refinement": 511,
+    "global_refinement": 19171,
+    "callsite_refinement": 110017,
+    "callsite_only_with_admitted_input": 63973,
+    "unsafe_intersection_only": 19110,
+    "disjoint_unsafe_intersection_only": 2352
+  },
+  "controls": {
+    "equal_denotation_distinct_exact_bytes": {
+      "first_sha256": "034d4e23d9efac910c0650801ed4138ee7ced043adbe3079316ba8a2645ef204",
+      "second_sha256": "3b8e084fc591a4870f4d40638ecb2526ce19d85f1ac3396d4906f64bd5bda1ca",
+      "mutual_refinement": true
+    },
+    "wider_precondition_narrower_outcomes": true,
+    "restricted_provider_global": false,
+    "restricted_provider_at_zero": true,
+    "disjoint_comparison_wrongly_accepted": true,
+    "disjoint_global": false,
+    "old_body_conformance": "CHECKED",
+    "new_body_conformance": "CHECKED",
+    "missing_body_conformance": "UNKNOWN",
+    "wrong_body_conformance": "REFUTED",
+    "result_equivalence_at_zero": true,
+    "full_observation_equivalence_at_zero": false,
+    "old_at_zero": {
+      "result": [
+        "Ok",
+        0
+      ],
+      "effects": [
+        "left",
+        "right"
+      ]
+    },
+    "new_at_zero": {
+      "result": [
+        "Ok",
+        0
+      ],
+      "effects": [
+        "right",
+        "left"
+      ]
+    }
+  }
+}

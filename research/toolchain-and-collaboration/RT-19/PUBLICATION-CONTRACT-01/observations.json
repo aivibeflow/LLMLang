@@ -1,0 +1,1136 @@
+{
+  "jar_sha256": "fdffef247f563ef6edbfd44958d2a82db79e7564e07cb673262d896353fa6713",
+  "model_sha256": "e63a125be3a59a8db9a88e635fa00aaf9a40d7b77cb0bc65a412709983ff03db",
+  "outcomes": {
+    "append-right-race": {
+      "states": [
+        {
+          "journal": "absent",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "observe"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "observe"
+          ],
+          "seen": [],
+          "violations": [
+            "append-without-authority"
+          ],
+          "witnessed": [
+            "alpha"
+          ]
+        }
+      ],
+      "tlc_exit": 12,
+      "validated_steps": [
+        [
+          "prepare"
+        ],
+        [
+          "change-rights"
+        ],
+        [
+          "append/alpha"
+        ]
+      ],
+      "violated": "AuthorizedAndCompared",
+      "violation_depth": 3
+    },
+    "blind-overwrite": {
+      "states": [
+        {
+          "journal": "absent",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [
+            "overwrote-divergence"
+          ],
+          "witnessed": [
+            "alpha"
+          ]
+        }
+      ],
+      "tlc_exit": 12,
+      "validated_steps": [
+        [
+          "prepare"
+        ],
+        [
+          "outside/alpha/new"
+        ],
+        [
+          "append/alpha"
+        ]
+      ],
+      "violated": "AuthorizedAndCompared",
+      "violation_depth": 3
+    },
+    "candidate": {
+      "distinct_states": 4032,
+      "generated_states": 77401,
+      "invariants": [
+        "TypeOK",
+        "AuthorizedAndCompared",
+        "ObservedWitnesses",
+        "ReleaseHasWitnesses",
+        "SettleHasRelease"
+      ],
+      "search_depth": 13,
+      "tlc_exit": 0
+    },
+    "seal-right-race": {
+      "states": [
+        {
+          "journal": "absent",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "observe"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": true,
+          "rights": [
+            "observe"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [
+            "seal-without-authority"
+          ],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        }
+      ],
+      "tlc_exit": 12,
+      "validated_steps": [
+        [
+          "prepare"
+        ],
+        [
+          "append/alpha"
+        ],
+        [
+          "probe/alpha"
+        ],
+        [
+          "append/beta"
+        ],
+        [
+          "probe/beta"
+        ],
+        [
+          "change-rights"
+        ],
+        [
+          "seal"
+        ]
+      ],
+      "violated": "AuthorizedAndCompared",
+      "violation_depth": 7
+    },
+    "settlement-reachable": {
+      "states": [
+        {
+          "journal": "absent",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": true,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        },
+        {
+          "journal": "settled",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": true,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        }
+      ],
+      "tlc_exit": 12,
+      "validated_steps": [
+        [
+          "prepare"
+        ],
+        [
+          "append/alpha"
+        ],
+        [
+          "probe/alpha"
+        ],
+        [
+          "append/beta"
+        ],
+        [
+          "probe/beta"
+        ],
+        [
+          "seal"
+        ],
+        [
+          "settle"
+        ]
+      ],
+      "violated": "NeverSettled",
+      "violation_depth": 7
+    },
+    "snapshot-is-current": {
+      "states": [
+        {
+          "journal": "absent",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": true,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "old",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": true,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha",
+            "beta"
+          ]
+        }
+      ],
+      "tlc_exit": 12,
+      "validated_steps": [
+        [
+          "prepare"
+        ],
+        [
+          "append/alpha"
+        ],
+        [
+          "probe/alpha"
+        ],
+        [
+          "append/beta"
+        ],
+        [
+          "probe/beta"
+        ],
+        [
+          "seal"
+        ],
+        [
+          "outside/alpha/old"
+        ]
+      ],
+      "violated": "ReleasedPairIsCurrent",
+      "violation_depth": 7
+    },
+    "speculative-settle": {
+      "states": [
+        {
+          "journal": "absent",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "settled",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        }
+      ],
+      "tlc_exit": 12,
+      "validated_steps": [
+        [
+          "prepare"
+        ],
+        [
+          "settle"
+        ]
+      ],
+      "violated": "SettleHasRelease",
+      "violation_depth": 2
+    },
+    "tip-only": {
+      "states": [
+        {
+          "journal": "absent",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "old",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": []
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "old"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": false,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        },
+        {
+          "journal": "pending",
+          "live": {
+            "alpha": "new",
+            "beta": "new"
+          },
+          "online": [
+            "alpha",
+            "beta"
+          ],
+          "released": true,
+          "rights": [
+            "append",
+            "observe",
+            "seal"
+          ],
+          "seen": [
+            "alpha",
+            "beta"
+          ],
+          "violations": [],
+          "witnessed": [
+            "alpha"
+          ]
+        }
+      ],
+      "tlc_exit": 12,
+      "validated_steps": [
+        [
+          "prepare"
+        ],
+        [
+          "append/alpha"
+        ],
+        [
+          "probe/alpha"
+        ],
+        [
+          "outside/beta/new"
+        ],
+        [
+          "probe/beta"
+        ],
+        [
+          "seal"
+        ]
+      ],
+      "violated": "ReleaseHasWitnesses",
+      "violation_depth": 6
+    }
+  }
+}

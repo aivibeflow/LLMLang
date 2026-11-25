@@ -1,0 +1,19 @@
+{
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "flags": [
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror"
+  ],
+  "blocks": 7,
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "cpu_affinity": [
+    4
+  ],
+  "cgroup_cpu_max": "400000 100000",
+  "measured_script_sha256": "5ca32461036be9416ae4b56163463d4fba74d3b15bf90db762069ce8849aaf32",
+  "baseline_units": 17
+}

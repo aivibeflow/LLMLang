@@ -1,0 +1,13 @@
+{
+  "continuations": {
+    "both_report_same_counts_and_empty_pipe": true,
+    "exact_destination_preserves_recorded_prefix": true,
+    "full_vector_retry_preserves_recorded_prefix": false
+  },
+  "input_receipt_sha256": "5cdc5d1de0553a3198795ec3237b5f7c26c79d142885a7a9ec6fa8efd14d90c9",
+  "premises_checked": {
+    "bounded_read_premises": 104,
+    "would_block_without_progress": 4
+  },
+  "python": "3.12.14"
+}

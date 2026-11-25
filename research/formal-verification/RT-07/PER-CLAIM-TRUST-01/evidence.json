@@ -1,0 +1,124 @@
+{
+  "schema": "llmlang-per-claim-trust/1",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "lean_executable_sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+  "sources_sha256": {
+    "run.py": "be7c1f6c090898aa75623235d5f2713f1629388749b856049e2a5df3541aa13e",
+    "Boundary.lean": "a9e53918fc155f6797dd8dc23b4f05f5187b90ccba101e2369e036a507de3dd5",
+    "Routes.lean": "2310bf2a2a6e61896be15dcafb6e59f34cfb45de46ed8130de2b4d5e42cc0595",
+    "Wrapped.lean": "cee6719364203bc1c0bb0676a73a5a4cdd905b369fe5415cbe5ff0f30f739fb3",
+    "Audit.lean": "cbedd134b60003bed7e96f3d262b69a1af2970beed4f7d6be84b56ddb98f1ad8",
+    "WrongExpected.lean": "c65384be42d4ac80335735cd381afbb78bdd7adaee59fc1c25613961885dfd29",
+    "Placeholder.lean": "89576ae20d14cb0d8ba5cc2e8e03b574c2c0f5e1dd5175ac719aa7c93324a906"
+  },
+  "compiled_module_sha256": {
+    "Boundary.olean": "d40f4e8b5bd47eeba9b75e03b2f50bd86ab006c88d0656f36360ff8244a9e331",
+    "Routes.olean": "b357868274a8850217e5d50f0b46d915cc29325f4dd10b7ca20cf54a02580802",
+    "Wrapped.olean": "0cef0ac408e8fbbdcaa6ff898a11045efb5b59bae35b8e9feb9ea7430ee88196"
+  },
+  "imports_rechecked_equal": true,
+  "expected_closed_type_checked": [
+    "wrappedKernel",
+    "wrappedForeign",
+    "wrappedNative",
+    "premiseDischarged"
+  ],
+  "conditional_as_closed_exit": 1,
+  "placeholder_exit_permissive": 0,
+  "placeholder_exit_warnings_are_errors": 1,
+  "unused_imported_axiom": "TrustBoundary.unrelatedAgreement",
+  "declarations": {
+    "wrappedKernel": {
+      "statement": "closed",
+      "axioms": [],
+      "decisions": {
+        "kernel_only": "closed-kernel-only",
+        "reviewed_imported_premise": "closed-kernel-only",
+        "native_evaluation_allowed": "closed-kernel-only"
+      }
+    },
+    "wrappedForeign": {
+      "statement": "closed",
+      "axioms": [
+        "TrustBoundary.inputIsNine"
+      ],
+      "decisions": {
+        "kernel_only": "unadmitted-axioms",
+        "reviewed_imported_premise": "conditional-imported-premise",
+        "native_evaluation_allowed": "unadmitted-axioms"
+      }
+    },
+    "wrappedNative": {
+      "statement": "closed",
+      "axioms": [
+        "TrustBoundary.nativeReflection._native.native_decide.ax_1_1"
+      ],
+      "decisions": {
+        "kernel_only": "unadmitted-axioms",
+        "reviewed_imported_premise": "unadmitted-axioms",
+        "native_evaluation_allowed": "closed-with-native-trust"
+      }
+    },
+    "openPremise": {
+      "statement": "open-premise",
+      "axioms": [],
+      "decisions": {
+        "kernel_only": "conditional-explicit-premise",
+        "reviewed_imported_premise": "conditional-explicit-premise",
+        "native_evaluation_allowed": "conditional-explicit-premise"
+      }
+    },
+    "premiseDischarged": {
+      "statement": "closed",
+      "axioms": [],
+      "decisions": {
+        "kernel_only": "closed-kernel-only",
+        "reviewed_imported_premise": "closed-kernel-only",
+        "native_evaluation_allowed": "closed-kernel-only"
+      }
+    },
+    "placeholder": {
+      "statement": "closed",
+      "axioms": [
+        "sorryAx"
+      ],
+      "decisions": {
+        "kernel_only": "forbidden-placeholder",
+        "reviewed_imported_premise": "forbidden-placeholder",
+        "native_evaluation_allowed": "forbidden-placeholder"
+      }
+    }
+  },
+  "transcripts": {
+    "import": [
+      "TrustBoundary.wrappedKernel : TrustBoundary.Claim",
+      "TrustBoundary.wrappedForeign : TrustBoundary.Claim",
+      "TrustBoundary.wrappedNative : TrustBoundary.Claim",
+      "TrustBoundary.premiseDischarged : TrustBoundary.Claim",
+      "TrustBoundary.openPremise : TrustBoundary.observedInput = 9 \u2192 TrustBoundary.Claim",
+      "'TrustBoundary.wrappedKernel' does not depend on any axioms",
+      "'TrustBoundary.wrappedForeign' depends on axioms: [TrustBoundary.inputIsNine]",
+      "'TrustBoundary.wrappedNative' depends on axioms: [TrustBoundary.nativeReflection._native.native_decide.ax_1_1]",
+      "'TrustBoundary.openPremise' does not depend on any axioms",
+      "'TrustBoundary.premiseDischarged' does not depend on any axioms",
+      "'TrustBoundary.unrelatedAgreement' depends on axioms: [TrustBoundary.unrelatedAgreement]"
+    ],
+    "wrong_type": [
+      "WrongExpected.lean:4:19: error: Type mismatch",
+      "  openPremise",
+      "has type",
+      "  observedInput = 9 \u2192 Claim",
+      "but is expected to have type",
+      "  Claim"
+    ],
+    "placeholder": [
+      "Placeholder.lean:4:8: warning: declaration uses `sorry`",
+      "'TrustBoundary.placeholder' depends on axioms: [sorryAx]"
+    ],
+    "strict_placeholder": [
+      "Placeholder.lean:4:8: error: declaration uses `sorry`",
+      "'TrustBoundary.placeholder' depends on axioms: [sorryAx]"
+    ]
+  }
+}

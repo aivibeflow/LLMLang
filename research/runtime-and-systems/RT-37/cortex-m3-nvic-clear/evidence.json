@@ -1,0 +1,81 @@
+{
+  "assembler": "Debian LLVM version 19.1.7",
+  "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+  "linker": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+  "python": "3.12.14",
+  "qemu": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "results": {
+    "clear_selected_bit": {
+      "image_sha256": "2877d555ac151effb639ed1c617a0bb257944aa2c50c6c1ad07065d155b759ce",
+      "records": [
+        {
+          "after_pending": 2,
+          "before_clear_alias": 3,
+          "before_set_alias": 3,
+          "target_mask": 1
+        },
+        {
+          "after_pending": 1,
+          "before_clear_alias": 3,
+          "before_set_alias": 3,
+          "target_mask": 2
+        }
+      ],
+      "uart": "332 331!"
+    },
+    "read_and_not_then_write_clear": {
+      "image_sha256": "777f7be2516521956da2dc84d5048638aec7cb11d96a524f3b58f2a4d587fca4",
+      "records": [
+        {
+          "after_pending": 1,
+          "before_clear_alias": 3,
+          "before_set_alias": 3,
+          "target_mask": 1
+        },
+        {
+          "after_pending": 2,
+          "before_clear_alias": 3,
+          "before_set_alias": 3,
+          "target_mask": 2
+        }
+      ],
+      "uart": "331 332!"
+    },
+    "read_or_then_write_clear": {
+      "image_sha256": "7edb2ed1e8613831f7027423e46bb657c993c4d8c7fb9241675ead6a5a2189f1",
+      "records": [
+        {
+          "after_pending": 0,
+          "before_clear_alias": 3,
+          "before_set_alias": 3,
+          "target_mask": 1
+        },
+        {
+          "after_pending": 0,
+          "before_clear_alias": 3,
+          "before_set_alias": 3,
+          "target_mask": 2
+        }
+      ],
+      "uart": "330 330!"
+    },
+    "write_selected_bit_to_set_alias": {
+      "image_sha256": "0ffdf80fb55d464da97a8e8114211f0bd16f42823443d4816b08feb2cd7b2b2f",
+      "records": [
+        {
+          "after_pending": 3,
+          "before_clear_alias": 3,
+          "before_set_alias": 3,
+          "target_mask": 1
+        },
+        {
+          "after_pending": 3,
+          "before_clear_alias": 3,
+          "before_set_alias": 3,
+          "target_mask": 2
+        }
+      ],
+      "uart": "333 333!"
+    }
+  }
+}

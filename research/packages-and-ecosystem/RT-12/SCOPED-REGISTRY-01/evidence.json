@@ -1,0 +1,27 @@
+{
+  "controls": {
+    "absent_artifact": "missing-artifact",
+    "conflicting_rows": "conflicting-binding",
+    "incorrect_kind": "wrong-artifact-kind",
+    "stale_head": "stale-head"
+  },
+  "discoveries": 24,
+  "exact_reads": {
+    "available": 12,
+    "unavailable": 204
+  },
+  "immutable_idempotent_insert": true,
+  "operation_ids": [
+    "sha256:1f030afe45e35be3a34f7048a12140b836683c77ca3ed8e68d90419bea341a09",
+    "sha256:f30de79a347c033877e9f09bc55d93d336bdf53dd767463865d35f464294123a",
+    "sha256:2800952be3b7567174e9b7c36e172fa6f54ad57b52d76dab0c0b474353d6287b"
+  ],
+  "python": "3.12.14",
+  "separate_proof_hash_for_same_body_suffix": "sha256:3f8e19f203a2afa7c0a3b281a81d5b43bcf40bd0c7588832fbc95a3d6f6fe4bc",
+  "shared_body_canonical_hash": "sha256:f1df3c52318ff3a0ee4179ef372981f00de91c22cf47d3d5caecb05ecc5162c8",
+  "sources": {
+    "check.py": "ab260956837d4962fde0e2a8c4a776ef94f2e6f28c17d11751de96eafec4d4be",
+    "content_store.py": "8f6d7ed6cdae98c752f467accde214e163eb17b0566011be57c941469ff2657c"
+  },
+  "sqlite": "3.53.1"
+}

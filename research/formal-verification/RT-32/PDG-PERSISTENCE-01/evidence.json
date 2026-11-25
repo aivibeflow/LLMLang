@@ -1,0 +1,51 @@
+{
+  "basis": "6a7443f7c687d08fffb98bd880f75f995622a058",
+  "closures": {
+    "conditional-closed": "1e42c796e8dd5ffe5611868c66d5fe98cbf55e39d4199ab6fca42b213d83a60f",
+    "mixed": "a56680a6e286508b509ed0f2899878289ce02d48adf9550afe12b4c6a29befd5",
+    "rebound": "fd5b66cabaa2fe7ffa356e1e00274c59e4ea894677ef0140f4e5ef7df5a1ddd7",
+    "repeated": "75806092207c1cb7eccbebb881d32a19066f631f629d8d96e2745b473f151ef1",
+    "transitive-edit": "ead6ed76d3a2475bbf27259dfa9cf5e9ebd6de3999084cc4e36f30f6ac46c870"
+  },
+  "controls": {
+    "forged-shorter-root": "pending-receipt",
+    "interrupted-publish": {
+      "exit": 73,
+      "old-visible": true,
+      "retry": "checked"
+    },
+    "old-receipts-for-rebind": "pending-receipt",
+    "one-occurrence-absent": "pending-receipt",
+    "pending-external-premise": "unresolved-assumption",
+    "stale-publication-head": "stale-head"
+  },
+  "graph_sizes": {
+    "deep": 20,
+    "mixed": 13,
+    "rebound": 17,
+    "repeated": 13,
+    "transitive-edit": 20
+  },
+  "recursion": {
+    "axioms": "'ReceiptGroup.simultaneous' does not depend on any axioms",
+    "joint": "b449bbb9df70e5abe22bcb0eb5061a799b40cdf5d42ea0035191cc6487fb08e2",
+    "kernel": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "missing_group_admission": "unresolved-assumption",
+    "raw_cycle": "cyclic-discharge",
+    "theorem": "7d868319fb1988f2b99911c1a0c864a74f68aae788085782092d050496781ae5"
+  },
+  "same_modular_receipt_during_rebind": true,
+  "source_subjects": {
+    "deep": "d79bef68956704b99b7e164ed26e8570c9ab15127d8ee6fb1105abe63f86b35d",
+    "mixed": "32cd673262718dc699226f46917d964a5198bbc71c6c1783575b5a8cceeafabf",
+    "rebound": "96e55baf29bd1ba7a1bb9bb7b40cc9318cda6ef9c02f347e561455e3990da841",
+    "repeated": "379930b0357fef4d17bb0ad12522e7e0f106f0114d69ab99969fdd8f3a52a344",
+    "transitive-edit": "6256e71e39a9c17c8a2d7d296b9cdf2830ea854ff9cd3ad7eceb175e4b9d03a6"
+  },
+  "sources": {
+    "research/formal-verification/RT-32/PROOF-CACHE-STORE-01/run.py": "bea457a0362c8ef8510ce39577241687a9c4f90f13912c026e902a1e9f07f571",
+    "research/formal-verification/RT-32/SPG-PDG-OCCURRENCES-01/run.py": "ca9e026bf5615355167f856a1cb9b963cecf2585d8fe48eeecad6e861b5342c6"
+  },
+  "sqlite": "3.53.1",
+  "wal_reader_retained_previous_closure": true
+}

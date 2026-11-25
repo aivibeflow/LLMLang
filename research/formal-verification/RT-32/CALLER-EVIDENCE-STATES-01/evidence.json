@@ -1,0 +1,75 @@
+{
+  "schema": "llmlang-caller-evidence-discharge-states/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "a2b1e79b6bacb282fad651c0a17d334f1887a656a722c70628824fa5890196b5",
+    "Discharge.lean": "e5a5a199aec959047e9472161b1e7062b41b69f06a0a521920711fa3ad97e514",
+    "axioms.txt": "366ae31410ba3b5a74a783aa6dcfaaa68004f012d13c6d587e002bd2a3062272"
+  },
+  "archive_revision": "7871ded14f9e56ff855757b1fa91b8d4e2904c75",
+  "archive_sha256": "bf313c1f62aa7085b3009eb473359478c40cf82715475adec1ecb636bc7fe195",
+  "archived_compiled_claim_results": {
+    "base": "closed",
+    "changed-toolchain": "toolchain-mismatch",
+    "different-bundle": "bundle-mismatch",
+    "foreign-axiom": "axiom-policy",
+    "missing-signature": "issuer-or-signature",
+    "old-proof-for-rebound": "receipt-subject",
+    "rebound": "closed",
+    "signed-wrong-compiled-context": "compiled-context",
+    "untrusted-issuer": "issuer-or-signature",
+    "wrong-theorem": "claim-mismatch"
+  },
+  "state_matrix": {
+    "pending": 324,
+    "conditional": 80,
+    "closed": 1,
+    "unknown": 81,
+    "unsupported": 81,
+    "rejected": 81,
+    "refuted": 81
+  },
+  "schedule_counts": {
+    "schedules": 5040,
+    "prefixes": 35280,
+    "closed_prefixes": 10080,
+    "scope_free_false_closures": 4704,
+    "latest_job_loses_closed_evidence": 3360
+  },
+  "schedule_witnesses": {
+    "scope_free": [
+      [
+        "modular",
+        "old_provider",
+        "old_leaf",
+        "activate",
+        "new_provider",
+        "new_leaf",
+        "new_unknown"
+      ],
+      4
+    ],
+    "latest_job": [
+      [
+        "modular",
+        "old_provider",
+        "old_leaf",
+        "activate",
+        "new_provider",
+        "new_leaf",
+        "new_unknown"
+      ],
+      7
+    ]
+  },
+  "trust_controls": {
+    "subject": "conditional",
+    "version": "conditional",
+    "contract": "conditional",
+    "theorem": "conditional",
+    "imports": "conditional",
+    "toolchain": "conditional",
+    "unapproved_provenance": "conditional",
+    "conflicting_exact_provider": "conflict"
+  }
+}

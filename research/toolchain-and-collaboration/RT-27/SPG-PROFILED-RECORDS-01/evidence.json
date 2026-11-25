@@ -1,0 +1,138 @@
+{
+  "fixed_buckets": 4,
+  "format": "prototype-spg-fixed-buckets/1",
+  "git": "git version 2.52.0",
+  "refusals": [
+    {
+      "case": "stale locations with full cache",
+      "decision": "metadata differs from pinned Git blob: locations.json"
+    },
+    {
+      "case": "wrong cached value under exact address",
+      "decision": "cached record differs from exact indexed identity"
+    },
+    {
+      "case": "corrupt record on cold read",
+      "decision": "physical record digest mismatch"
+    }
+  ],
+  "revisions": [
+    {
+      "cold": {
+        "hits": 0,
+        "payload_bytes": 7748,
+        "reads": 18,
+        "record_decodes": 18
+      },
+      "commit": "b79f508b7d7f3263fd68ae97e21ede77211bd77dcd3a742b253dd68042175352",
+      "content_values": 18,
+      "full_cache": {
+        "hits": 18,
+        "payload_bytes": 0,
+        "reads": 0,
+        "record_decodes": 0
+      },
+      "index_files": {
+        "locations.json": "6b4a35a7129482a1062fa59ae5bac398e7339c4f8e684d331d3abaf8f07eac26",
+        "manifest.json": "b1e0eebda45735206cb31ea324325f0985ce32c961641fb80eafa268c1ef75f1",
+        "records/0.bin": "0c7cb0685acd55c4f7965baba4bb222da1bb1c9884405e98b49c1364f1f96115",
+        "records/1.bin": "3cdf037f59d308ec3a7687c2c87d97231c14ee7faf42f659a74a31b63cb6f849",
+        "records/2.bin": "bcb659b1a9a6ec52a17dfeecb352f01fa0514e10480ac77d06aef4e5c6d0d477",
+        "records/3.bin": "bb510ebf8d2ab1e87b65527e1e8b4ab0443ba86fe90a04b51774b31d567eb5c4",
+        "reverse.json": "f0fa0b75f330dc5fef75650654713d1cd3c7dcd9efcd1221b8f4f63cd88d5e4a"
+      },
+      "observations": [
+        [
+          -2,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        [
+          1,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        [
+          8,
+          [
+            "first",
+            "last"
+          ]
+        ]
+      ],
+      "semantic_root": "420f7023e1b634228c19e0b61afdaaa0fdb1f46e35d7808d921c3df3a54e0333",
+      "tracked_files": 7,
+      "warm_from_prior": {
+        "hits": 0,
+        "payload_bytes": 7748,
+        "reads": 18,
+        "record_decodes": 18
+      }
+    },
+    {
+      "cold": {
+        "hits": 0,
+        "payload_bytes": 7748,
+        "reads": 18,
+        "record_decodes": 18
+      },
+      "commit": "1ce08591855cfc3e400f90166ff6f933c3b193e619ee9d66d3f0036a6f31a60c",
+      "content_values": 18,
+      "full_cache": {
+        "hits": 18,
+        "payload_bytes": 0,
+        "reads": 0,
+        "record_decodes": 0
+      },
+      "index_files": {
+        "locations.json": "6d001903b79fed0527cb6e0b431d4b78d11f707a0394b5568b1020d8c7b24808",
+        "manifest.json": "51054a7d867f21945e22175251f4aefda01a11797637f46104c7c80f510b378c",
+        "records/0.bin": "084dea350ef7e2d17905b2bdd6a45871924b441f53a054aef5503e8dab74bab6",
+        "records/1.bin": "3cdf037f59d308ec3a7687c2c87d97231c14ee7faf42f659a74a31b63cb6f849",
+        "records/2.bin": "bcb659b1a9a6ec52a17dfeecb352f01fa0514e10480ac77d06aef4e5c6d0d477",
+        "records/3.bin": "3a0e20747730dcd65a820e89d33a1fe8190801f28086e27d8765b0e5db63669a",
+        "reverse.json": "e065f19ba931cfe90497e46837481241cd641c05b11c47254854adb9fdd01368"
+      },
+      "observations": [
+        [
+          -1,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        [
+          2,
+          [
+            "first",
+            "last"
+          ]
+        ],
+        [
+          9,
+          [
+            "first",
+            "last"
+          ]
+        ]
+      ],
+      "semantic_root": "411fbba03422adc829b4b069aba77fe6cf8e6c157e010b890af84f3705e40c26",
+      "tracked_files": 7,
+      "warm_from_prior": {
+        "hits": 17,
+        "payload_bytes": 419,
+        "reads": 1,
+        "record_decodes": 1
+      }
+    }
+  ],
+  "workers": [
+    1,
+    2,
+    4
+  ]
+}

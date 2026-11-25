@@ -1,0 +1,196 @@
+{
+  "profiles": {
+    "esp": {
+      "abi": "Xtensa windowed",
+      "board": "ESP32-DevKitC V4 with ESP32-WROOM-32E-N4",
+      "boot_flash": "Select esp32 target and 4 MiB flash in ESP-IDF. Build, use idf.py -p PORT flash monitor, keep generated flash arguments and monitor log.",
+      "clocks_hz": {
+        "core": 160000000,
+        "xtal_candidate": 40000000
+      },
+      "compiler_flags": [
+        "-mlongcalls"
+      ],
+      "interrupts": [
+        "interrupt matrix",
+        "GPTimer through ESP-IDF interrupt allocation"
+      ],
+      "memory": {
+        "bootloader_flash_offset": "0x1000",
+        "factory_flash_offset": "0x10000",
+        "factory_partition_bytes": 1048576,
+        "module_spi_flash_bytes": 4194304,
+        "on_chip_sram_bytes": 532480,
+        "partition_table_offset": "0x8000",
+        "rtc_sram_bytes": 16384
+      },
+      "part": "ESP32-D0WD-V3 module interpretation, exact fitted SoC to verify",
+      "peripherals": {
+        "gpio": "GPIO18 with test load",
+        "timer": "GPTimer",
+        "uart": "UART0 GPIO1/GPIO3 with USB UART bridge"
+      },
+      "processor": "Xtensa LX6 dual core",
+      "sdk": "ESP-IDF v5.5.3",
+      "sdk_revision": "2c211b236707889e8400c4dc5644dd5c4ee071e0",
+      "startup": "ROM reset; second-stage bootloader; factory application; call_start_cpu0; ESP-IDF/FreeRTOS; app_main"
+    },
+    "f1": {
+      "abi": "AAPCS32 soft",
+      "board": "NUCLEO-F103RB / MB1136",
+      "boot_flash": "Boot from main flash. Program and verify via ST-LINK SWD at 0x08000000.",
+      "clocks_hz": {
+        "apb1": 32000000,
+        "apb2": 64000000,
+        "clock_source": 8000000,
+        "core": 64000000
+      },
+      "compiler_flags": [
+        "-mcpu=cortex-m3",
+        "-mthumb",
+        "-mfloat-abi=soft"
+      ],
+      "gitlinks": {
+        "bsp": "7cf1eeded2cf3c8c441b685bb60f696544ba285a",
+        "cmsis_device": "8a76309ed1250d817e9c888c4417171d2ba3ba63",
+        "hal": "77fbb30b7a1d02533980400083e48c559aae5a4f"
+      },
+      "interrupts": [
+        "NVIC",
+        "SysTick",
+        "TIM2_IRQHandler",
+        "USART2_IRQHandler"
+      ],
+      "memory": {
+        "flash": [
+          "0x08000000",
+          131072
+        ],
+        "sram": [
+          "0x20000000",
+          20480
+        ]
+      },
+      "part": "STM32F103RBT6",
+      "peripherals": {
+        "gpio": "LD2 PA5",
+        "timer": "TIM2",
+        "uart": "USART2 PA2/PA3"
+      },
+      "processor": "Cortex-M3 Armv7-M Thumb-2",
+      "sdk": "STM32CubeF1 v1.8.6",
+      "sdk_revision": "42472d601caa457b02d849c7de5f9792629ee324",
+      "startup": "Reset_Handler; initialize .data/.bss; SystemInit; language initialization; main"
+    },
+    "f4": {
+      "abi": "AAPCS32 hard",
+      "board": "STM32F407G-DISC1 / MB997",
+      "boot_flash": "Boot from main flash. Program and verify via ST-LINK SWD at 0x08000000.",
+      "clocks_hz": {
+        "apb1": 42000000,
+        "apb2": 84000000,
+        "clock_source": 8000000,
+        "core": 168000000
+      },
+      "compiler_flags": [
+        "-mcpu=cortex-m4",
+        "-mthumb",
+        "-mfpu=fpv4-sp-d16",
+        "-mfloat-abi=hard"
+      ],
+      "gitlinks": {
+        "bsp": "49fcaf442e7d9b5970567eb0c833d66d1333e726",
+        "cmsis_device": "3c77349ce04c8af401454cc51f85ea9a50e34fc1",
+        "hal": "b6f0ed3829f3829eb358a2e7417d80bba1a42db7"
+      },
+      "interrupts": [
+        "NVIC",
+        "SysTick",
+        "TIM2_IRQHandler",
+        "USART2_IRQHandler"
+      ],
+      "memory": {
+        "ccm": [
+          "0x10000000",
+          65536
+        ],
+        "flash": [
+          "0x08000000",
+          1048576
+        ],
+        "sram": [
+          "0x20000000",
+          131072
+        ]
+      },
+      "part": "STM32F407VGT6",
+      "peripherals": {
+        "gpio": "LD4 PD12",
+        "timer": "TIM2",
+        "uart": "USART2 PA2/PA3 via external UART adapter"
+      },
+      "processor": "Cortex-M4 Armv7E-M Thumb-2 with FPv4-SP-D16",
+      "sdk": "STM32CubeF4 v1.28.3",
+      "sdk_revision": "94cae6e83f00e276a11957e7833c01ac3d0bd7af",
+      "startup": "Reset_Handler; initialize .data/.bss; SystemInit; language initialization; main"
+    }
+  },
+  "sources": {
+    "esp-Kconfig.cpu": {
+      "sha256": "a45bed3b3cebabc8c986eb80dab2634d555a7f82d46fdd0c10618e63d033a2b0",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/2c211b236707889e8400c4dc5644dd5c4ee071e0/components/esp_system/port/soc/esp32/Kconfig.cpu"
+    },
+    "esp-bootloader_start.c": {
+      "sha256": "09c8ff6fb82bde22415564b8292c70e122f783280ee8a14559ff9dda56376543",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/2c211b236707889e8400c4dc5644dd5c4ee071e0/components/bootloader/subproject/main/bootloader_start.c"
+    },
+    "esp-cpu_start.c": {
+      "sha256": "c69dd3cea1229a3a544b4fec23c2d573b1f1aa74217d04849363200d23055a28",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/2c211b236707889e8400c4dc5644dd5c4ee071e0/components/esp_system/port/cpu_start.c"
+    },
+    "esp-memory.ld.in": {
+      "sha256": "12dc9b4d9e2ee31acf7482caef343e9dea32c95de362b0de22444e0ac0c790c8",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/2c211b236707889e8400c4dc5644dd5c4ee071e0/components/esp_system/ld/esp32/memory.ld.in"
+    },
+    "esp-partitions_singleapp.csv": {
+      "sha256": "e829387dc93b09b655e5ba558bb317a798ab7378834facad2621602126d7b510",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/2c211b236707889e8400c4dc5644dd5c4ee071e0/components/partition_table/partitions_singleapp.csv"
+    },
+    "esp-toolchain-esp32.cmake": {
+      "sha256": "34810ba79a0a4036399c295bc408aa00e6cc26117a73348c8927e76abc82ee68",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/2c211b236707889e8400c4dc5644dd5c4ee071e0/tools/cmake/toolchain-esp32.cmake"
+    },
+    "esp-tools.json": {
+      "sha256": "66ebeabd419b4e24d38f513042219e544ca8715b95c6095efa4d3da275a893f3",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/2c211b236707889e8400c4dc5644dd5c4ee071e0/tools/tools.json"
+    },
+    "f1-layout.ld": {
+      "sha256": "d989c47e0e1db102224a64f608654c508f4888debbfc980863e34a90a6643ebe",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/STM32CubeF1/42472d601caa457b02d849c7de5f9792629ee324/Projects/STM32F103RB-Nucleo/Examples/GPIO/GPIO_IOToggle/SW4STM32/STM32F103RB_Nucleo/STM32F103VBIx_FLASH.ld"
+    },
+    "f1-main.c": {
+      "sha256": "325d3a06b49881ed544f728e93f8f5c60682e4951f86b8ac2c6f48fc23fbb26f",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/STM32CubeF1/42472d601caa457b02d849c7de5f9792629ee324/Projects/STM32F103RB-Nucleo/Examples/GPIO/GPIO_IOToggle/Src/main.c"
+    },
+    "f1-startup.s": {
+      "sha256": "2383dc2f6becf92725d0898b37a08ee00aa3e05d27f9fdfdf778e5cae9edc977",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/STM32CubeF1/42472d601caa457b02d849c7de5f9792629ee324/Projects/STM32F103RB-Nucleo/Examples/GPIO/GPIO_IOToggle/SW4STM32/startup_stm32f103xb.s"
+    },
+    "f4-cproject": {
+      "sha256": "a9a6da710710c3f0fd00f15e4dda9b61e4f94988969c05d25d9b08866ec598b6",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/STM32CubeF4/94cae6e83f00e276a11957e7833c01ac3d0bd7af/Projects/STM32F4-Discovery/Examples/GPIO/GPIO_EXTI/STM32CubeIDE/.cproject"
+    },
+    "f4-layout.ld": {
+      "sha256": "53c288fabad63c3e4b5b7c7402d9b06f6c5af175f7d38b319f631922daf00c5e",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/STM32CubeF4/94cae6e83f00e276a11957e7833c01ac3d0bd7af/Projects/STM32F4-Discovery/Examples/GPIO/GPIO_EXTI/STM32CubeIDE/STM32F407VGTX_FLASH.ld"
+    },
+    "f4-main.c": {
+      "sha256": "d25c24391abc47b2fa6c67f7f97961a4ac688790812517bb8d07d3f7fe7ae0b5",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/STM32CubeF4/94cae6e83f00e276a11957e7833c01ac3d0bd7af/Projects/STM32F4-Discovery/Examples/GPIO/GPIO_EXTI/Src/main.c"
+    },
+    "f4-startup.s": {
+      "sha256": "7312b3fa37e0f749e1122b9bbf50de71e1bab533394280647404b96807058903",
+      "url": "https://raw.githubusercontent.com/STMicroelectronics/STM32CubeF4/94cae6e83f00e276a11957e7833c01ac3d0bd7af/Projects/STM32F4-Discovery/Examples/GPIO/GPIO_EXTI/STM32CubeIDE/Example/Startup/startup_stm32f407vgtx.s"
+    }
+  }
+}

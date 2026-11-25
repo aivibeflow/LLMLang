@@ -1,0 +1,4 @@
+'StateIncarnation.sameIsAdmitted' does not depend on any axioms
+'StateIncarnation.exactRejectsLater' depends on axioms: [propext, Quot.sound]
+'StateIncarnation.wrappedAdmitsLater' depends on axioms: [propext]
+'StateIncarnation.onePeriodIsStrictlyLater' depends on axioms: [propext, Quot.sound]

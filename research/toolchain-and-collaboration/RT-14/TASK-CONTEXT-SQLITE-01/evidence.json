@@ -1,0 +1,1196 @@
+{
+  "baseline": "8e28c7cd4447ea22b49ba3ada613be574e266e57",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "runner_sha256": "13c7cef2d6019e6daa5eb1eb2cc3fab466f4343be6f832010fc03d8a757bf304",
+  "invalid_completions": {
+    "stationary-task": 6,
+    "task-cas": 3,
+    "exact-prerequisites": 0
+  },
+  "schedules": {
+    "same": {
+      "stationary-task": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": true
+      },
+      "task-cas": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": true
+      },
+      "exact-prerequisites": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": true
+      }
+    },
+    "revised": {
+      "stationary-task": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 2,
+            "revision": "r2",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": false
+      },
+      "task-cas": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 2,
+            "revision": "r2",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "stale-task",
+        "receipts": [],
+        "oracle_should_complete": false
+      },
+      "exact-prerequisites": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 2,
+            "revision": "r2",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "stale-task",
+        "receipts": [],
+        "oracle_should_complete": false
+      }
+    },
+    "reassigned": {
+      "stationary-task": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 2,
+            "revision": "r1",
+            "owner": "worker-b",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": false
+      },
+      "task-cas": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 2,
+            "revision": "r1",
+            "owner": "worker-b",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "stale-task",
+        "receipts": [],
+        "oracle_should_complete": false
+      },
+      "exact-prerequisites": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 2,
+            "revision": "r1",
+            "owner": "worker-b",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "stale-task",
+        "receipts": [],
+        "oracle_should_complete": false
+      }
+    },
+    "aba-task": {
+      "stationary-task": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 3,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": false
+      },
+      "task-cas": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 3,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "stale-task",
+        "receipts": [],
+        "oracle_should_complete": false
+      },
+      "exact-prerequisites": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 3,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "stale-task",
+        "receipts": [],
+        "oracle_should_complete": false
+      }
+    },
+    "cancelled": {
+      "stationary-task": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 2,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "cancelled"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "task-not-active",
+        "receipts": [],
+        "oracle_should_complete": false
+      },
+      "task-cas": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 2,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "cancelled"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "task-not-active",
+        "receipts": [],
+        "oracle_should_complete": false
+      },
+      "exact-prerequisites": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 2,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "cancelled"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "task-not-active",
+        "receipts": [],
+        "oracle_should_complete": false
+      }
+    },
+    "replacement-child": {
+      "stationary-task": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 2,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": false
+      },
+      "task-cas": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 2,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": false
+      },
+      "exact-prerequisites": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 2,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "stale-prerequisite",
+        "receipts": [],
+        "oracle_should_complete": false
+      }
+    },
+    "reopened-child": {
+      "stationary-task": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 2,
+            "state": "active",
+            "artifact": null
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": false
+      },
+      "task-cas": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 2,
+            "state": "active",
+            "artifact": null
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": false
+      },
+      "exact-prerequisites": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 2,
+            "state": "active",
+            "artifact": null
+          }
+        },
+        "outcome": "stale-prerequisite",
+        "receipts": [],
+        "oracle_should_complete": false
+      }
+    },
+    "child-aba": {
+      "stationary-task": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 3,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": false
+      },
+      "task-cas": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 3,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": false
+      },
+      "exact-prerequisites": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 3,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "stale-prerequisite",
+        "receipts": [],
+        "oracle_should_complete": false
+      }
+    },
+    "unrelated-task": {
+      "stationary-task": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": true
+      },
+      "task-cas": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": true
+      },
+      "exact-prerequisites": {
+        "checked_request": {
+          "request_id": "finish-1",
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          },
+          "proposed_result": "checked-parent-candidate"
+        },
+        "state_at_settlement": {
+          "task": {
+            "id": "parent",
+            "epoch": 1,
+            "revision": "r1",
+            "owner": "worker-a",
+            "baseline": "snapshot-7",
+            "state": "active"
+          },
+          "child": {
+            "id": "child",
+            "epoch": 1,
+            "state": "satisfied",
+            "artifact": "checked-artifact-1"
+          }
+        },
+        "outcome": "completed",
+        "receipts": [
+          {
+            "request_id": "finish-1",
+            "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+            "outcome": "completed"
+          }
+        ],
+        "oracle_should_complete": true
+      }
+    }
+  },
+  "transaction_retry": {
+    "before_close": "interrupted-before-receipt",
+    "reopened_after_close": {
+      "id": "parent",
+      "epoch": 1,
+      "revision": "r1",
+      "owner": "worker-a",
+      "baseline": "snapshot-7",
+      "state": "active"
+    },
+    "fresh_retry": "completed",
+    "repeat_after_fresh_open": "recorded",
+    "same_key_other_request": "request-id-conflict",
+    "new_key_closed_task": "task-not-active",
+    "final_receipts": [
+      {
+        "request_id": "finish-1",
+        "binding": "9762753f20229447208995a66637acaca2db5fe1498e5c7593948e1c3c95dfad",
+        "outcome": "completed"
+      }
+    ]
+  }
+}

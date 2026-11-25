@@ -1,0 +1,66 @@
+{
+  "control_dispositions": {
+    "address-and-access-only": {
+      "allow=False/refused": 2300,
+      "allow=False/unknown": 1,
+      "allow=True/eligible": 1,
+      "allow=True/refused": 2
+    },
+    "dma-completion-only": {
+      "allow=False/refused": 2287,
+      "allow=False/unknown": 1,
+      "allow=True/eligible": 1,
+      "allow=True/refused": 15
+    },
+    "root-handler-only": {
+      "allow=False/refused": 2301,
+      "allow=True/eligible": 1,
+      "allow=True/refused": 1,
+      "allow=True/unknown": 1
+    }
+  },
+  "example_admissions": {
+    "address-and-access-only": {
+      "capability": true,
+      "completed": true,
+      "exact_lease": true,
+      "exact_profile": true,
+      "in_bounds": true,
+      "irq_path": "ack",
+      "quiescent": true,
+      "register_effect": "read-modify-write",
+      "synchronized_acquire": true,
+      "volatile_word": true
+    },
+    "dma-completion-only": {
+      "capability": true,
+      "completed": true,
+      "exact_lease": false,
+      "exact_profile": true,
+      "in_bounds": false,
+      "irq_path": "ack",
+      "quiescent": false,
+      "register_effect": "write-one-mask",
+      "synchronized_acquire": false,
+      "volatile_word": true
+    },
+    "root-handler-only": {
+      "capability": true,
+      "completed": true,
+      "exact_lease": true,
+      "exact_profile": true,
+      "in_bounds": true,
+      "irq_path": "nested-block",
+      "quiescent": true,
+      "register_effect": "write-one-mask",
+      "synchronized_acquire": true,
+      "volatile_word": true
+    }
+  },
+  "outcomes": {
+    "eligible": 1,
+    "refused": 2302,
+    "unknown": 1
+  },
+  "runner_sha256": "89514196d6f04ce902ed3ddf909d2e7fa814b998654c68cda6252d4f580b0e34"
+}

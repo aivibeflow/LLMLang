@@ -1,0 +1,150 @@
+{
+  "controls": {
+    "citation-as-recorded-run": "out-of-scope",
+    "diagnostic-as-proof": "unbound",
+    "moving-edition": "unbound",
+    "proposal-as-recorded-run": "out-of-scope",
+    "same-citation-unapproved": "unapproved",
+    "same-path-other-blob": "unbound",
+    "source-as-proof": "unbound",
+    "unknown-issuer": "unbound",
+    "wrong-fragment": "unbound",
+    "wrong-revision": "unbound"
+  },
+  "eligible_by_use": {
+    "describe-inventory": [
+      "specification",
+      "design",
+      "implementation",
+      "contract",
+      "requirement",
+      "dependency",
+      "diagnostic",
+      "test",
+      "proof-evidence",
+      "documentation",
+      "external-reference"
+    ],
+    "discover-reading": [
+      "documentation",
+      "external-reference"
+    ],
+    "retrieve-project-proposal": [
+      "specification",
+      "design",
+      "implementation",
+      "contract",
+      "requirement"
+    ],
+    "review-recorded-run": [
+      "dependency",
+      "diagnostic",
+      "test",
+      "proof-evidence"
+    ]
+  },
+  "git": "git version 2.56.1",
+  "snapshot": "9f205b677bd0cba9b3806ccb54ab992a3face722",
+  "sources": {
+    "contract": {
+      "blob": "3cfedfb455ec3c60409d177c90decb00661b417e",
+      "external_locator": null,
+      "issuer": "project",
+      "limit": "candidate contract model",
+      "line": 27,
+      "path": "research/semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md",
+      "sha256": "1b01f2ba2be9d6e82eb789cfa034c6fa3f0913f537f7e2e3db14a92d598417af"
+    },
+    "dependency": {
+      "blob": "8151320ee9c15e38b3e035bb2130c6924fe4df93",
+      "external_locator": null,
+      "issuer": "graph-observation",
+      "limit": "archived typed-difference input",
+      "line": 5,
+      "path": "research/toolchain-and-collaboration/RT-24/TYPED-SEMANTIC-DIFF-01/evidence.json",
+      "sha256": "bf5d55473a202a504674e26d9cb0271b2065515b875002e98b3f6315c3b9ed0b"
+    },
+    "design": {
+      "blob": "74a9f6ac59eade126fa6106f57ff07c3f0b1e631",
+      "external_locator": null,
+      "issuer": "project",
+      "limit": "proposal",
+      "line": 1,
+      "path": "research/toolchain-and-collaboration/RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
+      "sha256": "6b2c14b147bddcd9b73c5ffa7efe5f6503515567a96ebf147def4c0ecfbde723"
+    },
+    "diagnostic": {
+      "blob": "55eb44470a9bc5434d54366698afbbebea0c1a1e",
+      "external_locator": null,
+      "issuer": "tool-observation",
+      "limit": "negative control diagnostic",
+      "line": 3,
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/lean-transition-state-results/false-claim-output.txt",
+      "sha256": "378e1790e3de35cd96beb05db731b47783ecc9901d078cdb035f663c89d3a1bd"
+    },
+    "documentation": {
+      "blob": "81db303e1550ef0454b5fe1fb01bd09e29da8ff4",
+      "external_locator": null,
+      "issuer": "project",
+      "limit": "overview",
+      "line": 9,
+      "path": "README.md",
+      "sha256": "fc4050c289b29112d35511ee6211491a51b872669cda88dd38c8675d58c43205"
+    },
+    "external-reference": {
+      "blob": "4c51e134316d1fdb5941fd60f069ff40f13d212a",
+      "external_locator": "https://smt-lib.org/papers/smt-lib-reference-v2.7-r2026-09-09.pdf",
+      "issuer": "curated-reference",
+      "limit": "version-specific citation only",
+      "line": 31,
+      "path": "research/references/README.md",
+      "sha256": "59769d129401eb4ef5734c8f4a514893bb7901fd5561c566cbde199417b592d5"
+    },
+    "implementation": {
+      "blob": "14208e777ded0b1a991d3f9495adf40e085cb899",
+      "external_locator": null,
+      "issuer": "project",
+      "limit": "illustrative source",
+      "line": 19,
+      "path": "draft/examples/0003-calculator/main.llmlang",
+      "sha256": "f94159a53d13df1fa99d0b94aec294bf2ab0a3bd8785453904f201b36e76e8f5"
+    },
+    "proof-evidence": {
+      "blob": "9b8b1ab7a26359e2b0134ba4a32c41d2d61eb0e6",
+      "external_locator": null,
+      "issuer": "verification",
+      "limit": "archived checker receipt",
+      "line": 17,
+      "path": "research/formal-verification/PROOF-OBLIGATION-BENCHMARK/lean-transition-state-results/summary.json",
+      "sha256": "6123a1b5e55c9d74faacac28754b2e4c715a250da95a4e93f3e7c7e3640631c3"
+    },
+    "requirement": {
+      "blob": "87734ab2f265d2b33177cd9ae055979c7d7b76a8",
+      "external_locator": null,
+      "issuer": "project",
+      "limit": "fixture requirement",
+      "line": 6,
+      "path": "research/language-design/RT-02/REQUIREMENT-BACKENDS-01/requirements.json",
+      "sha256": "7ad2eaff17802c3350894fc51e8903ebb0dd6732a3f220c037050d994eeb774a"
+    },
+    "specification": {
+      "blob": "26eb7aa09090fc68d94b13c0978e1a09e4267d1e",
+      "external_locator": null,
+      "issuer": "project",
+      "limit": "example behavior",
+      "line": 1,
+      "path": "examples/0003-calculator.md",
+      "sha256": "92e6bc0311a6e7458508731aaa24e703cec17faac09677f2f2616cce15e2edf3"
+    },
+    "test": {
+      "blob": "2e45c57fbe44bf5cb4971b2457141d134fa26ddf",
+      "external_locator": null,
+      "issuer": "verification",
+      "limit": "test definition",
+      "line": 88,
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/tests/test_call_site_refactor.py",
+      "sha256": "52da2b3d154a83c6bd2862aad796bec16b141b0b89ad2116bdd6f938a553d344"
+    }
+  },
+  "tree": "6234fffcb869672f007add076e2d8ef2d9b35172"
+}

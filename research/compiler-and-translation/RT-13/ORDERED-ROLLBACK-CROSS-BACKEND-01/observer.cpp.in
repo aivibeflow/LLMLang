@@ -1,0 +1,57 @@
+#include <cstdio>
+
+int main() {
+    int initial, delta, acquisition, write, rollback, release;
+    while (std::scanf("%d %d %d %d %d %d", &initial, &delta, &acquisition, &write,
+                      &rollback, &release) == 6) {
+        int state = initial, primary = 0, cleanup = 0, value = -1, owned = acquisition;
+        int events[4], count = 0;
+        if (!acquisition) {
+            primary = @P_ACQUIRE@;
+            events[count++] = @E_ACQUIRE_DENIED@;
+        } else {
+            events[count++] = @E_ACQUIRED@;
+            int proposed = initial + delta;
+            if (proposed < 0 || proposed > @MAX@) {
+                primary = @P_RANGE@;
+                events[count++] = @E_RANGE@;
+            } else {
+                state = proposed;
+                if (write) {
+                    value = proposed;
+                    events[count++] = @E_COMMITTED@;
+                } else {
+                    primary = @P_WRITE@;
+                    events[count++] = @E_WRITE_PARTIAL@;
+                    if (rollback) {
+                        #ifndef SKIP_RESTORE
+                        state = initial;
+                        #endif
+                        events[count++] = @E_ROLLED_BACK@;
+                    } else {
+                        cleanup |= @C_ROLLBACK@;
+                        events[count++] = @E_ROLLBACK_FAILED@;
+                    }
+                }
+            }
+            if (release) {
+                owned = 0;
+                #ifndef ERASE_RELEASE_EFFECT
+                events[count++] = @E_RELEASED@;
+                #endif
+            } else {
+                #ifndef ERASE_CLEANUP_ERROR
+                cleanup |= @C_RELEASE@;
+                #endif
+                #ifndef ERASE_RELEASE_EFFECT
+                events[count++] = @E_RELEASE_FAILED@;
+                #endif
+            }
+        }
+        std::printf("%d %d %d %d %d", primary, cleanup, value, state, owned);
+        for (int index = 0; index < count; ++index) {
+            std::printf(" %d", events[index]);
+        }
+        std::puts("");
+    }
+}

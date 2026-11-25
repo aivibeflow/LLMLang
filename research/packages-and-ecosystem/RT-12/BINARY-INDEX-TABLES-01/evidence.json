@@ -1,0 +1,61 @@
+{
+  "empty_tables_round_trip": 4,
+  "input_providers": 3,
+  "input_permutations": 6,
+  "lookup_observations": 1224,
+  "max_decoded_rows_per_lookup": {
+    "objects": 7,
+    "dependencies": 7,
+    "exports": 7,
+    "modules": 4
+  },
+  "logical_index_sha256": "sha256:a59d0fffdc98f4189adb188fce6ea97ce40f86db1a3ec6aaa3771b0c8a206134",
+  "binary_table_sha256": {
+    "objects": "fe018314f0aecc130d6798943867e69c2104745bb3b85cdee7f6267b7e01799e",
+    "dependencies": "773f879da9729942dcddb93ab9e1ce9457dc913f02181c2fcb79d82d1b608da9",
+    "exports": "53982617073561a66922fc3e0f1f0e0252b3940db6cb18b60faf29806880fbfe",
+    "modules": "3b303d07a0ba1295a223a488b2327e694bdfd836d3ebcbe6fa055e58e34392e2"
+  },
+  "table_sizes": {
+    "objects": {
+      "binary": 3470,
+      "compact_jsonl": 7104,
+      "rows": 64
+    },
+    "dependencies": {
+      "binary": 5262,
+      "compact_jsonl": 15048,
+      "rows": 64
+    },
+    "exports": {
+      "binary": 2926,
+      "compact_jsonl": 7712,
+      "rows": 64
+    },
+    "modules": {
+      "binary": 2162,
+      "compact_jsonl": 4988,
+      "rows": 8
+    }
+  },
+  "negative": {
+    "malformed_tables_refused": [
+      "bad-dependency-boolean",
+      "duplicate-keys",
+      "first-offset-not-zero",
+      "invalid-utf8",
+      "offset-beyond-row-section",
+      "reversed-keys",
+      "short-row-body",
+      "unsorted-module-members",
+      "untracked-tail-bytes",
+      "wrong-table-tag"
+    ],
+    "conflicting_merge_preserved_destination": true
+  },
+  "source_sha256": {
+    "research/packages-and-ecosystem/RT-12/BINARY-INDEX-TABLES-01/run.py": "1a61d8a9227c22f4b0c4ce3b4b769a2575d180a324d743ac950308b03f0642b0",
+    "research/packages-and-ecosystem/RT-12/BINARY-INDEX-TABLES-01/tables.py": "ea2e93d9644a9cb2ceaa3f652c2b69e8cc1e71eff4d8464b767423e7ab0b2936",
+    "research/packages-and-ecosystem/PROTOTYPES/PACKAGE-INDEX-01/package_index.py": "e03e977aef9a7dd9764854468bf0c43875236dae700bcdc498b2286e1de6ae3c"
+  }
+}

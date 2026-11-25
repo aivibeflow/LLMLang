@@ -1,0 +1,46 @@
+{
+  "catalogs": {
+    "forked_label": "d69bf988ce02e0bff2a00d7a5295bfa9fef8058b23f4abc035290cd0d1f50bc5",
+    "incompatible_only": "81ba786a77c9197152ce3b0ad8014e340fba2ab30e6af1f413e4db50a749c3cb",
+    "initial": "097913c75a3abc9bcfd85fd2919244efb7275a2846b165428abe662ecaddfdfe",
+    "lost_leaf": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "new_release": "51e649a26006d1bb58ea178ae5b1ffad544ff09c9188bd78fada167763e055b5",
+    "retired_old": "1e0198f3df378c6dc12d394b6fd9df2480719f7d2c7207a88152fe0e97f07a34",
+    "unaccepted_only": "d82d0834b5f1dee46620e0899f64e58a975bb11bc2ad1a954c6fea79c66d51a6"
+  },
+  "controls": {
+    "changed_capabilities": "incorrect-request",
+    "different_body_same_version_label": "missing-exact-provider",
+    "forked_label_with_body_pin": "selected",
+    "forked_label_without_body_pin": "ambiguous-release",
+    "fresh_resolution_selects_newer_body": true,
+    "new_snapshot_with_old_lock": "incorrect-snapshot",
+    "retained_snapshot": "replayed",
+    "unknown_contract": "unavailable"
+  },
+  "example_exact_locks": [
+    {
+      "catalog": "097913c75a3abc9bcfd85fd2919244efb7275a2846b165428abe662ecaddfdfe",
+      "implementation": "40729f96568b92696dc9dd1c2f9da86007d35153b436980191602c1bc9488586",
+      "library": "leaf",
+      "request": "755a40626856f65e04342ba852f451c697ce0b824c968528eb34f76b3b2fe6ac",
+      "specification": "c5b8d89e6b68e93cb92c6565e85a8c86d850c4dbea29d41d8e5e097d591033cc"
+    },
+    {
+      "catalog": "51e649a26006d1bb58ea178ae5b1ffad544ff09c9188bd78fada167763e055b5",
+      "implementation": "493536b4b4a87a54a498f7e0ba91e450702079169ee0987b4954fe1de364b6b7",
+      "library": "leaf",
+      "request": "755a40626856f65e04342ba852f451c697ce0b824c968528eb34f76b3b2fe6ac",
+      "specification": "c5b8d89e6b68e93cb92c6565e85a8c86d850c4dbea29d41d8e5e097d591033cc"
+    }
+  ],
+  "order_comparisons": 16038,
+  "profiles": {
+    "ambiguous-release": 1,
+    "selected": 29,
+    "unavailable": 96
+  },
+  "python": "3.12.14",
+  "resolver": "exact-dependency-lock/v1",
+  "source_sha256": "e999eeb289935eda7c6f87e45963ed6328b5158ca9c7cbccbc4305c5b3a9bc30"
+}

@@ -1,0 +1,9 @@
+#[link(name = "receiver", kind = "static")]
+extern "C" {
+    fn rt_dispatch(receiver: u32, state: u32, change: i32, grants: u32) -> u64;
+}
+
+#[no_mangle]
+pub extern "C" fn probe(receiver: u32, state: u32, change: i32, grants: u32) -> u64 {
+    unsafe { rt_dispatch(receiver, state, change, grants) }
+}

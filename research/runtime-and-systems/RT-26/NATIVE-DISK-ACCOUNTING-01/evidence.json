@@ -1,0 +1,75 @@
+{
+  "budget_model": {
+    "admitted": 62,
+    "device_charge_exceeds_logical_cap": 42,
+    "histories": 48,
+    "refused": 82
+  },
+  "format": "native-disk-accounting-01",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "kernel": "6.18.57",
+  "logical_fields": [
+    "rchar",
+    "wchar",
+    "syscr",
+    "syscw"
+  ],
+  "logical_phases": [
+    [
+      "buffered-write",
+      [
+        0,
+        4096,
+        0,
+        1
+      ]
+    ],
+    [
+      "cached-read",
+      [
+        4096,
+        0,
+        1,
+        0
+      ]
+    ],
+    [
+      "sparse-hole",
+      [
+        8192,
+        0,
+        1,
+        0
+      ]
+    ],
+    [
+      "flush",
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    [
+      "repeat-overwrite",
+      [
+        0,
+        1024,
+        0,
+        2
+      ]
+    ],
+    [
+      "truncate",
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  ],
+  "native_phases": 36,
+  "probe": "ef01d2f8a344a5cde38847a172a30ad5440e9ae852179ea449ef56c598ba2923"
+}

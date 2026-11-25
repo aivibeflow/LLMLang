@@ -1,0 +1,103 @@
+{
+  "schema": "llmlang-offline-semantic-clone/1",
+  "python": "3.12.14",
+  "git": "git version 2.56.1",
+  "source_sha256": {
+    "run.py": "41c1f32e7d6bf08bbb1a07be3f45fb9c03bdf3855ffd5f0c8d35176d03a44e85",
+    "closed_graph_reader": "ef334ca1f35c0c24fb58847cb20328462ed656c7e5a6e6a71796f1f50532d170"
+  },
+  "commits": {
+    "first": "61bc253ce67fe00f8d34b9e083c817d27d47c0ce",
+    "second": "00403f63c17572c519df7bdec8b19ea8845121dc",
+    "manifest-only": "e28979f4ae483266929fc50ac2afa5b35c35a635",
+    "bundle": "bda1c8713324c42e229d6ca4c5c34e4e5ff62b56"
+  },
+  "roots": {
+    "1": "2a90816d4544838d5e88850d2a04bee94978175d75cb6db722c394bd81945357",
+    "2": "217fab1cdb22946124722bf063ae203eaf53e648d1c032ab7f1d65966a76581a"
+  },
+  "cases": [
+    {
+      "case": "current closure in independent full clone",
+      "outcome": "restored",
+      "objects": [
+        "1256870baaa800a21e760ed6a879854f352a857d8f28357a57ada2d11fdb927d",
+        "217fab1cdb22946124722bf063ae203eaf53e648d1c032ab7f1d65966a76581a",
+        "806b93dd41811ae057c651b706d94fe22409d227f2dc3eb05f1391edace82b64"
+      ],
+      "logical_bytes": 335
+    },
+    {
+      "case": "historical closure in independent full clone",
+      "outcome": "restored",
+      "objects": [
+        "1256870baaa800a21e760ed6a879854f352a857d8f28357a57ada2d11fdb927d",
+        "2a90816d4544838d5e88850d2a04bee94978175d75cb6db722c394bd81945357",
+        "efb53e0f4c94efdd06e8efcbe10ffe5e2897bcf536becff18d74e89c2108ba67"
+      ],
+      "logical_bytes": 335
+    },
+    {
+      "case": "current tree archive without Git history",
+      "outcome": "restored",
+      "objects": [
+        "1256870baaa800a21e760ed6a879854f352a857d8f28357a57ada2d11fdb927d",
+        "217fab1cdb22946124722bf063ae203eaf53e648d1c032ab7f1d65966a76581a",
+        "806b93dd41811ae057c651b706d94fe22409d227f2dc3eb05f1391edace82b64"
+      ],
+      "logical_bytes": 335
+    },
+    {
+      "case": "pointer-only current tree despite complete history",
+      "outcome": "missing object"
+    },
+    {
+      "case": "pointer-only archive with no history",
+      "outcome": "missing object"
+    },
+    {
+      "case": "approved historical carrier for exact pointer root",
+      "outcome": "restored",
+      "objects": [
+        "1256870baaa800a21e760ed6a879854f352a857d8f28357a57ada2d11fdb927d",
+        "217fab1cdb22946124722bf063ae203eaf53e648d1c032ab7f1d65966a76581a",
+        "806b93dd41811ae057c651b706d94fe22409d227f2dc3eb05f1391edace82b64"
+      ],
+      "logical_bytes": 335
+    },
+    {
+      "case": "wrong historical root remains refused",
+      "outcome": "historical root mismatch"
+    },
+    {
+      "case": "shallow clone contains closed current bundle",
+      "outcome": "restored",
+      "objects": [
+        "1256870baaa800a21e760ed6a879854f352a857d8f28357a57ada2d11fdb927d",
+        "217fab1cdb22946124722bf063ae203eaf53e648d1c032ab7f1d65966a76581a",
+        "806b93dd41811ae057c651b706d94fe22409d227f2dc3eb05f1391edace82b64"
+      ],
+      "logical_bytes": 335
+    },
+    {
+      "case": "shallow clone cannot restore pruned historical revision",
+      "outcome": "historical tree unavailable"
+    },
+    {
+      "case": "bundle tree archive restores without any database",
+      "outcome": "restored",
+      "objects": [
+        "1256870baaa800a21e760ed6a879854f352a857d8f28357a57ada2d11fdb927d",
+        "217fab1cdb22946124722bf063ae203eaf53e648d1c032ab7f1d65966a76581a",
+        "806b93dd41811ae057c651b706d94fe22409d227f2dc3eb05f1391edace82b64"
+      ],
+      "logical_bytes": 335
+    }
+  ],
+  "counts": {
+    "restored": 6,
+    "missing object": 2,
+    "historical root mismatch": 1,
+    "historical tree unavailable": 1
+  }
+}

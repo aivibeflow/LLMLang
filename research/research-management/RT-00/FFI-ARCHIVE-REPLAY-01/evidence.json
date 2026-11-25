@@ -1,0 +1,88 @@
+{
+  "baseline": "3281d6863c2abd2f8eb3bdb05982bd3439d3c481",
+  "byte_matched_replays": {
+    "aggregate": {
+      "git_blobs": {
+        "observations.json": "640bd993034124e5d6720153c368f517ed25b7b6",
+        "run.py": "15b67b11c8b3b1604e7c18afb509825bd778e2a6"
+      },
+      "sha256": "7931eb19cb6214294ac4551f27589521af919925bafaa3024ca3c85fd5d1b3f9"
+    },
+    "callback": {
+      "git_blobs": {
+        "observations.json": "46528d123a07d2181fdebe4a1c9d0df92fb17063",
+        "run.py": "2b7816fac7fef9b9d43e6a3f2bfb994a32ed74de"
+      },
+      "sha256": "0614f4b04727d7d8901c43ae6b273c9e9acaa10d7cf2e4b35be816e1dc69432a"
+    },
+    "conditional": {
+      "git_blobs": {
+        "evidence.json": "ed78b602de9476d3241d08b527a1a8e6aafb6ee5",
+        "run.py": "d804aeee11acaa0fb214406eb1646c2e2dd70430"
+      },
+      "sha256": "fbec73bafef646fdf3a6ce410da2940a3e31b7df523a21076470e79c59dd7671"
+    },
+    "header": {
+      "git_blobs": {
+        "observations.json": "cc39978f8ea018d5b075c53bb83b36192c5e0853",
+        "run.py": "0dec395e7e0aa820dafacab917b4229184e9f69f"
+      },
+      "sha256": "f96b831bdd0a33f167a857e4456d38778bcb5942361aad240678a85da2800536"
+    },
+    "loader": {
+      "git_blobs": {
+        "observations.json": "5fd277938c2ba38394c10170d1a89175f078f0ab",
+        "run.py": "e02270eda1e2b828b148b24f7e2b192058794ffa"
+      },
+      "sha256": "5eb49f56f8b019c9660f24991e136688bfdb060dc00c7ff8bfef309093f4fa4a"
+    },
+    "managed": {
+      "git_blobs": {
+        "observations.json": "2ea08a8728e0b08ad631b40482a98b5e30610731",
+        "run.py": "4daa5d23c0a25c9527a8dfe1b2ace142d076a4ea"
+      },
+      "sha256": "e6b245487496cd80203e0a74cb9a7bc03c9ecfa4d0ff5cee2cfc235a554a7296"
+    },
+    "package": {
+      "git_blobs": {
+        "observations.json": "8862c37de6d6a57eed83cf103647eb82fad01f6f",
+        "run.py": "5e641ff21c114d482c62fd462faab21eb14b24f9"
+      },
+      "sha256": "eb7deaa54a72c1658a68c22c4e5f47a678a8964e90bddcaf54164415090492d3"
+    },
+    "variadic": {
+      "git_blobs": {
+        "observations.json": "ba11296cbd6b96e86022485b68666dc19d910a42",
+        "run.py": "19debce57cf9fea0269ef3a648b72c6bf6f25a09"
+      },
+      "sha256": "dfe313f6788682c0f901f6266019cd1e638ce99d9006c3ba7a00d2438f0badad"
+    }
+  },
+  "checked_claims": {
+    "abi": {
+      "missing_source_promotion": 90,
+      "positive_aggregate_cases": 288,
+      "wrong_vararg_register": 240
+    },
+    "callbacks": {
+      "c_cpython_rust": 504,
+      "go_jvm": 672
+    },
+    "conditional_receipt": {
+      "controls": 15,
+      "native_observations": 1440
+    },
+    "header": {
+      "equal_signature_distinguishers": 16,
+      "imports": 19
+    },
+    "loader": {
+      "equal_output_wrong_provider": 28,
+      "processes": 126
+    },
+    "packages": {
+      "exact_rebuilt_packages": 12,
+      "reuse_after_reconnect": 6
+    }
+  }
+}

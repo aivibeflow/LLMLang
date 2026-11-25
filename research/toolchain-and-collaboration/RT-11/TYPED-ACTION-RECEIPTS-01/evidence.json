@@ -1,0 +1,132 @@
+{
+  "schema": "llmlang-typed-action-receipts/1",
+  "python": "3.12.14",
+  "runner_sha256": "06b83f8aae57dbb5a6305d655056e094511ddedf4b8514e2727823ea646deec4",
+  "tools": {
+    "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+    "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+  },
+  "cases": {
+    "baseline": {
+      "compile": {
+        "key": "c8aeff163475852b75c5e81307b7cbeca751921d85c3d00933fa26739e07ffbf",
+        "artifact": "8766c58cc55dcfd9e3ef77939e237f0bc529a3b888cb1ac28713290a429a0bdc"
+      },
+      "link": {
+        "key": "b592abcb5f7b5ec4aca6746241b1209d155a2a9b8a37c1faa90d305fc85bb61f",
+        "artifact": "0bd9f811e018c603fd8f45092aa490a2f5a89c3603b4268ff10def20fbd0a4fd"
+      },
+      "test": {
+        "key": "67c88cafe30cb4f39bc4d636bf38979c920b62cc192f41ac356dfd9184c97141",
+        "artifact": "464df3b01574bc91f04a9e6400fc565e9e5afae793659da81075ebe619e61962"
+      },
+      "proof": {
+        "key": "144cadf67e01cc9ceed39dd33e9645f19f190f025e0522ca79ec30c1f53904f8",
+        "artifact": "0219750998e4524d02b067cf08aa78f3d4b9099bdce2e671ac7da4d18abd407c"
+      }
+    },
+    "equivalent_source": {
+      "compile": {
+        "key": "9433ddac6ef407894d46b89f8f86ce188ddaec2df934d2eea5b5e0e69c1d5144",
+        "artifact": "8766c58cc55dcfd9e3ef77939e237f0bc529a3b888cb1ac28713290a429a0bdc"
+      },
+      "link": {
+        "key": "b592abcb5f7b5ec4aca6746241b1209d155a2a9b8a37c1faa90d305fc85bb61f",
+        "artifact": "0bd9f811e018c603fd8f45092aa490a2f5a89c3603b4268ff10def20fbd0a4fd"
+      },
+      "test": {
+        "key": "67c88cafe30cb4f39bc4d636bf38979c920b62cc192f41ac356dfd9184c97141",
+        "artifact": "464df3b01574bc91f04a9e6400fc565e9e5afae793659da81075ebe619e61962"
+      },
+      "proof": {
+        "key": "144cadf67e01cc9ceed39dd33e9645f19f190f025e0522ca79ec30c1f53904f8",
+        "artifact": "0219750998e4524d02b067cf08aa78f3d4b9099bdce2e671ac7da4d18abd407c"
+      }
+    },
+    "changed_implementation": {
+      "compile": {
+        "key": "7efd25d83a0a0130bea765473bc9aa7f5ebdc189dcc354449048ac6c5962fa89",
+        "artifact": "2a8a84ab3703780cbbca37a45ba501ec53b934b38951f92587f300b6e341e2ba"
+      },
+      "link": {
+        "key": "433986279c2fd40028658d53fc13c4c4465491f7e3f15d04e1bba5b814153ce7",
+        "artifact": "9ed80d1dc781d7d9745d480463058a9edb5230bf179fad6811f8e20e53b0f8dc"
+      },
+      "test": {
+        "key": "05fb0c496130b9c9cea16aff883c254137bcb19f645f9ada1acdfe21c4b183dc",
+        "artifact": "c9ee53d4339266a31b0590882cd0724c9b9c753fee44823b58697d3481ccc79f"
+      },
+      "proof": {
+        "key": "898f2206e9f87ec67c518ce0378fc6a9eeaa0e569b2733053e74e9cdb136bfa8",
+        "artifact": "17cc267a0fe92154e629d7ebd251dc638185182448a8c996c81b08de60e8b5c7"
+      }
+    },
+    "changed_tests": {
+      "compile": {
+        "key": "c8aeff163475852b75c5e81307b7cbeca751921d85c3d00933fa26739e07ffbf",
+        "artifact": "8766c58cc55dcfd9e3ef77939e237f0bc529a3b888cb1ac28713290a429a0bdc"
+      },
+      "link": {
+        "key": "b592abcb5f7b5ec4aca6746241b1209d155a2a9b8a37c1faa90d305fc85bb61f",
+        "artifact": "0bd9f811e018c603fd8f45092aa490a2f5a89c3603b4268ff10def20fbd0a4fd"
+      },
+      "test": {
+        "key": "d17f05eae0af129233a46835c037975d934aadc9a8d30760d23ad6d7ee8b5517",
+        "artifact": "e8a77d9fd61641ffa36cc62b892580ac1169106de3fe95a7787c5b26090e6e93"
+      },
+      "proof": {
+        "key": "144cadf67e01cc9ceed39dd33e9645f19f190f025e0522ca79ec30c1f53904f8",
+        "artifact": "0219750998e4524d02b067cf08aa78f3d4b9099bdce2e671ac7da4d18abd407c"
+      }
+    },
+    "changed_premise": {
+      "compile": {
+        "key": "c8aeff163475852b75c5e81307b7cbeca751921d85c3d00933fa26739e07ffbf",
+        "artifact": "8766c58cc55dcfd9e3ef77939e237f0bc529a3b888cb1ac28713290a429a0bdc"
+      },
+      "link": {
+        "key": "b592abcb5f7b5ec4aca6746241b1209d155a2a9b8a37c1faa90d305fc85bb61f",
+        "artifact": "0bd9f811e018c603fd8f45092aa490a2f5a89c3603b4268ff10def20fbd0a4fd"
+      },
+      "test": {
+        "key": "67c88cafe30cb4f39bc4d636bf38979c920b62cc192f41ac356dfd9184c97141",
+        "artifact": "464df3b01574bc91f04a9e6400fc565e9e5afae793659da81075ebe619e61962"
+      },
+      "proof": {
+        "key": "a134315cce200789154f6607b1d3e39d3d6921ea4554bb26874cf182183428fc",
+        "artifact": "5717d8277e6d729b6729766cd7fdacb73819f897e3050aacfd198d986ad5c826"
+      }
+    }
+  },
+  "changed_keys": {
+    "baseline": [],
+    "equivalent_source": [
+      "compile"
+    ],
+    "changed_implementation": [
+      "compile",
+      "link",
+      "test",
+      "proof"
+    ],
+    "changed_tests": [
+      "test"
+    ],
+    "changed_premise": [
+      "proof"
+    ]
+  },
+  "refused": {
+    "input_exact_bytes_wrong_kind": "input roles and types",
+    "input_missing": "input roles and types",
+    "input_reversed": "input roles and types",
+    "output_wrong_role": "output roles and types",
+    "mismatched_output_digest": "output payload digest",
+    "test_changed_cases": "exact action request",
+    "proof_changed_premise": "exact action request",
+    "same_statement_changed_applicability": "exact action request",
+    "proof_changed_subject": "exact action request",
+    "different_same_kind_object_role": "exact action request",
+    "test_as_proof": "exact action request"
+  }
+}

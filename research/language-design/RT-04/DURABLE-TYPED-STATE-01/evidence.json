@@ -1,0 +1,188 @@
+{
+  "format": "durable-typed-state-01",
+  "rows": [
+    {
+      "case": "wrong store scope",
+      "decision": "invalid-store-or-slot",
+      "receipts": 0,
+      "state": [
+        "owner-A",
+        1,
+        0,
+        "open",
+        null
+      ]
+    },
+    {
+      "case": "wrong owner at same generation",
+      "decision": "wrong-owner",
+      "receipts": 0,
+      "state": [
+        "owner-A",
+        1,
+        0,
+        "open",
+        null
+      ]
+    },
+    {
+      "case": "wrong typestate",
+      "decision": "invalid-phase",
+      "receipts": 0,
+      "state": [
+        "owner-A",
+        1,
+        0,
+        "open",
+        null
+      ]
+    },
+    {
+      "case": "out of constrained value domain",
+      "decision": "value-out-of-range",
+      "receipts": 0,
+      "state": [
+        "owner-A",
+        1,
+        0,
+        "open",
+        null
+      ]
+    },
+    {
+      "case": "exit-before",
+      "decision": "not-committed",
+      "exit": 41,
+      "receipts": 0,
+      "state": [
+        "owner-A",
+        1,
+        0,
+        "open",
+        null
+      ]
+    },
+    {
+      "case": "exit-after",
+      "decision": "committed",
+      "exit": 42,
+      "receipts": 1,
+      "state": [
+        "owner-A",
+        1,
+        1,
+        "sealed",
+        13
+      ]
+    },
+    {
+      "case": "same request retry after commit",
+      "decision": "retry-current",
+      "receipts": 1,
+      "state": [
+        "owner-A",
+        1,
+        1,
+        "sealed",
+        13
+      ]
+    },
+    {
+      "case": "nonce with altered payload",
+      "decision": "nonce-scope-mismatch",
+      "receipts": 1,
+      "state": [
+        "owner-A",
+        1,
+        1,
+        "sealed",
+        13
+      ]
+    },
+    {
+      "case": "new nonce with stale phase generation",
+      "decision": "stale-generation",
+      "receipts": 1,
+      "state": [
+        "owner-A",
+        1,
+        1,
+        "sealed",
+        13
+      ]
+    },
+    {
+      "case": "old exact request retrieves historical receipt only",
+      "decision": "retry-historical",
+      "receipts": 1,
+      "state": [
+        "owner-A",
+        2,
+        0,
+        "open",
+        null
+      ]
+    },
+    {
+      "case": "ABA control with same slot and generation",
+      "decision": "stale-incarnation",
+      "receipts": 1,
+      "state": [
+        "owner-A",
+        2,
+        0,
+        "open",
+        null
+      ]
+    },
+    {
+      "case": "actual competing writer",
+      "decision": "only-first-published",
+      "receipts": 2,
+      "state": [
+        "owner-A",
+        2,
+        1,
+        "sealed",
+        21
+      ]
+    },
+    {
+      "case": "winner retry confirms same durable receipt",
+      "decision": "retry-current",
+      "receipts": 2,
+      "state": [
+        "owner-A",
+        2,
+        1,
+        "sealed",
+        21
+      ]
+    },
+    {
+      "case": "other owner cannot retrieve receipt under same nonce",
+      "decision": "nonce-scope-mismatch",
+      "receipts": 2,
+      "state": [
+        "owner-A",
+        2,
+        1,
+        "sealed",
+        21
+      ]
+    },
+    {
+      "case": "representable generation exhausted",
+      "decision": "generation-exhausted",
+      "receipts": 2,
+      "state": [
+        "owner-A",
+        3,
+        9223372036854775807,
+        "open",
+        null
+      ]
+    }
+  ],
+  "sqlite": "3.53.1"
+}

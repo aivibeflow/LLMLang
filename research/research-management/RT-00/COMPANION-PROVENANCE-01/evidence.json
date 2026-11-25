@@ -1,0 +1,1343 @@
+{
+  "pinned_tree": "7d407636c4a06d1b601376bc66ea96d5a26e0b8f",
+  "totals": {
+    "ledgers": 69,
+    "nearby_reports_scanned": 712,
+    "exact_linked_reports": 58,
+    "ledgers_with_direct_link": 57,
+    "documented_tools": 56,
+    "patch_specific_tool_version": 52,
+    "doc_host": 20,
+    "tool_and_host": 20,
+    "linked_but_no_replay_tool": 1,
+    "no_direct_link": 12
+  },
+  "ledgers": [
+    {
+      "path": "research/compiler-and-translation/RT-09/INCREMENTAL-TRANSLATION-CLOSURE-01/evidence.json",
+      "blob": "e81321825a9fc43aa2f1ce5233c0a385a4b4c3eb",
+      "reports": [
+        {
+          "path": "research/compiler-and-translation/RT-09/RT-09-INCREMENTAL-TRANSLATION-CLOSURE-2026-11-25.md",
+          "blob": "d782c5ca40c968dc8eea655643809609ee59bc92",
+          "citations": [
+            {
+              "line": 37,
+              "reference": "INCREMENTAL-TRANSLATION-CLOSURE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 29,
+            "text": "Use CPython 3.12.14, GCC 14.2.0, GNU binutils 2.44 and Linux x86-64."
+          },
+          "host": {
+            "line": 29,
+            "text": "Use CPython 3.12.14, GCC 14.2.0, GNU binutils 2.44 and Linux x86-64."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-09/WASM-CHECKED-DIVISION-01/evidence.json",
+      "blob": "66ee6739b04b9fd65b19baf0465cd51b93ba65c4",
+      "reports": [
+        {
+          "path": "research/compiler-and-translation/RT-09/RT-09-WASM-CHECKED-DIVISION-2026-11-25.md",
+          "blob": "fce7f791773752e0392a8d1d450a85a5c9824fd3",
+          "citations": [
+            {
+              "line": 42,
+              "reference": "WASM-CHECKED-DIVISION-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 33,
+            "text": "Use CPython 3.12, the WABT utilities and one executable for each Node major version listed above."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/DIRECT-NATIVE-THRESHOLD-01/evidence.json",
+      "blob": "a8800b0db0179291a0d0f77421156e6f349eecb1",
+      "reports": [
+        {
+          "path": "research/compiler-and-translation/RT-13/RT-13-DIRECT-NATIVE-BACKEND-THRESHOLD-2026-11-25.md",
+          "blob": "f141e065399ffce0844200e60327a16c9467e7e0",
+          "citations": [
+            {
+              "line": 24,
+              "reference": "DIRECT-NATIVE-THRESHOLD-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 45,
+            "text": "Use the exact Clang/LLD 23.1.1 from Lean 4.36.0 at LLVM revision `6dfe1677ab8dffbc6ec13d53a1e0215d75147689`, GCC 14.2.0, GNU Binutils 2.44, glibc 2.41 and CPython 3.12.14 on Linux x86-64 with SSE2."
+          },
+          "host": {
+            "line": 45,
+            "text": "Use the exact Clang/LLD 23.1.1 from Lean 4.36.0 at LLVM revision `6dfe1677ab8dffbc6ec13d53a1e0215d75147689`, GCC 14.2.0, GNU Binutils 2.44, glibc 2.41 and CPython 3.12.14 on Linux x86-64 with SSE2."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/FFI-TARGET-PACKAGE-CACHE-01/evidence.json",
+      "blob": "b270a25cbbece56c9a90b377ec2765ff0000dcc2",
+      "reports": [
+        {
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-TARGET-PACKAGE-CACHE-2026-11-25.md",
+          "blob": "7b1da9b15a887260cabaa3138035705e446d561d",
+          "citations": [
+            {
+              "line": 26,
+              "reference": "FFI-TARGET-PACKAGE-CACHE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 26,
+            "text": "Use Debian Clang, LLD entry points and llvm-readobj 19.1.7 plus CPython 3.12.14. Two hash seeds produce matching [evidence](FFI-TARGET-PACKAGE-CACHE-01/evidence.json)."
+          },
+          "host": {
+            "line": 13,
+            "text": "On an x86-64 Linux build host, one C provider cross-builds to ELF x86-64, ELF AArch64, Mach-O ARM64 and PE/COFF x86-64. Each route uses an exact compiler target and linker entry point. It inspects object format and the linked provider's dependency table. The tiny provider uses the scoped system-library-free build configuration. The result record carries the source and package root as separate inputs."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/FFI-WINDOWS-COFF-PROFILES-01/evidence.json",
+      "blob": "c884768c650ab28bae196f89ca0621396270d8e2",
+      "reports": [
+        {
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-WINDOWS-COFF-PROFILES-2026-11-25.md",
+          "blob": "763ce17d3f0ad1203999b7fa5281a92b2cc7e662",
+          "citations": [
+            {
+              "line": 34,
+              "reference": "FFI-WINDOWS-COFF-PROFILES-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 26,
+            "text": "Use CPython 3.12.14 and the LLVM 19.1.7 Clang, LLD, archive and readobj tools."
+          },
+          "host": {
+            "line": 22,
+            "text": "These are cross-build observations on Linux. Native execution, the Windows SDK, CRT integration, signing, runtime loader behavior and PE targets beyond these two profiles remain open."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/LLVM-BITCODE-TOOLCHAIN-01/evidence.json",
+      "blob": "66bdf9075cd3e6bfeca2832c49de92f66e37c60e",
+      "reports": [
+        {
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-BITCODE-TOOLCHAIN-2026-11-25.md",
+          "blob": "dc50b1f2af0db288bdd83e4693086a95c06fe83c",
+          "citations": [
+            {
+              "line": 25,
+              "reference": "LLVM-BITCODE-TOOLCHAIN-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 29,
+            "text": "Use CPython 3.12.14, GNU readelf and pinned Clang and LLD executables for each tested version. The newer distributions are those bundled with Lean 4.34.0 and 4.36.0."
+          },
+          "host": {
+            "line": 5,
+            "text": "The fixture tests Clang and LLD 19.1.7, 22.1.4 and 23.1.1 on x86-64 Linux. Each compiler emits LLVM bitcode for two independent C source contracts. One takes a 32-bit value, while the other reads it from an explicitly supplied pointer. The fixed-width transform and its independent Python oracle are identical. Each linker produces a freestanding shared object using its LTO pipeline. Native validation calls the exact artifact for 261 unsigned input values."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/LLVM-CORRELATED-FREEZE-01/evidence.json",
+      "blob": "4a4bf21185c09b7a55f3cf732e1f51788ea1bcfb",
+      "reports": [
+        {
+          "path": "research/compiler-and-translation/RT-13/RT-13-LLVM-CORRELATED-FREEZE-2026-11-25.md",
+          "blob": "2acff9c4ca38d29920d0d59d301d1060f71b9f4e",
+          "citations": [
+            {
+              "line": 39,
+              "reference": "LLVM-CORRELATED-FREEZE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 30,
+            "text": "Use CPython 3.12.14, GCC 14.2.0, Clang and opt 19.1.7, and Lean 4.36.0 on Linux x86-64."
+          },
+          "host": {
+            "line": 30,
+            "text": "Use CPython 3.12.14, GCC 14.2.0, Clang and opt 19.1.7, and Lean 4.36.0 on Linux x86-64."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/PROFILE-GUIDED-RANKING-01/evidence.json",
+      "blob": "052e4566be7050312f48c06bc51784f762c75187",
+      "reports": [
+        {
+          "path": "research/compiler-and-translation/RT-13/RT-13-PROFILE-GUIDED-COST-RANKING-2026-11-25.md",
+          "blob": "70ac908fa59bb57b49d51fc8df16453cdc995a59",
+          "citations": [
+            {
+              "line": 27,
+              "reference": "PROFILE-GUIDED-RANKING-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 31,
+            "text": "Use CPython 3.12.14."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/compiler-and-translation/RT-13/WASI-REACTOR-WRITE-01/evidence.json",
+      "blob": "b709081d9a0bb94fff6152b9df6b59d0be06049a",
+      "reports": [
+        {
+          "path": "research/compiler-and-translation/RT-13/RT-13-WASI-REACTOR-WRITE-2026-11-25.md",
+          "blob": "9a99af63a6faf40f70c0f486151fd1934a9aefde",
+          "citations": [
+            {
+              "line": 32,
+              "reference": "WASI-REACTOR-WRITE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 23,
+            "text": "Use CPython 3.12.14, Clang and wasm-ld 19.1.7, WABT 1.0.36 and the two Node versions above."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-33/CHECKED-TRANSFER-01/evidence.json",
+      "blob": "6e6f4ba32b79dbbd34ebadebad1732adc388ebd9",
+      "reports": [
+        {
+          "path": "research/formal-verification/RT-33/RT-33-CHECKED-TRANSFER-2026-11-25.md",
+          "blob": "5225032acf08461009faab00bca00d088c886602",
+          "citations": [
+            {
+              "line": 41,
+              "reference": "CHECKED-TRANSFER-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 41,
+            "text": "Use CPython 3.12.14, cvc5 1.4.2, Carcara 1.1.0, Z3 4.13.3 and Lean 4.36.0. Use the actual distribution binaries. [Replay](CHECKED-TRANSFER-01/run.py) · [Lean theorems](CHECKED-TRANSFER-01/Transfer.lean) · [Exact solver and checker observations](CHECKED-TRANSFER-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-33/SMT-ADAPTER-COMPARISON-01/evidence.json",
+      "blob": "fa708e3b1fca057cca8b63c7256c02964c867440",
+      "reports": [
+        {
+          "path": "research/formal-verification/RT-33/RT-33-SMT-ADAPTER-COMPARISON-2026-11-25.md",
+          "blob": "01bd7b3826ee2dd96f487d3cfbc88bfe8657e810",
+          "citations": [
+            {
+              "line": 38,
+              "reference": "SMT-ADAPTER-COMPARISON-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 38,
+            "text": "Use CPython 3.12.14 with the official `cvc5==1.4.2` and `z3-solver==4.13.3.0` packages. Set the paths to cvc5 1.4.2, Z3 4.13.3 and Carcara 1.1.0. [Adapter comparison](SMT-ADAPTER-COMPARISON-01/run.py) · [Evidence](SMT-ADAPTER-COMPARISON-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-33/TYPED-PROOF-KEYS-01/evidence.json",
+      "blob": "2547cea1828de85d59973cd5b663bb7fd806d81b",
+      "reports": [
+        {
+          "path": "research/formal-verification/RT-33/RT-33-TYPED-PROOF-KEYS-2026-11-25.md",
+          "blob": "04bbd1a91c84662bc6681f1cadf1e3d281cd6381",
+          "citations": [
+            {
+              "line": 43,
+              "reference": "TYPED-PROOF-KEYS-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 43,
+            "text": "Run with CPython 3.12.14 and OpenSSL 3.5.7 from the repository root. The runner verifies the four reused prototype files against their branch revision. It creates temporary fixture keys and retains only deterministic decisions. [Executable checks](TYPED-PROOF-KEYS-01/run.py) · [Evidence](TYPED-PROOF-KEYS-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/formal-verification/RT-34/PARALLEL-EXPECTED-OUTPUT-01/evidence.json",
+      "blob": "f66ef293d8b23880056055abff83d897fda03104",
+      "reports": []
+    },
+    {
+      "path": "research/formal-verification/RT-34/READ-LOWER-AND-QUEUE-01/evidence.json",
+      "blob": "3bacd412697f2cb99a292e27d3dc60a9c13b6648",
+      "reports": []
+    },
+    {
+      "path": "research/formal-verification/RT-34/RESOURCE-CONTRACT-IR-01/evidence.json",
+      "blob": "e4d0df514ffd5289d017f8b10f923de8b00ad374",
+      "reports": []
+    },
+    {
+      "path": "research/language-design/RT-01/END-TO-END-EXAMPLES-01/evidence.json",
+      "blob": "182d6bfc37d6fe77c3cc9c1c36aa99cfb23e98b5",
+      "reports": [
+        {
+          "path": "research/language-design/RT-01/RT-01-END-TO-END-EXAMPLES-2026-11-25.md",
+          "blob": "8f6c234bd500ec5aa0054281655590b924502e7c",
+          "citations": [
+            {
+              "line": 23,
+              "reference": "END-TO-END-EXAMPLES-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 23,
+            "text": "CPython 3.12.14 with hash seeds 37 and 71 yields evidence SHA-256 `fbed91f05eaf4bcdd0ba1f8c4413a3d15ad40a6763ea728f04f07db1138756ed`. [Evidence ledger](END-TO-END-EXAMPLES-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-03/DOWNSTREAM-EDGE-01/evidence.json",
+      "blob": "69b37755ad598161ffaabdc82d64df8ae357daf4",
+      "reports": [
+        {
+          "path": "research/language-design/RT-03/RT-03-DOWNSTREAM-EDGE-EVIDENCE-2026-11-25.md",
+          "blob": "13b5b5e88e565e2b6ad3d63e78f022af8e9a259c",
+          "citations": [
+            {
+              "line": 53,
+              "reference": "DOWNSTREAM-EDGE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 53,
+            "text": "The [script](DOWNSTREAM-EDGE-01/check.py) checks exact coverage and target IDs against the old map at `5254e1a74ae4aff6d820e3b36c8a651e7dd59db4`. It records Git object IDs for each cited report in the [ledger](DOWNSTREAM-EDGE-01/evidence.json). Curated scope notes record the evidence interpretation. The script checks references and classes without rerunning native experiments. The results use CPython 3.12.14 and Git 2.56.1."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-03/PROFILE-SYNTHESIS-01/evidence.json",
+      "blob": "11bac65301c6b10570d2f8cc6c8097afd14cf821",
+      "reports": [
+        {
+          "path": "research/language-design/RT-03/RT-03-SEMANTIC-PROFILES-FOR-SYNTHESIS-2026-11-25.md",
+          "blob": "696f09d2a7e161a1c1aa01bbcfc32b64d8383a82",
+          "citations": [
+            {
+              "line": 41,
+              "reference": "PROFILE-SYNTHESIS-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 41,
+            "text": "The [checker](PROFILE-SYNTHESIS-01/check.py) verifies profile and coordinate coverage, confirms the absence of an adopted profile in the manifest and pins nine report blobs at `2ab654158352cd356ff3b577d82735816e86293e`. The [ledger](PROFILE-SYNTHESIS-01/evidence.json) uses Git 2.56.1 and CPython 3.12.14. The checks validate traceability and alignment. They do not re-run the underlying experiments or establish comparable production performance."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-04/ASYNC-RESOURCE-CANCELLATION-01/evidence.json",
+      "blob": "cf2e09a2207e561e0c543d8256770cc953b075ed",
+      "reports": []
+    },
+    {
+      "path": "research/language-design/RT-04/DEPENDENT-BOUNDARY-VALUES-01/evidence.json",
+      "blob": "2cc9dfd857962d2f3007722b1c30be92ba595a45",
+      "reports": []
+    },
+    {
+      "path": "research/language-design/RT-04/GENERIC-CONTEXT-INFERENCE-01/evidence.json",
+      "blob": "fc8274006daa7e8ff2406ccf912dbdbf9031f054",
+      "reports": []
+    },
+    {
+      "path": "research/language-design/RT-04/PRIMITIVE-ALGEBRAIC-ENCODINGS-01/evidence.json",
+      "blob": "1bb85923b25f504c01c1998dc19c1eb260241c2f",
+      "reports": []
+    },
+    {
+      "path": "research/language-design/RT-04/SCOPED-MUTABLE-REGIONS-01/evidence.json",
+      "blob": "74045f3f9a8668141bacf4491d997d2f05a51551",
+      "reports": []
+    },
+    {
+      "path": "research/language-design/RT-04/TYPED-CAPABILITY-ERRORS-01/evidence.json",
+      "blob": "95b9eaa9d2f84f7703354d2407630f9d2b0cacc7",
+      "reports": []
+    },
+    {
+      "path": "research/language-design/RT-31/FRONTEND-CONTRACT-01/evidence.json",
+      "blob": "4822ad6326fd82056a0fad12a38d218b87daf270",
+      "reports": [
+        {
+          "path": "research/language-design/RT-31/RT-31-FRONTEND-CONTRACT-2026-11-25.md",
+          "blob": "2c7d9f08daf8605fc65cbde101418048cd246ac3",
+          "citations": [
+            {
+              "line": 38,
+              "reference": "FRONTEND-CONTRACT-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 38,
+            "text": "Run from the repository root with CPython 3.12.14. The runner verifies the exact reused parsers, generator, and semantic validation sources against their pinned branch revision. [Contract adapter](FRONTEND-CONTRACT-01/contract.py) · [Replay](FRONTEND-CONTRACT-01/verify.py) · [Evidence](FRONTEND-CONTRACT-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-31/HELDOUT-REGRESSION-01/evidence.json",
+      "blob": "490338a32ae91d11910636e368806ddc0eae7fca",
+      "reports": [
+        {
+          "path": "research/language-design/RT-31/RT-31-HELDOUT-REGRESSION-2026-11-25.md",
+          "blob": "04238eee4f1736c90a45b3cb0417c8134a848f63",
+          "citations": [
+            {
+              "line": 44,
+              "reference": "HELDOUT-REGRESSION-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 44,
+            "text": "Run from the repository root with CPython 3.12.14. The runner checks exact reused sources at their pinned branch revision. [Replay](HELDOUT-REGRESSION-01/run.py) · [Per-case evidence](HELDOUT-REGRESSION-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-31/HYBRID-PROFILE-01/evidence.json",
+      "blob": "fc360f5e6acd64003418d7c2bd3a01cf61554fd9",
+      "reports": [
+        {
+          "path": "research/language-design/RT-31/RT-31-HYBRID-PROFILE-2026-11-25.md",
+          "blob": "33153333fd4e61b3f268a86096338be57a1090ed",
+          "citations": [
+            {
+              "line": 23,
+              "reference": "HYBRID-PROFILE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 38,
+            "text": "Source baseline `180d684` on `research/all`. Replay used CPython 3.12.14. Run from the repository root."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/language-design/RT-31/MCP-SESSION-DAG-01/evidence.json",
+      "blob": "bca08fb4297601a58cad3d743d46072b44c276ed",
+      "reports": [
+        {
+          "path": "research/language-design/RT-31/RT-31-MCP-SESSION-DAG-2026-11-25.md",
+          "blob": "05f451fc7f232a5fe3246bdc4119dbbe7bf63cd6",
+          "citations": [
+            {
+              "line": 19,
+              "reference": "MCP-SESSION-DAG-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 27,
+            "text": "Source baseline `9353973` on `research/all`. Replay used MCP `2025-11-25`, CPython 3.12.14 and jsonschema 4.26.0. The driver exchanges actual newline-delimited JSON-RPC with the existing RT-19 server process. Run from the repository root."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/CURRENT-CORPUS-RELATIONSHIPS-01/evidence.json",
+      "blob": "66c5ef1412624b1a176c8d01d4074ff711b9dc2a",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-CURRENT-CORPUS-RELATIONSHIPS-2026-11-25.md",
+          "blob": "d1c42709bc083b7e68f5f51b03497b629e425546",
+          "citations": [
+            {
+              "line": 52,
+              "reference": "CURRENT-CORPUS-RELATIONSHIPS-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 52,
+            "text": "Use Git 2.56.1 and CPython 3.12.14 in the branch checkout. The [ledger](CURRENT-CORPUS-RELATIONSHIPS-01/evidence.json) includes all candidate pairs, triggering files and line numbers, paragraph digests, exact source blobs and traversal results. The focused manual dispositions above remain tied to the same revision. A different extractor can change the graph and candidate population. Claim-level reading and unrecognized candidate families remain open."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/DEPENDENCY-INTEGRATION-01/evidence.json",
+      "blob": "2dc42565fa3ae769138880c7df8ae013fcda3ee3",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-DEPENDENCY-INTEGRATION-CROSSWALK-2026-11-25.md",
+          "blob": "fd39a819f82d902d5a31cbfbb8f65f7438b41e24",
+          "citations": [
+            {
+              "line": 23,
+              "reference": "DEPENDENCY-INTEGRATION-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 23,
+            "text": "Run from the branch checkout with Git 2.56.1 and CPython 3.12.14 on Linux x86-64 6.18.57. The archived [ledger](DEPENDENCY-INTEGRATION-01/evidence.json) holds the edge-by-edge report paths, target blobs, and exact input hashes. The check rereads pinned archives and recalculates the crosswalk. It uses the separate native reports for their recorded execution provenance."
+          },
+          "host": {
+            "line": 23,
+            "text": "Run from the branch checkout with Git 2.56.1 and CPython 3.12.14 on Linux x86-64 6.18.57. The archived [ledger](DEPENDENCY-INTEGRATION-01/evidence.json) holds the edge-by-edge report paths, target blobs, and exact input hashes. The check rereads pinned archives and recalculates the crosswalk. It uses the separate native reports for their recorded execution provenance."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/FFI-ARCHIVE-REPLAY-01/evidence.json",
+      "blob": "c082a41bc2c2ef47c5695c8b81e6ba34e15e5a6d",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-FFI-ARCHIVE-REPLAY-2026-11-25.md",
+          "blob": "854c0f60b71608434697aa6307bf1439b8556209",
+          "citations": [
+            {
+              "line": 3,
+              "reference": "FFI-ARCHIVE-REPLAY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 26,
+            "text": "The host was Linux 6.18.57 x86-64 with glibc 2.41. The archive and runners used Git 2.56.1, CPython 3.12.14, GCC 14.2.0, and GNU binutils 2.44. External inputs were Clang and LLD 19.1.7, Debian SQLite 3.46.1 (`3.46.1-7+deb13u2`) headers and runtime, OpenSSL 3.5.7, Rust 1.85.1, Go 1.27.4, OpenJDK 21.0.13, Lean 4.36.0, and QEMU user 10.0.13. The experiments retain their own provider assumptions and target limitations. The cross-target executions cover QEMU user mode. The conditional-receipt proofs check conditions in the Lean model and take the recorded external provider observations as inputs. This technical replay covers the eight listed artifacts under §0.1. The separate §0.2 human review remains pending."
+          },
+          "host": {
+            "line": 26,
+            "text": "The host was Linux 6.18.57 x86-64 with glibc 2.41. The archive and runners used Git 2.56.1, CPython 3.12.14, GCC 14.2.0, and GNU binutils 2.44. External inputs were Clang and LLD 19.1.7, Debian SQLite 3.46.1 (`3.46.1-7+deb13u2`) headers and runtime, OpenSSL 3.5.7, Rust 1.85.1, Go 1.27.4, OpenJDK 21.0.13, Lean 4.36.0, and QEMU user 10.0.13. The experiments retain their own provider assumptions and target limitations. The cross-target executions cover QEMU user mode. The conditional-receipt proofs check conditions in the Lean model and take the recorded external provider observations as inputs. This technical replay covers the eight listed artifacts under §0.1. The separate §0.2 human review remains pending."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/GIT-ARCHIVE-REPLAY-01/evidence.json",
+      "blob": "cd5b1b7112872bf3012c1a741799693145b9e194",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-GIT-ARCHIVE-REPLAY-2026-11-25.md",
+          "blob": "a8c65bd38c266b5f3b12006d9d23ad86c74993ad",
+          "citations": [
+            {
+              "line": 3,
+              "reference": "GIT-ARCHIVE-REPLAY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 24,
+            "text": "The native studies ran on Linux 6.18.57 x86-64 with overlayfs, Git 2.56.1, glibc 2.41, GCC 14.2.0 and CPython 3.12.14 with SQLite 3.53.1. The finite model used OpenJDK 21.0.13 and TLC `2026.11.19.180144` at `bc1b506bdcad80bb518bf3776a9161c34ff0fc4c`. The required JAR SHA-256 is `fdffef247f563ef6edbfd44958d2a82db79e7564e07cb673262d896353fa6713`. The native Git rows cover local repositories and selected process and library-call cut points on that filesystem. Physical power loss, production remote authentication and general language/bootstrap correctness remain outside this cohort."
+          },
+          "host": {
+            "line": 24,
+            "text": "The native studies ran on Linux 6.18.57 x86-64 with overlayfs, Git 2.56.1, glibc 2.41, GCC 14.2.0 and CPython 3.12.14 with SQLite 3.53.1. The finite model used OpenJDK 21.0.13 and TLC `2026.11.19.180144` at `bc1b506bdcad80bb518bf3776a9161c34ff0fc4c`. The required JAR SHA-256 is `fdffef247f563ef6edbfd44958d2a82db79e7564e07cb673262d896353fa6713`. The native Git rows cover local repositories and selected process and library-call cut points on that filesystem. Physical power loss, production remote authentication and general language/bootstrap correctness remain outside this cohort."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/OBSERVATION-EDGE-REPLAY-01/evidence.json",
+      "blob": "5d9d660843636103d52b342baff453c0bf2e6c82",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-OBSERVATION-EVIDENCE-DEPENDENCY-RECHECK-2026-11-25.md",
+          "blob": "ae5572602f467993bbec6f1422ce21606393bb11",
+          "citations": [
+            {
+              "line": 27,
+              "reference": "OBSERVATION-EDGE-REPLAY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 27,
+            "text": "Use Git 2.52.0, CPython 3.12.14, GCC Debian 14.2.0-19 on x86-64 Linux and Lean 4.36.0 revision `611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9`. The named historical commit must be available in the current repository. The [replay driver](OBSERVATION-EDGE-REPLAY-01/run.py) regenerates the [evidence ledger](OBSERVATION-EDGE-REPLAY-01/evidence.json), including the exact output digests and the source field used for each comparison count."
+          },
+          "host": {
+            "line": 27,
+            "text": "Use Git 2.52.0, CPython 3.12.14, GCC Debian 14.2.0-19 on x86-64 Linux and Lean 4.36.0 revision `611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9`. The named historical commit must be available in the current repository. The [replay driver](OBSERVATION-EDGE-REPLAY-01/run.py) regenerates the [evidence ledger](OBSERVATION-EDGE-REPLAY-01/evidence.json), including the exact output digests and the source field used for each comparison count."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/OBSERVATION-PROVENANCE-01/evidence.json",
+      "blob": "a76ee337afe4f34879e46bb5d4f757d6e374be97",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-OBSERVATION-PROVENANCE-2026-11-25.md",
+          "blob": "63a5fee2852c8bba5d15044e3a02bc8b53922f08",
+          "citations": [
+            {
+              "line": 3,
+              "reference": "OBSERVATION-PROVENANCE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 30,
+            "text": "Two runs produced identical audit ledgers on Linux 6.18.57 x86-64 with Git 2.56.1 and CPython 3.12.14. Run from the repository root with the named commits available locally."
+          },
+          "host": {
+            "line": 30,
+            "text": "Two runs produced identical audit ledgers on Linux 6.18.57 x86-64 with Git 2.56.1 and CPython 3.12.14. Run from the repository root with the named commits available locally."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/RELATIONSHIP-CUE-ADJUDICATION-01/evidence.json",
+      "blob": "2da0bdc97b29915aa9e907f66110600b1588a848",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-REPLACEMENT-AND-CONFLICT-CUE-REVIEW-2026-11-25.md",
+          "blob": "a5c2a2cfcf83c1c107607224bbdadd5449ed321f",
+          "citations": [
+            {
+              "line": 7,
+              "reference": "RELATIONSHIP-CUE-ADJUDICATION-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 34,
+            "text": "Run with Git 2.56.1 and CPython 3.12.14. The test reads the old screen and archive, verifies blob identities for source lines, and reproduces the disposition ledger. The semantic disposition itself records a reading of the cue evidence. A score or keyword match cannot establish logical compatibility. Retain whole reports, including the historical status claims in their original scope. Translation-only cues, newly added reports outside this pin, uncued claim pairs and exhaustive contradiction proof remain outside this adjudication."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/TIMING-PROVENANCE-01/evidence.json",
+      "blob": "02b9da8db19b9f5a4dbfe7702f007675df79ca90",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-C-TIMING-PROVENANCE-2026-11-25.md",
+          "blob": "c57f19dd54b5658fc35fe3e06bacb64cdb2aa5b4",
+          "citations": [
+            {
+              "line": 35,
+              "reference": "TIMING-PROVENANCE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 35,
+            "text": "The [runner](TIMING-PROVENANCE-01/check.py) reads Git blobs from the pinned revision and from the older exact source recorded by RT-11. The [ledger](TIMING-PROVENANCE-01/evidence.json) records the selected counts, host fields and result dispositions. The source audit used CPython 3.12.14 and Git 2.56.1. Hash seeds 37 and 71 produced identical ledgers."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/TOOLCHAIN-DEPENDENCY-01/evidence.json",
+      "blob": "b46d749906964e6b73d745376c4c1882b018268a",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-TOOLCHAIN-PUBLICATION-DEPENDENCIES-2026-11-25.md",
+          "blob": "44a590e052d108e0ee40d13714ac2b3ae80e1ede",
+          "citations": [
+            {
+              "line": 29,
+              "reference": "TOOLCHAIN-DEPENDENCY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 29,
+            "text": "Linux x86-64, Git 2.56.1, CPython 3.12.14, SQLite 3.53.1, GCC 14.2.0 with glibc 2.41 and OpenJDK 21.0.13. The TLC fixture requires the [pinned JAR](../../toolchain-and-collaboration/RT-19/RT-19-PUBLICATION-RECOVERY-CONTRACT-2026-11-25.md#reproduce). The runner archives the pinned revision into a fresh directory, reruns each entry point, compares bytes and verifies that the reported counts and fault categories agree. The [ledger](TOOLCHAIN-DEPENDENCY-01/evidence.json) stores each runner and expected Git blob, matching SHA-256, original register rows and derived counts. The table reports categorical evidence without an aggregate performance metric."
+          },
+          "host": {
+            "line": 29,
+            "text": "Linux x86-64, Git 2.56.1, CPython 3.12.14, SQLite 3.53.1, GCC 14.2.0 with glibc 2.41 and OpenJDK 21.0.13. The TLC fixture requires the [pinned JAR](../../toolchain-and-collaboration/RT-19/RT-19-PUBLICATION-RECOVERY-CONTRACT-2026-11-25.md#reproduce). The runner archives the pinned revision into a fresh directory, reruns each entry point, compares bytes and verifies that the reported counts and fault categories agree. The [ledger](TOOLCHAIN-DEPENDENCY-01/evidence.json) stores each runner and expected Git blob, matching SHA-256, original register rows and derived counts. The table reports categorical evidence without an aggregate performance metric."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/TRACKED-ARCHIVE-REPLAY-01/evidence.json",
+      "blob": "fa6f90afd702b2449713974c7ae7aa67430d3776",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-TRACKED-ARCHIVE-REPLAY-2026-11-25.md",
+          "blob": "60207bd09ffc1c6d7f3f25b9df34a5d801e4d89b",
+          "citations": [
+            {
+              "line": 12,
+              "reference": "TRACKED-ARCHIVE-REPLAY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 39,
+            "text": "Use the tools pinned in the source reports. This replay used CPython 3.12.14, GCC/G++ 14.2.0, GNU binutils 2.44, Clang 19.1.7 (3+b1), Go 1.27.4, Rust and Cargo 1.85.1, Lean 4.36.0, OpenSSL 3.5.7 and Matplotlib 3.10.8 on Linux x86-64. The exact host-dependent receipts also use the Linux kernel, filesystem, CPU and affinity fields in their original evidence. Cache setup for the dependency-bearing routes is described in the linked reports. [Rust dependency setup](../../compiler-and-translation/RT-30/RT-30-RUST-WRAPPING-ROUNDTRIP-2026-11-25.md) · [Go dependency setup](../../packages-and-ecosystem/RT-12/RT-12-INDEPENDENT-PACKAGE-IDENTITY-2026-11-25.md) · [Musl sysroot](../../runtime-and-systems/RT-10/RT-10-POSIX-CROSS-LIBC-2026-11-25.md)"
+          },
+          "host": {
+            "line": 39,
+            "text": "Use the tools pinned in the source reports. This replay used CPython 3.12.14, GCC/G++ 14.2.0, GNU binutils 2.44, Clang 19.1.7 (3+b1), Go 1.27.4, Rust and Cargo 1.85.1, Lean 4.36.0, OpenSSL 3.5.7 and Matplotlib 3.10.8 on Linux x86-64. The exact host-dependent receipts also use the Linux kernel, filesystem, CPU and affinity fields in their original evidence. Cache setup for the dependency-bearing routes is described in the linked reports. [Rust dependency setup](../../compiler-and-translation/RT-30/RT-30-RUST-WRAPPING-ROUNDTRIP-2026-11-25.md) · [Go dependency setup](../../packages-and-ecosystem/RT-12/RT-12-INDEPENDENT-PACKAGE-IDENTITY-2026-11-25.md) · [Musl sysroot](../../runtime-and-systems/RT-10/RT-10-POSIX-CROSS-LIBC-2026-11-25.md)"
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/RT-00/VERIFICATION-DEPENDENCIES-01/evidence.json",
+      "blob": "1da5c4aebf89f06ccf91b3a808de2e40f21785d5",
+      "reports": [
+        {
+          "path": "research/research-management/RT-00/RT-00-VERIFICATION-DEPENDENCIES-2026-11-25.md",
+          "blob": "aa6dba58760f196958e2e818f454d39291d0dcb7",
+          "citations": [
+            {
+              "line": 43,
+              "reference": "VERIFICATION-DEPENDENCIES-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 30,
+            "text": "Run from the branch checkout with CPython 3.12.14, OpenJDK 21.0.13 and OpenSSL 3.5.7. The individual linked reports specify the exact versions, checked package fingerprints and launch paths. The temporal replay needs the generated Shai stubs and `grpcio` dependencies. The SMT replay needs its versioned Python solver bindings. Add those to `PYTHONPATH`. The Why3 replay uses the extracted Debian package launcher recorded in its report. Use absolute executable paths for the tools below."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/research-management/SCALABILITY-METRICS-01/evidence.json",
+      "blob": "d12f9e6db8eca2d6f8bda7d33ee5f94fbd4c9173",
+      "reports": [
+        {
+          "path": "research/research-management/SCALABILITY-METRICS-2026-11-25.md",
+          "blob": "cec2a451d2da99c3162224362b2bc2672c95c6ea",
+          "citations": [
+            {
+              "line": 41,
+              "reference": "SCALABILITY-METRICS-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 29,
+            "text": "Use CPython 3.12.14. This replays the statistics over committed measurements. Each source report records how to collect fresh samples."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-10/RESUMABLE-EXECUTION-01/evidence.json",
+      "blob": "62f9df474900ee87406f166ba3b638b382459a39",
+      "reports": []
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/ESP32-SCHEDULING-PROFILES-01/evidence.json",
+      "blob": "1c71ebc824899386e85aba0594d34eab2588ea63",
+      "reports": [
+        {
+          "path": "research/runtime-and-systems/RT-37/RT-37-ESP32-SCHEDULING-AND-RADIO-2026-11-25.md",
+          "blob": "0508e20e9b33eb08b41c94ba31900c1f038e1f11",
+          "citations": [
+            {
+              "line": 34,
+              "reference": "ESP32-SCHEDULING-PROFILES-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 32,
+            "text": "The [firmware and checker](ESP32-SCHEDULING-PROFILES-01/) use the ESP-IDF v5.5.3 revision `2c211b236707889e8400c4dc5644dd5c4ee071e0` and gitlinks, including Wi-Fi library revision `e0befaa593277b4e80726079fbd521b4681754c2`. Use the [same Python package versions as the cross-MCU pilot](MCU-GPIO-TIMER-UART-01/esp-replay-requirements.txt), CPython 3.12.14 and GNU readelf 2.44. Use the ESP-IDF-recommended Xtensa GCC and RV32 GCC bundles and Espressif QEMU 9.2.2 for each architecture. The RV32 GCC Linux archive SHA-256 is `1d3a1b6a064686d9b77c4db7731f82e26c072e312e27969c45fe96410ecb2671`. The RV32 QEMU archive SHA-256 is `373b37a68bae3ef441ead24a7bfc950fcbfc274cbdd2b628fc6915f179eb1d8e`. [Vendor tools manifest](https://github.com/espressif/esp-idf/blob/2c211b236707889e8400c4dc5644dd5c4ee071e0/tools/tools.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/RESOURCE-AND-DEADLINE-01/evidence.json",
+      "blob": "2ae7b758dd9c6efb147a03cb2b7ba9701b2b5852",
+      "reports": [
+        {
+          "path": "research/runtime-and-systems/RT-37/RT-37-RESOURCE-AND-DEADLINE-BOUNDS-2026-11-25.md",
+          "blob": "679210255e4e9a7d32c33aa8bbebd5e637bf7cbc",
+          "citations": [
+            {
+              "line": 32,
+              "reference": "RESOURCE-AND-DEADLINE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 32,
+            "text": "Replay with CPython 3.12.14 using the committed program-header captures. Two hash seeds produced byte-identical [evidence](RESOURCE-AND-DEADLINE-01/evidence.json). Optional ELF arguments verify their artifact digests and recapture the headers with GNU readelf 2.44. A rebuilt ESP32 image with different build metadata requires a corresponding new artifact receipt. [F103 headers](RESOURCE-AND-DEADLINE-01/f1-program-headers.txt) · [F407 headers](RESOURCE-AND-DEADLINE-01/f4-program-headers.txt) · [ESP32 headers](RESOURCE-AND-DEADLINE-01/esp-program-headers.txt)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-37/TARGET-CLOSURE-CROSSWALK-01/evidence.json",
+      "blob": "9d04995c15bbf964fed6cc742594d2a24bd8357f",
+      "reports": [
+        {
+          "path": "research/runtime-and-systems/RT-37/RT-37-EXECUTION-CLOSURE-AND-ALLOCATION-PROFILES-2026-11-25.md",
+          "blob": "f31659e0360d44dace947bf9111f66f466a1eb0c",
+          "citations": [
+            {
+              "line": 25,
+              "reference": "TARGET-CLOSURE-CROSSWALK-01/evidence.json"
+            }
+          ],
+          "tool": null,
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/runtime-and-systems/RT-38/COMPOSED-WAKEUP-AND-REUSE-01/evidence.json",
+      "blob": "9b4e114e7a805639a55219465d3a67104b58cf85",
+      "reports": [
+        {
+          "path": "research/runtime-and-systems/RT-38/RT-38-COMPOSED-WAKEUP-AND-REUSE-2026-11-25.md",
+          "blob": "ab54116d4a3fcb955b6fbf59bef8d24f1e9958f8",
+          "citations": [
+            {
+              "line": 33,
+              "reference": "COMPOSED-WAKEUP-AND-REUSE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 33,
+            "text": "CPython 3.12.14 reproduced the [ledger](COMPOSED-WAKEUP-AND-REUSE-01/evidence.json) with two hash seeds. It records source evidence digests and ordered dispositions."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/security/RT-16/ISOLATION-BOUNDARY-01/evidence.json",
+      "blob": "e3cb38fd1b7ea6377c3ade7d16677aad2d5338cb",
+      "reports": [
+        {
+          "path": "research/security/RT-16/RT-16-ISOLATION-AND-MEDIATED-EFFECTS-2026-11-25.md",
+          "blob": "a6637b7e57b3d6ed2f04d8b4094848abf55fbec0",
+          "citations": [
+            {
+              "line": 35,
+              "reference": "ISOLATION-BOUNDARY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 35,
+            "text": "Use CPython 3.12.14. Hash seeds 37 and 71 produce evidence SHA-256 `8f0dd3576d158d0aa09b9369187864ba92252567ea71a0d99614c189dff258d0`. Each original study provides its separate replay commands. [Evidence reconciliation](ISOLATION-BOUNDARY-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/security/RT-16/PROVENANCE-BOUNDARY-01/evidence.json",
+      "blob": "d3ef0039938e514b46fc477e8a79fcf5e1c875d5",
+      "reports": [
+        {
+          "path": "research/security/RT-16/RT-16-PROVENANCE-AND-REBUILD-BOUNDARY-2026-11-25.md",
+          "blob": "e98b29360056e314468795acbceaf137f70c4632",
+          "citations": [
+            {
+              "line": 41,
+              "reference": "PROVENANCE-BOUNDARY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 41,
+            "text": "Use CPython 3.12.14. Hash seeds 37 and 71 produce the same evidence SHA-256 `35906f4e6eb73efbe2013f1c0c60b668d8fcdfe3e33183b745fe36a0709a8164`. Each source study provides its own original replay. [Reconciliation ledger](PROVENANCE-BOUNDARY-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-35/ANN-FILTER-01/evidence.json",
+      "blob": "79ac487a3132d999b902bf7528a07302c1f612c6",
+      "reports": [
+        {
+          "path": "research/semantic-representation/RT-35/RT-35-ANN-CONTRACT-FILTER-2026-11-25.md",
+          "blob": "6f6666e84648f2ea9e036e2bd8b2ffbcb8f3a596",
+          "citations": [
+            {
+              "line": 27,
+              "reference": "ANN-FILTER-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 33,
+            "text": "Source baseline `7883946` on `research/all`. Replay used CPython 3.12.14, NumPy 2.3.5, SciPy 1.17.0 and a fixed PCG64 seed. Run from the repository root."
+          },
+          "host": null
+        },
+        {
+          "path": "research/semantic-representation/RT-35/RT-35-CHANNEL-COST-AND-CORPUS-2026-11-25.md",
+          "blob": "051339f18e3952fe5e474c8902b98039477f48cf",
+          "citations": [
+            {
+              "line": 62,
+              "reference": "ANN-FILTER-01/evidence.json"
+            }
+          ],
+          "tool": null,
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/semantic-representation/RT-35/BOUND-NATIVE-CALL-01/evidence.json",
+      "blob": "ce9c5fbc5aa2cfa0e6f00bb3e439437d6db94b6f",
+      "reports": [
+        {
+          "path": "research/semantic-representation/RT-35/RT-35-BOUND-NATIVE-CALL-2026-11-25.md",
+          "blob": "35548182f91bc2b270655dd822091d43bd5bc848",
+          "citations": [
+            {
+              "line": 20,
+              "reference": "BOUND-NATIVE-CALL-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 26,
+            "text": "Source baseline `bdb404a` on `research/all`. Replay used Linux 6.18.57, CPython 3.12.14, GCC 14.2.0, glibc 2.41 and SciPy 1.17.0. The Linux profile requires executable memory files, seals and procfs descriptor access. Exact artifact hashes depend on the static compiler and libc. Run from the repository root."
+          },
+          "host": {
+            "line": 26,
+            "text": "Source baseline `bdb404a` on `research/all`. Replay used Linux 6.18.57, CPython 3.12.14, GCC 14.2.0, glibc 2.41 and SciPy 1.17.0. The Linux profile requires executable memory files, seals and procfs descriptor access. Exact artifact hashes depend on the static compiler and libc. Run from the repository root."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/BUILD-STAGE-REPLAY-01/evidence.json",
+      "blob": "1ecbc2b876f1c15ff64a2058e42f8e6fca29d1ce",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-11/RT-11-BUILD-STAGE-REPLAY-2026-11-25.md",
+          "blob": "8992e865dbb381a7719a81b48f0a975ce2918419",
+          "citations": [
+            {
+              "line": 15,
+              "reference": "BUILD-STAGE-REPLAY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 39,
+            "text": "Use CPython 3.12.14, Debian Clang 19.1.7 `1:19.1.7-3+b1` with its matching libraries, GNU Make 4.4.1 and Git 2.56.1. Set `CLANG` to its absolute executable path and run from the checkout root on x86-64 Linux. Adjust the CPU number to an allowed CPU if needed."
+          },
+          "host": {
+            "line": 39,
+            "text": "Use CPython 3.12.14, Debian Clang 19.1.7 `1:19.1.7-3+b1` with its matching libraries, GNU Make 4.4.1 and Git 2.56.1. Set `CLANG` to its absolute executable path and run from the checkout root on x86-64 Linux. Adjust the CPU number to an allowed CPU if needed."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/CROSS-LANGUAGE-RECEIPTS-01/evidence.json",
+      "blob": "6afdc53a362c6d4c475bc52546bfa8cc4c403c76",
+      "reports": []
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-11/PACKAGE-CACHE-DELIVERY-01/evidence.json",
+      "blob": "a8cc2ffa3cd6e622340127ec4d8858dc5893d52b",
+      "reports": []
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-BOUNDARIES-01/evidence.json",
+      "blob": "04ac100c2d186765eecef7ffd79b78e222faf8d8",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-BOUNDARIES-2026-11-25.md",
+          "blob": "b028a6d9bfab841a0f39203462c77e4ac24cb2db",
+          "citations": [
+            {
+              "line": 40,
+              "reference": "CONTEXT-BOUNDARIES-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 40,
+            "text": "Run with CPython 3.12 from the repository root. The verifier checks the three reused implementation blobs against their recorded supporting revision. [Executable fixture](CONTEXT-BOUNDARIES-01/run.py) · [Evidence](CONTEXT-BOUNDARIES-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-CANDIDATE-COVERAGE-01/evidence.json",
+      "blob": "59f8838bef1cf1b677f7be87eab6ee220591fba4",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-CANDIDATE-AND-TASK-OWNERSHIP-2026-11-25.md",
+          "blob": "09450b5fe1307a9156b378e6c08bc9b741929924",
+          "citations": [
+            {
+              "line": 33,
+              "reference": "CONTEXT-CANDIDATE-COVERAGE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 33,
+            "text": "CPython 3.12.14 and Python hash seeds 37 and 71 produce evidence SHA-256 `a5deec2fc2630cdd94b0812a40a2ff6729708a30734e6acbb06db6eeb76c84d1`. [Evidence ledger](CONTEXT-CANDIDATE-COVERAGE-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-FIXTURE-SCORING-01/evidence.json",
+      "blob": "69303b6ad71351c9ac0209c7698b5abae6a03a9c",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-FIXTURE-SCORING-2026-11-25.md",
+          "blob": "b9f821fe0a4e5580d5f8b6d94a8911c26e232d9e",
+          "citations": [
+            {
+              "line": 24,
+              "reference": "CONTEXT-FIXTURE-SCORING-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 24,
+            "text": "The checker pins the original corpus ledger and independently enumerates its expected readiness labels. CPython 3.12.14 and hash seeds 37 and 71 produce evidence SHA-256 `21b7cfef0b43f69052a23fa81e0fa004f9d98f5ba1ed2dabc2774912d355b550`. [Evidence ledger](CONTEXT-FIXTURE-SCORING-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-IDENTITY-01/evidence.json",
+      "blob": "722c82fbcd527541f6a8a6e6bc6de6a7409212e5",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-IDENTITY-2026-11-25.md",
+          "blob": "587edc4b4da50c6c75da22c9f3df329701b58461",
+          "citations": [
+            {
+              "line": 41,
+              "reference": "CONTEXT-IDENTITY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 41,
+            "text": "Run with CPython 3.12 from the repository root. [Model](CONTEXT-IDENTITY-01/run.py) · [Recorded decision matrix](CONTEXT-IDENTITY-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-PROJECTIONS-01/evidence.json",
+      "blob": "62e09d62ac48f99060937f9bf6926a71cac0d6f5",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-PROJECTIONS-2026-11-25.md",
+          "blob": "4623c501a210711ba96974d1792669787c7332b7",
+          "citations": [
+            {
+              "line": 38,
+              "reference": "CONTEXT-PROJECTIONS-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 38,
+            "text": "Run from the repository root with CPython 3.12. The script uses the standard library. [Executable model](CONTEXT-PROJECTIONS-01/run.py) · [Recorded evidence](CONTEXT-PROJECTIONS-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/CONTEXT-TOKENS-01/evidence.json",
+      "blob": "756b5a7638370c095b1cafb51c56d7ae7ce15135",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-14/RT-14-CONTEXT-TOKENS-2026-11-25.md",
+          "blob": "f89c973aa2333a4ca9150dc8156b0a798f71ad23",
+          "citations": [
+            {
+              "line": 18,
+              "reference": "CONTEXT-TOKENS-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 33,
+            "text": "Source baseline `51a3f0e` on `research/all`. Replay used CPython 3.12.14 and tiktoken 0.12.0. The Linux x86-64 CPython 3.12 wheel has SHA-256 `edde1ec917dfd21c1f2f8046b86348b0f54a2c0547f68149d8600859598769ad`. The vocabulary bytes below are available in the pinned Rust crate and match the expected digest in the Python release. [Python package](https://pypi.org/project/tiktoken/0.12.0/) · [Vocabulary archive](https://static.crates.io/crates/tiktoken-rs/tiktoken-rs-0.7.0.crate)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-14/TASK-PRODUCERS-01/evidence.json",
+      "blob": "e0876794c2c1c410f9abdb930077ad9644c7fbcd",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-14/RT-14-TASK-PRODUCERS-2026-11-25.md",
+          "blob": "3f785f150f1143ffb8ea5a725395ca260ba12c87",
+          "citations": [
+            {
+              "line": 46,
+              "reference": "TASK-PRODUCERS-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 46,
+            "text": "Run with CPython 3.12.14 from the repository root. The replay compares the five reused source files to the recorded branch revision. [Executable fixture](TASK-PRODUCERS-01/run.py) · [Evidence](TASK-PRODUCERS-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/GENERATION-PUBLICATION-01/evidence.json",
+      "blob": "8e0727100189a2d1be6fb044c1c72bcd7c5923fb",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-19/RT-19-GENERATION-PUBLICATION-2026-11-25.md",
+          "blob": "73433d415a320d0a9f9ccafe0cfbe7111090f170",
+          "citations": [
+            {
+              "line": 30,
+              "reference": "GENERATION-PUBLICATION-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 36,
+            "text": "Source baseline `b3993e5` on `research/all`. Replay used CPython 3.12.14, Linux 6.18.57 and an overlay filesystem. The probe uses Linux directory-descriptor and `flock` behavior."
+          },
+          "host": {
+            "line": 36,
+            "text": "Source baseline `b3993e5` on `research/all`. Replay used CPython 3.12.14, Linux 6.18.57 and an overlay filesystem. The probe uses Linux directory-descriptor and `flock` behavior."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/INTERCHANGE-BOUNDARY-01/evidence.json",
+      "blob": "115981910191620919cf3a62365ef99e061d9915",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-19/RT-19-INTERCHANGE-AND-PUBLICATION-BOUNDARY-2026-11-25.md",
+          "blob": "6f5b65d0ca7a6541c5897a54c053f6821c8b0be1",
+          "citations": [
+            {
+              "line": 39,
+              "reference": "INTERCHANGE-BOUNDARY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 39,
+            "text": "The reconciliation checks three inputs by SHA-256 before calculating the outcome counts. CPython 3.12.14 with both Python hash seeds 37 and 71 produces evidence SHA-256 `a705384138c5b6bcd6b5d2c113a848ba46749c37695d01b15f3ca8004b482a34`. [Evidence ledger](INTERCHANGE-BOUNDARY-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-19/TOOLCHAIN-ROUNDTRIP-01/evidence.json",
+      "blob": "6708a97f6b8b3598478a8ed59c34b48247100739",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-19/RT-19-TOOLCHAIN-ROUNDTRIP-2026-11-25.md",
+          "blob": "4d66c05ee1c65e4a0863eb8960dcd73f19d63afd",
+          "citations": [
+            {
+              "line": 18,
+              "reference": "TOOLCHAIN-ROUNDTRIP-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 33,
+            "text": "Source baseline `d8f3825` on `research/all`. Replay used CPython 3.12.14 on Linux 6.18.57. Run from the repository root."
+          },
+          "host": {
+            "line": 33,
+            "text": "Source baseline `d8f3825` on `research/all`. Replay used CPython 3.12.14 on Linux 6.18.57. Run from the repository root."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/CALL-IDENTITY-RECONCILIATION-01/evidence.json",
+      "blob": "35374fcdbf415aea41c400e43386c414b2210cba",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-20/RT-20-CALL-IDENTITY-RECONCILIATION-2026-11-25.md",
+          "blob": "4d14453f0615cd667de8d551c0fd8415806326a9",
+          "citations": [
+            {
+              "line": 27,
+              "reference": "CALL-IDENTITY-RECONCILIATION-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 27,
+            "text": "CPython 3.12.14 with Python hash seeds 37 and 71 yields evidence SHA-256 `f8526a836fd80b034e72eacde387b80c760c6fa8277f06ef246581347ea1f012`. [Reconciliation ledger](CALL-IDENTITY-RECONCILIATION-01/evidence.json)"
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-20/FORK-IDENTITY-01/evidence.json",
+      "blob": "dd4915c49a8ed3d8b2e6198357d3ed17368db587",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-20/RT-20-CONSUMER-FORK-IDENTITY-2026-11-25.md",
+          "blob": "6602abdad73c60ff2f8a9cb95a1d541f3c851a94",
+          "citations": [
+            {
+              "line": 22,
+              "reference": "FORK-IDENTITY-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 30,
+            "text": "Source baseline `6e58d5a` on `research/all`. Replay used CPython 3.12.14. Run from the repository root."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/CONCURRENT-GRAPH-01/evidence.json",
+      "blob": "a781a59e1cae90a7a8a038a4dd7c92a6965662d8",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-CONCURRENT-GRAPH-2026-11-25.md",
+          "blob": "0602399ac68b02f9ef10c100737cfa8b8ead5002",
+          "citations": [
+            {
+              "line": 30,
+              "reference": "CONCURRENT-GRAPH-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 36,
+            "text": "The source baseline is `74f69eb` on `research/all`. The replay used CPython 3.12.14 and SQLite 3.53.1 on Debian 13 x86-64. Run from the repository root."
+          },
+          "host": {
+            "line": 36,
+            "text": "The source baseline is `74f69eb` on `research/all`. The replay used CPython 3.12.14 and SQLite 3.53.1 on Debian 13 x86-64. Run from the repository root."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/MERGE-COVERAGE-01/evidence.json",
+      "blob": "8738d8e99cb174095d3c392899797b277ba30de2",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-MERGE-ADMISSION-COVERAGE-2026-11-25.md",
+          "blob": "393b6bcdfebd0b9d3bc6934128dd3d177d968c10",
+          "citations": [
+            {
+              "line": 20,
+              "reference": "MERGE-COVERAGE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 28,
+            "text": "Source baseline `43a84b9` on `research/all`. Replay used CPython 3.12.14 and Lean 4.36.0. Run from the repository root."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/PURE-MERGE-CORE-01/evidence.json",
+      "blob": "8f19fd35486e6e3a2a1346a650a6752194fc6f26",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-PURE-MERGE-CORE-2026-11-25.md",
+          "blob": "2e736007f7c522bcd3f679970ec3f19d436ac4c3",
+          "citations": [
+            {
+              "line": 20,
+              "reference": "PURE-MERGE-CORE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 35,
+            "text": "Source baseline `0e0e61e` on `research/all`. Replay used CPython 3.12.14 and Git 2.56.1 on Linux. Run from the repository root."
+          },
+          "host": {
+            "line": 35,
+            "text": "Source baseline `0e0e61e` on `research/all`. Replay used CPython 3.12.14 and Git 2.56.1 on Linux. Run from the repository root."
+          }
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/SOURCE-REVERSE-CIP-GATE-01/evidence.json",
+      "blob": "edb3a51942f409c6396058cea88d98400f97c0ca",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-WHOLE-GRAPH-REVERSE-AND-CIP-GATE-2026-11-25.md",
+          "blob": "011f808f94b2680c0fd546be0ac004a8cc43afd6",
+          "citations": [
+            {
+              "line": 38,
+              "reference": "SOURCE-REVERSE-CIP-GATE-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 38,
+            "text": "The [ledger](SOURCE-REVERSE-CIP-GATE-01/evidence.json) records the original archive and current fixture source hashes at `71dc00a9d5b3c80367955d0914a7ae690ee6b812`. The executable check uses CPython 3.12.14 and Git 2.56.1. Both hash seeds reproduce the same counts and IDs."
+          },
+          "host": null
+        }
+      ]
+    },
+    {
+      "path": "research/toolchain-and-collaboration/RT-24/TYPED-SEMANTIC-DIFF-01/evidence.json",
+      "blob": "8151320ee9c15e38b3e035bb2130c6924fe4df93",
+      "reports": [
+        {
+          "path": "research/toolchain-and-collaboration/RT-24/RT-24-TYPED-SEMANTIC-DIFF-2026-11-25.md",
+          "blob": "1d0a7b50bc52fc18e0e270c42fcfadbf97b5d2fe",
+          "citations": [
+            {
+              "line": 19,
+              "reference": "TYPED-SEMANTIC-DIFF-01/evidence.json"
+            }
+          ],
+          "tool": {
+            "line": 29,
+            "text": "Source baseline `ed439c0` on `research/all`. Replay used CPython 3.12.14 and Git 2.56.1 on Linux. Run from the repository root."
+          },
+          "host": {
+            "line": 29,
+            "text": "Source baseline `ed439c0` on `research/all`. Replay used CPython 3.12.14 and Git 2.56.1 on Linux. Run from the repository root."
+          }
+        }
+      ]
+    }
+  ]
+}

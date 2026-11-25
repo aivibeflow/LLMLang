@@ -1,0 +1,195 @@
+{
+  "baseline": "e42d50a353f6c0fb92bf5728d66da115f2e407ce",
+  "cases": [
+    {
+      "candidate_count": 1,
+      "case": "one exact result",
+      "result": [
+        "success",
+        [
+          "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a"
+        ]
+      ],
+      "status": "hit"
+    },
+    {
+      "candidate_count": 1,
+      "case": "duplicate identical candidate receipt",
+      "result": [
+        "success",
+        [
+          "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a"
+        ]
+      ],
+      "status": "hit"
+    },
+    {
+      "candidate_count": 2,
+      "case": "two authorized receipts agree",
+      "result": [
+        "success",
+        [
+          "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a"
+        ]
+      ],
+      "status": "hit"
+    },
+    {
+      "candidate_count": 1,
+      "case": "authorized receipt absent",
+      "result": null,
+      "status": "no-applicable-attestation"
+    },
+    {
+      "candidate_count": 1,
+      "case": "old attestation cannot authorize changed output",
+      "result": null,
+      "status": "no-applicable-attestation"
+    },
+    {
+      "candidate_count": 1,
+      "case": "scope change",
+      "result": null,
+      "status": "no-applicable-attestation"
+    },
+    {
+      "candidate_count": 1,
+      "case": "producer revoked",
+      "result": null,
+      "status": "no-applicable-attestation"
+    },
+    {
+      "candidate_count": 1,
+      "case": "different action",
+      "result": null,
+      "status": "miss"
+    },
+    {
+      "candidate_count": 2,
+      "case": "outside-policy contributor cannot admit conflicting result",
+      "result": [
+        "success",
+        [
+          "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a"
+        ]
+      ],
+      "status": "hit"
+    },
+    {
+      "candidate_count": 1,
+      "case": "only outside-policy index",
+      "result": null,
+      "status": "no-applicable-attestation"
+    },
+    {
+      "candidate_count": 2,
+      "case": "authorized conflicting bytes",
+      "result": null,
+      "status": "conflict"
+    },
+    {
+      "candidate_count": 2,
+      "case": "conflict remains when other blob is evicted",
+      "result": null,
+      "status": "conflict"
+    },
+    {
+      "candidate_count": 2,
+      "case": "authorized disagreement on terminal status",
+      "result": null,
+      "status": "conflict"
+    },
+    {
+      "candidate_count": 1,
+      "case": "byte reuse cannot consume semantic-only result",
+      "result": null,
+      "status": "no-exact-byte-candidate"
+    },
+    {
+      "candidate_count": 1,
+      "case": "required artifact evicted",
+      "result": null,
+      "status": "artifact-missing"
+    },
+    {
+      "candidate_count": 1,
+      "case": "verified payload rematerialized",
+      "result": [
+        "success",
+        [
+          "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a"
+        ]
+      ],
+      "status": "hit"
+    },
+    {
+      "candidate_count": 1,
+      "case": "wrong bytes under addressed entry",
+      "result": null,
+      "status": "artifact-integrity-error"
+    },
+    {
+      "candidate_count": 1,
+      "case": "side output unavailable",
+      "result": null,
+      "status": "artifact-missing"
+    },
+    {
+      "candidate_count": 1,
+      "case": "side output present",
+      "result": [
+        "success",
+        [
+          "sha256:c5a36d88ae41d5a0cd029f19e1aa0b91e3d511d021ecf3a5e384201fc030920a",
+          "sha256:11a7d3213aef129e04ff59393c57a291cd35e6567f702cf8bcf1216b6baea253"
+        ]
+      ],
+      "status": "hit"
+    },
+    {
+      "candidate_count": 1,
+      "case": "record omits required output",
+      "result": null,
+      "status": "output-shape-mismatch"
+    },
+    {
+      "candidate_count": 0,
+      "case": "incomplete dependency closure is not cacheable",
+      "result": null,
+      "status": "structural-rejection"
+    },
+    {
+      "candidate_count": 0,
+      "case": "transient or unsupported action status is not cacheable",
+      "result": null,
+      "status": "structural-rejection"
+    },
+    {
+      "candidate_count": 0,
+      "case": "non-cacheable or unsupported determinism class",
+      "result": null,
+      "status": "structural-rejection"
+    }
+  ],
+  "merge_orderings": 24,
+  "python": "3.12.14",
+  "result_counts": {
+    "artifact-integrity-error": 1,
+    "artifact-missing": 2,
+    "conflict": 3,
+    "hit": 6,
+    "miss": 1,
+    "no-applicable-attestation": 5,
+    "no-exact-byte-candidate": 1,
+    "output-shape-mismatch": 1,
+    "structural-rejection": 3
+  },
+  "schema": "rt11-cache-index-merge-v1",
+  "source_sha256": {
+    "cache_index.py": "2662ffa87450e05f075218b5593222262ff724e785ce512436bfa40443329b3b",
+    "language_version.py": "ef95a3198b49a6bd72db48aa600a50a2db2bf8fa922be3229e450ac57ab0d406",
+    "merge.py": "c2de1b239b7cc4b5ba4b15d10e6ee1db9e555395b488248de4363b8704149e6c",
+    "package_identity.py": "9e8d806e2ff916243df8190004610ac475b9a23dcba57b1e31c67f26e01fb458",
+    "run.py": "68d19e9a9b871bb84e922dd6c2f40ded8675dc4e46cc9efd29aec0729d66f53f"
+  }
+}
