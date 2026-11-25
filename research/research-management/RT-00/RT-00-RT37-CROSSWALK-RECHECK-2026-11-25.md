@@ -9,7 +9,7 @@ The original RT-37 crosswalk records seven fixture ledgers but leaves its Python
 | STM32 | Both profiles place the vector at the manifest's flash origin. The archived Renode traces match the six-row reference for each profile, and both profile ledgers preserve foreign-object and missing-member refusals. |
 | ESP32 | The two freestanding architecture records carry zero runtime dependencies. The three SDK boot profiles preserve distinct machine and trace observations. The five optional radio archives belong to a static link-map observation. |
 
-Four controls reject a changed flash extent, an equal-output startup control, a substituted emulator trace and a static-to-hardware radio claim. This reconstructs the crosswalk from existing results. It does not rerun the firmware, emulator or original Python program and leaves the historical Python version unresolved. The verification ran through the task's JavaScript runtime against GitHub Git data responses. The local Git/Node.js wrapper shares the same comparison logic and its command-line invocation remains unchecked while the shell is offline.
+Four controls reject a changed flash extent, an equal-output startup control, a substituted emulator trace and a static-to-hardware radio claim. This reconstructs the crosswalk from existing results. It does not rerun the firmware, emulator or original Python program and leaves the historical Python version unresolved. The verification ran through the task's JavaScript runtime against GitHub Git data responses. The local Git/Node.js wrapper uses the same comparison logic. Node.js 24.22.3 and Git 2.56.1 on Linux 6.18.57 x86-64 reproduced the committed audit JSON byte for byte.
 
 ```sh
 fixture=research/research-management/RT-00/RT37-CROSSWALK-RECHECK-01
