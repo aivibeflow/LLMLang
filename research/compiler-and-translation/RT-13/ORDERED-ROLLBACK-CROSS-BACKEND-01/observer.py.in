@@ -1,0 +1,33 @@
+import sys
+
+for line in sys.stdin:
+    initial, delta, acquisition, write, rollback, release = map(int, line.split())
+    state, primary, cleanup, value, owned = initial, 0, 0, -1, acquisition
+    if not acquisition:
+        primary, events = @P_ACQUIRE@, [@E_ACQUIRE_DENIED@]
+    else:
+        events = [@E_ACQUIRED@]
+        proposed = initial + delta
+        if proposed not in range(@MAX@ + 1):
+            primary = @P_RANGE@
+            events.append(@E_RANGE@)
+        elif write:
+            state = value = proposed
+            events.append(@E_COMMITTED@)
+        else:
+            primary = @P_WRITE@
+            events.append(@E_WRITE_PARTIAL@)
+            if rollback:
+                events.append(@E_ROLLED_BACK@)
+            else:
+                state = proposed
+                cleanup |= @C_ROLLBACK@
+                events.append(@E_ROLLBACK_FAILED@)
+        if release:
+            owned = 0
+            events.append(@E_RELEASED@)
+        else:
+            cleanup |= @C_RELEASE@
+            events.append(@E_RELEASE_FAILED@)
+
+    print(primary, cleanup, value, state, owned, *events)

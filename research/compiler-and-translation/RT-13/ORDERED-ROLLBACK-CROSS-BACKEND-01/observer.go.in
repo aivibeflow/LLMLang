@@ -1,0 +1,58 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
+func main() {
+	in := bufio.NewReader(os.Stdin)
+	out := bufio.NewWriter(os.Stdout)
+	defer out.Flush()
+	for {
+		var initial, delta, acquisition, write, rollback, release int
+		if _, err := fmt.Fscan(in, &initial, &delta, &acquisition, &write, &rollback, &release); err != nil {
+			break
+		}
+		state, primary, cleanup, value, owned := initial, 0, 0, -1, acquisition
+		events := make([]int, 0, 4)
+		if acquisition == 0 {
+			primary = @P_ACQUIRE@
+			events = append(events, @E_ACQUIRE_DENIED@)
+		} else {
+			events = append(events, @E_ACQUIRED@)
+			proposed := initial + delta
+			switch {
+			case proposed < 0 || proposed > @MAX@:
+				primary = @P_RANGE@
+				events = append(events, @E_RANGE@)
+			case write != 0:
+				state, value = proposed, proposed
+				events = append(events, @E_COMMITTED@)
+			default:
+				primary, state = @P_WRITE@, proposed
+				events = append(events, @E_WRITE_PARTIAL@)
+				if rollback != 0 {
+					state = initial
+					events = append(events, @E_ROLLED_BACK@)
+				} else {
+					cleanup |= @C_ROLLBACK@
+					events = append(events, @E_ROLLBACK_FAILED@)
+				}
+			}
+			if release != 0 {
+				owned = 0
+				events = append(events, @E_RELEASED@)
+			} else {
+				cleanup |= @C_RELEASE@
+				events = append(events, @E_RELEASE_FAILED@)
+			}
+		}
+		fmt.Fprintf(out, "%d %d %d %d %d", primary, cleanup, value, state, owned)
+		for _, event := range events {
+			fmt.Fprintf(out, " %d", event)
+		}
+		fmt.Fprintln(out)
+	}
+}
