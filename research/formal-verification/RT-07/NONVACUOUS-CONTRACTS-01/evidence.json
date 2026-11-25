@@ -1,0 +1,115 @@
+{
+  "schema": "llmlang-nonvacuous-contracts/1",
+  "python": "3.12.14",
+  "sources_sha256": {
+    "run.py": "5a7f5a0a7f4e4044537a4ae1767e9bf9fc3edc3a6f2055ec876221d59a3d6252",
+    "Compose.lean": "cb6db4fb4b2bf2a0c885d1902c3e203fa757341e94ce7cbfdfdc2c2454eaa41f",
+    "axioms.txt": "4dc0f606274d135827a24629eb75d129078d83a30474ed5aa2c03b0a72476051"
+  },
+  "prefix_order": [
+    [
+      "continue",
+      0
+    ],
+    [
+      "continue",
+      1
+    ],
+    [
+      "error",
+      0
+    ],
+    [
+      "diverge",
+      0
+    ],
+    [
+      "cancel",
+      0
+    ]
+  ],
+  "suffix_order": [
+    "return",
+    "error",
+    "diverge",
+    "cancel"
+  ],
+  "counts": {
+    "cases": 32768,
+    "covered": 16648,
+    "covered_without_possible_return": 11144,
+    "not_covered": 16120,
+    "nonempty_composite_hides_holes": 13719,
+    "admitted_branches_hide_holes": 1784,
+    "uncovered_passes_universal_no_error": 7484,
+    "empty_composite_passes_universal_no_error": 2401
+  },
+  "controls": {
+    "empty_prefix": {
+      "input": [
+        0,
+        0,
+        0,
+        3
+      ],
+      "covered": false,
+      "outcomes": [],
+      "holes": [
+        "empty prefix"
+      ]
+    },
+    "out_of_domain_suffix_rows": {
+      "input": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "covered": false,
+      "outcomes": [],
+      "holes": [
+        "state 0 inadmissible"
+      ]
+    },
+    "reachable_explicit_divergence": {
+      "input": [
+        1,
+        4,
+        0,
+        1
+      ],
+      "covered": true,
+      "outcomes": [
+        [
+          "diverge",
+          [
+            "prefix success 0",
+            "suffix diverge"
+          ]
+        ]
+      ],
+      "holes": []
+    },
+    "prefix_error_hides_uncovered_success": {
+      "input": [
+        5,
+        0,
+        0,
+        3
+      ],
+      "covered": false,
+      "outcomes": [
+        [
+          "error",
+          [
+            "prefix"
+          ]
+        ]
+      ],
+      "holes": [
+        "state 0 missing outcome"
+      ]
+    }
+  },
+  "rows_sha256": "5211ce7b84383ff2f5e67466c3ac989b69e07b2947190248ff4b209b8298d923"
+}

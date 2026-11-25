@@ -1,0 +1,3 @@
+'covered_composition_has_outcome' does not depend on any axioms
+'admitted_handoff_has_coverage' does not depend on any axioms
+'nonempty_composite_can_hide_missing_branch' does not depend on any axioms
