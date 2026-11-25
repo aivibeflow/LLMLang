@@ -1,0 +1,120 @@
+{
+  "adapter_sha256": "742842a11965fe2b021dc9450d1422f245db79b20d6a95cd0b7600138afcf07f",
+  "builds": {
+    "0": {
+      "artifact_sha256": "6ba5983da3a50e0ee4a415c24d63bf139739d4526400f2704bcbdcc76848f478",
+      "cases": [
+        {
+          "input_hex": "",
+          "trace": [
+            "BZ",
+            "0:"
+          ]
+        },
+        {
+          "input_hex": "78",
+          "trace": [
+            "BZ",
+            "1:78",
+            "0:"
+          ]
+        },
+        {
+          "input_hex": "61626364",
+          "trace": [
+            "BZ",
+            "4:61626364",
+            "0:"
+          ]
+        },
+        {
+          "input_hex": "6162636465",
+          "trace": [
+            "BZ",
+            "4:61626364",
+            "1:65",
+            "0:"
+          ]
+        },
+        {
+          "input_hex": "4142434445464748",
+          "trace": [
+            "BZ",
+            "4:41424344",
+            "4:45464748",
+            "0:"
+          ]
+        },
+        {
+          "input_hex": "00ff80",
+          "trace": [
+            "BZ",
+            "3:00ff80",
+            "0:"
+          ]
+        }
+      ]
+    },
+    "2": {
+      "artifact_sha256": "185e58f511703ebb36ba183d15a17d20df9c816af3d05fe16d41e264ea945777",
+      "cases": [
+        {
+          "input_hex": "",
+          "trace": [
+            "BZ",
+            "0:"
+          ]
+        },
+        {
+          "input_hex": "78",
+          "trace": [
+            "BZ",
+            "1:78",
+            "0:"
+          ]
+        },
+        {
+          "input_hex": "61626364",
+          "trace": [
+            "BZ",
+            "4:61626364",
+            "0:"
+          ]
+        },
+        {
+          "input_hex": "6162636465",
+          "trace": [
+            "BZ",
+            "4:61626364",
+            "1:65",
+            "0:"
+          ]
+        },
+        {
+          "input_hex": "4142434445464748",
+          "trace": [
+            "BZ",
+            "4:41424344",
+            "4:45464748",
+            "0:"
+          ]
+        },
+        {
+          "input_hex": "00ff80",
+          "trace": [
+            "BZ",
+            "3:00ff80",
+            "0:"
+          ]
+        }
+      ]
+    }
+  },
+  "compiler": "Debian clang version 19.1.7 (3+b1)",
+  "contract_sha256": "a9136f6c6b11baf84ec0a397b13ee2dd01457a5c54d52f8f509c72fbffd03b70",
+  "linker": "Debian LLD 19.1.7 (compatible with GNU linkers)",
+  "observation": "qemu_linux_user",
+  "qemu": "qemu-riscv64 version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "qemu_sha256": "f2bb9b35eb97fc6b67c43a65d944ea9dcd7b1908df95faf28cea68511e762dc5",
+  "runner_sha256": "657df02b13e64fbf7222343f4d21894f387da4af1e228ce67c8f7e3466acf026"
+}
