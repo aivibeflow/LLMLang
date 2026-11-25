@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "6bf099cc937a95a170cdbcc074122cab13210f0c",
+  "experiment_date": "2026-11-25",
+  "environment": {
+    "python": "CPython 3.12.14",
+    "sympy": "1.14.0",
+    "platform": "Linux x86_64",
+    "dependency_file": "research/PROTOTYPES/RT-04-01/requirements-solver.txt",
+    "command": "python3 -m unittest -v test_rt03_bounded_solver_worker.py"
+  },
+  "test_run": {
+    "result": "passed",
+    "unittest_methods": 5,
+    "injected_protocol_cases": 9,
+    "elapsed_seconds": 1.499
+  },
+  "protocol_cases": [
+    {"case": "startup silence", "status": "unknown", "reason": "worker_startup_timeout", "worker_reaped": true},
+    {"case": "invalid ready protocol", "status": "unknown", "reason": "worker_protocol_error", "worker_reaped": true},
+    {"case": "worker exits after query", "status": "unknown", "reason": "worker_crashed", "worker_reaped": true},
+    {"case": "malformed JSON response", "status": "unknown", "reason": "malformed_response", "worker_reaped": true},
+    {"case": "wrong request ID", "status": "unknown", "reason": "request_id_mismatch", "worker_reaped": true},
+    {"case": "solver error response", "status": "unknown", "reason": "synthetic_solver_error", "worker_reaped": true},
+    {"case": "late response", "status": "unknown", "reason": "timeout", "worker_reaped": true},
+    {"case": "untrusted UNSAT", "status": "unknown", "reason": null, "worker_reaped": true},
+    {"case": "incomplete SAT model", "status": "unknown", "reason": null, "worker_reaped": true}
+  ],
+  "sha256": {
+    "research/PROTOTYPES/RT-04-01/rt03_bounded_solver_worker.py": "d38a08fb82ef8dee1fb0ff245f5746f5a83be468b777fb81f54e268cd5956cb5",
+    "research/PROTOTYPES/RT-04-01/test_rt03_bounded_solver_worker.py": "3c849d6f7cc93619484d5796ad3df7b963576f21168cf5f465801b12c0074b34",
+    "research/PROTOTYPES/RT-04-01/requirements-solver.txt": "96464f405b58137236b9c10c698be08a780ff7d062dd918ac40c0460f1b0831f"
+  },
+  "decision": "No solver backend, trust policy, or production worker architecture selected."
+}

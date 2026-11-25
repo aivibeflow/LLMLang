@@ -129,39 +129,52 @@ def run_pigeonhole_query(
     query_start = time.monotonic()
     status, reason, model = "unknown", "worker_startup_timeout", None
     try:
-        ready = json.loads(ready_line) if ready_line else None
-        if not isinstance(ready, dict) or ready != {"kind": "ready", "protocol": 1}:
-            if process.poll() is None:
-                reason = "worker_protocol_error"
-            else:
-                reason = "worker_crashed_before_ready"
+        if ready_line is None:
+            reason = (
+                "worker_startup_timeout"
+                if process.poll() is None
+                else "worker_crashed_before_ready"
+            )
         else:
-            process.stdin.write(json.dumps({
-                "request_id": request_id,
-                "pigeons": pigeons,
-                "holes": holes,
-            }) + "\n")
-            process.stdin.flush()
-            line = _readline_until(process.stdout, process, query_start + timeout_seconds)
-            if line is None:
-                reason = "timeout" if process.poll() is None else "worker_crashed"
-            else:
-                try:
-                    response = json.loads(line)
-                except json.JSONDecodeError:
-                    response = None
-                if not isinstance(response, dict):
-                    reason = "malformed_response"
-                elif response.get("request_id") != request_id:
-                    reason = "request_id_mismatch"
-                elif response.get("status") in {"sat", "unsat"}:
-                    status = response["status"]
-                    model = response.get("model") if status == "sat" else None
-                    reason = None
+            ready = json.loads(ready_line) if ready_line else None
+            if not isinstance(ready, dict) or ready != {"kind": "ready", "protocol": 1}:
+                if process.poll() is None:
+                    reason = "worker_protocol_error"
                 else:
-                    reason = response.get("reason", "worker_error")
+                    reason = "worker_crashed_before_ready"
+            else:
+                process.stdin.write(json.dumps({
+                    "request_id": request_id,
+                    "pigeons": pigeons,
+                    "holes": holes,
+                }) + "\n")
+                process.stdin.flush()
+                line = _readline_until(process.stdout, process, query_start + timeout_seconds)
+                if line is None:
+                    reason = "timeout" if process.poll() is None else "worker_crashed"
+                elif line == "":
+                    reason = "worker_crashed"
+                else:
+                    try:
+                        response = json.loads(line)
+                    except json.JSONDecodeError:
+                        response = None
+                    if not isinstance(response, dict):
+                        reason = "malformed_response"
+                    elif response.get("request_id") != request_id:
+                        reason = "request_id_mismatch"
+                    elif response.get("status") in {"sat", "unsat"}:
+                        status = response["status"]
+                        model = response.get("model") if status == "sat" else None
+                        reason = None
+                    else:
+                        reason = response.get("reason", "worker_error")
     except (BrokenPipeError, OSError, ValueError, TypeError):
-        reason = "worker_protocol_error"
+        reason = (
+            "worker_crashed"
+            if process.poll() is not None
+            else "worker_protocol_error"
+        )
     finally:
         if process.poll() is None:
             process.kill()
