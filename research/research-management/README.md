@@ -54,3 +54,4 @@ This direction groups related research studies without changing their RT identif
 - [Dafny modular proof closure replay](RT-00/RT-00-C-DAFNY-MODULAR-PROOF-REPLAY-2026-11-25.md) — reproduces the full Dafny/Z3, Lean, cvc5 and Logos ledger on a fresh runner.
 - [Draft citations to research on research/all](RT-00/RT-00-C-DRAFT-CITATION-RESEARCH-ALL-AUDIT-2026-11-25.md) — checks all current direct draft-to-research citations, their resolution and their scope.
 - [Explicit supersession and translation link screen](RT-00/RT-00-B-16-EXPLICIT-RELATIONSHIP-SCREEN-2026-11-25.md) — checks the direct-link signal against four known relationship controls and adjudicates every selected pair.
+- [Dafny contract boundary replays](RT-00/RT-00-C-DAFNY-CONTRACT-BOUNDARIES-REPLAY-2026-11-25.md) — reproduces the complete typed overlapping-copy and foreign C lookup ledgers.
