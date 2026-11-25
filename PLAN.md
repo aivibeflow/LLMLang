@@ -1446,6 +1446,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Add CI stress coverage for 1,200-object chain and high-fan-out dependency closures.
 - [ ] Run and retain representative small/medium/large benchmark baselines on controlled hardware; CI measurements are exploratory and are not acceptance thresholds.
 - [ ] Define a public immutable snapshot read API that can expose exact object metadata, dependency edges, and streaming payloads without private storage access; then implement a Provider adapter for a persistent backend.
+  - [ ] [WIP] Verify the public SQLite snapshot and Provider boundary with a pinned writer schedule and backend-independent streamed archive checks on `research/all`.
 
 **Existing evidence:** [Package System: Static and Dynamic Packages](research/packages-and-ecosystem/RT-12/PACKAGE-SYSTEM.md), extending the earlier [Libraries and Templates](research/packages-and-ecosystem/RT-12/LIBRARIES-AND-TEMPLATES.md) and [Global Semantic Artifact Store](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md) proposals.
 
