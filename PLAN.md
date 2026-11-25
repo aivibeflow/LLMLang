@@ -872,6 +872,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Measure hashing, dependency discovery, scheduling, storage, and verification overhead.
   - [x] Record 17 isolated samples per phase at 2, 8 and 24 native components. At 24, discovery has median 210.992 ms, hashing 2.097 ms, scheduling 0.091 ms, verified restoration 4.233 ms and executable checks 24.395 ms. All manifests and observations agree. Controlled hardware and integrated overhead remain open. [Build phase overhead](research/toolchain-and-collaboration/RT-11/RT-11-BUILD-PHASE-OVERHEAD-2026-11-25.md)
 - [ ] Compare against clean and conventional incremental builds in representative Rust, Go, and C++ projects.
+  - [ ] [WIP] Measure clean, warm and edited conventional builds of one pinned upstream project per Rust, Go and C++ as a baseline on `research/all`.
 - [x] Report speedup distributions and workload assumptions rather than a single headline number. All 35 blocks have exact output agreement. The warm median is 337.856× against forced rebuild and 1.281× against incremental Make. [Paired cache speedups](research/toolchain-and-collaboration/RT-11/RT-11-PAIRED-CACHE-SPEEDUP-2026-11-25.md)
 - [x] Identify workloads where caching is neutral or slower. Cold and broad edit each lose to forced rebuild in five of seven blocks, and component edits are near parity with incremental Make in the sample. [Paired cache speedups](research/toolchain-and-collaboration/RT-11/RT-11-PAIRED-CACHE-SPEEDUP-2026-11-25.md)
 
