@@ -1498,6 +1498,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [x] Benchmark storage, indexing, and garbage collection.
   - [x] Measure 40 SQLite trials with exact dependency and retained-root checks. At 8,192 objects the indexed layout reduces median mark-and-sweep from 2,666.57 to 37.55 ms. VACUUM reduces physical size without changing survivors. Concurrent root publication, crash recovery and representative storage remain open. [RT-27 SQLite retention benchmark](research/toolchain-and-collaboration/RT-27/RT-27-SQLITE-RETENTION-BENCHMARK-2026-11-25.md)
 - [ ] Benchmark large repositories and highly connected graphs.
+  - [ ] [WIP] Measure clean Git reconstruction and reachability for exact 65,536-node synthetic histories with two dependency densities.
 - [ ] Benchmark concurrent edits and merge operations.
 - [ ] Compare with Rust, Go, and C++ workflows on representative projects.
   - [ ] [WIP human] Provide or approve the representative projects and comparison workloads for the three toolchains.
