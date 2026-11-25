@@ -1865,6 +1865,7 @@ Research a bounded, versioned, provenance-preserving description of the informat
 Research a typed, versioned object describing the task an agent is expected to perform and the obligations that govern completion.
 
 - [ ] Define the boundary between Task Context, human intent/requirements, Change Impact Plan, Change Set, workspace, Knowledge Context, and authorization grants.
+  - [ ] [WIP] Check separate Task Context requirement, impact, Change Set, workspace, knowledge and authorization bindings (#340).
 - [ ] Define task identity and revision semantics; objective, requirement links, in/out-of-scope objects, constraints, non-goals, assumptions, prerequisites, deliverables, and acceptance criteria.
 - [ ] Compare lifecycle models for creation, clarification, planning, execution, blocked/failed states, cancellation, retry, delegation, decomposition, review, handoff, and completion.
 - [ ] Define how a task pins its baseline snapshot, selected Knowledge Context, target objects, and related Change Set/CIP without duplicating their authoritative state.
