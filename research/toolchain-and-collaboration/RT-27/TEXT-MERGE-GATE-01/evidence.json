@@ -1,0 +1,1054 @@
+{
+  "format": "text-merge-gate-01",
+  "git": "git version 2.52.0",
+  "rows": [
+    {
+      "binary_attributes": false,
+      "case": "compatible-tightening",
+      "git_conflicts": false,
+      "merge_tree": "fc434f4fc9921621386a1668589a1d7c8fc27dad",
+      "native": {
+        "after": [
+          [
+            6,
+            "audit"
+          ],
+          [
+            7,
+            "audit"
+          ],
+          [
+            8,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [],
+      "semantic_gate": {
+        "decision": "validated",
+        "semantic_root": "179d719ed7505226d8c5266cffe3678ce6931ac7c09bec06d21300cf9bcc17f8"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "scalar-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "fcffb1ab8a33638517bc14fbdbfa6af5221466be",
+      "native": {
+        "after": [
+          [
+            8,
+            "audit"
+          ],
+          [
+            9,
+            "audit"
+          ],
+          [
+            10,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [
+        "value"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "effect-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "00fe4116a27122baffba7540bbb8e5a907bb3d29",
+      "native": {
+        "after": [
+          [
+            4,
+            "write"
+          ],
+          [
+            5,
+            "write"
+          ],
+          [
+            6,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [
+        "effect"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "abi-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "3637171b76c69200082d2d59bacb3ea4e46e7248",
+      "native": {
+        "after": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [
+        "abi"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "multiple-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "86c2e28a14f6adc7afb3e80ad2ae3cbf7c85fa58",
+      "native": {
+        "after": [
+          [
+            9,
+            "write"
+          ],
+          [
+            10,
+            "write"
+          ],
+          [
+            11,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [
+        "value",
+        "effect",
+        "abi"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "compatible-effect",
+      "git_conflicts": false,
+      "merge_tree": "6caf8a7c09673a3e7a9caa2f9a9f2015f5ac4369",
+      "native": {
+        "after": [
+          [
+            4,
+            "write"
+          ],
+          [
+            5,
+            "write"
+          ],
+          [
+            6,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [],
+      "semantic_gate": {
+        "decision": "validated",
+        "semantic_root": "3dc0dbb1acfa5daa9b8dde7a67dc4c9e742d7422716f1d17398fcaae13c8d663"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "compatible-tightening",
+      "git_conflicts": false,
+      "merge_tree": "aff64514027ef0873cfc3d2cf9ee9d6f9dc4c71a",
+      "native": {
+        "after": [
+          [
+            6,
+            "audit"
+          ],
+          [
+            7,
+            "audit"
+          ],
+          [
+            8,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [],
+      "semantic_gate": {
+        "decision": "validated",
+        "semantic_root": "179d719ed7505226d8c5266cffe3678ce6931ac7c09bec06d21300cf9bcc17f8"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "scalar-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "35e73599b957938f8e7dc2616e7fe74f6507d194",
+      "native": {
+        "after": [
+          [
+            8,
+            "audit"
+          ],
+          [
+            9,
+            "audit"
+          ],
+          [
+            10,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [
+        "value"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "effect-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "b83332f6377cf8e5ca78bf6f27296b03d5b1a80d",
+      "native": {
+        "after": [
+          [
+            4,
+            "write"
+          ],
+          [
+            5,
+            "write"
+          ],
+          [
+            6,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [
+        "effect"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "abi-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "14efcce9fb5efdf198eedfb2c1931052885bf596",
+      "native": {
+        "after": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [
+        "abi"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "multiple-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "830802d10f537f49379726f7c0f1f7dd14b269b2",
+      "native": {
+        "after": [
+          [
+            9,
+            "write"
+          ],
+          [
+            10,
+            "write"
+          ],
+          [
+            11,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [
+        "value",
+        "effect",
+        "abi"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "compatible-effect",
+      "git_conflicts": false,
+      "merge_tree": "e3ff79c163203edc35c29aa30d202c266af20791",
+      "native": {
+        "after": [
+          [
+            4,
+            "write"
+          ],
+          [
+            5,
+            "write"
+          ],
+          [
+            6,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha1",
+      "refusal_reasons": [],
+      "semantic_gate": {
+        "decision": "validated",
+        "semantic_root": "3dc0dbb1acfa5daa9b8dde7a67dc4c9e742d7422716f1d17398fcaae13c8d663"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "compatible-tightening",
+      "git_conflicts": false,
+      "merge_tree": "d36fe2de5ea87bf3ee10bd804ff162a4ee97bc13d3d985fd44c24160d12c394a",
+      "native": {
+        "after": [
+          [
+            6,
+            "audit"
+          ],
+          [
+            7,
+            "audit"
+          ],
+          [
+            8,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [],
+      "semantic_gate": {
+        "decision": "validated",
+        "semantic_root": "179d719ed7505226d8c5266cffe3678ce6931ac7c09bec06d21300cf9bcc17f8"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "scalar-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "7168363dd15e81c42b37131c3151ac6ebc54c87072afb05ebae0064932fa8b33",
+      "native": {
+        "after": [
+          [
+            8,
+            "audit"
+          ],
+          [
+            9,
+            "audit"
+          ],
+          [
+            10,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [
+        "value"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "effect-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "936e0d09f428f98b6498d83fd19af037a455400adcf31b51e68462c6175a7048",
+      "native": {
+        "after": [
+          [
+            4,
+            "write"
+          ],
+          [
+            5,
+            "write"
+          ],
+          [
+            6,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [
+        "effect"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "abi-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "6f9ce58dad6b306136f0a7e942dbbe28816d97460d294980b24309eda43f734d",
+      "native": {
+        "after": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [
+        "abi"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "multiple-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "b172c82986ac62f966de7766bd80513af936107363dbc81a94afe7d4c9df98de",
+      "native": {
+        "after": [
+          [
+            9,
+            "write"
+          ],
+          [
+            10,
+            "write"
+          ],
+          [
+            11,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [
+        "value",
+        "effect",
+        "abi"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": false,
+      "case": "compatible-effect",
+      "git_conflicts": false,
+      "merge_tree": "53265add98b12657fe2796de16b1163461f54731f955adfc8f202c154e5d304e",
+      "native": {
+        "after": [
+          [
+            4,
+            "write"
+          ],
+          [
+            5,
+            "write"
+          ],
+          [
+            6,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [],
+      "semantic_gate": {
+        "decision": "validated",
+        "semantic_root": "3dc0dbb1acfa5daa9b8dde7a67dc4c9e742d7422716f1d17398fcaae13c8d663"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "compatible-tightening",
+      "git_conflicts": false,
+      "merge_tree": "d6bbed67e48ebde7b7fbc1281d39b9799b9f222fbdb8f77e73ec3ad0decf1df8",
+      "native": {
+        "after": [
+          [
+            6,
+            "audit"
+          ],
+          [
+            7,
+            "audit"
+          ],
+          [
+            8,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [],
+      "semantic_gate": {
+        "decision": "validated",
+        "semantic_root": "179d719ed7505226d8c5266cffe3678ce6931ac7c09bec06d21300cf9bcc17f8"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "scalar-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "d1730ab29de437dd9d8d801bd2ac006f57a2a4e7eee41a26c27e690dcb58b64f",
+      "native": {
+        "after": [
+          [
+            8,
+            "audit"
+          ],
+          [
+            9,
+            "audit"
+          ],
+          [
+            10,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [
+        "value"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "effect-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "a50e3ca1d0e4358e4775dbd95397527c68aa08735a54c5013828aeaac50e192e",
+      "native": {
+        "after": [
+          [
+            4,
+            "write"
+          ],
+          [
+            5,
+            "write"
+          ],
+          [
+            6,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [
+        "effect"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "abi-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "40c0b6940ba13510e72809edfcb6d5f276693fd7cf95379131ec2da301085aac",
+      "native": {
+        "after": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [
+        "abi"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "multiple-incompatible",
+      "git_conflicts": false,
+      "merge_tree": "84f247a78e93df836547cce50e17a554a16f6d6029f4544a48a8d8e57e60ab48",
+      "native": {
+        "after": [
+          [
+            9,
+            "write"
+          ],
+          [
+            10,
+            "write"
+          ],
+          [
+            11,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [
+        "value",
+        "effect",
+        "abi"
+      ],
+      "semantic_gate": {
+        "decision": "refused",
+        "retained_semantic_root": "54068e06f87c28937dec28061a1082f247a504804038c16086c0faebd7b99f33"
+      }
+    },
+    {
+      "binary_attributes": true,
+      "case": "compatible-effect",
+      "git_conflicts": false,
+      "merge_tree": "b6e4bbb46e1f138866242d4e0693742846562179b1aaf76451e2cdda06e7cdb3",
+      "native": {
+        "after": [
+          [
+            4,
+            "write"
+          ],
+          [
+            5,
+            "write"
+          ],
+          [
+            6,
+            "write"
+          ]
+        ],
+        "before": [
+          [
+            4,
+            "audit"
+          ],
+          [
+            5,
+            "audit"
+          ],
+          [
+            6,
+            "audit"
+          ]
+        ]
+      },
+      "object_format": "sha256",
+      "refusal_reasons": [],
+      "semantic_gate": {
+        "decision": "validated",
+        "semantic_root": "3dc0dbb1acfa5daa9b8dde7a67dc4c9e742d7422716f1d17398fcaae13c8d663"
+      }
+    }
+  ]
+}
