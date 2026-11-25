@@ -1204,6 +1204,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 
 - [ ] Define the minimal common semantic subset for backend experiments.
 - [ ] Evaluate Python as an experimental/reference target.
+  - [ ] [WIP] Generate Python for the shared checked-integer corpus and compare normal and optimized interpreter profiles on `research/all`.
 - [ ] Evaluate Go as the first serious compiled target.
   - [x] Generate Go for the same checked integer fixture and replay 197,440 observations in each of two hosted forms. The cgo library exposes all 64 C ABI entries and needs libc. The standalone executable has no ELF needed libraries. Broader hosted capabilities and target selection remain open. [Generated Go integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-GO-INTEGER-LOWERING-2026-11-24.md).
 - [ ] Evaluate Rust for ownership and systems-language coverage.
