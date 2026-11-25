@@ -44,6 +44,7 @@ This direction groups related research studies without changing their RT identif
 - [Tagged runtime bindings](RT-10/RT-10-TAGGED-RUNTIME-BINDING-2026-11-25.md) checks exact operation, runtime revision, typed ABI words and error layouts.
 - [Native signal and primitive contracts](RT-10/RT-10-NATIVE-SIGNAL-PRIMITIVES-2026-11-25.md) checks Linux thread-directed interruption, restart and primitive dispositions.
 - [Atomic store buffering](RT-10/RT-10-ATOMIC-STORE-BUFFERING-2026-11-25.md) compares exact total orders with two-location native atomic observations.
+- [Mediated native descriptors](RT-10/RT-10-MEDIATED-DESCRIPTORS-2026-11-25.md) checks active runtime authority, native handle identity and grant retirement.
 - [RT-25 four-provider allocator replay](RT-25/RT-25-FOUR-PROVIDER-ALLOCATOR-REPLAY-2026-11-25.md) — checks the same Rust probe and graph with glibc, jemalloc, TCMalloc minimal and mimalloc.
 - [RT-25 workload-fit recheck](RT-25/RT-25-WORKLOAD-FIT-RECHECK-2026-11-24.md) maps current allocator evidence to the RT-01 workload catalog and RT-25 gates. Existing evidence covers one compatible Linux glibc/jemalloc probe and one synthetic graph workload; actual cache/package/concurrent service workloads, other mandatory candidates, and supported-target FFI coverage remain open.
 
