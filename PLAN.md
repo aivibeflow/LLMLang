@@ -791,6 +791,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
   - [ ] [WIP] Compare exact evidence applicability with observed semantic impact across graph, source, toolchain, projection and trust-policy edits on `research/all`.
 - [ ] Define how an `ImplHash` change propagates through dependent semantic nodes and action results.
 - [ ] Define safe reuse when only non-semantic metadata changes.
+  - [ ] [WIP] Compare native object, source-location, and execution reuse after metadata edits with and without a source-location-dependent expression on `research/all`.
 - [ ] Define conservative fallback when dependency completeness cannot be established.
   - [x] Compare mixed dependency completeness across 576 action-graph profiles. Scoped fallback executes 568 fewer actions and admits 16 more packages than whole-graph recomputation with zero stale results. The optimistic control admits 120 stale packages. Production extraction and publication remain open. [Scoped dependency fallback](research/toolchain-and-collaboration/RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md)
 - [ ] Define impact planning and non-interference gates.
