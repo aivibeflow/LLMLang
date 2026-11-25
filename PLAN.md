@@ -1299,7 +1299,9 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 **Estimated research complexity:** **9/10** — combines execution, resource lifecycle, cancellation, scheduling, concurrency, and observable behavior.
 
 - [ ] Define interpreter/reference execution.
+  - [ ] [WIP] Check explicit reference interpreter continuations, ordered effect receipts and cancellation outcomes on `research/all` (#325).
 - [ ] Define VM requirements, if a VM is needed.
+  - [ ] [WIP] Compare resumable VM and reference execution across exact checkpoints and source-level observables on `research/all` (#325).
   - [x] Compare reference and stack VM fuel across 5,265 cases. Source-node charges preserve result, ordered trace, terminal state and budget throughout. Executable opcode charges differ on result, trace or terminal state in 1,280 cases. Production VM choice and broader effects remain open. [RT-10 stack VM fuel correspondence](research/runtime-and-systems/RT-10/RT-10-STACK-VM-FUEL-CORRESPONDENCE-2026-11-25.md)
 - [ ] Define runtime representation of values and semantic calls.
   - [x] Compare 16 byte payloads across native byte spans, C strings and checked UTF-8. Byte spans preserve all payloads, C strings shorten five, and UTF-8 rejects seven full spans. All 196 copy-capacity controls agree at both optimization levels. [RT-10 native byte and text values](research/runtime-and-systems/RT-10/RT-10-NATIVE-BYTE-AND-TEXT-VALUES-2026-11-25.md)
