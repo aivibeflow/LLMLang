@@ -401,6 +401,8 @@ These edges are research hypotheses derived from the current RT-24 candidate con
 
 The portable identity byte fixture informs DEP-087. Address comparison depends on the canonical preimage, including numeric encoding, string handling and ordered collections. [Portable identity bytes](../semantic-representation/RT-05/RT-05-PORTABLE-IDENTITY-BYTES.md#profile-and-results)
 
+The [multiple merge base fixture](../toolchain-and-collaboration/RT-24/RT-24-MULTIPLE-MERGE-BASES-2026-11-25.md) distinguishes clean Git synthesis from agreement across exact real ancestors. Publication evidence can need a binding to the selected base policy as well as the candidate tree and tips.
+
 ## 13. Runtime memory allocators and allocation strategy (RT-25)
 
 RT-25 evaluates allocator choices for the Rust-based LLMLang runtime and toolchain. It is a measurement and compatibility study, not a prior commitment to replace the platform allocator or to expose allocator selection as a language feature. The study must distinguish Rust-owned allocations, allocations crossing FFI boundaries, and memory owned by external libraries.
