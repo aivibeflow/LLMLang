@@ -56,3 +56,4 @@ This direction groups related research studies without changing their RT identif
 - [Draft citations to research on research/all](RT-00/RT-00-C-DRAFT-CITATION-RESEARCH-ALL-AUDIT-2026-11-25.md) — checks all current direct draft-to-research citations, their resolution and their scope.
 - [Explicit supersession and translation link screen](RT-00/RT-00-B-16-EXPLICIT-RELATIONSHIP-SCREEN-2026-11-25.md) — checks the direct-link signal against four known relationship controls and adjudicates every selected pair.
 - [Dafny contract boundary replays](RT-00/RT-00-C-DAFNY-CONTRACT-BOUNDARIES-REPLAY-2026-11-25.md) — reproduces the complete typed overlapping-copy and foreign C lookup ledgers.
+- [Structural warning coverage after research relocation](RT-00/RT-00-C-QUALITY-WARNING-COVERAGE-2026-11-25.md) — compares root-only and explicit report selection and checks the structural control.
