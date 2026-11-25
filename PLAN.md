@@ -365,7 +365,8 @@ Research the complete path from a user's request to an accepted, traceable busin
 - [ ] Define how one operation can have many implementations and how one implementation can satisfy multiple contracts.
 - [ ] Define contract-based analogue discovery separately from call identity and dispatch.
 - [ ] Define the evidence required before substituting an implementation for a specific `OpHash`.
-- [ ] Define verified adapters for compatible but non-identical contracts. [WIP] — verify a bounded unit-conversion adapter with explicit failure and trace obligations on `research/all`.
+- [ ] Define verified adapters for compatible but non-identical contracts.
+  - [x] Verify a bounded unit-conversion adapter under the exact provider assumption. Lean checks all natural inputs in the model and four counterexamples. The executable comparison agrees on all 65 directed inputs and distinguishes wrong scaling, wrapping and trace changes. General adapter admission and native correspondence remain open. [RT-04 checked unit adapter](research/language-design/RT-04/RT-04-VERIFIED-UNIT-ADAPTER-2026-11-25.md)
 - [ ] Define what may be inferred automatically and what requires proof or explicit approval.
 - [ ] Define evidence binding to exact semantic inputs, assumptions, target profile, and tool versions.
 
