@@ -1,0 +1,863 @@
+{
+  "baseline": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+  "rows": [
+    {
+      "adjacent_runner_blob": null,
+      "blob": "b6ebdf5a5d230069dc1d7c2c4e27312fcee4e953",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "logos-verdict",
+      "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/evidence/logos-verdict/observations.json",
+      "related_reports": [
+        {
+          "blob": "5a84546105b3931ec1db5c1aacb75db6aac4a858",
+          "path": "research/formal-verification/RT-07/RT-07-LOGOS-CHECKER-TRUST-BOUNDARY.md"
+        }
+      ],
+      "tool_fields": {
+        "logos_revision": "cf18742973861b3718d04c5f25775448098ff474",
+        "mathlib_revision": "5ed2965256430c3649e86755f9576b54eca72435",
+        "runtime_lean_revision": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+        "verification_lean_revision": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b"
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "15b67b11c8b3b1604e7c18afb509825bd778e2a6",
+      "blob": "640bd993034124e5d6720153c368f517ed25b7b6",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "FFI-AGGREGATE-CROSS-ABI-01",
+      "path": "research/compiler-and-translation/RT-13/FFI-AGGREGATE-CROSS-ABI-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "d8c5a6b548ccac83283b37767197db2b9180cf98",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-AGGREGATE-CROSS-ABI-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "tool_versions": [
+          "aarch64",
+          "clang",
+          "lld",
+          "riscv64"
+        ]
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "2b7816fac7fef9b9d43e6a3f2bfb994a32ed74de",
+      "blob": "46528d123a07d2181fdebe4a1c9d0df92fb17063",
+      "historical_records": null,
+      "host_fields": {
+        "versions.machine": "x86_64"
+      },
+      "label": "FFI-CALLBACK-LIFETIME-01",
+      "path": "research/compiler-and-translation/RT-13/FFI-CALLBACK-LIFETIME-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "c31da8cf30f12d21fc7fef3fdbc61f091243e9c1",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-CALLBACK-LIFETIME-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "versions.c": "gcc (Debian 14.2.0-19) 14.2.0",
+        "versions.libc": "glibc 2.41",
+        "versions.python": "3.12.14",
+        "versions.rust": "rustc 1.85.1 (4eb161250 2025-03-15)"
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "5e641ff21c114d482c62fd462faab21eb14b24f9",
+      "blob": "8862c37de6d6a57eed83cf103647eb82fad01f6f",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "FFI-CROSS-BUILD-CACHE-01",
+      "path": "research/compiler-and-translation/RT-13/FFI-CROSS-BUILD-CACHE-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "5db88bd54efab8133c1da2034c474158709820c6",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-CROSS-BUILD-CACHE-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "tool_identity": [
+          "ar",
+          "clang",
+          "kernel",
+          "lld",
+          "machine"
+        ]
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "0dec395e7e0aa820dafacab917b4229184e9f69f",
+      "blob": "cc39978f8ea018d5b075c53bb83b36192c5e0853",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "FFI-HEADER-IMPORT-01",
+      "path": "research/compiler-and-translation/RT-13/FFI-HEADER-IMPORT-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "72193d7590da582d1d5eed2390d71a54075e3d05",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-HEADER-IMPORT-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "headers_sha256": [
+          "/usr/include/fcntl.h",
+          "/usr/include/features-time64.h",
+          "/usr/include/features.h",
+          "/usr/include/inttypes.h",
+          "/usr/include/limits.h",
+          "/usr/include/linux/limits.h",
+          "/usr/include/openssl/asn1.h",
+          "/usr/include/openssl/asn1err.h",
+          "/usr/include/openssl/bio.h",
+          "/usr/include/openssl/bioerr.h",
+          "/usr/include/openssl/bn.h",
+          "/usr/include/openssl/bnerr.h",
+          "/usr/include/openssl/core.h",
+          "/usr/include/openssl/core_dispatch.h",
+          "/usr/include/openssl/crypto.h",
+          "/usr/include/openssl/cryptoerr.h",
+          "/usr/include/openssl/cryptoerr_legacy.h",
+          "/usr/include/openssl/e_os2.h",
+          "/usr/include/openssl/evp.h",
+          "/usr/include/openssl/evperr.h",
+          "/usr/include/openssl/indicator.h",
+          "/usr/include/openssl/macros.h",
+          "/usr/include/openssl/obj_mac.h",
+          "/usr/include/openssl/objects.h",
+          "/usr/include/openssl/objectserr.h",
+          "/usr/include/openssl/opensslv.h",
+          "/usr/include/openssl/params.h",
+          "/usr/include/openssl/safestack.h",
+          "/usr/include/openssl/stack.h",
+          "/usr/include/openssl/symhacks.h",
+          "/usr/include/openssl/types.h",
+          "/usr/include/pthread.h",
+          "/usr/include/sched.h",
+          "/usr/include/stdc-predef.h",
+          "/usr/include/stdint.h",
+          "/usr/include/stdio.h",
+          "/usr/include/stdlib.h",
+          "/usr/include/time.h",
+          "/usr/include/unistd.h",
+          "/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h",
+          "/usr/include/x86_64-linux-gnu/bits/cloexec.h",
+          "/usr/include/x86_64-linux-gnu/bits/confname.h",
+          "/usr/include/x86_64-linux-gnu/bits/cpu-set.h",
+          "/usr/include/x86_64-linux-gnu/bits/endian.h",
+          "/usr/include/x86_64-linux-gnu/bits/endianness.h",
+          "/usr/include/x86_64-linux-gnu/bits/environments.h",
+          "/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h",
+          "/usr/include/x86_64-linux-gnu/bits/fcntl.h",
+          "/usr/include/x86_64-linux-gnu/bits/floatn-common.h",
+          "/usr/include/x86_64-linux-gnu/bits/floatn.h",
+          "/usr/include/x86_64-linux-gnu/bits/getopt_core.h",
+          "/usr/include/x86_64-linux-gnu/bits/getopt_posix.h",
+          "/usr/include/x86_64-linux-gnu/bits/libc-header-start.h",
+          "/usr/include/x86_64-linux-gnu/bits/local_lim.h",
+          "/usr/include/x86_64-linux-gnu/bits/long-double.h",
+          "/usr/include/x86_64-linux-gnu/bits/posix1_lim.h",
+          "/usr/include/x86_64-linux-gnu/bits/posix2_lim.h",
+          "/usr/include/x86_64-linux-gnu/bits/posix_opt.h",
+          "/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h",
+          "/usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h",
+          "/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h",
+          "/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h",
+          "/usr/include/x86_64-linux-gnu/bits/sched.h",
+          "/usr/include/x86_64-linux-gnu/bits/setjmp.h",
+          "/usr/include/x86_64-linux-gnu/bits/stat.h",
+          "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h",
+          "/usr/include/x86_64-linux-gnu/bits/stdint-least.h",
+          "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h",
+          "/usr/include/x86_64-linux-gnu/bits/stdio_lim.h",
+          "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h",
+          "/usr/include/x86_64-linux-gnu/bits/struct_mutex.h",
+          "/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h",
+          "/usr/include/x86_64-linux-gnu/bits/struct_stat.h",
+          "/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h",
+          "/usr/include/x86_64-linux-gnu/bits/time.h",
+          "/usr/include/x86_64-linux-gnu/bits/time64.h",
+          "/usr/include/x86_64-linux-gnu/bits/timesize.h",
+          "/usr/include/x86_64-linux-gnu/bits/types.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/FILE.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/__FILE.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/clock_t.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/locale_t.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/time_t.h",
+          "/usr/include/x86_64-linux-gnu/bits/types/timer_t.h",
+          "/usr/include/x86_64-linux-gnu/bits/typesizes.h",
+          "/usr/include/x86_64-linux-gnu/bits/unistd_ext.h",
+          "/usr/include/x86_64-linux-gnu/bits/waitflags.h",
+          "/usr/include/x86_64-linux-gnu/bits/waitstatus.h",
+          "/usr/include/x86_64-linux-gnu/bits/wchar.h",
+          "/usr/include/x86_64-linux-gnu/bits/wordsize.h",
+          "/usr/include/x86_64-linux-gnu/gnu/stubs-64.h",
+          "/usr/include/x86_64-linux-gnu/gnu/stubs.h",
+          "/usr/include/x86_64-linux-gnu/openssl/configuration.h",
+          "/usr/include/x86_64-linux-gnu/openssl/opensslconf.h",
+          "/usr/include/x86_64-linux-gnu/sys/cdefs.h",
+          "/usr/include/x86_64-linux-gnu/sys/types.h",
+          "compiler-resource/include/__stdarg___gnuc_va_list.h",
+          "compiler-resource/include/__stdarg___va_copy.h",
+          "compiler-resource/include/__stdarg_header_macro.h",
+          "compiler-resource/include/__stdarg_va_arg.h",
+          "compiler-resource/include/__stdarg_va_copy.h",
+          "compiler-resource/include/__stdarg_va_list.h",
+          "compiler-resource/include/__stddef_header_macro.h",
+          "compiler-resource/include/__stddef_max_align_t.h",
+          "compiler-resource/include/__stddef_null.h",
+          "compiler-resource/include/__stddef_offsetof.h",
+          "compiler-resource/include/__stddef_ptrdiff_t.h",
+          "compiler-resource/include/__stddef_size_t.h",
+          "compiler-resource/include/__stddef_wchar_t.h",
+          "compiler-resource/include/inttypes.h",
+          "compiler-resource/include/limits.h",
+          "compiler-resource/include/stdarg.h",
+          "compiler-resource/include/stddef.h",
+          "compiler-resource/include/stdint.h",
+          "fixture/input.c",
+          "sqlite-include/sqlite3.h"
+        ],
+        "libraries_sha256": [
+          "crypto",
+          "libc",
+          "sqlite"
+        ],
+        "tool_versions": [
+          "clang",
+          "openssl",
+          "sqlite"
+        ]
+      },
+      "tracked_bindings": [
+        {
+          "algorithm": "sha256",
+          "blob": "62054771e201505b7504197a68566c1b3565ebd4",
+          "field": "headers_sha256[fixture/input.c]",
+          "path": "research/compiler-and-translation/RT-13/FFI-HEADER-IMPORT-01/input.c",
+          "revision": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+          "value": "50bad6c8faa6dd7403a8b009884483257bcc75dcf4fbd73d7b44759446bb9279"
+        }
+      ]
+    },
+    {
+      "adjacent_runner_blob": "e02270eda1e2b828b148b24f7e2b192058794ffa",
+      "blob": "5fd277938c2ba38394c10170d1a89175f078f0ab",
+      "historical_records": null,
+      "host_fields": {
+        "versions.machine": "x86_64"
+      },
+      "label": "FFI-LOADER-SCOPE-01",
+      "path": "research/compiler-and-translation/RT-13/FFI-LOADER-SCOPE-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "61b50fefbc509926aadc3bac616e65b32d2f5255",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-LOADER-SCOPE-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "versions.binutils": "GNU ld (GNU Binutils for Debian) 2.44",
+        "versions.gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+        "versions.glibc": "glibc 2.41"
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "4daa5d23c0a25c9527a8dfe1b2ace142d076a4ea",
+      "blob": "2ea08a8728e0b08ad631b40482a98b5e30610731",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "FFI-MANAGED-CALLBACK-01",
+      "path": "research/compiler-and-translation/RT-13/FFI-MANAGED-CALLBACK-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "6712273aaaa86e691f701b29d7fe987738ce3580",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-MANAGED-CALLBACKS-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "versions": [
+          "go",
+          "java"
+        ]
+      },
+      "tracked_bindings": [
+        {
+          "algorithm": "sha256",
+          "blob": "46528d123a07d2181fdebe4a1c9d0df92fb17063",
+          "field": "prior_ledger_sha256",
+          "path": "research/compiler-and-translation/RT-13/FFI-CALLBACK-LIFETIME-01/observations.json",
+          "revision": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+          "value": "0614f4b04727d7d8901c43ae6b273c9e9acaa10d7cf2e4b35be816e1dc69432a"
+        }
+      ]
+    },
+    {
+      "adjacent_runner_blob": "19debce57cf9fea0269ef3a648b72c6bf6f25a09",
+      "blob": "ba11296cbd6b96e86022485b68666dc19d910a42",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "FFI-VARIADIC-ABI-01",
+      "path": "research/compiler-and-translation/RT-13/FFI-VARIADIC-ABI-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "e8b71f04cd63cbb40a57814fa3bbec42c7fbcf84",
+          "path": "research/compiler-and-translation/RT-13/RT-13-FFI-VARIADIC-ABI-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "tools": [
+          "clang",
+          "lld",
+          "qemu-aarch64",
+          "qemu-riscv64"
+        ]
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "d6c936c97a52bec3b9d3cc0d252818df84c01d47",
+      "blob": "9f24eae85f538c2e8f4cfa323f5203a017824317",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "TEMPORAL-ADAPTER-01",
+      "path": "research/formal-verification/RT-33/TEMPORAL-ADAPTER-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "e709e17d513b0079bbf63c98b2f33e4452a4fd78",
+          "path": "research/formal-verification/RT-33/RT-33-TEMPORAL-ADAPTERS-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {},
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "04bb7af036d5d780a7872595a86c7fb18147c897",
+      "blob": "48235e69244e7adc61649300fa5f1db75f53143b",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "WHY3-BOOGIE-ADAPTER-01",
+      "path": "research/formal-verification/RT-33/WHY3-BOOGIE-ADAPTER-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "7ee91913558c5c2b5d3297aeac5357af63256064",
+          "path": "research/formal-verification/RT-33/RT-33-WHY3-BOOGIE-ADAPTER-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "versions": [
+          "boogie",
+          "carcara",
+          "cvc5",
+          "why3",
+          "z3"
+        ]
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "e5e10a805218c1a5b427964e59963186e39d714f",
+      "blob": "8ddbc71bcdc13f75e9f5abd9e23144eb8a8c4ce3",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "RELEASE-REQUIREMENT-01",
+      "path": "research/language-design/RT-02/RELEASE-REQUIREMENT-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "42a4afa6b420cadf083b884da2f4df2b76045e85",
+          "path": "research/language-design/RT-02/RT-02-PROOF-REQUIRED-RELEASE-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "proof.checker_sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00",
+        "proof.version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+      },
+      "tracked_bindings": [
+        {
+          "algorithm": "sha256",
+          "blob": "e1b7d855937882d49c3b96ece1d6815603568e2f",
+          "field": "source_sha256",
+          "path": "research/language-design/RT-02/RELEASE-REQUIREMENT-01/requirements.txt",
+          "revision": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+          "value": "42a363e18f1c4da6949b695da3abe47d019f9240bbda26df8d78a4e65ec1a63f"
+        },
+        {
+          "algorithm": "sha256",
+          "blob": "d1761380d22cc5a9af634f5627afed36ad575a96",
+          "field": "oracle_sha256",
+          "path": "research/language-design/RT-02/RELEASE-REQUIREMENT-01/oracle.py",
+          "revision": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+          "value": "276b7431914d60454dbd957e801c15435ec8bb90ae9245f09805d7706ddf6ed7"
+        },
+        {
+          "algorithm": "sha256",
+          "blob": "985781d2f8b02c4666a66acbb24553dfe98c0265",
+          "field": "proof.formalization_sha256",
+          "path": "research/language-design/RT-02/RELEASE-REQUIREMENT-01/Release.lean",
+          "revision": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+          "value": "8c88a7152f257d9177462621a03939a03096a003f5b05978884fd91e2c30c9ac"
+        },
+        {
+          "algorithm": "sha256",
+          "blob": "985781d2f8b02c4666a66acbb24553dfe98c0265",
+          "field": "receipt.formalization_sha256",
+          "path": "research/language-design/RT-02/RELEASE-REQUIREMENT-01/Release.lean",
+          "revision": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+          "value": "8c88a7152f257d9177462621a03939a03096a003f5b05978884fd91e2c30c9ac"
+        }
+      ]
+    },
+    {
+      "adjacent_runner_blob": null,
+      "blob": "1d843d301e09385afed4d7f36353c1ec09ecbed8",
+      "historical_records": {
+        "available_commits": [
+          "08c8490e92b472f99abf3117e82bc7b11643fe0d",
+          "2c7f3d1035a86fe10d90c038adc71775db5549fa",
+          "b0638a1b69a3f7d233194097032cde9209b672db",
+          "d3fe3916db0b42d6cb21d3814b323fb8831fa803",
+          "e956d25bfa34ccc649f0d674e29ea27adecbdb20"
+        ],
+        "manifest": "research/quality-audit/2026-11-23-publication-provenance.json",
+        "manifest_blob": "233307407808635e8f4e8be8efe2b332316cc72f"
+      },
+      "host_fields": {
+        "runner": "GitHub Actions ubuntu-24.04 (x86_64 Linux)"
+      },
+      "label": "2026-11-23-historical-rerun-observations.json",
+      "path": "research/quality-audit/2026-11-23-historical-rerun-observations.json",
+      "related_reports": [],
+      "tool_fields": {
+        "python": "CPython 3.12.14 via actions/setup-python@v5"
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": null,
+      "blob": "925565e5f3fbc0c80deff67e8de48ec747a8f544",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "2026-11-23-pinned-lean-proof-observations.json",
+      "path": "research/quality-audit/2026-11-23-pinned-lean-proof-observations.json",
+      "related_reports": [],
+      "tool_fields": {
+        "lean_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+        "lean_target": "x86_64-unknown-linux-gnu",
+        "lean_version": "Lean 4.36.0"
+      },
+      "tracked_bindings": [
+        {
+          "algorithm": "sha256",
+          "blob": "98bd38f297e91840c56664ef00fbd5f28c3a81b8",
+          "field": "source_sha256",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ObservableRewrite.lean",
+          "revision": "ff1295c1769bfe8546c4b63590c9f607349215ee",
+          "value": "039808b6adf5d5baa97f6498a15fd04843a4f4c6b1147c9dade68f4440252765"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "98bd38f297e91840c56664ef00fbd5f28c3a81b8",
+          "field": "source_git_blob",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/ObservableRewrite.lean",
+          "revision": "ff1295c1769bfe8546c4b63590c9f607349215ee",
+          "value": "98bd38f297e91840c56664ef00fbd5f28c3a81b8"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "00f848359b1cdaf7c12cd6b7acc5b4364752e154",
+          "field": "toolchain_config_git_blob",
+          "path": "research/PROTOTYPES/DEPENDENCY-GRAPH-01/logos_binding/lean-toolchain",
+          "revision": "ff1295c1769bfe8546c4b63590c9f607349215ee",
+          "value": "00f848359b1cdaf7c12cd6b7acc5b4364752e154"
+        }
+      ]
+    },
+    {
+      "adjacent_runner_blob": null,
+      "blob": "9dff05f25f30734d38d58afdb209554ce1a475e2",
+      "historical_records": [
+        {
+          "algorithm": "git-blob",
+          "blob": "9fdb7298597965299ab9add721e46650c798492c",
+          "field": "blob",
+          "path": "research/RESEARCH-SCENARIO-130-DURABLE-INVOCATION-RESULTS.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "9fdb7298597965299ab9add721e46650c798492c"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "dfa5e9e24bc621936896a1a55f267cc9a8f82659",
+          "field": "blob",
+          "path": "research/RESEARCH-SCENARIO-04-VERIFICATION-REUSE.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "dfa5e9e24bc621936896a1a55f267cc9a8f82659"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "f22e5cc96df8ba893e93fe9ac1616713e5160c34",
+          "field": "blob",
+          "path": "research/RESEARCH-SCENARIO-128-FOREIGN-RESERVATION-OUTCOMES.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "f22e5cc96df8ba893e93fe9ac1616713e5160c34"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "6f1326a86509fa154e09405dcbd91ed543f94e9c",
+          "field": "blob",
+          "path": "research/RESEARCH-SCENARIO-45-NUMERIC-SEMANTICS-AND-OVERFLOW.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "6f1326a86509fa154e09405dcbd91ed543f94e9c"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "4123a1ca3ec3e60365c5d9f67178e679d35e188b",
+          "field": "blob",
+          "path": "research/RESEARCH-SCENARIO-52-UNICODE-IDENTIFIERS-AND-SOURCE-SAFETY.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "4123a1ca3ec3e60365c5d9f67178e679d35e188b"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "ff75d89f0ccb2202875270a42a12924753346ccb",
+          "field": "blob",
+          "path": "research/RESEARCH-SCENARIO-56-CLOSURE-CAPTURE-AND-ESCAPE.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "ff75d89f0ccb2202875270a42a12924753346ccb"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "c1dfa564c5e35a9d7da650c1d0fed2f0e4e71a0e",
+          "field": "blob",
+          "path": "research/RESEARCH-SCENARIO-41-TYPED-ERRORS-AND-API-EVOLUTION.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "c1dfa564c5e35a9d7da650c1d0fed2f0e4e71a0e"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "8e4a3180fbd0ff3ac63cf597ea734292807ec555",
+          "field": "blob",
+          "path": "research/RESEARCH-SCENARIO-40-ASYNC-CANCELLATION-AND-CLEANUP.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "8e4a3180fbd0ff3ac63cf597ea734292807ec555"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "487a20167267b4c22784b483be8e419a753a55ce",
+          "field": "blob",
+          "path": "research/RT-13-LLVM-WASM-BYTE-VIEW-LOWERING.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "487a20167267b4c22784b483be8e419a753a55ce"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "4da1df2c672cc944fece93847e1bf6ede986e15e",
+          "field": "blob",
+          "path": "research/RT-00-DEP-006-TYPE-IDENTITY-EVIDENCE-RECHECK-2026-11-23.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "4da1df2c672cc944fece93847e1bf6ede986e15e"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "2b48e4b9991a032de3530068b9d491e9c487f6d3",
+          "field": "blob",
+          "path": "research/RT-04-RT-03-CROSS-PROFILE-TRACES.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "2b48e4b9991a032de3530068b9d491e9c487f6d3"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "b7707c7bf21fa23ba913814723fbdd8419019655",
+          "field": "blob",
+          "path": "research/RT-00-A-SCENARIO-CROSSWALK-RECONCILIATION-2026-11-23.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "b7707c7bf21fa23ba913814723fbdd8419019655"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "2be7ddb8c530127e3c20a2bd383236afdc70e8df",
+          "field": "blob",
+          "path": "research/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "2be7ddb8c530127e3c20a2bd383236afdc70e8df"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "7174f961c56599e00a3283322c6a0ef16a22e6b8",
+          "field": "blob",
+          "path": "research/RT-00-A-CONTENT-ROLE-TRIAGE-2026-11-22.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "7174f961c56599e00a3283322c6a0ef16a22e6b8"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "df899fb22439f42b989f059a6852ad26644d4cd4",
+          "field": "blob",
+          "path": "research/RT-09-ORDERED-SPG-LOWERING.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "df899fb22439f42b989f059a6852ad26644d4cd4"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "72bc95a195b9fc52132ab3323d680034c7324485",
+          "field": "blob",
+          "path": "research/RT-01-REFERENCE-WORKLOADS.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "72bc95a195b9fc52132ab3323d680034c7324485"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "955e0e1b86d17965f328a07da59f1521bfd3649f",
+          "field": "blob",
+          "path": "research/LLVM-BACKEND-ARCHITECTURE.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "955e0e1b86d17965f328a07da59f1521bfd3649f"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "7bd3d839e28133da8f70601e32cb5698403282f3",
+          "field": "blob",
+          "path": "research/RESEARCH-CORPUS-PROTOTYPE-EVIDENCE-RT04-01-2026-11-20.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "7bd3d839e28133da8f70601e32cb5698403282f3"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "2bb8bcbd90430a578d3ceab85846afbbd970c8e6",
+          "field": "blob",
+          "path": "research/TOKEN_EFFICIENCY.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "2bb8bcbd90430a578d3ceab85846afbbd970c8e6"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "880cada71c7db00855fc6799ad14c89669c616f1",
+          "field": "blob",
+          "path": "research/RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "880cada71c7db00855fc6799ad14c89669c616f1"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "0b641287474ca59f9ec24f3ac3770824c0c479de",
+          "field": "blob",
+          "path": "research/RESEARCH-CORPUS-SEMANTIC-RELATIONSHIP-REVIEW-2026-11-20.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "0b641287474ca59f9ec24f3ac3770824c0c479de"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "1bbb9342531c9d1391b1fec8b90774fd67aeb125",
+          "field": "blob",
+          "path": "research/REPOSITORY-AUDIT-2026-11-17.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "1bbb9342531c9d1391b1fec8b90774fd67aeb125"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "c3ea40d331c113a4cba5d077edba1846694f5799",
+          "field": "blob",
+          "path": "research/COMPILATION-CACHE-SPEEDUP-ESTIMATE.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "c3ea40d331c113a4cba5d077edba1846694f5799"
+        },
+        {
+          "algorithm": "git-blob",
+          "blob": "498ba7102f8b825e37a736bde7bdc6edb4a1df16",
+          "field": "blob",
+          "path": "research/RESEARCH-CORPUS-SEMANTIC-TRACEABILITY-2026-11-20.md",
+          "revision": "627c70878863b519a358815f8a96ddbae1303136",
+          "value": "498ba7102f8b825e37a736bde7bdc6edb4a1df16"
+        }
+      ],
+      "host_fields": {},
+      "label": "2026-11-23-root-census-observations.json",
+      "path": "research/quality-audit/2026-11-23-root-census-observations.json",
+      "related_reports": [],
+      "tool_fields": {},
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "e2e5a1c7f18641323f0e481b35eda3b4aa3c506b",
+      "blob": "017791f5f44891aee6415a71d665460e487757d8",
+      "historical_records": null,
+      "host_fields": {
+        "kernel": "6.18.57"
+      },
+      "label": "TCP-TRANSPORT-ACCOUNTING-01",
+      "path": "research/runtime-and-systems/RT-26/TCP-TRANSPORT-ACCOUNTING-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "08a317e537714d0a7bc72ee305104dafb8e077a0",
+          "path": "research/runtime-and-systems/RT-26/RT-26-TCP-TRANSPORT-ACCOUNTING-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+        "libc": "glibc 2.41",
+        "linux_tcp_header_sha256": "71a884dbaf9d11cb9d9437a052e95b89625943ef1c43347ed0a596abb3d749bc"
+      },
+      "tracked_bindings": [
+        {
+          "algorithm": "sha256",
+          "blob": "bd75746b8d7cc5a2483985d188a69232ee406985",
+          "field": "source_sha256",
+          "path": "research/runtime-and-systems/RT-26/TCP-TRANSPORT-ACCOUNTING-01/probe.c",
+          "revision": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+          "value": "abca7831e53422efc07a6b6eed1bb7aab49550e89884e6128baa357ea83a5ec8"
+        }
+      ]
+    },
+    {
+      "adjacent_runner_blob": "5879fe4d9d1d81d2063aaeb87797344eddebdd59",
+      "blob": "029e89938eca6709066a14325611d4ae3a9719d1",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "COHERENT-MULTIREF-01",
+      "path": "research/toolchain-and-collaboration/RT-19/COHERENT-MULTIREF-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "735643807542915ab3d9cffabc9defa7e8ab3d53",
+          "path": "research/toolchain-and-collaboration/RT-19/RT-19-COHERENT-MULTIREF-READS-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "git": "git version 2.56.1"
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "d296c51ae96091a12c57a18d8b23ceabbd13b06b",
+      "blob": "affb4dfcb8ca8e3ac0a4836e493e9fc2459e01cb",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "GIT-REF-FAULTS-01",
+      "path": "research/toolchain-and-collaboration/RT-19/GIT-REF-FAULTS-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "7ec0fb1bcca4de79d2d281fea62a903113ad3639",
+          "path": "research/toolchain-and-collaboration/RT-19/RT-19-GIT-REF-FAULTS-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "git": "git version 2.56.1"
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "fa851db8b399055bd59f10a7639ef6145cb2c17f",
+      "blob": "4e6894e02d7c907ff4c4c0e96d086a4e2d5fdc27",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "PUBLICATION-CONTRACT-01",
+      "path": "research/toolchain-and-collaboration/RT-19/PUBLICATION-CONTRACT-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "bf757a9e074f4735dc323fde92a444eec84ff03f",
+          "path": "research/toolchain-and-collaboration/RT-19/RT-19-PUBLICATION-RECOVERY-CONTRACT-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "jar_sha256": "fdffef247f563ef6edbfd44958d2a82db79e7564e07cb673262d896353fa6713"
+      },
+      "tracked_bindings": [
+        {
+          "algorithm": "sha256",
+          "blob": "e64c990fb214616322b8b1bf9e86c46d13cc8b33",
+          "field": "model_sha256",
+          "path": "research/toolchain-and-collaboration/RT-19/PUBLICATION-CONTRACT-01/Publication.tla",
+          "revision": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+          "value": "e63a125be3a59a8db9a88e635fa00aaf9a40d7b77cb0bc65a412709983ff03db"
+        }
+      ]
+    },
+    {
+      "adjacent_runner_blob": "be0014a0507d4d3a9f1d596cb0b4deebb24f7285",
+      "blob": "ec87050df464554d57183e6526ec65ba9451a311",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "TWO-REMOTE-PUBLICATION-01",
+      "path": "research/toolchain-and-collaboration/RT-19/TWO-REMOTE-PUBLICATION-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "e4b8c265423c0f417fee99f680d9071bdd3ee989",
+          "path": "research/toolchain-and-collaboration/RT-19/RT-19-TWO-REMOTE-PUBLICATION-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "git": "git version 2.56.1",
+        "sqlite": "3.53.1"
+      },
+      "tracked_bindings": []
+    },
+    {
+      "adjacent_runner_blob": "cd2654f0aa80b993daf2afe7cc98638fb22abfa3",
+      "blob": "fa34b11e1f3a75e335ccad99b299bf2d52e6a653",
+      "historical_records": null,
+      "host_fields": {},
+      "label": "DEPENDENCY-BOOTSTRAP-01",
+      "path": "research/toolchain-and-collaboration/RT-21/DEPENDENCY-BOOTSTRAP-01/observations.json",
+      "related_reports": [
+        {
+          "blob": "6b1911ea0cea6551cd967662eb847c588b0fe488",
+          "path": "research/toolchain-and-collaboration/RT-21/RT-21-STRUCTURED-DEPENDENCY-BOOTSTRAP-2026-11-25.md"
+        }
+      ],
+      "tool_fields": {
+        "compiler": "gcc (Debian 14.2.0-19) 14.2.0"
+      },
+      "tracked_bindings": [
+        {
+          "algorithm": "sha256",
+          "blob": "e0374a9c769e5816f5de60a1a1e6d16cdc3bf42b",
+          "field": "source_sha256",
+          "path": "research/toolchain-and-collaboration/RT-21/DEPENDENCY-BOOTSTRAP-01/dependency-tool.json",
+          "revision": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+          "value": "a408151ea92d97533b902d1d694b963bfd75525b8e2b88656d685d15c05666ac"
+        },
+        {
+          "algorithm": "sha256",
+          "blob": "aeebd30140821061075cf0193cfc4d27f26ef701",
+          "field": "profile_implementation_sha256",
+          "path": "research/toolchain-and-collaboration/RT-21/DEPENDENCY-BOOTSTRAP-01/fragment.py",
+          "revision": "356ddee8964a8b0bb49457e5252fdec7e8b12f83",
+          "value": "9c3513c602d3e0aa8d153cd4f29a6ca4de5a8d058663f7b7f79e93d88215581c"
+        },
+        {
+          "algorithm": "sha256",
+          "blob": "386dc6878ff734f0fc9fb5b8dfee83d2acc9405d",
+          "field": "register_projections.register_sha256",
+          "path": "research/research-management/RESEARCH-DEPENDENCY-MAP.md",
+          "revision": "b1b1579bd21e164c45c4c93e24dafca9945239ee",
+          "value": "4432b3a679447295e38f2166391b3281b640e8c4f43890eea59ff5fc3296dac2"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "adjacent_runner_blob": 16,
+    "direct_tracked_bindings": 14,
+    "historical_queue_blob_matches": 24,
+    "host_fields": 4,
+    "ledgers": 20,
+    "related_reports": 17,
+    "tool_fields": 18
+  }
+}
