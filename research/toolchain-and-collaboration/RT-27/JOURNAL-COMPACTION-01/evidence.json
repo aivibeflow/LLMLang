@@ -1,0 +1,169 @@
+{
+  "checkout_present_during_restore": false,
+  "git": "git version 2.56.1",
+  "origin_present_during_restore": false,
+  "revisions": {
+    "compacted": {
+      "event_count": 2,
+      "index": "absent-rebuilt",
+      "records": {
+        "consumer": {
+          "refs": [
+            "current",
+            "current"
+          ],
+          "value": 1
+        },
+        "current": {
+          "refs": [],
+          "value": 7
+        }
+      },
+      "reverse": {
+        "consumer": [],
+        "current": [
+          [
+            "consumer",
+            0
+          ],
+          [
+            "consumer",
+            1
+          ]
+        ]
+      },
+      "root": "ba590ea39ba2ab8b41df32b6f66f8897a5aac19076f9ae8dafc56dfa11adb0e8",
+      "status": "verified",
+      "tracked_paths": [
+        "journal.json",
+        "manifest.json"
+      ]
+    },
+    "dangling": {
+      "status": "dangling-reference"
+    },
+    "deleted": {
+      "event_count": 5,
+      "index": "stale-rebuilt",
+      "records": {
+        "consumer": {
+          "refs": [
+            "current",
+            "current"
+          ],
+          "value": 1
+        },
+        "current": {
+          "refs": [],
+          "value": 7
+        }
+      },
+      "reverse": {
+        "consumer": [],
+        "current": [
+          [
+            "consumer",
+            0
+          ],
+          [
+            "consumer",
+            1
+          ]
+        ]
+      },
+      "root": "ba590ea39ba2ab8b41df32b6f66f8897a5aac19076f9ae8dafc56dfa11adb0e8",
+      "status": "verified",
+      "tracked_paths": [
+        "journal.json",
+        "manifest.json",
+        "reverse.json"
+      ]
+    },
+    "index-only-error": {
+      "event_count": 2,
+      "index": "stale-rebuilt",
+      "records": {
+        "consumer": {
+          "refs": [
+            "current",
+            "current"
+          ],
+          "value": 1
+        },
+        "current": {
+          "refs": [],
+          "value": 7
+        }
+      },
+      "reverse": {
+        "consumer": [],
+        "current": [
+          [
+            "consumer",
+            0
+          ],
+          [
+            "consumer",
+            1
+          ]
+        ]
+      },
+      "root": "ba590ea39ba2ab8b41df32b6f66f8897a5aac19076f9ae8dafc56dfa11adb0e8",
+      "status": "verified",
+      "tracked_paths": [
+        "journal.json",
+        "manifest.json",
+        "reverse.json"
+      ]
+    },
+    "initial": {
+      "event_count": 3,
+      "index": "exact",
+      "records": {
+        "consumer": {
+          "refs": [
+            "legacy",
+            "legacy"
+          ],
+          "value": 1
+        },
+        "current": {
+          "refs": [],
+          "value": 7
+        },
+        "legacy": {
+          "refs": [],
+          "value": 5
+        }
+      },
+      "reverse": {
+        "consumer": [],
+        "current": [],
+        "legacy": [
+          [
+            "consumer",
+            0
+          ],
+          [
+            "consumer",
+            1
+          ]
+        ]
+      },
+      "root": "9079e1d46b78531d7ed9072239b682239941e33b1dbd1e80f6b4400bc57b67d0",
+      "status": "verified",
+      "tracked_paths": [
+        "journal.json",
+        "manifest.json",
+        "reverse.json"
+      ]
+    },
+    "missing-delete": {
+      "status": "wrong-logical-root"
+    },
+    "wrong-before": {
+      "status": "wrong-predecessor"
+    }
+  },
+  "runtime": "3.12.14"
+}
