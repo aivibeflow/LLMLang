@@ -36,6 +36,7 @@ This direction groups related research studies without changing their RT identif
 - [External CAS collection](RT-12/RT-12-EXTERNAL-CAS-COLLECTION-2026-11-25.md) — persistent reachability, snapshot leases and quarantine recovery.
 - [Integrated graph index](RT-12/RT-12-INTEGRATED-GRAPH-INDEX-2026-11-25.md) — exact generation boundaries across four query families.
 - [Portable graph publication](RT-12/RT-12-PORTABLE-GRAPH-PUBLICATION-2026-11-25.md) — local/shared content, CAS and SQLite publication, and offline index reconstruction.
+- [Typed object lifecycle](RT-12/RT-12-TYPED-OBJECT-LIFECYCLE-2026-11-25.md) — strict typed wire admission, versioned storage envelopes and immutable address reads.
 - [RT-12 offline semantic clone](RT-12/RT-12-OFFLINE-SEMANTIC-CLONE-2026-11-25.md) — compares current closure, packed archives and explicit historical Git carriers.
 - [RT-12 concrete storage layouts](RT-12/RT-12-CONCRETE-STORAGE-LAYOUTS-2026-11-25.md) — measures persisted data for four layouts over the same closed graph corpus.
 - [RT-12 local and shared repository closures](RT-12/RT-12-REPOSITORY-LOCAL-AND-SHARED-CLOSURES-2026-11-25.md) — compares deduplication, exact scope and pinned offline availability.

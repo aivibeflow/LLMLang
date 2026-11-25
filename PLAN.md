@@ -1001,8 +1001,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 - [x] Compare KV databases, content-addressed object stores, relational indexes, and filesystem layouts.
   - [x] Compare filesystem CAS, stdlib DBM KV, SQLite KV and SQLite with reverse index across 32, 256 and 1,024 objects. All recover the exact closure and answer the selected reverse queries. At 1,024 objects the SQLite reverse projection adds 487,424 persisted regular-file bytes. [RT-12 concrete storage layouts](research/packages-and-ecosystem/RT-12/RT-12-CONCRETE-STORAGE-LAYOUTS-2026-11-25.md)
-- [ ] Define canonical object encoding and immutable object lifecycle.
-  - [ ] [WIP] Check strict typed immutable-object admission, version envelopes and storage transitions on `research/all` (#319).
+- [x] Define canonical object encoding and immutable object lifecycle.
+  - [x] Check 31 wire and nine lifecycle controls with Python, Node and filesystem CAS. Physical envelope revisions preserve exact inner identity. Stale references, unsupported reader versions and corrupt occupied paths are refused. [Typed object lifecycle](research/packages-and-ecosystem/RT-12/RT-12-TYPED-OBJECT-LIFECYCLE-2026-11-25.md)
   - [x] Check exact filesystem CAS insertion with two concurrent writers and three process exits. No-replace publication preserves exact bytes across retries, while a direct interrupted rewrite corrupts the address. Full SPG encoding and power-loss durability remain open. [RT-12 immutable object insertion](research/packages-and-ecosystem/RT-12/RT-12-IMMUTABLE-OBJECT-INSERTION-2026-11-25.md)
 - [x] Define indexes for graph traversal, reverse dependencies, contracts, and implementation discovery.
   - [x] Check 96 queries across eight indexed views. Exact admission or a source scan preserves traversal, typed reverse occurrences, contract metadata and scoped providers. A mixed generation can return results belonging to neither revision. [Integrated graph index](research/packages-and-ecosystem/RT-12/RT-12-INTEGRATED-GRAPH-INDEX-2026-11-25.md)
@@ -1026,7 +1026,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Existing evidence:** [GLOBAL-SEMANTIC-ARTIFACT-STORE.md](research/packages-and-ecosystem/RT-12/GLOBAL-SEMANTIC-ARTIFACT-STORE.md) and the current Git representation research.
 
-**Status:** researched at architectural level; storage prototype and recovery tests remain open.
+**Status:** scoped prototypes verify immutable object admission, exact graph indexes and transactions, collection, incremental replication, local/shared storage and portable Git reconstruction. Canonical SPG object envelopes, authority, distributed recovery and power-loss durability remain open.
 
 ## 4.2 Git representation and repository model
 
