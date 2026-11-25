@@ -25,6 +25,7 @@ This direction groups related research studies without changing their RT identif
 - [Dependency role closures](RT-06/RT-06-DEPENDENCY-ROLE-CLOSURE-2026-11-25.md) — execution, verification and source audit input closures.
 - [Guarded SPG dependency discovery](RT-06/RT-06-SPG-GUARDED-DEPENDENCY-DISCOVERY-2026-11-25.md) — source sites, typed guards, execution witnesses and conservative may sets.
 - [Typed change-impact planning](RT-06/RT-06-TYPED-CHANGE-IMPACT-2026-11-25.md) — distinct requirement, contract, design, implementation and target paths.
+- [SPG index reconciliation](RT-06/RT-06-SPG-INDEX-RECONCILIATION-2026-11-25.md) — candidate tests and decisions needed for normative adoption.
 - [RT-05 source occurrence evidence after formatting](RT-05/RT-05-SOURCE-OCCURRENCE-EVIDENCE-2026-11-25.md)
 - [RT-05 native implementation identity](RT-05/RT-05-NATIVE-IMPLEMENTATION-IDENTITY-2026-11-25.md) — compares build actions, caller bytes and resolved provider, ABI and runtime identities.
 - [RT-05 typed edge projections](RT-05/RT-05-TYPED-EDGE-PROJECTIONS-2026-11-25.md) — compares identity closures for execution, verification and source navigation.

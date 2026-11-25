@@ -832,8 +832,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [x] Add a differential Snapshot payload-scan audit for reverse-index edge coverage and bind its evidence to the exact query.
 - [x] Represent caller compatibility per exact call-site/target edge; require explicit evidence-backed migrate/preserve/adapt/fork decisions and resulting caller hashes; block plans with missing or unresolved decisions. Prototype coverage includes mixed old/new behavior and shared-caller version selection.
 - [x] Bind each call-site/target alternative to its exact caller-required Contract hash; keep the provided Contract reference solely on the callee and resolve it through the existing caller-to-callee edge in RT-20 planning, validation, and semantic diff. Do not duplicate provided-contract hashes in call edges, reverse-index edges, or CIP decisions (declaration schema v2; dependency-index schema v3; not yet normatively equated with glossary CCHash).
-- [ ] Reconcile the candidate subset with the canonical SPG schema and formal semantics before normative adoption.
-  - [ ] [WIP] Check candidate index reconciliation inputs against archived SPG, call contracts and semantic observations, and identify unresolved normative decisions on `research/all`.
+- [ ] [WIP human] Reconcile the candidate subset with the canonical SPG schema and formal semantics before normative adoption. Requires accepted SPG identity envelopes and a selected formal observation profile.
+  - [x] Recheck the candidate boundaries and all 104 tests in eight archived suites. Declaration v2, index v3 and plan v5 have checked scoped evidence. Five relevant decision records remain open and both architecture records remain proposed in the checked archive. [SPG index reconciliation](research/semantic-representation/RT-06/RT-06-SPG-INDEX-RECONCILIATION-2026-11-25.md)
 - [x] Define semantic dependencies separately from provenance, audit observations, and traceability.
   - [x] Check the role boundary in the pinned semantic and relation stores. Over 8,128 profile pairs, a runtime-only key falsely admits 576 verification and 512 audit reuses. Excluding a consumed note admits 256 stale executions. [Dependency role closures](research/semantic-representation/RT-06/RT-06-DEPENDENCY-ROLE-CLOSURE-2026-11-25.md)
 - [x] Define hash-relevant dependency edges and dependency closure.
@@ -854,7 +854,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Existing evidence:** scenarios 18–28 and prototypes 18–28 in `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`.
 
-**Status:** extensively researched and prototyped in Scenarios 18–28 and dependency-graph prototypes 18–28. A candidate index contract and executable typed extractor now exist in [SEMANTIC-DEPENDENCY-INDEX.md](research/semantic-representation/RT-06/SEMANTIC-DEPENDENCY-INDEX.md) and `research/PROTOTYPES/DEPENDENCY-GRAPH-01/`. The candidate schema is not canonical; reconciliation with the accepted SPG model, formal soundness, and Toolchain integration remain open.
+**Status:** checked scoped studies cover the dependency model and its candidate extractor, evidence and planning rules. Normative reconciliation remains pending the accepted SPG schema and formal semantics. General source soundness and Toolchain integration remain open.
 
 **Research output (2026-11-21)** · A closed scoped-lookup fixture distinguishes absent and present binding reads. Per-key projection reuses 216 results with zero observed false reuse, conditional on whole-layer admission. [Negative binding reads](research/semantic-representation/RT-06/RT-06-SCOPED-BINDING-READ-DEPENDENCIES.md)
 
