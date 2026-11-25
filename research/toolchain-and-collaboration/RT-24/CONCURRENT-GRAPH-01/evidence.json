@@ -1,0 +1,1752 @@
+{
+  "counts": {
+    "whole-head": {
+      "schedules": 48,
+      "incorrect_admissions": 0,
+      "unnecessary_refusals": 16,
+      "invalid_final_graphs": 0
+    },
+    "write-only": {
+      "schedules": 48,
+      "incorrect_admissions": 24,
+      "unnecessary_refusals": 0,
+      "invalid_final_graphs": 24
+    },
+    "exact-read": {
+      "schedules": 48,
+      "incorrect_admissions": 0,
+      "unnecessary_refusals": 0,
+      "invalid_final_graphs": 0
+    }
+  },
+  "records": [
+    {
+      "intermediate_nodes": 1,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 1,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 2,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 4,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "independent",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "independent",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "same-write",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "same-write",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "endpoint-changed",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "endpoint-changed",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "outgoing-edge-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "cycle-phantom",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": false,
+      "final_graph_valid": false
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "cycle-phantom",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": false,
+      "second_permitted": false,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "overlapping-read",
+      "order": [
+        0,
+        1
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "whole-head",
+      "second_committed": false,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "write-only",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    },
+    {
+      "intermediate_nodes": 8,
+      "fixture": "overlapping-read",
+      "order": [
+        1,
+        0
+      ],
+      "policy": "exact-read",
+      "second_committed": true,
+      "second_permitted": true,
+      "final_graph_valid": true
+    }
+  ]
+}
