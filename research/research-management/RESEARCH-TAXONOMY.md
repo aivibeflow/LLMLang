@@ -23,7 +23,7 @@ RT-13 and RT-07 check structural graph sharing and its correspondence obligation
 
 RT-08 and RT-13 apply typed seeded generation and preserve exact observation claims when minimizing differential witnesses. [Differential shrinking](../compiler-and-translation/RT-13/RT-13-DIFFERENTIAL-SHRINKING-2026-11-25.md)
 
-RT-13 checks the intermediate identity, guard coverage and observation obligations for composition across compiler passes. [Compiler pass composition](../compiler-and-translation/RT-13/RT-13-COMPILER-PASS-COMPOSITION-2026-11-25.md)
+RT-13 checks the intermediate identity, guard coverage and observation obligations for composition across compiler passes. [Compiler pass composition](../compiler-and-translation/RT-13/RT-13-COMPILER-PASS-COMPOSITION-2026-11-25.md) · [Optimization replay](../compiler-and-translation/RT-13/RT-13-OPTIMIZATION-REPLAY-2026-11-25.md)
 
 RT-13 reconciles LLVM validator verdict scopes and checks refinement for stable and independent choices. [LLVM validator and choice scope](../compiler-and-translation/RT-13/RT-13-LLVM-VALIDATOR-CHOICE-SCOPE-2026-11-25.md)
 

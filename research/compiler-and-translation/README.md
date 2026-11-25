@@ -29,6 +29,7 @@ This direction groups related research studies without changing their RT identif
 - [LLVM validator and choice scope](RT-13/RT-13-LLVM-VALIDATOR-CHOICE-SCOPE-2026-11-25.md) — structural, Alive2, Vellvm and native scope with a freeze discriminator.
 - [Differential shrinking](RT-13/RT-13-DIFFERENTIAL-SHRINKING-2026-11-25.md) — admissible generation and witness reduction preserving the disputed observation.
 - [Compiler pass composition](RT-13/RT-13-COMPILER-PASS-COMPOSITION-2026-11-25.md) — intermediate binding and domain transport for checked preservation.
+- [Optimization research replay](RT-13/RT-13-OPTIMIZATION-REPLAY-2026-11-25.md) — the CI command and its exact graph, proof and differential fixtures.
 - [PROTOTYPES](PROTOTYPES/)
 
 ## Cross-direction evidence

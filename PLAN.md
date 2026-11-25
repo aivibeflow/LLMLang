@@ -771,7 +771,8 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 
 **Exit criteria:** a small, executable reference semantics; at least one end-to-end, independently checked proof path with explicit assumptions; a documented trusted computing base; reproducible CI validation.
 
-- [ ] [WIP] Establish reproducible section 2.5 fixture checks for graph correspondence, differential witnesses and pass composition on `research/all`.
+- [x] Establish reproducible §2.5 fixture checks for graph correspondence, exhaustive evidence, differential witnesses and pass composition. The CI command reproduced all three Lean axioms transcripts and four result ledgers locally. [Optimization research replay](research/compiler-and-translation/RT-13/RT-13-OPTIMIZATION-REPLAY-2026-11-25.md)
+- [ ] Confirm the GitHub-hosted execution of the exact `research/all` replay workflow. The published workflow is available and the local check is complete. The hosted push result is pending visibility.
 
 ---
 
