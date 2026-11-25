@@ -114,6 +114,8 @@ No candidate is currently shown to satisfy all product goals, including easy sma
 
 The [recursive-group storage study](../semantic-representation/RT-05/RT-05-RECURSIVE-GROUP-STORAGE-2026-11-25.md) compares physical layout costs under one semantic group identity. Member sharding preserves exact reconstruction and saves sparse reads after admission, while cache reuse still depends on the recursive context.
 
+[Native record layout](../compiler-and-translation/RT-13/RT-13-NATIVE-RECORD-LAYOUT-2026-11-25.md) compares name, aggregate dimensions, binary-checked field layout, and exact observed behavior. The fixed byte-buffer C entry exposes same-size layout mismatches while keeping the called function type constant. Adaptation recovers verified reorderings and packing. The unchanged-layout behavior mutation still needs a separate exact provider claim.
+
 ## 5. Compatibility constraints and dependencies
 
 | Constraint | Consequence | Evidence status |

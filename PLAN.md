@@ -1062,6 +1062,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Compare generated Rust and direct LLVM over all 64 integer fixture programs at O0 and O3. Each profile matches 197,440 status, output and callback observations. Rust O0 with debug assertions needs a panic symbol absent from the four successful objects. Both routes use an LLVM compiler family, and broader backend evidence remains open. [Generated Rust integer lowering](research/compiler-and-translation/RT-13/RT-13-GENERATED-RUST-INTEGER-LOWERING-2026-11-24.md).
 - [ ] Compare return values, errors, state changes, and declared observable effects.
 - [ ] Reject silent semantic weakening; report restrictions explicitly.
+  - Compare native record layouts over 2,048 C calls and 16 exact ELF artifacts. Symbol plus size/alignment admits 478 incorrect vectors. DWARF/ELF comparison detects inaccurate field locations and widths. Matching layout with changed behavior still fails the exact output check. Eight artifacts satisfy both within the fixture. By-value and cross-target ABI remain open. [Native record layout](research/compiler-and-translation/RT-13/RT-13-NATIVE-RECORD-LAYOUT-2026-11-25.md)
 
 **Existing evidence:** target selection recommendation in `research/TRANSLATION-AND-TARGET-BACKENDS.md`.
 
