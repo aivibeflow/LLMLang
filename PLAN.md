@@ -2075,12 +2075,16 @@ Research a typed, versioned object describing the task an agent is expected to p
   - [x] Replay 36 native calls using an exact snapshot and executable digest, including index removal and a separately authorized retained root. Reordering results preserves the binding. Nine stale, duplicate or mismatched controls refuse. Runtime invokes the sealed exact bytes without search. Production permissions and portability remain open. [Snapshot-bound native call](research/semantic-representation/RT-35/RT-35-BOUND-NATIVE-CALL-2026-11-25.md)
 - [x] Define fingerprint/index versioning, incremental updates, cache keys/invalidation, snapshot consistency, stale-result rejection, and rebuild behavior.
   - [x] Specify complete-key search caching, atomic ready publication, and verified delta/rebuild. SQLite generation checks yield 10 exact and 18 refusals. [Compared evidence](research/semantic-representation/RT-35/RT-35-CHANNEL-COST-AND-CORPUS-2026-11-25.md#candidate-publication-and-cache-contract)
-- [ ] [WIP] Test access control, package/workspace scope, metadata visibility, tenant isolation, misleading descriptions, index poisoning, and adversarial near-neighbours.
+- [x] Test access control, package/workspace scope, metadata visibility, tenant isolation, misleading descriptions, index poisoning, and adversarial near-neighbours.
+  - [x] Check 384 scope/field cases and reconcile native generation and derived-index integrity controls. [Response and resolution gates](research/semantic-representation/RT-35/RT-35-RESPONSE-AND-RESOLUTION-GATES-2026-11-25.md)
+  - [ ] [WIP human] Measure selected production tenant policy and runtime isolation against an authorized representative deployment.
 - [x] Build a benchmark corpus with differently named equivalent-purpose functions, semantically close but incompatible functions, overlapping signatures, hard-constraint violations, and unknown contracts.
   - [x] Archive 72 cards for 66 exact objects and 36 query-scope combinations with 48 compatible pairs. [Compared evidence](research/semantic-representation/RT-35/RT-35-CHANNEL-COST-AND-CORPUS-2026-11-25.md#corpus-and-comparison)
 - [x] Compare structured-only, single-vector KNN, multi-aspect KNN, and hybrid retrieval using Recall@K, precision/MRR/nDCG, compatible-candidate recall, false-compatible/unsafe-selection rate, ambiguity quality, latency, storage, and update cost.
   - [x] Check all 180 reference orders and archive retrieval quality, ranked ambiguity, latency, update costs and encoded feature size. Persistent allocation is separately measured. [Compared evidence](research/semantic-representation/RT-35/RT-35-CHANNEL-COST-AND-CORPUS-2026-11-25.md#measured-cost)
-- [ ] [WIP] Report uncertainty, model/index versions, failure cases, and reproducibility; establish evidence-based minimum safety and quality thresholds before automatic resolution.
+- [x] Report uncertainty, model/index versions, failure cases, and reproducibility; establish evidence-based minimum safety and quality thresholds before automatic resolution.
+  - [x] Check 180 exact-coverage decisions, record fixture uncertainty limits and define minimum exact evidence and zero-error bounded regression gates. [Response and resolution gates](research/semantic-representation/RT-35/RT-35-RESPONSE-AND-RESOLUTION-GATES-2026-11-25.md)
+  - [ ] [WIP human] Approve representative quality, workload coverage and performance thresholds for a selected production model/index before release.
 
 **Research brief:** [RT-35 — Semantic Function Discovery and Retrieval](research/semantic-representation/RT-35/RT-35-SEMANTIC-FUNCTION-DISCOVERY-AND-RETRIEVAL.md).
 
