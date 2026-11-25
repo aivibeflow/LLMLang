@@ -1,0 +1,338 @@
+{
+  "baseline": "35b5d7c4e9e11e91fc9b6e4d1b60222996080c2e4d65e441c7f0ce19302320d7",
+  "baseline_tree": "d98bd5d6dac9187a624177d9eb1db72939d489fa9602a87d1e8fff59ad290402",
+  "baseline_units": {
+    "leaf": {
+      "binding": "64f85e9ee2d0fe0439b3c7f28ae3dad0814d82e44dcd3f9afebea09eac6fe256",
+      "dependencies": [],
+      "occurrence": "e6becf2f19214b958bb6c8df45874fab6b861f5aa8bdfc623cd5cf0fad866e7f",
+      "semantic": "4a4490ecc9ed2a4c0b350b89c98ebd0dbfd54a2b27f8a0c83d30254f25dc7548"
+    },
+    "root": {
+      "binding": "7cbb3096b3b59843129269c438adafdf6a784cb41f0a5f6c375f33b72247640a",
+      "dependencies": [
+        "leaf"
+      ],
+      "occurrence": "d5019eb1f85f07c1fb4d12d60cc4c1da9193294bde3a721eed2c8763ed2a8221",
+      "semantic": "066222d85dbbb6fa0af913fe865c00f65a185901897f5740ae1efed2db0d3cd4"
+    },
+    "spare": {
+      "binding": "55a8815b57bd653ac6d81e2769849bd43ddb37ce9376eeae13556b554dd7915f",
+      "dependencies": [],
+      "occurrence": "834b3fc7dfbd20f8330d7b3293c91834605d009ad29ee497961d9cf72900453c",
+      "semantic": "e525437523a20405a5228966a60bf808cb47a415c6b75056d4836a1b82af7edc"
+    }
+  },
+  "cases": {
+    "build_profile": {
+      "after_units": null,
+      "binding_revisions": [],
+      "commit": "e01ae5695cea26e4ef5eab2716a94e97abdd9bd8d593b21e2dadb9d7d628fc6c",
+      "disposition": "blocked",
+      "impacted": [
+        "leaf",
+        "root",
+        "spare"
+      ],
+      "reason": "unsupported-build-profile",
+      "tree": "afe8c63735dc0b37b3a1ba978a38da51462314c33a8e9cf2a3609105251f52ef"
+    },
+    "dependency": {
+      "after_units": {
+        "leaf": {
+          "binding": "64f85e9ee2d0fe0439b3c7f28ae3dad0814d82e44dcd3f9afebea09eac6fe256",
+          "dependencies": [],
+          "occurrence": "edbbe7a1c71fd33a7d4f5f632dad7a72af3f6b39b9db30fe25576aafb93e0c58",
+          "semantic": "4a4490ecc9ed2a4c0b350b89c98ebd0dbfd54a2b27f8a0c83d30254f25dc7548"
+        },
+        "root": {
+          "binding": "7cbb3096b3b59843129269c438adafdf6a784cb41f0a5f6c375f33b72247640a",
+          "dependencies": [
+            "spare"
+          ],
+          "occurrence": "2b8a6fb2665ca7d2239183de3f77edfb73eb6a31682412b8f1a63a12c979b07d",
+          "semantic": "014904a6ee131aa22622ca36a72fd170b964e8ab862eeb9f9b466d69d9e62776"
+        },
+        "spare": {
+          "binding": "55a8815b57bd653ac6d81e2769849bd43ddb37ce9376eeae13556b554dd7915f",
+          "dependencies": [],
+          "occurrence": "0e3c3d641d6965e357bb4b8a26b6dac505b926c35cd0f838d30036dea490907b",
+          "semantic": "e525437523a20405a5228966a60bf808cb47a415c6b75056d4836a1b82af7edc"
+        }
+      },
+      "binding_revisions": [],
+      "commit": "155bb97d76c71887c184a0c8ecf5480bb6d24cf44ca420bf6d840170209d2bd3",
+      "disposition": "affected",
+      "impacted": [
+        "root"
+      ],
+      "reason": "",
+      "tree": "a36cbfc119427609b4a564055223da4472d72fe9b3c43e97088779d8fb5054cb"
+    },
+    "duplicate_binding": {
+      "after_units": null,
+      "binding_revisions": [],
+      "commit": "d40b43f81ca975e2277a4dbe40000c4adbc19378ed09b8d789b69557e124acb8",
+      "disposition": "blocked",
+      "impacted": [
+        "leaf",
+        "root",
+        "spare"
+      ],
+      "reason": "ambiguous-binding",
+      "tree": "0890b827fd1e01243a44514755c08ea0e94da2e9d21fbc7c845278937a00a52c"
+    },
+    "implementation": {
+      "after_units": {
+        "leaf": {
+          "binding": "64f85e9ee2d0fe0439b3c7f28ae3dad0814d82e44dcd3f9afebea09eac6fe256",
+          "dependencies": [],
+          "occurrence": "4f06f5c3e42cec90c17433525f6a9e1fd245fd389613869d2a0692fae13fb274",
+          "semantic": "1b48d21e5313e3b22decf58ff9d0d0f40f4065964c0dffd2c09dedae4202953c"
+        },
+        "root": {
+          "binding": "7cbb3096b3b59843129269c438adafdf6a784cb41f0a5f6c375f33b72247640a",
+          "dependencies": [
+            "leaf"
+          ],
+          "occurrence": "65aa0a8f978a8d81b10c06cb5a941d9cc316a23208f65fbb3747e981b4ece669",
+          "semantic": "066222d85dbbb6fa0af913fe865c00f65a185901897f5740ae1efed2db0d3cd4"
+        },
+        "spare": {
+          "binding": "55a8815b57bd653ac6d81e2769849bd43ddb37ce9376eeae13556b554dd7915f",
+          "dependencies": [],
+          "occurrence": "6c1c41095f0e7505814e15bdae46cf556d4705308be9eaeedbb54672d98b3ce6",
+          "semantic": "e525437523a20405a5228966a60bf808cb47a415c6b75056d4836a1b82af7edc"
+        }
+      },
+      "binding_revisions": [],
+      "commit": "40eec56f0427e82cb0d2ca1da52fdffb38edf1ec356b838ff631e61b160ef1c3",
+      "disposition": "affected",
+      "impacted": [
+        "leaf",
+        "root"
+      ],
+      "reason": "",
+      "tree": "6b55ced05a9d348c838882ab9b0b5f6a23fd595b013affbfa50bfd0f9124f1b3"
+    },
+    "interface": {
+      "after_units": {
+        "leaf": {
+          "binding": "64f85e9ee2d0fe0439b3c7f28ae3dad0814d82e44dcd3f9afebea09eac6fe256",
+          "dependencies": [],
+          "occurrence": "f4ecefec38ec0851148a3aaf0fff873b665e3458f8614dcdbaa8a69b0f74b0e9",
+          "semantic": "4a4490ecc9ed2a4c0b350b89c98ebd0dbfd54a2b27f8a0c83d30254f25dc7548"
+        },
+        "root": {
+          "binding": "71cbadd781dfdf703496f3eb3eb459cb87a088da3dd7e08ba474416b344c90f0",
+          "dependencies": [
+            "leaf"
+          ],
+          "occurrence": "2637b262f60e460f8518557cf157cca1b6b5a0385cacd99ec695aab462bd1151",
+          "semantic": "fcbdc673c3c0b9e8bd8406e92eb62d505fd9c0609df194e208c0a6ab407992e1"
+        },
+        "spare": {
+          "binding": "55a8815b57bd653ac6d81e2769849bd43ddb37ce9376eeae13556b554dd7915f",
+          "dependencies": [],
+          "occurrence": "553aa220926d98cd50d6ccded07c9cb1cc99b0c7782e53cb8c93ce44a29f2f22",
+          "semantic": "e525437523a20405a5228966a60bf808cb47a415c6b75056d4836a1b82af7edc"
+        }
+      },
+      "binding_revisions": [
+        "root"
+      ],
+      "commit": "d3536ebc0cd4e004f0802e4c93a667450c1d4ca1fd4b07413f4dc1fa9f978861",
+      "disposition": "affected",
+      "impacted": [
+        "root"
+      ],
+      "reason": "",
+      "tree": "f7aa7d433490e6d4cdcb1df91bf9b0f3696360e978d8cefc5924415a5a118180"
+    },
+    "macro": {
+      "after_units": null,
+      "binding_revisions": [],
+      "commit": "9df05fa4353dd3904b3d6ebd70a0880821d85b5cfb7554ba50da86ee0cd78342",
+      "disposition": "blocked",
+      "impacted": [
+        "leaf",
+        "root",
+        "spare"
+      ],
+      "reason": "unsupported-c-shape",
+      "tree": "8762c2e2d59c5a2609956f2132ea9054c5921dce9eab688e16d7ec6302fef975"
+    },
+    "operand": {
+      "after_units": {
+        "leaf": {
+          "binding": "64f85e9ee2d0fe0439b3c7f28ae3dad0814d82e44dcd3f9afebea09eac6fe256",
+          "dependencies": [],
+          "occurrence": "c1ca09accc572ac16a7d5c65d3beca80de1d052d2bc8d079e7060490fc924b20",
+          "semantic": "4a4490ecc9ed2a4c0b350b89c98ebd0dbfd54a2b27f8a0c83d30254f25dc7548"
+        },
+        "root": {
+          "binding": "71cbadd781dfdf703496f3eb3eb459cb87a088da3dd7e08ba474416b344c90f0",
+          "dependencies": [],
+          "occurrence": "eebf637cf1663a1d50d899636a7bf7fb06c8f64e0d3157ef559cd82eadfc71ae",
+          "semantic": "f937c999d2c290624cc511f4c84d6bf1097944528319c0a69db3f73eb64851ec"
+        },
+        "spare": {
+          "binding": "55a8815b57bd653ac6d81e2769849bd43ddb37ce9376eeae13556b554dd7915f",
+          "dependencies": [],
+          "occurrence": "9faefba4e37d5e34bb49263079a42c7398b9d430a7d7dabae0bce5b47d7babbc",
+          "semantic": "e525437523a20405a5228966a60bf808cb47a415c6b75056d4836a1b82af7edc"
+        }
+      },
+      "binding_revisions": [
+        "root"
+      ],
+      "commit": "ce00668ef6e1ce39b5adbd3472b3c4d4217f1c092acf1e865c9e81790ba66fec",
+      "disposition": "affected",
+      "impacted": [
+        "root"
+      ],
+      "reason": "",
+      "tree": "80c27e3b964727b36c6d8c2c106379a63a1db1ebd70f2dab83ffe15d2dcfc1ee"
+    },
+    "reflection": {
+      "after_units": null,
+      "binding_revisions": [],
+      "commit": "7304da4ed25072c51610c4996e3238317e8dbd20bb31ff9c2ec80cc65337a9c3",
+      "disposition": "blocked",
+      "impacted": [
+        "leaf",
+        "root",
+        "spare"
+      ],
+      "reason": "unsupported-python-expression",
+      "tree": "1434fa5727fac2acc896f53a432f1c0dac7ec4262b1bf6fed36c245357ec77d8"
+    },
+    "rename": {
+      "after_units": {
+        "leaf": {
+          "binding": "9adc8b0334bc6a9bef9542317e78789c77cb05ab988a2daa220d41353d39162d",
+          "dependencies": [],
+          "occurrence": "1e0fe51bf95a153bf8e3a044a3723ab93259e2df1ba3af9f969cf22316a6cd85",
+          "semantic": "4a4490ecc9ed2a4c0b350b89c98ebd0dbfd54a2b27f8a0c83d30254f25dc7548"
+        },
+        "root": {
+          "binding": "7cbb3096b3b59843129269c438adafdf6a784cb41f0a5f6c375f33b72247640a",
+          "dependencies": [
+            "leaf"
+          ],
+          "occurrence": "a7410dada6e29ca86df025efd3f7d44d80349ce3b9a5a8d16b953adacbc09135",
+          "semantic": "066222d85dbbb6fa0af913fe865c00f65a185901897f5740ae1efed2db0d3cd4"
+        },
+        "spare": {
+          "binding": "55a8815b57bd653ac6d81e2769849bd43ddb37ce9376eeae13556b554dd7915f",
+          "dependencies": [],
+          "occurrence": "c3103f0425318d774d552f75dec60620d546f8be3707f834988bf8d84fc7e547",
+          "semantic": "e525437523a20405a5228966a60bf808cb47a415c6b75056d4836a1b82af7edc"
+        }
+      },
+      "binding_revisions": [
+        "leaf"
+      ],
+      "commit": "4b9dec3fc68574761d7639e49f55096433fffa34db41fc47cd4d632082b4b1a6",
+      "disposition": "affected",
+      "impacted": [
+        "leaf",
+        "root"
+      ],
+      "reason": "",
+      "tree": "5ad351102bc9cd6f94a85350965ff132653060128144fa7d1ae812452e2beb07"
+    },
+    "shadowed_call": {
+      "after_units": null,
+      "binding_revisions": [],
+      "commit": "6a634ffefb5afc7657798e7511ccea59a6cdfe13897a1f8443409ae0142a6065",
+      "disposition": "blocked",
+      "impacted": [
+        "leaf",
+        "root",
+        "spare"
+      ],
+      "reason": "unsupported-python-expression",
+      "tree": "02f28a704cace32b5a0acd7eb7fd1070a573d45c6b63788615dc029e499887f5"
+    },
+    "trivia": {
+      "after_units": {
+        "leaf": {
+          "binding": "64f85e9ee2d0fe0439b3c7f28ae3dad0814d82e44dcd3f9afebea09eac6fe256",
+          "dependencies": [],
+          "occurrence": "71faf77d0a186560e6a739cba35ecb25bad17b3afaeafcd06f4fae9cfb12a2c6",
+          "semantic": "4a4490ecc9ed2a4c0b350b89c98ebd0dbfd54a2b27f8a0c83d30254f25dc7548"
+        },
+        "root": {
+          "binding": "7cbb3096b3b59843129269c438adafdf6a784cb41f0a5f6c375f33b72247640a",
+          "dependencies": [
+            "leaf"
+          ],
+          "occurrence": "30366d8191c51e3243a86b384f76318f8e97ee832353166cd339262d2561c541",
+          "semantic": "066222d85dbbb6fa0af913fe865c00f65a185901897f5740ae1efed2db0d3cd4"
+        },
+        "spare": {
+          "binding": "55a8815b57bd653ac6d81e2769849bd43ddb37ce9376eeae13556b554dd7915f",
+          "dependencies": [],
+          "occurrence": "ca905e494b548e11883eeca0378c36ddf08b53f9e135e48dd9eea4dac1dbacac",
+          "semantic": "e525437523a20405a5228966a60bf808cb47a415c6b75056d4836a1b82af7edc"
+        }
+      },
+      "binding_revisions": [],
+      "commit": "2aa875e50527862182552e9a82df1bad87b5bdfb40ebb77315ccd21e7b34aeb9",
+      "disposition": "trivia",
+      "impacted": [],
+      "reason": "",
+      "tree": "b61e3eba7c578e3aac4d783c207a4c284f01f45791c294c17a440619c110c55f"
+    },
+    "uncorrelated_rename": {
+      "after_units": null,
+      "binding_revisions": [],
+      "commit": "984f2e6c7230c1286b89712b41d4fafe8860b14b27e56a7361d1be6b126f97b3",
+      "disposition": "blocked",
+      "impacted": [
+        "leaf",
+        "root",
+        "spare"
+      ],
+      "reason": "incomplete-source-inventory",
+      "tree": "9a93873f1b236023c3fcb004f9bfdf1a16a15032bb74840fba7fb3e43d66a3d9"
+    },
+    "unreviewed_removal": {
+      "after_units": null,
+      "binding_revisions": [],
+      "commit": "9092aa802451043c114135008cac6a421797fc3fec6301616d1ba43dd63062c4",
+      "disposition": "blocked",
+      "impacted": [
+        "leaf",
+        "root",
+        "spare"
+      ],
+      "reason": "incomplete-source-inventory",
+      "tree": "6dad60dca3c8a6450d6ecf55bdf05583371c75ab17045855e2b53cb7fc0d4a49"
+    },
+    "untracked_source": {
+      "after_units": null,
+      "binding_revisions": [],
+      "commit": "2dcf295cbe683f32fd1f905b60c5ce4c0aaf2cd1bce5ce3914a56e77c0bc1935",
+      "disposition": "blocked",
+      "impacted": [
+        "leaf",
+        "root",
+        "spare"
+      ],
+      "reason": "incomplete-source-inventory",
+      "tree": "c0b557b5b6c6ed572e6ac6779031e35a7aa28426cb29a136cba25dbcb6c92445"
+    }
+  },
+  "clang": "clang version 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)",
+  "clang_sha256": "df2e7d9b9e23822587cf04ac28f206a1ddaac5053312a4c875acf5608701b9d2",
+  "git": "git version 2.56.1",
+  "python": "3.12.14",
+  "source_sha256": "05a6d457efea1de8e0f8b7e2ad4bb057cd7a452d233b42e945f06cb76b1d0e98",
+  "summary": {
+    "affected": 5,
+    "blocked": 8,
+    "trivia": 1
+  }
+}
