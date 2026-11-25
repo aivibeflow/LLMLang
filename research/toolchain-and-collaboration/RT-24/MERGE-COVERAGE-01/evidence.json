@@ -1,0 +1,1174 @@
+{
+  "matrix_size": 165,
+  "structural_candidates": 110,
+  "same_projection_as_source_control": "falsely clean when self-authorized; independent receipt refuses",
+  "clean_candidate_pin": "cf73531c0a1479b08b1f89c6ce42eb43fef29f3e2176ffbea5a262d7b9c955be",
+  "reverse_queries_in_complete_roster": 4,
+  "gate_counts": {
+    "clean-within-profile": 1,
+    "reverse-edge-gap": 4,
+    "reverse-roster": 2,
+    "reverse-scope": 4,
+    "source-inventory": 11,
+    "source-receipt": 66,
+    "source-scope": 22,
+    "structural-conflict": 55
+  },
+  "cases": [
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "exact",
+      "structural_candidate": true,
+      "gate": "clean-within-profile"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "missing-query",
+      "structural_candidate": true,
+      "gate": "reverse-roster"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "outdated-root",
+      "structural_candidate": true,
+      "gate": "reverse-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "wrong-scope",
+      "structural_candidate": true,
+      "gate": "reverse-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "wrong-extractor",
+      "structural_candidate": true,
+      "gate": "reverse-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "wrong-schema",
+      "structural_candidate": true,
+      "gate": "reverse-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": true,
+      "gate": "reverse-edge-gap"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": true,
+      "gate": "reverse-edge-gap"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "incorrect-digest",
+      "structural_candidate": true,
+      "gate": "reverse-edge-gap"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "duplicate-query",
+      "structural_candidate": true,
+      "gate": "reverse-roster"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "exact",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": true,
+      "gate": "reverse-edge-gap"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "exact",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "missing-query",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "outdated-root",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "wrong-scope",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "wrong-extractor",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "wrong-schema",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "incorrect-digest",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "duplicate-query",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-input-pins",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "exact",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "missing-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "outdated-root",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "wrong-scope",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "wrong-extractor",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "wrong-schema",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "incorrect-digest",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "duplicate-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "missing-slot",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "exact",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "missing-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "outdated-root",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "wrong-scope",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "wrong-extractor",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "wrong-schema",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "incorrect-digest",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "duplicate-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "wrong-slot-hash",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "exact",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "missing-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "outdated-root",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "wrong-scope",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "wrong-extractor",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "wrong-schema",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "incorrect-digest",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "duplicate-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "structurally-closed",
+      "source": "extra-slot",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "exact",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "missing-query",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "outdated-root",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "wrong-scope",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "wrong-extractor",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "wrong-schema",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "incorrect-digest",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "duplicate-query",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "exact",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-inventory"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "exact",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "missing-query",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "outdated-root",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "wrong-scope",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "wrong-extractor",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "wrong-schema",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "incorrect-digest",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "duplicate-query",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-input-pins",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-scope"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "exact",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "missing-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "outdated-root",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "wrong-scope",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "wrong-extractor",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "wrong-schema",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "incorrect-digest",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "duplicate-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "missing-slot",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "exact",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "missing-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "outdated-root",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "wrong-scope",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "wrong-extractor",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "wrong-schema",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "incorrect-digest",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "duplicate-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "wrong-slot-hash",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "exact",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "missing-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "outdated-root",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "wrong-scope",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "wrong-extractor",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "wrong-schema",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "incorrect-digest",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "duplicate-query",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "closed-projection-omits-source",
+      "source": "extra-slot",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": true,
+      "gate": "source-receipt"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "exact",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "missing-query",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "outdated-root",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "wrong-scope",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "wrong-extractor",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "wrong-schema",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "incorrect-digest",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "duplicate-query",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "exact",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "exact",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "missing-query",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "outdated-root",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "wrong-scope",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "wrong-extractor",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "wrong-schema",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "incorrect-digest",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "duplicate-query",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-input-pins",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "exact",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "missing-query",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "outdated-root",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "wrong-scope",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "wrong-extractor",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "wrong-schema",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "incorrect-digest",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "duplicate-query",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "missing-slot",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "exact",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "missing-query",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "outdated-root",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "wrong-scope",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "wrong-extractor",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "wrong-schema",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "incorrect-digest",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "duplicate-query",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "wrong-slot-hash",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "exact",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "missing-query",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "outdated-root",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "wrong-scope",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "wrong-extractor",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "wrong-schema",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "omitted-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "invented-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "incorrect-digest",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "duplicate-query",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    },
+    {
+      "structure": "dangling-merged-reference",
+      "source": "extra-slot",
+      "reverse": "duplicate-edge-redigested",
+      "structural_candidate": false,
+      "gate": "structural-conflict"
+    }
+  ]
+}
