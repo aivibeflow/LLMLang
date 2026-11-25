@@ -100,7 +100,22 @@ Parse a limited set of Dafny declarations and represent their contracts as typed
 
 Compare human/LLM workflows for a proof-preserving refactor, contract change, implementation-only change, and intentionally invalid change. Track unintended edits, proof repair effort, review time, and stale evidence detection.
 
-## 7. Decision criteria
+## 7. seL4 as a high-assurance comparison case
+
+seL4 is not written in Dafny. Its verification framework uses Isabelle/HOL to connect abstract and executable specifications to the C implementation; for selected configurations, a further proof connects C to the machine binary. The C source is parsed into a formal semantic model, and refinement proofs connect that model to higher-level specifications. The project also proves security properties such as integrity and confidentiality for specified configurations ([seL4 proofs](https://sel4.systems/Verification/proofs), [verification FAQ](https://sel4.org/About/FAQ.html), [seL4 white paper](https://beta.sel4.systems/About/seL4-whitepaper.pdf)).
+
+This is not evidence that Dafny cannot express kernel contracts. It shows that high assurance for a kernel requires more than convenient contract syntax: the verification architecture must cover the actual low-level implementation and, where claimed, the binary, while stating hardware, boot, machine-interface, compiler, and configuration assumptions. Dafny `extern` declarations let a Dafny program rely on external implementations through contracts, but do not prove that external C/C++ implementations or ABI bindings satisfy those contracts. Its compiler targets and FFI are not by themselves a verified C-kernel-to-binary pipeline ([Dafny reference](https://dafny.org/latest/DafnyRef/DafnyRef), [installation and target-language notes](https://dafny.org/dafny/Installation)).
+
+Rewriting seL4 in Dafny is technically conceivable as a new kernel project, but it would not preserve the existing seL4 proofs through a source-language substitution. The implementation, low-level architecture bindings, ABI boundary, build/runtime assumptions, refinement chain, security theorems, and binary-level evidence would need to be rebuilt or re-established for the new implementation and configurations. An all-Dafny kernel that calls external low-level code would still need an explicit trust boundary and evidence that the external code refines its contracts.
+
+Add a controlled seL4-inspired case study to the transfer programme:
+
+- Compare a small kernel-like component at three levels: abstract state machine, executable implementation, and an explicit low-level/ABI boundary.
+- Ask which obligations Dafny can discharge directly, which need a separate model or proof assistant, and which remain assumptions about hardware, assembly, runtime, or external code.
+- Determine whether Dafny is a useful implementation/specification language for the bounded component, a contract frontend, or a baseline beside Isabelle/HOL.
+- Do not extrapolate a toy component result to seL4 itself. Record properties, configuration, source/binary scope, assumptions, and tool trust explicitly.
+
+## 8. Decision criteria
 
 Prefer reuse of Dafny tooling when it provides the needed verification semantics and the translation boundary can be made explicit and trustworthy. Prefer LLMLang-native constructs only when the requirements materially differ—for example, provenance-aware contract lifecycle, effect/capability composition, or graph-level incremental evidence—and a small formal model demonstrates that difference.
 
@@ -114,7 +129,7 @@ Do not transfer a mechanism solely because it exists in Dafny. For every proposa
 - evidence from examples/prototypes;
 - unresolved questions and decision owner/status.
 
-## 8. Expected outputs
+## 9. Expected outputs
 
 1. Construct-by-construct transfer matrix with accepted/adapt/reject/defer status.
 2. Candidate LLMLang contract grammar and semantics for a deliberately small subset.

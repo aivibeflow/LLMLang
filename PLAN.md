@@ -650,6 +650,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Specify a small Dafny-informed LLMLang contract subset for an experiment; do not adopt Dafny syntax or semantics by default. Include pre/postconditions, loop invariants, frame/effect bounds, termination, and explicit assumptions.
 - [ ] Prototype a bounded mapping in either direction and bind generated obligations/results to exact source, SPG, contract, verifier, and assumption identities. Include negative/unsupported cases; make no soundness claim without a correctness argument.
 - [ ] Compare invariant discovery, proof failures, solver variability, incremental re-verification, and evidence invalidation after specification or implementation edits.
+- [ ] Use seL4 as a high-assurance case study: distinguish Dafny contract expressiveness from proof coverage of low-level C, ABI/extern boundaries, hardware assumptions, compiler translation, and binary-level refinement. Assess a bounded kernel-like example; do not treat it as a direct seL4 rewrite estimate.
 - [ ] Record transfer decisions as candidates with evidence, limitations, and open questions. See [Dafny Transfer Analysis](research/DAFNY-TRANSFER-ANALYSIS.md) and [Dafny–LLMLang comparison](research/COMPARISON-DAFNY-LLMLANG.md).
 
 **Deliverable:** construct-by-construct transfer matrix, candidate contract/syntax proposal, reproducible example corpus, and recommendation on Dafny reuse versus an independent LLMLang verifier.
