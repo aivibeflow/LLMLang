@@ -793,6 +793,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define conservative fallback when dependency completeness cannot be established.
   - [x] Compare mixed dependency completeness across 576 action-graph profiles. Scoped fallback executes 568 fewer actions and admits 16 more packages than whole-graph recomputation with zero stale results. The optimistic control admits 120 stale packages. Production extraction and publication remain open. [Scoped dependency fallback](research/toolchain-and-collaboration/RT-11/RT-11-SCOPED-UNKNOWN-DEPENDENCY-FALLBACK-2026-11-25.md)
 - [ ] Define impact planning and non-interference gates.
+  - [ ] [WIP] Compare per-edit and composed non-interference judgments for simultaneous disjoint changes in a bounded incremental model on `research/all`.
 - [ ] Benchmark small local edits, shared component edits, and broad semantic changes.
 
 **Existing evidence:** `research/SEMANTIC-COMPILATION-CACHE.md`, scenarios 18–28, and dependency graph prototypes.
