@@ -1183,7 +1183,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Select initial Linux architecture and isolate syscall ABI details.
   - [x] Check one freestanding read/write contract across 24 cases with distinct x86-64 and AArch64 syscall adapters. Native x86-64 and QEMU Linux user AArch64 agree on bad descriptors, zero request, short progress, exact bytes and EOF. Physical AArch64 and initial architecture selection remain open. [RT-10 Linux syscall architectures](research/runtime-and-systems/RT-10/RT-10-LINUX-SYSCALL-ARCHITECTURES-2026-11-25.md)
 - [ ] Define how existing C libraries and external ABI boundaries are called.
-  - [ ] [WIP] Compare return-carried errors with scoped errno capture across native libc call contracts on `research/all`.
+  - [x] Compare six native error-carrier observations across glibc and musl at two optimization levels. Try-lock returns EBUSY without replacing a prior errno, a successful read keeps stale errno, and delayed capture observes the next failure. Two synchronized threads retain distinct error values. [RT-10 libc error carriers](research/runtime-and-systems/RT-10/RT-10-LIBC-ERROR-CARRIERS-2026-11-25.md)
 - [ ] Define the trusted low-level runtime boundary.
 - [ ] Compare behavior using conformance, differential, and contract-derived tests.
 - [ ] Define precisely what POSIX compatibility and formal verification claims cover.
