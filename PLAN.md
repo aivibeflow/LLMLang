@@ -844,6 +844,38 @@ The [Research State 2026-11-19](research/research-management/RESEARCH-STATE-2026
 
    - [ ] [WIP human] Approve the selected RFC baseline or record a decision to revise it. Keep the final compatibility audit as a separate prerequisite.
 
+## MVP implementation plan
+
+Deliver one reproducible LLMLang CLI application from a clean checkout. Use Calculator as the end-to-end workload, with Hello and Echo as runtime smoke tests. Start on Linux x86-64 with one source dialect, one typed SPG subset, and Rust code generation. Preserve the existing full Contract IR roadmap and accepted architectural requirements as the scope for later milestones. [Reference workloads](research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md) · [Calculator candidate source](draft/examples/0003-calculator/main.llmlang) · [ADR-016](draft/adr/016-compiler-bootstrap.md)
+
+### Ownership and integration boundary
+
+The MVP workstream includes the Contract IR language, its formal semantics, typed grammar and versioned representation, as well as the LLMLang frontend and SPG, the interpreter and native backend, verification and evidence admission, controlled natural-language rendering and review, and CLI and CI integration. Use the typed Contract IR interface as the boundary for parallel implementation.
+
+- [ ] Agree on the smallest integration interface with the Contract IR workstream. Specify versioned typed input and diagnostics, shared numeric types and exact overflow rules, callable signatures, clause roles, outcome types, contract and clause references, and the observations exposed by the SPG. Define which component assigns canonical contract identity and how the consumer checks the schema version. Use small positive and negative fixtures as the interface acceptance cases.
+- [ ] Proceed in parallel with the frontend, SPG, execution and conformance fixtures. Build their consumers against the agreed interface or local fixtures while the Contract IR language is in development. Integrate with the actual implementation before MVP acceptance and reject unsupported versions explicitly. [Contract IR roadmap](#contract-ir-and-controlled-natural-language-rendering)
+
+### Implementation sequence
+
+1. **Freeze the executable subset and observations.** Specify the syntax and semantics needed by Calculator, including `Bool`, `I64`, typed functions, locals, branches, explicit errors, signed division, overflow, and evaluation order. Separate the scalar core from CLI parsing and I/O behind a small runtime boundary. Fix the input record and token-separator policy for the selected reference cases.
+2. **Implement the frontend and typed SPG.** Parse and type-check candidate source, lower it to canonical SPG, and retain source spans for diagnostics. Resolve a public name in a pinned catalog, record the selected `ImplHash`, and preserve separate required, public and provided Contract references. Reject missing, ambiguous or stale bindings. Demonstrate deterministic reconstruction from the checkout. [ADR-014](draft/adr/014-git-semantic-merge.md) · [ADR-020](draft/adr/020-immutable-objects-and-implhash-calls.md)
+3. **Implement the interpreter and native backend.** Execute the same typed SPG in a reference interpreter and in a native artifact generated through the Stage 0 Rust route. Pin the target, compiler and runtime inputs. Compare values, errors and CLI observations with the existing reference workloads. [ADR-016](draft/adr/016-compiler-bootstrap.md)
+4. **Integrate verification and human review.** Translate scalar obligations to Boogie + Z3. Check body conformance and public-contract refinement separately, and validate counterexamples against source semantics. Use the Contract IR schema to render the supported clauses in controlled natural language and independently reparse and compare the normalized IR. Present text, source references and assumptions at the exact revision. Keep human approval separate from machine evidence and reject stale or insufficient evidence at the binding gate. Cross-check one shared claim family in Lean as specified by ADR-018. [ADR-018](draft/adr/018-formal-verification-backends.md)
+5. **Wire the CLI and CI.** Document reproducible commands for checking, reviewing, building and running the application from a clean checkout. Run the same fixture suite through both execution paths on the pinned target. Report byte-exact stdout and stderr, exit status, exact inputs and tool versions. Exercise verification failures in CI as well as successful runs.
+
+### MVP acceptance
+
+The [scalar implementation](tools/llmlang_mvp/README.md) provides a provisional frontend, reference interpreter, Rust generation, scalar Contract IR, controlled rendering, and Boogie + Z3 checks. Remaining integration work includes a Rust implementation of the Stage 0 compiler, source confirmation of general solver counterexamples, and authenticated review approval with clause-level provenance and scenario evidence. The full contract-family roadmap remains open.
+
+
+- [ ] A clean checkout produces a native Calculator executable through the documented commands, and the frontend reconstructs the same canonical SPG on repeated runs.
+- [ ] The interpreter and native executable agree with the applicable RT-01 reference cases for Calculator. Hello and Echo pass the documented smoke tests. A passing build must report which RT-01 cases are in scope and identify any remaining exclusions.
+- [ ] A reviewer can see the full controlled rendering of the MVP contract, with checked round-trip fidelity and exact revision identity.
+- [ ] One conforming provider binds successfully. A provider with the same signature and a stronger precondition is rejected, and a provider whose body violates its own contract is rejected separately. An old `ImplHash` binding stays unchanged when a replacement is published. Evidence for a different binding or revision cannot authorize admission.
+- [ ] The release record states the supported source, execution and contract profiles and links the reproducible checks.
+
+Full self-hosting, additional dialects, semantic Git merge, broader native ABI support, and the full contract-family rollout follow this CLI milestone. An agent workflow over MCP can build on the same typed change, validation and review interfaces after the CLI path is reproducible. [ADR-015](draft/adr/015-toolchain-server-semantic-api.md) · [ADR-017](draft/adr/017-mcp-agent-object-format.md)
+
 ## External evidence and approval dependencies
 
 For production recovery, bind source, SPG, dependencies and authorization to Git and filesystem recovery. Integrate persistent storage with an authenticated multi-client environment and record the maintainer decision on production backend selection under ADR-015.

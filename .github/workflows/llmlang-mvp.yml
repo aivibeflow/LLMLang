@@ -1,0 +1,43 @@
+name: LLMLang scalar MVP
+
+on:
+  pull_request:
+    paths:
+      - "tools/llmlang_mvp/**"
+      - "research/language-design/PROTOTYPES/CLI-WORKLOADS-01/**"
+      - ".github/workflows/llmlang-mvp.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Install verification and compilation tools
+        run: |
+          dotnet tool install Boogie --version 3.5.5 --tool-path "$RUNNER_TEMP/boogie"
+          python -m pip install z3-solver==4.13.3.0
+          command -v z3
+          rustup toolchain install 1.85.1 --profile minimal
+          rustup default 1.85.1
+          echo "$RUNNER_TEMP/boogie" >> "$GITHUB_PATH"
+      - name: Check scalar model in Lean
+        run: |
+          curl --proto '=https' --tlsv1.2 -fsSL https://raw.githubusercontent.com/leanprover/elan/58e8d545e33641f66dbcbd22c4283109e71757be/elan-init.sh | sh -s -- -y --default-toolchain leanprover/lean4:v4.36.0
+          "$HOME/.elan/bin/lean" tools/llmlang_mvp/ScalarChecks.lean
+      - name: Check review and verification controls
+        run: python -B -m tools.llmlang_mvp.controls
+      - name: Run RT-01 against both execution paths
+        run: python -B -m tools.llmlang_mvp.conformance
