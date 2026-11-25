@@ -235,6 +235,8 @@ cmp "$study/evidence.json" /tmp/llmlang-toolchain-option-evidence.json
 
 [Versioned I64 Git merge](../toolchain-and-collaboration/RT-24/RT-24-VERSIONED-I64-GIT-MERGE-2026-11-25.md) compares a hard version cutover, ordinary JavaScript numbers, exact dual reads and exact dual reads with parent-root checks. The last policy admits all six unique bounded results and refuses all six invalid or unresolved histories. This separates a physical format upgrade from a semantic change.
 
+[Profile-bound Git paths](../toolchain-and-collaboration/RT-24/RT-24-PROFILE-BOUND-GIT-PATHS-2026-11-25.md) compares raw bytes, ASCII and Unicode complete paths, and prefix-aware admission. All 28 native Linux clones reconstruct their exact candidates. Eight of the fourteen distinct candidates still collide under the declared naming profile, and the prefix-aware gate catches all eight.
+
 ### 5.4 Owned-result provider binding on a common workload
 
 The [Owned-result provider binding](../compiler-and-translation/RT-13/RT-13-BOUND-OWNED-PROVIDERS-2026-11-25.md) fixture composes a checked COR-13 source caller, an immutable provider selection, two native routes and a separate Lean disposition model. It extends the bounded toolchain comparison to ordered recovery effects and live resource obligations.
