@@ -617,7 +617,7 @@ These edges are research hypotheses, not implementation commitments. No backend 
 | DEP-203 | RT-05 → RT-34 | Requires | Exact semantic identity and complete call-binding dependency closure. | Strong hypothesis |
 | DEP-204 | RT-07 → RT-34 | Requires | Sound proof/evidence scope and independent checking. | Strong hypothesis |
 | DEP-205 | RT-08 → RT-34 | Requires | Independently reviewed benchmark oracles and adversarial controls. | Strong hypothesis |
-| DEP-206 | RT-11 → RT-34 | Influences | Exact proof keys and incremental invalidation. | Strong hypothesis |
+| DEP-206 | RT-11 → RT-34 | Influences | Exact proof keys and incremental invalidation. An affine [call-cost proof binding](../formal-verification/RT-34/RT-34-CALL-COST-BINDING-2026-11-25.md) distinguishes reuse of a conditional caller theorem from reuse of its selected provider's evidence. | Strong hypothesis with scoped checked cost evidence |
 | DEP-207 | RT-26 → RT-34 | Influences | Runtime budget enforcement is distinct from static complexity. | Strong hypothesis |
 | DEP-208 | RT-32 → RT-34 | Influences | Source-derived cost obligations and compositional PDG. The checked loop model distinguishes guarded cost and added work despite equal scalar results. [Nested-loop cost](../formal-verification/RT-34/RT-34-NESTED-LOOP-COST-2026-11-25.md) | Strong hypothesis with scoped checked costs |
 | DEP-209 | RT-33 → RT-34 | Influences | Specialized analyzer/backend selection and conservative abstention. | Strong hypothesis |

@@ -272,6 +272,8 @@ The [external receipt recovery fixture](../toolchain-and-collaboration/RT-19/RT-
 
 ## 8. Readiness assessment for comparative selection
 
+The [call-cost evidence comparison](../formal-verification/RT-34/RT-34-CALL-COST-BINDING-2026-11-25.md) keeps the conditional caller theorem reusable across a rebind while requiring a checked cost claim for the current provider, weighting and budget.
+
 The [shared semantics corpus](../language-design/RT-03/RT-03-04-SHARED-SEMANTICS-CORPUS.md) contains bounded evidence for A/B/D typed calls and private scalar state, A/D resource outcomes, and C actor scripts. The RT-04 call projection covers the typed trees. Source correspondence, cross-profile type and resource validation, the identity envelope, program proofs, the two-backend slice, the threat model, and workload weights remain open.
 
 All four variants agree on the scalar increment workload. Logging and terminal rejection distinguish handlers with the same state interface. In C, cross-sender delivery choices distinguish logs even when the scalar agrees, and can also change the scalar for noncommuting operations. Use these witnesses when assessing handler and protocol dependencies. COR-12 adds a bounded blocking/progress contrast for two actors, but failure, cancellation, competing receivers, and runtime correspondence remain untested.
