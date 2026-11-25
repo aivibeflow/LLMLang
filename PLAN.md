@@ -766,6 +766,7 @@ The [balanced recursion pilot](research/formal-verification/RT-34/RT-34-MERGE-RE
 - [ ] Define hash-relevant dependency edges and dependency closure.
 - [ ] Define how dependencies are discovered from static analysis, typed IR, runtime observations, tests, and formal semantics.
 - [ ] Define confidence/evidence classes for dependency edges.
+  - [ ] [WIP] Compare observed edges, conservative coverage and exact absence evidence under scoped dependency queries and component changes on `research/all`.
 - [ ] Define sound conservative may-depend graphs.
   - [x] Compare finite guard-sensitive may-dependency closure against 16,384 explicit queries. Location-only traversal misses targets in 3,408 queries. State-aware closure matches the known-table oracle, and local unknown expansion avoids misses with measurable loss of precision. Exhausted queries return unknown. Source extraction, wider effects and snapshot binding remain open. [Conditional dependency closure](research/semantic-representation/RT-06/RT-06-CONDITIONAL-DEPENDENCY-CLOSURE-2026-11-25.md).
 - [ ] Define how missing or incomplete dependency evidence affects reuse.
