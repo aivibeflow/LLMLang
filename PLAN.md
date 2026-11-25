@@ -1655,7 +1655,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - [x] Reproduce 144 two-writer SQLite WAL schedules with exact graph projections. Write-only CAS admits 24 invalid graphs. Whole-head CAS refuses 16 safe edits. Transactional checks of write targets, endpoint states, incident-edge presence and reverse reachability match the independent oracle in all 48 exact-gate schedules. General graph edit and retry rules remain open. [Concurrent graph writes](research/toolchain-and-collaboration/RT-24/RT-24-CONCURRENT-GRAPH-2026-11-25.md)
 - [x] Define stable identity under rename, split, and merge.
   - [x] Compare 704 rename, split and merge transitions. Five exact profiles accept. Changed public calls require scoped receipts, and equal semantic content cannot substitute a different managed occurrence. Production identity selection and dynamic routing remain open. [Identity lineage and caller rebinds](research/toolchain-and-collaboration/RT-24/RT-24-IDENTITY-LINEAGE-AND-REBIND-2026-11-25.md)
-- [ ] Define independent changes to contracts and implementations.
+- [ ] [WIP] Define independent changes to contracts and implementations.
   - [x] Compare 32 clean native merges of individually valid contract and provider edits and 3,250 native observations. Validation of the exact combined pair refuses seven of 16 pairs on value or modeled trace obligations. General proof composition and cross-operation dependencies remain open. [Contract and implementation merges](research/toolchain-and-collaboration/RT-24/RT-24-CONTRACT-BODY-MERGES-2026-11-25.md)
 - [ ] Define conflict detection and safe automatic resolution.
 - [ ] Define reviewable semantic change sets.
