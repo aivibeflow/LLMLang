@@ -1313,8 +1313,8 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define static binding versus runtime dispatch.
 - [ ] Define specialization and multi-versioning.
 - [ ] Define cost models and profile-guided selection.
-- [ ] Define safe fallback when no compatible implementation is available.
-  - [ ] [WIP] Check ordered fallback against exact implementation and runtime compatibility, with Lean and a finite dispatch matrix on `research/all`.
+- [x] Define safe fallback when no compatible implementation is available.
+  - [x] Prove that ordered fallback selects only a materialized candidate bound by exact checked evidence and returns unavailable iff none qualifies. Across 9,216 pairs the gate rejects 9,025 and selects 191 correctly. ABI-only admits 4,698 incorrect dispatches. Production evidence authority and runtime races remain open. [Evidence-gated fallback](research/compiler-and-translation/RT-13/RT-13-IMPLEMENTATION-FALLBACK-2026-11-25.md)
 - [ ] Define whether and how implementation choice can change without changing operation semantics.
 - [ ] Measure dispatch and adaptation overhead.
 - [ ] Define optimization across semantic nodes while preserving contracts.
