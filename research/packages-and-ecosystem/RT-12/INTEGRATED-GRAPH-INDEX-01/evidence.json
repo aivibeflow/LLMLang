@@ -1,0 +1,201 @@
+{
+  "comparison": [
+    {
+      "admitted": true,
+      "fallback": "indexed",
+      "projection": "exact",
+      "queries": 12,
+      "raw_mismatches": {
+        "contracts": 0,
+        "providers": 0,
+        "reachable": 0,
+        "reverse": 0
+      }
+    },
+    {
+      "admitted": true,
+      "fallback": "indexed",
+      "projection": "reordered",
+      "queries": 12,
+      "raw_mismatches": {
+        "contracts": 0,
+        "providers": 0,
+        "reachable": 0,
+        "reverse": 0
+      }
+    },
+    {
+      "admitted": false,
+      "fallback": "qualified-source-scan",
+      "projection": "old-providers-relabelled",
+      "queries": 12,
+      "raw_mismatches": {
+        "contracts": 0,
+        "providers": 2,
+        "reachable": 0,
+        "reverse": 0
+      }
+    },
+    {
+      "admitted": false,
+      "fallback": "qualified-source-scan",
+      "projection": "old-contracts-relabelled",
+      "queries": 12,
+      "raw_mismatches": {
+        "contracts": 8,
+        "providers": 0,
+        "reachable": 0,
+        "reverse": 0
+      }
+    },
+    {
+      "admitted": false,
+      "fallback": "qualified-source-scan",
+      "projection": "old-edges-relabelled",
+      "queries": 12,
+      "raw_mismatches": {
+        "contracts": 8,
+        "providers": 2,
+        "reachable": 8,
+        "reverse": 0
+      }
+    },
+    {
+      "admitted": false,
+      "fallback": "qualified-source-scan",
+      "projection": "wrong-role",
+      "queries": 12,
+      "raw_mismatches": {
+        "contracts": 0,
+        "providers": 0,
+        "reachable": 0,
+        "reverse": 4
+      }
+    },
+    {
+      "admitted": false,
+      "fallback": "qualified-source-scan",
+      "projection": "missing-providers",
+      "queries": 12,
+      "raw_mismatches": {
+        "contracts": 0,
+        "providers": 6,
+        "reachable": 0,
+        "reverse": 0
+      }
+    },
+    {
+      "admitted": false,
+      "fallback": "qualified-source-scan",
+      "projection": "missing-complete-view",
+      "queries": 12,
+      "raw_mismatches": {
+        "contracts": 8,
+        "providers": 6,
+        "reachable": 8,
+        "reverse": 8
+      }
+    }
+  ],
+  "format": "integrated-graph-index-01",
+  "generations": [
+    "0ab943350c6b6d3a917e13df07662debe70e9e602392de475a1178e5462a844e",
+    "53d1e3c128671324f578d6db93302cd8e94185e6e7273a06c90ecee5b0c85d44"
+  ],
+  "sqlite": "3.53.1",
+  "wal": {
+    "cross-generation": {
+      "contracts": [
+        [
+          "c1",
+          "finite-result",
+          5
+        ]
+      ],
+      "providers": [
+        [
+          "c1",
+          "provider-b"
+        ],
+        [
+          "c2",
+          "unrelated-b"
+        ]
+      ],
+      "reachable": [
+        "c1",
+        "entry",
+        "worker"
+      ],
+      "reverse": [
+        [
+          "worker",
+          0
+        ]
+      ]
+    },
+    "fresh": {
+      "contracts": [
+        [
+          "c1",
+          "finite-result",
+          3
+        ],
+        [
+          "c2",
+          "finite-result",
+          7
+        ]
+      ],
+      "providers": [
+        [
+          "c1",
+          "provider-b"
+        ],
+        [
+          "c2",
+          "unrelated-b"
+        ]
+      ],
+      "reachable": [
+        "c1",
+        "c2",
+        "entry",
+        "sandbox",
+        "worker"
+      ],
+      "reverse": [
+        [
+          "worker",
+          0
+        ]
+      ]
+    },
+    "pinned": {
+      "contracts": [
+        [
+          "c1",
+          "finite-result",
+          5
+        ]
+      ],
+      "providers": [
+        [
+          "c1",
+          "provider-a"
+        ]
+      ],
+      "reachable": [
+        "c1",
+        "entry",
+        "worker"
+      ],
+      "reverse": [
+        [
+          "worker",
+          0
+        ]
+      ]
+    }
+  }
+}
