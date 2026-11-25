@@ -1,0 +1,798 @@
+{
+  "schema": "llmlang-rt32-signed-i64-byte-kernel/1",
+  "python": "3.12.14",
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "lean_source_sha256": "c919d4ac6cd22805952bc7feeca2be1061ddc70ff6280a8120fec54e6353050d",
+  "runner_source_sha256": "e345794739f86a4ba0125e50c5d5b748708f73df45f7a1922f70e085e87eff7c",
+  "generated_replay_sha256": "27b4b79d067736d52759f4f73b6d90135982c1b56e1f8722bd7befe40e0ee097",
+  "native_archive_sha256": "27960e4b6ca7dcb498ebef299b8d390fafa0dd048bad907200c38ce2fb4c2f29",
+  "native_python": "3.12.14",
+  "native_node": "v22.23.5",
+  "native_v8": "12.4.254.21-node.57",
+  "model_theorem_axioms": {
+    "joinSplit": [
+      "propext",
+      "Quot.sound"
+    ],
+    "splitJoin": [
+      "propext",
+      "Quot.sound"
+    ],
+    "packUnpack32": [
+      "propext",
+      "Quot.sound"
+    ],
+    "unpackPack32": [
+      "propext",
+      "Quot.sound"
+    ],
+    "packUnpack64": [
+      "propext",
+      "Quot.sound"
+    ],
+    "unpackPack64": [
+      "propext",
+      "Quot.sound"
+    ],
+    "signedRoundTrip": [
+      "propext",
+      "Quot.sound"
+    ],
+    "wordDecodesInRange": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "bytesRoundTrip": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "admittedEncodingInjective": [
+      "propext",
+      "Quot.sound"
+    ],
+    "rejectsOutsideSignedRange": [
+      "propext"
+    ],
+    "checkedBytesRoundTrip": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "uncheckedUpperAliasesLower": [
+      "propext"
+    ],
+    "networkByteOrderMatters": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "archive_equalities": {
+    "0": [
+      "propext",
+      "Quot.sound"
+    ],
+    "1": [
+      "propext",
+      "Quot.sound"
+    ],
+    "2": [
+      "propext",
+      "Quot.sound"
+    ],
+    "3": [
+      "propext",
+      "Quot.sound"
+    ],
+    "4": [
+      "propext",
+      "Quot.sound"
+    ],
+    "5": [
+      "propext",
+      "Quot.sound"
+    ],
+    "6": [
+      "propext",
+      "Quot.sound"
+    ],
+    "7": [
+      "propext",
+      "Quot.sound"
+    ],
+    "8": [
+      "propext",
+      "Quot.sound"
+    ],
+    "9": [
+      "propext",
+      "Quot.sound"
+    ],
+    "10": [
+      "propext",
+      "Quot.sound"
+    ],
+    "11": [
+      "propext",
+      "Quot.sound"
+    ],
+    "12": [
+      "propext",
+      "Quot.sound"
+    ],
+    "13": [
+      "propext",
+      "Quot.sound"
+    ],
+    "14": [
+      "propext",
+      "Quot.sound"
+    ],
+    "15": [
+      "propext",
+      "Quot.sound"
+    ],
+    "16": [
+      "propext",
+      "Quot.sound"
+    ],
+    "17": [
+      "propext",
+      "Quot.sound"
+    ],
+    "18": [
+      "propext",
+      "Quot.sound"
+    ],
+    "19": [
+      "propext",
+      "Quot.sound"
+    ],
+    "20": [
+      "propext",
+      "Quot.sound"
+    ],
+    "21": [
+      "propext",
+      "Quot.sound"
+    ],
+    "22": [
+      "propext",
+      "Quot.sound"
+    ],
+    "23": [
+      "propext",
+      "Quot.sound"
+    ],
+    "24": [
+      "propext",
+      "Quot.sound"
+    ],
+    "25": [
+      "propext",
+      "Quot.sound"
+    ],
+    "26": [
+      "propext",
+      "Quot.sound"
+    ],
+    "27": [
+      "propext",
+      "Quot.sound"
+    ],
+    "28": [
+      "propext",
+      "Quot.sound"
+    ],
+    "29": [
+      "propext",
+      "Quot.sound"
+    ],
+    "30": [
+      "propext",
+      "Quot.sound"
+    ],
+    "31": [
+      "propext",
+      "Quot.sound"
+    ],
+    "32": [
+      "propext",
+      "Quot.sound"
+    ],
+    "33": [
+      "propext",
+      "Quot.sound"
+    ],
+    "34": [
+      "propext",
+      "Quot.sound"
+    ],
+    "35": [
+      "propext",
+      "Quot.sound"
+    ],
+    "36": [
+      "propext",
+      "Quot.sound"
+    ],
+    "37": [
+      "propext",
+      "Quot.sound"
+    ],
+    "38": [
+      "propext",
+      "Quot.sound"
+    ],
+    "39": [
+      "propext",
+      "Quot.sound"
+    ],
+    "40": [
+      "propext",
+      "Quot.sound"
+    ],
+    "41": [
+      "propext",
+      "Quot.sound"
+    ],
+    "42": [
+      "propext",
+      "Quot.sound"
+    ],
+    "43": [
+      "propext",
+      "Quot.sound"
+    ],
+    "44": [
+      "propext",
+      "Quot.sound"
+    ],
+    "45": [
+      "propext",
+      "Quot.sound"
+    ],
+    "46": [
+      "propext",
+      "Quot.sound"
+    ],
+    "47": [
+      "propext",
+      "Quot.sound"
+    ],
+    "48": [
+      "propext",
+      "Quot.sound"
+    ],
+    "49": [
+      "propext",
+      "Quot.sound"
+    ],
+    "50": [
+      "propext",
+      "Quot.sound"
+    ],
+    "51": [
+      "propext",
+      "Quot.sound"
+    ],
+    "52": [
+      "propext",
+      "Quot.sound"
+    ],
+    "53": [
+      "propext",
+      "Quot.sound"
+    ],
+    "54": [
+      "propext",
+      "Quot.sound"
+    ],
+    "55": [
+      "propext",
+      "Quot.sound"
+    ],
+    "56": [
+      "propext",
+      "Quot.sound"
+    ],
+    "57": [
+      "propext",
+      "Quot.sound"
+    ],
+    "58": [
+      "propext",
+      "Quot.sound"
+    ],
+    "59": [
+      "propext",
+      "Quot.sound"
+    ],
+    "60": [
+      "propext",
+      "Quot.sound"
+    ],
+    "61": [
+      "propext",
+      "Quot.sound"
+    ],
+    "62": [
+      "propext",
+      "Quot.sound"
+    ],
+    "63": [
+      "propext",
+      "Quot.sound"
+    ],
+    "64": [
+      "propext",
+      "Quot.sound"
+    ],
+    "65": [
+      "propext",
+      "Quot.sound"
+    ],
+    "66": [
+      "propext",
+      "Quot.sound"
+    ],
+    "67": [
+      "propext",
+      "Quot.sound"
+    ],
+    "68": [
+      "propext",
+      "Quot.sound"
+    ],
+    "69": [
+      "propext",
+      "Quot.sound"
+    ],
+    "70": [
+      "propext",
+      "Quot.sound"
+    ],
+    "71": [
+      "propext",
+      "Quot.sound"
+    ],
+    "72": [
+      "propext",
+      "Quot.sound"
+    ],
+    "73": [
+      "propext",
+      "Quot.sound"
+    ],
+    "74": [
+      "propext",
+      "Quot.sound"
+    ],
+    "75": [
+      "propext",
+      "Quot.sound"
+    ],
+    "76": [
+      "propext",
+      "Quot.sound"
+    ],
+    "77": [
+      "propext",
+      "Quot.sound"
+    ],
+    "78": [
+      "propext",
+      "Quot.sound"
+    ],
+    "79": [
+      "propext",
+      "Quot.sound"
+    ],
+    "80": [
+      "propext",
+      "Quot.sound"
+    ],
+    "81": [
+      "propext",
+      "Quot.sound"
+    ],
+    "82": [
+      "propext",
+      "Quot.sound"
+    ],
+    "83": [
+      "propext",
+      "Quot.sound"
+    ],
+    "84": [
+      "propext",
+      "Quot.sound"
+    ],
+    "85": [
+      "propext",
+      "Quot.sound"
+    ],
+    "86": [
+      "propext",
+      "Quot.sound"
+    ],
+    "87": [
+      "propext",
+      "Quot.sound"
+    ],
+    "88": [
+      "propext",
+      "Quot.sound"
+    ],
+    "89": [
+      "propext",
+      "Quot.sound"
+    ],
+    "90": [
+      "propext",
+      "Quot.sound"
+    ],
+    "91": [
+      "propext",
+      "Quot.sound"
+    ],
+    "92": [
+      "propext",
+      "Quot.sound"
+    ],
+    "93": [
+      "propext",
+      "Quot.sound"
+    ],
+    "94": [
+      "propext",
+      "Quot.sound"
+    ],
+    "95": [
+      "propext",
+      "Quot.sound"
+    ],
+    "96": [
+      "propext",
+      "Quot.sound"
+    ],
+    "97": [
+      "propext",
+      "Quot.sound"
+    ],
+    "98": [
+      "propext",
+      "Quot.sound"
+    ],
+    "99": [
+      "propext",
+      "Quot.sound"
+    ],
+    "100": [
+      "propext",
+      "Quot.sound"
+    ],
+    "101": [
+      "propext",
+      "Quot.sound"
+    ],
+    "102": [
+      "propext",
+      "Quot.sound"
+    ],
+    "103": [
+      "propext",
+      "Quot.sound"
+    ],
+    "104": [
+      "propext",
+      "Quot.sound"
+    ],
+    "105": [
+      "propext",
+      "Quot.sound"
+    ],
+    "106": [
+      "propext",
+      "Quot.sound"
+    ],
+    "107": [
+      "propext",
+      "Quot.sound"
+    ],
+    "108": [
+      "propext",
+      "Quot.sound"
+    ],
+    "109": [
+      "propext",
+      "Quot.sound"
+    ],
+    "110": [
+      "propext",
+      "Quot.sound"
+    ],
+    "111": [
+      "propext",
+      "Quot.sound"
+    ],
+    "112": [
+      "propext",
+      "Quot.sound"
+    ],
+    "113": [
+      "propext",
+      "Quot.sound"
+    ],
+    "114": [
+      "propext",
+      "Quot.sound"
+    ],
+    "115": [
+      "propext",
+      "Quot.sound"
+    ],
+    "116": [
+      "propext",
+      "Quot.sound"
+    ],
+    "117": [
+      "propext",
+      "Quot.sound"
+    ],
+    "118": [
+      "propext",
+      "Quot.sound"
+    ],
+    "119": [
+      "propext",
+      "Quot.sound"
+    ],
+    "120": [
+      "propext",
+      "Quot.sound"
+    ],
+    "121": [
+      "propext",
+      "Quot.sound"
+    ],
+    "122": [
+      "propext",
+      "Quot.sound"
+    ],
+    "123": [
+      "propext",
+      "Quot.sound"
+    ],
+    "124": [
+      "propext",
+      "Quot.sound"
+    ],
+    "125": [
+      "propext",
+      "Quot.sound"
+    ],
+    "126": [
+      "propext",
+      "Quot.sound"
+    ],
+    "127": [
+      "propext",
+      "Quot.sound"
+    ],
+    "128": [
+      "propext",
+      "Quot.sound"
+    ],
+    "129": [
+      "propext",
+      "Quot.sound"
+    ],
+    "130": [
+      "propext",
+      "Quot.sound"
+    ],
+    "131": [
+      "propext",
+      "Quot.sound"
+    ],
+    "132": [
+      "propext",
+      "Quot.sound"
+    ],
+    "133": [
+      "propext",
+      "Quot.sound"
+    ],
+    "134": [
+      "propext",
+      "Quot.sound"
+    ],
+    "135": [
+      "propext",
+      "Quot.sound"
+    ],
+    "136": [
+      "propext",
+      "Quot.sound"
+    ],
+    "137": [
+      "propext",
+      "Quot.sound"
+    ],
+    "138": [
+      "propext",
+      "Quot.sound"
+    ],
+    "139": [
+      "propext",
+      "Quot.sound"
+    ],
+    "140": [
+      "propext",
+      "Quot.sound"
+    ],
+    "141": [
+      "propext",
+      "Quot.sound"
+    ],
+    "142": [
+      "propext",
+      "Quot.sound"
+    ],
+    "143": [
+      "propext",
+      "Quot.sound"
+    ],
+    "144": [
+      "propext",
+      "Quot.sound"
+    ],
+    "145": [
+      "propext",
+      "Quot.sound"
+    ],
+    "146": [
+      "propext",
+      "Quot.sound"
+    ],
+    "147": [
+      "propext",
+      "Quot.sound"
+    ],
+    "148": [
+      "propext",
+      "Quot.sound"
+    ],
+    "149": [
+      "propext",
+      "Quot.sound"
+    ],
+    "150": [
+      "propext",
+      "Quot.sound"
+    ],
+    "151": [
+      "propext",
+      "Quot.sound"
+    ],
+    "152": [
+      "propext",
+      "Quot.sound"
+    ],
+    "153": [
+      "propext",
+      "Quot.sound"
+    ],
+    "154": [
+      "propext",
+      "Quot.sound"
+    ],
+    "155": [
+      "propext",
+      "Quot.sound"
+    ],
+    "156": [
+      "propext",
+      "Quot.sound"
+    ],
+    "157": [
+      "propext",
+      "Quot.sound"
+    ],
+    "158": [
+      "propext",
+      "Quot.sound"
+    ],
+    "159": [
+      "propext",
+      "Quot.sound"
+    ],
+    "160": [
+      "propext",
+      "Quot.sound"
+    ],
+    "161": [
+      "propext",
+      "Quot.sound"
+    ],
+    "162": [
+      "propext",
+      "Quot.sound"
+    ],
+    "163": [
+      "propext",
+      "Quot.sound"
+    ],
+    "164": [
+      "propext",
+      "Quot.sound"
+    ],
+    "165": [
+      "propext",
+      "Quot.sound"
+    ],
+    "166": [
+      "propext",
+      "Quot.sound"
+    ],
+    "167": [
+      "propext",
+      "Quot.sound"
+    ],
+    "168": [
+      "propext",
+      "Quot.sound"
+    ],
+    "169": [
+      "propext",
+      "Quot.sound"
+    ],
+    "170": [
+      "propext",
+      "Quot.sound"
+    ],
+    "171": [
+      "propext",
+      "Quot.sound"
+    ],
+    "172": [
+      "propext",
+      "Quot.sound"
+    ],
+    "173": [
+      "propext",
+      "Quot.sound"
+    ],
+    "174": [
+      "propext",
+      "Quot.sound"
+    ],
+    "175": [
+      "propext",
+      "Quot.sound"
+    ],
+    "176": [
+      "propext",
+      "Quot.sound"
+    ],
+    "177": [
+      "propext",
+      "Quot.sound"
+    ],
+    "178": [
+      "propext",
+      "Quot.sound"
+    ],
+    "179": [
+      "propext",
+      "Quot.sound"
+    ],
+    "180": [
+      "propext",
+      "Quot.sound"
+    ]
+  },
+  "incorrect_wraparound_proof": "rejected"
+}

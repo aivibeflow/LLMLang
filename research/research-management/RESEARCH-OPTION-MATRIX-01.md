@@ -91,6 +91,8 @@ For a closed two-integer profile, [restricted affine certificates](../formal-ver
 
 [Cross-profile record cleanup](../semantic-representation/RT-05/RT-05-CROSS-PROFILE-RECORD-CLEANUP-2026-11-25.md) compares retaining native destruction order with lowering an explicit portable order. Rust and C++ agree on early cleanup and disagree on every successful implicit cleanup pair. The explicit route yields identical checked semantic graphs and traces for both profiles in the fixture. Treat physical layout and provider-code identity as separate from the trace-level projection.
 
+[Signed I64 byte proof](../formal-verification/RT-32/RT-32-SIGNED-I64-BYTE-KERNEL-2026-11-25.md) establishes a reversible typed byte component and checks 181 native archive equations. Exact decimal and token routes still require their own parser correspondence.
+
 [Cross-runtime I64 encoding](../semantic-representation/RT-05/RT-05-CROSS-RUNTIME-I64-ENCODING-2026-11-25.md) compares bare JSON number consumption, a safe-integer restriction, preserved numeric source tokens, canonical decimal text and fixed-width hexadecimal. The exact routes share the same typed graph root. Bare JavaScript numbers change 56 observed values. Payload size and parser compatibility remain separate from semantic identity.
 
 ## 4. Integrated candidate vectors
