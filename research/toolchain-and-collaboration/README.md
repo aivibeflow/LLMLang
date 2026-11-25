@@ -26,6 +26,11 @@ This direction groups related research studies without changing their RT identif
 - [RT-19 multi-file publication boundary recheck](RT-19/RT-19-MULTIFILE-PUBLICATION-BOUNDARY-RECHECK-2026-11-24.md) compares per-file replacement, immutable generation publication, and exact Git-tree/ref publication. It favors validating a private complete tree before Git ref publication as the next experiment; no implementation or production format is selected.
 - [RT-19 concurrent workspace CAS recheck](RT-19/RT-19-CONCURRENT-WORKSPACE-CAS-RECHECK-2026-11-24.md) checks same-base concurrent acceptance and Change Set retry behavior. Local CAS is confined to one workspace; shared-head conflict control and durable idempotency remain unresolved.
 
+## Historical scenarios and proposals
+
+- [Scenario 02 — Concurrent changes](RT-14/RESEARCH-SCENARIO-02-CONCURRENT-CHANGES.md)
+- [RFC proposal — Request and Change Set](RT-14/RFC-REQUEST-CHANGE.md)
+
 ## Dedicated research artifacts
 
 - [PROTOTYPES](PROTOTYPES/)

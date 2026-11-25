@@ -18,9 +18,9 @@ Dafny и LLMLang пересекаются в стремлении сделать
 
 Официальное руководство описывает Dafny как язык со спецификационными конструкциями и статическим верификатором функциональной корректности; инструмент также проверяет программы и компилирует их. Типичная цепочка использует Boogie и Z3 ([Dafny Reference](https://dafny.org/latest/DafnyRef/DafnyRef), [официальный сайт](https://dafny.org/)).
 
-LLMLang в [концепции проекта](LLMLang-CONCEPT.md) — экспериментальная AI-native концепция. Там предложены SPG, слои Specification/Design/Implementation, контракты, типы, эффекты, зависимости, доказательства и возможные backend. Концепция содержит открытые вопросы и этапы дальнейшего исследования. В [плане](../PLAN.md) формальная верификация языка в целом не завершена, канонический SPG и полная семантика не зафиксированы.
+LLMLang в [концепции проекта](language-design/RT-01/LLMLang-CONCEPT.md) — экспериментальная AI-native концепция. Там предложены SPG, слои Specification/Design/Implementation, контракты, типы, эффекты, зависимости, доказательства и возможные backend. Концепция содержит открытые вопросы и этапы дальнейшего исследования. В [плане](../PLAN.md) формальная верификация языка в целом не завершена, канонический SPG и полная семантика не зафиксированы.
 
-В проекте есть ограниченные прототипы и исследования. [Сценарий 14](RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md) рассматривает refinement, эффекты, отказы, завершение, конкурентность и evidence. [Сценарий 15](RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md) отделяет бизнес-намерение от формализации и доказательства реализации. Они не означают, что весь язык реализован.
+В проекте есть ограниченные прототипы и исследования. [Сценарий 14](language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md) рассматривает refinement, эффекты, отказы, завершение, конкурентность и evidence. [Сценарий 15](language-design/RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md) отделяет бизнес-намерение от формализации и доказательства реализации. Они не означают, что весь язык реализован.
 
 Далее Dafny описывается как существующая система; LLMLang — как проектное намерение, кроме явно названных ограниченных экспериментов.
 
@@ -153,9 +153,9 @@ Dafny — конкретный и сильный ориентир для фор�
 
 ### Материалы проекта
 
-- [LLMLang concept](LLMLang-CONCEPT.md)
-- [Research Scenario 14: Formal Behavioral Contracts and Refinement](RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md)
-- [Research Scenario 15: From Business Intent to Formal Behavioral Contracts](RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md)
+- [LLMLang concept](language-design/RT-01/LLMLang-CONCEPT.md)
+- [Research Scenario 14: Formal Behavioral Contracts and Refinement](language-design/RT-02/RESEARCH-SCENARIO-14-FORMAL-BEHAVIORAL-CONTRACTS-AND-REFINEMENT.md)
+- [Research Scenario 15: From Business Intent to Formal Behavioral Contracts](language-design/RT-02/RESEARCH-SCENARIO-15-BUSINESS-INTENT-TO-FORMAL-CONTRACT.md)
 - [Project plan](../PLAN.md)
 - [Open questions](../TODO.md)
 

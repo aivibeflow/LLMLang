@@ -14,6 +14,12 @@ This direction groups related research studies without changing their RT identif
 | [RT-04](RT-04/) | Type system, effects, ownership, and capabilities |
 | [RT-31](RT-31/) | AI-oriented syntax, semantic separation, and Toolchain optimization |
 
+## Historical scenarios and prior art
+
+- [Related-project landscape](RT-01/RESEARCH-RELATED-PROJECTS.md) and [focused comparison](RT-01/RESEARCH-DEEP-COMPARISON.md). The focused study updates the overlapping four-project coverage.
+- [Scenario 03 — Requirement impact](RT-02/RESEARCH-SCENARIO-03-REQUIREMENT-IMPACT.md)
+- [Token-efficiency notes](RT-31/TOKEN_EFFICIENCY.md). Exploratory options for authoring and context size.
+
 ## Dedicated research artifacts
 
 - [PROTOTYPES](PROTOTYPES/)

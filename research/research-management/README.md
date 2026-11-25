@@ -20,6 +20,13 @@ This direction groups related research studies without changing their RT identif
 - [Cross-scenario architectural synthesis](RESEARCH-SYNTHESIS-01-CROSS-SCENARIO.md)
 - [Proposed quality and decision rules](RESEARCH-QUALITY-AND-DECISION-RULES-2026-11-20.md) and [review protocol](QUALITY-REVIEW-PROTOCOL.md)
 
+## Historical audit chain
+
+- [Prototype and test audit](RT-00/RT-00-B-02B-2-PYTHON-PROTOTYPE-AND-TEST-AUDIT-2026-11-20.md)
+- [Scenario overlap and supersession audit](RT-00/RT-00-B-02B-3-SCENARIO-OVERLAP-AND-SUPERSESSION-AUDIT-2026-11-20.md)
+- [Orphan and traceability audit](RT-00/RT-00-B-02B-4-ORPHAN-AND-TRACEABILITY-AUDIT-2026-11-20.md)
+- [SQLite identity and source archive integrity](RT-00/RT-00-C-02-SQLITE-IDENTITY-AND-SOURCE-ARCHIVE-INTEGRITY-2026-11-21.md)
+
 ## Audits and evidence maps
 
 - [Draft evidence crosswalk](RT-00/RT-00-C-DRAFT-EVIDENCE-CROSSWALK-2026-11-25.md) — checks the current glossary and accepted architecture decision against their linked RT/Scenario research, and records where the linked work remains proposal-level or bounded.
