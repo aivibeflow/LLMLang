@@ -13,6 +13,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-38 timer preemption](RT-38/RT-38-RV64-TIMER-PREEMPTION-2026-11-25.md) checks real machine timer delivery, task context and bounded runnable progress.
 - [RT-38 preemptive IPC](RT-38/RT-38-RV64-PREEMPTIVE-IPC-2026-11-25.md) checks wakeup and generation revocation across two live Sv39 roots.
 - [RT-38 live frame replacement](RT-38/RT-38-RV64-LIVE-FRAME-IPC-2026-11-25.md) checks private data reallocation before waking a blocked task.
+- [RT-38 scoped SMP and DMA reuse](RT-38/RT-38-SCOPED-SMP-DMA-REUSE-2026-11-25.md) checks distinct CPU and device completion claims before frame reuse.
 
 ## Studies
 

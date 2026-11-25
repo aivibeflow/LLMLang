@@ -1,0 +1,39 @@
+{
+  "conditional_hardware_channels": {
+    "device-visibility": "finish required cache, IOMMU and ownership synchronization",
+    "dma-drain": "revoke device access and drain previously admitted transactions",
+    "local-hart": "local translation and in-flight access quiescence",
+    "remote-hart": "remote translation and in-flight access quiescence"
+  },
+  "lean_audit": [
+    "'admittedRequiresBothHarts' does not depend on any axioms",
+    "'admittedDeviceRequiresDrainAndVisibility' does not depend on any axioms",
+    "'wrongEpochRefused' does not depend on any axioms",
+    "'wrongGenerationRefused' does not depend on any axioms",
+    "'earlyReceiptRefused' does not depend on any axioms",
+    "'beforeDetachRefused' does not depend on any axioms",
+    "'cpuOnlyAllows' does not depend on any axioms"
+  ],
+  "matrix": {
+    "allowed": 37,
+    "device_rows_allowed": 1,
+    "frame_only_false_accepts": 795,
+    "ignoring_one_channel_false_accepts": {
+      "device-visibility": 5,
+      "dma-drain": 5,
+      "local-hart": 185,
+      "remote-hart": 185
+    },
+    "rows": 5184
+  },
+  "ordered_histories": {
+    "blocked": 19680,
+    "reassigned": 480,
+    "reuse_requests": 20160,
+    "schedules": 10080
+  },
+  "source_sha256": {
+    "Reuse.lean": "526c595bf36708e863d718f65e467c41ae993db062bb94a5ae951493f2faa181",
+    "run.py": "40cc721cd4c0aa91ee1b7d8c339c986ad156bd659bf123bea0bbbaca64de4a0c"
+  }
+}
