@@ -342,6 +342,8 @@ RT-21 is a staged capability goal, not a prerequisite to completing the language
 The first self-development milestone does not require compiler self-hosting. A small host-language bootstrap layer may remain responsible for trusted low-level compilation/runtime/platform primitives while higher-level validators, analyzers, and build logic migrate to LLMLang. This boundary is a recommendation to evaluate, not an accepted architecture.
 
 
+[Mutable log recovery](../toolchain-and-collaboration/RT-19/RT-19-MUTABLE-LOG-RECOVERY-2026-11-25.md) tests a related RT-19 external-state boundary with real Linux appends and SQLite receipts. A receipt can outlive an in-place truncation, and a complete frame can be separated from its receipt by process termination. Current operation identity and log integrity both constrain recovery.
+
 ## 9. Repository/worktree provider integration (RT-22)
 
 RT-22 introduces an external-orchestrator dependency without making LLMLang dependent on AIVibeFlow. The LLMLang side owns the Toolchain repository/worktree capability contract and its semantic synchronization behavior. The external platform owns provider selection, workflow/job orchestration, and platform policy. See [RT-22](../toolchain-and-collaboration/RT-22/RT-22-LLMLANG-GIT-REPOSITORY-AND-WORKTREE-MCP.md) for the LLMLang contract and its cross-project reference.
