@@ -1,0 +1,61 @@
+pub trait Rule {
+    fn apply(&self, value: i64) -> i64;
+    fn apply_linked(&self, value: i64) -> i64;
+}
+
+pub struct Amber;
+pub struct Cobalt;
+
+#[inline(always)]
+fn amber_body(value: i64) -> i64 {
+    value.wrapping_mul(3).wrapping_add(@AMBER_ADD@)
+}
+
+#[inline(always)]
+fn cobalt_body(value: i64) -> i64 {
+    value.wrapping_mul(5).wrapping_sub(7)
+}
+
+impl Rule for Amber {
+    #[inline(always)]
+    fn apply(&self, value: i64) -> i64 {
+        amber_body(value)
+    }
+
+    #[inline(never)]
+    fn apply_linked(&self, value: i64) -> i64 {
+        amber_body(value)
+    }
+}
+
+impl Rule for Cobalt {
+    #[inline(always)]
+    fn apply(&self, value: i64) -> i64 {
+        cobalt_body(value)
+    }
+
+    #[inline(never)]
+    fn apply_linked(&self, value: i64) -> i64 {
+        cobalt_body(value)
+    }
+}
+
+#[inline(never)]
+pub fn trait_provider(tag: u8) -> &'static dyn Rule {
+    if tag == 0 { &Amber } else { &Cobalt }
+}
+
+pub struct Dictionary {
+    pub apply: fn(i64) -> i64,
+}
+
+#[inline(never)]
+pub fn dictionary(tag: u8) -> Dictionary {
+    let apply = if tag == 0 { amber_body } else { cobalt_body };
+    Dictionary { apply }
+}
+
+#[no_mangle]
+pub extern "C" fn unrelated() -> i64 {
+    @UNRELATED@
+}
