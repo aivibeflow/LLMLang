@@ -1357,6 +1357,7 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
   - Test nine layouts with 8,192 sorted rows, 64 point queries and exact full scans. The 64-row gzip layout grows the whole-stream archive by 5.8% while reading 163 KiB per batch versus 303 KiB for retained whole-stream lookup. Seven measured trials cover latency and separate allocation traces record peak memory. Representative workloads and a format decision remain open. [Package index compression](research/packages-and-ecosystem/RT-12/RT-12-INDEX-COMPRESSION-2026-11-25.md)
 - [ ] Evaluate optional sparse and hierarchical sparse indexes; establish when their lookup benefit justifies their storage and maintenance cost.
 - [ ] Define index integrity, corruption detection, sparse-index reconstruction, and logical-versus-physical index identity.
+  - [ ] [WIP] Compare sparse-directory integrity checks and canonical reconstruction across package-index corruption and layout changes on `research/all`.
 - [x] Draft a human-readable TOML manifest schema candidate and an illustrative manifest fixture; keep binary encoding for machine indexes and object payloads where their formats require it.
 - [x] Draft the Package Content Root Hash projection, identity exclusions, and validation invariants independently of raw TOML bytes and physical archive encoding.
 - [x] Implement an exploratory executable package-identity model and focused fixtures for PMI-001–PMI-014; record its limits and test evidence.
