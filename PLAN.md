@@ -1339,12 +1339,12 @@ The documents have explicit ownership boundaries and reciprocal links. Re-read t
 - [ ] Define memory model and concurrency semantics.
   - [x] Derive release-sequence membership in 360 selected read-from cases over 60 flag modification orders. C++17 derives 150 edges and C++20 derives 90. Equal numeric values cannot establish the required edge. Complete memory-model and target conformance remain open. [RT-10 release sequence membership](research/runtime-and-systems/RT-10/RT-10-RELEASE-SEQUENCE-MEMBERSHIP-2026-11-25.md)
   - Compare the same sequential increment contract against native atomic-load/store and atomic fetch-add histories. Sequential verification or a declared concurrency assumption does not certify shared interleavings. [Dafny concurrent frames and native histories](research/formal-verification/RT-07/RT-07-DAFNY-CONCURRENT-FRAME-HISTORY-2026-11-25.md)
-- [ ] Define threads, synchronization, atomics, signals, blocking I/O, and scheduling boundaries.
-  - [ ] [WIP] Check directed Linux signals, kernel-blocked thread boundaries and syscall restart observations on `research/all` (#325).
+- [x] Define threads, synchronization, atomics, signals, blocking I/O, and scheduling boundaries.
+  - [x] Check 40 directed signals while workers block in observed native calls. SA_RESTART resumes the checked pipe read, while poll interrupts under either signal policy. [Native signal and primitive contracts](research/runtime-and-systems/RT-10/RT-10-NATIVE-SIGNAL-PRIMITIVES-2026-11-25.md)
   - [x] Compare six native wait schedules in two Rust builds. A one-shot waiter reports work on an empty notification, while a predicate waiter re-enters waiting and observes already published work without relying on a notification. Simultaneous work and cancellation require explicit precedence. [RT-10 native wait predicates](research/runtime-and-systems/RT-10/RT-10-WAIT-PREDICATES-AND-CANCELLATION-2026-11-25.md)
 - [ ] Define capability and security model.
-- [ ] Define trusted low-level primitives and their contracts.
-  - [ ] [WIP] Verify primitive-specific successful, interrupted and nonblocking dispositions under native signal delivery on `research/all` (#325).
+- [x] Define trusted low-level primitives and their contracts.
+  - [x] Check 70 calls across interruption, positive completion, would-block, EOF and invalid descriptors. Positive completion and EOF preserve a stale errno, while actual errors retain distinct dispositions. [Native signal and primitive contracts](research/runtime-and-systems/RT-10/RT-10-NATIVE-SIGNAL-PRIMITIVES-2026-11-25.md)
   - [x] Check 336 native observations under glibc and musl using primitive-specific error channels. Generic negative-result and errno rules disagree 216 and 240 times. The two libcs expose different incidental errno for the same EAI result. Wider primitive contracts remain open. [Primitive error domains](research/runtime-and-systems/RT-10/RT-10-PRIMITIVE-ERROR-DOMAINS-2026-11-25.md)
 - [x] Define runtime versioning and its contribution to implementation identity.
   - [x] A same-label replacement changes 86 results or changes their raw layout, depending on the variant. A version-only change preserves all decoded observations while changing exact runtime identity. [Tagged runtime bindings](research/runtime-and-systems/RT-10/RT-10-TAGGED-RUNTIME-BINDING-2026-11-25.md)

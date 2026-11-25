@@ -42,6 +42,7 @@ This direction groups related research studies without changing their RT identif
 - [RT-10 stack VM fuel correspondence](RT-10/RT-10-STACK-VM-FUEL-CORRESPONDENCE-2026-11-25.md) compares source charges, opcode costs and partial effect traces.
 - [Resumable reference and VM execution](RT-10/RT-10-RESUMABLE-EXECUTION-2026-11-25.md) checks exact checkpoints, effect receipts and source-level observables.
 - [Tagged runtime bindings](RT-10/RT-10-TAGGED-RUNTIME-BINDING-2026-11-25.md) checks exact operation, runtime revision, typed ABI words and error layouts.
+- [Native signal and primitive contracts](RT-10/RT-10-NATIVE-SIGNAL-PRIMITIVES-2026-11-25.md) checks Linux thread-directed interruption, restart and primitive dispositions.
 - [RT-25 four-provider allocator replay](RT-25/RT-25-FOUR-PROVIDER-ALLOCATOR-REPLAY-2026-11-25.md) — checks the same Rust probe and graph with glibc, jemalloc, TCMalloc minimal and mimalloc.
 - [RT-25 workload-fit recheck](RT-25/RT-25-WORKLOAD-FIT-RECHECK-2026-11-24.md) maps current allocator evidence to the RT-01 workload catalog and RT-25 gates. Existing evidence covers one compatible Linux glibc/jemalloc probe and one synthetic graph workload; actual cache/package/concurrent service workloads, other mandatory candidates, and supported-target FFI coverage remain open.
 

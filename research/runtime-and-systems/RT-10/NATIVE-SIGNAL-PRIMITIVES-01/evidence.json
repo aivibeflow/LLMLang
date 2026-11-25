@@ -1,0 +1,47 @@
+{
+  "controls": [
+    {
+      "contract_disposition": "interrupted",
+      "native": "read 0 -1 EINTR 0 1"
+    },
+    {
+      "contract_disposition": "performed",
+      "native": "read 1 1 E2BIG 81 0"
+    },
+    {
+      "contract_disposition": "interrupted",
+      "native": "poll 0 -1 EINTR 0 1"
+    },
+    {
+      "contract_disposition": "interrupted",
+      "native": "poll 1 -1 EINTR 0 1"
+    },
+    {
+      "contract_disposition": "would-block",
+      "native": "nonblocking -1 EAGAIN"
+    },
+    {
+      "contract_disposition": "end-of-stream",
+      "native": "eof 0 E2BIG"
+    },
+    {
+      "contract_disposition": "failure",
+      "native": "invalid -1 EBADF"
+    }
+  ],
+  "format": "native-signal-primitives-01",
+  "gcc": "gcc (Debian 14.2.0-19) 14.2.0",
+  "kernel": "6.18.57",
+  "outputs": {
+    "-O0": {
+      "directed_signals": 20,
+      "native_probes": 35,
+      "trace": "c44422bc0c7013a9d5e1127e225165174493d8ca94b4cd08dad7316cc2d4a7d0"
+    },
+    "-O2": {
+      "directed_signals": 20,
+      "native_probes": 35,
+      "trace": "c44422bc0c7013a9d5e1127e225165174493d8ca94b4cd08dad7316cc2d4a7d0"
+    }
+  }
+}
