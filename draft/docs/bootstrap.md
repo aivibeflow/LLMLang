@@ -1,28 +1,80 @@
 # LLMLang agent bootstrap
 
-Start here when a task asks you to read, write, verify, or build LLMLang. Use the repository's [agent instructions](../../AGENTS.md) for checkout changes and the [architecture RFC](../RFC.md) for design questions.
+Use the [MCP server guide](server.md) for client configuration, JSON-RPC
+requests, tool arguments, and resource reads. Use the
+[repository instructions](../../AGENTS.md) for checkout changes and the
+[architecture RFC](../RFC.md) for design questions.
 
 ## Choose the workflow
 
 | Task | Start with |
 | --- | --- |
-| Write or inspect a scalar `.llmlang` source file | Read the [scalar text syntax](lang.md#scalar-text-source). Use Stage 0 `lower` to check syntax and types. Use the [scalar MVP CLI](../../tools/llmlang_mvp/README.md) for the standalone Calculator contract and build workflow. |
-| Author, revise, verify, or build a package | Use the [MCP server guide](server.md) and the [structured scalar syntax](lang.md#scalar-mcp-authoring). |
-| Inspect an existing package | Identify its exact snapshot. Use [MCP resource reads](server.md#tools-and-resources) to inspect identities, bindings, contracts, and links. Import the package and its dependencies if the snapshot is absent from the catalog. |
-| Build a committed native syscall package | Follow the [native package example](server.md#build-an-existing-native-program). Report native import and build status as `unchecked`. |
-| Work with Linux syscall guests or providers | Use the [syscall package toolchain](../../packages/linux.syscalls/README.md) and its declared profile. |
+| Build and run a checked-in native example | Follow [Build and run native examples](#build-and-run-native-examples). |
+| Edit and verify a scalar workspace over MCP | Follow [Edit and verify a scalar workspace](#edit-and-verify-a-scalar-workspace). |
+| Read or edit standalone scalar source | Use the [scalar text syntax](lang.md#scalar-text-source) and the [scalar MVP CLI](../../tools/llmlang_mvp/README.md) for Calculator and Stage 0. |
+| Inspect an existing package | Import its dependencies and the package, then use [MCP resource reads](server.md#tools-and-resources) to inspect the returned snapshot's objects and links. |
 
-Use the executable forms in [lang.md](lang.md). The Hello, Echo, and Calculator sketches in [draft examples](../examples/README.md) illustrate candidate notation.
+## Build and run native examples
 
-## Author through MCP
+Use a Linux x86-64 checkout with Rust 1.85.1 or newer, the
+`x86_64-unknown-linux-gnu` Rust target, Cargo, and a native linker. The
+repository test client uses Python 3.10 or newer. Run these commands from
+the repository root.
 
-1. Connect to LLMLang Server and discover `tools/list` and `resources/templates/list`. If the connection is absent and you can launch local processes, use the [build and connection instructions](server.md#build-and-connect) for a local stdio session.
-2. Create a package with `profile: "scalar"` and `language_version: "0.1.0"`, or open a workspace from the intended snapshot. Keep the returned `workspace_id` and `revision`. For existing work, inspect the selected version, exports, entry point, dependencies, and relevant graph objects before editing.
-3. Translate the requested behavior into typed signatures, contract rules, and implementation bodies. Preserve the intended input domain, success results, and error outcomes. Create interfaces and bindings for requested exports. Select a parameterless local entry point for an executable.
-4. Send the changes in `apply_change_set` with the current `expected_revision` and a fresh idempotency key. Use the server's existing identities or same-batch local references. Pin both the callee implementation and its required contract in each call. Use object content hashes as edit preconditions and update call pins explicitly where the requested behavior changes them.
-5. Call `verify_workspace` for the resulting revision. Read the obligations and diagnostics when `report.report.status` differs from `VERIFIED`. A successful apply establishes that the candidate passed structural and type validation. A verified preview supplies evidence for that revision under the scalar policy.
-6. When the task calls for publication, commit that revision and record the returned snapshot ID and package path. When it calls for a native artifact, build that snapshot for `linux-x86_64` and record the artifact path. Run an executable when the task requires checking its process behavior.
+```sh
+cargo build --locked --manifest-path draft/server/Cargo.toml
+python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llmlang-server
+```
 
-For a concrete first request, follow the [executable example](server.md#create-an-executable). For a stale revision, lost response, or verification failure, follow the [recovery instructions](server.md#recover-from-a-conflict-or-interrupted-request).
+The test client starts its own MCP server and builds and runs both Hello World
+examples and all five syscall programs. This workflow uses `rustc` on `PATH`
+or from `RUSTC`. Stage 0, Boogie, and Z3 are needed for the scalar workflow
+below.
 
-Report the scope of the observed result. For source work, report which frontend or checks ran. For MCP work, include the workspace revision, verification status, and any snapshot ID or artifact produced. Surface diagnostics that still prevent the requested outcome.
+To build one package with your MCP client, configure it to launch
+`$PWD/draft/server/target/debug/llmlang-server` over stdio with
+`--state-dir` followed by an absolute path to a private directory. On Linux,
+`mktemp -d` provides a suitable directory. The client initializes the session
+before calling tools. [Client configuration and handshake](server.md#build-and-connect)
+
+1. Call `import_package` with a `path` containing the absolute path to
+   `draft/stdlib` (version `0.1.0`).
+2. For a syscall example, import `draft/examples/linux.syscalls` (version
+   `v6.12`) in the same session.
+3. Import the example directory and use its returned `snapshot_id` as the
+   `snapshot_id` argument to `build_package`. Set `target` to
+   `linux-x86_64`.
+4. Run the file at the returned `artifact` path. Both Hello World examples
+   write `Hello, world!` followed by a newline and exit with status 0.
+
+| Examples | Package path |
+| --- | --- |
+| Hello World through the standard library | `draft/examples/0001-hello-world` |
+| Hello World through the Linux write interface | `draft/examples/0009-syscall-hello-world` |
+| Syscall programs for echo, copy, pipe readiness, child exit, and TCP echo | `draft/examples/0004-syscall-echo` through `draft/examples/0008-syscall-tcp-echo` |
+
+The server builds from the SPG package tables. Native import and build return
+`verification_status: "unchecked"`. Report that status separately from any
+observed execution results. [Example catalog](../examples/README.md) · [Native build example](server.md#build-an-existing-native-program)
+
+## Edit and verify a scalar workspace
+
+Build Stage 0 and configure the verifier before starting the server. Set
+`LLMLANG_STAGE0`, `BOOGIE`, and `Z3` as described in the
+[server setup](server.md#build-and-connect).
+
+1. Connect to the server and use `tools/list` and `resources/templates/list`
+   to discover the interface. Call `create_package` with `profile: "scalar"`
+   and `language_version: "0.1.0"`. Keep the returned `workspace_id` and
+   `revision`.
+2. Describe the behavior with typed signatures, contracts, and implementation
+   bodies. Submit the batch with `apply_change_set`, the current
+   `expected_revision`, and a fresh idempotency key. Pin the exact callee
+   implementation and required contract for each call.
+3. Call `verify_workspace` with the returned revision. Check
+   `report.report.status` and inspect diagnostics when it differs from
+   `VERIFIED`. The report applies to that revision.
+
+Scalar workspaces last for the lifetime of the server process.
+`commit_workspace` returns `UnsupportedProfile` for these workspaces.
+[Structured scalar syntax](lang.md#scalar-mcp-authoring) · [Complete verification example](server.md#verify-a-scalar-workspace) · [Conflict recovery](server.md#recover-from-a-conflict-or-interrupted-request)
