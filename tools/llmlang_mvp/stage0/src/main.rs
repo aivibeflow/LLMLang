@@ -10,10 +10,12 @@ use std::{
 mod backend;
 mod frontend;
 mod model;
+mod syscalls;
 
 const USAGE: &str = "Usage:
   llmlang-stage0 lower SOURCE [PROVIDED_HASHES_JSON]
   llmlang-stage0 emit-rust calculator|hello|echo
+  llmlang-stage0 parse-syscalls SOURCE
 
 'lower' writes SPG JSON to stdout. 'emit-rust calculator' reads an admitted SPG
 from stdin and writes Rust source to stdout. The smoke workload adapters take
@@ -43,6 +45,12 @@ fn run(args: &[OsString]) -> Result<String, String> {
     match args {
         [action, source, rest @ ..] if action == "lower" && rest.len() <= 1 => {
             lower(source, rest.first())
+        }
+        [action, source] if action == "parse-syscalls" => {
+            let text = fs::read_to_string(source).map_err(|error| error.to_string())?;
+            let module = syscalls::parse(&text)?;
+            let canonical = serde_json::to_value(module).map_err(|error| error.to_string())?;
+            Ok(format!("{canonical}\n"))
         }
         [action, workload] if action == "emit-rust" => {
             let workload = workload.to_str().ok_or("invalid workload name")?;

@@ -1030,7 +1030,9 @@ Contract documentation and internal test scenarios are sufficient for milestones
 
 ### 8.2.6 First task
 
-Pin a kernel tag, build the complete inventory, and take `read` and `write` through the full path from public contracts and import resolution to running the native Echo example in CI.
+The first end-to-end example uses the pinned Linux v6.12 catalog. Echo imports the public `read` and `write` contracts, and CI runs the compiled example on native Linux x86-64. The same workflow runs the other four examples and publishes the observations. [Package and checks](packages/linux.syscalls/README.md) · [CI](.github/workflows/llmlang-linux-syscalls.yml)
+
+All eight milestones are implemented and verified. The strict catalog check accepts all 358 active native x86-64 syscalls and records kernel behavior for 17 historical entries. The public contracts and command inventory define the supported inputs and states. Bindings pin the exact `ImplHash`, and `review` reports public contract refinement and the scope of provider evidence. [Implementation results](RESEARCH.md#52-execution-semantics-and-runtime-architecture) · [Catalog and release check](packages/linux.syscalls/catalog/README.md)
 
 <a name="external-evidence-and-approval-dependencies"></a>
 
