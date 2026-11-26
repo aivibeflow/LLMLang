@@ -2,6 +2,9 @@
 
 This directory contains the current candidate specification and its supporting terminology.
 
+- [Agent bootstrap](docs/bootstrap.md) — entry point for working with LLMLang source and packages.
+- [Syntax reference](docs/lang.md) — implemented scalar source and structured MCP forms.
+- [MCP server guide](docs/server.md) — setup, package authoring, verification, and build scenarios.
 - [LLMLang architecture RFC](RFC.md) — integrated description of the accepted architecture and its open boundaries.
 - [GLOSSARY.md](GLOSSARY.md) — shared terminology for semantic identities, operations, implementations, and conformance classes.
 - [ARCHITECTURE-DECISIONS.md](ARCHITECTURE-DECISIONS.md) — accepted project architecture decisions and their boundaries.
