@@ -1,0 +1,16 @@
+import stdlib.syscall
+
+pub fn main() -> ExitStatus {
+    let sys_write = 1;
+    let stdout = 1;
+    let message = b"Hello, world!\n";
+    let mut sent = 0;
+    while sent < message.len() {
+        let remaining = &message[sent..];
+        let written = syscall(sys_write, stdout, remaining.as_ptr() as Usize, remaining.len(), 0, 0, 0);
+        if written == -EINTR { continue; }
+        if written <= 0 { return 1; }
+        sent += written as Usize;
+    }
+    return 0;
+}
