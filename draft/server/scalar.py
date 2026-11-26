@@ -27,7 +27,7 @@ def identifier(value):
         not isinstance(value, str)
         or not frontend.IDENTIFIER.fullmatch(value)
         or keyword.iskeyword(value)
-        or value == "fail"
+        or value.startswith("builtin__")
     ):
         raise ValueError(f"invalid scalar identifier {value!r}")
     return value
@@ -166,7 +166,7 @@ def block(nodes, aliases, depth=1):
             case ["return", value]:
                 lines.append(indent + f"return {expression(value, aliases)}")
             case ["fail", name] if name in frontend.ERROR_NAMES:
-                lines.append(indent + f"return fail({json.dumps(name)})")
+                lines.append(indent + f"return builtin__fail({json.dumps(name)})")
             case ["if", condition, yes, list(no)]:
                 lines.append(indent + f"if {expression(condition, aliases)}:")
                 lines.extend(block(yes, aliases, depth + 1))

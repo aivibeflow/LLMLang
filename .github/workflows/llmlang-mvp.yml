@@ -4,7 +4,6 @@ on:
   pull_request:
     paths:
       - "tools/llmlang_mvp/**"
-      - "packages/linux.syscalls/provider/**"
       - "research/language-design/PROTOTYPES/CLI-WORKLOADS-01/**"
       - ".github/workflows/llmlang-mvp.yml"
   workflow_dispatch:

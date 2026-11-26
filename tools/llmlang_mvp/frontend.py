@@ -36,7 +36,7 @@ def _error(node: ast.AST, message: str) -> FrontendError:
 
 
 def _identifier(node: ast.AST, name: str) -> str:
-    if IDENTIFIER.fullmatch(name) is None or name == "fail":
+    if IDENTIFIER.fullmatch(name) is None or name.startswith("builtin__"):
         raise _error(node, f"unsupported identifier {name!r}")
     return name
 
@@ -124,10 +124,10 @@ class _Lowerer:
                     else_body, else_complete = self.block(no, bindings.copy(), result)
                     body.append(["if", condition, then_body, else_body])
                     complete = then_complete and else_complete
-                case ast.Return(value=ast.Call(func=ast.Name(id="fail")) as call):
+                case ast.Return(value=ast.Call(func=ast.Name(id="builtin__fail")) as call):
                     body.append(self.failure(call))
                     complete = True
-                case ast.Expr(value=ast.Call(func=ast.Name(id="fail")) as call):
+                case ast.Expr(value=ast.Call(func=ast.Name(id="builtin__fail")) as call):
                     body.append(self.failure(call))
                     complete = True
                 case ast.Return(value=value) if value is not None:
@@ -147,7 +147,7 @@ class _Lowerer:
             if isinstance(argument, ast.Constant) and type(argument.value) is str:
                 if argument.value in ERROR_NAMES:
                     return ["fail", argument.value]
-        raise _error(call, "fail requires a supported literal error name")
+        raise _error(call, "builtin__fail requires a supported literal error name")
 
     def expression(self, node: ast.expr, bindings: dict[str, str]) -> tuple[list, str]:
         match node:

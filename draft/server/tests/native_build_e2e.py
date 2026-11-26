@@ -4,7 +4,9 @@ import argparse
 import os
 from pathlib import Path
 import re
+import resource
 import shutil
+import signal
 import subprocess
 import sys
 import tempfile
@@ -15,18 +17,26 @@ from mcp_e2e import read_object, server
 
 EXAMPLES = Path(__file__).resolve().parents[2] / "examples"
 NATIVE_EXPORT = re.compile(r"pub unsafe fn llmlang_syscall_(\w+)\s*\(")
+FILE_LIMIT = 4096
 
 
 def read_package(path):
     return {file.name: file.read_bytes() for file in sorted(path.iterdir())}
 
 
-def execute(artifact, *arguments, data=b""):
+def execute(artifact, *arguments, data=b"", errno=None, stdout=subprocess.PIPE, preexec_fn=None):
     result = subprocess.run(
-        [artifact, *arguments], input=data, capture_output=True, timeout=10,
+        [artifact, *arguments], input=data, stdout=stdout, stderr=subprocess.PIPE,
+        preexec_fn=preexec_fn, timeout=10,
     )
-    assert not result.stderr, result
+    expected = b"" if errno is None else f"Error: Kernel(Errno({errno}))\n".encode()
+    assert result.stderr == expected, result
     return result.returncode, result.stdout
+
+
+def limit_file_size():
+    signal.signal(signal.SIGXFSZ, signal.SIG_IGN)
+    resource.setrlimit(resource.RLIMIT_FSIZE, (FILE_LIMIT, FILE_LIMIT))
 
 
 def exercise(executable, directory):
@@ -74,6 +84,8 @@ def exercise(executable, directory):
                 assert len(raw_functions) == 358
                 assert all(row["canonicalBody"]["stringValue"].startswith("{\n")
                            for row in raw_functions)
+                assert all("builtin__syscall(" in row["canonicalBody"]["stringValue"]
+                           for row in raw_functions)
                 assert artifact.suffix == ".rlib"
                 assert len(generated) == 355
                 assert {"rt_sigreturn", "vfork", "uretprobe"}.isdisjoint(generated)
@@ -104,15 +116,30 @@ def exercise(executable, directory):
             assert generated == imports, (package, generated, imports)
             payload = bytes(range(256)) * 83 + b"\x00\xff"
             if package.name == "0004-syscall-echo":
+                assert execute(artifact) == (0, b"")
                 assert execute(artifact, data=payload) == (0, payload)
+                read_end, write_end = os.pipe()
+                os.close(read_end)
+                try:
+                    assert execute(artifact, data=b"broken output", stdout=write_end, errno=32) == (1, None)
+                finally:
+                    os.close(write_end)
             elif package.name == "0005-syscall-copy":
                 path = Path(directory, "source")
                 path.write_bytes(payload)
                 dest = Path(directory, "destination")
                 assert execute(artifact, path, dest) == (0, b"")
                 assert dest.read_bytes() == payload
-                assert execute(artifact, path, dest) == (1, b"")
+                assert execute(artifact, path, dest, errno=17) == (1, b"")
                 assert dest.read_bytes() == payload
+                assert execute(artifact, path, Path(directory, "missing", "destination"), errno=2) == (1, b"")
+                limited = Path(directory, "limited")
+                assert execute(artifact, path, limited, errno=27, preexec_fn=limit_file_size) == (1, b"")
+                assert limited.read_bytes() == payload[:FILE_LIMIT]
+                path.write_bytes(b"")
+                empty = Path(directory, "empty")
+                assert execute(artifact, path, empty) == (0, b"")
+                assert empty.read_bytes() == b""
             elif package.name == "0007-syscall-child":
                 assert execute(artifact) == (23, b"")
             elif package.name == "0008-syscall-tcp-echo":

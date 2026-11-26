@@ -1,9 +1,0 @@
-package linux.syscalls
-
-pub fn open(path: CString, options: OpenOptions) -> OpenResult {
-    syscall(open, path, options.flags, options.mode)
-}
-
-pub fn openat(directory: Directory, path: CString, options: OpenOptions) -> OpenResult {
-    syscall(openat, directory, path, options.flags, options.mode)
-}

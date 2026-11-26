@@ -3,130 +3,44 @@ name: LLMLang Linux syscalls
 on:
   pull_request:
     paths:
-      - "packages/linux.syscalls/**"
-      - "tools/llmlang_mvp/stage0/**"
-      - "draft/adr/**"
+      - "draft/examples/**"
+      - "draft/library/**"
+      - "draft/server/**"
+      - "draft/src/library/**"
+      - "draft/src/server/**"
       - ".github/workflows/llmlang-linux-syscalls.yml"
   push:
     branches: [main]
     paths:
-      - "packages/linux.syscalls/**"
-      - "tools/llmlang_mvp/stage0/**"
+      - "draft/examples/**"
+      - "draft/library/**"
+      - "draft/server/**"
+      - "draft/src/library/**"
+      - "draft/src/server/**"
       - ".github/workflows/llmlang-linux-syscalls.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
   linux-x86-64:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
-    defaults:
-      run:
-        shell: bash
-    env:
-      PACKAGE_DIR: packages/linux.syscalls
-      STAGE0_MANIFEST: tools/llmlang_mvp/stage0/Cargo.toml
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "8.0.x"
-      - name: Install pinned compilation and verification tools
+      - name: Install Rust
+        run: rustup toolchain install 1.85.1 --profile minimal
+      - name: Test the draft SPG library
+        run: cargo +1.85.1 test --locked --manifest-path draft/library/Cargo.toml
+      - name: Build the draft server
+        run: cargo +1.85.1 build --locked --manifest-path draft/server/Cargo.toml
+      - name: Run draft syscall examples through MCP
         run: |
-          test "$(uname -s -m)" = "Linux x86_64"
-          python -m pip install -r "$PACKAGE_DIR/requirements-storage.txt" z3-solver==4.13.3.0
-          dotnet tool install Boogie --version 3.5.5 --tool-path "$RUNNER_TEMP/boogie"
-          curl --proto '=https' --tlsv1.2 -fsSL https://raw.githubusercontent.com/leanprover/elan/58e8d545e33641f66dbcbd22c4283109e71757be/elan-init.sh | sh -s -- -y --default-toolchain leanprover/lean4:v4.36.0
-          rustup toolchain install 1.85.1 --profile minimal
-          rustup default 1.85.1
-          cargo fetch --locked --manifest-path "$STAGE0_MANIFEST"
-          echo "$RUNNER_TEMP/boogie" >> "$GITHUB_PATH"
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Record runner and tools
-        run: |
-          {
-            git rev-parse HEAD
-            uname -srvm
-            python --version
-            python -m pip show lz4 protobuf z3-solver
-            python -c 'import lz4; print("liblz4", lz4.library_version_string())'
-            rustc -Vv
-            cargo -V
-            dotnet --version
-            boogie /version
-            z3 --version
-            lean --version
-          } > "$RUNNER_TEMP/syscalls-environment.txt"
-      - name: Verify pinned native inventory
-        env:
-          BASE_REVISION: ${{ github.event.pull_request.base.sha || github.event.before || '' }}
-        run: |
-          python -B "$PACKAGE_DIR/catalog/catalog.py" check --require-complete
-          python -B "$PACKAGE_DIR/catalog/catalog.py" report --json > "$RUNNER_TEMP/syscalls-coverage.json"
-          table="$PACKAGE_DIR/catalog/syscall_64.tbl"
-          if [[ -n "$BASE_REVISION" && "$BASE_REVISION" != 0000000000000000000000000000000000000000 ]]; then
-            git cat-file -e "${BASE_REVISION}^{commit}"
-            if git cat-file -e "$BASE_REVISION:$table" 2>/dev/null; then
-              git show "$BASE_REVISION:$table" > "$RUNNER_TEMP/syscalls-previous.tbl"
-              python -B "$PACKAGE_DIR/catalog/catalog.py" diff --before "$RUNNER_TEMP/syscalls-previous.tbl" \
-                | tee "$RUNNER_TEMP/syscalls-table-diff.txt"
-              python -B "$PACKAGE_DIR/catalog/catalog.py" diff --before "$RUNNER_TEMP/syscalls-previous.tbl" --json \
-                > "$RUNNER_TEMP/syscalls-table-diff.json"
-            fi
-          fi
-      - name: Validate package storage and deterministic checkout
-        run: |
-          python -B -m unittest discover -s "$PACKAGE_DIR" -p 'test_*.py' -v
-          python -B -m unittest discover -s "$PACKAGE_DIR/contracts" -p 'test_*.py' -v
-          python -B "$PACKAGE_DIR/storage.py" verify "$PACKAGE_DIR/snapshot" > "$RUNNER_TEMP/syscalls-snapshot-index.json"
-          python -B "$PACKAGE_DIR/package.py" export-lock "$RUNNER_TEMP/syscalls-snapshot"
-          cmp "$PACKAGE_DIR/snapshot/records.dump" "$RUNNER_TEMP/syscalls-snapshot/records.dump"
-          cmp "$PACKAGE_DIR/snapshot/records.index.json" "$RUNNER_TEMP/syscalls-snapshot/records.index.json"
-      - name: Test Stage 0 and native provider offline
-        run: |
-          cargo test --locked --offline --manifest-path "$STAGE0_MANIFEST" 2>&1 \
-            | tee "$RUNNER_TEMP/syscalls-stage0-tests.txt"
-          cargo test --locked --offline --manifest-path "$PACKAGE_DIR/provider/Cargo.toml" \
-            -- --nocapture --test-threads=1 2>&1 \
-            | tee "$RUNNER_TEMP/syscalls-provider-tests.txt"
-          cargo build --locked --offline --manifest-path "$PACKAGE_DIR/provider/Cargo.toml" --example decoder
-      - name: Check return model and replay native decoder boundary cases
-        run: |
-          python -B "$PACKAGE_DIR/evidence/check.py" \
-            --decoder "$PACKAGE_DIR/provider/target/debug/examples/decoder" \
-            --subject "$PACKAGE_DIR/provider/src/io.rs" \
-            --subject "$PACKAGE_DIR/provider/src/lib.rs" \
-            --subject "$PACKAGE_DIR/contracts/syscalls.json" \
-            --report "$RUNNER_TEMP/syscalls-return-evidence.json"
-      - name: Verify recorded admission subjects
-        run: |
-          python -B "$PACKAGE_DIR/evidence/freeze.py" --verify \
-            | tee "$RUNNER_TEMP/syscalls-admissions.txt"
-      - name: Review, check, and execute package examples
-        run: |
-          echo_program="$PACKAGE_DIR/examples/echo.llmlang"
-          python -B "$PACKAGE_DIR/package.py" spg "$echo_program" > "$RUNNER_TEMP/syscalls-spg.json"
-          python -B "$PACKAGE_DIR/package.py" spg "$echo_program" > "$RUNNER_TEMP/syscalls-spg-repeat.json"
-          cmp "$RUNNER_TEMP/syscalls-spg.json" "$RUNNER_TEMP/syscalls-spg-repeat.json"
-          python -B "$PACKAGE_DIR/package.py" review "$echo_program" > "$RUNNER_TEMP/syscalls-review.json"
-          python -B "$PACKAGE_DIR/package.py" check "$echo_program" > "$RUNNER_TEMP/syscalls-check.json"
-          python -B "$PACKAGE_DIR/examples/check.py" --report "$RUNNER_TEMP/syscalls-examples.json"
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: llmlang-linux-syscalls-evidence
-          path: |
-            ${{ runner.temp }}/syscalls-*.json
-            ${{ runner.temp }}/syscalls-*.txt
+          export RUSTUP_TOOLCHAIN=1.85.1
+          python -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llmlang-server

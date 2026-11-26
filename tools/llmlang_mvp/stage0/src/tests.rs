@@ -68,8 +68,12 @@ fn source_diagnostics_reject_unknown_scopes_types_and_cycles() {
             "unreachable statement",
         ),
         (
-            "def entry(x: int) -> int:\n    return fail('OtherError')\n",
+            "def entry(x: int) -> int:\n    return builtin__fail('OtherError')\n",
             "supported literal error name",
+        ),
+        (
+            "def entry(x: int) -> int:\n    return fail('DivisionByZero')\n",
+            "unknown function",
         ),
     ];
     for (source, expected) in examples {

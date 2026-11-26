@@ -12,7 +12,7 @@ pub fn main() -> ExitStatus {
     if child == 0 {
         execve(path, &args, &environment);
         exit(127);
-        trap();
+        builtin__trap();
     }
     let mut status = 0_i32;
     loop {

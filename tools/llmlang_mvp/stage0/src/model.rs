@@ -117,7 +117,7 @@ pub fn valid_hash(value: &str) -> bool {
 
 pub fn valid_identifier(name: &str) -> bool {
     let mut bytes = name.bytes();
-    name != "fail"
+    !name.starts_with("builtin__")
         && bytes
             .next()
             .is_some_and(|byte| byte == b'_' || byte.is_ascii_alphabetic())

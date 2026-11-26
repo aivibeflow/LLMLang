@@ -76,7 +76,7 @@ class CounterexampleTests(unittest.TestCase):
         report, rows = check(
             """def changed(x: int, flag: bool) -> int:
     if x == -4214113:
-        return fail("DivisionByZero")
+        return builtin__fail("DivisionByZero")
     return x
 """,
             {"changed": {"public": exact, "provided": exact}},

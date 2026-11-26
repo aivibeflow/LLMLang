@@ -50,6 +50,10 @@ impl sockaddr_in {
     }
 }
 
+fn errno_message(errno: isize) -> Vec<u8> {
+    format!("Error: Kernel(Errno({errno}))\n").into_bytes()
+}
+
 unsafe fn raw_syscall(number: usize, args: [usize; 6]) -> isize {
     let mut result = number as isize;
     unsafe {

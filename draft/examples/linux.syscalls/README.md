@@ -7,8 +7,9 @@ Package metadata selects version `v6.12`, the pinned Linux kernel tag. Every
 binding references that version.
 
 The function table contains the 358 native declarations from the pinned
-[Linux syscall source](../../../packages/linux.syscalls/provider/src/native.llmlang).
-Each `canonicalBody` stores the LLMLang body block. Parameter and result types
+[archived Linux syscall source](https://github.com/aivibeflow/LLMLang/blob/744aaf3f98e357a5375b55a67a538d7295d3608c/packages/linux.syscalls/provider/src/native.llmlang).
+Each `canonicalBody` stores the LLMLang body block with the
+`builtin__syscall` spelling. Parameter and result types
 are stored in `function_signatures` and referenced by `functionSignatureHash`. The
 355 unsafe interfaces bind directly to those implementations. The
 `stackless`, `restorer`, and `kernel` entries remain unbound because they

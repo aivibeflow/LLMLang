@@ -1,6 +1,6 @@
 # LLMLang syntax
 
-This reference covers the syntax implemented in the current checkout. The scalar MVP has a Python-shaped text frontend and a structured MCP authoring interface. The Linux syscall toolchains also support native source forms. A semantic profile defines the available constructs and their meaning. A dialect defines their source spelling. LLMLang supports versioned dialects that lower to a shared typed Semantic Program Graph (SPG), and the architecture leaves a default dialect open. [Architecture RFC](../RFC.md) · [Syntax dialects](../adr/022-syntax-dialects-and-shared-semantics.md)
+This reference covers the syntax implemented in the current checkout. The scalar MVP has a Python-shaped text frontend and a structured MCP authoring interface. The native MCP build also supports Rust-shaped syscall program bodies. A semantic profile defines the available constructs and their meaning. A dialect defines their source spelling. LLMLang supports versioned dialects that lower to a shared typed Semantic Program Graph (SPG), and the architecture leaves a default dialect open. [Architecture RFC](../RFC.md) · [Syntax dialects](../adr/022-syntax-dialects-and-shared-semantics.md)
 
 ## Scalar text source
 
@@ -9,7 +9,7 @@ A module contains one or more plain `def` declarations with a type annotation on
 ```python
 def divide(left: int, right: int) -> int:
     if right == 0:
-        fail("DivisionByZero")
+        builtin__fail("DivisionByZero")
     return left / right
 
 def is_negative_half(value: int) -> bool:
@@ -23,7 +23,7 @@ def is_negative_half(value: int) -> bool:
 | Local binding | `name = expression` introduces a fresh name. Branches inherit the enclosing names, and their new bindings stay local to the branch. |
 | Branch | `if condition:` with an optional `else:`. The condition has type `bool`. |
 | Return | `return expression`. The expression must have the declared result type. |
-| Explicit error | `fail("ErrorName")` or `return fail("ErrorName")`. Allowed names are `ArithmeticOverflow`, `DivisionByZero`, and `InvalidInput`. |
+| Explicit error | `builtin__fail("ErrorName")` or `return builtin__fail("ErrorName")`. Allowed names are `ArithmeticOverflow`, `DivisionByZero`, and `InvalidInput`. |
 | Arithmetic | `+`, `-`, `*`, `/` on integers. Unary minus applies to integer literals. |
 | Comparison | `==` and `!=` compare values of the same type. `<`, `<=`, `>`, and `>=` take integers. Write one comparison per comparison expression. |
 | Call | `callee(arg1, arg2)` calls a declared function with typed positional arguments. The call graph must be acyclic. |
@@ -80,8 +80,8 @@ Predicate values can be JSON Booleans or Boolean expression strings. The predica
 
 ## Other implemented source profiles
 
-The separate `linux.syscalls` guest frontend reads a leading list of `import linux.syscalls.NAME` lines and Rust-shaped function definitions with a `main`. The package tool resolves the imports against the syscall package snapshot and uses that profile's typed operations and validation. The package also has interface declarations such as `pub fn getpid() -> I32Result;` beneath a `package linux.syscalls` header and its own provider syntax. Follow the package's documented CLI and examples for this workflow. [Syscall package](../../packages/linux.syscalls/README.md) · [Guest examples](../../packages/linux.syscalls/guest/README.md) · [Guest frontend](../../tools/llmlang_mvp/stage0/src/syscalls.rs)
+The archived Stage 0 guest workflow used a separate package snapshot and typed syscall operations. Its package CLI and fixtures are available at the revision that shipped them. [Archived syscall package](https://github.com/aivibeflow/LLMLang/blob/744aaf3f98e357a5375b55a67a538d7295d3608c/packages/linux.syscalls/README.md)
 
 The `program`, `effects`, and `operation` forms in the draft Hello, Echo, and Calculator sketches are illustrative notation. For executable scalar text, start with `def`. [Draft examples and status](../examples/README.md)
 
-The native MCP build reads committed SPG packages. In the [native Echo example](../examples/0004-syscall-echo/main.llmlang), the source has leading syscall imports and a Rust-shaped `pub fn main() -> ExitStatus` with a braced body. The Copy example uses `pub fn main(args: LaunchArgs) -> ExitStatus`. The package stores the source block in the function row and the canonical signature in `function_signatures`. Call compatibility obligations identify the exact callee and required contract. [Native examples](../examples/README.md#linux-syscall-program-packages) · [Build through MCP](server.md#build-an-existing-native-program)
+The native MCP build reads committed SPG packages. In the [native Echo example](../examples/0004-syscall-echo/main.llmlang), the source has leading syscall imports and a Rust-shaped `pub fn main() -> ExitStatus` with a braced body. The Copy example uses `pub fn main(args: LaunchArgs) -> ExitStatus`. The package stores the source block in the function row and the canonical signature in `function_signatures`. Call compatibility obligations identify the exact callee and required contract. Built-in function names start with `builtin__`. The imported syscall functions call `builtin__syscall` in their own source bodies. [Native examples](../examples/README.md#linux-syscall-program-packages) · [Build through MCP](server.md#build-an-existing-native-program)

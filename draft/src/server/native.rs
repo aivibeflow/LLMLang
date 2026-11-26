@@ -83,9 +83,9 @@ fn native_call(name: &str, package: &Package, row: &Value) -> Result<Call> {
         .trim()
         .strip_prefix('{')
         .and_then(|body| body.strip_suffix('}'))
-        .and_then(|body| body.trim().strip_prefix("syscall("))
+        .and_then(|body| body.trim().strip_prefix("builtin__syscall("))
         .and_then(|body| body.strip_suffix(')'))
-        .ok_or_else(|| invalid("expected a syscall in a body-only block"))?;
+        .ok_or_else(|| invalid("expected builtin__syscall in a body-only block"))?;
     let mut args = args.split(',').map(str::trim);
     let number = args
         .next()
@@ -110,9 +110,10 @@ fn native_call(name: &str, package: &Package, row: &Value) -> Result<Call> {
 
 fn identifier(name: &str) -> bool {
     let mut bytes = name.bytes();
-    bytes
-        .next()
-        .is_some_and(|byte| byte.is_ascii_alphabetic() || byte == b'_')
+    !name.starts_with("builtin__")
+        && bytes
+            .next()
+            .is_some_and(|byte| byte.is_ascii_alphabetic() || byte == b'_')
         && bytes.all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
 }
 
@@ -321,18 +322,23 @@ impl VisitMut for Lower<'_> {
             return;
         }
         match name.as_str() {
-            "size_of" => {
-                let last = callee.path.segments.last().unwrap();
-                call.func = Box::new(parse_quote!(std::mem::#last));
+            "builtin__size_of" if call.args.is_empty() => {
+                let generics = &callee.path.segments.last().unwrap().arguments;
+                call.func = Box::new(parse_quote!(std::mem::size_of #generics));
             }
-            "trap" if call.args.is_empty() => {
+            "builtin__trap" if call.args.is_empty() => {
                 *expr = parse_quote!(std::process::abort());
             }
-            "CString::from_bytes" if call.args.len() == 1 => {
+            "builtin__cstring_from_bytes" if call.args.len() == 1 => {
                 let arg = &call.args[0];
                 *expr = parse_quote!(CString::new((#arg).as_slice()));
             }
-            "sockaddr_in::loopback" => {}
+            "builtin__errno_message" if call.args.len() == 1 => {
+                call.func = Box::new(parse_quote!(errno_message));
+            }
+            "builtin__sockaddr_in_loopback" if call.args.len() == 1 => {
+                call.func = Box::new(parse_quote!(sockaddr_in::loopback));
+            }
             _ => self.reject(format!(
                 "call is outside the native profile or has no pin: {name}"
             )),
