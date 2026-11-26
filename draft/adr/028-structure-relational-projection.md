@@ -1,6 +1,7 @@
 # ADR-028 — Relational projection for structures
 
-- **Status** — Proposed
+- **Status** — Accepted
+- **Accepted** — 2026-11-26
 - **Date** — 2026-11-26
 - **Scope** — Structure declarations and their dependencies in the logical SPG database
 - **Related decisions** — [ADR-021](021-structures-and-data-layout.md) · [ADR-026](026-structure-contracts-and-invariant-verification.md) · [ADR-027](027-scalar-spg-relational-projection.md)
@@ -9,7 +10,7 @@
 
 The scalar projection can resolve a function and reproduce the evidence for its calls. A function that uses structures also needs to resolve exact declarations, ordered fields, applicable contracts, and any target layout it relies on. ADR-021 permits two declarations to share structural identity and representation while using different field names. ADR-026 gives structure contracts their own obligations and check boundaries. A database key for an exact declaration must distinguish revisions that change those names or contract attachments.
 
-## Proposed decision
+## Decision
 
 Extend the derived relational projection of ADR-027 with the following relations. PK means primary key and FK means foreign key. Each hash is interpreted in its identity domain and encoding version. Git package records and pinned dependencies supply the canonical SPG inputs for rebuilding these rows. [ADR-014](014-git-semantic-merge.md) · [ADR-024](024-package-directory-and-protobuf-dumps.md)
 
@@ -54,7 +55,7 @@ For example, declarations with fields `x: i32, y: i32` and `row: i32, column: i3
 
 A single table keyed by Type Hash would merge declarations that share a representation and would lose the field names or contract attachments needed for exact resolution. A separate row per field would support SQL queries over field names and types and would duplicate the declaration data. The canonical declaration supplies field access when loaded by hash. A field index can be derived from declarations if cross-structure queries need it.
 
-The projection covers declarations and compiler metadata. Managed runtime values and their persistence protocol are outside this schema. Physical SQL types, canonical hash encodings, and recursive type profiles need separate specifications. Verification obligations and result lookup remain open work.
+The projection covers declarations and compiler metadata. Managed runtime values and their persistence protocol are outside this schema. Physical SQL types, canonical hash encodings, and recursive type profiles need separate specifications. Verification obligations and result lookup follow [ADR-029](029-caller-scoped-verification-obligations.md).
 
 ## Validation before claiming support
 

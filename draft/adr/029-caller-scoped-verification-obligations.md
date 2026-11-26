@@ -1,6 +1,7 @@
 # ADR-029 — Caller-scoped verification obligations
 
-- **Status** — Proposed
+- **Status** — Accepted
+- **Accepted** — 2026-11-26
 - **Date** — 2026-11-26
 - **Scope** — Stage 2 of the logical SPG database design
 - **Related decisions** — [ADR-026](026-structure-contracts-and-invariant-verification.md) · [ADR-027](027-scalar-spg-relational-projection.md) · [ADR-028](028-structure-relational-projection.md)
@@ -10,11 +11,11 @@
 
 The Toolchain needs to report verification status for an exact function revision and resolve dependencies even when no verification attempt exists. The canonical typed function already carries the call expressions, their callee and required contract pins, and structure references. ADR-026 also requires an obligation for a function that directly updates managed state, including a function with no outgoing calls.
 
-## Proposed decision
+## Decision
 
 Remove the `CALL_SITES` projection. Resolve forward dependencies, version reachability, and reverse dependency queries from canonical signatures and bodies. Any reverse index can be rebuilt from those inputs. Verification coverage may be incomplete while the dependency graph is already complete.
 
-Store verification obligations in `VERIFICATION_OBLIGATIONS` and retain attempt history in `VERIFICATION_RUNS`. This changes the call projection and obligation shape from ADR-027 and uses the structure storage proposed in ADR-028.
+Store verification obligations in `VERIFICATION_OBLIGATIONS` and retain attempt history in `VERIFICATION_RUNS`. This changes the call projection and obligation shape from ADR-027 and uses the structure storage defined in ADR-028.
 
 | Field | Meaning |
 |---|---|
@@ -40,7 +41,7 @@ For call compatibility, validate that the pinned callee and requirement occur to
 
 ## Alternatives and consequences
 
-ADR-027's call projection supports direct reverse lookups and a caller-independent compatibility obligation supports sharing one row across callers. With this proposal callers have distinct obligations and their statuses can be queried directly. Proof artifacts may be reused only after checking that all premises required for the new obligation match. Traversal can reconstruct dependencies from canonical bodies without waiting for verification. The cost of that traversal and any derived index remains to be measured.
+ADR-027's call projection supports direct reverse lookups and a caller-independent compatibility obligation supports sharing one row across callers. With this design callers have distinct obligations and their statuses can be queried directly. Proof artifacts may be reused only after checking that all premises required for the new obligation match. Traversal can reconstruct dependencies from canonical bodies without waiting for verification. The cost of that traversal and any derived index remains to be measured.
 
 ## Migration and validation
 
