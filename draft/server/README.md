@@ -73,13 +73,15 @@ call pins, including required implementations from dependencies. For native
 programs, the bound interface `<package>.main` selects an executable with
 `main() -> ExitStatus` or `main(args: LaunchArgs) -> ExitStatus`. Launch
 arguments retain their original Unix bytes. The native backend covers the
-native syscall package and the five draft syscall programs. The existing
+standard library package, Hello World, the native syscall package, and the
+five draft syscall programs. The existing
 scalar executable convention prints its scalar result. Supported
 interface-only packages produce a Rust `rlib`.
 
 Compiler built-ins in the draft source profiles use the `builtin__` prefix.
 The scalar profile provides `builtin__fail`. The native profile provides
-`builtin__syscall` for syscall implementations and `builtin__trap`,
+`builtin__syscall` and `builtin__write_utf8` for [stdlib](../stdlib/README.md),
+and `builtin__trap`,
 `builtin__size_of`, `builtin__cstring_from_bytes`, `builtin__errno_message`,
 and `builtin__sockaddr_in_loopback` for program bodies. The error formatter
 takes a positive Linux errno and returns diagnostic bytes. A program calls exported

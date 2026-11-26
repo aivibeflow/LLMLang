@@ -7,6 +7,9 @@ use std::ffi::CString;
 type ExitStatus = i32;
 type LaunchArgs = Vec<Vec<u8>>;
 type I32 = i32;
+type AbiResult = isize;
+type IoResult = Result<(), I32>;
+type Utf8<'a> = &'a str;
 type U32 = u32;
 type Usize = usize;
 type MutPtr<T> = *mut T;
@@ -52,6 +55,39 @@ impl sockaddr_in {
 
 fn errno_message(errno: isize) -> Vec<u8> {
     format!("Error: Kernel(Errno({errno}))\n").into_bytes()
+}
+
+fn write_utf8(fd: I32, utf8: Utf8<'_>) -> IoResult {
+    let mut remaining = utf8.as_bytes();
+    while !remaining.is_empty() {
+        let written = unsafe {
+            raw_syscall(
+                1,
+                [
+                    fd as usize,
+                    remaining.as_ptr() as usize,
+                    remaining.len(),
+                    0,
+                    0,
+                    0,
+                ],
+            )
+        };
+        match written {
+            n if n == -EINTR => continue,
+            n if n < 0 => return Err(-n as I32),
+            0 => return Err(5), // EIO: the write made no progress.
+            n => remaining = &remaining[n as usize..],
+        }
+    }
+    Ok(())
+}
+
+unsafe fn invoke_syscall(number: Usize, words: [Usize; 6]) -> AbiResult {
+    if matches!(number, 15 | 58 | 335) {
+        return -38; // ENOSYS: these calls need dedicated continuation profiles.
+    }
+    unsafe { raw_syscall(number, words) }
 }
 
 unsafe fn raw_syscall(number: usize, args: [usize; 6]) -> isize {

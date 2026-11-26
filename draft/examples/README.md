@@ -2,7 +2,8 @@
 
 This directory contains candidate LLMLang implementations corresponding to task statements in `/examples/`.
 
-**Important status:** LLMLang's concrete syntax and executable toolchain are not yet established sufficiently to claim these files compile. The `.llmlang` files are deliberately written as readable semantic/DSL sketches using concepts from the current research. They are implementation candidates, not validated executable programs.
+The packages below build and run through the native MCP server. The Echo and
+Calculator sketches in `0002-echo` and `0003-calculator` remain illustrative.
 
 ## Rules
 
@@ -13,6 +14,10 @@ This directory contains candidate LLMLang implementations corresponding to task 
 - Do not label a solution compiled, tested, or verified unless the corresponding tool actually ran and produced evidence.
 
 ## Native package example
+
+[0001-hello-world](0001-hello-world/README.md) writes its greeting through
+[`stdlib.write`](../stdlib/README.md). Import `draft/stdlib` before importing
+Hello World or the Linux syscall package.
 
 [linux.syscalls](linux.syscalls/README.md) contains a native Linux x86-64
 package in the current SPG repository format.
@@ -39,7 +44,7 @@ It checks the caller, callee, and required contract in each call
 compatibility obligation against the block and selected dependency bindings. Their binary and ProtoJSON dumps include all thirteen tables.
 
 The [native MCP build test](../server/tests/native_build_e2e.py) imports and
-builds these packages on Linux x86-64, then runs eleven scenarios across the five
-programs. The scenarios check exit status, binary I/O, Linux error diagnostics,
+builds these packages on Linux x86-64, then runs Hello World and eleven
+scenarios across the five syscall programs. The scenarios check exit status, binary I/O, Linux error diagnostics,
 and partial file contents after a write failure. Build artifacts are stored in
 server state.

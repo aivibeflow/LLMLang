@@ -7,7 +7,6 @@ use super::{
 };
 use quote::{format_ident, quote};
 use serde_json::{json, Value};
-use sha2::{Digest, Sha256};
 use std::{
     collections::{BTreeMap, BTreeSet},
     fs,
@@ -29,31 +28,35 @@ pub(super) fn is_native(package: &Package) -> bool {
 }
 
 #[derive(Clone)]
-struct Call {
+struct Syscall {
     name: String,
+    implementation: String,
     number: u16,
     types: Vec<String>,
 }
 
-fn native_call(name: &str, package: &Package, row: &Value) -> Result<Call> {
+#[derive(Clone)]
+enum Call {
+    Syscall(Syscall),
+    Source {
+        implementation: String,
+        arity: usize,
+        raw_abi: bool,
+    },
+}
+
+fn source_symbol(implementation: &str) -> syn::Ident {
+    format_ident!(
+        "llmlang_source_{}",
+        implementation.trim_start_matches("sha256:")
+    )
+}
+
+fn native_call(name: &str, package: &Package, row: &Value) -> Result<Syscall> {
     let body = row["canonical_body"]
         .as_str()
         .ok_or_else(|| invalid("expected native syscall source"))?;
     let signature = package.function_signature(row).map_err(validation)?.typed;
-    // Preserve the implementation's semantic hash across storage profiles.
-    let identity_input = json!({
-        "typed_signature": signature,
-        "canonical_body": body,
-        "provided_contract_hash": row["provided_contract_hash"],
-    });
-    let mut identity = Sha256::new();
-    identity.update(b"llmlang-native-projection-impl/v1\0");
-    identity.update(serde_json::to_vec(&identity_input)?);
-    if row["impl_hash"] != format!("sha256:{:x}", identity.finalize()) {
-        return Err(validation(
-            "native syscall implementation identity mismatch",
-        ));
-    }
     if !identifier(name) || signature["result"] != "AbiResult" {
         return Err(invalid("unsupported native syscall signature"));
     }
@@ -83,9 +86,9 @@ fn native_call(name: &str, package: &Package, row: &Value) -> Result<Call> {
         .trim()
         .strip_prefix('{')
         .and_then(|body| body.strip_suffix('}'))
-        .and_then(|body| body.trim().strip_prefix("builtin__syscall("))
+        .and_then(|body| body.trim().strip_prefix("stdlib::syscall("))
         .and_then(|body| body.strip_suffix(')'))
-        .ok_or_else(|| invalid("expected builtin__syscall in a body-only block"))?;
+        .ok_or_else(|| invalid("expected stdlib::syscall in a body-only block"))?;
     let mut args = args.split(',').map(str::trim);
     let number = args
         .next()
@@ -101,10 +104,22 @@ fn native_call(name: &str, package: &Package, row: &Value) -> Result<Call> {
             "{name}: syscall operands disagree with signature"
         )));
     }
-    Ok(Call {
+    Ok(Syscall {
         name: name.into(),
+        implementation: row["impl_hash"]
+            .as_str()
+            .ok_or_else(|| invalid("missing syscall identity"))?
+            .into(),
         number,
         types,
+    })
+}
+
+fn is_syscall_wrapper(row: &Value) -> bool {
+    row["canonical_body"].as_str().is_some_and(|body| {
+        body.trim()
+            .strip_prefix('{')
+            .is_some_and(|body| body.trim_start().starts_with("stdlib::syscall("))
     })
 }
 
@@ -123,11 +138,10 @@ fn resolve_source(
     package: &Package,
     row: &Value,
     bindings: &CallBindings,
-) -> Result<(syn::Block, BTreeMap<String, Call>, BTreeSet<ResolvedCall>)> {
+) -> Result<(BTreeMap<String, Call>, BTreeSet<ResolvedCall>)> {
     let text = row["canonical_body"]
         .as_str()
-        .ok_or_else(|| invalid("native main requires plain source"))?;
-    let block = syn::parse_str(text).map_err(validation)?;
+        .ok_or_else(|| invalid("native implementation requires plain source"))?;
     let mut calls = BTreeMap::new();
     let mut resolved = BTreeMap::new();
     for obligation in package.tables["verification_obligations"]
@@ -159,11 +173,24 @@ fn resolve_source(
             .get(implementation)
             .ok_or_else(|| invalid("unresolved native implementation"))?;
         if callee["provided_contract_hash"] != contract {
-            return Err(invalid(
-                "native binding must select the exact syscall contract",
-            ));
+            return Err(invalid("native binding must select the exact contract"));
         }
-        let call = native_call(name, package, callee)?;
+        let signature = package
+            .function_signature(callee)
+            .map_err(validation)?
+            .typed;
+        let call = if is_syscall_wrapper(callee) {
+            Call::Syscall(native_call(name, package, callee)?)
+        } else {
+            let params = signature["parameters"]
+                .as_array()
+                .ok_or_else(|| invalid("missing native parameters"))?;
+            Call::Source {
+                implementation: implementation.into(),
+                arity: params.len(),
+                raw_abi: signature["result"] == "AbiResult",
+            }
+        };
         if calls.insert(name.to_owned(), call).is_some() {
             return Err(invalid("ambiguous native call name"));
         }
@@ -190,7 +217,7 @@ fn resolve_source(
             "native source or resolved call identity mismatch",
         ));
     }
-    Ok((block, calls, resolved.into_values().collect()))
+    Ok((calls, resolved.into_values().collect()))
 }
 
 struct Lower<'a> {
@@ -293,7 +320,27 @@ impl VisitMut for Lower<'_> {
             .map(|part| part.ident.to_string())
             .collect::<Vec<_>>()
             .join("::");
-        if let Some(native) = self.calls.get(&name).cloned() {
+        if let Some(Call::Source {
+            implementation,
+            arity,
+            raw_abi,
+        }) = self.calls.get(&name)
+        {
+            if call.args.len() != *arity {
+                self.reject(format!("{name}: wrong native argument count"));
+                return;
+            }
+            self.used.insert(name);
+            let symbol = source_symbol(implementation);
+            if *raw_abi {
+                let args = &call.args;
+                *expr = parse_quote!(unsafe { #symbol(#args) });
+            } else {
+                call.func = Box::new(parse_quote!(#symbol));
+            }
+            return;
+        }
+        if let Some(Call::Syscall(native)) = self.calls.get(&name).cloned() {
             if call.args.len() != native.types.len() {
                 self.reject(format!("{name}: wrong native argument count"));
                 return;
@@ -339,6 +386,14 @@ impl VisitMut for Lower<'_> {
             "builtin__sockaddr_in_loopback" if call.args.len() == 1 => {
                 call.func = Box::new(parse_quote!(sockaddr_in::loopback));
             }
+            "builtin__syscall" if call.args.len() == 7 => {
+                let mut args = call.args.iter();
+                let number = args.next().unwrap();
+                *expr = parse_quote!(unsafe { invoke_syscall(#number, [#(#args),*]) });
+            }
+            "builtin__write_utf8" if call.args.len() == 2 => {
+                call.func = Box::new(parse_quote!(write_utf8));
+            }
             _ => self.reject(format!(
                 "call is outside the native profile or has no pin: {name}"
             )),
@@ -353,24 +408,101 @@ pub(super) struct Output {
     pub calls: CallsByCaller,
 }
 
+fn lower_body(
+    package: &Package,
+    row: &Value,
+    bindings: &CallBindings,
+    syscalls: &mut BTreeMap<String, Syscall>,
+    pending: &mut BTreeSet<String>,
+) -> Result<(syn::Block, BTreeSet<ResolvedCall>)> {
+    let (calls, resolved) = resolve_source(package, row, bindings)?;
+    let mut body = syn::parse_str(row["canonical_body"].as_str().unwrap()).map_err(validation)?;
+    let mut lower = Lower {
+        calls: &calls,
+        used: BTreeSet::new(),
+        error: None,
+    };
+    lower.visit_block_mut(&mut body);
+    if let Some(error) = lower.error {
+        return Err(error);
+    }
+    if lower.used.len() != calls.len() {
+        return Err(invalid("unused pin in native implementation"));
+    }
+    for call in calls.into_values() {
+        match call {
+            Call::Syscall(call) => {
+                syscalls.insert(call.name.clone(), call);
+            }
+            Call::Source { implementation, .. } => {
+                pending.insert(implementation);
+            }
+        }
+    }
+    Ok((body, resolved))
+}
+
+fn library_type(kind: &Value, parameter: bool) -> Result<Type> {
+    match (kind.as_str(), parameter) {
+        (Some("I32"), _) => Ok(parse_quote!(I32)),
+        (Some("Usize"), true) => Ok(parse_quote!(Usize)),
+        (Some("AbiResult"), false) => Ok(parse_quote!(AbiResult)),
+        (Some("Utf8"), true) => Ok(parse_quote!(Utf8<'_>)),
+        (Some("IoResult"), false) => Ok(parse_quote!(IoResult)),
+        _ => Err(invalid("unsupported native library type")),
+    }
+}
+
+fn syscall_target(
+    package: &Package,
+    row: &Value,
+    bindings: &CallBindings,
+) -> Result<(String, BTreeSet<ResolvedCall>)> {
+    let (calls, resolved) = resolve_source(package, row, bindings)?;
+    let Some(Call::Source {
+        implementation,
+        arity: 7,
+        raw_abi: true,
+    }) = calls.get("syscall")
+    else {
+        return Err(invalid("native syscall wrapper must pin stdlib.syscall"));
+    };
+    if calls.len() != 1 || bindings.get("stdlib.syscall").map(|(id, _)| id) != Some(implementation)
+    {
+        return Err(invalid(
+            "native syscall wrapper must pin only stdlib.syscall",
+        ));
+    }
+    Ok((implementation.clone(), resolved))
+}
+
 pub(super) fn lower(
     package_name: &str,
     package: &Package,
+    local_functions: &BTreeMap<String, Value>,
     exports: &BTreeMap<String, String>,
     bindings: &CallBindings,
 ) -> Result<Output> {
+    if exports.is_empty() {
+        return Err(invalid("package has no public bindings"));
+    }
     let main_name = format!("{package_name}.main");
     let main = exports.get(&main_name);
     let mut source = String::from(include_str!("native_runtime.rs"));
     let mut reachable = BTreeMap::new();
+    let mut pending = BTreeSet::new();
     let mut symbols = BTreeMap::new();
     let mut resolved_calls = BTreeMap::new();
+    let mut emitted = BTreeSet::new();
+    let mut public_sources = BTreeSet::new();
+    let mut emitted_syscalls = BTreeSet::new();
     for (export, implementation) in exports {
         let row = &package.tables["functions"][implementation];
-        if Some(implementation) == main && export == &main_name {
-            let (mut body, calls, resolved) = resolve_source(package, row, bindings)?;
+        let signature = package.function_signature(row).map_err(validation)?.typed;
+        if export == &main_name {
+            let (body, resolved) =
+                lower_body(package, row, bindings, &mut reachable, &mut pending)?;
             resolved_calls.insert(implementation.clone(), resolved);
-            let signature = package.function_signature(row).map_err(validation)?.typed;
             let params = signature["parameters"]
                 .as_array()
                 .ok_or_else(|| invalid("missing main signature"))?;
@@ -392,19 +524,6 @@ pub(super) fn lower(
                 }
                 _ => return Err(invalid("unsupported ordinary main parameters")),
             };
-            let mut lower = Lower {
-                calls: &calls,
-                used: BTreeSet::new(),
-                error: None,
-            };
-            lower.visit_block_mut(&mut body);
-            if let Some(error) = lower.error {
-                return Err(error);
-            }
-            if lower.used.len() != calls.len() {
-                return Err(invalid("unused pin in native main"));
-            }
-            reachable.extend(calls);
             source.push_str(
                 &quote! {
                     fn llmlang_main(#declaration) -> ExitStatus #body
@@ -412,40 +531,86 @@ pub(super) fn lower(
                 }
                 .to_string(),
             );
-        } else {
+        } else if is_syscall_wrapper(row) {
             let (_, name) = export
                 .rsplit_once('.')
                 .ok_or_else(|| invalid("missing native namespace"))?;
             let call = native_call(name, package, row)?;
-            let symbol = format!("llmlang_syscall_{}", call.name);
-            symbols.insert(export, symbol);
+            symbols.insert(export, format!("llmlang_syscall_{}", call.name));
             reachable.insert(call.name.clone(), call);
+        } else {
+            symbols.insert(export, source_symbol(implementation).to_string());
+            pending.insert(implementation.clone());
+            public_sources.insert(implementation.clone());
         }
     }
-    if exports.is_empty() {
-        return Err(invalid("package has no public bindings"));
-    }
-    for call in reachable.into_values() {
-        let name = format_ident!("llmlang_syscall_{}", call.name);
-        let number = call.number;
-        let params: Vec<_> = (0..call.types.len())
-            .map(|index| format_ident!("word_{index}"))
-            .collect();
-        let words: Vec<_> = (0..6)
-            .map(|index| {
+    while !reachable.is_empty() || !pending.is_empty() {
+        if let Some((_, call)) = reachable.pop_first() {
+            if !emitted_syscalls.insert(call.name.clone()) {
+                continue;
+            }
+            let row = &package.tables["functions"][&call.implementation];
+            let (implementation, resolved) = syscall_target(package, row, bindings)?;
+            let target = source_symbol(&implementation);
+            pending.insert(implementation);
+            resolved_calls.insert(call.implementation, resolved);
+            let name = format_ident!("llmlang_syscall_{}", call.name);
+            let number = call.number;
+            let params: Vec<_> = (0..call.types.len())
+                .map(|index| format_ident!("word_{index}"))
+                .collect();
+            let words = (0..6).map(|index| {
                 params
                     .get(index)
                     .map_or_else(|| quote!(0), |id| quote!(#id))
-            })
-            .collect();
-        source.push_str(
-            &quote! {
-                pub unsafe fn #name(#(#params: usize),*) -> isize {
-                    unsafe { raw_syscall(#number as usize, [#(#words),*]) }
+            });
+            source.push_str(
+                &quote! {
+                    pub unsafe fn #name(#(#params: usize),*) -> isize {
+                        unsafe { #target(#number as usize, #(#words),*) }
+                    }
                 }
-            }
-            .to_string(),
+                .to_string(),
+            );
+            continue;
+        }
+        let implementation = pending.pop_first().unwrap();
+        if !emitted.insert(implementation.clone()) {
+            continue;
+        }
+        let row = &package.tables["functions"][&implementation];
+        let (body, resolved) = lower_body(package, row, bindings, &mut reachable, &mut pending)?;
+        let signature = package.function_signature(row).map_err(validation)?.typed;
+        let parameters = signature["parameters"]
+            .as_array()
+            .ok_or_else(|| invalid("missing native library parameters"))?
+            .iter()
+            .map(|parameter| {
+                let name: syn::Ident =
+                    syn::parse_str(parameter["name"].as_str().unwrap_or("")).map_err(validation)?;
+                let kind = library_type(&parameter["type"], true)?;
+                Ok(quote!(#name: #kind))
+            })
+            .collect::<Result<Vec<_>>>()?;
+        let result = library_type(&signature["result"], false)?;
+        let safety = (signature["result"] == "AbiResult").then(|| quote!(unsafe));
+        let symbol = source_symbol(&implementation);
+        let visibility = if public_sources.contains(&implementation) {
+            quote!(pub)
+        } else {
+            quote!()
+        };
+        resolved_calls.insert(implementation, resolved);
+        source.push_str(
+            &quote!(#visibility #safety fn #symbol(#(#parameters),*) -> #result #body).to_string(),
         );
+    }
+    // Preserve and check the call links for unbound continuation entries without emitting them.
+    for (implementation, row) in local_functions {
+        if is_syscall_wrapper(row) && !resolved_calls.contains_key(implementation) {
+            let (_, resolved) = syscall_target(package, row, bindings)?;
+            resolved_calls.insert(implementation.clone(), resolved);
+        }
     }
     Ok(Output {
         source,
