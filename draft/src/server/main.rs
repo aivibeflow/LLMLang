@@ -434,7 +434,7 @@ fn tools() -> Vec<Value> {
     vec![
         tool(
             "create_package",
-            "Create an empty scalar package and open its workspace.",
+            "Open an empty in-memory scalar workspace.",
             record(
                 &[
                     ("name", string()),
@@ -517,7 +517,7 @@ fn tools() -> Vec<Value> {
         ),
         tool(
             "commit_workspace",
-            "Verify the workspace, write the package, and publish its snapshot.",
+            "Verify and publish a persistable workspace. Scalar workspaces are in-memory only.",
             mutation(),
             record(
                 &[

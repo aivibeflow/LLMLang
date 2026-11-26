@@ -1,6 +1,6 @@
 use super::{
-    invalid, open_dump, read_frame, read_index, read_manifest, Manifest, Result, HEADER, MAGIC,
-    TABLES,
+    content_hash, invalid, open_dump, read_frame, read_index, read_manifest, Manifest, Package,
+    Result, HEADER, MAGIC, TABLES,
 };
 use serde::Deserialize;
 use serde_json::Value;
@@ -12,6 +12,7 @@ use std::sync::Arc;
 macro_rules! rows {
     ($($table:literal => $name:ident { $($field:ident: $type:ty),* $(,)? }),* $(,)?) => {
         $(#[derive(Debug, Deserialize)]
+        #[serde(deny_unknown_fields)]
         pub struct $name { $(pub $field: $type),* })*
 
         #[derive(Debug)]
@@ -198,15 +199,7 @@ pub fn load_graph(
     options: GraphLoadOptions<'_>,
 ) -> Result<Graph> {
     let manifest = read_manifest(path, supported_versions)?;
-    let mut graph = Graph {
-        manifest,
-        objects: Vec::new(),
-        by_table: BTreeMap::new(),
-        primary: BTreeMap::new(),
-        outgoing: Vec::new(),
-        incoming: Vec::new(),
-        calls: Vec::new(),
-    };
+    let mut graph = Graph::empty(manifest);
 
     let dependencies = graph
         .manifest
@@ -296,6 +289,54 @@ pub fn load_graph(
 }
 
 impl Graph {
+    fn empty(manifest: Manifest) -> Self {
+        Self {
+            manifest,
+            objects: Vec::new(),
+            by_table: BTreeMap::new(),
+            primary: BTreeMap::new(),
+            outgoing: Vec::new(),
+            incoming: Vec::new(),
+            calls: Vec::new(),
+        }
+    }
+
+    /// Resolve logical rows already in memory. The caller must include dependency rows
+    /// in the supplied package and clear the resolved dependency selections.
+    pub fn from_package(package: &Package) -> Result<Self> {
+        if !package.manifest.dependencies.is_empty() {
+            return Err(invalid(
+                "resolve package dependencies before building the in-memory graph",
+            ));
+        }
+        if package.tables.len() != TABLES.len() {
+            return Err(invalid("expected the declared SPG tables"));
+        }
+        let mut graph = Self::empty(package.manifest.clone());
+        for table in TABLES {
+            let rows = package
+                .tables
+                .get(table)
+                .ok_or_else(|| invalid(format!("missing SPG table {table}")))?;
+            for (key, value) in rows {
+                let row = Row::parse(table, value.clone())?;
+                if row.primary_key().join(":") != *key {
+                    return Err(invalid(format!(
+                        "{table}: row key does not match primary key columns"
+                    )));
+                }
+                graph.insert(Arc::new(Object {
+                    table,
+                    content_hash: content_hash(key, value)?,
+                    storage_key: key.clone(),
+                    row,
+                }))?;
+            }
+        }
+        graph.resolve()?;
+        Ok(graph)
+    }
+
     fn insert(&mut self, object: Arc<Object>) -> Result<()> {
         let table = self.by_table.entry(object.table).or_default();
         if table.contains_key(&object.content_hash) {

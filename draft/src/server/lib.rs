@@ -6,7 +6,7 @@ mod obligations;
 
 use changes::Selection;
 use fs2::FileExt;
-use llmlang_spg::{Graph, GraphLoadOptions, LoadOptions, Manifest, Package, SaveOptions, Tables};
+use llmlang_spg::{Graph, LoadOptions, Manifest, Package, SaveOptions, Tables};
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use serde_json::{json, Value};
 use sha2::{Digest, Sha256};
@@ -112,6 +112,21 @@ struct State {
     workspaces: BTreeMap<String, Workspace>,
 }
 
+impl State {
+    fn retain_native(&mut self) {
+        self.snapshots
+            .retain(|_, program| native::is_native(&program.tables));
+        self.workspaces
+            .retain(|_, workspace| native::is_native(&workspace.program.tables));
+    }
+
+    fn persisted(&self) -> Self {
+        let mut state = self.clone();
+        state.retain_native();
+        state
+    }
+}
+
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct PackageMetadata {
@@ -166,6 +181,7 @@ impl Server {
             principal_uid: metadata.uid(),
             _lock: lock,
         };
+        server.state.retain_native();
         check_state_layout(&server.state)?;
         server.recover()?;
         Ok(server)
@@ -216,7 +232,7 @@ impl Server {
                 let args: RevisionInput = serde_json::from_value(args)?;
                 let workspace = self.checked_workspace(&args)?;
                 let package = self.validate(&workspace.program)?;
-                let report = self.backend("verify", &workspace.program, &package, None)?;
+                let report = self.backend("verify", &workspace.program, &package)?;
                 let result = json!({"workspace_id": args.workspace_id, "revision": args.expected_revision, "report": report});
                 let mut next = self.state.clone();
                 next.workspaces
@@ -386,7 +402,7 @@ impl Server {
         // Check the owner of each function while package rows are still separate.
         check_builtin_access(program)?;
         let mut package = program.package();
-        let include_native_calls = native::is_native(&package);
+        let include_native_calls = native::is_native(&package.tables);
         for dependency in self.dependency_packages(program)?.values() {
             check_builtin_access(dependency)?;
             for (table, rows) in &dependency.tables {
@@ -425,18 +441,14 @@ impl Server {
                 return Err(validation("entry point must select a local implementation"));
             }
         }
-        self.backend("validate", program, &package, None)?;
+        self.backend("validate", program, &package)?;
         Ok(package)
     }
 
     fn check_graph(&self, package: &Package) -> Result<()> {
         let mut combined = package.clone();
         combined.manifest.dependencies.clear();
-        let area = tempfile::tempdir_in(&self.root)?;
-        let path = area.path().join("candidate");
-        llmlang_spg::save(&path, &combined, SaveOptions::default()).map_err(validation)?;
-        llmlang_spg::load_graph(&path, VERSIONS, GraphLoadOptions::default())
-            .map_err(validation)?;
+        Graph::from_package(&combined).map_err(validation)?;
         Ok(())
     }
 
@@ -562,13 +574,7 @@ impl Server {
         Ok(output)
     }
 
-    fn backend(
-        &self,
-        action: &str,
-        program: &Program,
-        package: &Package,
-        build: Option<(&str, &Path)>,
-    ) -> Result<Value> {
+    fn backend(&self, action: &str, program: &Program, package: &Package) -> Result<Value> {
         let version_hash = program.tables["versions"]
             .values()
             .find(|row| row["version"].as_str() == program.selection.version.as_deref())
@@ -584,8 +590,6 @@ impl Server {
             "package": {"manifest": package.manifest, "tables": tables},
             "entry_impl_hash": program.selection.entry_point,
             "version_hash": version_hash,
-            "target": build.map(|(target, _)| target),
-            "output": build.map(|(_, path)| path),
         });
         let input = serde_json::to_vec(&request)?;
         let mut child = Command::new(&self.python)
@@ -610,7 +614,6 @@ impl Server {
                 Some("UnsupportedProfile") => "UnsupportedProfile",
                 Some("ToolError") => "ToolError",
                 _ if action == "verify" => "VerificationFailed",
-                _ if action == "build" => "BuildFailed",
                 _ => "ValidationFailed",
             };
             return Err(ServerError::new(
@@ -626,6 +629,12 @@ impl Server {
     fn commit(&mut self, args: RevisionInput) -> Result<Value> {
         let workspace = self.checked_workspace(&args)?.clone();
         let program = &workspace.program;
+        if !native::is_native(&program.tables) {
+            return Err(ServerError::new(
+                "UnsupportedProfile",
+                "scalar workspaces support verification only and cannot be committed",
+            ));
+        }
         let version = program
             .selection
             .version
@@ -638,7 +647,7 @@ impl Server {
         let id = snapshot_id(program)?;
         self.check_version(program, &id)?;
         let package = self.validate(program)?;
-        let report = self.backend("verify", program, &package, None)?;
+        let report = self.backend("verify", program, &package)?;
         if report["ok"] != true {
             return Err(ServerError::new(
                 "VerificationFailed",
@@ -676,7 +685,7 @@ impl Server {
         revised.reports.insert(args.expected_revision, json!({"workspace_id": args.workspace_id, "revision": args.expected_revision, "report": report}));
         next.snapshots.insert(id.clone(), program.clone());
         let pending = PendingCommit {
-            state: next,
+            state: next.persisted(),
             snapshot_id: id.clone(),
         };
         if let Err(error) = write_atomic(&self.root.join("pending.json"), &pending) {
@@ -693,7 +702,7 @@ impl Server {
             self.clear_pending()?;
             return Err(error);
         }
-        self.state = pending.state;
+        self.state = next;
         // A stale journal is safe to replay after state and package publication.
         let _ = fs::remove_file(self.root.join("pending.json"));
         Ok(json!({"snapshot_id": id, "package_path": path, "revision": args.expected_revision}))
@@ -739,22 +748,14 @@ impl Server {
             return Err(validation("package snapshot identity mismatch"));
         }
         self.check_version(&program, &id)?;
-        let native = native::is_native(&program.package());
-        if native {
-            let package = self.validate_native(&program)?;
-            self.native_output(&program, &package)?;
-        } else {
-            let combined = self.validate(&program)?;
-            let report = self.backend("verify", &program, &combined, None)?;
-            if report["ok"] != true {
-                return Err(ServerError::new(
-                    "VerificationFailed",
-                    report["message"]
-                        .as_str()
-                        .unwrap_or("imported package verification failed"),
-                ));
-            }
+        if !native::is_native(&program.tables) {
+            return Err(ServerError::new(
+                "UnsupportedProfile",
+                "only native source packages can be imported",
+            ));
         }
+        let package = self.validate_native(&program)?;
+        self.native_output(&program, &package)?;
         let mut next = self.state.clone();
         let versions: BTreeSet<_> = next
             .snapshots
@@ -766,7 +767,7 @@ impl Server {
         next.snapshots.insert(id.clone(), program);
         self.store(next)?;
         Ok(json!({"snapshot_id": id, "versions": versions,
-            "verification_status": if native { "unchecked" } else { "verified" }}))
+            "verification_status": "unchecked"}))
     }
 
     fn build(&self, args: Build) -> Result<Value> {
@@ -784,20 +785,16 @@ impl Server {
         }
         let area = tempfile::tempdir_in(self.root.join("artifacts"))?;
         let staged = area.path().join("program");
-        let native = native::is_native(&program.package());
-        let (executable, exports) = if native {
-            let package = self.validate_native(program)?;
-            let output = self.native_output(program, &package)?;
-            native::compile(&output, &staged)?;
-            (output.executable, output.exports)
-        } else {
-            let package = self.combined_package(program)?;
-            let build = self.backend("build", program, &package, Some((&args.target, &staged)))?;
-            (
-                program.selection.entry_point.is_some(),
-                build["exports"].clone(),
-            )
-        };
+        if !native::is_native(&program.tables) {
+            return Err(ServerError::new(
+                "UnsupportedProfile",
+                "only native source packages can be built",
+            ));
+        }
+        let package = self.validate_native(program)?;
+        let output = self.native_output(program, &package)?;
+        native::compile(&output, &staged)?;
+        let (executable, exports) = (output.executable, output.exports);
         if !staged.is_file() {
             return Err(ServerError::new(
                 "ToolError",
@@ -814,12 +811,12 @@ impl Server {
         Ok(
             json!({"snapshot_id": args.snapshot_id, "target": args.target,
             "artifact": artifact, "exports": exports,
-                "verification_status": if native { "unchecked" } else { "verified" }}),
+                "verification_status": "unchecked"}),
         )
     }
 
     fn store(&mut self, state: State) -> Result<()> {
-        write_atomic(&self.root.join("state.json"), &state)?;
+        write_atomic(&self.root.join("state.json"), &state.persisted())?;
         self.state = state;
         Ok(())
     }
@@ -845,7 +842,19 @@ impl Server {
                 if package != program.package() {
                     return Err(validation("pending package differs from journal"));
                 }
-                self.store(pending.state)?;
+                let mut recovered = pending.state;
+                for (key, program) in &self.state.snapshots {
+                    if !native::is_native(&program.tables) {
+                        recovered.snapshots.insert(key.clone(), program.clone());
+                    }
+                }
+                for (key, workspace) in &self.state.workspaces {
+                    if !native::is_native(&workspace.program.tables) {
+                        recovered.workspaces.insert(key.clone(), workspace.clone());
+                    }
+                }
+                recovered.sequence = recovered.sequence.max(self.state.sequence);
+                self.store(recovered)?;
             }
         }
         self.clear_pending()
@@ -908,12 +917,8 @@ impl Server {
     ) -> Result<Value> {
         let mut package = self.combined_package(program)?;
         let dependencies = std::mem::take(&mut package.manifest.dependencies);
-        let area = tempfile::tempdir_in(&self.root)?;
-        let path = area.path().join("graph");
-        llmlang_spg::save(&path, &package, SaveOptions::default()).map_err(validation)?;
+        let graph = Graph::from_package(&package).map_err(validation)?;
         package.manifest.dependencies = dependencies;
-        let graph: Graph = llmlang_spg::load_graph(&path, VERSIONS, GraphLoadOptions::default())
-            .map_err(validation)?;
         let node = graph
             .objects()
             .find(|node| node.object().table == table && node.object().storage_key == key)
@@ -930,7 +935,7 @@ impl Server {
         };
         let mut outgoing = node.outgoing().map(link).collect::<Vec<_>>();
         let mut incoming = node.incoming().map(link).collect::<Vec<_>>();
-        if matches!(table, "functions" | "contracts") && native::is_native(&program.package()) {
+        if matches!(table, "functions" | "contracts") && native::is_native(&program.tables) {
             let resolved = self.native_output(program, &package)?;
             for (caller, calls) in resolved.calls {
                 for call in calls {
@@ -1270,10 +1275,12 @@ mod tests {
         let backend = Path::new(env!("CARGO_MANIFEST_DIR")).join("scalar.py");
         let server = Server::open(directory.path(), "python3", &backend).unwrap();
 
-        let package = Package::empty(Manifest {
-            language_version: VERSIONS[0].into(),
-            dependencies: BTreeMap::new(),
-        });
+        let package = llmlang_spg::load(
+            &Path::new(env!("CARGO_MANIFEST_DIR")).join("../stdlib"),
+            VERSIONS,
+            LoadOptions::default(),
+        )
+        .unwrap();
         let program = Program {
             name: "recovery".into(),
             selection: Selection {

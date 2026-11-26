@@ -177,48 +177,6 @@ def scope(workspace, revision=None):
     }
 
 
-TABLES = (
-    "bindings",
-    "contract_rules",
-    "contracts",
-    "function_signatures",
-    "functions",
-    "interfaces",
-    "structure_bindings",
-    "structure_layouts",
-    "structure_types",
-    "structures",
-    "verification_obligations",
-    "verification_runs",
-    "versions",
-)
-
-
-def check_dump(path):
-    manifest = json.loads((path / "manifest.json").read_text(encoding="utf-8"))
-    assert manifest["profile"] == "llmlang.spg.tables.v4", manifest
-    assert manifest["language_version"] == "0.1.0", manifest
-    for table in TABLES:
-        assert (path / f"{table}.dump").read_bytes().startswith(b"LLSPG\x04\r\n"), table
-        assert isinstance(json.loads((path / f"{table}.index.json").read_text()), dict), table
-        rows = json.loads((path / f"{table}.json").read_text())
-        assert isinstance(rows, list) and all("key" not in row for row in rows), table
-    contents = json.loads((path / "functions.json").read_text(encoding="utf-8"))
-    signatures = json.loads((path / "function_signatures.json").read_bytes())
-    by_signature = {row["functionSignatureHash"]: row["functionSignatureContent"] for row in signatures}
-    assert contents and len(by_signature) == 1, signatures
-    assert all(row["functionSignatureHash"] in by_signature and "typedSignature" not in row
-               for row in contents), contents
-
-
-def package_bytes(path):
-    return {
-        child.name: child.read_bytes()
-        for child in path.iterdir()
-        if child.is_file() and (child.name in {"manifest.json", "package.json"} or child.name.endswith((".dump", ".index.json")))
-    }
-
-
 def second_operations(previous, content_hashes):
     c, helper, main = map(local, ("contract_v2", "add_v2", "main_v2"))
     return [
@@ -329,14 +287,7 @@ def exercise(executable, root, python):
         check_rejected_edits(client, workspace, applied, args)
         identities = applied["identities"]
         stored = json.loads((state / "state.json").read_bytes())
-        tables = stored["workspaces"][workspace["workspace_id"]]["program"]["tables"]
-        obligations = list(tables["verification_obligations"].values())
-        assert len(obligations) == 1, obligations
-        obligation = obligations[0]
-        assert obligation["kind"] == "call_compatibility"
-        assert obligation["caller_impl_hash"] == identities["main"]
-        assert obligation["callee_impl_hash"] == identities["add"]
-        assert tables["verification_runs"] == {}
+        assert stored["workspaces"] == {} and stored["snapshots"] == {}, stored
         workspace_uri = f"llmlang://workspace/{workspace['workspace_id']}"
         main = read_object(client, f"{workspace_uri}/object/functions/{identities['main']}")
         helper = read_object(client, f"{workspace_uri}/object/functions/{identities['add']}")
@@ -344,80 +295,37 @@ def exercise(executable, root, python):
         assert any(link["uri"].endswith(f"/functions/{identities['main']}") for link in helper["incoming"]), helper
         content_hashes = {"add": helper["content_hash"], "main": main["content_hash"]}
 
-    # Restart before committing and repeat the original write at its old revision.
-    with server(executable, state, python) as client:
         assert client.call("apply_change_set", args) == applied
-        committed = client.call("commit_workspace", scope(workspace, applied["revision"]))
-        path = Path(committed["package_path"])
-        check_dump(path)
-        original_bytes = package_bytes(path)
-        build = client.call("build_package", {
-            "snapshot_id": committed["snapshot_id"], "target": "linux-x86_64",
-        })
-        artifact = Path(build["artifact"])
-        assert artifact.is_file() and os.access(artifact, os.X_OK), build
-        execution = subprocess.run([artifact], capture_output=True, text=True, check=True, timeout=10)
-        assert execution.stdout == "42\n", execution
+        verified = client.call("verify_workspace", scope(workspace, applied["revision"]))
+        assert verified["report"]["ok"], verified
+        error = client.call("commit_workspace", scope(workspace, applied["revision"]), succeeds=False)
+        assert error["code"] == "UnsupportedProfile", error
 
-        # A validly typed but incorrect implementation cannot be committed.
         bad = create(client, "incorrect")
         bad_version = client.call("apply_change_set", apply_request(
             bad["workspace_id"], bad["revision"], "bad", first_operations(result=41),
         ))
-        error = client.call("commit_workspace", scope(bad, bad_version["revision"]), succeeds=False)
-        assert error["code"] == "VerificationFailed", error
-        assert not (state / "packages" / "incorrect" / "1.0.0").exists()
+        rejected = client.call("verify_workspace", scope(bad, bad_version["revision"]))
+        assert not rejected["report"]["ok"], rejected
 
-    # A second state directory simulates another server with no original catalog.
-    with server(executable, root / "independent", python) as client:
-        imported = client.call("import_package", {"path": str(path)})
-        assert imported["snapshot_id"] == committed["snapshot_id"], imported
-        assert package_bytes(path) == original_bytes
-        workspace = client.call("open_workspace", {"snapshot_id": imported["snapshot_id"]})
-        preview = client.call("verify_workspace", scope(workspace))
-        assert preview, preview
-
-        applied = client.call("apply_change_set", apply_request(
-            workspace["workspace_id"], workspace["revision"], "second", second_operations(identities, content_hashes),
+        second = client.call("apply_change_set", apply_request(
+            workspace["workspace_id"], applied["revision"], "second", second_operations(identities, content_hashes),
         ))
-        assert applied["identities"]["add_v2"] != identities["add"], applied
-        client.call("commit_workspace", scope(workspace), succeeds=False)
+        assert second["identities"]["add_v2"] != identities["add"], second
+        new_main = read_object(client, f"{workspace_uri}/object/functions/{second['identities']['main_v2']}")
+        assert second["identities"]["add_v2"] in json.dumps(new_main), new_main
+        assert not list((state / "packages").iterdir())
+        assert not (state / "pending-package").exists()
+        stored = json.loads((state / "state.json").read_bytes())
+        assert stored["workspaces"] == {} and stored["snapshots"] == {}, stored
 
-        destination = root / "independent" / "packages" / "demo" / "2.0.0"
-        destination.mkdir(parents=True)
-        marker = destination / "previous"
-        marker.write_text("concurrent destination", encoding="utf-8")
-        client.call("commit_workspace", scope(workspace, applied["revision"]), succeeds=False)
-        assert marker.read_text(encoding="utf-8") == "concurrent destination"
-        marker.unlink()
-        destination.rmdir()
-        second = client.call("commit_workspace", scope(workspace, applied["revision"]))
-        assert second["snapshot_id"] != imported["snapshot_id"], second
-        second_path = Path(second["package_path"])
-        check_dump(second_path)
-        assert package_bytes(path) == original_bytes
-        old_main = read_object(
-            client, f"llmlang://snapshot/{imported['snapshot_id']}/object/functions/{identities['main']}",
+    with server(executable, state, python) as client:
+        error = client.call(
+            "inspect_workspace", {"workspace_id": workspace["workspace_id"]}, succeeds=False,
         )
-        new_main = read_object(
-            client, f"llmlang://snapshot/{second['snapshot_id']}/object/functions/{applied['identities']['main_v2']}",
-        )
-        assert identities["add"] in json.dumps(old_main), old_main
-        assert applied["identities"]["add_v2"] in json.dumps(new_main), new_main
+        assert error["code"] == "MissingReference", error
 
-    with server(executable, root / "fresh", python) as client:
-        for expected, directory in ((committed, path), (second, second_path)):
-            observed = client.call("import_package", {"path": str(directory)})
-            assert observed["snapshot_id"] == expected["snapshot_id"], observed
-
-        # The same snapshot written into a fresh root produces canonical bytes.
-        reopened = client.call("open_workspace", {"snapshot_id": committed["snapshot_id"]})
-        copied = client.call("commit_workspace", scope(reopened))
-        assert copied["snapshot_id"] == committed["snapshot_id"], copied
-        assert package_bytes(Path(copied["package_path"])) == original_bytes
-
-    print("MCP package authoring, verification, build, restart, and reimport passed")
-
+    print("MCP scalar editing, verification, and non-persistence checks passed")
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)

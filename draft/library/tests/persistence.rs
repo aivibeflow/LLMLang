@@ -15,11 +15,11 @@ fn fixture() -> Package {
     let rows = package.tables.get_mut("functions").unwrap();
     rows.insert(
         "second".into(),
-        json!({"impl_hash": "second", "function_signature_hash": signature, "canonical_body": [null, false, [], {}], "provided_contract_hash": "contract"}),
+        json!({"impl_hash": "second", "function_signature_hash": signature, "canonical_body": "{ 2 }", "provided_contract_hash": "contract"}),
     );
     rows.insert(
         "first".into(),
-        json!({"impl_hash": "first", "function_signature_hash": signature, "canonical_body": {"literal": i64::MIN}, "provided_contract_hash": "contract"}),
+        json!({"impl_hash": "first", "function_signature_hash": signature, "canonical_body": "{ -9223372036854775808 }", "provided_contract_hash": "contract"}),
     );
     package.tables.get_mut("versions").unwrap().insert(
         "v".into(),
@@ -75,11 +75,9 @@ fn round_trip_binary_and_protojson() {
         serde_json::from_slice(&read(&exported, "functions.json")).unwrap();
     assert_eq!(rows[0]["implHash"], "first");
     assert!(rows[0].get("key").is_none());
-    assert_eq!(
-        rows[0]["canonicalBody"]["objectValue"]["fields"][0]["value"]["intValue"],
-        "-9223372036854775808",
-    );
+    assert_eq!(rows[0]["canonicalBody"], "{ -9223372036854775808 }",);
     assert_eq!(rows[1]["implHash"], "second");
+    assert_eq!(rows[1]["canonicalBody"], "{ 2 }");
     assert!(rows[1].get("key").is_none());
 }
 
@@ -120,7 +118,7 @@ fn rejects_invalid_versions_indexes_and_frames() {
     let manifest = read(&path, "manifest.json");
     let old_manifest = String::from_utf8(manifest.clone())
         .unwrap()
-        .replace("llmlang.spg.tables.v4", "llmlang.spg.tables.v3");
+        .replace("llmlang.spg.tables.v5", "llmlang.spg.tables.v4");
     fs::write(path.join("manifest.json"), old_manifest).unwrap();
     let error = load(&path, VERSIONS, LoadOptions::default()).unwrap_err();
     assert!(error.to_string().contains("unsupported repository profile"));

@@ -58,12 +58,12 @@ validation of on-disk frames independently of the graph cache.
 
 Stage a typed signature with `Package::stage_function_signature` before
 writing its function row. The row stores `function_signature_hash` and
-body-only `canonical_body`. `Package::function_signature` reconstructs the
+body-only `canonical_body` as LLMLang source text. `Package::function_signature` reconstructs the
 original typed signature. A graph function links to its signature row, and
 the signature row links to its exact structure revisions when applicable.
 Function contracts retain their typed signatures.
 
-The v4 signature text has the form `<profile> (<name>: <type>, ...) -> <type>`.
+The signature text has the form `<profile> (<name>: <type>, ...) -> <type>`.
 For example, the scalar signature for one integer parameter is
 `scalar-v1 (value: I64) -> I64`. The scalar profile renders `i64` and `bool`
 as `I64` and `Bool`. Parameter order is preserved, spacing is fixed, and
@@ -73,21 +73,22 @@ The signature hash consists of `sha256:` and the lowercase SHA-256 hex digest
 of `llmlang-function-signature/v1\0`, the profile, a NUL byte, and the UTF-8
 signature text, in that order.
 
-The checked-in native packages were converted from v3 with their original
-reader. Their recovered typed signatures, implementation identities and
-bindings match the v3 records. A v4 server starts with v4 package data.
+Version 5 stores `FunctionRecord.canonical_body` as a Protobuf `string`.
+In the debug dump, `canonicalBody` is a JSON string containing the original body block.
+Structured scalar bodies are used only for in-memory editing and verification.
+The checked-in native packages retain their logical rows, hashes, and bindings.
 
 ## Repository profile
 
 The draft specifies the storage contract and leaves the physical encoding to a
-profile. This crate uses `llmlang.spg.tables.v4`.
+profile. This crate uses `llmlang.spg.tables.v5`.
 
 - `manifest.json` contains `profile`, `language_version`, and `dependencies`.
 - Each of the thirteen tables has a lowercase `<table>.dump` and
   `<table>.index.json`, even when empty. The index is a JSON object mapping
   lowercase SHA-256 hex digests to zero-based offsets at the start of a frame.
   Index keys are sorted and the compact encoding ends in a newline.
-- Each dump starts with `LLSPG\x04\r\n`. Frames follow in ascending row key order.
+- Each dump starts with `LLSPG\x05\r\n`. Frames follow in ascending row key order.
   Each comprises a little-endian 32-bit compressed length, a little-endian
   32-bit uncompressed length, a 32-byte Content Hash, and a raw LZ4 block.
   The writer uses LZ4 fast mode with acceleration 1. The uncompressed size limit
@@ -96,7 +97,7 @@ profile. This crate uses `llmlang.spg.tables.v4`.
   [SPG Protobuf schema](proto/spg.proto), such as `FunctionRecord` for
   `functions.dump` and `VersionRecord` for `versions.dump`. Cargo generates
   these Rust types with Prost and a bundled `protoc`. Columns have explicit
-  field numbers, and nested IR and review payloads use a shared recursive
+  field numbers, and other structured fields such as contract signatures use a shared recursive
   `Value` message. It supports null, bool, signed 64-bit integers, strings,
   lists, and objects with sorted UTF-8 keys. Nesting depth is limited to 24.
 - Content Hash is SHA-256 over the bytes `llmlang-spg-content/v1\0` followed by

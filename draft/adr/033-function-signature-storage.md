@@ -22,7 +22,7 @@ The tables below give the complete affected logical schema. All columns are requ
 | --- | --- | --- |
 | `impl_hash` | Digest | Primary key. Identifies the canonical implementation with its typed signature, body, provided contract, and exact hash-relevant dependencies. |
 | `function_signature_hash` | Digest | Foreign key to `FUNCTION_SIGNATURES.function_signature_hash`. Every implementation resolves to one signature. |
-| `canonical_body` | Typed SPG IR | Body only, including its statements, expressions, and exact call and structure references. Parameter references in the body resolve against the separately loaded signature. |
+| `canonical_body` | UTF-8 source string | Function body block. Resolved call pins are recorded in verification obligations. Parameter references in the body resolve against the separately loaded signature. |
 | `provided_contract_hash` | Digest | Foreign key to `CONTRACTS.contract_hash`. Must resolve to the function contract provided by the implementation. |
 
 ### FUNCTION_SIGNATURES
@@ -43,7 +43,7 @@ erDiagram
     FUNCTIONS {
         hash impl_hash PK
         hash function_signature_hash FK
-        ir canonical_body "body only"
+        string canonical_body "source block only"
         hash provided_contract_hash FK
     }
     FUNCTION_SIGNATURES ||..o{ FUNCTIONS : "signature of"
@@ -53,7 +53,7 @@ erDiagram
 ### Write and resolve signatures
 
 1. Render the resolved typed signature in the canonical notation for the selected profile and compute its hash. Stage the signature row before the implementation row and publish them atomically. Reuse an existing row only after its canonical text matches byte for byte. Reject conflicting content for an existing hash.
-2. Resolve the hash from the selected package and its pinned dependencies. Verify the hash against the stored string, parse the text into the typed signature, and validate its exact references. Reject missing rows, invalid or noncanonical text, and unresolved pins. Validate `canonical_body` against the body IR schema, which excludes the function's parameter declarations and result type declaration. Use the recovered signature for body checking, contract attachment, and callable compatibility. For example, a scalar profile can render a one-parameter signature as `(value: I64) -> I64`. Two implementations of that signature can share one signature row and have distinct `impl_hash` values.
+2. Resolve the hash from the selected package and its pinned dependencies. Verify the hash against the stored string, parse the text into the typed signature, and validate its exact references. Reject missing rows, invalid or noncanonical text, and unresolved pins. Validate that the stored `canonical_body` contains a source block without a function declaration. Use the recovered signature for body checking, contract attachment, and callable compatibility. For example, a scalar profile can render a one-parameter signature as `(value: I64) -> I64`. Two implementations of that signature can share one signature row and have distinct `impl_hash` values.
 3. Compute `ImplHash` from the reconstructed canonical implementation using the existing semantic hash inputs. A changed semantic signature or type pin changes that identity. Function contracts continue to define their own typed signatures and rule binders.
 
 ### Package storage and migration

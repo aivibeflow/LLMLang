@@ -239,36 +239,7 @@ impl Package {
     }
 }
 
-pub(crate) fn validate_body(body: &Value) -> Result<()> {
-    match body {
-        Value::String(source) => validate_block(source),
-        Value::Array(_) => Ok(()),
-        Value::Object(fields)
-            if ![
-                "signature",
-                "typed_signature",
-                "parameters",
-                "params",
-                "result",
-                "function_signature_hash",
-            ]
-            .iter()
-            .any(|key| fields.contains_key(*key)) =>
-        {
-            if let Some(source) = fields.get("source") {
-                validate_block(
-                    source
-                        .as_str()
-                        .ok_or_else(|| invalid("expected body source text"))?,
-                )?;
-            }
-            Ok(())
-        }
-        _ => Err(invalid("canonical body must contain only body IR")),
-    }
-}
-
-fn validate_block(source: &str) -> Result<()> {
+pub(crate) fn validate_block(source: &str) -> Result<()> {
     use proc_macro2::{Delimiter, TokenStream, TokenTree};
 
     let mut tokens = source

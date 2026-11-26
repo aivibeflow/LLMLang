@@ -5,7 +5,7 @@ use sha2::{Digest, Sha256};
 
 #[allow(clippy::enum_variant_names)]
 mod wire {
-    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v4.rs"));
+    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v5.rs"));
 }
 
 use wire::{value::Kind, Field, List, Object, Value as WireValue};
@@ -294,7 +294,8 @@ macro_rules! table_records {
                                     .ok_or_else(|| invalid("missing function signature hash"))?;
                                 super::check_hash(hash.strip_prefix("sha256:")
                                     .ok_or_else(|| invalid("invalid function signature hash"))?)?;
-                                super::signature::validate_body(&row["canonical_body"])?;
+                                super::signature::validate_block(row["canonical_body"].as_str()
+                                    .ok_or_else(|| invalid("canonical body must be source text"))?)?;
                             }
                             _ => {}
                         }
