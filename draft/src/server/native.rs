@@ -21,9 +21,9 @@ use syn::{
 
 const PROFILE: &str = "linux-x86_64-native-v1";
 
-pub(super) fn is_native(package: &Package) -> bool {
-    !package.tables["contracts"].is_empty()
-        && package.tables["contracts"]
+pub(super) fn is_native(tables: &super::Tables) -> bool {
+    !tables["contracts"].is_empty()
+        && tables["contracts"]
             .values()
             .all(|row| row["profile"] == PROFILE)
 }

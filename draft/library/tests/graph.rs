@@ -48,6 +48,20 @@ fn function(package: &mut Package, key: &str, body: Value) {
     );
 }
 
+fn call(package: &mut Package, callee: &str) {
+    insert(
+        package,
+        "verification_obligations",
+        "call",
+        json!({
+            "obligation_hash": "call", "kind": "call_compatibility",
+            "caller_impl_hash": "caller", "callee_impl_hash": callee,
+            "caller_required_contract_hash": "contract",
+            "verification_context_hash": "context"
+        }),
+    );
+}
+
 #[test]
 fn reload_shares_cached_objects_and_resolves_new_edges() {
     let directory = tempfile::tempdir().unwrap();
@@ -55,8 +69,8 @@ fn reload_shares_cached_objects_and_resolves_new_edges() {
     let updated_path = directory.path().join("updated");
     let mut data = package();
     contract(&mut data);
-    function(&mut data, "callee", json!({}));
-    function(&mut data, "removed", json!({}));
+    function(&mut data, "callee", json!("{ 1 }"));
+    function(&mut data, "removed", json!("{ 2 }"));
     save(&initial_path, &data, SaveOptions::default()).unwrap();
     let initial = load_graph(&initial_path, VERSIONS, GraphLoadOptions::default()).unwrap();
     assert_eq!(data.tables["function_signatures"].len(), 1);
@@ -75,13 +89,8 @@ fn reload_shares_cached_objects_and_resolves_new_edges() {
     ));
 
     data.tables.get_mut("functions").unwrap().remove("removed");
-    function(
-        &mut data,
-        "caller",
-        json!({"args": [{
-            "callee_impl_hash": "callee", "required_contract_hash": "contract"
-        }]}),
-    );
+    function(&mut data, "caller", json!("{ callee() }"));
+    call(&mut data, "callee");
     save(&updated_path, &data, SaveOptions::default()).unwrap();
     // A fully cached table must work without opening its dump at all.
     fs::remove_file(updated_path.join("contracts.dump")).unwrap();
@@ -101,8 +110,17 @@ fn reload_shares_cached_objects_and_resolves_new_edges() {
     )
     .unwrap();
     assert!(updated.get("functions", &["removed"]).is_none());
-    let caller = updated.get("functions", &["caller"]).unwrap();
-    let (callee, required) = caller.calls().next().unwrap();
+    let call = updated.get("verification_obligations", &["call"]).unwrap();
+    let callee = call
+        .outgoing()
+        .find(|(relation, _)| *relation == Relation::Callee)
+        .unwrap()
+        .1;
+    let required = call
+        .outgoing()
+        .find(|(relation, _)| *relation == Relation::RequiredContract)
+        .unwrap()
+        .1;
     assert!(matches!(callee.object().row, Row::Function(_)));
     assert!(Arc::ptr_eq(
         callee.object(),
@@ -115,7 +133,7 @@ fn reload_shares_cached_objects_and_resolves_new_edges() {
     assert!(callee
         .incoming()
         .any(|(relation, node)| relation == Relation::Callee
-            && Arc::ptr_eq(node.object(), caller.object())));
+            && Arc::ptr_eq(node.object(), call.object())));
 }
 
 #[test]
@@ -134,7 +152,7 @@ fn resolves_declared_dependency_and_rejects_missing_targets() {
     data.manifest
         .dependencies
         .insert("stdlib".into(), "exact-pin".into());
-    function(&mut data, "caller", json!({}));
+    function(&mut data, "caller", json!("{ 0 }"));
     data.tables
         .get_mut("function_signatures")
         .unwrap()
@@ -167,13 +185,7 @@ fn resolves_declared_dependency_and_rejects_missing_targets() {
         dependency.get("contracts", &["contract"]).unwrap().object()
     ));
 
-    function(
-        &mut data,
-        "caller",
-        json!({
-            "callee_impl_hash": "missing", "required_contract_hash": "contract"
-        }),
-    );
+    call(&mut data, "missing");
     let invalid = directory.path().join("invalid");
     save(&invalid, &data, SaveOptions::default()).unwrap();
     assert!(load_graph(&invalid, VERSIONS, resolve())
@@ -243,6 +255,14 @@ fn canonical_signatures_validate_exact_type_pins_and_hashes() {
     insert(&mut data, "functions", "f", embedded);
     let invalid_body = directory.path().join("invalid-body");
     assert!(save(&invalid_body, &data, SaveOptions::default()).is_err());
+
+    let mut structured = row.clone();
+    structured["canonical_body"] = json!([["return", ["i64", 1]]]);
+    insert(&mut data, "functions", "f", structured);
+    assert!(save(&invalid_body, &data, SaveOptions::default())
+        .unwrap_err()
+        .to_string()
+        .contains("canonical body must be source text"));
 
     insert(&mut data, "functions", "f", row);
     data.tables

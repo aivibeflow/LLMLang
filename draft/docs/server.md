@@ -1,10 +1,10 @@
 # LLMLang Server over MCP
 
-The Linux MVP authors LLMLang `0.1.0` scalar packages and imports and builds supported native packages over MCP stdio. The client launches a local subprocess. The server validates structured changes against the semantic graph, verifies a specific workspace revision, and publishes an immutable package snapshot. The current transport is stdio, and the build target is `linux-x86_64`. [Server README](../server/README.md) · [MVP requirements](../adr/031-llmlang-server-mcp-package-authoring.md)
+The Linux MVP edits and verifies LLMLang `0.1.0` scalar workspaces in memory and imports and builds supported native packages over MCP stdio. The client launches a local subprocess. The server validates structured changes against the semantic graph, verifies a specific workspace revision, and registers immutable snapshots on native package import. The current transport is stdio, and the build target is `linux-x86_64`. [Server README](../server/README.md) · [MVP requirements](../adr/031-llmlang-server-mcp-package-authoring.md)
 
 ## Build and connect
 
-Use Linux x86-64, Rust 1.85.1 or newer with Cargo and a native linker, Python 3.10 or newer, Boogie with its .NET runtime, and Z3. The scalar CI setup uses Python 3.12, Boogie 3.5.5 on .NET 8, and Z3 4.13.3. The Boogie and Z3 executables are required for scalar verification, commit, and import. Scalar builds use Stage 0 and `rustc`. The native package backend compiles with `rustc`. [Scalar CI setup](../../.github/workflows/llmlang-mvp.yml)
+Use Linux x86-64, Rust 1.85.1 or newer with Cargo and a native linker, Python 3.10 or newer, Boogie with its .NET runtime, and Z3. The scalar CI setup uses Python 3.12, Boogie 3.5.5 on .NET 8, and Z3 4.13.3. The Boogie and Z3 executables are required for scalar verification. The native package backend compiles with `rustc`. [Scalar CI setup](../../.github/workflows/llmlang-mvp.yml)
 
 From the repository root, build both executables.
 
@@ -64,12 +64,12 @@ Read successful values from `result.structuredContent`. The result also includes
 | Tool | Arguments | Use |
 | --- | --- | --- |
 | `create_package` | `name`, `language_version`, `profile` | Create a scalar package and open an empty workspace. |
-| `import_package` | `path` | Load a package directory and register its snapshot. The server verifies scalar imports and validates native imports. See `verification_status`. |
+| `import_package` | `path` | Load a package directory and register its snapshot. Load and validate a native source package and register its snapshot. |
 | `open_workspace` | `snapshot_id` | Open an isolated working revision from a known snapshot. |
 | `inspect_workspace` | `workspace_id` | Read the revision, package version, manifest, exports, and entry point. |
 | `apply_change_set` | `workspace_id`, `expected_revision`, `idempotency_key`, `operations` | Validate a batch, derive caller-scoped call compatibility obligations, and apply it atomically. Returns the new revision, local-to-canonical identity mappings, and affected function identities. |
 | `verify_workspace` | `workspace_id`, `expected_revision` | Preview the verification report for an exact open revision. Check `report.report.status` for `VERIFIED`. The outer `report` is the backend reply, with `ok` and a nested verifier `report`. A returned reply can describe failed or inconclusive verification. |
-| `commit_workspace` | `workspace_id`, `expected_revision` | Verify again, write the package, and return `snapshot_id`, `package_path`, and `revision`. |
+| `commit_workspace` | `workspace_id`, `expected_revision` | Commit a persistable workspace after verification. Scalar workspaces return `UnsupportedProfile`. |
 | `build_package` | `snapshot_id`, `target` | Build a committed or imported snapshot for `linux-x86_64`. Returns an `artifact` path, `verification_status`, and an `exports` map of public names to Rust symbols. |
 
 Call `resources/read` with a URI. Parse the JSON in `result.contents[0].text`.
@@ -102,7 +102,7 @@ flowchart LR
     S --> B["Build artifact"]
 ```
 
-### Create an executable
+### Verify a scalar workspace
 
 Create package `answer` using `profile: "scalar"` and `language_version: "0.1.0"`. Call `apply_change_set` with the arguments below, replacing `WORKSPACE_ID` with the returned ID. The Change Set selects package version `1.0.0` independently of language version `0.1.0`. The example exposes `answer` publicly and selects the same parameterless function as the executable entry point.
 
@@ -140,30 +140,11 @@ Create package `answer` using `profile: "scalar"` and `language_version: "0.1.0"
 }
 ```
 
-1. Use the returned `revision` as `expected_revision` for `verify_workspace` and `commit_workspace`. Both calls also take `workspace_id`. Check `report.report.status` before committing.
-2. Call `build_package` with the committed `snapshot_id` and `target: "linux-x86_64"`. Run the returned `artifact` on the host. It prints `42` followed by a newline.
-3. Use `package_path` to move or share the package directory. It contains the manifest, protobuf table dumps and indexes, debug ProtoJSON, and the server's `package.json` metadata. Published directories live under `<state-dir>/packages/<name>/<version>`. [SPG package format](../library/README.md)
-
-To exercise a verification failure in a fresh workspace, change the returned literal to `41` while retaining the postcondition. The typed batch applies, the preview shows the verification problem, and commit rejects that revision.
-
-### Build a library
-
-Use the same example in a fresh package with a distinct name and omit `set_entry_point`. Keep the interface and binding, then verify, commit, and build as above. The artifact is a Rust `rlib`. Use `exports.answer` to find the generated symbol. This workflow uses the scalar Rust library adapter. [Stage 0 package emitter](../../tools/llmlang_mvp/stage0/src/backend.rs)
-
-### Revise an existing package
-
-1. Open a workspace on the committed snapshot. Read its selected version and current binding or entry point. Read the objects to be revised and capture their identities and `content_hash` values.
-2. Submit a Change Set selecting the new version with `set_version` and the current version as `expected_version`. For an object revision, provide both `previous` (the old identity) and `expected_hash` (its current content hash). The server creates a new immutable object. Update the intended bindings and entry point with their old implementation identities as preconditions.
-3. Inspect incoming call links and the returned `affected_functions`. Callers retain their exact pins until their bodies are revised. Add new caller implementations for any call sites that should use the new provider or requirement.
-4. Verify and commit the new revision. Read both snapshots by their IDs to inspect the old and new bindings at the object level. The existing published package version remains available.
-
-A batch can use forward `{"local":"id"}` references to objects it creates, provided the references are acyclic. Use `unbind` to remove an export, `set_entry_point` with a null implementation to clear that selection, and `remove_object` with the current content hash to remove an unreferenced local object. Clear its retained references in the same batch or earlier. See the live Change Set schema for the exact fields.
-
-### Import, pin, and reuse a dependency
-
-For distribution or work in another server state directory, copy the complete committed package directory and pass its absolute path to `import_package`. Import dependencies before their dependents, starting at the leaves of the graph. A stored manifest can select a dependency by its name and version or by its exact snapshot ID. The scalar `pin_dependency` operation takes an exact snapshot ID. Compare the returned snapshot ID with the source snapshot ID before building or opening a workspace.
-
-To use the `answer` package from a new consumer package, import it first if it is absent from the catalog. Read its function and contract identities from the authoring receipt or the snapshot graph. In the consumer's Change Set, include `pin_dependency` with `name: "answer"`, the provider's `snapshot_id`, and `expected_snapshot_id: null`. In the consumer's new local function body, use a call expression with the provider's implementation identity as `callee_impl_hash`, the required contract identity as `required_contract_hash`, and `arguments: []`. Select the consumer's local function as the entry point or bind it to a public interface, then verify and commit. To change an existing pin, pass its prior snapshot ID as `expected_snapshot_id`. Keep the old dependency available through a separate pin while retained functions still reference its objects, or remove those references before dropping the old pin. [Call expression syntax](lang.md#scalar-mcp-authoring)
+Pass the returned `revision` as `expected_revision` to `verify_workspace` with
+the workspace ID. A successful preview has `report.report.status` set to
+`VERIFIED`. Change the returned literal to `41` while keeping the
+postcondition to exercise a verification failure. The workspace and its report
+remain available until the server process exits.
 
 ### Build an existing native program
 
@@ -181,7 +162,7 @@ The native build resolves `<package>.main` through the selected version's bindin
 - On `MissingDependency`, import the required snapshot or named version and its transitive dependencies. On a verification failure, inspect the preview report and revise the contract or implementation according to the intended behavior. Check the Boogie and Z3 paths if the report indicates a tool error.
 - After an interrupted commit, reconnect to the same state directory and inspect the workspace for `state: "committed"` and its `snapshot_id`. The server recovers pending publication on startup. For further edits, open a workspace from the committed snapshot.
 
-Run the repository's end-to-end check from the root with `LLMLANG_STAGE0`, `BOOGIE`, and `Z3` set for the test process. The tests use temporary state and cover scalar authoring, verification rejection, execution, restart, versioning, reimport, and execution of the native package examples.
+Run the repository's end-to-end check from the root with `LLMLANG_STAGE0`, `BOOGIE`, and `Z3` set for the test process. The tests cover scalar editing, verification, and in-memory lifetime, as well as import, build, and execution of native package examples.
 
 ```sh
 python3 -B draft/server/tests/mcp_e2e.py draft/server/target/debug/llmlang-server

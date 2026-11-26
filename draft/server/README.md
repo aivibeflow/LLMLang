@@ -1,7 +1,7 @@
 # LLMLang Server MVP
 
-This Linux server implements scalar package authoring and scalar and native
-package compilation over MCP stdio. Run a
+This Linux server implements in-memory scalar editing and verification, and native
+package import and compilation over MCP stdio. Run a
 server per local OS principal with an owner-private state directory. Its
 Toolchain operations are also available through the Rust `Server` API.
 The service serializes operations within one process and holds an exclusive
@@ -44,13 +44,13 @@ Content Hash, and its dependency links. For a complete example request, see
 [the MCP integration test](tests/mcp_e2e.py).
 
 `apply_change_set` derives call compatibility obligations for the candidate
-and validates it before persisting a new revision. Each obligation records the
+and validates it before advancing the revision. Each obligation records the
 caller, callee, and caller-required contract. An obligation has no verification
 outcome until it has been checked.
-`verify_workspace` produces a preview. `commit_workspace` runs verification
-for the supplied revision, writes the package, and returns the committed
-snapshot ID and package path. It enables per-table debug ProtoJSON. Committed
-version directories are immutable. The configured destination is
+`verify_workspace` produces a preview. Scalar workspaces live for the
+lifetime of the server process. `commit_workspace` returns `UnsupportedProfile`
+for a scalar workspace. A successful source-backed commit requires verification
+and writes a package with per-table debug ProtoJSON to
 `<state-dir>/packages/<package-name>/<version>`.
 
 Each function row points to its canonical signature text in the
@@ -64,8 +64,7 @@ and snapshot ID used by this server. Import verifies the package, reconstructs
 its identity, and registers the snapshot. Import dependencies before importing a package that uses them. A dependency
 may select an imported package by its name and version or pin its snapshot ID.
 Native imports validate storage, graph references and selected interfaces.
-They report verification status `unchecked`. Scalar imports still require
-verification.
+They report verification status `unchecked`.
 
 `build_package` accepts `target: "linux-x86_64"`. The server starts from
 the selected public bindings and emits the functions reachable through exact
@@ -74,8 +73,7 @@ programs, the bound interface `<package>.main` selects an executable with
 `main() -> ExitStatus` or `main(args: LaunchArgs) -> ExitStatus`. Launch
 arguments retain their original Unix bytes. The native backend covers the
 standard library package, Hello World, the native syscall package, and the
-five draft syscall programs. The existing
-scalar executable convention prints its scalar result. Supported
+five draft syscall programs. Supported
 interface-only packages produce a Rust `rlib`.
 
 Compiler built-ins use the `builtin__` prefix. The server returns
@@ -99,5 +97,4 @@ python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llml
 ```
 
 The end-to-end test starts independent MCP client and server processes. It
-requires the real Boogie, Z3, and native build tools. It verifies commits,
-imports packages into fresh state, and executes the resulting binary.
+requires the real Boogie, Z3, and native build tools. It verifies scalar edits and their in-memory lifetime. The native test imports packages and executes the binaries.

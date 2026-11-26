@@ -102,6 +102,8 @@ def exercise(executable, directory):
         assert len(programs) == 5
         for package in [stdlib, hello, syscall_hello, dependency, *programs]:
             before = read_package(package)
+            assert json.loads(before["manifest.json"])["profile"] == "llmlang.spg.tables.v5"
+            assert before["functions.dump"].startswith(b"LLSPG\x05\r\n")
             imported = client.call("import_package", {"path": str(package)})
             assert imported["verification_status"] == "unchecked"
             build = client.call("build_package", {
@@ -120,7 +122,7 @@ def exercise(executable, directory):
                 stdlib_symbols = build["exports"]
                 stdlib_functions = json.loads((package / "functions.json").read_bytes())
                 syscall_impl, = (row["implHash"] for row in stdlib_functions
-                                 if "builtin__syscall(" in row["canonicalBody"]["stringValue"])
+                                 if "builtin__syscall(" in row["canonicalBody"])
                 continue
 
             reachable_stdlib = {name for name, symbol in stdlib_symbols.items()
@@ -129,18 +131,18 @@ def exercise(executable, directory):
                 assert reachable_stdlib == {"stdlib.syscall"}
                 raw_functions = json.loads((package / "functions.json").read_bytes())
                 assert len(raw_functions) == 358
-                assert all(row["canonicalBody"]["stringValue"].startswith("{\n")
+                assert all(row["canonicalBody"].startswith("{\n")
                            for row in raw_functions)
-                assert all("stdlib::syscall(" in row["canonicalBody"]["stringValue"]
+                assert all("stdlib::syscall(" in row["canonicalBody"]
                            for row in raw_functions)
-                assert all("builtin__" not in row["canonicalBody"]["stringValue"] for row in raw_functions)
+                assert all("builtin__" not in row["canonicalBody"] for row in raw_functions)
                 obligations = json.loads((package / "verification_obligations.json").read_bytes())
                 assert {row["callerImplHash"] for row in obligations
                         if row["calleeImplHash"] == syscall_impl} == {
                     row["implHash"] for row in raw_functions}
                 stdlib_trap = stdlib_symbols["stdlib.trap"].replace("llmlang_source_", "sha256:")
                 restorer, = (row["implHash"] for row in raw_functions
-                             if "stdlib::trap()" in row["canonicalBody"]["stringValue"])
+                             if "stdlib::trap()" in row["canonicalBody"])
                 extra, = (row for row in obligations if row["calleeImplHash"] != syscall_impl)
                 assert (extra["callerImplHash"], extra["calleeImplHash"]) == (restorer, stdlib_trap)
                 assert artifact.suffix == ".rlib"
@@ -152,7 +154,7 @@ def exercise(executable, directory):
             assert "builtin__" not in source
             body = source[source.index("{"):].rstrip()
             main, = json.loads((package / "functions.json").read_bytes())
-            assert main["canonicalBody"] == {"stringValue": body}
+            assert main["canonicalBody"] == body
             assert "typedSignature" not in main
             signatures = json.loads((package / "function_signatures.json").read_bytes())
             signature, = signatures

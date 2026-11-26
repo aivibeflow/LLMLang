@@ -43,6 +43,8 @@ At most one interface with a given name can be selected in a single version. Che
 
 ### FUNCTIONS
 
+This table describes the in-memory scalar projection. The repository dump stores source bodies according to ADR-033.
+
 | Field | Purpose |
 |---|---|
 | `impl_hash` | PK. Identifies the typed body, provided contract, and exact hash-relevant dependencies. |

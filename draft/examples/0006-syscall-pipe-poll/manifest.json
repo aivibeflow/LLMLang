@@ -1,1 +1,1 @@
-{"profile":"llmlang.spg.tables.v4","language_version":"0.1.0","dependencies":{"linux.syscalls":"v6.12"}}
+{"profile":"llmlang.spg.tables.v5","language_version":"0.1.0","dependencies":{"linux.syscalls":"v6.12"}}
