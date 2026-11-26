@@ -275,6 +275,34 @@ def check_rejected_edits(client, workspace, accepted, request):
         assert view["revision"] == accepted["revision"], (label, view)
 
 
+def check_scalar_builtin_access(client):
+    failure = {
+        **implementation("failure", constant(0), local("contract")),
+        "canonical_body": [["if", ["bool", True], [["fail", "DivisionByZero"]],
+                            [["return", constant(0)]]]],
+    }
+    declared_error = {
+        **contract("contract", 0),
+        "rules": [{"kind": "error_declaration", "error_label": "DivisionByZero"}],
+    }
+    operations = [declared_error, failure]
+    for package in ("stdlib.extra", "stdlib"):
+        workspace = create(client, package)
+        request = apply_request(workspace["workspace_id"], workspace["revision"],
+                                "builtin-access", operations)
+        allowed = package == "stdlib"
+        result = client.call("apply_change_set", request, succeeds=allowed)
+        if allowed:
+            assert "failure" in result["identities"], result
+        else:
+            assert result["code"] == "ValidationFailed", result
+            assert result["message"] == (
+                "builtin__fail may only be used in package stdlib (found in package stdlib.extra)"
+            ), result
+            current = client.call("inspect_workspace", {"workspace_id": workspace["workspace_id"]})
+            assert current["revision"] == workspace["revision"], current
+
+
 def read_object(client, uri):
     result = client.request("resources/read", uri=uri)
     assert result["contents"][0]["uri"] == uri, result
@@ -293,6 +321,7 @@ def exercise(executable, root, python):
         for tool in tools.values():
             assert tool["inputSchema"]["type"] == "object", tool
             assert tool["outputSchema"]["type"] == "object", tool
+        check_scalar_builtin_access(client)
         workspace = create(client, "demo")
         args = apply_request(workspace["workspace_id"], workspace["revision"], "first", first_operations())
         applied = client.call("apply_change_set", args)

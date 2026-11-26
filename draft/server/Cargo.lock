@@ -215,6 +215,7 @@ version = "0.1.0"
 dependencies = [
  "fs2",
  "llmlang-spg",
+ "proc-macro2",
  "quote",
  "rustix",
  "serde",

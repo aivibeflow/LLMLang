@@ -19,6 +19,7 @@ use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
 const VERSIONS: &[&str] = &["0.1.0"];
+const STDLIB: &str = "stdlib";
 type Result<T> = std::result::Result<T, ServerError>;
 
 #[derive(Debug)]
@@ -382,9 +383,12 @@ impl Server {
     }
 
     fn combined_package(&self, program: &Program) -> Result<Package> {
+        // Check the owner of each function while package rows are still separate.
+        check_builtin_access(program)?;
         let mut package = program.package();
         let include_native_calls = native::is_native(&package);
         for dependency in self.dependency_packages(program)?.values() {
+            check_builtin_access(dependency)?;
             for (table, rows) in &dependency.tables {
                 // Catalog selections are package-local. Dependencies supply pinned objects.
                 if matches!(
@@ -960,6 +964,38 @@ impl Server {
     }
 }
 
+fn check_builtin_access(program: &Program) -> Result<()> {
+    if program.name == STDLIB {
+        return Ok(());
+    }
+    for row in program.tables["functions"].values() {
+        let body = &row["canonical_body"];
+        let builtin = if let Some(source) = body.as_str() {
+            native::referenced_builtin(source)?
+        } else {
+            scalar_uses_fail(body).then(|| "builtin__fail".into())
+        };
+        if let Some(builtin) = builtin {
+            return Err(validation(format!(
+                "{builtin} may only be used in package {STDLIB} (found in package {})",
+                program.name
+            )));
+        }
+    }
+    Ok(())
+}
+
+fn scalar_uses_fail(node: &Value) -> bool {
+    match node {
+        Value::Array(items) => {
+            // `fail` is the canonical scalar lowering of `builtin__fail`.
+            items.first().is_some_and(|tag| tag == "fail") || items.iter().any(scalar_uses_fail)
+        }
+        Value::Object(fields) => fields.values().any(scalar_uses_fail),
+        _ => false,
+    }
+}
+
 fn check_state_layout(state: &State) -> Result<()> {
     let programs = state.snapshots.values().chain(
         state
@@ -1157,6 +1193,76 @@ struct Build {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn checks_native_builtin_access_at_import_and_build() {
+        let directory = tempfile::tempdir().unwrap();
+        let server_dir = Path::new(env!("CARGO_MANIFEST_DIR"));
+        let mut server =
+            Server::open(directory.path(), "python3", &server_dir.join("scalar.py")).unwrap();
+        let package = llmlang_spg::load(
+            &server_dir.join("../stdlib"),
+            VERSIONS,
+            LoadOptions::default(),
+        )
+        .unwrap();
+        let legacy = Program {
+            name: "legacy".into(),
+            selection: Selection {
+                version: Some("0.1.0".into()),
+                entry_point: None,
+            },
+            manifest: package.manifest.clone(),
+            tables: package.tables.clone(),
+        };
+        let id = snapshot_id(&legacy).unwrap();
+        let path = directory.path().join("legacy-package");
+        llmlang_spg::save(&path, &package, SaveOptions::default()).unwrap();
+        write_atomic(
+            &path.join("package.json"),
+            &PackageMetadata {
+                name: legacy.name.clone(),
+                selection: legacy.selection.clone(),
+                snapshot_id: id.clone(),
+            },
+        )
+        .unwrap();
+        let error = server
+            .call("import_package", json!({"path": path}))
+            .unwrap_err();
+        assert_eq!(error.code, "ValidationFailed");
+        assert!(error.message.starts_with("builtin__"));
+        assert!(error.message.ends_with("(found in package legacy)"));
+        assert!(!server.state.snapshots.contains_key(&id));
+
+        // Simulate a snapshot persisted before the ownership check was added.
+        server.state.snapshots.insert(id.clone(), legacy.clone());
+        let build_error = server
+            .call(
+                "build_package",
+                json!({
+                    "snapshot_id": id,
+                    "target": "linux-x86_64",
+                }),
+            )
+            .unwrap_err();
+        assert_eq!(build_error.code, error.code);
+        assert_eq!(build_error.message, error.message);
+        assert!(fs::read_dir(server.root.join("artifacts"))
+            .unwrap()
+            .next()
+            .is_none());
+
+        let mut stdlib = Program {
+            name: STDLIB.into(),
+            ..legacy
+        };
+        assert!(server.combined_package(&stdlib).is_ok());
+        stdlib.manifest.dependencies.insert(STDLIB.into(), id);
+        let dependency_error = server.combined_package(&stdlib).unwrap_err();
+        assert_eq!(dependency_error.code, error.code);
+        assert_eq!(dependency_error.message, error.message);
+    }
 
     #[test]
     fn recovers_published_package_after_interruption() {

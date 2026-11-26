@@ -40,8 +40,10 @@ jobs:
         run: rustup toolchain install 1.85.1 --profile minimal
       - name: Test the draft SPG library
         run: cargo +1.85.1 test --locked --manifest-path draft/library/Cargo.toml
-      - name: Build the draft server
-        run: cargo +1.85.1 build --locked --manifest-path draft/server/Cargo.toml
+      - name: Test and build the draft server
+        run: |
+          cargo +1.85.1 test --locked --manifest-path draft/server/Cargo.toml
+          cargo +1.85.1 build --locked --manifest-path draft/server/Cargo.toml
       - name: Run draft native packages through MCP
         run: |
           export RUSTUP_TOOLCHAIN=1.85.1

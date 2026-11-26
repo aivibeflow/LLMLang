@@ -78,10 +78,12 @@ five draft syscall programs. The existing
 scalar executable convention prints its scalar result. Supported
 interface-only packages produce a Rust `rlib`.
 
-Compiler built-ins use the `builtin__` prefix. Native code accesses them
-through [stdlib](../stdlib/README.md), whose implementations call the
-built-ins directly. Native lowering rejects direct references from other
-packages. The scalar text frontend currently provides `builtin__fail`.
+Compiler built-ins use the `builtin__` prefix. The server returns
+`ValidationFailed` for a direct reference outside [stdlib](../stdlib/README.md).
+It checks every function body in the package and its dependencies, including
+unbound implementations. The rule also covers scalar `fail` statements,
+which are the canonical form of `builtin__fail`. Other packages can use
+operations backed by built-ins through public `stdlib` interfaces.
 
 The compiler writes its Rust translation unit in a temporary directory and
 removes the directory when compilation ends. Executables and libraries go
