@@ -3,12 +3,6 @@ syntax = "proto3";
 package llmlang.spg.storage.v2;
 
 // Fields in an Object are unique and stored in increasing Unicode key order.
-// Read-only compatibility with the v1 repository profile.
-message LegacyRecord {
-  string key = 1;
-  Object content = 2;
-}
-
 message Object {
   repeated Field fields = 1;
 }

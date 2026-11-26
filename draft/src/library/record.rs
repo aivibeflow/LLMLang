@@ -8,7 +8,6 @@ mod wire {
     include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v2.rs"));
 }
 
-pub(crate) use wire::LegacyRecord;
 use wire::{value::Kind, Field, List, Object, Value as WireValue};
 
 impl Object {
@@ -123,39 +122,16 @@ impl WireValue {
     }
 }
 
-impl LegacyRecord {
-    pub(crate) fn new(key: &str, row: &Value) -> Result<Self> {
-        if key.is_empty() {
-            return Err(invalid("record key is empty"));
-        }
-        let fields = row
-            .as_object()
-            .ok_or_else(|| invalid("record content must be an object"))?;
-        Ok(Self {
-            key: key.into(),
-            content: Some(Object::encode_fields(fields, 0)?),
-        })
+/// Compute the logical Content Hash independently of the table encoding.
+pub fn content_hash(key: &str, row: &Value) -> Result<String> {
+    if key.is_empty() {
+        return Err(invalid("record key is empty"));
     }
-
-    pub(crate) fn parse(raw: &[u8]) -> Result<(Self, String, Value)> {
-        let record = Self::decode(raw).map_err(Error::Protobuf)?;
-        let row = Value::Object(
-            record
-                .content
-                .as_ref()
-                .ok_or_else(|| invalid("missing Protobuf record content"))?
-                .logical()?,
-        );
-        if Self::new(&record.key, &row)?.encode_to_vec() != raw {
-            return Err(invalid("noncanonical Protobuf record"));
-        }
-        let key = record.key.clone();
-        Ok((record, key, row))
-    }
-
-    pub(crate) fn proto_json(&self) -> Value {
-        json!({"key": self.key, "content": self.content.as_ref().unwrap().proto_json()})
-    }
+    let fields = row
+        .as_object()
+        .ok_or_else(|| invalid("record content must be an object"))?;
+    Object::encode_fields(fields, 0)?;
+    Ok(hex::encode(digest(key, row)?))
 }
 
 fn canonical_json(value: &Value, output: &mut Vec<u8>) -> Result<()> {
@@ -194,24 +170,6 @@ pub(crate) fn digest(key: &str, row: &Value) -> Result<[u8; 32]> {
     Ok(Sha256::digest(material).into())
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn generated_types_preserve_existing_record_bytes() {
-        let bytes = [
-            0x0a, 0x01, b'r', 0x12, 0x09, 0x0a, 0x07, 0x0a, 0x01, b'n', 0x12, 0x02, 0x18, 0x01,
-        ];
-        let row = json!({"n": -1});
-        let (record, key, decoded) =
-            TableRecord::parse("functions", crate::RepositoryProfile::Legacy, &bytes).unwrap();
-        assert_eq!(record.encode_to_vec(), bytes);
-        assert_eq!(key, "r");
-        assert_eq!(decoded, row);
-        assert_eq!(LegacyRecord::new("r", &row).unwrap().encode_to_vec(), bytes);
-    }
-}
 trait Column: Sized {
     fn read(value: Option<&Value>) -> Result<Self>;
     fn logical(&self) -> Result<Option<Value>>;
@@ -292,12 +250,11 @@ impl Column for WireValue {
 }
 
 macro_rules! table_records {
-    ($($table:literal => $name:ident {
+    ($($table:literal => $variant:ident($name:ident) {
         $($field:ident: ($required:literal, $json_name:literal)),* $(,)?
     }),* $(,)?) => {
         pub(crate) enum TableRecord {
-            Legacy(LegacyRecord),
-            $($name(wire::$name)),*
+            $($variant(wire::$name)),*
         }
 
         impl TableRecord {
@@ -313,7 +270,7 @@ macro_rules! table_records {
                                 return Err(invalid(format!("{table}: unknown column {field}")));
                             }
                         }
-                        Ok(Self::$name(wire::$name {
+                        Ok(Self::$variant(wire::$name {
                             key: key.into(),
                             $($field: {
                                 let value = fields.get(stringify!($field));
@@ -328,11 +285,7 @@ macro_rules! table_records {
                 }
             }
 
-            pub(crate) fn parse(table: &str, profile: crate::RepositoryProfile, raw: &[u8]) -> Result<(Self, String, Value)> {
-                if profile == crate::RepositoryProfile::Legacy {
-                    let (record, key, row) = LegacyRecord::parse(raw)?;
-                    return Ok((Self::Legacy(record), key, row));
-                }
+            pub(crate) fn parse(table: &str, raw: &[u8]) -> Result<(Self, String, Value)> {
                 match table {
                     $($table => {
                         let record = wire::$name::decode(raw).map_err(Error::Protobuf)?;
@@ -345,7 +298,7 @@ macro_rules! table_records {
                             return Err(invalid(format!("{table}: noncanonical Protobuf record")));
                         }
                         let key = record.key.clone();
-                        Ok((Self::$name(record), key, row))
+                        Ok((Self::$variant(record), key, row))
                     }),*
                     _ => Err(invalid(format!("unknown SPG table {table}"))),
                 }
@@ -353,15 +306,13 @@ macro_rules! table_records {
 
             pub(crate) fn encode_to_vec(&self) -> Vec<u8> {
                 match self {
-                    Self::Legacy(record) => record.encode_to_vec(),
-                    $(Self::$name(record) => record.encode_to_vec()),*
+                    $(Self::$variant(record) => record.encode_to_vec()),*
                 }
             }
 
             pub(crate) fn proto_json(&self) -> Value {
                 match self {
-                    Self::Legacy(record) => record.proto_json(),
-                    $(Self::$name(record) => {
+                    $(Self::$variant(record) => {
                         let mut result = Map::new();
                         result.insert("key".into(), json!(record.key));
                         $(if let Some(value) = Column::proto_json(&record.$field) {
@@ -375,23 +326,23 @@ macro_rules! table_records {
     };
 }
 table_records! {
-    "versions" => VersionRecord {
+    "versions" => Version(VersionRecord) {
         version_hash: (true, "versionHash"),
         version: (true, "version"),
         binding_hash: (true, "bindingHash"),
     },
-    "interfaces" => InterfaceRecord {
+    "interfaces" => Interface(InterfaceRecord) {
         interface_hash: (true, "interfaceHash"),
         name: (true, "name"),
         public_contract_hash: (true, "publicContractHash"),
     },
-    "functions" => FunctionRecord {
+    "functions" => Function(FunctionRecord) {
         impl_hash: (true, "implHash"),
         typed_signature: (true, "typedSignature"),
         canonical_body: (true, "canonicalBody"),
         provided_contract_hash: (true, "providedContractHash"),
     },
-    "contracts" => ContractRecord {
+    "contracts" => Contract(ContractRecord) {
         contract_hash: (true, "contractHash"),
         contract_kind: (true, "contractKind"),
         profile: (true, "profile"),
@@ -400,7 +351,7 @@ table_records! {
         user_request_texts: (true, "userRequestTexts"),
         review_records: (true, "reviewRecords"),
     },
-    "contract_rules" => ContractRuleRecord {
+    "contract_rules" => ContractRule(ContractRuleRecord) {
         contract_hash: (true, "contractHash"),
         rule_hash: (true, "ruleHash"),
         kind: (true, "kind"),
@@ -408,36 +359,36 @@ table_records! {
         predicate: (false, "predicate"),
         check_boundary: (false, "checkBoundary"),
     },
-    "bindings" => BindingRecord {
+    "bindings" => Binding(BindingRecord) {
         version_hash: (true, "versionHash"),
         interface_hash: (true, "interfaceHash"),
         impl_hash: (true, "implHash"),
     },
-    "structures" => StructureRecord {
+    "structures" => Structure(StructureRecord) {
         struct_impl_hash: (true, "structImplHash"),
         type_hash: (true, "typeHash"),
         contract_hash: (false, "contractHash"),
         canonical_declaration: (true, "canonicalDeclaration"),
     },
-    "structure_types" => StructureTypeRecord {
+    "structure_types" => StructureType(StructureTypeRecord) {
         type_hash: (true, "typeHash"),
         identity_hash: (true, "identityHash"),
         aggregate_kind: (true, "aggregateKind"),
         ordered_member_types: (true, "orderedMemberTypes"),
         representation_requirements: (true, "representationRequirements"),
     },
-    "structure_layouts" => StructureLayoutRecord {
+    "structure_layouts" => StructureLayout(StructureLayoutRecord) {
         layout_hash: (true, "layoutHash"),
         type_hash: (true, "typeHash"),
         target_abi_profile: (true, "targetAbiProfile"),
         layout_descriptor: (true, "layoutDescriptor"),
     },
-    "structure_bindings" => StructureBindingRecord {
+    "structure_bindings" => StructureBinding(StructureBindingRecord) {
         version_hash: (true, "versionHash"),
         name: (true, "name"),
         struct_impl_hash: (true, "structImplHash"),
     },
-    "verification_obligations" => VerificationObligationRecord {
+    "verification_obligations" => VerificationObligation(VerificationObligationRecord) {
         obligation_hash: (true, "obligationHash"),
         kind: (true, "kind"),
         caller_impl_hash: (true, "callerImplHash"),
@@ -447,7 +398,7 @@ table_records! {
         caller_required_contract_hash: (false, "callerRequiredContractHash"),
         verification_context_hash: (true, "verificationContextHash"),
     },
-    "verification_runs" => VerificationRunRecord {
+    "verification_runs" => VerificationRun(VerificationRunRecord) {
         run_id: (true, "runId"),
         obligation_hash: (true, "obligationHash"),
         status: (true, "status"),

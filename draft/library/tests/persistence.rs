@@ -113,6 +113,12 @@ fn rejects_invalid_versions_indexes_and_frames() {
     save(&path, &package, SaveOptions::default()).unwrap();
     assert!(load(&path, &["9.9.9"], LoadOptions::default()).is_err());
     let manifest = read(&path, "manifest.json");
+    let old_manifest = String::from_utf8(manifest.clone())
+        .unwrap()
+        .replace("llmlang.spg.tables.v2", "llmlang.spg.tables.v1");
+    fs::write(path.join("manifest.json"), old_manifest).unwrap();
+    let error = load(&path, VERSIONS, LoadOptions::default()).unwrap_err();
+    assert!(error.to_string().contains("unsupported repository profile"));
     fs::write(path.join("manifest.json"), b"{}").unwrap();
     assert!(load(&path, VERSIONS, LoadOptions::default()).is_err());
     fs::write(path.join("manifest.json"), manifest).unwrap();
