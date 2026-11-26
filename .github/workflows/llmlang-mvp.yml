@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - "tools/llmlang_mvp/**"
+      - "draft/library/**"
+      - "draft/server/**"
+      - "draft/src/library/**"
+      - "draft/src/server/**"
       - "research/language-design/PROTOTYPES/CLI-WORKLOADS-01/**"
       - ".github/workflows/llmlang-mvp.yml"
   workflow_dispatch:
@@ -38,6 +42,11 @@ jobs:
         run: |
           cargo build --offline --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
           cargo test --offline --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
+      - name: Exercise scalar package authoring through the MCP client
+        run: |
+          cargo build --locked --manifest-path draft/server/Cargo.toml
+          export LLMLANG_STAGE0="$PWD/tools/llmlang_mvp/stage0/target/debug/llmlang-stage0"
+          python -B draft/server/tests/mcp_e2e.py draft/server/target/debug/llmlang-server
       - name: Check scalar model in Lean
         run: |
           curl --proto '=https' --tlsv1.2 -fsSL https://raw.githubusercontent.com/leanprover/elan/58e8d545e33641f66dbcbd22c4283109e71757be/elan-init.sh | sh -s -- -y --default-toolchain leanprover/lean4:v4.36.0

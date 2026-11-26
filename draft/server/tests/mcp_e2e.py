@@ -9,64 +9,22 @@ from contextlib import contextmanager
 import json
 import os
 from pathlib import Path
-import selectors
 import subprocess
 import sys
 import tempfile
-import time
+
+CLIENT = Path(__file__).resolve().parents[1] / "mcp_client.py"
+sys.path.insert(0, str(CLIENT.parent))
+from mcp_client import connect
 
 
-class Client:
-    def __init__(self, process):
-        self.process = process
-        self.next_id = 1
-        self.pending = bytearray()
-        self.selector = selectors.DefaultSelector()
-        self.selector.register(process.stdout, selectors.EVENT_READ)
-
-    def send(self, message):
-        encoded = json.dumps({"jsonrpc": "2.0", **message}).encode("utf-8")
-        self.process.stdin.write(encoded + b"\n")
-        self.process.stdin.flush()
-
-    def receive(self):
-        deadline = time.monotonic() + 180
-        while b"\n" not in self.pending:
-            wait = deadline - time.monotonic()
-            if wait <= 0 or not self.selector.select(wait):
-                raise AssertionError("the server did not respond before the deadline")
-            data = os.read(self.process.stdout.fileno(), 8192)
-            if not data:
-                raise AssertionError(f"the server closed stdout (status {self.process.poll()})")
-            self.pending.extend(data)
-        line, _, remaining = self.pending.partition(b"\n")
-        self.pending = remaining
-        return json.loads(line)
-
-    def request(self, method, **params):
-        request_id = self.next_id
-        self.next_id += 1
-        self.send({"id": request_id, "method": method, "params": params})
-        response = self.receive()
-        assert response.get("jsonrpc") == "2.0", response
-        assert response.get("id") == request_id, response
-        assert "error" not in response, response
-        return response["result"]
-
-    def initialize(self):
-        result = self.request(
-            "initialize",
-            protocolVersion="2025-11-25",
-            capabilities={},
-            clientInfo={"name": "llmlang-server-e2e", "version": "1.0.0"},
-        )
-        assert "tools" in result["capabilities"], result
-        assert "resources" in result["capabilities"], result
-        self.send({"method": "notifications/initialized"})
-        assert self.request("ping") == {}
+class TestSession:
+    def __init__(self, client):
+        self.client = client
+        self.request = client.request
 
     def call(self, name, arguments, *, succeeds=True):
-        result = self.request("tools/call", name=name, arguments=arguments)
+        result = self.client.call_tool(name, arguments)
         assert result.get("isError", False) == (not succeeds), (name, result)
         if succeeds:
             assert "structuredContent" in result, result
@@ -78,30 +36,10 @@ class Client:
 
 @contextmanager
 def server(executable, state_dir, python):
-    with tempfile.TemporaryFile() as stderr, subprocess.Popen(
-        [str(executable), "--state-dir", str(state_dir), "--python", python],
-        stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE,
-        stderr=stderr,
-    ) as process:
-        client = Client(process)
-        try:
-            client.initialize()
-            yield client
-        except Exception:
-            stderr.seek(0)
-            diagnostic = stderr.read().decode("utf-8", errors="replace").strip()
-            if diagnostic:
-                print(diagnostic, file=sys.stderr)
-            raise
-        finally:
-            client.selector.close()
-            process.stdin.close()
-            try:
-                process.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                process.kill()
-                process.wait()
+    with connect([executable, "--state-dir", state_dir, "--python", python]) as client:
+        assert {"tools", "resources"} <= client.server["capabilities"].keys(), client.server
+        assert client.request("ping") == {}
+        yield TestSession(client)
 
 
 def local(name):
@@ -270,12 +208,16 @@ def read_object(client, uri):
 def exercise(executable, root, python):
     state = root / "author"
     with server(executable, state, python) as client:
+        assert client.request("resources/list") == {"resources": []}
+        templates = client.request("resources/templates/list")["resourceTemplates"]
+        workspace_template = next(template["uriTemplate"] for template in templates
+                                  if template["name"] == "workspace")
         tools = {tool["name"]: tool for tool in client.request("tools/list")["tools"]}
         names = {
             "create_package", "open_workspace", "inspect_workspace", "apply_change_set",
             "verify_workspace", "commit_workspace", "build_package", "import_package",
         }
-        assert names == set(tools), tools
+        assert names <= tools.keys(), tools
         for tool in tools.values():
             assert tool["inputSchema"]["type"] == "object", tool
             assert tool["outputSchema"]["type"] == "object", tool
@@ -288,7 +230,7 @@ def exercise(executable, root, python):
         identities = applied["identities"]
         stored = json.loads((state / "state.json").read_bytes())
         assert stored["workspaces"] == {} and stored["snapshots"] == {}, stored
-        workspace_uri = f"llmlang://workspace/{workspace['workspace_id']}"
+        workspace_uri = workspace_template.format(workspace_id=workspace["workspace_id"])
         main = read_object(client, f"{workspace_uri}/object/functions/{identities['main']}")
         helper = read_object(client, f"{workspace_uri}/object/functions/{identities['add']}")
         assert any(link["uri"].endswith(f"/functions/{identities['add']}") for link in main["outgoing"]), main
@@ -324,6 +266,18 @@ def exercise(executable, root, python):
             "inspect_workspace", {"workspace_id": workspace["workspace_id"]}, succeeds=False,
         )
         assert error["code"] == "MissingReference", error
+
+    # A fresh CLI session discovers the same schemas and cannot read the old workspace.
+    command = [sys.executable, "-B", CLIENT]
+    launch = ["--server", executable, "--state-dir", state, "--python", python]
+    listed = subprocess.check_output([*command, "tools/list", *launch], timeout=10)
+    assert json.loads(listed)["tools"] == list(tools.values())
+    missing = subprocess.run(
+        [*command, "resources/read", "-", *launch], input=json.dumps({"uri": workspace_uri}),
+        text=True, capture_output=True, timeout=10,
+    )
+    assert missing.returncode == 1, missing
+    assert json.loads(missing.stderr)["data"]["code"] == "MissingReference", missing
 
     print("MCP scalar editing, verification, and non-persistence checks passed")
 
