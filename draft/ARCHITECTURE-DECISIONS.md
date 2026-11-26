@@ -14,3 +14,4 @@
 - [ADR-026 — Structure contracts and invariant verification](adr/026-structure-contracts-and-invariant-verification.md) — Accepted on 2026-11-26.
 - [ADR-027 — Relational projection for the scalar SPG](adr/027-scalar-spg-relational-projection.md) — Accepted on 2026-11-26.
 - [ADR-028 — Relational projection for structures](adr/028-structure-relational-projection.md) — Proposed on 2026-11-26.
+- [ADR-029 — Caller-scoped verification obligations](adr/029-caller-scoped-verification-obligations.md) — Proposed on 2026-11-26.
