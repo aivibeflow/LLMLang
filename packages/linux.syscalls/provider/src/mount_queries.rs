@@ -99,7 +99,7 @@ pub fn listmount(after: u64, capacity: usize) -> Result<Vec<u64>, SyscallError> 
     let request = MountIdReq::new(LSMT_ROOT, after);
     let mut mounts = vec![0_u64; capacity];
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             LISTMOUNT,
             [
                 (&request as *const MountIdReq) as usize,
@@ -133,7 +133,7 @@ pub fn statmount(mount_id: u64) -> Result<MountBasic, SyscallError> {
         tail: [0; 52],
     };
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             STATMOUNT,
             [
                 (&request as *const MountIdReq) as usize,

@@ -118,7 +118,7 @@ fn set(
     mode: XattrMode,
 ) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 subject,
@@ -139,7 +139,7 @@ fn get(
     buffer: Option<&mut [u8]>,
 ) -> Result<usize, SyscallError> {
     with_buffer(buffer, |address, length| unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [subject, name.as_ptr() as usize, address, length, 0, 0],
         )
@@ -148,12 +148,12 @@ fn get(
 
 fn list(number: usize, subject: usize, buffer: Option<&mut [u8]>) -> Result<usize, SyscallError> {
     with_buffer(buffer, |address, length| unsafe {
-        abi::call(number, [subject, address, length, 0, 0, 0])
+        abi::invoke(number, [subject, address, length, 0, 0, 0])
     })
 }
 
 fn remove(number: usize, subject: usize, name: &CStr) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(number, [subject, name.as_ptr() as usize, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(number, [subject, name.as_ptr() as usize, 0, 0, 0, 0]) })
 }
 
 fn with_buffer(

@@ -26,11 +26,11 @@ fn copy_bytes(input: BorrowedFd<'_>, output: BorrowedFd<'_>) -> Result<(), Box<d
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (source, destination) = cli_paths()?;
-    let input = openat(Directory::Current, &source, OpenOptions { flags: O_RDONLY, mode: 0 })?;
+    let input = openat(Directory::Current, &source, OpenOptions { flags: O_RDONLY | O_CLOEXEC, mode: 0 })?;
     let output = match openat(
         Directory::Current,
         &destination,
-        OpenOptions { flags: O_WRONLY | O_CREAT | O_EXCL, mode: 0o600 },
+        OpenOptions { flags: O_WRONLY | O_CREAT | O_EXCL | O_CLOEXEC, mode: 0o600 },
     ) {
         Ok(output) => output,
         Err(error) => {

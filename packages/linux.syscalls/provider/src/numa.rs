@@ -92,7 +92,7 @@ fn policy_at(address: usize, flags: usize) -> Result<NumaPolicyState, SyscallErr
     let mut mode = -1_i32;
     let mut nodes = NumaNodeMask::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             GET_MEMPOLICY,
             [
                 (&mut mode as *mut i32) as usize,
@@ -134,7 +134,7 @@ pub fn get_mempolicy_mapping(mapping: &Mapping) -> Result<NumaPolicyState, Sysca
 /// Changes the calling thread's policy for subsequent allocation decisions.
 pub fn set_mempolicy(policy: &NumaPolicy) -> Result<(), SyscallError> {
     let (mode, mask, maxnode) = policy.arguments();
-    decode_zero(unsafe { abi::call(SET_MEMPOLICY, [mode, mask, maxnode, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(SET_MEMPOLICY, [mode, mask, maxnode, 0, 0, 0]) })
 }
 
 /// Applies the selected policy to the full owned private mapping. The
@@ -146,7 +146,7 @@ pub fn mbind(mapping: &mut Mapping, policy: &NumaPolicy) -> Result<(), SyscallEr
     }
     let (mode, mask, maxnode) = policy.arguments();
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             MBIND,
             [
                 region.as_ptr() as usize,
@@ -187,7 +187,7 @@ pub fn move_pages(
         .collect::<Result<Vec<_>, _>>()?;
     let mut statuses = vec![i32::MIN; pages.len()];
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             MOVE_PAGES,
             [
                 0,
@@ -225,7 +225,7 @@ pub fn migrate_pages(from: &NumaNodeMask, to: &NumaNodeMask) -> Result<usize, Sy
         ));
     }
     decode_nonnegative(unsafe {
-        abi::call(
+        abi::invoke(
             MIGRATE_PAGES,
             [
                 0,
@@ -250,7 +250,7 @@ pub fn set_mempolicy_home_node(mapping: &mut Mapping, node: u16) -> Result<(), S
         return Err(SyscallError::InvalidInput("mapping has no live region"));
     }
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SET_MEMPOLICY_HOME_NODE,
             [
                 region.as_ptr() as usize,

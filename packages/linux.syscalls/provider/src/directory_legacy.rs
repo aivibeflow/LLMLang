@@ -15,14 +15,14 @@ const RECORD_ALIGNMENT: usize = 8;
 /// permission rules. The node type is fixed and the device argument is zero.
 pub fn mknod(path: &CStr, permissions: u16) -> Result<(), SyscallError> {
     let mode = fifo_mode(permissions)?;
-    decode_zero(unsafe { abi::call(MKNOD, [path.as_ptr() as usize, mode, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(MKNOD, [path.as_ptr() as usize, mode, 0, 0, 0, 0]) })
 }
 
 /// Creates a FIFO at a path relative to the selected directory.
 pub fn mknodat(dir: Directory<'_>, path: &CStr, permissions: u16) -> Result<(), SyscallError> {
     let mode = fifo_mode(permissions)?;
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             MKNODAT,
             [dir.argument(), path.as_ptr() as usize, mode, 0, 0, 0],
         )
@@ -42,7 +42,7 @@ fn fifo_mode(permissions: u16) -> Result<usize, SyscallError> {
 /// Linux ABI follows a final symlink and has no flags argument.
 pub fn fchmodat(dir: Directory<'_>, path: &CStr, mode: u16) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             FCHMODAT,
             [
                 dir.argument(),
@@ -76,7 +76,7 @@ pub fn getdents<'a>(
         SyscallError::InvalidInput("directory buffer capacity exceeds Linux unsigned int")
     })?;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             GETDENTS,
             [
                 fd.as_raw_fd() as usize,

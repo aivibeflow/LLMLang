@@ -26,7 +26,7 @@ pub fn setrlimit(resource: LimitResource, limits: Rlimit) -> Result<(), SyscallE
     }
     let values = [soft, hard];
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SETRLIMIT,
             [resource as usize, values.as_ptr() as usize, 0, 0, 0, 0],
         )
@@ -67,7 +67,7 @@ pub fn sched_getaffinity() -> Result<CpuAffinity, SyscallError> {
     let mut words = [0_u64; AFFINITY_WORDS];
     let size = std::mem::size_of_val(&words);
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SCHED_GETAFFINITY,
             [0, size, words.as_mut_ptr() as usize, 0, 0, 0],
         )
@@ -84,7 +84,7 @@ pub fn sched_getaffinity() -> Result<CpuAffinity, SyscallError> {
 pub fn sched_setaffinity(affinity: &CpuAffinity) -> Result<(), SyscallError> {
     let size = std::mem::size_of_val(&affinity.words);
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SCHED_SETAFFINITY,
             [0, size, affinity.words.as_ptr() as usize, 0, 0, 0],
         )

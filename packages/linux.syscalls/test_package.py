@@ -37,6 +37,41 @@ class PackageBindingTests(unittest.TestCase):
         with self.assertRaisesRegex(package.PackageError, "number mismatch for read"):
             package.verify_native_numbers({"read": 0}, {"src/abi.rs": b"const READ: usize = 1;"})
 
+    def test_missing_or_conflicting_llmlang_prototype_is_rejected(self):
+        declarations = package.load_prototypes()
+        declaration = declarations.pop("open")
+        self.assertEqual(declaration, "pub fn open(path: CString, options: OpenOptions) -> OpenResult;")
+        with self.assertRaisesRegex(ValueError, "open: missing LLMLang prototype"):
+            package.load_contracts(prototypes=declarations)
+        declarations["open"] = declaration.replace("OpenResult", "UnitResult")
+        with self.assertRaisesRegex(ValueError, "open: LLMLang prototype disagrees"):
+            package.load_contracts(prototypes=declarations)
+
+    def test_snapshot_loads_the_declared_prototype(self):
+        from storage import load_record
+
+        name = "open"
+        source = load_record(package.LOCK, package.SNAPSHOT_SOURCE + "contracts." + name)
+        self.assertEqual(source["declaration"], package.load_prototypes()[name])
+        operations, _ = package.archived_inputs(package.LOCK, [name])
+        self.assertEqual(operations[name].interface_revision, self.operations[name].interface_revision)
+
+    def test_provider_definition_must_match_the_public_prototype(self):
+        name = "src/open.llmlang"
+        modified = {**self.files, name: self.files[name].replace(
+            b"options: OpenOptions", b"options: U32", 1,
+        )}
+        with self.assertRaisesRegex(package.PackageError, "definition of open disagrees"):
+            package.current_bindings(self.operations, modified)
+
+    def test_provider_native_intrinsics_must_match_the_pinned_catalog(self):
+        source = "src/native.llmlang"
+        modified = {**self.files, source: self.files[source].replace(
+            b"syscall(0, words)", b"syscall(999, words)", 1,
+        )}
+        with self.assertRaisesRegex(package.PackageError, "active pinned Linux ABI table"):
+            package.current_bindings(self.operations, modified)
+
     def test_missing_or_ambiguous_binding_is_rejected(self):
         with self.assertRaisesRegex(package.PackageError, "missing pinned"):
             package.resolve(["read"], {}, self.bindings)

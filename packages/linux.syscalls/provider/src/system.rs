@@ -2,7 +2,7 @@
 use std::ffi::CStr;
 use std::os::raw::c_char;
 
-use crate::abi::call;
+use crate::abi::invoke;
 use crate::{decode_nonnegative, decode_write, decode_zero, SyscallError};
 
 const UNAME: usize = 63;
@@ -62,7 +62,7 @@ pub fn uname() -> Result<UtsName, SyscallError> {
         domain: [0; 65],
     };
     // Linux x86-64 writes one struct new_utsname.
-    decode_zero(unsafe { call(UNAME, [&mut value as *mut UtsName as usize, 0, 0, 0, 0, 0]) })?;
+    decode_zero(unsafe { invoke(UNAME, [&mut value as *mut UtsName as usize, 0, 0, 0, 0, 0]) })?;
     if [
         &value.system,
         &value.node,
@@ -115,7 +115,7 @@ pub fn sysinfo() -> Result<SystemInfo, SyscallError> {
     let mut value = SystemInfo::default();
     // Linux x86-64 writes one struct sysinfo.
     decode_zero(unsafe {
-        call(
+        invoke(
             SYSINFO,
             [&mut value as *mut SystemInfo as usize, 0, 0, 0, 0, 0],
         )
@@ -132,7 +132,7 @@ pub enum RandomMode {
 
 pub fn getrandom(buffer: &mut [u8], mode: RandomMode) -> Result<usize, SyscallError> {
     let raw = unsafe {
-        call(
+        invoke(
             GETRANDOM,
             [
                 buffer.as_mut_ptr() as usize,
@@ -149,7 +149,7 @@ pub fn getrandom(buffer: &mut [u8], mode: RandomMode) -> Result<usize, SyscallEr
 
 fn id(number: usize) -> Result<u32, SyscallError> {
     // Each caller selects a nullary identifier query.
-    let raw = unsafe { call(number, [0; 6]) };
+    let raw = unsafe { invoke(number, [0; 6]) };
     u32::try_from(decode_nonnegative(raw)?).map_err(|_| SyscallError::UnexpectedReturn(raw))
 }
 

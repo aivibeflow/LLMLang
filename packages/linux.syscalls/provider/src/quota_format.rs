@@ -46,7 +46,7 @@ impl From<u32> for QuotaFormat {
 pub fn quotactl_get_format(device: &CStr, kind: QuotaKind) -> Result<QuotaFormat, SyscallError> {
     let mut format = 0_u32;
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             QUOTACTL,
             [
                 Q_GETFMT | kind as usize,
@@ -69,7 +69,7 @@ pub fn quotactl_fd_get_format(
 ) -> Result<QuotaFormat, SyscallError> {
     let mut format = 0_u32;
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             QUOTACTL_FD,
             [
                 file.as_raw_fd() as usize,

@@ -47,7 +47,7 @@ impl fmt::Debug for FilePageMapping {
 impl Drop for FilePageMapping {
     fn drop(&mut self) {
         let _ = unsafe {
-            abi::call(
+            abi::invoke(
                 abi::MUNMAP,
                 [
                     self.address.as_ptr() as usize,
@@ -85,7 +85,7 @@ pub fn create_file_page_mapping(pages: &[FilePage]) -> Result<FilePageMapping, S
     // future-write seal bars writes and writable mappings while allowing the
     // read-only MAP_SHARED mapping required by remap_file_pages.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::FCNTL,
             [
                 fd.as_raw_fd() as usize,
@@ -99,7 +99,7 @@ pub fn create_file_page_mapping(pages: &[FilePage]) -> Result<FilePageMapping, S
     };
     decode_zero(raw)?;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::MMAP,
             [
                 0,
@@ -113,7 +113,7 @@ pub fn create_file_page_mapping(pages: &[FilePage]) -> Result<FilePageMapping, S
     };
     let base = decode_nonnegative(raw)?;
     let Some(address) = NonNull::new(base as *mut u8) else {
-        let _ = unsafe { abi::call(abi::MUNMAP, [base, FILE_MAPPING_PAGE_SIZE, 0, 0, 0, 0]) };
+        let _ = unsafe { abi::invoke(abi::MUNMAP, [base, FILE_MAPPING_PAGE_SIZE, 0, 0, 0, 0]) };
         return Err(SyscallError::UnexpectedReturn(raw));
     };
     Ok(FilePageMapping {
@@ -136,7 +136,7 @@ pub fn remap_file_pages(
     }
     let mapping = std::mem::ManuallyDrop::new(mapping);
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             REMAP_FILE_PAGES,
             [
                 mapping.address.as_ptr() as usize,

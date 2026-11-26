@@ -2,6 +2,7 @@ use std::arch::asm;
 
 pub(super) const READ: usize = 0;
 pub(super) const WRITE: usize = 1;
+pub(super) const OPEN: usize = 2;
 pub(super) const CLOSE: usize = 3;
 pub(super) const POLL: usize = 7;
 pub(super) const LSEEK: usize = 8;
@@ -67,12 +68,12 @@ pub(super) const FCHMODAT2: usize = 452;
 /// Callers must supply the syscall's exact arguments, layouts and valid pointers
 /// for its complete memory footprint, and observe its lifetime and state rules.
 #[inline]
-pub(super) unsafe fn call(number: usize, args: [usize; 6]) -> isize {
+unsafe fn enter<const NUMBER: usize>(args: [usize; 6]) -> isize {
     let result: isize;
     unsafe {
         asm!(
             "syscall",
-            inlateout("rax") number => result,
+            inlateout("rax") NUMBER => result,
             in("rdi") args[0],
             in("rsi") args[1],
             in("rdx") args[2],
@@ -86,3 +87,5 @@ pub(super) unsafe fn call(number: usize, args: [usize; 6]) -> isize {
     }
     result
 }
+
+include!(concat!(env!("OUT_DIR"), "/native_syscalls.rs"));

@@ -14,7 +14,9 @@ import subprocess
 import sys
 import tempfile
 
-from contracts.contracts import CONTRACTS_PATH, load_contracts, refinement, render
+from contracts.contracts import (
+    CONTRACTS_PATH, load_contracts, load_prototypes, parse_prototype, refinement, render,
+)
 
 PACKAGE = Path(__file__).resolve().parent
 ROOT = PACKAGE.parents[1]
@@ -225,10 +227,16 @@ def command(arguments, *, cwd=None, timeout=180):
 
 
 def provider_files(directory=PROVIDER):
-    sources = [directory / "Cargo.toml", *sorted((directory / "src").rglob("*.rs"))]
-    if len(sources) < 2:
+    sources = sorted(
+        path for suffix in ("*.rs", "*.llmlang")
+        for path in (directory / "src").rglob(suffix) if path.is_file()
+    )
+    if not sources:
         raise PackageError("missing provider source")
-    return {file.relative_to(directory).as_posix(): file.read_bytes() for file in sources}
+    project = [directory / "Cargo.toml"]
+    if (directory / "build.rs").is_file():
+        project.append(directory / "build.rs")
+    return {file.relative_to(directory).as_posix(): file.read_bytes() for file in [*project, *sources]}
 
 
 def archived_provider(path):
@@ -243,8 +251,11 @@ def archived_provider(path):
     for name, value in record["files"].items():
         relative = PurePosixPath(name)
         if relative.as_posix() != name or not (
-            name == "Cargo.toml"
-            or (relative.parts[:1] == ("src",) and ".." not in relative.parts and relative.suffix == ".rs")
+            name in {"Cargo.toml", "build.rs"}
+            or (
+                relative.parts[:1] == ("src",) and ".." not in relative.parts
+                and relative.suffix in {".rs", ".llmlang"}
+            )
         ):
             raise PackageError(f"invalid archived provider path: {name}")
         if record["schema"].endswith(".v2"):
@@ -269,6 +280,9 @@ def verify_native_numbers(entries, files):
             constants.setdefault(name, []).append(int(number))
     for name, number in entries.items():
         actual = constants.get(name.upper())
+        if "src/native.llmlang" in files and name in {"vfork", "rt_sigreturn"} and actual is None:
+            # These continuation numbers come exclusively from the checked LLMLang source.
+            continue
         if actual != [number]:
             raise PackageError(f"native ABI number mismatch for {name}: expected {number}, found {actual}")
 
@@ -276,8 +290,29 @@ def verify_native_numbers(entries, files):
 def current_bindings(operations, files):
     from catalog.catalog import load_catalog
 
+    for path, data in files.items():
+        if not path.endswith(".llmlang"):
+            continue
+        for declaration in re.findall(r"(?m)^\s*(pub\s+fn\s+[^{}]+?)\s*\{", data.decode()):
+            name, signature = parse_prototype(" ".join(declaration.split()) + ";", path)
+            if name in operations and operations[name].public.signature != signature:
+                raise PackageError(f"{path}: definition of {name} disagrees with its public prototype")
     catalog = load_catalog()
     native_rows = {record["name"]: record["number"] for record in catalog["syscalls"]}
+    if "src/native.llmlang" in files:
+        source = files["src/native.llmlang"].decode()
+        declarations = re.findall(
+            r"(?m)^(?:unsafe|stackless|restorer|kernel) fn ([a-z][a-z0-9_]*)\([^\n]+?"
+            r"\bsyscall\(([0-9]+)[,)]",
+            source,
+        )
+        declared = {name: int(number) for name, number in declarations}
+        active = {
+            row["name"]: row["number"]
+            for row in catalog["syscalls"] if row["package_status"] != "kernel-no-handler"
+        }
+        if len(declared) != len(declarations) or declared != active:
+            raise PackageError("LLMLang native entries must match the active pinned Linux ABI table")
     provider = {path: file_hash(data) for path, data in files.items()}
     bindings = {}
     required_numbers = {}
@@ -319,11 +354,16 @@ def archived_inputs(path, names):
     from storage import load_record
 
     record = load_record(path, SNAPSHOT_INPUTS)
-    if record.get("schema") == "llmlang.linux.syscalls.package.inputs.v1":
+    schema = record.get("schema")
+    prototypes = None
+    if schema == "llmlang.linux.syscalls.package.inputs.v1":
         data = base64.b64decode(record["contracts"], validate=True)
-    elif record.get("schema") == "llmlang.linux.syscalls.package.inputs.v2":
+    elif schema in {"llmlang.linux.syscalls.package.inputs.v2", "llmlang.linux.syscalls.package.inputs.v3"}:
         types = load_record(path, SNAPSHOT_SOURCE + "contracts.types")
         selected = [load_record(path, SNAPSHOT_SOURCE + "contracts." + name) for name in names]
+        if schema == "llmlang.linux.syscalls.package.inputs.v3":
+            prototypes = {name: item["declaration"] for name, item in zip(names, selected, strict=True)}
+            selected = [item["contract"] for item in selected]
         if {item["name"] for item in selected} != set(names):
             raise PackageError("archived contract name mismatch")
         data = canonical({**types, "operations": selected})
@@ -332,7 +372,7 @@ def archived_inputs(path, names):
     with tempfile.TemporaryDirectory(prefix="llmlang-syscall-contracts-") as temporary:
         source = Path(temporary) / "syscalls.json"
         source.write_bytes(data)
-        return load_contracts(source), record["evidence_inputs"]
+        return load_contracts(source, prototypes=prototypes), record["evidence_inputs"]
 
 
 def read_lock(path, names):
@@ -545,7 +585,8 @@ def main():
 
     try:
         if args.action == "export-lock":
-            operations = load_contracts()
+            prototypes = load_prototypes()
+            operations = load_contracts(prototypes=prototypes)
             files = provider_files()
             available = current_bindings(operations, files)
             if args.json:
@@ -564,14 +605,16 @@ def main():
                     for name, data in files.items()
                 })
                 records[SNAPSHOT_INPUTS] = {
-                    "schema": "llmlang.linux.syscalls.package.inputs.v2",
+                    "schema": "llmlang.linux.syscalls.package.inputs.v3",
                     "evidence_inputs": evidence_inputs(),
                 }
                 contract_source = json.loads(CONTRACTS_PATH.read_bytes(), object_pairs_hook=unique_object)
                 source_operations = contract_source.pop("operations")
                 records[SNAPSHOT_SOURCE + "contracts.types"] = contract_source
                 records.update({
-                    SNAPSHOT_SOURCE + "contracts." + item["name"]: item
+                    SNAPSHOT_SOURCE + "contracts." + item["name"]: {
+                        "declaration": prototypes[item["name"]], "contract": item,
+                    }
                     for item in source_operations
                 })
                 records.update({SNAPSHOT_INTERFACE + name: render(op) for name, op in operations.items()})

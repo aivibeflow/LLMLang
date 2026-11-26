@@ -17,7 +17,7 @@ const REBOOT_CAD_ON: usize = 0x89ab_cdef;
 /// path. Linux authorizes the operation with CAP_SYS_PACCT.
 pub fn acct(path: Option<&CStr>) -> Result<(), SyscallError> {
     let path = path.map_or(0, |string| string.as_ptr() as usize);
-    decode_zero(unsafe { abi::call(ACCT, [path, 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(ACCT, [path, 0, 0, 0, 0, 0]) })
 }
 
 /// Select the kernel Ctrl-Alt-Delete policy. This invokes one of the two
@@ -28,20 +28,20 @@ pub fn reboot_cad_control(enabled: bool) -> Result<(), SyscallError> {
     } else {
         REBOOT_CAD_OFF
     };
-    decode_zero(unsafe { abi::call(REBOOT, [REBOOT_MAGIC1, REBOOT_MAGIC2, mode, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(REBOOT, [REBOOT_MAGIC1, REBOOT_MAGIC2, mode, 0, 0, 0]) })
 }
 
 /// Remove any staged normal (non-crash) image through the segment-based ABI.
 /// No buffers or image are supplied, and the running kernel is unaffected.
 pub fn kexec_load_unload() -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(KEXEC_LOAD, [0; 6]) })
+    decode_zero(unsafe { abi::invoke(KEXEC_LOAD, [0; 6]) })
 }
 
 /// Remove any staged normal (non-crash) image through the descriptor-based
 /// ABI. The unload selector requires no live input descriptors or buffers.
 pub fn kexec_file_unload() -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             KEXEC_FILE_LOAD,
             [usize::MAX, usize::MAX, 0, 0, KEXEC_FILE_UNLOAD, 0],
         )

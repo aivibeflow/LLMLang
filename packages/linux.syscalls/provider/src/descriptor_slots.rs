@@ -39,7 +39,7 @@ fn replace(
 ) -> Result<LinuxFd, DupReplacementError> {
     let target_number = target.as_raw_fd() as usize;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 source.as_raw_fd() as usize,
@@ -103,12 +103,12 @@ pub(super) fn openat2_resolve(
     resolve: u64,
 ) -> Result<LinuxFd, SyscallError> {
     let how = OpenHow {
-        flags: (options.flags | O_CLOEXEC) as u32 as u64,
+        flags: options.flags as u32 as u64,
         mode: u64::from(options.mode),
         resolve,
     };
     LinuxFd::from_result(unsafe {
-        abi::call(
+        abi::invoke(
             OPENAT2,
             [
                 directory.as_raw_fd() as usize,

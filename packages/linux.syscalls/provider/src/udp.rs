@@ -47,7 +47,7 @@ impl Datagram4 {
 /// Create an IPv4 UDP socket with FD_CLOEXEC set atomically.
 pub fn socket_udp4() -> Result<UdpSocket4, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::SOCKET,
             [
                 AF_INET,
@@ -83,7 +83,7 @@ pub fn sendto_udp4(
 ) -> Result<usize, SyscallError> {
     let address = SockaddrIn::from(peer);
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::SENDTO,
             [
                 socket.as_fd().as_raw_fd() as usize,
@@ -109,7 +109,7 @@ pub fn recvfrom_udp4(socket: &UdpSocket4, buffer: &mut [u8]) -> Result<Datagram4
     let mut address = SockaddrIn::default();
     let mut address_len = size_of::<SockaddrIn>() as u32;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::RECVFROM,
             [
                 socket.as_fd().as_raw_fd() as usize,

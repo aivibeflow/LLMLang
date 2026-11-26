@@ -41,7 +41,7 @@ const _: () = {
 pub fn seccomp_get_action_avail(action: SeccompAction) -> Result<(), SyscallError> {
     let native = action as u32;
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SECCOMP,
             [
                 SECCOMP_GET_ACTION_AVAIL,
@@ -60,7 +60,7 @@ pub fn seccomp_get_action_avail(action: SeccompAction) -> Result<(), SyscallErro
 pub fn seccomp_get_notif_sizes() -> Result<SeccompNotifSizes, SyscallError> {
     let mut sizes = SeccompNotifSizes::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SECCOMP,
             [
                 SECCOMP_GET_NOTIF_SIZES,

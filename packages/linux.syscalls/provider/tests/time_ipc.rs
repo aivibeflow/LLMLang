@@ -27,7 +27,10 @@ fn clocks_validate_subsecond_fields_and_preserve_kernel_errors() {
 #[test]
 fn one_shot_timer_becomes_readable_and_reports_one_expiration() {
     let timer = timerfd_create(CLOCK_MONOTONIC, O_NONBLOCK).unwrap();
-    assert_eq!(fcntl_getfd(timer.as_fd()).unwrap() & 1, 1);
+    assert_eq!(fcntl_getfd(timer.as_fd()).unwrap() & 1, 0);
+    let marked_timer = timerfd_create(CLOCK_MONOTONIC, O_CLOEXEC).unwrap();
+    assert_eq!(fcntl_getfd(marked_timer.as_fd()).unwrap() & 1, 1);
+    close(marked_timer).unwrap();
     assert_eq!(
         timerfd_gettime(timer.as_fd()).unwrap(),
         TimerSpec::default()
@@ -69,8 +72,14 @@ fn eventfd_nonblocking_semaphore_and_epoll_status_preserve_io_boundaries() {
     let first = eventfd2(0, EFD_SEMAPHORE | O_NONBLOCK).unwrap();
     let second = eventfd2(1, O_NONBLOCK).unwrap();
     let epoll = epoll_create1(0).unwrap();
-    assert_eq!(fcntl_getfd(first.as_fd()).unwrap() & 1, 1);
-    assert_eq!(fcntl_getfd(epoll.as_fd()).unwrap() & 1, 1);
+    assert_eq!(fcntl_getfd(first.as_fd()).unwrap() & 1, 0);
+    let marked_event = eventfd2(0, O_CLOEXEC).unwrap();
+    assert_eq!(fcntl_getfd(marked_event.as_fd()).unwrap() & 1, 1);
+    close(marked_event).unwrap();
+    assert_eq!(fcntl_getfd(epoll.as_fd()).unwrap() & 1, 0);
+    let marked_epoll = epoll_create1(O_CLOEXEC).unwrap();
+    assert_eq!(fcntl_getfd(marked_epoll.as_fd()).unwrap() & 1, 1);
+    close(marked_epoll).unwrap();
     let first_event = EpollEvent {
         events: EPOLLIN,
         data: 0x0102_0304_0506_0708,

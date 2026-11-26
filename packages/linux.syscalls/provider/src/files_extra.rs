@@ -1,10 +1,9 @@
 use super::{
-    abi, decode_write, decode_zero, Directory, LinuxFd, OpenOptions, SyscallError, O_CLOEXEC,
+    abi, decode_write, decode_zero, Directory, LinuxFd, SyscallError,
 };
 use std::ffi::CStr;
 use std::os::fd::{AsRawFd, BorrowedFd};
 
-const OPEN: usize = 2;
 const STAT: usize = 4;
 const FSTAT: usize = 5;
 const LSTAT: usize = 6;
@@ -22,28 +21,10 @@ const CHMOD: usize = 90;
 const NEWFSTATAT: usize = 262;
 const FACCESSAT: usize = 269;
 
-/// Resolves a native Linux pathname and returns an owned close-on-exec file descriptor.
-pub fn open(path: &CStr, options: OpenOptions) -> Result<LinuxFd, SyscallError> {
-    let raw = unsafe {
-        abi::call(
-            OPEN,
-            [
-                path.as_ptr() as usize,
-                (options.flags | O_CLOEXEC) as usize,
-                options.mode as usize,
-                0,
-                0,
-                0,
-            ],
-        )
-    };
-    LinuxFd::from_result(raw)
-}
-
 /// Creates or truncates a file and opens it for writing. Native creat leaves CLOEXEC clear.
 pub fn creat(path: &CStr, mode: u16) -> Result<LinuxFd, SyscallError> {
     LinuxFd::from_result(unsafe {
-        abi::call(CREAT, [path.as_ptr() as usize, mode as usize, 0, 0, 0, 0])
+        abi::invoke(CREAT, [path.as_ptr() as usize, mode as usize, 0, 0, 0, 0])
     })
 }
 
@@ -78,7 +59,7 @@ pub fn readlink(path: &CStr, buffer: &mut [u8]) -> Result<usize, SyscallError> {
     let capacity = i32::try_from(len)
         .map_err(|_| SyscallError::InvalidInput("readlink capacity exceeds Linux int"))?;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             READLINK,
             [
                 path.as_ptr() as usize,
@@ -105,7 +86,7 @@ pub fn access(path: &CStr, mode: i32) -> Result<(), SyscallError> {
 /// Checks access relative to a directory using the three-argument Linux ABI.
 pub fn faccessat(dir: Directory<'_>, path: &CStr, mode: i32) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             FACCESSAT,
             [
                 dir.argument(),
@@ -124,12 +105,12 @@ pub fn truncate(path: &CStr, length: i64) -> Result<(), SyscallError> {
 }
 
 fn path_call(number: usize, path: &CStr, second: usize) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(number, [path.as_ptr() as usize, second, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(number, [path.as_ptr() as usize, second, 0, 0, 0, 0]) })
 }
 
 fn two_path_call(number: usize, first: &CStr, second: &CStr) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 first.as_ptr() as usize,
@@ -223,7 +204,7 @@ pub fn lstat(path: &CStr) -> Result<FileStat, SyscallError> {
 pub fn fstat(fd: BorrowedFd<'_>) -> Result<FileStat, SyscallError> {
     let mut result = NativeStat::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             FSTAT,
             [
                 fd.as_raw_fd() as usize,
@@ -242,7 +223,7 @@ pub fn fstat(fd: BorrowedFd<'_>) -> Result<FileStat, SyscallError> {
 pub fn newfstatat(dir: Directory<'_>, path: &CStr, flags: i32) -> Result<FileStat, SyscallError> {
     let mut result = NativeStat::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             NEWFSTATAT,
             [
                 dir.argument(),
@@ -260,7 +241,7 @@ pub fn newfstatat(dir: Directory<'_>, path: &CStr, flags: i32) -> Result<FileSta
 fn stat_path_call(number: usize, path: &CStr) -> Result<FileStat, SyscallError> {
     let mut result = NativeStat::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 path.as_ptr() as usize,

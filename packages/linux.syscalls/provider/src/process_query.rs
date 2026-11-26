@@ -72,7 +72,7 @@ impl From<NativeRlimit> for Rlimit {
 pub fn getrlimit(resource: LimitResource) -> Result<Rlimit, SyscallError> {
     let mut limits = NativeRlimit::default();
     let output = (&mut limits as *mut NativeRlimit) as usize;
-    decode_zero(unsafe { abi::call(GETRLIMIT, [resource as usize, output, 0, 0, 0, 0]) })?;
+    decode_zero(unsafe { abi::invoke(GETRLIMIT, [resource as usize, output, 0, 0, 0, 0]) })?;
     Ok(limits.into())
 }
 
@@ -80,7 +80,7 @@ pub fn getrlimit(resource: LimitResource) -> Result<Rlimit, SyscallError> {
 pub fn prlimit64(resource: LimitResource) -> Result<Rlimit, SyscallError> {
     let mut limits = NativeRlimit::default();
     let output = (&mut limits as *mut NativeRlimit) as usize;
-    decode_zero(unsafe { abi::call(PRLIMIT64, [0, resource as usize, 0, output, 0, 0]) })?;
+    decode_zero(unsafe { abi::invoke(PRLIMIT64, [0, resource as usize, 0, output, 0, 0]) })?;
     Ok(limits.into())
 }
 
@@ -95,13 +95,13 @@ fn nonnegative_i32(raw: isize) -> Result<i32, SyscallError> {
 /// Queries the process group ID. PID zero selects the current process.
 pub fn getpgid(pid: i32) -> Result<i32, SyscallError> {
     let pid = pid_argument(pid)?;
-    nonnegative_i32(unsafe { abi::call(GETPGID, [pid, 0, 0, 0, 0, 0]) })
+    nonnegative_i32(unsafe { abi::invoke(GETPGID, [pid, 0, 0, 0, 0, 0]) })
 }
 
 /// Queries the session ID. PID zero selects the current process.
 pub fn getsid(pid: i32) -> Result<i32, SyscallError> {
     let pid = pid_argument(pid)?;
-    nonnegative_i32(unsafe { abi::call(GETSID, [pid, 0, 0, 0, 0, 0]) })
+    nonnegative_i32(unsafe { abi::invoke(GETSID, [pid, 0, 0, 0, 0, 0]) })
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -115,7 +115,7 @@ pub struct SchedulePolicy {
 /// PID zero selects the calling thread.
 pub fn sched_getscheduler(pid: i32) -> Result<SchedulePolicy, SyscallError> {
     let pid = pid_argument(pid)?;
-    let value = nonnegative_i32(unsafe { abi::call(SCHED_GETSCHEDULER, [pid, 0, 0, 0, 0, 0]) })?;
+    let value = nonnegative_i32(unsafe { abi::invoke(SCHED_GETSCHEDULER, [pid, 0, 0, 0, 0, 0]) })?;
     Ok(SchedulePolicy {
         code: value & !SCHED_RESET_ON_FORK,
         reset_on_fork: value & SCHED_RESET_ON_FORK != 0,
@@ -134,7 +134,7 @@ pub fn sched_getparam(pid: i32) -> Result<i32, SyscallError> {
     let pid = pid_argument(pid)?;
     let mut parameter = NativeSchedParam::default();
     let output = (&mut parameter as *mut NativeSchedParam) as usize;
-    decode_zero(unsafe { abi::call(SCHED_GETPARAM, [pid, output, 0, 0, 0, 0]) })?;
+    decode_zero(unsafe { abi::invoke(SCHED_GETPARAM, [pid, output, 0, 0, 0, 0]) })?;
     match parameter.sched_priority {
         priority @ 0..=99 => Ok(priority),
         unexpected => Err(SyscallError::UnexpectedReturn(unexpected as isize)),
@@ -151,7 +151,7 @@ pub enum PriorityKind {
 /// Queries niceness for the selected process, process group, or user. Zero
 /// selects the current process, group, or real user ID, respectively.
 pub fn getpriority(kind: PriorityKind, who: u32) -> Result<i32, SyscallError> {
-    let raw = unsafe { abi::call(GETPRIORITY, [kind as usize, who as usize, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(GETPRIORITY, [kind as usize, who as usize, 0, 0, 0, 0]) };
     decode_nice(raw)
 }
 
@@ -257,7 +257,7 @@ const _: () = {
 pub fn getrusage(who: UsageScope) -> Result<ResourceUsage, SyscallError> {
     let mut usage = NativeRusage::default();
     let output = (&mut usage as *mut NativeRusage) as usize;
-    decode_zero(unsafe { abi::call(GETRUSAGE, [who as i32 as usize, output, 0, 0, 0, 0]) })?;
+    decode_zero(unsafe { abi::invoke(GETRUSAGE, [who as i32 as usize, output, 0, 0, 0, 0]) })?;
     Ok(ResourceUsage {
         user: usage.user.try_into()?,
         system: usage.system.try_into()?,

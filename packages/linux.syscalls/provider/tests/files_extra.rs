@@ -48,6 +48,16 @@ fn native_open_create_truncate_access_and_mode() {
     assert!(access(&path, 0).unwrap_err().is_errno(ENOENT));
     let file = creat(&path, 0o600).unwrap();
     assert_eq!(fcntl_getfd(file.borrow()).unwrap() & 1, 0);
+    let marked = open(
+        &path,
+        OpenOptions {
+            flags: O_RDONLY | O_CLOEXEC,
+            mode: 0,
+        },
+    )
+    .unwrap();
+    assert_eq!(fcntl_getfd(marked.borrow()).unwrap() & 1, 1);
+    close(marked).unwrap();
     assert_eq!(write(file.borrow(), b"abcde").unwrap(), 5);
     close(file).unwrap();
     assert_eq!(stat(&path).unwrap().size, 5);
@@ -64,7 +74,7 @@ fn native_open_create_truncate_access_and_mode() {
         },
     )
     .unwrap();
-    assert_eq!(fcntl_getfd(file.borrow()).unwrap() & 1, 1);
+    assert_eq!(fcntl_getfd(file.borrow()).unwrap() & 1, 0);
     let mut contents = [0xff; 4];
     assert_eq!(
         read(file.borrow(), &mut contents).unwrap(),

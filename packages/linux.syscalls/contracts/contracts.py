@@ -10,17 +10,54 @@ import re
 
 
 CONTRACTS_PATH = Path(__file__).with_name("syscalls.json")
+PROTOTYPES_PATH = CONTRACTS_PATH.parent.parent / "interface.llmlang"
 COMMANDS_PATH = Path(__file__).with_name("commands.json")
 SCHEMA = "llmlang-linux-syscall-contracts/v1"
 COMMAND_SCHEMA = "llmlang-linux-syscall-command-coverage/v1"
 PROFILE = "linux-x86_64-native-v1"
 IDENTIFIER = re.compile(r"[A-Za-z_][A-Za-z0-9_]*", re.ASCII)
+PROTOTYPE = re.compile(
+    rf"pub[ \t]+fn[ \t]+({IDENTIFIER.pattern})[ \t]*\(([^()]*)\)[ \t]*->[ \t]*({IDENTIFIER.pattern})[ \t]*;"
+)
 CLAUSE = re.compile(r"[a-z][a-z0-9-]*", re.ASCII)
 SYSFS_SELECTOR = re.compile(r"/sys(?:/[A-Za-z0-9_][A-Za-z0-9_.-]*)+", re.ASCII)
 
 
 class ContractError(ValueError):
     """Contract data does not conform to the supported syscall profile."""
+
+
+def parse_prototype(declaration, context):
+    match = PROTOTYPE.fullmatch(declaration)
+    if not match:
+        raise ContractError(f"{context}: expected a public function prototype")
+    name, arguments, result = match.groups()
+    parameters = []
+    if arguments.strip():
+        for argument in arguments.split(","):
+            parameter, separator, kind = argument.partition(":")
+            parameter, kind = parameter.strip(), kind.strip()
+            if not separator or not IDENTIFIER.fullmatch(parameter) or not IDENTIFIER.fullmatch(kind):
+                raise ContractError(f"{context}: expected a parameter name and type")
+            parameters.append({"name": parameter, "type": kind})
+    _unique([parameter["name"] for parameter in parameters], context)
+    return name, {"parameters": parameters, "result": result}
+
+
+def load_prototypes(path=PROTOTYPES_PATH):
+    lines = path.read_text(encoding="utf-8").splitlines()
+    if not lines or lines[0].split() != ["package", "linux.syscalls"]:
+        raise ContractError(f"{path}: expected package linux.syscalls")
+    declarations = {}
+    for number, line in enumerate(lines[1:], start=2):
+        declaration = line.partition("//")[0].strip()
+        if not declaration:
+            continue
+        name, _ = parse_prototype(declaration, f"{path}:{number}")
+        if name in declarations:
+            raise ContractError(f"{path}:{number}: duplicate public prototype {name}")
+        declarations[name] = declaration
+    return declarations
 
 
 def canonical_digest(domain, value):
@@ -205,13 +242,15 @@ def _contract(operation, role, signature, types, clauses):
     return Contract(canonical_digest(f"{SCHEMA}/{role}", record), **record)
 
 
-def load_contracts(path=CONTRACTS_PATH) -> dict[str, Operation]:
+def load_contracts(path=CONTRACTS_PATH, *, prototypes=None) -> dict[str, Operation]:
     """Read and validate a contract set without asserting any provider-body claim."""
     document = _read_json(path)
     _fields(document, ("schema", "profile", "types", "operations"), "contract set")
     if document["schema"] != SCHEMA or document["profile"] != PROFILE:
         raise ContractError("unsupported syscall contract schema or profile")
     types = _type_definitions(document["types"])
+    if prototypes is None and path == CONTRACTS_PATH:
+        prototypes = load_prototypes()
     operations = {}
     for item in _array(document["operations"], "operations"):
         _fields(item, ("name", "revision", "signature", "public", "provided", "sources"), "operation")
@@ -220,6 +259,13 @@ def load_contracts(path=CONTRACTS_PATH) -> dict[str, Operation]:
         if name in operations or type(revision) is not int or not 0 < revision < 2**63:
             raise ContractError(f"{name}: duplicate operation or invalid revision")
         signature = _signature(item["signature"], types, name)
+        if prototypes is not None:
+            if name not in prototypes:
+                raise ContractError(f"{name}: missing LLMLang prototype")
+            declared_name, declared_signature = parse_prototype(prototypes[name], name)
+            if declared_name != name or declared_signature != signature:
+                raise ContractError(f"{name}: LLMLang prototype disagrees with the contract signature")
+            signature = declared_signature
         selected_types = _signature_type_definitions(signature, types)
         public = _contract(name, "public", signature, selected_types, item["public"])
         provided = _contract(name, "provided", signature, selected_types, item["provided"])
@@ -232,6 +278,9 @@ def load_contracts(path=CONTRACTS_PATH) -> dict[str, Operation]:
         operations[name] = Operation(name, revision, interface_revision, public, provided, PROFILE, public.assumptions, sources)
     if not operations:
         raise ContractError("empty syscall contract set")
+    if prototypes is not None and prototypes.keys() != operations.keys():
+        extra = ", ".join(sorted(prototypes.keys() - operations.keys()))
+        raise ContractError(f"LLMLang prototypes without contracts: {extra}")
     return operations
 
 

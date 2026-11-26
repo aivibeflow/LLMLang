@@ -2,7 +2,7 @@ use linux_syscalls_provider::{
     capset_clear, chroot_tmpfs, close, fcntl_getfd, fspick, getppid, mount_setattr, mount_tmpfs,
     open_tree, openat, pivot_root_tmpfs, read, umount2_tmpfs, unshare_mount_private,
     ChangeRootError, Directory, MountNamespaceError, OpenOptions, ReadOutcome, SyscallError,
-    UnmountTmpfsError, O_RDONLY,
+    UnmountTmpfsError, O_CLOEXEC, O_RDONLY,
 };
 use std::ffi::{c_char, c_int, c_ulong, c_void};
 use std::fs::{self, File};
@@ -122,7 +122,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("LLMLANG_GUEST_CASE tmpfs_exact_detach_restores_cwd");
 
     let read_options = OpenOptions {
-        flags: O_RDONLY,
+        flags: O_RDONLY | O_CLOEXEC,
         mode: 0,
     };
     let cloned_file = openat(

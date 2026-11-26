@@ -1,5 +1,5 @@
 //! Fixed native handler probes in a disposable Linux child.
-use std::arch::{asm, global_asm};
+use std::arch::asm;
 use std::fmt;
 use std::mem::{align_of, offset_of, size_of};
 use std::os::fd::AsRawFd;
@@ -13,11 +13,10 @@ use crate::signal_wait::{raw_signal_wait, NativeSignalInfo};
 use crate::system::GETUID;
 use crate::{
     abi, decode_zero, fork, pipe2, read, wait4, ForkOutcome, IntervalDuration, IntervalSettings,
-    IntervalTimer, ReadOutcome, SyscallError, Timespec, UserSignal, EINTR,
+    IntervalTimer, ReadOutcome, SyscallError, Timespec, UserSignal, EINTR, O_CLOEXEC,
 };
 
 const RT_SIGACTION: usize = 13;
-const RT_SIGRETURN: usize = 15;
 const PAUSE: usize = 34;
 const RT_SIGQUEUEINFO: usize = 129;
 const RT_SIGSUSPEND: usize = 130;
@@ -32,27 +31,6 @@ const MASK_BYTES: usize = size_of::<u64>();
 const BLOCK_ALL: u64 = u64::MAX & !((1 << 8) | (1 << 18)); // Exclude SIGKILL and SIGSTOP.
 const ALT_STACK_WORDS: usize = 4096;
 const REPORT_BYTES: usize = 2 * size_of::<u64>();
-
-// This entry runs only as the kernel-installed disposition's restorer.
-// There is no callable interface for supplying a signal context.
-global_asm!(
-    ".pushsection .text.llmlang_fixed_signal_restorer,\"ax\",@progbits",
-    ".p2align 4",
-    ".global llmlang_fixed_signal_restorer",
-    ".hidden llmlang_fixed_signal_restorer",
-    ".type llmlang_fixed_signal_restorer,@function",
-    "llmlang_fixed_signal_restorer:",
-    "mov eax, {operation}",
-    "syscall",
-    "ud2",
-    ".size llmlang_fixed_signal_restorer, .-llmlang_fixed_signal_restorer",
-    ".popsection",
-    operation = const RT_SIGRETURN,
-);
-
-unsafe extern "C" {
-    fn llmlang_fixed_signal_restorer();
-}
 
 #[repr(C)]
 #[derive(Default, Eq, PartialEq)]
@@ -127,7 +105,7 @@ impl std::error::Error for SignalActionScopeError {
 
 fn raw_mask(how: usize, mask: &u64, old: *mut u64) -> isize {
     unsafe {
-        abi::call(
+        abi::invoke(
             RT_SIGPROCMASK,
             [
                 how,
@@ -143,7 +121,7 @@ fn raw_mask(how: usize, mask: &u64, old: *mut u64) -> isize {
 
 fn inspect_mask(output: &mut u64) -> isize {
     unsafe {
-        abi::call(
+        abi::invoke(
             RT_SIGPROCMASK,
             [
                 SIG_SETMASK,
@@ -210,7 +188,7 @@ fn child_zero(raw: isize) -> Result<(), ChildFailure> {
 
 fn raw_action(signal: usize, action: &NativeSignalAction, old: *mut NativeSignalAction) -> isize {
     unsafe {
-        abi::call(
+        abi::invoke(
             RT_SIGACTION,
             [
                 signal,
@@ -226,7 +204,7 @@ fn raw_action(signal: usize, action: &NativeSignalAction, old: *mut NativeSignal
 
 fn inspect_action(signal: usize, output: &mut NativeSignalAction) -> isize {
     unsafe {
-        abi::call(
+        abi::invoke(
             RT_SIGACTION,
             [signal, 0, ptr::from_mut(output) as usize, MASK_BYTES, 0, 0],
         )
@@ -246,7 +224,7 @@ fn with_fixed_action(
     let fixed = NativeSignalAction {
         handler: fixed_handler as *const () as usize,
         flags: SA_RESTORER | if alternate { SA_ONSTACK } else { 0 },
-        restorer: llmlang_fixed_signal_restorer as *const () as usize,
+        restorer: abi::llmlang_fixed_signal_restorer as *const () as usize,
         mask: BLOCK_ALL,
     };
     OBSERVED_SIGNAL.store(0, Ordering::Relaxed);
@@ -279,7 +257,7 @@ fn with_fixed_action(
 }
 
 fn child_pid() -> Result<i32, ChildFailure> {
-    let raw = unsafe { abi::call(abi::GETPID, [0; 6]) };
+    let raw = unsafe { abi::invoke(abi::GETPID, [0; 6]) };
     if raw <= 0 || raw > i32::MAX as isize {
         return Err(ChildFailure::Native(raw));
     }
@@ -289,7 +267,7 @@ fn child_pid() -> Result<i32, ChildFailure> {
 fn child_self_signal(signal: usize) -> Result<(), ChildFailure> {
     let pid = child_pid()? as usize;
     // The isolated fork child is its own only thread and thread-group leader.
-    child_zero(unsafe { abi::call(TGKILL, [pid, pid, signal, 0, 0, 0]) })
+    child_zero(unsafe { abi::invoke(TGKILL, [pid, pid, signal, 0, 0, 0]) })
 }
 
 fn verify_return(signal: usize, expected_mask: u64) -> Result<(), ChildFailure> {
@@ -336,7 +314,7 @@ fn child_suspend(signal: UserSignal) -> Result<(), ChildFailure> {
         child_self_signal(signal)?;
         let mut pending = 0_u64;
         child_zero(unsafe {
-            abi::call(
+            abi::invoke(
                 RT_SIGPENDING,
                 [ptr::from_mut(&mut pending) as usize, MASK_BYTES, 0, 0, 0, 0],
             )
@@ -346,7 +324,7 @@ fn child_suspend(signal: UserSignal) -> Result<(), ChildFailure> {
         }
         let temporary_mask = BLOCK_ALL & !bit;
         expect_interruption(unsafe {
-            abi::call(
+            abi::invoke(
                 RT_SIGSUSPEND,
                 [
                     ptr::from_ref(&temporary_mask) as usize,
@@ -364,7 +342,7 @@ fn child_suspend(signal: UserSignal) -> Result<(), ChildFailure> {
 
 fn raw_timer_write(next: &IntervalSettings, old: *mut IntervalSettings) -> isize {
     unsafe {
-        abi::call(
+        abi::invoke(
             SETITIMER,
             [
                 IntervalTimer::Real as usize,
@@ -380,7 +358,7 @@ fn raw_timer_write(next: &IntervalSettings, old: *mut IntervalSettings) -> isize
 
 fn raw_timer_read(output: &mut IntervalSettings) -> isize {
     unsafe {
-        abi::call(
+        abi::invoke(
             GETITIMER,
             [
                 IntervalTimer::Real as usize,
@@ -413,7 +391,7 @@ fn child_pause() -> Result<(), ChildFailure> {
                 return Err(ChildFailure::Observation);
             }
             child_zero(raw_mask(SIG_UNBLOCK, &bit, ptr::null_mut()))?;
-            expect_interruption(unsafe { abi::call(PAUSE, [0; 6]) })?;
+            expect_interruption(unsafe { abi::invoke(PAUSE, [0; 6]) })?;
             verify_return(SIGALRM, BLOCK_ALL & !bit)
         })();
         child_zero(raw_timer_write(&old, ptr::null_mut()))?;
@@ -428,21 +406,21 @@ fn child_pause() -> Result<(), ChildFailure> {
 
 fn child_queue(signal: UserSignal, value: i32, thread_only: bool) -> Result<(), ChildFailure> {
     let pid = child_pid()?;
-    let raw_uid = unsafe { abi::call(GETUID, [0; 6]) };
+    let raw_uid = unsafe { abi::invoke(GETUID, [0; 6]) };
     let uid = u32::try_from(raw_uid).map_err(|_| ChildFailure::Native(raw_uid))?;
     let supplied = NativeSignalInfo::self_queue(signal, pid, uid, value);
     let address = ptr::from_ref(&supplied) as usize;
     let raw = if thread_only {
         // The child is its sole thread, with matching PID and TID.
         unsafe {
-            abi::call(
+            abi::invoke(
                 RT_TGSIGQUEUEINFO,
                 [pid as usize, pid as usize, signal as usize, address, 0, 0],
             )
         }
     } else {
         unsafe {
-            abi::call(
+            abi::invoke(
                 RT_SIGQUEUEINFO,
                 [pid as usize, signal as usize, address, 0, 0, 0],
             )
@@ -486,7 +464,7 @@ fn child_roundtrip(
     if let Some(stack) = alternate {
         let mut old = NativeSignalStack::default();
         child_zero(unsafe {
-            abi::call(
+            abi::invoke(
                 SIGALTSTACK,
                 [
                     ptr::from_ref(stack) as usize,
@@ -500,11 +478,11 @@ fn child_roundtrip(
         })?;
         let result = child_deliver(signal, Some(stack));
         child_zero(unsafe {
-            abi::call(SIGALTSTACK, [ptr::from_ref(&old) as usize, 0, 0, 0, 0, 0])
+            abi::invoke(SIGALTSTACK, [ptr::from_ref(&old) as usize, 0, 0, 0, 0, 0])
         })?;
         let mut restored = NativeSignalStack::default();
         child_zero(unsafe {
-            abi::call(
+            abi::invoke(
                 SIGALTSTACK,
                 [0, ptr::from_mut(&mut restored) as usize, 0, 0, 0, 0],
             )
@@ -540,13 +518,13 @@ fn finish_child(probe: Probe, alternate: Option<&NativeSignalStack>, output: usi
         Err(ChildFailure::Observation) => [0, 2],
     };
     let written = unsafe {
-        abi::call(
+        abi::invoke(
             abi::WRITE,
             [output, report.as_ptr() as usize, REPORT_BYTES, 0, 0, 0],
         )
     };
     unsafe {
-        abi::call(
+        abi::invoke(
             abi::EXIT,
             [usize::from(written != REPORT_BYTES as isize), 0, 0, 0, 0, 0],
         )
@@ -556,7 +534,7 @@ fn finish_child(probe: Probe, alternate: Option<&NativeSignalStack>, output: usi
 }
 
 fn worker(probe: Probe) -> Result<(), SignalActionScopeError> {
-    let (reader, writer) = pipe2(0).map_err(SignalActionScopeError::Parent)?;
+    let (reader, writer) = pipe2(O_CLOEXEC).map_err(SignalActionScopeError::Parent)?;
     let output = writer.as_raw_fd() as usize;
     let mut storage =
         matches!(probe, Probe::AltStack(_)).then(|| Box::new([0_u128; ALT_STACK_WORDS]));

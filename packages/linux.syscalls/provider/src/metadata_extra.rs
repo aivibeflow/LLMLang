@@ -42,7 +42,7 @@ pub fn fchownat(
     let owner = id_argument(owner)?;
     let group = id_argument(group)?;
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             FCHOWNAT,
             [
                 dir.argument(),
@@ -64,7 +64,7 @@ fn change_ids(
 ) -> Result<(), SyscallError> {
     let owner = id_argument(owner)?;
     let group = id_argument(group)?;
-    decode_zero(unsafe { abi::call(number, [subject, owner, group, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(number, [subject, owner, group, 0, 0, 0]) })
 }
 
 fn id_argument(id: Option<u32>) -> Result<usize, SyscallError> {
@@ -153,7 +153,7 @@ pub fn utime(path: &CStr, times: Option<FileTimes<i64>>) -> Result<(), SyscallEr
     // Native struct utimbuf has two consecutive kernel time_t fields.
     let values = times.map(|times| [times.accessed, times.modified]);
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             UTIME,
             [path.as_ptr() as usize, address(&values), 0, 0, 0, 0],
         )
@@ -164,7 +164,7 @@ pub fn utime(path: &CStr, times: Option<FileTimes<i64>>) -> Result<(), SyscallEr
 pub fn utimes(path: &CStr, times: Option<FileTimes<MicroTimestamp>>) -> Result<(), SyscallError> {
     let values = times.map(|times| [times.accessed.native(), times.modified.native()]);
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             UTIMES,
             [path.as_ptr() as usize, address(&values), 0, 0, 0, 0],
         )
@@ -179,7 +179,7 @@ pub fn futimesat(
 ) -> Result<(), SyscallError> {
     let values = times.map(|times| [times.accessed.native(), times.modified.native()]);
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             FUTIMESAT,
             [
                 dir.argument(),
@@ -204,7 +204,7 @@ pub fn utimensat(
 ) -> Result<(), SyscallError> {
     let values = times.map(|times| [times.accessed.native(), times.modified.native()]);
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             UTIMENSAT,
             [
                 dir.argument(),

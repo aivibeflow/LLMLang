@@ -15,21 +15,21 @@ const EVENTFD: usize = 284;
 /// Use `pipe2` to set FD_CLOEXEC atomically.
 pub fn pipe() -> Result<(LinuxFd, LinuxFd), SyscallError> {
     let mut descriptors = [-1_i32; 2];
-    let raw = unsafe { abi::call(PIPE, [descriptors.as_mut_ptr() as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(PIPE, [descriptors.as_mut_ptr() as usize, 0, 0, 0, 0, 0]) };
     super::fd::decode_pipe(raw, descriptors)
 }
 
 /// Returns an owned, blocking, non-semaphore event descriptor without FD_CLOEXEC.
 /// Use `eventfd2` to set FD_CLOEXEC atomically.
 pub fn eventfd(initial: u32) -> Result<LinuxFd, SyscallError> {
-    let raw = unsafe { abi::call(EVENTFD, [initial as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(EVENTFD, [initial as usize, 0, 0, 0, 0, 0]) };
     LinuxFd::from_result(raw)
 }
 
 /// Returns an owned epoll descriptor without FD_CLOEXEC. Linux requires a
 /// positive size hint, though it determines the internal capacity itself.
 pub fn epoll_create(size_hint: i32) -> Result<LinuxFd, SyscallError> {
-    let raw = unsafe { abi::call(EPOLL_CREATE, [size_hint as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(EPOLL_CREATE, [size_hint as usize, 0, 0, 0, 0, 0]) };
     LinuxFd::from_result(raw)
 }
 
@@ -65,7 +65,7 @@ impl Timeval {
 pub fn gettimeofday() -> Result<Timeval, SyscallError> {
     let mut result = Timeval::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             GETTIMEOFDAY,
             [ptr::from_mut(&mut result) as usize, 0, 0, 0, 0, 0],
         )
@@ -80,7 +80,7 @@ pub fn gettimeofday() -> Result<Timeval, SyscallError> {
 pub fn time() -> Result<i64, SyscallError> {
     const UNWRITTEN: i64 = i64::MIN;
     let mut seconds = UNWRITTEN;
-    let raw = unsafe { abi::call(TIME, [ptr::from_mut(&mut seconds) as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(TIME, [ptr::from_mut(&mut seconds) as usize, 0, 0, 0, 0, 0]) };
     if seconds == UNWRITTEN {
         decode_nonnegative(raw)?;
         return Err(SyscallError::UnexpectedReturn(raw));
@@ -118,7 +118,7 @@ pub fn clock_nanosleep(
         ClockSleepMode::Absolute => ptr::null_mut(),
     };
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             CLOCK_NANOSLEEP,
             [
                 clock as usize,
@@ -150,7 +150,7 @@ pub fn ppoll(
 ) -> Result<usize, SyscallError> {
     let timeout_ptr = timeout.as_mut().map_or(ptr::null_mut(), ptr::from_mut);
     super::wait::poll_with(entries, |address, count| unsafe {
-        abi::call(PPOLL, [address, count, timeout_ptr as usize, 0, 0, 0])
+        abi::invoke(PPOLL, [address, count, timeout_ptr as usize, 0, 0, 0])
     })
 }
 

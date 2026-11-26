@@ -10,7 +10,7 @@ const PR_GET_NO_NEW_PRIVS: usize = 39;
 
 fn fcntl_flags(fd: BorrowedFd<'_>, command: usize) -> Result<i32, SyscallError> {
     // Both supported commands are getters with no third argument.
-    let raw = unsafe { abi::call(abi::FCNTL, [fd.as_raw_fd() as usize, command, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(abi::FCNTL, [fd.as_raw_fd() as usize, command, 0, 0, 0, 0]) };
     i32::try_from(decode_nonnegative(raw)?).map_err(|_| SyscallError::UnexpectedReturn(raw))
 }
 
@@ -29,7 +29,7 @@ pub fn ioctl_fionread(fd: BorrowedFd<'_>) -> Result<i32, SyscallError> {
     let mut available = 0_i32;
     // FIONREAD's supported ioctl implementations write one native C int.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::IOCTL,
             [
                 fd.as_raw_fd() as usize,
@@ -47,7 +47,7 @@ pub fn ioctl_fionread(fd: BorrowedFd<'_>) -> Result<i32, SyscallError> {
 
 /// Reads the current thread's no_new_privs flag.
 pub fn prctl_get_no_new_privs() -> Result<bool, SyscallError> {
-    let raw = unsafe { abi::call(abi::PRCTL, [PR_GET_NO_NEW_PRIVS, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(abi::PRCTL, [PR_GET_NO_NEW_PRIVS, 0, 0, 0, 0, 0]) };
     match decode_nonnegative(raw)? {
         0 => Ok(false),
         1 => Ok(true),
@@ -71,7 +71,7 @@ impl ThreadName {
 pub fn prctl_get_name() -> Result<ThreadName, SyscallError> {
     let mut bytes = [0; TASK_COMM_LEN];
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::PRCTL,
             [PR_GET_NAME, bytes.as_mut_ptr() as usize, 0, 0, 0, 0],
         )
@@ -93,7 +93,7 @@ pub fn prctl_set_name(name: &std::ffi::CStr) -> Result<(), SyscallError> {
     let mut bytes = [0; TASK_COMM_LEN];
     bytes[..name.len()].copy_from_slice(name);
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::PRCTL,
             [PR_SET_NAME, bytes.as_ptr() as usize, 0, 0, 0, 0],
         )
@@ -104,5 +104,5 @@ const PR_SET_NO_NEW_PRIVS: usize = 38;
 
 /// Set no_new_privs on the calling thread. Linux does not permit clearing it.
 pub fn prctl_set_no_new_privs() -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(abi::PRCTL, [PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(abi::PRCTL, [PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0, 0]) })
 }

@@ -30,7 +30,7 @@ pub fn decode_write(raw: isize, requested: usize) -> Result<usize, SyscallError>
 pub fn read(fd: BorrowedFd<'_>, buffer: &mut [u8]) -> Result<ReadOutcome, SyscallError> {
     // The kernel may write only within the exclusive slice for this call.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::READ,
             [
                 fd.as_raw_fd() as usize,
@@ -48,7 +48,7 @@ pub fn read(fd: BorrowedFd<'_>, buffer: &mut [u8]) -> Result<ReadOutcome, Syscal
 pub fn write(fd: BorrowedFd<'_>, buffer: &[u8]) -> Result<usize, SyscallError> {
     // The kernel may read from the immutable slice for this call.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::WRITE,
             [
                 fd.as_raw_fd() as usize,
@@ -69,7 +69,7 @@ pub fn pread64(
     offset: i64,
 ) -> Result<ReadOutcome, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::PREAD64,
             [
                 fd.as_raw_fd() as usize,
@@ -86,7 +86,7 @@ pub fn pread64(
 
 pub fn pwrite64(fd: BorrowedFd<'_>, buffer: &[u8], offset: i64) -> Result<usize, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::PWRITE64,
             [
                 fd.as_raw_fd() as usize,
@@ -144,7 +144,7 @@ pub fn readv(
     // Source slices remain exclusively borrowed during readv. The adapter
     // constructs its own C-layout iovecs rather than borrowing Rust layout.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::READV,
             [
                 fd.as_raw_fd() as usize,
@@ -163,7 +163,7 @@ pub fn writev(fd: BorrowedFd<'_>, buffers: &[IoSlice<'_>]) -> Result<usize, Sysc
     let vectors = write_iovecs(buffers);
     let requested = iovec_len(&vectors)?;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::WRITEV,
             [
                 fd.as_raw_fd() as usize,

@@ -63,7 +63,7 @@ pub fn lsm_list_modules(capacity_bytes: u32) -> Result<LsmQuery<Vec<u64>>, Sysca
     let mut modules = vec![0_u64; (capacity_bytes as usize).div_ceil(size_of::<u64>())];
     let mut reported_bytes = capacity_bytes;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             LSM_LIST_MODULES,
             [
                 modules.as_mut_ptr() as usize,
@@ -95,7 +95,7 @@ pub fn lsm_get_self_attr(capacity_bytes: u32) -> Result<LsmQuery<Vec<LsmContext>
     let mut output = vec![0_u8; capacity_bytes as usize];
     let mut reported_bytes = capacity_bytes;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             LSM_GET_SELF_ATTR,
             [
                 LSM_ATTR_CURRENT,
@@ -153,7 +153,7 @@ pub fn lsm_set_self_attr() -> Result<(), SyscallError> {
         padding: 0,
     };
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             LSM_SET_SELF_ATTR,
             [
                 LSM_ATTR_CURRENT,

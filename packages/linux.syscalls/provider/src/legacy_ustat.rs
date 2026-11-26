@@ -41,7 +41,7 @@ pub fn ustat(file: BorrowedFd<'_>) -> Result<LegacyUstat, SyscallError> {
         .map_err(|_| SyscallError::InvalidInput("device number exceeds the native ustat field"))?;
     let mut output = NativeUstat::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             USTAT,
             [
                 device as usize,

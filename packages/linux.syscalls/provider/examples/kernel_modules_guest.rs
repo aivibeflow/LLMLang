@@ -10,7 +10,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let file = open(
         c"/loop.ko",
         OpenOptions {
-            flags: O_RDONLY,
+            flags: O_RDONLY | O_CLOEXEC,
             mode: 0,
         },
     )?;

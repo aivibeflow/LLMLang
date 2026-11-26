@@ -11,7 +11,7 @@ const UFFD_USER_MODE_ONLY: usize = 1;
 /// Create a close-on-exec nonblocking descriptor for user-mode faults only.
 pub fn userfaultfd() -> Result<LinuxFd, SyscallError> {
     LinuxFd::from_result(unsafe {
-        abi::call(
+        abi::invoke(
             USERFAULTFD,
             [
                 UFFD_USER_MODE_ONLY | (O_CLOEXEC | O_NONBLOCK) as usize,
@@ -27,7 +27,7 @@ pub fn userfaultfd() -> Result<LinuxFd, SyscallError> {
 
 /// Create a close-on-exec descriptor for a Linux secret-memory file.
 pub fn memfd_secret() -> Result<LinuxFd, SyscallError> {
-    LinuxFd::from_result(unsafe { abi::call(MEMFD_SECRET, [O_CLOEXEC as usize, 0, 0, 0, 0, 0]) })
+    LinuxFd::from_result(unsafe { abi::invoke(MEMFD_SECRET, [O_CLOEXEC as usize, 0, 0, 0, 0, 0]) })
 }
 
 /// A sealed, readable mapping. Linux keeps it mapped until the process exits.
@@ -64,7 +64,7 @@ impl std::error::Error for SealMappingError {}
 /// Seal all pages of an owned mapping. On failure retain the mapping.
 pub fn mseal(mapping: Mapping) -> Result<SealedMapping, SealMappingError> {
     let bytes = mapping.as_slice();
-    let raw = unsafe { abi::call(MSEAL, [bytes.as_ptr() as usize, bytes.len(), 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(MSEAL, [bytes.as_ptr() as usize, bytes.len(), 0, 0, 0, 0]) };
     if let Err(error) = decode_zero(raw) {
         return Err(SealMappingError { error, mapping });
     }

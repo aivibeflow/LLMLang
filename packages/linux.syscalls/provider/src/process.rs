@@ -13,7 +13,6 @@ pub const WUNTRACED: i32 = 2;
 pub const WCONTINUED: i32 = 8;
 
 const CLONE: usize = 56;
-const VFORK: usize = 58;
 const EXECVEAT: usize = 322;
 const CLONE3: usize = 435;
 const SIGCHLD: usize = 17;
@@ -45,7 +44,7 @@ fn decode_pid(raw: isize) -> Result<ChildPid, SyscallError> {
 }
 
 pub fn getpid() -> Result<i32, SyscallError> {
-    let raw = unsafe { abi::call(abi::GETPID, [0; 6]) };
+    let raw = unsafe { abi::invoke(abi::GETPID, [0; 6]) };
     decode_pid(raw).map(|pid| pid.0.expect("decode_pid always returns a live PID").get())
 }
 
@@ -115,7 +114,7 @@ pub enum ForkOutcome {
 /// unwinding, allocation, runtime locks and TLS remain untouched in the child.
 /// Prefer `fork_execve` for a child which simply runs an executable.
 pub unsafe fn fork() -> Result<ForkOutcome, SyscallError> {
-    let raw = unsafe { abi::call(abi::FORK, [0; 6]) };
+    let raw = unsafe { abi::invoke(abi::FORK, [0; 6]) };
     if raw == 0 {
         return Ok(ForkOutcome::Child);
     }
@@ -124,7 +123,7 @@ pub unsafe fn fork() -> Result<ForkOutcome, SyscallError> {
 
 /// Replaces the process image. The operation returns only on failure.
 pub fn execve(image: &ExecImage<'_>) -> Result<Infallible, SyscallError> {
-    let raw = unsafe { abi::call(abi::EXECVE, image.arguments()) };
+    let raw = unsafe { abi::invoke(abi::EXECVE, image.arguments()) };
     decode_nonnegative(raw)?;
     Err(SyscallError::UnexpectedReturn(raw))
 }
@@ -135,14 +134,14 @@ pub fn execve(image: &ExecImage<'_>) -> Result<Infallible, SyscallError> {
 /// from an executable that itself exits with 127.
 pub fn fork_execve(image: &ExecImage<'_>) -> Result<ChildPid, SyscallError> {
     let arguments = image.arguments();
-    let raw = unsafe { abi::call(abi::FORK, [0; 6]) };
+    let raw = unsafe { abi::invoke(abi::FORK, [0; 6]) };
     finish_copy_launch(raw, abi::EXECVE, arguments)
 }
 
 /// Creates a copy-on-write child that immediately exits with the given
 /// status. The parent receives the child and is responsible for waiting.
 pub fn fork_exit(status: i32) -> Result<ChildPid, SyscallError> {
-    let raw = unsafe { abi::call(abi::FORK, [0; 6]) };
+    let raw = unsafe { abi::invoke(abi::FORK, [0; 6]) };
     if raw == 0 {
         exit_child(status);
     }
@@ -154,7 +153,7 @@ pub fn fork_exit(status: i32) -> Result<ChildPid, SyscallError> {
 /// no TLS, TID pointers, namespace flags or child continuation are exposed.
 pub fn clone_execve(image: &ExecImage<'_>) -> Result<ChildPid, SyscallError> {
     let arguments = image.arguments();
-    let raw = unsafe { abi::call(CLONE, [SIGCHLD, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(CLONE, [SIGCHLD, 0, 0, 0, 0, 0]) };
     finish_copy_launch(raw, abi::EXECVE, arguments)
 }
 
@@ -190,7 +189,7 @@ pub fn clone3_execve(image: &ExecImage<'_>) -> Result<ChildPid, SyscallError> {
         ..CloneArgsV0::default()
     };
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             CLONE3,
             [
                 ptr::from_ref(&clone) as usize,
@@ -214,7 +213,7 @@ fn finish_copy_launch(
     if raw == 0 {
         // This path can run in a child of a multi-threaded process. Do not
         // invoke Rust allocation, cleanup, unwinding, libc or user callbacks.
-        unsafe { abi::call(exec_entry, arguments) };
+        unsafe { abi::invoke(exec_entry, arguments) };
         exit_child(127);
     }
     decode_pid(raw)
@@ -223,7 +222,7 @@ fn finish_copy_launch(
 #[inline]
 fn exit_child(status: i32) -> ! {
     unsafe {
-        abi::call(abi::EXIT, [status as usize, 0, 0, 0, 0, 0]);
+        abi::invoke(abi::EXIT, [status as usize, 0, 0, 0, 0, 0]);
         // A sandbox can deny exit. Trap without running Rust cleanup.
         std::arch::asm!("ud2", options(noreturn, nostack));
     }
@@ -261,7 +260,7 @@ pub fn prepare_execveat_fd(mut bytes: &[u8]) -> Result<SealedExecutable, Syscall
         }
     }
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::FCNTL,
             [
                 fd.as_raw_fd() as usize,
@@ -310,7 +309,7 @@ impl<'a> ExecveAtImage<'a> {
 /// Replaces the process image using only a prepared descriptor and
 /// AT_EMPTY_PATH. Failures return the native errno.
 pub fn execveat(image: &ExecveAtImage<'_>) -> Result<Infallible, SyscallError> {
-    let raw = unsafe { abi::call(EXECVEAT, image.arguments()) };
+    let raw = unsafe { abi::invoke(EXECVEAT, image.arguments()) };
     decode_nonnegative(raw)?;
     Err(SyscallError::UnexpectedReturn(raw))
 }
@@ -319,7 +318,7 @@ pub fn execveat(image: &ExecveAtImage<'_>) -> Result<Infallible, SyscallError> {
 /// with 127, with the same status ambiguity as fork_execve.
 pub fn fork_execveat(image: &ExecveAtImage<'_>) -> Result<ChildPid, SyscallError> {
     let arguments = image.arguments();
-    let raw = unsafe { abi::call(abi::FORK, [0; 6]) };
+    let raw = unsafe { abi::invoke(abi::FORK, [0; 6]) };
     finish_copy_launch(raw, EXECVEAT, arguments)
 }
 
@@ -359,34 +358,7 @@ pub fn vfork_execve_masked(image: &ExecImage<'_>) -> Result<ChildPid, VforkExecE
     super::signal_fd::replace_mask(u64::MAX, Some(&mut previous_mask))
         .map_err(VforkExecError::MaskSetup)?;
 
-    let raw: isize;
-    // Linux suspends the calling parent thread until the child exits or
-    // replaces the shared image. The child branch has no call, stack
-    // reference, or Rust continuation. Synchronous failure of both execve
-    // and exit traps under the blocked mask.
-    unsafe {
-        std::arch::asm!(
-            "syscall",
-            "test rax, rax",
-            "jnz 2f",
-            "mov eax, {execve}",
-            "syscall",
-            "mov edi, 127",
-            "mov eax, {exit}",
-            "syscall",
-            "ud2",
-            "2:",
-            execve = const abi::EXECVE,
-            exit = const abi::EXIT,
-            inlateout("rax") VFORK as isize => raw,
-            inlateout("rdi") arguments[0] => _,
-            in("rsi") arguments[1],
-            in("rdx") arguments[2],
-            lateout("rcx") _,
-            lateout("r11") _,
-            options(nostack),
-        );
-    }
+    let raw = unsafe { abi::vfork_exec(arguments) };
 
     let restore = super::signal_fd::replace_mask(previous_mask, None);
     let launch = decode_pid(raw);
@@ -430,7 +402,7 @@ pub fn wait4(child: &mut ChildPid, options: i32) -> Result<Option<WaitStatus>, S
         .ok_or(SyscallError::InvalidInput("child has already been reaped"))?;
     let mut status = 0_i32;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::WAIT4,
             [
                 pid as usize,
@@ -465,7 +437,7 @@ mod descriptor_tests {
         let executable = prepare_execveat_fd(b"fixed").unwrap();
         let fd = executable.0.borrow();
         let raw = unsafe {
-            abi::call(
+            abi::invoke(
                 abi::FCNTL,
                 [fd.as_raw_fd() as usize, F_GET_SEALS, 0, 0, 0, 0],
             )

@@ -13,7 +13,7 @@ const COPY_FILE_RANGE: usize = 326;
 /// grow, while existing bytes and the open file description offset are preserved.
 pub fn fallocate(fd: BorrowedFd<'_>, offset: i64, length: i64) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             FALLOCATE,
             [
                 fd.as_raw_fd() as usize,
@@ -47,7 +47,7 @@ pub fn fadvise64(
     advice: FileAdvice,
 ) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             FADVISE64,
             [
                 fd.as_raw_fd() as usize,
@@ -65,7 +65,7 @@ pub fn fadvise64(
 /// reported as completion of the request, without a byte count.
 pub fn readahead(fd: BorrowedFd<'_>, offset: i64, length: usize) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             READAHEAD,
             [fd.as_raw_fd() as usize, offset as usize, length, 0, 0, 0],
         )
@@ -95,7 +95,7 @@ pub fn sync_file_range(
     flags: SyncFileRangeFlags,
 ) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SYNC_FILE_RANGE,
             [
                 fd.as_raw_fd() as usize,
@@ -127,7 +127,7 @@ pub fn renameat2(
     mode: RenameMode,
 ) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             RENAMEAT2,
             [
                 old_dir.argument(),
@@ -157,7 +157,7 @@ pub fn copy_file_range(
     let mut observed_input = original_input;
     let mut observed_output = original_output;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             COPY_FILE_RANGE,
             [
                 input.as_raw_fd() as usize,

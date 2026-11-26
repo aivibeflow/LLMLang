@@ -10,7 +10,7 @@ const PAGE_SIZE: usize = 4096;
 fn memory_call(operation: usize, mapping: &Mapping, third: usize) -> Result<(), SyscallError> {
     let bytes = mapping.as_slice();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             operation,
             [bytes.as_ptr() as usize, bytes.len(), third, 0, 0, 0],
         )

@@ -24,7 +24,7 @@ impl Drop for SysvMessageQueue {
 
 /// Allocates a fresh IPC_PRIVATE queue with owner-only permissions (0600).
 pub fn msgget() -> Result<SysvMessageQueue, SyscallError> {
-    let raw = unsafe { abi::call(MSGGET, [IPC_PRIVATE, 0o600, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(MSGGET, [IPC_PRIVATE, 0o600, 0, 0, 0, 0]) };
     let id =
         i32::try_from(decode_nonnegative(raw)?).map_err(|_| SyscallError::UnexpectedReturn(raw))?;
     Ok(SysvMessageQueue(id))
@@ -81,7 +81,7 @@ pub fn msgsnd(
     };
     message.payload[..payload.len()].copy_from_slice(payload);
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             MSGSND,
             [
                 queue.0 as usize,
@@ -138,7 +138,7 @@ pub fn msgrcv(
         payload: [0; MAX_MESSAGE_BYTES],
     };
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             MSGRCV,
             [
                 queue.0 as usize,
@@ -198,7 +198,7 @@ pub fn msgctl(queue: SysvMessageQueue) -> Result<(), QueueRemovalError> {
 }
 
 fn remove(id: i32) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(MSGCTL, [id as usize, IPC_RMID, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(MSGCTL, [id as usize, IPC_RMID, 0, 0, 0, 0]) })
 }
 
 #[cfg(test)]

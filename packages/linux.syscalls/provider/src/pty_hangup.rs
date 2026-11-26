@@ -74,14 +74,14 @@ pub fn vhangup_private_pty() -> Result<PrivatePty, PtyHangupError> {
         Directory::Borrowed(devpts.as_fd()),
         c"ptmx",
         OpenOptions {
-            flags: O_RDWR | O_NOCTTY,
+            flags: O_RDWR | O_NOCTTY | O_CLOEXEC,
             mode: 0,
         },
     )
     .map_err(PtyHangupError::OpenMaster)?;
     let unlocked = 0_i32;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::IOCTL,
             [
                 master.as_raw_fd() as usize,
@@ -95,7 +95,7 @@ pub fn vhangup_private_pty() -> Result<PrivatePty, PtyHangupError> {
     };
     decode_zero(raw).map_err(PtyHangupError::UnlockSlave)?;
     let slave = LinuxFd::from_result(unsafe {
-        abi::call(
+        abi::invoke(
             abi::IOCTL,
             [
                 master.as_raw_fd() as usize,
@@ -111,7 +111,7 @@ pub fn vhangup_private_pty() -> Result<PrivatePty, PtyHangupError> {
 
     let session = setsid().map_err(PtyHangupError::StartSession)?;
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::IOCTL,
             [slave.as_raw_fd() as usize, TIOCSCTTY, 0, 0, 0, 0],
         )
@@ -123,7 +123,7 @@ pub fn vhangup_private_pty() -> Result<PrivatePty, PtyHangupError> {
         master,
         slave,
     };
-    match decode_zero(unsafe { abi::call(VHANGUP, [0; 6]) }) {
+    match decode_zero(unsafe { abi::invoke(VHANGUP, [0; 6]) }) {
         Ok(()) => Ok(pty),
         Err(error) => Err(PtyHangupError::Hangup { pty, error }),
     }

@@ -6,7 +6,7 @@ use std::os::fd::{AsRawFd, BorrowedFd};
 use crate::complex::perf_event_open_uprobe;
 use crate::{
     fstat, fstatfs, openat, read, Directory, FileStat, LinuxFd, OpenOptions, ReadOutcome,
-    SyscallError, O_RDONLY,
+    SyscallError, O_CLOEXEC, O_RDONLY,
 };
 
 // An ABI identity used by the package binding. Only the kernel trampoline
@@ -33,7 +33,7 @@ fn open_kernel_file(path: &CStr) -> Result<LinuxFd, SyscallError> {
         Directory::Current,
         path,
         OpenOptions {
-            flags: O_RDONLY,
+            flags: O_RDONLY | O_CLOEXEC,
             mode: 0,
         },
     )

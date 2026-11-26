@@ -29,7 +29,7 @@ pub fn pidfd_open(child: &ChildPid) -> Result<ChildPidFd, SyscallError> {
 }
 
 fn open_pidfd(pid: i32) -> Result<LinuxFd, SyscallError> {
-    let raw = unsafe { abi::call(PIDFD_OPEN, [pid as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(PIDFD_OPEN, [pid as usize, 0, 0, 0, 0, 0]) };
     LinuxFd::from_result(raw)
 }
 
@@ -44,7 +44,7 @@ pub enum ChildSignal {
 /// request does not establish child termination. Collect status with wait4.
 pub fn pidfd_send_signal(target: &ChildPidFd, signal: ChildSignal) -> Result<(), SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             PIDFD_SEND_SIGNAL,
             [target.0.as_raw_fd() as usize, signal as usize, 0, 0, 0, 0],
         )
@@ -57,7 +57,7 @@ pub fn pidfd_send_signal(target: &ChildPidFd, signal: ChildSignal) -> Result<(),
 pub fn kcmp(left: BorrowedFd<'_>, right: BorrowedFd<'_>) -> Result<bool, SyscallError> {
     let pid = getpid()? as usize;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             KCMP,
             [
                 pid,
@@ -128,7 +128,7 @@ impl std::error::Error for ChildDescriptorError {
 /// or an open file description mismatch.
 pub fn pidfd_getfd(known: &KnownChildDescriptor<'_>) -> Result<LinuxFd, ChildDescriptorError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             PIDFD_GETFD,
             [
                 known.child.0.as_raw_fd() as usize,
@@ -187,7 +187,7 @@ pub fn process_madvise(
     // excludes permission changes and excludes live caller slices. The
     // kernel retains neither this vector nor the self pidfd.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             PROCESS_MADVISE,
             [
                 target.as_raw_fd() as usize,
@@ -210,7 +210,7 @@ pub fn process_mrelease(target: &ChildPidFd) -> Result<(), SyscallError> {
     // The owned pidfd pins the original direct-child identity. The kernel
     // checks its exit state atomically with obtaining the address space.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             PROCESS_MRELEASE,
             [target.0.as_raw_fd() as usize, 0, 0, 0, 0, 0],
         )

@@ -26,7 +26,7 @@ fn path_fd(path: &str) -> Result<LinuxFd, SyscallError> {
         Directory::Current,
         &path,
         OpenOptions {
-            flags: O_PATH | O_DIRECTORY,
+            flags: O_PATH | O_DIRECTORY | O_CLOEXEC,
             mode: 0,
         },
     )

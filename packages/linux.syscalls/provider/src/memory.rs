@@ -83,7 +83,7 @@ impl ShadowStack {
 /// The returned range can be read and is never installed as the active stack.
 pub fn map_shadow_stack(length: usize) -> Result<ShadowStack, SyscallError> {
     check_mapping_length(length)?;
-    let raw = unsafe { abi::call(MAP_SHADOW_STACK, [0, length, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(MAP_SHADOW_STACK, [0, length, 0, 0, 0, 0]) };
     let base = decode_nonnegative(raw)?;
     let Some(address) = nonnull_range(base, length) else {
         let _ = unmap(base, length);
@@ -114,7 +114,7 @@ fn nonnull_range(base: usize, length: usize) -> Option<NonNull<u8>> {
 pub fn mmap(length: usize, protection: Protection) -> Result<Mapping, SyscallError> {
     check_mapping_length(length)?;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::MMAP,
             [
                 0,
@@ -149,7 +149,7 @@ pub fn mremap(mapping: &mut Mapping, new_length: usize) -> Result<(), SyscallErr
         return Err(SyscallError::InvalidInput("mapping has no live region"));
     }
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             MREMAP,
             [
                 mapping.address.as_ptr() as usize,
@@ -195,7 +195,7 @@ fn set_protection(
 ) -> Result<(), SyscallError> {
     mapping.writable = false;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             syscall,
             [
                 mapping.address.as_ptr() as usize,
@@ -216,7 +216,7 @@ fn set_protection(
 /// this private anonymous mapping discards its current data. Reads refault zeros.
 pub fn madvise(mapping: &mut Mapping, advice: Advice) -> Result<(), SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::MADVISE,
             [
                 mapping.address.as_ptr() as usize,
@@ -272,7 +272,7 @@ pub fn munmap(mapping: Mapping) -> Result<(), UnmapError> {
 }
 
 fn unmap(address: usize, length: usize) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(abi::MUNMAP, [address, length, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(abi::MUNMAP, [address, length, 0, 0, 0, 0]) })
 }
 
 /// Owns a non-default protection key in this address space. The profile
@@ -291,7 +291,7 @@ impl Drop for ProtectionKey {
 
 /// Allocate one unused key. Flags and initial access restrictions are zero.
 pub fn pkey_alloc() -> Result<ProtectionKey, SyscallError> {
-    let raw = unsafe { abi::call(PKEY_ALLOC, [0; 6]) };
+    let raw = unsafe { abi::invoke(PKEY_ALLOC, [0; 6]) };
     let index = decode_nonnegative(raw)?;
     if !(1..=15).contains(&index) {
         return Err(SyscallError::UnexpectedReturn(raw));
@@ -337,5 +337,5 @@ pub fn pkey_free(key: ProtectionKey) -> Result<(), ProtectionKeyReleaseError> {
 }
 
 fn release_key(index: u8) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(PKEY_FREE, [usize::from(index), 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(PKEY_FREE, [usize::from(index), 0, 0, 0, 0, 0]) })
 }

@@ -402,7 +402,7 @@
           "value": 10,
           "operation": "openat2_beneath",
           "uapi": "https://github.com/torvalds/linux/blob/adc218676eef25575469234709c2d87185ca223a/include/uapi/linux/openat2.h",
-          "scope": "Combine RESOLVE_BENEATH and RESOLVE_NO_MAGICLINKS and always request O_CLOEXEC."
+          "scope": "Combine RESOLVE_BENEATH and RESOLVE_NO_MAGICLINKS. Pass open flags and mode unchanged."
         }
       ]
     },

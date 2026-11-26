@@ -16,7 +16,7 @@ const IO_PORT_COUNT: u32 = 65_536;
 fn get_segment_base(command: usize) -> Result<u64, SyscallError> {
     let mut output = 0_u64;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             ARCH_PRCTL,
             [command, ptr::from_mut(&mut output) as usize, 0, 0, 0, 0],
         )
@@ -54,7 +54,7 @@ pub fn modify_ldt_read(buffer: &mut [u8]) -> Result<usize, SyscallError> {
         ));
     }
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             MODIFY_LDT,
             [0, buffer.as_mut_ptr() as usize, buffer.len(), 0, 0, 0],
         )
@@ -65,7 +65,7 @@ pub fn modify_ldt_read(buffer: &mut [u8]) -> Result<usize, SyscallError> {
 /// Lower the calling thread's emulated I/O privilege level to zero.
 /// Port permissions granted independently through its I/O bitmap are unaffected.
 pub fn iopl_drop() -> Result<(), SyscallError> {
-    let raw = unsafe { abi::call(IOPL, [0; 6]) };
+    let raw = unsafe { abi::invoke(IOPL, [0; 6]) };
     decode_zero(raw)
 }
 
@@ -86,7 +86,7 @@ fn check_port_range(first: u32, count: u32) -> Result<(), SyscallError> {
 /// This operation does not change its emulated I/O privilege level.
 pub fn ioperm_revoke(first: u32, count: u32) -> Result<(), SyscallError> {
     check_port_range(first, count)?;
-    let raw = unsafe { abi::call(IOPERM, [first as usize, count as usize, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(IOPERM, [first as usize, count as usize, 0, 0, 0, 0]) };
     decode_zero(raw)
 }
 

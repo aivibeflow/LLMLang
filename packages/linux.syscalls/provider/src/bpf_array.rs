@@ -48,7 +48,7 @@ pub struct BpfArray {
 fn map_call<T>(command: usize, attributes: &T) -> isize {
     // This private call is used only with the command's initialized UAPI prefix.
     unsafe {
-        abi::call(
+        abi::invoke(
             BPF,
             [
                 command,

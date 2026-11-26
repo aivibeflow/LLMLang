@@ -110,7 +110,7 @@ fn timestamp(
 pub fn statx(dir: Directory<'_>, path: &CStr, flags: i32) -> Result<FileMetadata, SyscallError> {
     let mut result = NativeStatx::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::STATX,
             [
                 dir.argument(),
@@ -160,7 +160,7 @@ pub fn getdents64<'a>(
         SyscallError::InvalidInput("directory buffer capacity exceeds Linux unsigned int")
     })?;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::GETDENTS64,
             [
                 fd.as_raw_fd() as usize,

@@ -88,7 +88,7 @@ pub fn futex_wait_private(
     // The borrow and optional timespec remain live for the synchronous call.
     // Linux compares the word atomically and does not write it.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             FUTEX,
             [
                 word.address(),
@@ -107,7 +107,7 @@ pub fn futex_wait_private(
 pub fn futex_wake_private(word: &FutexWord, maximum: u32) -> Result<u32, SyscallError> {
     let maximum = wake_count(maximum)?;
     // The aligned word remains borrowed and the kernel uses its address as a key.
-    let raw = unsafe { abi::call(FUTEX, [word.address(), WAKE_PRIVATE, maximum, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(FUTEX, [word.address(), WAKE_PRIVATE, maximum, 0, 0, 0]) };
     woken(raw, maximum)
 }
 
@@ -120,7 +120,7 @@ pub fn futex_wait(
     let pointer = timeout_pointer(deadline.as_ref())?;
     // The timeout is a native timespec and MATCH_ANY selects every waiter class.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             FUTEX_WAIT,
             [
                 word.address(),
@@ -140,7 +140,7 @@ pub fn futex_wake(word: &FutexWord, maximum: u32) -> Result<u32, SyscallError> {
     let maximum = wake_count(maximum)?;
     // The kernel uses this borrowed address as a key and does not write the word.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             FUTEX_WAKE,
             [word.address(), MATCH_ANY, maximum, FUTEX2_PRIVATE_U32, 0, 0],
         )
@@ -208,7 +208,7 @@ pub fn futex_waitv(
         .collect();
     // Every word remains borrowed and the array remains live for this synchronous call.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             FUTEX_WAITV,
             [
                 native.as_ptr() as usize,
@@ -258,7 +258,7 @@ pub fn futex_requeue(
     // The descriptors and both borrowed atomic words live through the
     // call. The non-PI requeue keeps only the private key for moved waiters.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             FUTEX_REQUEUE,
             [
                 native.as_ptr() as usize,
@@ -285,7 +285,7 @@ fn robust_list_address() -> Result<usize, SyscallError> {
     let mut head_bytes: usize = 0;
     // Both output slots have native pointer width and live until return.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             GET_ROBUST_LIST,
             [
                 0,
@@ -362,7 +362,7 @@ impl std::error::Error for RobustListScopeError {
 fn register_robust_list(address: usize) -> Result<(), SyscallError> {
     // The caller must keep the head live until restoration or worker exit.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SET_ROBUST_LIST,
             [address, ROBUST_LIST_HEAD_BYTES, 0, 0, 0, 0],
         )
@@ -550,9 +550,9 @@ mod robust_registration_tests {
                 };
                 // Install a restrictive filter on this isolated worker, without TSYNC.
                 unsafe {
-                    assert_eq!(abi::call(abi::PRCTL, [38, 1, 0, 0, 0, 0]), 0);
+                    assert_eq!(abi::invoke(abi::PRCTL, [38, 1, 0, 0, 0, 0]), 0);
                     assert_eq!(
-                        abi::call(
+                        abi::invoke(
                             abi::PRCTL,
                             [22, 2, std::ptr::from_ref(&program) as usize, 0, 0, 0]
                         ),

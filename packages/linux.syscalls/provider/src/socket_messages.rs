@@ -95,7 +95,7 @@ pub fn sendmsg(fd: BorrowedFd<'_>, buffers: &[IoSlice<'_>]) -> Result<usize, Sys
     // Rust guarantees Unix IoSlice ABI compatibility with C iovec. The
     // vectors and their immutable buffers remain live for the syscall.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SENDMSG,
             [
                 fd.as_raw_fd() as usize,
@@ -126,7 +126,7 @@ pub fn recvmsg(
     // Rust guarantees Unix IoSliceMut ABI compatibility with C iovec. Each
     // destination slice stays exclusively borrowed for the syscall.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             RECVMSG,
             [
                 fd.as_raw_fd() as usize,
@@ -172,7 +172,7 @@ pub fn sendmsg_udp4(
     };
     // The native address and iovecs remain live and read-only for this call.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SENDMSG,
             [
                 socket.as_fd().as_raw_fd() as usize,
@@ -210,7 +210,7 @@ pub fn recvmsg_udp4(
     // The kernel receives only the typed name storage and exclusive byte
     // slices. No control buffer is available to receive ancillary data.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             RECVMSG,
             [
                 socket.as_fd().as_raw_fd() as usize,

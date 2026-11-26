@@ -159,7 +159,7 @@ fn decode_timex(raw: isize, native: NativeTimex) -> Result<TimexObservation, Sys
 pub fn adjtimex() -> Result<TimexObservation, SyscallError> {
     let mut native = NativeTimex::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             ADJTIMEX,
             [std::ptr::from_mut(&mut native) as usize, 0, 0, 0, 0, 0],
         )
@@ -171,7 +171,7 @@ pub fn adjtimex() -> Result<TimexObservation, SyscallError> {
 pub fn clock_adjtime() -> Result<TimexObservation, SyscallError> {
     let mut native = NativeTimex::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             CLOCK_ADJTIME,
             [
                 CLOCK_REALTIME as usize,

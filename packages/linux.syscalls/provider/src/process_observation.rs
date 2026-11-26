@@ -8,7 +8,7 @@ const WEXITED: usize = 4;
 const SIGCHLD: i32 = 17;
 
 pub fn brk_query() -> Result<usize, SyscallError> {
-    let raw = unsafe { abi::call(BRK, [0; 6]) };
+    let raw = unsafe { abi::invoke(BRK, [0; 6]) };
     match decode_nonnegative(raw)? {
         0 => Err(SyscallError::UnexpectedReturn(raw)),
         current => Ok(current),
@@ -69,7 +69,7 @@ pub fn waitid(child: &mut ChildPid, nohang: bool) -> Result<Option<WaitIdStatus>
     };
     let flags = WEXITED | usize::from(nohang) * crate::WNOHANG as usize;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             WAITID,
             [
                 P_PID,
