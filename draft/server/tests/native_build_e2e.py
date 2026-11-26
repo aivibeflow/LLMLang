@@ -96,10 +96,11 @@ def exercise(executable, directory):
         stdlib = DRAFT / "stdlib"
         dependency = EXAMPLES / "linux.syscalls"
         hello = EXAMPLES / "0001-hello-world"
+        syscall_hello = EXAMPLES / "0009-syscall-hello-world"
         original_dependencies = {path: read_package(path) for path in (stdlib, dependency)}
         programs = sorted(EXAMPLES.glob("000[4-8]-syscall-*"))
         assert len(programs) == 5
-        for package in [stdlib, dependency, hello, *programs]:
+        for package in [stdlib, hello, syscall_hello, dependency, *programs]:
             before = read_package(package)
             imported = client.call("import_package", {"path": str(package)})
             assert imported["verification_status"] == "unchecked"
@@ -176,7 +177,10 @@ def exercise(executable, directory):
             expected_stdlib = direct_stdlib | ({"stdlib.syscall"} if imports else set())
             assert reachable_stdlib == expected_stdlib, (package, reachable_stdlib, expected_stdlib)
             payload = bytes(range(256)) * 83 + b"\x00\xff"
-            if package == hello:
+            if package == syscall_hello:
+                assert direct_stdlib == {"stdlib.syscall"} and not imports
+                assert [row["calleeImplHash"] for row in obligations] == [syscall_impl]
+            if package in (hello, syscall_hello):
                 assert execute(artifact) == (0, b"Hello, world!\n")
                 assert execute(artifact, "ignored", data=b"ignored") == (0, b"Hello, world!\n")
                 with open("/dev/full", "wb") as full:

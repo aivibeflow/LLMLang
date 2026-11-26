@@ -1,6 +1,6 @@
 # LLMLang syntax
 
-This reference covers the syntax implemented in the current checkout. The scalar MVP has a Python-shaped text frontend and a structured MCP authoring interface. The native MCP build also supports Rust-shaped syscall program bodies. A semantic profile defines the available constructs and their meaning. A dialect defines their source spelling. LLMLang supports versioned dialects that lower to a shared typed Semantic Program Graph (SPG), and the architecture leaves a default dialect open. [Architecture RFC](../RFC.md) · [Syntax dialects](../adr/022-syntax-dialects-and-shared-semantics.md)
+This reference covers the syntax implemented in the current checkout. The scalar MVP has a Python-shaped text frontend and a structured MCP authoring interface. The native profile uses Rust-shaped syntax with braced function bodies. A semantic profile defines the available constructs and their meaning. A dialect defines their source spelling. LLMLang supports versioned dialects that lower to a shared typed Semantic Program Graph (SPG), and the architecture leaves a default dialect open. [Architecture RFC](../RFC.md) · [Syntax dialects](../adr/022-syntax-dialects-and-shared-semantics.md)
 
 ## Scalar text source
 
@@ -78,10 +78,12 @@ A `put_contract` operation takes a typed signature and an array of rules. `requi
 
 Predicate values can be JSON Booleans or Boolean expression strings. The predicate language supports comparisons, including chains, `and`, `or`, `not`, and mathematical integer `+`, `-`, `*`, and unary minus. Use `quotient(a, b)` for the totalized quotient, which truncates toward zero and returns zero when `b` is zero. Program arithmetic can fail. The example rules apply to the `divide` signature with `left` and `right` as `i64`. The precondition excludes the signed division overflow case. [Scalar Contract IR](../../tools/llmlang_mvp/CONTRACT-IR.md) · [Server rule adapter](../server/scalar.py)
 
-## Other implemented source profiles
+## Native source syntax
 
-The archived Stage 0 guest workflow used a separate package snapshot and typed syscall operations. Its package CLI and fixtures are available at the revision that shipped them. [Archived syscall package](https://github.com/aivibeflow/LLMLang/blob/744aaf3f98e357a5375b55a67a538d7295d3608c/packages/linux.syscalls/README.md)
+Place imports before function declarations. In an import, a dot separates the package name from the function name. For example, write `import stdlib.write` and call `write(...)` in the function body. The syscall variant uses `import stdlib.syscall` and calls `syscall(...)`. [Hello World](../examples/0001-hello-world/main.llmlang) · [Syscall Hello World](../examples/0009-syscall-hello-world/main.llmlang)
 
-The `program`, `effects`, and `operation` forms in the draft Hello, Echo, and Calculator sketches are illustrative notation. For executable scalar text, start with `def`. [Draft examples and status](../examples/README.md)
+Function declarations use `fn`, parameter types follow their names, and a return type follows `->`. The public entry point is `pub fn main() -> ExitStatus` or `pub fn main(args: LaunchArgs) -> ExitStatus`. The function body is enclosed in braces. [Entry point](../adr/032-program-package-main.md) · [Copy example](../examples/0005-syscall-copy/main.llmlang)
 
-The native MCP build reads committed SPG packages. In the [native Echo example](../examples/0004-syscall-echo/main.llmlang), the source has leading syscall imports and a Rust-shaped `pub fn main() -> ExitStatus` with a braced body. The Copy example uses `pub fn main(args: LaunchArgs) -> ExitStatus`. The package stores the source block in the function row and the canonical signature in `function_signatures`. Call compatibility obligations identify the exact callee and required contract. Built-in function names start with `builtin__`. In the native profile, only `stdlib` can reference them directly. The imported syscall functions call `stdlib::syscall`, which invokes `builtin__syscall`. Hello World imports `stdlib.write` and passes a UTF-8 string. [Native examples](../examples/README.md#linux-syscall-program-packages) · [Build through MCP](server.md#build-an-existing-native-program)
+Built-in function names start with `builtin__`. In native source, only `stdlib` can reference them directly. [Built-in names and visibility](../adr/034-built-in-function-prefix.md)
+
+The `program`, `effects`, and `operation` forms in the draft Echo and Calculator sketches are illustrative notation. Executable scalar text uses `def`. [Draft examples and status](../examples/README.md)

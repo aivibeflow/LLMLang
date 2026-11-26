@@ -17,7 +17,9 @@ Calculator sketches in `0002-echo` and `0003-calculator` remain illustrative.
 
 [0001-hello-world](0001-hello-world/README.md) writes its greeting through
 [`stdlib.write`](../stdlib/README.md). Import `draft/stdlib` before importing
-Hello World or the Linux syscall package.
+either Hello World package or the Linux syscall package.
+[0009-syscall-hello-world](0009-syscall-hello-world/README.md) writes the same
+greeting through `stdlib.syscall` using the Linux x86-64 `write` ABI.
 
 [linux.syscalls](linux.syscalls/README.md) contains a native Linux x86-64
 package in the current SPG repository format.
@@ -44,7 +46,7 @@ It checks the caller, callee, and required contract in each call
 compatibility obligation against the block and selected dependency bindings. Their binary and ProtoJSON dumps include all thirteen tables.
 
 The [native MCP build test](../server/tests/native_build_e2e.py) imports and
-builds these packages on Linux x86-64, then runs Hello World and eleven
+builds these packages on Linux x86-64, then runs both Hello World examples and eleven
 scenarios across the five syscall programs. The scenarios check exit status, binary I/O, Linux error diagnostics,
 and partial file contents after a write failure. Build artifacts are stored in
 server state.
