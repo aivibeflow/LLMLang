@@ -205,3 +205,7 @@ The current MVP hashes ordered contract clauses and derives required call contra
 Storing every call occurrence would support finer database-only navigation at the cost of duplicate compatibility edges. Storing only caller and callee would lose the requirement needed for compatibility. The selected triple preserves the proof-relevant dependency and reads occurrence details from the body. Keeping exact review packets on contract rows can duplicate bytes for a multi-contract review. A physical implementation can evaluate deduplication while preserving retrieval by exact packet digest. The SQL engine, canonical byte encodings, collision handling, retention policy, and generalization beyond this scalar profile remain open.
 
 Before claiming support, test an import and reconstruction from Calculator, rule permutation and deduplication, exact error declaration recovery, repeated calls and distinct requirements, public name ambiguity, direct internal resolution, stale evidence, and rollback on failed import. Exercise proof reuse on matching inputs and refusal after a changed premise. Check that distinct request texts survive contract deduplication and that mismatched or stale signatures fail admission. The linked MVP evidence predates this database projection. SQL execution and migration validation are pending.
+
+## Proposed extension
+
+[ADR-028](028-structure-relational-projection.md) proposes the additional relations for structure declarations, target layouts, and state contracts.
