@@ -50,7 +50,7 @@ pub struct Fanotify<'fd> {
 /// are close-on-exec. Delivered descriptors are opened read-only.
 pub fn fanotify_init<'fd>() -> Result<Fanotify<'fd>, SyscallError> {
     let group = LinuxFd::from_result(unsafe {
-        abi::call(
+        abi::invoke(
             FANOTIFY_INIT,
             [
                 FAN_CLASS_NOTIF | FAN_CLOEXEC | FAN_NONBLOCK,
@@ -92,7 +92,7 @@ pub fn fanotify_mark<'fd>(
         }
     };
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             FANOTIFY_MARK,
             [
                 instance.group.as_raw_fd() as usize,
@@ -150,7 +150,7 @@ pub fn read_fanotify_event(instance: &Fanotify<'_>) -> Result<FanotifyEvent, Sys
         pid: 0,
     };
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::READ,
             [
                 instance.group.as_raw_fd() as usize,

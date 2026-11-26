@@ -105,7 +105,7 @@ unsafe fn invoke(
     flags: usize,
 ) -> isize {
     unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 fd.as_raw_fd() as usize,

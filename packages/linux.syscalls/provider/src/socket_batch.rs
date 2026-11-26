@@ -131,7 +131,7 @@ pub fn sendmmsg_udp4(
     // I/O vectors and address storage remain live for the full call. Linux
     // writes one message length for each accepted datagram in the prefix.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SENDMMSG,
             [
                 socket.as_fd().as_raw_fd() as usize,
@@ -185,7 +185,7 @@ pub fn recvmmsg_udp4(
     // IoSliceMut uses Unix's iovec ABI and retains exclusively borrowed byte
     // slices. All vectors, names, and headers stay live until the call returns.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             RECVMMSG,
             [
                 socket.as_fd().as_raw_fd() as usize,

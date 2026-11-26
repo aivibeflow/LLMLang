@@ -1,6 +1,6 @@
 # Linux syscall contracts
 
-The contract inventory describes the typed `linux.syscalls` operations in the native x86-64 profile. Each operation links to its Linux semantics and defines a typed signature, caller obligations, result guarantees, possible effects, and open assumptions. [`syscalls.json`](syscalls.json) is the authoring input to the package builder. [`commands.json`](commands.json) accounts for the supported operations of multiplexed interfaces against immutable v6.12 UAPI references.
+The public `linux.syscalls` signatures are declared in [interface.llmlang](../interface.llmlang). [`syscalls.json`](syscalls.json) supplies the named types, signatures committed to the contract identities, caller obligations, result guarantees, possible effects, and assumptions. The builder checks that each declaration matches its contract signature before publishing. [`commands.json`](commands.json) records the supported operations of multiplexed interfaces against immutable v6.12 UAPI references.
 
 ```mermaid
 flowchart LR

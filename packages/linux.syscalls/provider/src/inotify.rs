@@ -59,13 +59,13 @@ pub enum InotifyMode {
 
 /// Opens the legacy blocking instance; Linux leaves CLOEXEC clear.
 pub fn inotify_init() -> Result<Inotify, SyscallError> {
-    Inotify::new(unsafe { abi::call(INOTIFY_INIT, [0; 6]) })
+    Inotify::new(unsafe { abi::invoke(INOTIFY_INIT, [0; 6]) })
 }
 
 /// Opens a blocking or nonblocking instance, always with atomic CLOEXEC.
 pub fn inotify_init1(mode: InotifyMode) -> Result<Inotify, SyscallError> {
     Inotify::new(unsafe {
-        abi::call(
+        abi::invoke(
             INOTIFY_INIT1,
             [(O_CLOEXEC | mode as i32) as usize, 0, 0, 0, 0, 0],
         )
@@ -129,7 +129,7 @@ impl InotifyWatch<'_> {
         watches.remove(&self.descriptor);
         drop(watches);
         decode_zero(unsafe {
-            abi::call(
+            abi::invoke(
                 INOTIFY_RM_WATCH,
                 [
                     self.instance.borrow().as_raw_fd() as usize,
@@ -165,7 +165,7 @@ pub fn inotify_add_watch<'a>(
             "inotify watch generations exhausted",
         ))?;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             INOTIFY_ADD_WATCH,
             [
                 instance.borrow().as_raw_fd() as usize,

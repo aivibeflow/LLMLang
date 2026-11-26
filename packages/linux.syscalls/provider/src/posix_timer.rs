@@ -56,7 +56,7 @@ pub fn timer_create(clock: i32) -> Result<PosixTimer, SyscallError> {
     let notification = NativeSignalEvent::none();
     let mut timer_id = -1_i32;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             TIMER_CREATE,
             [
                 clock as usize,
@@ -91,7 +91,7 @@ pub fn timer_settime(
 ) -> Result<TimerSpec, SyscallError> {
     let mut previous = TimerSpec::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             TIMER_SETTIME,
             [
                 timer.0 as usize,
@@ -112,7 +112,7 @@ pub fn timer_settime(
 pub fn timer_gettime(timer: &PosixTimer) -> Result<TimerSpec, SyscallError> {
     let mut settings = TimerSpec::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             TIMER_GETTIME,
             [
                 timer.0 as usize,
@@ -138,7 +138,7 @@ fn checked_settings(raw: isize, settings: TimerSpec) -> Result<TimerSpec, Syscal
 /// Returns the kernel's last notification overrun count. In SIGEV_NONE mode
 /// the kernel does not deliver notifications, so this count remains zero.
 pub fn timer_getoverrun(timer: &PosixTimer) -> Result<u32, SyscallError> {
-    let raw = unsafe { abi::call(TIMER_GETOVERRUN, [timer.0 as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(TIMER_GETOVERRUN, [timer.0 as usize, 0, 0, 0, 0, 0]) };
     let count = decode_nonnegative(raw)?;
     i32::try_from(count)
         .map(|value| value as u32)
@@ -182,7 +182,7 @@ pub fn timer_delete(timer: PosixTimer) -> Result<(), TimerDeleteError> {
 }
 
 fn delete_id(timer_id: i32) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(TIMER_DELETE, [timer_id as usize, 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(TIMER_DELETE, [timer_id as usize, 0, 0, 0, 0, 0]) })
 }
 
 #[cfg(test)]

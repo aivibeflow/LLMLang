@@ -1,4 +1,4 @@
-use super::{abi, decode_write, decode_zero, LinuxFd, SyscallError, Timespec, EINTR, O_CLOEXEC};
+use super::{abi, decode_write, decode_zero, LinuxFd, SyscallError, Timespec, EINTR};
 use std::mem::size_of;
 use std::os::fd::{AsRawFd, BorrowedFd};
 use std::ptr;
@@ -44,7 +44,7 @@ pub fn clock_getres(clock: i32) -> Result<Timespec, SyscallError> {
 pub fn nanosleep(request: Timespec) -> Result<SleepOutcome, SyscallError> {
     let mut remaining = Timespec::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::NANOSLEEP,
             [
                 ptr::from_ref(&request) as usize,
@@ -65,12 +65,12 @@ pub fn nanosleep(request: Timespec) -> Result<SleepOutcome, SyscallError> {
     Ok(SleepOutcome::Completed)
 }
 
-/// Returns an owned timer descriptor with FD_CLOEXEC set atomically.
+/// Returns an owned timer descriptor with the supplied flags.
 pub fn timerfd_create(clock: i32, flags: i32) -> Result<LinuxFd, SyscallError> {
     LinuxFd::from_result(unsafe {
-        abi::call(
+        abi::invoke(
             abi::TIMERFD_CREATE,
-            [clock as usize, (flags | O_CLOEXEC) as usize, 0, 0, 0, 0],
+            [clock as usize, flags as usize, 0, 0, 0, 0],
         )
     })
 }
@@ -83,7 +83,7 @@ pub fn timerfd_settime(
 ) -> Result<TimerSpec, SyscallError> {
     let mut previous = TimerSpec::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::TIMERFD_SETTIME,
             [
                 fd.as_raw_fd() as usize,
@@ -102,7 +102,7 @@ pub fn timerfd_settime(
 pub fn timerfd_gettime(fd: BorrowedFd<'_>) -> Result<TimerSpec, SyscallError> {
     let mut result = TimerSpec::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::TIMERFD_GETTIME,
             [
                 fd.as_raw_fd() as usize,
@@ -158,12 +158,12 @@ impl From<NativeEpollEvent> for EpollEvent {
     }
 }
 
-/// Returns an owned epoll descriptor with FD_CLOEXEC set atomically.
+/// Returns an owned epoll descriptor with the supplied flags.
 pub fn epoll_create1(flags: i32) -> Result<LinuxFd, SyscallError> {
     LinuxFd::from_result(unsafe {
-        abi::call(
+        abi::invoke(
             abi::EPOLL_CREATE1,
-            [(flags | O_CLOEXEC) as usize, 0, 0, 0, 0, 0],
+            [flags as usize, 0, 0, 0, 0, 0],
         )
     })
 }
@@ -180,7 +180,7 @@ pub fn epoll_ctl(
     };
     let argument = event.as_ref().map_or(ptr::null(), ptr::from_ref);
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::EPOLL_CTL,
             [
                 epoll.as_raw_fd() as usize,
@@ -241,7 +241,7 @@ fn wait_for_epoll_events(
     }
     let mut native = vec![NativeEpollEvent::default(); events.len()];
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             operation,
             [
                 epoll.as_raw_fd() as usize,

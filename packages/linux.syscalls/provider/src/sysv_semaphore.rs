@@ -62,7 +62,7 @@ pub fn semget(count: u32, permissions: u16) -> Result<SemaphoreSet, SyscallError
         ));
     }
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SEMGET,
             [
                 IPC_PRIVATE,
@@ -136,7 +136,7 @@ fn operate(
     }
     let timeout_ptr = timeout.map_or(ptr::null(), ptr::from_ref);
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             syscall,
             [
                 set.id as usize,
@@ -210,7 +210,7 @@ fn semctl(id: i32, index: u16, command: usize, argument: usize) -> isize {
     // The supported commands either use no union argument or pass SETVAL's
     // integer by value in the native little-endian user ABI.
     unsafe {
-        abi::call(
+        abi::invoke(
             SEMCTL,
             [id as usize, index as usize, command, argument, 0, 0],
         )

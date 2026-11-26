@@ -84,11 +84,11 @@ pub fn unshare_mount_private() -> Result<PrivateMountNamespace, MountNamespaceEr
     if ENTERED.get() {
         return Err(MountNamespaceError::AlreadyEntered);
     }
-    decode_zero(unsafe { abi::call(UNSHARE, [CLONE_NEWNS, 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(UNSHARE, [CLONE_NEWNS, 0, 0, 0, 0, 0]) })
         .map_err(MountNamespaceError::Unshare)?;
     ENTERED.set(true);
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             MOUNT,
             [0, c"/".as_ptr() as usize, 0, MS_REC | MS_PRIVATE, 0, 0],
         )
@@ -127,7 +127,7 @@ pub fn mount_tmpfs<'ns>(
     let root = create_detached_filesystem(&context, NOSUID_NODEV_NOEXEC)?;
     let empty = c"".as_ptr() as usize;
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             MOVE_MOUNT,
             [
                 root.as_raw_fd() as usize,
@@ -147,7 +147,7 @@ pub fn mount_tmpfs<'ns>(
 
 fn filesystem_context(filesystem: &CStr) -> Result<LinuxFd, SyscallError> {
     LinuxFd::from_result(unsafe {
-        abi::call(
+        abi::invoke(
             FSOPEN,
             [filesystem.as_ptr() as usize, FSOPEN_CLOEXEC, 0, 0, 0, 0],
         )
@@ -156,7 +156,7 @@ fn filesystem_context(filesystem: &CStr) -> Result<LinuxFd, SyscallError> {
 
 fn filesystem_option(context: &LinuxFd, name: &CStr, value: &CStr) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             FSCONFIG,
             [
                 context.as_raw_fd() as usize,
@@ -175,9 +175,9 @@ fn create_detached_filesystem(
     mount_attributes: usize,
 ) -> Result<LinuxFd, SyscallError> {
     let fd = context.as_raw_fd() as usize;
-    decode_zero(unsafe { abi::call(FSCONFIG, [fd, FSCONFIG_CMD_CREATE, 0, 0, 0, 0]) })?;
+    decode_zero(unsafe { abi::invoke(FSCONFIG, [fd, FSCONFIG_CMD_CREATE, 0, 0, 0, 0]) })?;
     LinuxFd::from_result(unsafe {
-        abi::call(FSMOUNT, [fd, FSMOUNT_CLOEXEC, mount_attributes, 0, 0, 0])
+        abi::invoke(FSMOUNT, [fd, FSMOUNT_CLOEXEC, mount_attributes, 0, 0, 0])
     })
 }
 
@@ -227,7 +227,7 @@ impl fmt::Display for UnmountTmpfsError {
 impl std::error::Error for UnmountTmpfsError {}
 
 fn change_directory(fd: &LinuxFd) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(FCHDIR, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(FCHDIR, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) })
 }
 
 /// Detaches this exact mount and restores the calling thread's saved cwd.
@@ -244,7 +244,7 @@ pub fn umount2_tmpfs(mount: &mut MountedTmpfs<'_>) -> Result<(), UnmountTmpfsErr
     let saved = save_directory().map_err(UnmountTmpfsError::SaveDirectory)?;
     change_directory(root).map_err(UnmountTmpfsError::EnterMount)?;
     let detached = decode_zero(unsafe {
-        abi::call(UMOUNT2, [c".".as_ptr() as usize, MNT_DETACH, 0, 0, 0, 0])
+        abi::invoke(UMOUNT2, [c".".as_ptr() as usize, MNT_DETACH, 0, 0, 0, 0])
     });
     let restored = change_directory(&saved);
     if detached.is_ok() {
@@ -288,7 +288,7 @@ pub(super) fn owned_mount_root<'open>(
 pub fn open_tree(mount: &MountedTmpfs<'_>) -> Result<LinuxFd, SyscallError> {
     let root = owned_mount_root(mount)?;
     LinuxFd::from_result(unsafe {
-        abi::call(
+        abi::invoke(
             OPEN_TREE,
             [
                 root.as_raw_fd() as usize,
@@ -307,7 +307,7 @@ pub fn open_tree(mount: &MountedTmpfs<'_>) -> Result<LinuxFd, SyscallError> {
 pub fn fspick(mount: &MountedTmpfs<'_>) -> Result<LinuxFd, SyscallError> {
     let root = owned_mount_root(mount)?;
     LinuxFd::from_result(unsafe {
-        abi::call(
+        abi::invoke(
             FSPICK,
             [
                 root.as_raw_fd() as usize,
@@ -345,7 +345,7 @@ pub fn mount_setattr(mount: &MountedTmpfs<'_>) -> Result<(), SyscallError> {
         user_namespace: 0,
     };
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             MOUNT_SETATTR,
             [
                 root.as_raw_fd() as usize,
@@ -366,7 +366,7 @@ fn save_directory() -> Result<LinuxFd, SyscallError> {
         Directory::Current,
         c".",
         OpenOptions {
-            flags: O_PATH | O_DIRECTORY,
+            flags: O_PATH | O_DIRECTORY | O_CLOEXEC,
             mode: 0,
         },
     )
@@ -423,7 +423,7 @@ fn change_root(mount: &mut MountedTmpfs<'_>, operation: RootChange) -> Result<()
                 Directory::Borrowed(root.as_fd()),
                 OLD_ROOT_DIRECTORY,
                 OpenOptions {
-                    flags: O_PATH | O_DIRECTORY | O_NOFOLLOW,
+                    flags: O_PATH | O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC,
                     mode: 0,
                 },
             )
@@ -435,8 +435,8 @@ fn change_root(mount: &mut MountedTmpfs<'_>, operation: RootChange) -> Result<()
     let current = c".".as_ptr() as usize;
     let changed = decode_zero(unsafe {
         match operation {
-            RootChange::Chroot => abi::call(CHROOT, [current, 0, 0, 0, 0, 0]),
-            RootChange::Pivot => abi::call(
+            RootChange::Chroot => abi::invoke(CHROOT, [current, 0, 0, 0, 0, 0]),
+            RootChange::Pivot => abi::invoke(
                 PIVOT_ROOT,
                 [current, OLD_ROOT_DIRECTORY.as_ptr() as usize, 0, 0, 0, 0],
             ),

@@ -238,7 +238,18 @@ fn file_ownership_locks_permissions_and_metadata_follow_kernel_state() {
         mode: 0o600,
     };
     let file = openat(scope, c"state", mode).unwrap();
-    assert_eq!(fcntl_getfd(file.borrow()).unwrap() & 1, 1);
+    assert_eq!(fcntl_getfd(file.borrow()).unwrap() & 1, 0);
+    let marked = openat(
+        scope,
+        c"state",
+        OpenOptions {
+            flags: O_RDONLY | O_CLOEXEC,
+            mode: 0,
+        },
+    )
+    .unwrap();
+    assert_eq!(fcntl_getfd(marked.borrow()).unwrap() & 1, 1);
+    close(marked).unwrap();
     assert_eq!(write(file.borrow(), b"state").unwrap(), 5);
     assert_eq!(lseek(file.borrow(), 1, SeekOrigin::Start).unwrap(), 1);
     let duplicate = dup(file.borrow()).unwrap();

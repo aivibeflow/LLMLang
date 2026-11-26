@@ -13,7 +13,7 @@ const GETGROUPS: usize = 115;
 /// the caller's buffer. Linux may prefix a path with "(unreachable)".
 pub fn getcwd(buffer: &mut [u8]) -> Result<&CStr, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             GETCWD,
             [buffer.as_mut_ptr() as usize, buffer.len(), 0, 0, 0, 0],
         )
@@ -25,12 +25,12 @@ pub fn getcwd(buffer: &mut [u8]) -> Result<&CStr, SyscallError> {
 /// Replace the working directory of the calling Linux filesystem context.
 /// Other threads sharing that context observe the change.
 pub fn chdir(path: &CStr) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(CHDIR, [path.as_ptr() as usize, 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(CHDIR, [path.as_ptr() as usize, 0, 0, 0, 0, 0]) })
 }
 
 pub fn fchdir(directory: BorrowedFd<'_>) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             crate::mounts::FCHDIR,
             [directory.as_raw_fd() as usize, 0, 0, 0, 0, 0],
         )
@@ -45,7 +45,7 @@ pub fn umask(mask: u16) -> Result<u16, SyscallError> {
             "permission mask must fit nine bits",
         ));
     }
-    let raw = unsafe { abi::call(UMASK, [mask as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(UMASK, [mask as usize, 0, 0, 0, 0, 0]) };
     match decode_nonnegative(raw)? {
         previous @ 0..=0o777 => Ok(previous as u16),
         _ => Err(SyscallError::UnexpectedReturn(raw)),
@@ -60,7 +60,7 @@ pub fn getgroups(groups: &mut [u32]) -> Result<usize, SyscallError> {
         ));
     }
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             GETGROUPS,
             [groups.len(), groups.as_mut_ptr() as usize, 0, 0, 0, 0],
         )

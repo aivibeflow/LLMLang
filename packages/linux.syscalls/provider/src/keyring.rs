@@ -44,7 +44,7 @@ pub fn keyctl_join_session() -> Result<SessionKeyring, SyscallError> {
         ));
     }
     let serial =
-        serial(unsafe { abi::call(KEYCTL, [KEYCTL_JOIN_SESSION_KEYRING, 0, 0, 0, 0, 0]) })?;
+        serial(unsafe { abi::invoke(KEYCTL, [KEYCTL_JOIN_SESSION_KEYRING, 0, 0, 0, 0, 0]) })?;
     ENTERED.set(true);
     Ok(SessionKeyring {
         serial,
@@ -111,7 +111,7 @@ pub fn add_key<'ring>(
     }
     let description = description.to_owned();
     let serial = serial(unsafe {
-        abi::call(
+        abi::invoke(
             ADD_KEY,
             [
                 c"user".as_ptr() as usize,
@@ -137,7 +137,7 @@ pub fn add_key<'ring>(
 pub fn request_key(key: &OwnedUserKey<'_>) -> Result<(), SyscallError> {
     key.check_linked()?;
     let found = serial(unsafe {
-        abi::call(
+        abi::invoke(
             REQUEST_KEY,
             [
                 c"user".as_ptr() as usize,
@@ -173,7 +173,7 @@ pub fn keyctl_read(
     let mut data = [0_u8; MAX_PAYLOAD_BYTES];
     let capacity = output.len().min(data.len());
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             KEYCTL,
             [
                 KEYCTL_READ,
@@ -202,7 +202,7 @@ pub fn keyctl_read(
 pub fn keyctl_unlink(key: &mut OwnedUserKey<'_>) -> Result<(), SyscallError> {
     key.check_linked()?;
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             KEYCTL,
             [
                 KEYCTL_UNLINK,

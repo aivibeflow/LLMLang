@@ -11,7 +11,7 @@ const MEMBARRIER: usize = 324;
 
 /// Returns the calling thread's ID in the caller's PID namespace.
 pub fn gettid() -> Result<i32, SyscallError> {
-    let raw = unsafe { abi::call(GETTID, [0; 6]) };
+    let raw = unsafe { abi::invoke(GETTID, [0; 6]) };
     match decode_nonnegative(raw)? {
         id @ 1..=0x7fff_ffff => Ok(id as i32),
         _ => Err(SyscallError::UnexpectedReturn(raw)),
@@ -21,7 +21,7 @@ pub fn gettid() -> Result<i32, SyscallError> {
 /// Gives the scheduler one opportunity to run another eligible thread.
 /// Linux can select the caller again immediately.
 pub fn sched_yield() -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(SCHED_YIELD, [0; 6]) })
+    decode_zero(unsafe { abi::invoke(SCHED_YIELD, [0; 6]) })
 }
 
 pub fn sched_get_priority_min(policy: i32) -> Result<i32, SyscallError> {
@@ -33,7 +33,7 @@ pub fn sched_get_priority_max(policy: i32) -> Result<i32, SyscallError> {
 }
 
 fn scheduler_bound(operation: usize, policy: i32) -> Result<i32, SyscallError> {
-    let raw = unsafe { abi::call(operation, [policy as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(operation, [policy as usize, 0, 0, 0, 0, 0]) };
     match decode_nonnegative(raw)? {
         bound @ 0..=99 => Ok(bound as i32),
         _ => Err(SyscallError::UnexpectedReturn(raw)),
@@ -47,7 +47,7 @@ pub fn sched_rr_get_interval(pid: i32) -> Result<Timespec, SyscallError> {
         .map_err(|_| SyscallError::InvalidInput("thread ID must be nonnegative"))?;
     let mut interval = Timespec::default();
     let output = (&mut interval as *mut Timespec) as usize;
-    let raw = unsafe { abi::call(SCHED_RR_GET_INTERVAL, [pid, output, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(SCHED_RR_GET_INTERVAL, [pid, output, 0, 0, 0, 0]) };
     decode_zero(raw)?;
     if interval.seconds() < 0 {
         return Err(SyscallError::UnexpectedReturn(raw));
@@ -67,7 +67,7 @@ pub fn getcpu() -> Result<CpuLocation, SyscallError> {
     let mut cpu = u32::MAX;
     let mut node = u32::MAX;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             GETCPU,
             [
                 (&mut cpu as *mut u32) as usize,
@@ -89,13 +89,13 @@ pub fn getcpu() -> Result<CpuLocation, SyscallError> {
 /// Reads the caller's personality and execution-domain flags using Linux's
 /// fixed query sentinel. The caller cannot request an update.
 pub fn personality_query() -> Result<u32, SyscallError> {
-    let raw = unsafe { abi::call(PERSONALITY, [u32::MAX as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(PERSONALITY, [u32::MAX as usize, 0, 0, 0, 0, 0]) };
     u32::try_from(decode_nonnegative(raw)?).map_err(|_| SyscallError::UnexpectedReturn(raw))
 }
 
 /// Returns the Linux membarrier command-support mask. The query neither
 /// registers a command nor requests a barrier.
 pub fn membarrier_query() -> Result<u32, SyscallError> {
-    let raw = unsafe { abi::call(MEMBARRIER, [0; 6]) };
+    let raw = unsafe { abi::invoke(MEMBARRIER, [0; 6]) };
     u32::try_from(decode_nonnegative(raw)?).map_err(|_| SyscallError::UnexpectedReturn(raw))
 }

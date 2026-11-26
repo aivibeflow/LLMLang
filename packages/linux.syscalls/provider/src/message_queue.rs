@@ -169,7 +169,7 @@ pub fn mq_open(name: QueueName<'_>, options: QueueOpen) -> Result<MessageQueue, 
         attributes = creation.limits.map(NativeQueueAttributes::from);
     }
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             MQ_OPEN,
             [
                 name.argument(),
@@ -186,7 +186,7 @@ pub fn mq_open(name: QueueName<'_>, options: QueueOpen) -> Result<MessageQueue, 
 
 /// Removes the name. Open queue descriptors remain valid until closed.
 pub fn mq_unlink(name: QueueName<'_>) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(MQ_UNLINK, [name.argument(), 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(MQ_UNLINK, [name.argument(), 0, 0, 0, 0, 0]) })
 }
 
 /// Sends one complete message. The optional deadline is absolute CLOCK_REALTIME.
@@ -197,7 +197,7 @@ pub fn mq_timedsend(
     deadline: Option<Timespec>,
 ) -> Result<(), SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             MQ_TIMEDSEND,
             [
                 queue.0.as_raw_fd() as usize,
@@ -228,7 +228,7 @@ pub fn mq_timedreceive(
 ) -> Result<ReceivedMessage, SyscallError> {
     let mut priority = MQ_PRIO_MAX;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             MQ_TIMEDRECEIVE,
             [
                 queue.0.as_raw_fd() as usize,
@@ -266,7 +266,7 @@ pub fn mq_getsetattr(
     });
     let mut previous = NativeQueueAttributes::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             MQ_GETSETATTR,
             [
                 queue.0.as_raw_fd() as usize,
@@ -317,7 +317,7 @@ pub fn mq_notify(queue: &MessageQueue, action: QueueNotification) -> Result<(), 
         QueueNotification::Unregister => 0,
     };
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             MQ_NOTIFY,
             [queue.as_fd().as_raw_fd() as usize, input, 0, 0, 0, 0],
         )

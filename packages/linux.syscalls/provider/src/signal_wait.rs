@@ -74,7 +74,7 @@ pub(super) fn raw_signal_wait(
     let timeout = timeout.map_or(0, |value| std::ptr::from_ref(value) as usize);
     // The input mask, output record and optional timespec live through the call.
     unsafe {
-        abi::call(
+        abi::invoke(
             RT_SIGTIMEDWAIT,
             [
                 std::ptr::from_ref(mask) as usize,

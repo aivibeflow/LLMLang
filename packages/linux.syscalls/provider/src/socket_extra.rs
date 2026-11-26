@@ -16,7 +16,7 @@ pub fn socketpair() -> Result<(LinuxFd, LinuxFd), SyscallError> {
     let mut descriptors = [-1_i32; 2];
     // Linux writes exactly two descriptor numbers into this local array.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SOCKETPAIR,
             [
                 AF_UNIX,
@@ -51,7 +51,7 @@ fn get_socket_int(fd: BorrowedFd<'_>, option: usize) -> Result<i32, SyscallError
     let mut len = size_of::<i32>() as u32;
     // SO_TYPE and SO_REUSEADDR both write a native int and a socklen_t.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             GETSOCKOPT,
             [
                 fd.as_raw_fd() as usize,
@@ -85,7 +85,7 @@ pub fn setsockopt_reuseaddr(fd: BorrowedFd<'_>, enabled: bool) -> Result<(), Sys
     let value = i32::from(enabled);
     // Linux reads one native int: 1 enables the option and 0 disables it.
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SETSOCKOPT,
             [
                 fd.as_raw_fd() as usize,

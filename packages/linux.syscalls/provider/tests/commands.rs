@@ -1,13 +1,17 @@
 use linux_syscalls_provider::{
     close, fcntl_getfd, fcntl_getfl, ioctl_fionread, pipe2, prctl_get_name, prctl_get_no_new_privs,
-    prctl_set_name, write, SyscallError, O_NONBLOCK,
+    prctl_set_name, write, SyscallError, O_CLOEXEC, O_NONBLOCK,
 };
 use std::os::fd::AsFd;
 
 #[test]
 fn command_fcntl_getters_observe_pipe_flags() {
     let (reader, writer) = pipe2(O_NONBLOCK).unwrap();
-    assert_eq!(fcntl_getfd(reader.borrow()).unwrap() & 1, 1);
+    assert_eq!(fcntl_getfd(reader.borrow()).unwrap() & 1, 0);
+    assert_eq!(fcntl_getfd(writer.borrow()).unwrap() & 1, 0);
+    let (marked_reader, marked_writer) = pipe2(O_CLOEXEC).unwrap();
+    assert_eq!(fcntl_getfd(marked_reader.borrow()).unwrap() & 1, 1);
+    assert_eq!(fcntl_getfd(marked_writer.borrow()).unwrap() & 1, 1);
     assert_eq!(
         fcntl_getfl(reader.borrow()).unwrap() & O_NONBLOCK,
         O_NONBLOCK

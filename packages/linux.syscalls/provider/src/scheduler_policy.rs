@@ -17,7 +17,7 @@ pub enum SchedulerPolicy {
 pub fn sched_setparam() -> Result<(), SyscallError> {
     let priority = 0_i32;
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SCHED_SETPARAM,
             [0, std::ptr::from_ref(&priority) as usize, 0, 0, 0, 0],
         )
@@ -28,7 +28,7 @@ pub fn sched_setparam() -> Result<(), SyscallError> {
 pub fn sched_setscheduler(policy: SchedulerPolicy) -> Result<(), SyscallError> {
     let priority = 0_i32;
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SCHED_SETSCHEDULER,
             [
                 0,
@@ -77,7 +77,7 @@ pub fn sched_setattr(policy: SchedulerPolicy, nice: i32) -> Result<(), SyscallEr
         period: 0,
     };
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SCHED_SETATTR,
             [0, std::ptr::from_ref(&attributes) as usize, 0, 0, 0, 0],
         )

@@ -23,7 +23,7 @@ fn check_pipe(input: BorrowedFd<'_>, output: BorrowedFd<'_>) -> Result<(), Box<d
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let (input, output) = pipe2(0)?;
+    let (input, output) = pipe2(O_CLOEXEC)?;
     let checked = check_pipe(input.borrow(), output.borrow());
     let output_close = close(output);
     let input_close = close(input);

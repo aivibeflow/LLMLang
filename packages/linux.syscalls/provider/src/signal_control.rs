@@ -15,7 +15,7 @@ pub fn kill(child: &ChildPid, signal: ChildSignal) -> Result<(), SyscallError> {
     let pid = child
         .pid()
         .ok_or(SyscallError::InvalidInput("child has already been reaped"))?;
-    decode_zero(unsafe { abi::call(KILL, [pid as usize, signal as usize, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(KILL, [pid as usize, signal as usize, 0, 0, 0, 0]) })
 }
 
 fn check_selected(
@@ -35,7 +35,7 @@ fn check_selected(
 pub fn tkill(scope: &CurrentThreadSignalScope, signal: UserSignal) -> Result<(), SyscallError> {
     check_selected(scope, signal)?;
     let thread = gettid()? as usize;
-    decode_zero(unsafe { abi::call(TKILL, [thread, signal as usize, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(TKILL, [thread, signal as usize, 0, 0, 0, 0]) })
 }
 
 /// Sends a selected blocked user signal to the calling thread, qualifying
@@ -44,5 +44,5 @@ pub fn tgkill(scope: &CurrentThreadSignalScope, signal: UserSignal) -> Result<()
     check_selected(scope, signal)?;
     let process = getpid()? as usize;
     let thread = gettid()? as usize;
-    decode_zero(unsafe { abi::call(TGKILL, [process, thread, signal as usize, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(TGKILL, [process, thread, signal as usize, 0, 0, 0]) })
 }

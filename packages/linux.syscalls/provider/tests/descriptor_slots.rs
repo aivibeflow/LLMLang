@@ -64,7 +64,18 @@ fn openat2_keeps_relative_resolution_beneath_the_borrowed_directory() {
         mode: 0,
     };
     let file = openat2_beneath(directory.as_fd(), c"inside", options).unwrap();
-    assert_eq!(fcntl_getfd(file.borrow()).unwrap() & 1, 1);
+    assert_eq!(fcntl_getfd(file.borrow()).unwrap() & 1, 0);
+    let marked = openat2_beneath(
+        directory.as_fd(),
+        c"inside",
+        OpenOptions {
+            flags: O_RDONLY | O_CLOEXEC,
+            mode: 0,
+        },
+    )
+    .unwrap();
+    assert_eq!(fcntl_getfd(marked.borrow()).unwrap() & 1, 1);
+    close(marked).unwrap();
     let mut result = [0];
     assert_eq!(
         read(file.borrow(), &mut result).unwrap(),

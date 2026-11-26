@@ -14,7 +14,7 @@ pub fn setpriority_current(nice: i32) -> Result<(), SyscallError> {
         return Err(SyscallError::InvalidInput("nice must be 0 through 19"));
     }
     // PRIO_PROCESS is 0, distinct from IOPRIO_WHO_PROCESS.
-    decode_zero(unsafe { abi::call(SETPRIORITY, [0, 0, nice as usize, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(SETPRIORITY, [0, 0, nice as usize, 0, 0, 0]) })
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -32,7 +32,7 @@ pub struct IoPriorityObservation {
 }
 
 pub fn ioprio_get_current() -> Result<IoPriorityObservation, SyscallError> {
-    let raw = unsafe { abi::call(IOPRIO_GET, [PROCESS, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(IOPRIO_GET, [PROCESS, 0, 0, 0, 0, 0]) };
     let value =
         u16::try_from(decode_nonnegative(raw)?).map_err(|_| SyscallError::UnexpectedReturn(raw))?;
     Ok(IoPriorityObservation {
@@ -54,5 +54,5 @@ pub fn ioprio_set_current(priority: IoPriority) -> Result<(), SyscallError> {
         IoPriority::Idle => (3, 0),
     };
     let value = (class << IOPRIO_CLASS_SHIFT) | data;
-    decode_zero(unsafe { abi::call(IOPRIO_SET, [PROCESS, 0, value, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(IOPRIO_SET, [PROCESS, 0, value, 0, 0, 0]) })
 }

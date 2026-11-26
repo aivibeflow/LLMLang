@@ -1,4 +1,4 @@
-use super::{abi, decode_write, decode_zero, LinuxFd, SyscallError, O_CLOEXEC};
+use super::{abi, decode_write, decode_zero, LinuxFd, SyscallError};
 use std::os::fd::{AsRawFd, BorrowedFd};
 
 pub const POLLIN: i16 = 0x001;
@@ -43,7 +43,7 @@ struct PollFd {
 /// On error the public entries retain their previous returned events.
 pub fn poll(entries: &mut [PollEntry<'_>], timeout_ms: i32) -> Result<usize, SyscallError> {
     poll_with(entries, |address, count| unsafe {
-        abi::call(abi::POLL, [address, count, timeout_ms as usize, 0, 0, 0])
+        abi::invoke(abi::POLL, [address, count, timeout_ms as usize, 0, 0, 0])
     })
 }
 
@@ -105,7 +105,7 @@ pub fn clock_gettime(clock: i32) -> Result<Timespec, SyscallError> {
 pub(super) fn read_clock(operation: usize, clock: i32) -> Result<Timespec, SyscallError> {
     let mut result = Timespec::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             operation,
             [
                 clock as usize,
@@ -121,12 +121,12 @@ pub(super) fn read_clock(operation: usize, clock: i32) -> Result<Timespec, Sysca
     result.checked(raw)
 }
 
-/// Returns an owned Linux eventfd with FD_CLOEXEC set atomically.
+/// Returns an owned Linux eventfd with the supplied flags.
 pub fn eventfd2(initial: u32, flags: i32) -> Result<LinuxFd, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::EVENTFD2,
-            [initial as usize, (flags | O_CLOEXEC) as usize, 0, 0, 0, 0],
+            [initial as usize, flags as usize, 0, 0, 0, 0],
         )
     };
     LinuxFd::from_result(raw)

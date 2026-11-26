@@ -10,9 +10,14 @@ from pathlib import Path
 import re
 import struct
 import subprocess
+import sys
 import tempfile
 
 DIRECTORY = Path(__file__).resolve().parent
+sys.path.insert(0, str(DIRECTORY.parent))
+
+from package import PackageError, provider_files  # noqa: E402
+
 KERNEL_RELEASE = "6.12.117+deb13-cloud-amd64"
 KERNEL_SHA256 = "ed8f0dbdbefe3994093937f5ee934818ae902b88cb0b6bc423811c10d55b87b0"
 QUOTA_IMAGE_SHA256 = "fb7ca83c1f15ab4d2752c643b0af386dc4eaa7adecda5332e0d0db478755c378"
@@ -111,10 +116,9 @@ def source_hashes(provider_root, provider_example):
     if not re.fullmatch(r"[a-z][a-z0-9_]*", provider_example):
         raise ValueError("invalid provider example name")
     example = f"examples/{provider_example}.rs"
-    sources = [provider_root / "Cargo.toml", *sorted((provider_root / "src").rglob("*.rs"))]
-    if len(sources) < 2:
-        raise ValueError("provider source root has no Rust library sources")
-    provider = {path.relative_to(provider_root).as_posix(): file_digest(path) for path in sources}
+    provider = {
+        name: hashlib.sha256(data).hexdigest() for name, data in provider_files(provider_root).items()
+    }
     tests = {
         "guest/init.c": file_digest(DIRECTORY / "init.c"),
         "guest/run.py": file_digest(DIRECTORY / "run.py"),
@@ -226,7 +230,7 @@ def main():
         )
         if args.provider_root:
             evidence.update(source_hashes(args.provider_root, args.provider_example))
-    except (OSError, ValueError, subprocess.SubprocessError) as error:
+    except (OSError, PackageError, ValueError, subprocess.SubprocessError) as error:
         parser.exit(1, f"guest probe: {error}\n")
     if args.verbose:
         print(console, end="")

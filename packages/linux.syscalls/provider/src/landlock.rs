@@ -58,7 +58,7 @@ pub enum LandlockReadAccess {
 /// select a provider automatically or install a policy.
 pub fn landlock_create_ruleset_version() -> Result<u32, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             LANDLOCK_CREATE_RULESET,
             [0, 0, LANDLOCK_CREATE_RULESET_VERSION, 0, 0, 0],
         )
@@ -77,7 +77,7 @@ pub fn landlock_create_ruleset() -> Result<LandlockRuleset, SyscallError> {
         handled_access_fs: LANDLOCK_ACCESS_FS_READ_FILE | LANDLOCK_ACCESS_FS_READ_DIR,
     };
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             LANDLOCK_CREATE_RULESET,
             [
                 (&attributes as *const RulesetFsV1) as usize,
@@ -104,7 +104,7 @@ pub fn landlock_add_rule(
         parent_fd: parent.as_raw_fd(),
     };
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             LANDLOCK_ADD_RULE,
             [
                 ruleset.as_fd().as_raw_fd() as usize,
@@ -124,7 +124,7 @@ pub fn landlock_add_rule(
 /// force. This call does not set no_new_privs or affect existing threads.
 pub fn landlock_restrict_self(ruleset: &LandlockRuleset) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             LANDLOCK_RESTRICT_SELF,
             [ruleset.as_fd().as_raw_fd() as usize, 0, 0, 0, 0, 0],
         )

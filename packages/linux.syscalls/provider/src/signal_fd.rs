@@ -108,7 +108,7 @@ impl Drop for MaskRestoration {
 
 fn change_mask(how: usize, mask: &u64, previous: *mut u64) -> Result<(), SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             RT_SIGPROCMASK,
             [
                 how,
@@ -273,7 +273,7 @@ fn create_signal_descriptor(
     flags: usize,
 ) -> Result<ScopedSignalDescriptor<'_>, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             operation,
             [
                 (-1_i32) as usize,
@@ -304,7 +304,7 @@ pub struct PendingUserSignals {
 pub fn rt_sigpending(scope: &CurrentThreadSignalScope) -> Result<PendingUserSignals, SyscallError> {
     let mut pending = 0_u64;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             RT_SIGPENDING,
             [
                 ptr::from_mut(&mut pending) as usize,

@@ -5,7 +5,7 @@ use std::os::fd::{AsFd, AsRawFd};
 use std::rc::Rc;
 
 use super::mounts::detached_proc_mount;
-use super::{abi, decode_zero, openat, Directory, LinuxFd, OpenOptions, SyscallError, O_RDONLY};
+use super::{abi, decode_zero, openat, Directory, LinuxFd, OpenOptions, SyscallError, O_CLOEXEC, O_RDONLY};
 
 const SETHOSTNAME: usize = 170;
 const SETDOMAINNAME: usize = 171;
@@ -43,7 +43,7 @@ fn enter_uts(number: usize, arguments: [usize; 6]) -> Result<UtsNamespace, Sysca
         .ok_or(SyscallError::InvalidInput(
             "UTS namespace generation exhausted",
         ))?;
-    decode_zero(unsafe { abi::call(number, arguments) })?;
+    decode_zero(unsafe { abi::invoke(number, arguments) })?;
     GENERATION.set(generation);
     Ok(UtsNamespace {
         generation,
@@ -67,7 +67,7 @@ pub fn sethostname(namespace: &UtsNamespace, name: &[u8]) -> Result<(), SyscallE
     }
     // Linux reads exactly name.len() bytes, including embedded NUL bytes.
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SETHOSTNAME,
             [name.as_ptr() as usize, name.len(), 0, 0, 0, 0],
         )
@@ -81,7 +81,7 @@ pub fn setdomainname(namespace: &UtsNamespace, name: &[u8]) -> Result<(), Syscal
         return Err(SyscallError::InvalidInput("domain name exceeds 64 bytes"));
     }
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             SETDOMAINNAME,
             [name.as_ptr() as usize, name.len(), 0, 0, 0, 0],
         )
@@ -130,7 +130,7 @@ pub fn unshare_uts_pinned() -> Result<(UtsNamespace, SavedUtsNamespace), PinUtsE
         Directory::Borrowed(proc_root.as_fd()),
         c"thread-self/ns/uts",
         OpenOptions {
-            flags: O_RDONLY,
+            flags: O_RDONLY | O_CLOEXEC,
             mode: 0,
         },
     ) {

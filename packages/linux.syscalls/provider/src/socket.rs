@@ -46,7 +46,7 @@ impl SockaddrIn {
 /// Constructs an IPv4 TCP stream socket with FD_CLOEXEC set atomically.
 pub fn socket() -> Result<LinuxFd, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::SOCKET,
             [
                 AF_INET as usize,
@@ -67,7 +67,7 @@ pub fn bind(fd: BorrowedFd<'_>, address: SocketAddrV4) -> Result<(), SyscallErro
 
 pub fn listen(fd: BorrowedFd<'_>, backlog: i32) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::LISTEN,
             [fd.as_raw_fd() as usize, backlog as usize, 0, 0, 0, 0],
         )
@@ -85,7 +85,7 @@ fn socket_address_call(
 ) -> Result<(), SyscallError> {
     let native = SockaddrIn::from(address);
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 fd.as_raw_fd() as usize,
@@ -102,13 +102,13 @@ fn socket_address_call(
 /// Returns a new connected descriptor. Native accept does not set CLOEXEC.
 /// Prefer `accept4` when the descriptor should stay private across exec.
 pub fn accept(fd: BorrowedFd<'_>) -> Result<LinuxFd, SyscallError> {
-    let raw = unsafe { abi::call(abi::ACCEPT, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(abi::ACCEPT, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) };
     LinuxFd::from_result(raw)
 }
 
 pub fn accept4(fd: BorrowedFd<'_>) -> Result<LinuxFd, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::ACCEPT4,
             [fd.as_raw_fd() as usize, 0, 0, O_CLOEXEC as usize, 0, 0],
         )
@@ -128,7 +128,7 @@ fn socket_name_call(number: usize, fd: BorrowedFd<'_>) -> Result<SocketAddrV4, S
     let mut address = SockaddrIn::default();
     let mut len = size_of::<SockaddrIn>() as u32;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 fd.as_raw_fd() as usize,
@@ -148,7 +148,7 @@ fn socket_name_call(number: usize, fd: BorrowedFd<'_>) -> Result<SocketAddrV4, S
 /// even on processes that use the default SIGPIPE disposition.
 pub fn sendto(fd: BorrowedFd<'_>, buffer: &[u8]) -> Result<usize, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::SENDTO,
             [
                 fd.as_raw_fd() as usize,
@@ -166,7 +166,7 @@ pub fn sendto(fd: BorrowedFd<'_>, buffer: &[u8]) -> Result<usize, SyscallError> 
 /// Receives stream bytes with default message flags and no address result.
 pub fn recvfrom(fd: BorrowedFd<'_>, buffer: &mut [u8]) -> Result<ReadOutcome, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::RECVFROM,
             [
                 fd.as_raw_fd() as usize,
@@ -191,7 +191,7 @@ pub enum Shutdown {
 
 pub fn shutdown(fd: BorrowedFd<'_>, direction: Shutdown) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::SHUTDOWN,
             [fd.as_raw_fd() as usize, direction as usize, 0, 0, 0, 0],
         )

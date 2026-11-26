@@ -8,6 +8,14 @@
 compile_error!("linux.syscalls requires the native Linux x86-64 ABI");
 
 mod abi;
+
+mod open_intrinsics {
+    use super::{abi, Directory, LinuxFd, OpenOptions, SyscallError};
+    use std::ffi::CStr;
+
+    include!(concat!(env!("OUT_DIR"), "/open.rs"));
+}
+pub use open_intrinsics::{open, openat};
 mod bpf_array;
 mod cache_range;
 mod clock_observation;

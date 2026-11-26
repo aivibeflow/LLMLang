@@ -10671,7 +10671,7 @@
     },
     {
       "name": "openat",
-      "revision": 1,
+      "revision": 2,
       "signature": {
         "parameters": [
           {
@@ -10714,7 +10714,7 @@
           },
           {
             "id": "close-on-exec",
-            "statement": "A successful open sets FD_CLOEXEC atomically."
+            "statement": "Pass flags and mode unchanged. Linux sets FD_CLOEXEC at allocation when the caller supplies O_CLOEXEC."
           }
         ],
         "effects": [
@@ -10767,7 +10767,7 @@
           },
           {
             "id": "close-on-exec",
-            "statement": "A successful open sets FD_CLOEXEC atomically."
+            "statement": "Pass flags and mode unchanged. Linux sets FD_CLOEXEC at allocation when the caller supplies O_CLOEXEC."
           }
         ],
         "effects": [
@@ -10907,7 +10907,7 @@
     },
     {
       "name": "pipe2",
-      "revision": 1,
+      "revision": 2,
       "signature": {
         "parameters": [
           {
@@ -10938,7 +10938,7 @@
           },
           {
             "id": "close-on-exec",
-            "statement": "Both descriptors set FD_CLOEXEC atomically at creation."
+            "statement": "Pass flags unchanged. Linux sets FD_CLOEXEC atomically on both descriptors when requested."
           }
         ],
         "effects": [
@@ -10979,7 +10979,7 @@
           },
           {
             "id": "close-on-exec",
-            "statement": "Both descriptors set FD_CLOEXEC atomically at creation."
+            "statement": "Pass flags unchanged. Linux sets FD_CLOEXEC atomically on both descriptors when requested."
           }
         ],
         "effects": [
@@ -13299,7 +13299,7 @@
     },
     {
       "name": "eventfd2",
-      "revision": 1,
+      "revision": 2,
       "signature": {
         "parameters": [
           {
@@ -13330,7 +13330,7 @@
           },
           {
             "id": "counter-descriptor",
-            "statement": "Success returns one owned eventfd descriptor with the requested initial counter and close-on-exec set atomically."
+            "statement": "Success returns one owned eventfd descriptor with the requested initial counter. Pass flags unchanged, including an optional O_CLOEXEC."
           }
         ],
         "effects": [
@@ -13367,7 +13367,7 @@
           },
           {
             "id": "counter-descriptor",
-            "statement": "Success returns one owned eventfd descriptor with the requested initial counter and close-on-exec set atomically."
+            "statement": "Success returns one owned eventfd descriptor with the requested initial counter. Pass flags unchanged, including an optional O_CLOEXEC."
           }
         ],
         "effects": [
@@ -14510,7 +14510,7 @@
     },
     {
       "name": "timerfd_create",
-      "revision": 1,
+      "revision": 2,
       "signature": {
         "parameters": [
           {
@@ -14541,7 +14541,7 @@
           },
           {
             "id": "new-timer",
-            "statement": "Success transfers one owned timer descriptor for the requested kernel clock. FD_CLOEXEC is set atomically."
+            "statement": "Success transfers one owned timer descriptor for the requested kernel clock. Pass flags unchanged, including an optional O_CLOEXEC."
           }
         ],
         "effects": [
@@ -14578,7 +14578,7 @@
           },
           {
             "id": "new-timer",
-            "statement": "Success transfers one owned timer descriptor for the requested kernel clock. FD_CLOEXEC is set atomically."
+            "statement": "Success transfers one owned timer descriptor for the requested kernel clock. Pass flags unchanged, including an optional O_CLOEXEC."
           }
         ],
         "effects": [
@@ -14808,7 +14808,7 @@
     },
     {
       "name": "epoll_create1",
-      "revision": 1,
+      "revision": 2,
       "signature": {
         "parameters": [
           {
@@ -14835,7 +14835,7 @@
           },
           {
             "id": "epoll-creation",
-            "statement": "Success transfers an owned descriptor with an empty interest list and FD_CLOEXEC set at creation."
+            "statement": "Success transfers an owned descriptor with an empty interest list. Pass flags unchanged, including an optional O_CLOEXEC."
           }
         ],
         "effects": [
@@ -14872,7 +14872,7 @@
           },
           {
             "id": "epoll-creation",
-            "statement": "Success transfers an owned descriptor with an empty interest list and FD_CLOEXEC set at creation."
+            "statement": "Success transfers an owned descriptor with an empty interest list. Pass flags unchanged, including an optional O_CLOEXEC."
           }
         ],
         "effects": [
@@ -17505,7 +17505,7 @@
     },
     {
       "name": "open",
-      "revision": 1,
+      "revision": 2,
       "signature": {
         "parameters": [
           {
@@ -17540,7 +17540,7 @@
           },
           {
             "id": "close-on-exec",
-            "statement": "The provider adds O_CLOEXEC and the resulting descriptor sets FD_CLOEXEC atomically."
+            "statement": "Pass flags and mode unchanged. Linux sets FD_CLOEXEC at allocation when the caller supplies O_CLOEXEC."
           }
         ],
         "effects": [
@@ -17589,7 +17589,7 @@
           },
           {
             "id": "close-on-exec",
-            "statement": "The provider adds O_CLOEXEC and the resulting descriptor sets FD_CLOEXEC atomically."
+            "statement": "Pass flags and mode unchanged. Linux sets FD_CLOEXEC at allocation when the caller supplies O_CLOEXEC."
           }
         ],
         "effects": [
@@ -36104,7 +36104,7 @@
     },
     {
       "name": "openat2_beneath",
-      "revision": 1,
+      "revision": 2,
       "signature": {
         "parameters": [
           {
@@ -36147,7 +36147,7 @@
           },
           {
             "id": "descriptor-result",
-            "statement": "Add O_CLOEXEC to the requested flags. Success transfers one newly owned close-on-exec descriptor. The borrowed directory retains its owner."
+            "statement": "Pass flags and mode unchanged. Success transfers one newly owned descriptor. Linux sets FD_CLOEXEC when requested. The borrowed directory retains its owner."
           }
         ],
         "effects": [
@@ -36192,7 +36192,7 @@
           },
           {
             "id": "descriptor-result",
-            "statement": "Add O_CLOEXEC to the requested flags. Success transfers one newly owned close-on-exec descriptor. The borrowed directory retains its owner."
+            "statement": "Pass flags and mode unchanged. Success transfers one newly owned descriptor. Linux sets FD_CLOEXEC when requested. The borrowed directory retains its owner."
           }
         ],
         "effects": [

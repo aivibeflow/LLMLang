@@ -25,7 +25,7 @@ const S_IFREG: u32 = 0o100000;
 /// Wait for Linux to run global writeback on mounted filesystems. The
 /// kernel's zero return does not report per-filesystem or writeback errors.
 pub fn sync() -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(SYNC, [0; 6]) })
+    decode_zero(unsafe { abi::invoke(SYNC, [0; 6]) })
 }
 
 #[repr(C)]
@@ -97,7 +97,7 @@ pub fn name_to_handle_at<'mount>(
     };
     let mut mount_id = 0u64;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             NAME_TO_HANDLE_AT,
             [
                 source.as_raw_fd() as usize,
@@ -138,7 +138,7 @@ pub fn name_to_handle_at<'mount>(
 /// descriptor from the original temporary mount for mount selection. Linux can reject unsupported or stale handles.
 pub fn open_by_handle_at(handle: &ScopedFileHandle<'_>) -> Result<LinuxFd, SyscallError> {
     LinuxFd::from_result(unsafe {
-        abi::call(
+        abi::invoke(
             OPEN_BY_HANDLE_AT,
             [
                 handle.mount_context.as_raw_fd() as usize,

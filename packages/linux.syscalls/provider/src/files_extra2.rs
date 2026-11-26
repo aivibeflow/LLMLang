@@ -55,7 +55,7 @@ pub fn fstatfs(fd: BorrowedFd<'_>) -> Result<FileSystemStat, SyscallError> {
 fn observe_statfs(number: usize, subject: usize) -> Result<FileSystemStat, SyscallError> {
     let mut result = NativeStatfs::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 subject,
@@ -99,7 +99,7 @@ pub fn sendfile(
         .as_mut()
         .map_or(0, |value| value as *mut i64 as usize);
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SENDFILE,
             [
                 output.as_raw_fd() as usize,
@@ -132,7 +132,7 @@ pub fn memfd_create(name: &CStr) -> Result<LinuxFd, SyscallError> {
 
 pub(super) fn memfd_create_with_flags(name: &CStr, flags: usize) -> Result<LinuxFd, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             MEMFD_CREATE,
             [name.as_ptr() as usize, MFD_CLOEXEC | flags, 0, 0, 0, 0],
         )

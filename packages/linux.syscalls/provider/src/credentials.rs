@@ -23,7 +23,7 @@ fn credential_ids(number: usize) -> Result<CredentialIds, SyscallError> {
         saved: 0,
     };
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 std::ptr::from_mut(&mut ids.real) as usize,
@@ -50,7 +50,7 @@ pub fn getresgid() -> Result<CredentialIds, SyscallError> {
 fn filesystem_id(number: usize) -> Result<u32, SyscallError> {
     // Linux represents an invalid (unmapped) UID or GID using all ones.
     // The v6.12 syscall returns the current unsigned filesystem ID unchanged.
-    let raw = unsafe { abi::call(number, [u32::MAX as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(number, [u32::MAX as usize, 0, 0, 0, 0, 0]) };
     u32::try_from(decode_nonnegative(raw)?).map_err(|_| SyscallError::UnexpectedReturn(raw))
 }
 
@@ -95,7 +95,7 @@ pub fn capget() -> Result<CapabilitySets, SyscallError> {
     };
     let mut words = [CapabilityWord::default(); 2];
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             CAPGET,
             [
                 std::ptr::from_mut(&mut header) as usize,
@@ -125,7 +125,7 @@ pub fn capset_clear() -> Result<(), SyscallError> {
     };
     let words = [CapabilityWord::default(); 2];
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             CAPSET,
             [
                 std::ptr::from_mut(&mut header) as usize,

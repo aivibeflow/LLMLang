@@ -55,7 +55,7 @@ const _: () = {
 
 fn set_ids(operation: usize, first: u32, second: u32, third: u32) -> Result<(), SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             operation,
             [first as usize, second as usize, third as usize, 0, 0, 0],
         )
@@ -134,7 +134,7 @@ pub fn setgroups(groups: &[GroupId]) -> Result<(), SyscallError> {
     // GroupId is transparent over the native x86-64 gid_t, and the slice
     // remains shared and live for the kernel's complete read extent.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SETGROUPS,
             [groups.len(), groups.as_ptr() as usize, 0, 0, 0, 0],
         )

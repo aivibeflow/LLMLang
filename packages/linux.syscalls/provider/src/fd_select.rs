@@ -173,7 +173,7 @@ fn wait<'fd>(
     timeout: usize,
 ) -> (isize, SelectFdSets<'fd>) {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             operation,
             [
                 sets.nfds(),

@@ -73,7 +73,7 @@ impl IntervalSettings {
 pub fn getitimer(which: IntervalTimer) -> Result<IntervalSettings, SyscallError> {
     let mut result = IntervalSettings::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             GETITIMER,
             [
                 which as usize,
@@ -97,7 +97,7 @@ pub fn setitimer(
 ) -> Result<IntervalSettings, SyscallError> {
     let mut previous = IntervalSettings::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SETITIMER,
             [
                 which as usize,
@@ -116,7 +116,7 @@ pub fn setitimer(
 /// time rounded by Linux. Passing zero cancels the timer. The caller coordinates
 /// the shared timer and the SIGALRM disposition or mask before scheduling.
 pub fn alarm(seconds: u32) -> Result<u32, SyscallError> {
-    let raw = unsafe { abi::call(ALARM, [seconds as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(ALARM, [seconds as usize, 0, 0, 0, 0, 0]) };
     u32::try_from(decode_nonnegative(raw)?).map_err(|_| SyscallError::UnexpectedReturn(raw))
 }
 
@@ -156,7 +156,7 @@ pub struct ProcessTimes {
 /// an output record lets us distinguish success from a negative Linux errno.
 pub fn times() -> Result<ProcessTimes, SyscallError> {
     let mut result = UNWRITTEN;
-    let raw = unsafe { abi::call(TIMES, [ptr::from_mut(&mut result) as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(TIMES, [ptr::from_mut(&mut result) as usize, 0, 0, 0, 0, 0]) };
     decode_times(raw, result)
 }
 

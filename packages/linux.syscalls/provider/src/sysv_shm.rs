@@ -116,7 +116,7 @@ pub struct ShmStat {
 /// Allocates a newly created IPC_PRIVATE segment with mode 0600. Linux
 /// checks size and namespace quotas, including invalid zero size.
 pub fn shmget(size: usize) -> Result<ShmSegment, SyscallError> {
-    let raw = unsafe { abi::call(SHMGET, [IPC_PRIVATE, size, 0o600, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(SHMGET, [IPC_PRIVATE, size, 0o600, 0, 0, 0]) };
     let identifier =
         i32::try_from(decode_nonnegative(raw)?).map_err(|_| SyscallError::UnexpectedReturn(raw))?;
     Ok(ShmSegment {
@@ -128,7 +128,7 @@ pub fn shmget(size: usize) -> Result<ShmSegment, SyscallError> {
 /// Attaches the segment read-only at an address selected by Linux.
 pub fn shmat(segment: &ShmSegment) -> Result<ShmAttachment, SyscallError> {
     let identifier = active_identifier(segment)?;
-    let raw = unsafe { abi::call(SHMAT, [identifier as usize, 0, SHM_RDONLY, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(SHMAT, [identifier as usize, 0, SHM_RDONLY, 0, 0, 0]) };
     Ok(ShmAttachment {
         address: Some(decode_nonnegative(raw)?),
         thread_affine: PhantomData,
@@ -167,18 +167,18 @@ fn active_identifier(segment: &ShmSegment) -> Result<i32, SyscallError> {
 }
 
 fn remove(identifier: i32) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(SHMCTL, [identifier as usize, IPC_RMID, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(SHMCTL, [identifier as usize, IPC_RMID, 0, 0, 0, 0]) })
 }
 
 fn detach(address: usize) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(SHMDT, [address, 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(SHMDT, [address, 0, 0, 0, 0, 0]) })
 }
 
 fn stat(identifier: i32) -> Result<ShmStat, SyscallError> {
     let mut native = NativeShmStat::default();
     // The native x86-64 syscall writes the 112-byte shmid64_ds for IPC_STAT.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SHMCTL,
             [
                 identifier as usize,

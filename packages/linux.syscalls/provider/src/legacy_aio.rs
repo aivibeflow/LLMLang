@@ -1,6 +1,6 @@
 //! Owned Linux AIO contexts for fsync and cancellable private-pipe polling.
 
-use super::{abi, decode_nonnegative, decode_zero, pipe2, LinuxFd, SyscallError};
+use super::{abi, decode_nonnegative, decode_zero, pipe2, LinuxFd, SyscallError, O_CLOEXEC};
 use std::fmt;
 use std::mem::{align_of, offset_of, size_of};
 use std::num::NonZeroUsize;
@@ -179,7 +179,7 @@ pub fn io_setup(entries: u32) -> Result<LegacyAioContext, SyscallError> {
         .map_err(|_| SyscallError::InvalidInput("AIO context identity range is exhausted"))?;
     let mut handle = 0_usize;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             IO_SETUP,
             [
                 entries as usize,
@@ -209,7 +209,7 @@ pub fn io_destroy(context: &mut LegacyAioContext) -> Result<(), SyscallError> {
     let handle = context
         .handle
         .ok_or(SyscallError::InvalidInput("AIO context is destroyed"))?;
-    decode_zero(unsafe { abi::call(IO_DESTROY, [handle.get(), 0, 0, 0, 0, 0]) })?;
+    decode_zero(unsafe { abi::invoke(IO_DESTROY, [handle.get(), 0, 0, 0, 0, 0]) })?;
     context.handle = None;
     context.pending.clear();
     Ok(())
@@ -242,7 +242,7 @@ pub fn io_submit_cancellable_pipe_poll(
     context: &mut LegacyAioContext,
 ) -> Result<AioRequestId, SyscallError> {
     submit(context, Profile::PipePoll, || {
-        let (reader, writer) = pipe2(0)?;
+        let (reader, writer) = pipe2(O_CLOEXEC)?;
         Ok((
             reader.as_raw_fd() as u32,
             PendingWork::PipePoll {
@@ -289,7 +289,7 @@ fn submit(
     });
     let mut pointer: *mut NativeIocb = &mut *control;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             IO_SUBMIT,
             [
                 handle,
@@ -348,7 +348,7 @@ pub fn io_cancel(
     let control = (&*pending.control as *const NativeIocb) as usize;
     // Linux reads the submission key from the original control block. Its
     // completion is published to the same ring used by the reap operations.
-    let raw = unsafe { abi::call(IO_CANCEL, [handle, control, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(IO_CANCEL, [handle, control, 0, 0, 0, 0]) };
     if raw == -EINPROGRESS {
         return Ok(AioCancelStatus::CompletionPending);
     }
@@ -402,7 +402,7 @@ fn reap<T>(
     let timeout = NativeTimespec::default();
     let mut events = [NativeIoEvent::default(); MAX_AIO_ENTRIES as usize];
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 handle,

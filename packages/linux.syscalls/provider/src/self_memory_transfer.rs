@@ -27,7 +27,7 @@ fn self_transfer(number: usize, local: Iovec, remote: Iovec) -> Result<usize, Sy
     // Pid is fixed to this process, the vectors stay on the stack until the
     // synchronous kernel copy returns, and flags are zero.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             number,
             [
                 pid,
@@ -120,7 +120,7 @@ pub struct SchedulerAttributes {
 pub fn sched_getattr() -> Result<SchedulerAttributes, SyscallError> {
     let mut native = NativeSchedulerAttributes::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SCHED_GETATTR,
             [
                 0,

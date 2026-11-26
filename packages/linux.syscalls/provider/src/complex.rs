@@ -57,7 +57,7 @@ pub fn perf_event_open_task_clock() -> Result<LinuxFd, SyscallError> {
     // PID 0 selects this thread, CPU -1 selects any CPU, and group -1
     // creates a standalone event. The kernel can update the size on error.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             PERF_EVENT_OPEN,
             [
                 (&mut attributes as *mut PerfEventAttrV0) as usize,
@@ -103,7 +103,7 @@ pub(super) fn perf_event_open_uprobe(
     // The selected standalone event counts only the calling thread. The
     // kernel copies the retained executable path during perf_event_open.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             PERF_EVENT_OPEN,
             [
                 (&mut attributes as *mut PerfUprobeAttr) as usize,
@@ -190,7 +190,7 @@ fn setup_ring(entries: u32) -> Result<(LinuxFd, IoUringParams), SyscallError> {
     }
     let mut params = IoUringParams::default();
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             IO_URING_SETUP,
             [
                 entries as usize,
@@ -246,7 +246,7 @@ impl RingMapping {
         const PROT_READ_WRITE: usize = 3;
         const MAP_SHARED: usize = 1;
         let raw = unsafe {
-            abi::call(
+            abi::invoke(
                 abi::MMAP,
                 [
                     0,
@@ -260,7 +260,7 @@ impl RingMapping {
         };
         let address = decode_nonnegative(raw)?;
         let Some(base) = NonNull::new(address as *mut u8) else {
-            let _ = unsafe { abi::call(abi::MUNMAP, [address, len, 0, 0, 0, 0]) };
+            let _ = unsafe { abi::invoke(abi::MUNMAP, [address, len, 0, 0, 0, 0]) };
             return Err(SyscallError::UnexpectedReturn(raw));
         };
         Ok(Self { base, len })
@@ -275,7 +275,7 @@ impl RingMapping {
 impl Drop for RingMapping {
     fn drop(&mut self) {
         let _ = unsafe {
-            abi::call(
+            abi::invoke(
                 abi::MUNMAP,
                 [self.base.as_ptr() as usize, self.len, 0, 0, 0, 0],
             )
@@ -385,7 +385,7 @@ pub fn io_uring_nop() -> Result<(), SyscallError> {
     }
     sq_tail.store(1, Ordering::Release);
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             IO_URING_ENTER,
             [fd.as_raw_fd() as usize, 1, 1, IORING_ENTER_GETEVENTS, 0, 0],
         )
@@ -445,7 +445,7 @@ pub fn io_uring_register_probe(ring: BorrowedFd<'_>) -> Result<IoUringProbe, Sys
         operations: [NativeProbeOp::default(); MAX_PROBE_OPERATIONS],
     };
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             IO_URING_REGISTER,
             [
                 ring.as_raw_fd() as usize,

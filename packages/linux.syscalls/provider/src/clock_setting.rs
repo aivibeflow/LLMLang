@@ -16,7 +16,7 @@ const _: () = {
 /// Linux checks the epoch range and the caller's authority to change the clock.
 pub fn clock_settime(value: Timespec) -> Result<(), SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             CLOCK_SETTIME,
             [
                 CLOCK_REALTIME as usize,
@@ -35,7 +35,7 @@ pub fn clock_settime(value: Timespec) -> Result<(), SyscallError> {
 /// The obsolete timezone pointer is always null.
 pub fn settimeofday(value: Timeval) -> Result<(), SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SETTIMEOFDAY,
             [ptr::from_ref(&value) as usize, 0, 0, 0, 0, 0],
         )

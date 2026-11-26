@@ -22,7 +22,7 @@ pub fn init_module(image: &[u8]) -> Result<(), SyscallError> {
     }
     // Linux copies the supplied byte range and parameter string during entry.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             INIT_MODULE,
             [
                 image.as_ptr() as usize,
@@ -51,7 +51,7 @@ pub fn finit_module(image: BorrowedFd<'_>) -> Result<(), SyscallError> {
     }
     // The borrow keeps the descriptor valid throughout validation and load.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             FINIT_MODULE,
             [
                 image.as_raw_fd() as usize,
@@ -80,7 +80,7 @@ pub fn delete_module(name: &CStr) -> Result<(), SyscallError> {
     }
     // Linux reads only the validated NUL-terminated name during the call.
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             DELETE_MODULE,
             [name.as_ptr() as usize, O_NONBLOCK as usize, 0, 0, 0, 0],
         )

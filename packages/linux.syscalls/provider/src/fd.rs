@@ -61,7 +61,7 @@ impl Drop for LinuxFd {
 }
 
 fn close_raw(fd: RawFd) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(abi::CLOSE, [fd as usize, 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(abi::CLOSE, [fd as usize, 0, 0, 0, 0, 0]) })
 }
 
 /// Consumes ownership even if Linux reports an error. Retrying close can
@@ -93,38 +93,16 @@ pub struct OpenOptions {
     pub mode: u32,
 }
 
-/// Returns an owned descriptor with FD_CLOEXEC set atomically.
-pub fn openat(
-    dir: Directory<'_>,
-    path: &CStr,
-    options: OpenOptions,
-) -> Result<LinuxFd, SyscallError> {
-    let raw = unsafe {
-        abi::call(
-            abi::OPENAT,
-            [
-                dir.argument(),
-                path.as_ptr() as usize,
-                (options.flags | O_CLOEXEC) as usize,
-                options.mode as usize,
-                0,
-                0,
-            ],
-        )
-    };
-    LinuxFd::from_result(raw)
-}
-
-/// Returns the read endpoint followed by the write endpoint. Both are owned
-/// and have FD_CLOEXEC set atomically.
+/// Returns the read endpoint followed by the write endpoint. Both are owned.
+/// Linux applies the supplied flags to both endpoints.
 pub fn pipe2(flags: i32) -> Result<(LinuxFd, LinuxFd), SyscallError> {
     let mut descriptors = [-1_i32; 2];
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::PIPE2,
             [
                 descriptors.as_mut_ptr() as usize,
-                (flags | O_CLOEXEC) as usize,
+                flags as usize,
                 0,
                 0,
                 0,
@@ -158,7 +136,7 @@ pub(super) fn decode_pipe(
 
 pub fn flock(fd: BorrowedFd<'_>, operation: i32) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::FLOCK,
             [fd.as_raw_fd() as usize, operation as usize, 0, 0, 0, 0],
         )
@@ -166,16 +144,16 @@ pub fn flock(fd: BorrowedFd<'_>, operation: i32) -> Result<(), SyscallError> {
 }
 
 pub fn fsync(fd: BorrowedFd<'_>) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(abi::FSYNC, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(abi::FSYNC, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) })
 }
 
 pub fn fdatasync(fd: BorrowedFd<'_>) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(abi::FDATASYNC, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(abi::FDATASYNC, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) })
 }
 
 pub fn ftruncate(fd: BorrowedFd<'_>, length: i64) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::FTRUNCATE,
             [fd.as_raw_fd() as usize, length as usize, 0, 0, 0, 0],
         )
@@ -183,7 +161,7 @@ pub fn ftruncate(fd: BorrowedFd<'_>, length: i64) -> Result<(), SyscallError> {
 }
 
 pub fn syncfs(fd: BorrowedFd<'_>) -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(abi::SYNCFS, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) })
+    decode_zero(unsafe { abi::invoke(abi::SYNCFS, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) })
 }
 
 #[repr(usize)]
@@ -199,7 +177,7 @@ pub enum SeekOrigin {
 /// Positions a seekable descriptor with nonnegative signed 64-bit offsets.
 pub fn lseek(fd: BorrowedFd<'_>, offset: i64, origin: SeekOrigin) -> Result<u64, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::LSEEK,
             [
                 fd.as_raw_fd() as usize,
@@ -216,7 +194,7 @@ pub fn lseek(fd: BorrowedFd<'_>, offset: i64, origin: SeekOrigin) -> Result<u64,
 
 /// Duplicates the open file description. Native dup leaves CLOEXEC clear.
 pub fn dup(fd: BorrowedFd<'_>) -> Result<LinuxFd, SyscallError> {
-    let raw = unsafe { abi::call(abi::DUP, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(abi::DUP, [fd.as_raw_fd() as usize, 0, 0, 0, 0, 0]) };
     LinuxFd::from_result(raw)
 }
 
@@ -225,7 +203,7 @@ pub fn dup(fd: BorrowedFd<'_>) -> Result<LinuxFd, SyscallError> {
 pub fn dup_cloexec(fd: BorrowedFd<'_>, minimum: i32) -> Result<LinuxFd, SyscallError> {
     const F_DUPFD_CLOEXEC: usize = 1030;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::FCNTL,
             [
                 fd.as_raw_fd() as usize,
@@ -242,7 +220,7 @@ pub fn dup_cloexec(fd: BorrowedFd<'_>, minimum: i32) -> Result<LinuxFd, SyscallE
 
 pub fn fchmod(fd: BorrowedFd<'_>, mode: u16) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::FCHMOD,
             [fd.as_raw_fd() as usize, mode as usize, 0, 0, 0, 0],
         )
@@ -256,7 +234,7 @@ pub fn fchmodat2(
     flags: i32,
 ) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::FCHMODAT2,
             [
                 dir.argument(),
@@ -279,7 +257,7 @@ pub fn faccessat2(
     flags: i32,
 ) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::FACCESSAT2,
             [
                 dir.argument(),
@@ -295,7 +273,7 @@ pub fn faccessat2(
 
 pub fn mkdirat(dir: Directory<'_>, path: &CStr, mode: u32) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::MKDIRAT,
             [
                 dir.argument(),
@@ -311,7 +289,7 @@ pub fn mkdirat(dir: Directory<'_>, path: &CStr, mode: u32) -> Result<(), Syscall
 
 pub fn unlinkat(dir: Directory<'_>, path: &CStr, flags: i32) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::UNLINKAT,
             [
                 dir.argument(),
@@ -332,7 +310,7 @@ pub fn renameat(
     new_path: &CStr,
 ) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::RENAMEAT,
             [
                 old_dir.argument(),
@@ -354,7 +332,7 @@ pub fn linkat(
     flags: i32,
 ) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::LINKAT,
             [
                 old_dir.argument(),
@@ -370,7 +348,7 @@ pub fn linkat(
 
 pub fn symlinkat(target: &CStr, dir: Directory<'_>, path: &CStr) -> Result<(), SyscallError> {
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             abi::SYMLINKAT,
             [
                 target.as_ptr() as usize,
@@ -393,7 +371,7 @@ pub fn readlinkat(
     let count = i32::try_from(buffer.len())
         .map_err(|_| SyscallError::InvalidInput("readlinkat capacity exceeds Linux int"))?;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             abi::READLINKAT,
             [
                 dir.argument(),

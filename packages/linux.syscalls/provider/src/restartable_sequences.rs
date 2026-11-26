@@ -88,7 +88,7 @@ impl Drop for RseqRegistration {
 
 fn call(storage: NonNull<NativeRseq>, flags: usize) -> Result<(), SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             RSEQ,
             [storage.as_ptr() as usize, RSEQ_LEN, flags, RSEQ_SIG, 0, 0],
         )

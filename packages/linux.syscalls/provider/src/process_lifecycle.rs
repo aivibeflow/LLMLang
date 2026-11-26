@@ -10,17 +10,17 @@ const SET_TID_ADDRESS: usize = 218;
 const EXIT_GROUP: usize = 231;
 
 pub fn getpgrp() -> Result<i32, SyscallError> {
-    let raw = unsafe { abi::call(GETPGRP, [0; 6]) };
+    let raw = unsafe { abi::invoke(GETPGRP, [0; 6]) };
     i32::try_from(decode_nonnegative(raw)?).map_err(|_| SyscallError::UnexpectedReturn(raw))
 }
 
 /// Establish the caller's own group, with the caller PID as its group ID.
 pub fn setpgid_self() -> Result<(), SyscallError> {
-    decode_zero(unsafe { abi::call(SETPGID, [0; 6]) })
+    decode_zero(unsafe { abi::invoke(SETPGID, [0; 6]) })
 }
 
 pub fn setsid() -> Result<i32, SyscallError> {
-    let raw = unsafe { abi::call(SETSID, [0; 6]) };
+    let raw = unsafe { abi::invoke(SETSID, [0; 6]) };
     match i32::try_from(decode_nonnegative(raw)?) {
         Ok(id) if id > 0 => Ok(id),
         _ => Err(SyscallError::UnexpectedReturn(raw)),
@@ -30,7 +30,7 @@ pub fn setsid() -> Result<i32, SyscallError> {
 /// On success Linux exits the current thread group without calling Rust
 /// destructors. An externally denied call may return an errno.
 pub fn exit_group(status: i32) -> Result<Infallible, SyscallError> {
-    let raw = unsafe { abi::call(EXIT_GROUP, [status as usize, 0, 0, 0, 0, 0]) };
+    let raw = unsafe { abi::invoke(EXIT_GROUP, [status as usize, 0, 0, 0, 0, 0]) };
     decode_nonnegative(raw)?;
     Err(SyscallError::UnexpectedReturn(raw))
 }
@@ -46,7 +46,7 @@ pub fn exit_group_without_clear_tid(status: i32) -> Result<Infallible, SyscallEr
 }
 
 fn disable_clear_tid() -> Result<(), SyscallError> {
-    let raw = unsafe { abi::call(SET_TID_ADDRESS, [0; 6]) };
+    let raw = unsafe { abi::invoke(SET_TID_ADDRESS, [0; 6]) };
     decode_nonnegative(raw)?;
     if raw == 0 {
         std::process::abort();

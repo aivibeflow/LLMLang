@@ -16,7 +16,7 @@ pub fn close_range_cloexec(first: u32, last: u32) -> Result<(), SyscallError> {
         return Err(SyscallError::InvalidInput("reversed descriptor range"));
     }
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             CLOSE_RANGE,
             [first as usize, last as usize, CLOSE_RANGE_CLOEXEC, 0, 0, 0],
         )
@@ -59,7 +59,7 @@ pub fn cachestat(file: BorrowedFd<'_>, range: CacheStatRange) -> Result<CacheSta
 
     let mut stats = CacheStat::default();
     decode_zero(unsafe {
-        abi::call(
+        abi::invoke(
             CACHESTAT,
             [
                 file.as_raw_fd() as usize,

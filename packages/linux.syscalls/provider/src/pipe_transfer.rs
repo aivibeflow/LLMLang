@@ -1,6 +1,6 @@
 use super::io::{iovec_len, read_iovecs};
 use super::{
-    abi, decode_read, decode_write, pipe2, LinuxFd, ReadOutcome, SyscallError, O_NONBLOCK,
+    abi, decode_read, decode_write, pipe2, LinuxFd, ReadOutcome, SyscallError, O_CLOEXEC, O_NONBLOCK,
 };
 use std::io::IoSliceMut;
 use std::os::fd::{AsFd, AsRawFd, BorrowedFd};
@@ -33,7 +33,7 @@ pub fn splice(
     let mut observed_input = original_input;
     let mut observed_output = original_output;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             SPLICE,
             [
                 input.as_raw_fd() as usize,
@@ -84,7 +84,7 @@ pub fn tee(
     mode: SpliceMode,
 ) -> Result<usize, SyscallError> {
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             TEE,
             [
                 input.as_raw_fd() as usize,
@@ -126,7 +126,7 @@ pub fn vmsplice_pipe(mode: SpliceMode) -> Result<(VmspliceReadEnd, LinuxFd), Sys
         SpliceMode::Blocking => 0,
         SpliceMode::NonBlocking => O_NONBLOCK,
     };
-    let (reader, writer) = pipe2(flags)?;
+    let (reader, writer) = pipe2(flags | O_CLOEXEC)?;
     Ok((VmspliceReadEnd(reader), writer))
 }
 
@@ -143,7 +143,7 @@ pub fn vmsplice(
     let vectors = read_iovecs(buffers);
     let requested = iovec_len(&vectors)?;
     let raw = unsafe {
-        abi::call(
+        abi::invoke(
             VMSPLICE,
             [
                 input.borrow().as_raw_fd() as usize,
