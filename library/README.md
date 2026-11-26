@@ -1,5 +1,7 @@
 # LLMLang SPG persistence
 
+The Rust crate root is [src/library/spg.rs](../src/library/spg.rs).
+
 This crate implements the repository persistence layer in the
 [architecture RFC] and [ADR-030], using the twelve tables from [ADR-029].
 The API works with table rows represented by JSON objects. The caller supplies
