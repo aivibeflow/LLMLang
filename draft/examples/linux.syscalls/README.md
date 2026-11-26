@@ -3,7 +3,9 @@
 This is the `linux.syscalls` package in repository profile
 `llmlang.spg.tables.v2` with language version `0.1.0`. The directory contains
 the manifest and a table-specific Protobuf/LZ4 dump and Content Hash index for
-each of the twelve tables. Package metadata selects version `0.1.0`.
+each of the twelve tables. The debug export also includes one ProtoJSON file
+per table in binary record order, including an empty array for an empty table.
+Package metadata selects version `0.1.0`.
 
 The package projects the existing [Linux syscall snapshot](../../../packages/linux.syscalls/README.md)
 into SPG tables. It contains 393 public interfaces, 393 native implementation
