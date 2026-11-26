@@ -10,8 +10,8 @@ The function table contains the 358 native declarations from the pinned
 [archived Linux syscall source](https://github.com/aivibeflow/LLMLang/blob/744aaf3f98e357a5375b55a67a538d7295d3608c/packages/linux.syscalls/provider/src/native.llmlang).
 Each `canonicalBody` stores the LLMLang body block with a call to
 `stdlib::syscall`. The manifest selects [stdlib](../../stdlib/README.md)
-version `0.1.0`, and every call compatibility obligation pins the same
-`stdlib.syscall` implementation and contract. During lowering, the server
+version `0.1.0`. Each declaration pins the same `stdlib.syscall` implementation
+and contract. The unbound signal restorer also pins `stdlib.trap`. During lowering, the server
 converts typed operands to ABI words and fills unused slots with zeros.
 Parameter and result types
 are stored in `function_signatures` and referenced by `functionSignatureHash`. The

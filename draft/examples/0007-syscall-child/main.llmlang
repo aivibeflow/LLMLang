@@ -2,6 +2,7 @@ import linux.syscalls.execve
 import linux.syscalls.exit
 import linux.syscalls.fork
 import linux.syscalls.wait4
+import stdlib.trap
 
 pub fn main() -> ExitStatus {
     let path = c"/bin/sh";
@@ -12,7 +13,7 @@ pub fn main() -> ExitStatus {
     if child == 0 {
         execve(path, &args, &environment);
         exit(127);
-        builtin__trap();
+        trap();
     }
     let mut status = 0_i32;
     loop {

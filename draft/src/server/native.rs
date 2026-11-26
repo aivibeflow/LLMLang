@@ -222,6 +222,7 @@ fn resolve_source(
 
 struct Lower<'a> {
     calls: &'a BTreeMap<String, Call>,
+    allow_builtins: bool,
     used: BTreeSet<String>,
     error: Option<ServerError>,
 }
@@ -281,6 +282,21 @@ impl VisitMut for Lower<'_> {
     }
     fn visit_item_mut(&mut self, _: &mut Item) {
         self.reject("nested items are unsupported in native source");
+    }
+
+    fn visit_expr_path_mut(&mut self, expr: &mut syn::ExprPath) {
+        if !self.allow_builtins
+            && expr.path.segments.iter().any(|segment| {
+                segment
+                    .ident
+                    .to_string()
+                    .trim_start_matches("r#")
+                    .starts_with("builtin__")
+            })
+        {
+            self.reject("only stdlib may reference built-in functions");
+        }
+        visit_mut::visit_expr_path_mut(self, expr);
     }
 
     fn visit_expr_mut(&mut self, expr: &mut Expr) {
@@ -378,7 +394,7 @@ impl VisitMut for Lower<'_> {
             }
             "builtin__cstring_from_bytes" if call.args.len() == 1 => {
                 let arg = &call.args[0];
-                *expr = parse_quote!(CString::new((#arg).as_slice()));
+                *expr = parse_quote!(CString::new(#arg));
             }
             "builtin__errno_message" if call.args.len() == 1 => {
                 call.func = Box::new(parse_quote!(errno_message));
@@ -412,6 +428,7 @@ fn lower_body(
     package: &Package,
     row: &Value,
     bindings: &CallBindings,
+    allow_builtins: bool,
     syscalls: &mut BTreeMap<String, Syscall>,
     pending: &mut BTreeSet<String>,
 ) -> Result<(syn::Block, BTreeSet<ResolvedCall>)> {
@@ -419,6 +436,7 @@ fn lower_body(
     let mut body = syn::parse_str(row["canonical_body"].as_str().unwrap()).map_err(validation)?;
     let mut lower = Lower {
         calls: &calls,
+        allow_builtins,
         used: BTreeSet::new(),
         error: None,
     };
@@ -445,8 +463,16 @@ fn lower_body(
 fn library_type(kind: &Value, parameter: bool) -> Result<Type> {
     match (kind.as_str(), parameter) {
         (Some("I32"), _) => Ok(parse_quote!(I32)),
-        (Some("Usize"), true) => Ok(parse_quote!(Usize)),
-        (Some("AbiResult"), false) => Ok(parse_quote!(AbiResult)),
+        (Some("U16"), true) => Ok(parse_quote!(u16)),
+        (Some("Usize"), _) => Ok(parse_quote!(Usize)),
+        (Some("AbiResult"), _) => Ok(parse_quote!(AbiResult)),
+        (Some("ByteSlice"), true) => Ok(parse_quote!(&[u8])),
+        (Some("ByteVec"), false) => Ok(parse_quote!(Vec<u8>)),
+        (Some("CStringResult"), false) => {
+            Ok(parse_quote!(std::result::Result<CString, std::ffi::NulError>))
+        }
+        (Some("Never"), false) => Ok(parse_quote!(!)),
+        (Some("sockaddr_in"), false) => Ok(parse_quote!(sockaddr_in)),
         (Some("Utf8"), true) => Ok(parse_quote!(Utf8<'_>)),
         (Some("IoResult"), false) => Ok(parse_quote!(IoResult)),
         _ => Err(invalid("unsupported native library type")),
@@ -467,8 +493,31 @@ fn syscall_target(
     else {
         return Err(invalid("native syscall wrapper must pin stdlib.syscall"));
     };
-    if calls.len() != 1 || bindings.get("stdlib.syscall").map(|(id, _)| id) != Some(implementation)
-    {
+    if bindings.get("stdlib.syscall").map(|(id, _)| id) != Some(implementation) {
+        return Err(invalid("native syscall wrapper must pin stdlib.syscall"));
+    }
+    // The unbound signal restorer traps if the syscall unexpectedly returns.
+    let body = row["canonical_body"].as_str().unwrap();
+    if body.contains("builtin__") {
+        return Err(invalid("only stdlib may reference built-in functions"));
+    }
+    let restorer = body.trim() == "{\n    stdlib::syscall(15); stdlib::trap()\n}";
+    if restorer {
+        let Some(Call::Source {
+            implementation,
+            arity: 0,
+            raw_abi: false,
+        }) = calls.get("trap")
+        else {
+            return Err(invalid("signal restorer must pin stdlib.trap"));
+        };
+        if calls.len() != 2 || bindings.get("stdlib.trap").map(|(id, _)| id) != Some(implementation)
+        {
+            return Err(invalid(
+                "signal restorer must pin stdlib.syscall and stdlib.trap",
+            ));
+        }
+    } else if calls.len() != 1 {
         return Err(invalid(
             "native syscall wrapper must pin only stdlib.syscall",
         ));
@@ -500,8 +549,14 @@ pub(super) fn lower(
         let row = &package.tables["functions"][implementation];
         let signature = package.function_signature(row).map_err(validation)?.typed;
         if export == &main_name {
-            let (body, resolved) =
-                lower_body(package, row, bindings, &mut reachable, &mut pending)?;
+            let (body, resolved) = lower_body(
+                package,
+                row,
+                bindings,
+                package_name == "stdlib",
+                &mut reachable,
+                &mut pending,
+            )?;
             resolved_calls.insert(implementation.clone(), resolved);
             let params = signature["parameters"]
                 .as_array()
@@ -579,7 +634,23 @@ pub(super) fn lower(
             continue;
         }
         let row = &package.tables["functions"][&implementation];
-        let (body, resolved) = lower_body(package, row, bindings, &mut reachable, &mut pending)?;
+        let allow_builtins = if public_sources.contains(&implementation) {
+            package_name == "stdlib"
+        } else {
+            bindings.iter().any(|(name, (id, _))| {
+                name.rsplit_once('.')
+                    .is_some_and(|(owner, _)| owner == "stdlib")
+                    && id == &implementation
+            })
+        };
+        let (body, resolved) = lower_body(
+            package,
+            row,
+            bindings,
+            allow_builtins,
+            &mut reachable,
+            &mut pending,
+        )?;
         let signature = package.function_signature(row).map_err(validation)?.typed;
         let parameters = signature["parameters"]
             .as_array()
@@ -648,4 +719,29 @@ pub(super) fn compile(output: &Output, artifact: &Path) -> Result<()> {
         ));
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn rejects_native_builtin_calls_and_references_outside_stdlib() {
+        let mut lower = Lower {
+            calls: &BTreeMap::new(),
+            allow_builtins: false,
+            used: BTreeSet::new(),
+            error: None,
+        };
+        for mut expr in [parse_quote!(builtin__trap()), parse_quote!(r#builtin__trap)] {
+            lower.visit_expr_mut(&mut expr);
+            assert_eq!(
+                lower.error.take().unwrap().message,
+                "only stdlib may reference built-in functions"
+            );
+        }
+        lower.allow_builtins = true;
+        lower.visit_expr_mut(&mut parse_quote!(builtin__trap()));
+        assert!(lower.error.is_none());
+    }
 }

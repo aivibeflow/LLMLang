@@ -35,7 +35,7 @@ struct pollfd {
 }
 
 #[repr(C)]
-struct sockaddr_in {
+pub struct sockaddr_in {
     family: u16,
     port: u16,
     address: [u8; 4],
