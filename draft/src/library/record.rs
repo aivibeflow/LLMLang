@@ -5,7 +5,7 @@ use sha2::{Digest, Sha256};
 
 #[allow(clippy::enum_variant_names)]
 mod wire {
-    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v2.rs"));
+    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v3.rs"));
 }
 
 use wire::{value::Kind, Field, List, Object, Value as WireValue};
@@ -250,7 +250,7 @@ impl Column for WireValue {
 }
 
 macro_rules! table_records {
-    ($($table:literal => $variant:ident($name:ident) {
+    ($($table:literal => $variant:ident($name:ident) [$($primary:ident),+] {
         $($field:ident: ($required:literal, $json_name:literal)),* $(,)?
     }),* $(,)?) => {
         pub(crate) enum TableRecord {
@@ -258,6 +258,19 @@ macro_rules! table_records {
         }
 
         impl TableRecord {
+            fn key(table: &str, row: &Value) -> Result<String> {
+                match table {
+                    $($table => {
+                        let parts = [$(
+                            row[stringify!($primary)].as_str().filter(|value| !value.is_empty())
+                                .ok_or_else(|| invalid(concat!($table, ": missing or empty primary key column ", stringify!($primary))))?
+                        ),+];
+                        Ok(parts.join(":"))
+                    }),*
+                    _ => Err(invalid(format!("unknown SPG table {table}"))),
+                }
+            }
+
             pub(crate) fn new(table: &str, key: &str, row: &Value) -> Result<Self> {
                 if key.is_empty() {
                     return Err(invalid("record key is empty"));
@@ -270,8 +283,10 @@ macro_rules! table_records {
                                 return Err(invalid(format!("{table}: unknown column {field}")));
                             }
                         }
+                        if key != Self::key(table, row)? {
+                            return Err(invalid(format!("{table}: row key does not match primary key columns")));
+                        }
                         Ok(Self::$variant(wire::$name {
-                            key: key.into(),
                             $($field: {
                                 let value = fields.get(stringify!($field));
                                 if $required && value.is_none() {
@@ -294,10 +309,10 @@ macro_rules! table_records {
                             fields.insert(stringify!($field).into(), value);
                         })*
                         let row = Value::Object(fields);
-                        if Self::new(table, &record.key, &row)?.encode_to_vec() != raw {
+                        let key = Self::key(table, &row)?;
+                        if Self::new(table, &key, &row)?.encode_to_vec() != raw {
                             return Err(invalid(format!("{table}: noncanonical Protobuf record")));
                         }
-                        let key = record.key.clone();
                         Ok((Self::$variant(record), key, row))
                     }),*
                     _ => Err(invalid(format!("unknown SPG table {table}"))),
@@ -314,7 +329,6 @@ macro_rules! table_records {
                 match self {
                     $(Self::$variant(record) => {
                         let mut result = Map::new();
-                        result.insert("key".into(), json!(record.key));
                         $(if let Some(value) = Column::proto_json(&record.$field) {
                             result.insert($json_name.into(), value);
                         })*
@@ -326,23 +340,23 @@ macro_rules! table_records {
     };
 }
 table_records! {
-    "versions" => Version(VersionRecord) {
+    "versions" => Version(VersionRecord) [version_hash] {
         version_hash: (true, "versionHash"),
         version: (true, "version"),
         binding_hash: (true, "bindingHash"),
     },
-    "interfaces" => Interface(InterfaceRecord) {
+    "interfaces" => Interface(InterfaceRecord) [interface_hash] {
         interface_hash: (true, "interfaceHash"),
         name: (true, "name"),
         public_contract_hash: (true, "publicContractHash"),
     },
-    "functions" => Function(FunctionRecord) {
+    "functions" => Function(FunctionRecord) [impl_hash] {
         impl_hash: (true, "implHash"),
         typed_signature: (true, "typedSignature"),
         canonical_body: (true, "canonicalBody"),
         provided_contract_hash: (true, "providedContractHash"),
     },
-    "contracts" => Contract(ContractRecord) {
+    "contracts" => Contract(ContractRecord) [contract_hash] {
         contract_hash: (true, "contractHash"),
         contract_kind: (true, "contractKind"),
         profile: (true, "profile"),
@@ -351,7 +365,7 @@ table_records! {
         user_request_texts: (true, "userRequestTexts"),
         review_records: (true, "reviewRecords"),
     },
-    "contract_rules" => ContractRule(ContractRuleRecord) {
+    "contract_rules" => ContractRule(ContractRuleRecord) [contract_hash, rule_hash] {
         contract_hash: (true, "contractHash"),
         rule_hash: (true, "ruleHash"),
         kind: (true, "kind"),
@@ -359,36 +373,36 @@ table_records! {
         predicate: (false, "predicate"),
         check_boundary: (false, "checkBoundary"),
     },
-    "bindings" => Binding(BindingRecord) {
+    "bindings" => Binding(BindingRecord) [version_hash, interface_hash] {
         version_hash: (true, "versionHash"),
         interface_hash: (true, "interfaceHash"),
         impl_hash: (true, "implHash"),
     },
-    "structures" => Structure(StructureRecord) {
+    "structures" => Structure(StructureRecord) [struct_impl_hash] {
         struct_impl_hash: (true, "structImplHash"),
         type_hash: (true, "typeHash"),
         contract_hash: (false, "contractHash"),
         canonical_declaration: (true, "canonicalDeclaration"),
     },
-    "structure_types" => StructureType(StructureTypeRecord) {
+    "structure_types" => StructureType(StructureTypeRecord) [type_hash] {
         type_hash: (true, "typeHash"),
         identity_hash: (true, "identityHash"),
         aggregate_kind: (true, "aggregateKind"),
         ordered_member_types: (true, "orderedMemberTypes"),
         representation_requirements: (true, "representationRequirements"),
     },
-    "structure_layouts" => StructureLayout(StructureLayoutRecord) {
+    "structure_layouts" => StructureLayout(StructureLayoutRecord) [layout_hash] {
         layout_hash: (true, "layoutHash"),
         type_hash: (true, "typeHash"),
         target_abi_profile: (true, "targetAbiProfile"),
         layout_descriptor: (true, "layoutDescriptor"),
     },
-    "structure_bindings" => StructureBinding(StructureBindingRecord) {
+    "structure_bindings" => StructureBinding(StructureBindingRecord) [version_hash, name] {
         version_hash: (true, "versionHash"),
         name: (true, "name"),
         struct_impl_hash: (true, "structImplHash"),
     },
-    "verification_obligations" => VerificationObligation(VerificationObligationRecord) {
+    "verification_obligations" => VerificationObligation(VerificationObligationRecord) [obligation_hash] {
         obligation_hash: (true, "obligationHash"),
         kind: (true, "kind"),
         caller_impl_hash: (true, "callerImplHash"),
@@ -398,7 +412,7 @@ table_records! {
         caller_required_contract_hash: (false, "callerRequiredContractHash"),
         verification_context_hash: (true, "verificationContextHash"),
     },
-    "verification_runs" => VerificationRun(VerificationRunRecord) {
+    "verification_runs" => VerificationRun(VerificationRunRecord) [run_id] {
         run_id: (true, "runId"),
         obligation_hash: (true, "obligationHash"),
         status: (true, "status"),
