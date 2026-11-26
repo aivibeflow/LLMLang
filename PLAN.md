@@ -919,7 +919,7 @@ The [Research State 2026-11-19](research/research-management/RESEARCH-STATE-2026
 
 ## 8.1 MVP implementation plan
 
-Deliver one reproducible LLMLang CLI application from a clean checkout. Use Calculator as the end-to-end workload, with Hello and Echo as runtime smoke tests. Start on Linux x86-64 with one source dialect, one typed SPG subset, and Rust code generation. Preserve the existing full Contract IR roadmap and accepted architectural requirements as the scope for later milestones. [Reference workloads](research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md) · [Calculator candidate source](draft/examples/0003-calculator/main.llmlang) · [ADR-016](draft/adr/016-compiler-bootstrap.md)
+Deliver one reproducible LLMLang CLI application from a clean checkout. Use Calculator as the end-to-end workload, with Hello and Echo as runtime smoke tests. Start on Linux x86-64 with one source dialect, one typed SPG subset, and Rust code generation. Preserve the existing full Contract IR roadmap and accepted architectural requirements as the scope for later milestones. [Reference workloads](research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md) · [Calculator MVP source](tools/llmlang_mvp/calculator.llmlang) · [ADR-016](draft/adr/016-compiler-bootstrap.md)
 
 <a name="ownership-and-integration-boundary"></a>
 

@@ -25,6 +25,15 @@ def read_package(path):
     return {file.name: file.read_bytes() for file in sorted(path.iterdir())}
 
 
+def selected_exports(files):
+    version = json.loads(files["package.json"])["selection"]["version"]
+    version_row, = (row for row in json.loads(files["versions.json"]) if row["version"] == version)
+    names = {row["interfaceHash"]: row["name"] for row in json.loads(files["interfaces.json"])}
+    return {names[row["interfaceHash"]]: row["implHash"]
+            for row in json.loads(files["bindings.json"])
+            if row["versionHash"] == version_row["versionHash"]}
+
+
 def execute(artifact, *arguments, data=b"", errno=None, stdout=subprocess.PIPE, preexec_fn=None):
     result = subprocess.run(
         [artifact, *arguments], input=data, stdout=stdout, stderr=subprocess.PIPE,
@@ -100,7 +109,7 @@ def exercise(executable, directory):
         original_dependencies = {path: read_package(path) for path in (stdlib, dependency)}
         programs = sorted(EXAMPLES.glob("000[4-8]-syscall-*"))
         assert len(programs) == 5
-        for package in [stdlib, hello, dependency, syscall_hello, *programs]:
+        for package in [stdlib, dependency, hello, syscall_hello, *programs]:
             before = read_package(package)
             assert json.loads(before["manifest.json"])["profile"] == "llmlang.spg.tables.v5"
             assert before["functions.dump"].startswith(b"LLSPG\x05\r\n")
@@ -120,6 +129,7 @@ def exercise(executable, directory):
                 assert artifact.suffix == ".rlib" and not generated
                 check_stdlib(artifact, build["exports"], directory)
                 stdlib_symbols = build["exports"]
+                stdlib_exports = selected_exports(before)
                 stdlib_functions = json.loads((package / "functions.json").read_bytes())
                 syscall_impl, = (row["implHash"] for row in stdlib_functions
                                  if "builtin__syscall(" in row["canonicalBody"])
@@ -148,18 +158,14 @@ def exercise(executable, directory):
                 assert artifact.suffix == ".rlib"
                 assert len(generated) == 355
                 assert {"rt_sigreturn", "vfork", "uretprobe"}.isdisjoint(generated)
-                interfaces = json.loads((package / "interfaces.json").read_bytes())
-                write_interface, = (row for row in interfaces if row["name"] == "linux.syscalls.write")
-                bindings = json.loads((package / "bindings.json").read_bytes())
-                write_impl, = (row["implHash"] for row in bindings
-                              if row["interfaceHash"] == write_interface["interfaceHash"])
+                linux_exports = selected_exports(before)
                 continue
 
-            source = (package / "main.llmlang").read_text()
-            assert "builtin__" not in source
-            body = source[source.index("{"):].rstrip()
-            main, = json.loads((package / "functions.json").read_bytes())
-            assert main["canonicalBody"] == body
+            main, = json.loads(before["functions.json"])
+            assert selected_exports(before) == {f"{package.name}.main": main["implHash"]}
+            body = main["canonicalBody"]
+            assert isinstance(body, str) and body.startswith("{") and body.endswith("}")
+            assert "builtin__" not in body
             assert "typedSignature" not in main
             signatures = json.loads((package / "function_signatures.json").read_bytes())
             signature, = signatures
@@ -176,17 +182,19 @@ def exercise(executable, directory):
                     for link in main_object["outgoing"] if link["relation"] == "Callee"} == {
                         row["calleeImplHash"] for row in obligations
                     }
-            imports = {line.rsplit(".", 1)[-1] for line in source.splitlines()
-                       if line.startswith("import linux.syscalls.")}
-            assert generated == imports, (package, generated, imports)
-            direct_stdlib = {line.removeprefix("import ") for line in source.splitlines()
-                             if line.startswith("import stdlib.")}
-            expected_stdlib = direct_stdlib | ({"stdlib.syscall"} if imports else set())
+            callee_pins = {row["calleeImplHash"] for row in obligations}
+            linux_calls = {name.rsplit(".", 1)[-1] for name, impl in linux_exports.items()
+                           if impl in callee_pins}
+            stdlib_calls = {name for name, impl in stdlib_exports.items() if impl in callee_pins}
+            assert len(linux_calls) + len(stdlib_calls) == len(callee_pins), (package, obligations)
+            assert generated == linux_calls, (package, generated, linux_calls)
+            expected_stdlib = stdlib_calls | ({"stdlib.syscall"} if linux_calls else set())
             assert reachable_stdlib == expected_stdlib, (package, reachable_stdlib, expected_stdlib)
             payload = bytes(range(256)) * 83 + b"\x00\xff"
-            if package == syscall_hello:
-                assert imports == {"write"} and not direct_stdlib
-                assert [row["calleeImplHash"] for row in obligations] == [write_impl]
+            if package == hello:
+                assert callee_pins == {stdlib_exports["stdlib.write"]}
+            elif package == syscall_hello:
+                assert callee_pins == {linux_exports["linux.syscalls.write"]}
             if package in (hello, syscall_hello):
                 assert execute(artifact) == (0, b"Hello, world!\n")
                 assert execute(artifact, "ignored", data=b"ignored") == (0, b"Hello, world!\n")

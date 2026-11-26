@@ -1,9 +1,7 @@
 # Candidate Example Implementations
 
-This directory contains candidate LLMLang implementations corresponding to task statements in `/examples/`.
-
-The packages below build and run through the native MCP server. The Echo and
-Calculator sketches in `0002-echo` and `0003-calculator` remain illustrative.
+The packages below build and run through the native MCP server. Each function
+body is available as `canonicalBody` in the package's `functions.json` debug dump.
 
 ## Rules
 
@@ -32,11 +30,11 @@ have a parameterless `main`. All return `ExitStatus`.
 
 | Package | Scenario |
 |---|---|
-| [0004-syscall-echo](0004-syscall-echo/main.llmlang) | Copy standard input to standard output, including short writes and interrupted calls. |
-| [0005-syscall-copy](0005-syscall-copy/main.llmlang) | Copy a file to a new path, close both descriptors, and report I/O errors. |
-| [0006-syscall-pipe-poll](0006-syscall-pipe-poll/main.llmlang) | Check pipe readiness before and after writing a byte. |
-| [0007-syscall-child](0007-syscall-child/main.llmlang) | Launch a child, wait for it, and return the child's exit status. |
-| [0008-syscall-tcp-echo](0008-syscall-tcp-echo/main.llmlang) | Exchange a byte-exact payload on IPv4 loopback. |
+| [0004-syscall-echo](0004-syscall-echo/functions.json) | Copy standard input to standard output, including short writes and interrupted calls. |
+| [0005-syscall-copy](0005-syscall-copy/functions.json) | Copy a file to a new path, close both descriptors, and report I/O errors. |
+| [0006-syscall-pipe-poll](0006-syscall-pipe-poll/functions.json) | Check pipe readiness before and after writing a byte. |
+| [0007-syscall-child](0007-syscall-child/functions.json) | Launch a child, wait for it, and return the child's exit status. |
+| [0008-syscall-tcp-echo](0008-syscall-tcp-echo/functions.json) | Exchange a byte-exact payload on IPv4 loopback. |
 
 The manifest of each program selects version `v6.12` of `linux.syscalls`.
 A caller of the SPG graph loader registers the dependency graph for that

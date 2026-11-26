@@ -38,7 +38,7 @@ These are architectural comparisons. The repository documents prototype results 
 
 ## Explore the research
 
-- **Read a program sketch.** Start with the Hello World example, which declares its output effect and handles success and failure explicitly. [Task](examples/0001-hello-world.md) · [LLMLang sketch](draft/examples/0001-hello-world/main.llmlang) · [Task catalog](examples/README.md)
+- **Read an example package.** Start with Hello World, which calls the standard library and handles success and failure explicitly. [Task](examples/0001-hello-world.md) · [LLMLang package](draft/examples/0001-hello-world/README.md) · [Task catalog](examples/README.md)
 - **Run the dependency graph prototype.** The Python prototype covers content-addressed graph storage, requirement evolution, and verification experiments. [Prototype setup and tests](research/PROTOTYPES/DEPENDENCY-GRAPH-01/README.md)
 - **Follow the language design.** Start with the [current research state](research/research-management/RESEARCH-STATE-2026-11-19.md) for open design choices. The `draft/` directory holds candidate specification material. The `research/` directory holds exploratory RFCs, alternatives, prototypes, and results, including work on [CPC assumption binding](research/formal-verification/RT-07/RESEARCH-SCENARIO-30-CPC-ASSUMPTION-BINDING.md) and the [strict QF_LIA profile](research/formal-verification/RT-07/RESEARCH-SCENARIO-31-STRICT-QF-LIA-PROFILE.md). [Candidate specification](draft/README.md) · [Research register](RESEARCH.md) · [Development plan](PLAN.md) · [Open design questions](PLAN.md#open-design-questions)
 

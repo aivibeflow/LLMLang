@@ -20,7 +20,7 @@ Git establishes the bytes and path used by this fixture. The curated catalog sup
 | --- | --- | --- |
 | Specification | [Integer Calculator](../../../examples/0003-calculator.md) | The example's declared behavior. |
 | Design | [Canonical semantic diff and merge](../RT-24/RT-24-CANONICAL-SEMANTIC-REPRESENTATION-DIFF-AND-MERGE.md) | A candidate technical contract and algorithm. |
-| Implementation | [Candidate calculator implementation](../../../draft/examples/0003-calculator/main.llmlang) | Illustrative LLMLang source with an explicitly limited execution status. |
+| Implementation | [Candidate calculator implementation](https://github.com/aivibeflow/LLMLang/blob/9f205b677bd0cba9b3806ccb54ab992a3face722/draft/examples/0003-calculator/main.llmlang) | Illustrative LLMLang source with an explicitly limited execution status. |
 | Contracts | [Public interfaces and contract refinement](../../semantic-representation/RT-05/PUBLIC-INTERFACES-AND-CONTRACT-REFINEMENT.md) | A proposal for exact contract identity. |
 | Requirements | [Withdrawal requirements](../../language-design/RT-02/REQUIREMENT-BACKENDS-01/requirements.json) | The finite requirement fixture and its exact wording. |
 | Dependency records | [Typed difference ledger](../RT-24/TYPED-SEMANTIC-DIFF-01/evidence.json) | An archived identity for a difference over two pinned semantic inputs. |

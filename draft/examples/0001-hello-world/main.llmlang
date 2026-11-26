@@ -1,8 +1,0 @@
-import stdlib.write
-
-pub fn main() -> ExitStatus {
-    match write(1, "Hello, world!\n") {
-        Ok(()) => 0,
-        Err(_) => 1,
-    }
-}

@@ -80,10 +80,8 @@ Predicate values can be JSON Booleans or Boolean expression strings. The predica
 
 ## Native source syntax
 
-Place imports before function declarations. In an import, the last dot separates the package name from the function name. For example, write `import stdlib.write` or `import linux.syscalls.write`. Both examples call `write(...)` in the function body. [Hello World](../examples/0001-hello-world/main.llmlang) · [Syscall Hello World](../examples/0009-syscall-hello-world/main.llmlang)
+Place imports before function declarations. In an import, the last dot separates the package name from the function name. For example, write `import stdlib.write` or `import linux.syscalls.write`. Both examples call `write(...)` in the function body. [Hello World](../examples/0001-hello-world/functions.json) · [Syscall Hello World](../examples/0009-syscall-hello-world/functions.json)
 
-Function declarations use `fn`, parameter types follow their names, and a return type follows `->`. The public entry point is `pub fn main() -> ExitStatus` or `pub fn main(args: LaunchArgs) -> ExitStatus`. The function body is enclosed in braces. [Entry point](../adr/032-program-package-main.md) · [Copy example](../examples/0005-syscall-copy/main.llmlang)
+Function declarations use `fn`, parameter types follow their names, and a return type follows `->`. The public entry point is `pub fn main() -> ExitStatus` or `pub fn main(args: LaunchArgs) -> ExitStatus`. The function body is enclosed in braces. [Entry point](../adr/032-program-package-main.md) · [Copy example](../examples/0005-syscall-copy/functions.json)
 
 Built-in function names start with `builtin__`. In native source, only `stdlib` can reference them directly. [Built-in names and visibility](../adr/034-built-in-function-prefix.md)
-
-The `program`, `effects`, and `operation` forms in the draft Echo and Calculator sketches are illustrative notation. Executable scalar text uses `def`. [Draft examples and status](../examples/README.md)
