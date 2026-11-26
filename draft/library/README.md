@@ -4,9 +4,8 @@ This crate implements the repository persistence layer in the
 [architecture RFC] and [ADR-030], using the twelve tables from [ADR-029].
 The API works with table rows represented by JSON objects. The caller supplies
 each row's logical key, including a stable composite key where applicable.
-The Toolchain owns typed row interpretation, semantic identities, reference
-validation, and resolution of pinned package dependencies. The manifest
-preserves those dependency pins as strings.
+The Toolchain owns semantic identity calculation and verification, and supplies
+verified graphs for pinned package dependencies.
 
 ```rust
 use llmlang_spg::{load, save, LoadOptions, Manifest, Package, SaveOptions};
@@ -34,6 +33,26 @@ before using it. `rebuild_index` validates the entire table dump and then replac
 its index. Rebuild explicitly before retrying a load that failed because its index
 was missing or invalid.
 
+## Resolved graph
+
+The Rust crate root is [draft/src/library/spg.rs](../src/library/spg.rs).
+Use `load_graph` to decode typed rows and resolve their references. Look up a
+node by its table and primary key with `Graph::get`. Follow `Node::outgoing`,
+`Node::incoming`, or `Node::calls` to traverse resolved nodes. Canonical IR is
+preserved as JSON. In that IR, `struct_impl_hash` is a structure pin and
+`callee_impl_hash` with `required_contract_hash` is an exact call pin pair.
+
+Supply the previous graph in `GraphLoadOptions::previous` when loading another
+snapshot. A matching table and Content Hash shares the immutable object and
+skips the frame read and decode. An index remains required, and a fully cached
+nonempty table needs no dump access. Previous rows that the new indexes do not
+select are omitted. Declared dependencies participate in reference resolution
+through the caller-supplied map of exact pins to verified graphs. A missing or
+ambiguous target fails the load.
+
+Use `load` for raw package inspection, per-table ProtoJSON output, or full
+validation of on-disk frames independently of the graph cache.
+
 ## Repository profile
 
 The draft specifies the storage contract and leaves the physical encoding to a
@@ -50,7 +69,7 @@ profile. This crate defines `llmlang.spg.tables.v1`.
   The writer uses LZ4 fast mode with acceleration 1. The uncompressed size limit
   is 1 MiB per record and the metadata size limit is 16 MiB per file.
 - Each block carries the same Protobuf wire message as
-  [the syscall storage schema](../packages/linux.syscalls/storage.proto).
+  [the syscall storage schema](../../packages/linux.syscalls/storage.proto).
   Values support null, bool, signed 64-bit integers, strings, lists, and objects.
   Object fields are sorted by UTF-8 key. Record values allow nesting depth 24.
 - Content Hash is SHA-256 over the bytes `llmlang-spg-content/v1\0` followed by
@@ -63,7 +82,7 @@ The profile reuses the syscall record schema and framing. Its package manifest,
 file names, and index encoding define a separate package format. The directory
 publication implementation is tested on Linux.
 
-Run `cargo test --locked --manifest-path library/Cargo.toml` from the repository root.
+Run `cargo test --locked --manifest-path draft/library/Cargo.toml` from the repository root.
 
 [architecture RFC]: https://github.com/aivibeflow/LLMLang/blob/main/draft/RFC.md
 [ADR-029]: https://github.com/aivibeflow/LLMLang/blob/main/draft/adr/029-caller-scoped-verification-obligations.md
