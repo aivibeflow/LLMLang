@@ -165,6 +165,7 @@ impl Server {
             principal_uid: metadata.uid(),
             _lock: lock,
         };
+        check_state_layout(&server.state)?;
         server.recover()?;
         Ok(server)
     }
@@ -414,8 +415,8 @@ impl Server {
     }
 
     fn validate(&self, program: &Program) -> Result<Package> {
-        changes::check_identities(&program.package(), &program.selection)?;
         let package = self.combined_package(program)?;
+        changes::check_identities(&program.package(), &program.selection, &package)?;
         self.check_graph(&package)?;
         if let Some(entry) = &program.selection.entry_point {
             if !program.tables["functions"].contains_key(entry) {
@@ -518,7 +519,10 @@ impl Server {
                 .ok_or_else(|| validation("missing public contract pin"))?;
             if function["provided_contract_hash"] != contract
                 || package.tables["contracts"][contract]["typed_signature"]
-                    != function["typed_signature"]
+                    != package
+                        .function_signature(function)
+                        .map_err(validation)?
+                        .typed
             {
                 return Err(validation(
                     "native export contract and implementation must have the exact signature",
@@ -560,9 +564,15 @@ impl Server {
             .values()
             .find(|row| row["version"].as_str() == program.selection.version.as_deref())
             .and_then(|row| row["version_hash"].as_str());
+        // The scalar frontend consumes its typed view. The repository rows
+        // remain normalized and the view is local to this backend request.
+        let mut tables = package.tables.clone();
+        for row in tables.get_mut("functions").unwrap().values_mut() {
+            row["typed_signature"] = package.function_signature(row).map_err(validation)?.typed;
+        }
         let request = json!({
             "action": action,
-            "package": {"manifest": package.manifest, "tables": package.tables},
+            "package": {"manifest": package.manifest, "tables": tables},
             "entry_impl_hash": program.selection.entry_point,
             "version_hash": version_hash,
             "target": build.map(|(target, _)| target),
@@ -807,6 +817,7 @@ impl Server {
 
     fn recover(&mut self) -> Result<()> {
         if let Some(pending) = read_optional::<PendingCommit>(&self.root.join("pending.json"))? {
+            check_state_layout(&pending.state)?;
             let program = pending
                 .state
                 .snapshots
@@ -946,6 +957,29 @@ impl Server {
             "incoming": incoming,
         }))
     }
+}
+
+fn check_state_layout(state: &State) -> Result<()> {
+    let programs = state.snapshots.values().chain(
+        state
+            .workspaces
+            .values()
+            .map(|workspace| &workspace.program),
+    );
+    for program in programs {
+        if !program
+            .tables
+            .keys()
+            .map(String::as_str)
+            .eq(llmlang_spg::TABLES)
+        {
+            return Err(ServerError::new(
+                "UnsupportedProfile",
+                "server state uses another package table layout",
+            ));
+        }
+    }
+    Ok(())
 }
 
 fn view(id: &str, workspace: &Workspace) -> Value {

@@ -53,6 +53,11 @@ snapshot ID and package path. It enables per-table debug ProtoJSON. Committed
 version directories are immutable. The configured destination is
 `<state-dir>/packages/<package-name>/<version>`.
 
+Each function row points to its canonical signature text in the
+`function_signatures` table. The server stages shared signature rows in the
+same Change Set as their functions and restores typed signatures for
+verification and compilation.
+
 The package contains the standard SPG manifest, table dumps and indexes, plus
 `package.json` with the package name, version selection, optional entry point,
 and snapshot ID used by this server. Import verifies the package, reconstructs

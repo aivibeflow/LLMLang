@@ -70,21 +70,31 @@ def exercise(executable, directory):
             assert not list(compile_tmp.iterdir()), "temporary source directory survived the build"
             assert read_package(package) == before, package
             if package == dependency:
+                raw_functions = json.loads((package / "functions.json").read_bytes())
+                assert len(raw_functions) == 358
+                assert all(row["canonicalBody"]["stringValue"].startswith("{\n")
+                           for row in raw_functions)
                 assert artifact.suffix == ".rlib"
                 assert len(generated) == 355
                 assert {"rt_sigreturn", "vfork", "uretprobe"}.isdisjoint(generated)
                 continue
 
             source = (package / "main.llmlang").read_text()
+            body = source[source.index("{"):].rstrip()
             main, = json.loads((package / "functions.json").read_bytes())
-            assert main["canonicalBody"] == {"stringValue": source.rstrip()}
+            assert main["canonicalBody"] == {"stringValue": body}
+            assert "typedSignature" not in main
+            signatures = json.loads((package / "function_signatures.json").read_bytes())
+            signature, = signatures
+            assert main["functionSignatureHash"] == signature["functionSignatureHash"]
+            assert signature["functionSignatureContent"].endswith(" -> ExitStatus")
             obligations = json.loads((package / "verification_obligations.json").read_bytes())
             assert all(row["kind"] == "call_compatibility"
                        and row["callerImplHash"] == main["implHash"] for row in obligations)
             main_object = read_object(
                 client, f"llmlang://snapshot/{imported['snapshot_id']}/object/functions/{main['implHash']}",
             )
-            assert main_object["row"]["canonical_body"] == source.rstrip()
+            assert main_object["row"]["canonical_body"] == body
             assert {link["uri"].rsplit("/", 1)[-1].replace("%3A", ":")
                     for link in main_object["outgoing"] if link["relation"] == "Callee"} == {
                         row["calleeImplHash"] for row in obligations

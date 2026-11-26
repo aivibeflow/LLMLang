@@ -548,12 +548,15 @@ fn put(
             let mut body = canonical_body.clone();
             locals.rewrite_ir(&mut body)?;
             let identity = function_identity(typed_signature, &body, &provided)?;
+            let signature = package
+                .stage_function_signature(SCALAR_PROFILE, typed_signature)
+                .map_err(|error| invalid(error.to_string()))?;
             insert_row(
                 package,
                 "functions",
                 &identity,
                 json!({
-                    "impl_hash": identity, "typed_signature": typed_signature, "canonical_body": body,
+                    "impl_hash": identity, "function_signature_hash": signature, "canonical_body": body,
                     "provided_contract_hash": provided
                 }),
             )?;
@@ -926,7 +929,11 @@ pub(crate) fn apply(
     })
 }
 
-pub(crate) fn check_identities(package: &Package, selection: &Selection) -> Result<()> {
+pub(crate) fn check_identities(
+    package: &Package,
+    selection: &Selection,
+    resolved: &Package,
+) -> Result<()> {
     let mut rules = BTreeMap::<String, BTreeSet<String>>::new();
     for (key, row) in &package.tables["contract_rules"] {
         let contract = string(row, "contract_hash")?;
@@ -960,9 +967,12 @@ pub(crate) fn check_identities(package: &Package, selection: &Selection) -> Resu
         }
     }
     for (key, row) in &package.tables["functions"] {
+        let signature = resolved
+            .function_signature(row)
+            .map_err(|error| invalid(error.to_string()))?;
         if string(row, "impl_hash")? != key
             || function_identity(
-                &row["typed_signature"],
+                &signature.typed,
                 &row["canonical_body"],
                 string(row, "provided_contract_hash")?,
             )? != *key
@@ -1049,6 +1059,6 @@ mod tests {
             caller["canonical_body"][0][1]["callee_impl_hash"],
             result.identities["callee"],
         );
-        check_identities(&package, &selection).unwrap();
+        check_identities(&package, &selection, &package).unwrap();
     }
 }

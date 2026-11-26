@@ -33,8 +33,9 @@ rows! {
     "versions" => Version { version_hash: String, version: String, binding_hash: String },
     "interfaces" => Interface { interface_hash: String, name: String, public_contract_hash: String },
     "functions" => Function {
-        impl_hash: String, typed_signature: Value, canonical_body: Value, provided_contract_hash: String,
+        impl_hash: String, function_signature_hash: String, canonical_body: Value, provided_contract_hash: String,
     },
+    "function_signatures" => SignatureRow { function_signature_hash: String, function_signature_content: String },
     "contracts" => Contract {
         contract_hash: String, contract_kind: String, profile: String,
         typed_signature: Option<Value>, state_signature: Option<Value>,
@@ -84,6 +85,7 @@ pub enum Relation {
     Implementation,
     PublicContract,
     ProvidedContract,
+    Signature,
     RequiredContract,
     OwningContract,
     Structure,
@@ -323,8 +325,46 @@ impl Graph {
     fn resolve(&mut self) -> Result<()> {
         self.incoming.resize_with(self.objects.len(), Vec::new);
         for (source, object) in self.objects.iter().enumerate() {
+            if let Row::Function(function) = &object.row {
+                let signature = self
+                    .get("function_signatures", &[&function.function_signature_hash])
+                    .ok_or_else(|| {
+                        invalid(format!(
+                            "missing function signature {}",
+                            function.function_signature_hash
+                        ))
+                    })?;
+                let contract = self
+                    .get("contracts", &[&function.provided_contract_hash])
+                    .ok_or_else(|| invalid("missing function contract"))?;
+                if let (Row::SignatureRow(signature), Row::Contract(contract)) =
+                    (&signature.object().row, &contract.object().row)
+                {
+                    if super::resolve_function_signature(
+                        &signature.function_signature_hash,
+                        &signature.function_signature_content,
+                    )?
+                    .profile
+                        != contract.profile
+                    {
+                        return Err(invalid("function signature and contract profiles disagree"));
+                    }
+                }
+            }
             let mut outgoing = Vec::new();
-            let references = object.row.references()?;
+            let mut references = object.row.references()?;
+            let decoded_signature;
+            if let Row::SignatureRow(row) = &object.row {
+                decoded_signature = super::resolve_function_signature(
+                    &row.function_signature_hash,
+                    &row.function_signature_content,
+                )?;
+                ir_pins(
+                    &decoded_signature.typed,
+                    &mut references.pins,
+                    &mut references.calls,
+                )?;
+            }
             for (relation, table, key) in references.pins {
                 let target = self
                     .get(table, &[key])
@@ -376,6 +416,7 @@ impl Row {
             Self::Version(r) => vec![&r.version_hash],
             Self::Interface(r) => vec![&r.interface_hash],
             Self::Function(r) => vec![&r.impl_hash],
+            Self::SignatureRow(r) => vec![&r.function_signature_hash],
             Self::Contract(r) => vec![&r.contract_hash],
             Self::ContractRule(r) => vec![&r.contract_hash, &r.rule_hash],
             Self::Binding(r) => vec![&r.version_hash, &r.interface_hash],
@@ -400,9 +441,10 @@ impl Row {
             Self::Interface(r) => add(PublicContract, "contracts", &r.public_contract_hash),
             Self::Function(r) => {
                 add(ProvidedContract, "contracts", &r.provided_contract_hash);
-                ir_pins(&r.typed_signature, &mut pins, &mut calls)?;
+                add(Signature, "function_signatures", &r.function_signature_hash);
                 ir_pins(&r.canonical_body, &mut pins, &mut calls)?;
             }
+            Self::SignatureRow(_) => {}
             Self::Contract(r) => {
                 let signature = match (&*r.contract_kind, &r.typed_signature, &r.state_signature) {
                     ("function", Some(signature), None)

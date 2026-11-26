@@ -5,7 +5,7 @@ use sha2::{Digest, Sha256};
 
 #[allow(clippy::enum_variant_names)]
 mod wire {
-    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v3.rs"));
+    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v4.rs"));
 }
 
 use wire::{value::Kind, Field, List, Object, Value as WireValue};
@@ -134,7 +134,7 @@ pub fn content_hash(key: &str, row: &Value) -> Result<String> {
     Ok(hex::encode(digest(key, row)?))
 }
 
-fn canonical_json(value: &Value, output: &mut Vec<u8>) -> Result<()> {
+pub(crate) fn canonical_json(value: &Value, output: &mut Vec<u8>) -> Result<()> {
     match value {
         Value::Object(fields) => {
             output.push(b'{');
@@ -283,6 +283,21 @@ macro_rules! table_records {
                                 return Err(invalid(format!("{table}: unknown column {field}")));
                             }
                         }
+                        match table {
+                            "function_signatures" => {
+                                let text = row["function_signature_content"].as_str()
+                                    .ok_or_else(|| invalid("missing function signature content"))?;
+                                super::resolve_function_signature(key, text)?;
+                            }
+                            "functions" => {
+                                let hash = row["function_signature_hash"].as_str()
+                                    .ok_or_else(|| invalid("missing function signature hash"))?;
+                                super::check_hash(hash.strip_prefix("sha256:")
+                                    .ok_or_else(|| invalid("invalid function signature hash"))?)?;
+                                super::signature::validate_body(&row["canonical_body"])?;
+                            }
+                            _ => {}
+                        }
                         if key != Self::key(table, row)? {
                             return Err(invalid(format!("{table}: row key does not match primary key columns")));
                         }
@@ -350,9 +365,13 @@ table_records! {
         name: (true, "name"),
         public_contract_hash: (true, "publicContractHash"),
     },
+    "function_signatures" => FunctionSignature(FunctionSignatureRecord) [function_signature_hash] {
+        function_signature_hash: (true, "functionSignatureHash"),
+        function_signature_content: (true, "functionSignatureContent"),
+    },
     "functions" => Function(FunctionRecord) [impl_hash] {
         impl_hash: (true, "implHash"),
-        typed_signature: (true, "typedSignature"),
+        function_signature_hash: (true, "functionSignatureHash"),
         canonical_body: (true, "canonicalBody"),
         provided_contract_hash: (true, "providedContractHash"),
     },

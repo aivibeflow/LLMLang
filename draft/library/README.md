@@ -1,7 +1,7 @@
 # LLMLang SPG persistence
 
 This crate implements the repository persistence layer in the
-[architecture RFC] and [ADR-030], using the twelve tables from [ADR-029].
+[architecture RFC] and [ADR-030], including the signature table from [ADR-033].
 The API accepts JSON objects with the columns declared for their table. Each
 map key must match the row's primary-key columns, joined with `:` for a
 composite key. The binary record contains only the table columns.
@@ -54,17 +54,40 @@ ambiguous target fails the load.
 Use `load` for raw package inspection, per-table ProtoJSON output, or full
 validation of on-disk frames independently of the graph cache.
 
+## Function signatures
+
+Stage a typed signature with `Package::stage_function_signature` before
+writing its function row. The row stores `function_signature_hash` and
+body-only `canonical_body`. `Package::function_signature` reconstructs the
+original typed signature. A graph function links to its signature row, and
+the signature row links to its exact structure revisions when applicable.
+Function contracts retain their typed signatures.
+
+The v4 signature text has the form `<profile> (<name>: <type>, ...) -> <type>`.
+For example, the scalar signature for one integer parameter is
+`scalar-v1 (value: I64) -> I64`. The scalar profile renders `i64` and `bool`
+as `I64` and `Bool`. Parameter order is preserved, spacing is fixed, and
+structured type descriptors use compact JSON with recursively sorted keys.
+A type name that cannot use the bare syntax is quoted as a JSON string.
+The signature hash consists of `sha256:` and the lowercase SHA-256 hex digest
+of `llmlang-function-signature/v1\0`, the profile, a NUL byte, and the UTF-8
+signature text, in that order.
+
+The checked-in native packages were converted from v3 with their original
+reader. Their recovered typed signatures, implementation identities and
+bindings match the v3 records. A v4 server starts with v4 package data.
+
 ## Repository profile
 
 The draft specifies the storage contract and leaves the physical encoding to a
-profile. This crate uses `llmlang.spg.tables.v3`.
+profile. This crate uses `llmlang.spg.tables.v4`.
 
 - `manifest.json` contains `profile`, `language_version`, and `dependencies`.
-- Each of the twelve tables has a lowercase `<table>.dump` and
+- Each of the thirteen tables has a lowercase `<table>.dump` and
   `<table>.index.json`, even when empty. The index is a JSON object mapping
   lowercase SHA-256 hex digests to zero-based offsets at the start of a frame.
   Index keys are sorted and the compact encoding ends in a newline.
-- Each dump starts with `LLSPG\x03\r\n`. Frames follow in ascending row key order.
+- Each dump starts with `LLSPG\x04\r\n`. Frames follow in ascending row key order.
   Each comprises a little-endian 32-bit compressed length, a little-endian
   32-bit uncompressed length, a 32-byte Content Hash, and a raw LZ4 block.
   The writer uses LZ4 fast mode with acceleration 1. The uncompressed size limit
@@ -89,3 +112,4 @@ Run `cargo test --locked --manifest-path draft/library/Cargo.toml` from the repo
 [architecture RFC]: https://github.com/aivibeflow/LLMLang/blob/main/draft/RFC.md
 [ADR-029]: https://github.com/aivibeflow/LLMLang/blob/main/draft/adr/029-caller-scoped-verification-obligations.md
 [ADR-030]: https://github.com/aivibeflow/LLMLang/blob/main/draft/adr/030-per-table-package-dumps.md
+[ADR-033]: ../adr/033-function-signature-storage.md

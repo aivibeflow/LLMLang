@@ -3,6 +3,8 @@
 mod graph;
 pub use graph::*;
 mod record;
+mod signature;
+pub use signature::{function_signature_text, resolve_function_signature, FunctionSignature};
 
 pub use record::content_hash;
 use record::{digest, TableRecord as Record};
@@ -14,10 +16,11 @@ use std::io::{BufReader, BufWriter, Read, Seek, SeekFrom, Write};
 use std::path::Path;
 use tempfile::{tempdir_in, NamedTempFile, TempDir};
 
-pub const TABLES: [&str; 12] = [
+pub const TABLES: [&str; 13] = [
     "bindings",
     "contract_rules",
     "contracts",
+    "function_signatures",
     "functions",
     "interfaces",
     "structure_bindings",
@@ -29,9 +32,9 @@ pub const TABLES: [&str; 12] = [
     "versions",
 ];
 
-const PROFILE: &str = "llmlang.spg.tables.v3";
+const PROFILE: &str = "llmlang.spg.tables.v4";
 const MANIFEST: &str = "manifest.json";
-const MAGIC: &[u8; 8] = b"LLSPG\x03\r\n";
+const MAGIC: &[u8; 8] = b"LLSPG\x04\r\n";
 const HEADER: u64 = 40;
 const MAX_RECORD: usize = 1 << 20;
 const MAX_COMPRESSED: usize = MAX_RECORD + MAX_RECORD / 255 + 16;
@@ -139,6 +142,7 @@ pub fn save(path: &Path, package: &Package, options: SaveOptions) -> Result<()> 
             "package must contain exactly the repository profile tables",
         ));
     }
+    check_local_signatures(package)?;
     let staging = stage(path)?;
     let manifest = PackageManifest {
         profile: PROFILE.into(),
@@ -213,10 +217,25 @@ pub fn load(path: &Path, supported_versions: &[&str], options: LoadOptions<'_>) 
         output.finish()?;
         tables.insert(table.into(), rows);
     }
+    let package = Package { manifest, tables };
+    check_local_signatures(&package)?;
     if let Some((staging, destination)) = text {
         publish(staging, destination)?;
     }
-    Ok(Package { manifest, tables })
+    Ok(package)
+}
+
+fn check_local_signatures(package: &Package) -> Result<()> {
+    for function in package.tables["functions"].values() {
+        if package.manifest.dependencies.is_empty()
+            || function["function_signature_hash"]
+                .as_str()
+                .is_some_and(|hash| package.tables["function_signatures"].contains_key(hash))
+        {
+            package.function_signature(function)?;
+        }
+    }
+    Ok(())
 }
 
 /// Rebuild a table index from a fully verified dump and replace it atomically.
