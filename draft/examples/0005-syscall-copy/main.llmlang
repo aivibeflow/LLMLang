@@ -1,0 +1,44 @@
+import linux.syscalls.close
+import linux.syscalls.openat
+import linux.syscalls.read
+import linux.syscalls.write
+
+pub fn main(args: LaunchArgs) -> ExitStatus {
+    if args.len() != 2 { return 2; }
+    let source = match CString::from_bytes(args[0]) {
+        Ok(path) => path,
+        Err(_) => return 2,
+    };
+    let destination = match CString::from_bytes(args[1]) {
+        Ok(path) => path,
+        Err(_) => return 2,
+    };
+    let input = openat(AT_FDCWD, source, O_RDONLY | O_CLOEXEC, 0);
+    if input < 0 { return 1; }
+    let output = openat(AT_FDCWD, destination, O_WRONLY | O_CREAT | O_EXCL | O_CLOEXEC, 0o600);
+    if output < 0 {
+        close(input as U32);
+        return 1;
+    }
+    let mut status = 0;
+    let mut buffer = [0_u8; 16384];
+    let capacity = buffer.len();
+    'copy: loop {
+        let count = read(input as U32, &mut buffer, capacity);
+        if count == -EINTR { continue; }
+        if count < 0 { status = 1; break; }
+        if count == 0 { break; }
+        let count = count as Usize;
+        let mut sent = 0;
+        while sent < count {
+            let written = write(output as U32, &buffer[sent..count], count - sent);
+            if written == -EINTR { continue; }
+            if written <= 0 { status = 1; break 'copy; }
+            sent += written as Usize;
+        }
+    }
+    let output_closed = close(output as U32);
+    let input_closed = close(input as U32);
+    if output_closed < 0 || input_closed < 0 { return 1; }
+    return status;
+}

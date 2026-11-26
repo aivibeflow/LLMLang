@@ -6,6 +6,7 @@ import keyword
 import os
 from pathlib import Path
 import subprocess
+import shutil
 import sys
 from tempfile import TemporaryDirectory
 
@@ -177,11 +178,25 @@ def block(nodes, aliases, depth=1):
     return lines
 
 
-def view_package(package, version_hash):
+def view_package(package, version_hash, entry_identity=None, *, build=False):
     tables = package["tables"]
     functions = by_hash(tables, "functions", "impl_hash")
     interfaces = by_hash(tables, "interfaces", "interface_hash")
     contracts = read_contracts(tables)
+    if build:
+        roots = [row["impl_hash"] for row in tables["bindings"].values()
+                 if row["version_hash"] == version_hash]
+        if entry_identity is not None:
+            roots.append(entry_identity)
+        reachable = {}
+        while roots:
+            identity = roots.pop()
+            if identity in reachable:
+                continue
+            row = functions[identity]
+            reachable[identity] = row
+            roots.extend(callee for callee, _ in call_pins(row["canonical_body"]))
+        functions = reachable
     pairs = {
         (identity, row["provided_contract_hash"]) for identity, row in functions.items()
     }
@@ -193,6 +208,8 @@ def view_package(package, version_hash):
 
     exports = {}
     for row in tables["bindings"].values():
+        if build and row["version_hash"] != version_hash:
+            continue
         interface = interfaces[row["interface_hash"]]
         pair = (row["impl_hash"], interface["public_contract_hash"])
         pairs.add(pair)
@@ -245,7 +262,7 @@ def build(program, exports, entry, request):
         [stage0, "emit-rust", "package"], input=canonical_json(payload),
         check=True, capture_output=True, text=True, timeout=60,
     ).stdout
-    with TemporaryDirectory(prefix=".llmlang-build-", dir=output.parent) as directory:
+    with TemporaryDirectory(prefix="llmlang-build-") as directory:
         source_file = Path(directory, "package.rs")
         artifact = Path(directory, "artifact")
         source_file.write_text(source, encoding="utf-8")
@@ -255,7 +272,7 @@ def build(program, exports, entry, request):
             "-O", source_file, "-o", artifact,
         ]
         subprocess.run(command, check=True, capture_output=True, text=True, timeout=60)
-        artifact.replace(output)
+        shutil.move(artifact, output)
     return {
         "ok": True, "artifact": str(output), "target": TARGET,
         "exports": {name: "export_" + name.encode("utf-8").hex() for name in exports},
@@ -267,7 +284,8 @@ def handle(request):
     if action not in {"validate", "verify", "build"}:
         return {"ok": False, "code": "InvalidArguments", "message": "unknown scalar action"}
     program, definitions, aliases, functions, exports, calls = view_package(
-        request["package"], request.get("version_hash"),
+        request["package"], request.get("version_hash"), request.get("entry_impl_hash"),
+        build=action == "build",
     )
     entry_identity = request.get("entry_impl_hash")
     entry = None

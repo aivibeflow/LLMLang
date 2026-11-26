@@ -1,0 +1,21 @@
+import linux.syscalls.read
+import linux.syscalls.write
+
+pub fn main() -> ExitStatus {
+    let mut buffer = [0_u8; 8192];
+    let capacity = buffer.len();
+    loop {
+        let count = read(0, &mut buffer, capacity);
+        if count == -EINTR { continue; }
+        if count < 0 { return 1; }
+        if count == 0 { return 0; }
+        let count = count as Usize;
+        let mut sent = 0;
+        while sent < count {
+            let written = write(1, &buffer[sent..count], count - sent);
+            if written == -EINTR { continue; }
+            if written <= 0 { return 1; }
+            sent += written as Usize;
+        }
+    }
+}

@@ -531,7 +531,7 @@ fn tools() -> Vec<Value> {
         ),
         tool(
             "build_package",
-            "Build an accepted snapshot for a supported target.",
+            "Build a selected snapshot for a supported target.",
             record(
                 &[("snapshot_id", string()), ("target", string())],
                 &[],

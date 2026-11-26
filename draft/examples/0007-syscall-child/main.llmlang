@@ -1,0 +1,24 @@
+import linux.syscalls.execve
+import linux.syscalls.exit
+import linux.syscalls.fork
+import linux.syscalls.wait4
+
+pub fn main() -> ExitStatus {
+    let path = c"/bin/sh";
+    let args = [c"sh", c"-c", c"exit 23", null];
+    let environment = [null];
+    let child = fork();
+    if child < 0 { return 1; }
+    if child == 0 {
+        execve(path, &args, &environment);
+        exit(127);
+        trap();
+    }
+    let mut status = 0_i32;
+    loop {
+        let waited = wait4(child as I32, &mut status, 0, null);
+        if waited == -EINTR { continue; }
+        if waited != child || status & 0x7f != 0 { return 1; }
+        return ((status >> 8) & 0xff) as ExitStatus;
+    }
+}
