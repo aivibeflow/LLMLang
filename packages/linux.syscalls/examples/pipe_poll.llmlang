@@ -1,0 +1,34 @@
+import linux.syscalls.close
+import linux.syscalls.pipe2
+import linux.syscalls.poll
+import linux.syscalls.read
+import linux.syscalls.write
+
+fn check_pipe(input: BorrowedFd<'_>, output: BorrowedFd<'_>) -> Result<(), Box<dyn std::error::Error>> {
+    let mut entries = [PollEntry::new(input, POLLIN)];
+    if poll(&mut entries, 10)? != 0 {
+        return Err("an empty pipe should time out".into());
+    }
+    if write(output, b"x")? != 1 {
+        return Err("the pipe should accept one byte".into());
+    }
+    if poll(&mut entries, 1000)? != 1 || entries[0].returned() & POLLIN == 0 {
+        return Err("the pipe should be readable after writing".into());
+    }
+    let mut buffer = [0_u8; 1];
+    match read(input, &mut buffer)? {
+        ReadOutcome::Progress(1) if buffer[0] == b'x' => Ok(()),
+        _ => Err("the pipe returned an unexpected byte or outcome".into()),
+    }
+}
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let (input, output) = pipe2(0)?;
+    let checked = check_pipe(input.borrow(), output.borrow());
+    let output_close = close(output);
+    let input_close = close(input);
+    checked?;
+    output_close?;
+    input_close?;
+    Ok(())
+}
