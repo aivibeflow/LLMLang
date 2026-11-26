@@ -14,12 +14,13 @@ mod syscalls;
 
 const USAGE: &str = "Usage:
   llmlang-stage0 lower SOURCE [PROVIDED_HASHES_JSON]
-  llmlang-stage0 emit-rust calculator|hello|echo
+  llmlang-stage0 emit-rust calculator|hello|echo|package
   llmlang-stage0 parse-syscalls SOURCE
 
 'lower' writes SPG JSON to stdout. 'emit-rust calculator' reads an admitted SPG
-from stdin and writes Rust source to stdout. The smoke workload adapters take
-no SPG input.";
+from stdin and writes Rust source to stdout. The package adapter reads a JSON
+object with graph, exports, and optional entry fields. The smoke workload
+adapters take no SPG input.";
 
 fn lower(source: &OsString, hashes: Option<&OsString>) -> Result<String, String> {
     let source_path = Path::new(source);
@@ -54,6 +55,11 @@ fn run(args: &[OsString]) -> Result<String, String> {
         }
         [action, workload] if action == "emit-rust" => {
             let workload = workload.to_str().ok_or("invalid workload name")?;
+            if workload == "package" {
+                let package = serde_json::from_reader(io::stdin().lock())
+                    .map_err(|error| format!("invalid package SPG JSON: {error}"))?;
+                return backend::package(&package);
+            }
             let graph = if workload == "calculator" {
                 Some(
                     serde_json::from_reader(io::stdin().lock())
