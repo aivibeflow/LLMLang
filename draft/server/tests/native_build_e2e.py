@@ -100,7 +100,7 @@ def exercise(executable, directory):
         original_dependencies = {path: read_package(path) for path in (stdlib, dependency)}
         programs = sorted(EXAMPLES.glob("000[4-8]-syscall-*"))
         assert len(programs) == 5
-        for package in [stdlib, hello, syscall_hello, dependency, *programs]:
+        for package in [stdlib, hello, dependency, syscall_hello, *programs]:
             before = read_package(package)
             assert json.loads(before["manifest.json"])["profile"] == "llmlang.spg.tables.v5"
             assert before["functions.dump"].startswith(b"LLSPG\x05\r\n")
@@ -148,6 +148,11 @@ def exercise(executable, directory):
                 assert artifact.suffix == ".rlib"
                 assert len(generated) == 355
                 assert {"rt_sigreturn", "vfork", "uretprobe"}.isdisjoint(generated)
+                interfaces = json.loads((package / "interfaces.json").read_bytes())
+                write_interface, = (row for row in interfaces if row["name"] == "linux.syscalls.write")
+                bindings = json.loads((package / "bindings.json").read_bytes())
+                write_impl, = (row["implHash"] for row in bindings
+                              if row["interfaceHash"] == write_interface["interfaceHash"])
                 continue
 
             source = (package / "main.llmlang").read_text()
@@ -180,8 +185,8 @@ def exercise(executable, directory):
             assert reachable_stdlib == expected_stdlib, (package, reachable_stdlib, expected_stdlib)
             payload = bytes(range(256)) * 83 + b"\x00\xff"
             if package == syscall_hello:
-                assert direct_stdlib == {"stdlib.syscall"} and not imports
-                assert [row["calleeImplHash"] for row in obligations] == [syscall_impl]
+                assert imports == {"write"} and not direct_stdlib
+                assert [row["calleeImplHash"] for row in obligations] == [write_impl]
             if package in (hello, syscall_hello):
                 assert execute(artifact) == (0, b"Hello, world!\n")
                 assert execute(artifact, "ignored", data=b"ignored") == (0, b"Hello, world!\n")

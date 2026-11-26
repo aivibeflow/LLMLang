@@ -80,7 +80,7 @@ Predicate values can be JSON Booleans or Boolean expression strings. The predica
 
 ## Native source syntax
 
-Place imports before function declarations. In an import, a dot separates the package name from the function name. For example, write `import stdlib.write` and call `write(...)` in the function body. The syscall variant uses `import stdlib.syscall` and calls `syscall(...)`. [Hello World](../examples/0001-hello-world/main.llmlang) · [Syscall Hello World](../examples/0009-syscall-hello-world/main.llmlang)
+Place imports before function declarations. In an import, the last dot separates the package name from the function name. For example, write `import stdlib.write` or `import linux.syscalls.write`. Both examples call `write(...)` in the function body. [Hello World](../examples/0001-hello-world/main.llmlang) · [Syscall Hello World](../examples/0009-syscall-hello-world/main.llmlang)
 
 Function declarations use `fn`, parameter types follow their names, and a return type follows `->`. The public entry point is `pub fn main() -> ExitStatus` or `pub fn main(args: LaunchArgs) -> ExitStatus`. The function body is enclosed in braces. [Entry point](../adr/032-program-package-main.md) · [Copy example](../examples/0005-syscall-copy/main.llmlang)
 

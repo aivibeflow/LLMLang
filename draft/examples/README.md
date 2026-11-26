@@ -16,10 +16,10 @@ Calculator sketches in `0002-echo` and `0003-calculator` remain illustrative.
 ## Native package example
 
 [0001-hello-world](0001-hello-world/README.md) writes its greeting through
-[`stdlib.write`](../stdlib/README.md). Import `draft/stdlib` before importing
-either Hello World package or the Linux syscall package.
+[`stdlib.write`](../stdlib/README.md).
 [0009-syscall-hello-world](0009-syscall-hello-world/README.md) writes the same
-greeting through `stdlib.syscall` using the Linux x86-64 `write` ABI.
+greeting through `linux.syscalls.write`. Import `draft/stdlib` first, then
+import `draft/examples/linux.syscalls` before the syscall variant.
 
 [linux.syscalls](linux.syscalls/README.md) contains a native Linux x86-64
 package in the current SPG repository format.
