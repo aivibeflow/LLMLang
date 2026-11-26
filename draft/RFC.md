@@ -25,7 +25,7 @@ flowchart LR
 
 ### Program entry points
 
-A package is a program for the selected startup mode when it declares the corresponding public interface with a permitted signature and that interface has a valid binding in the selected snapshot. The binding pins the implementation by `ImplHash`. Ordinary startup performs the required runtime initialization and calls `main() -> ExitStatus` or `main(args: LaunchArgs) -> ExitStatus`. `LaunchArgs` is an ordered sequence of byte arguments and `ExitStatus` is numeric. Embedding and other modes that transfer control directly invoke `_entry` without additional LLMLang runtime initialization. The startup profile defines the `_entry` signature and calling convention. [ADR-032](adr/032-program-package-main.md)
+A package is a program for the selected startup mode when it declares the corresponding public interface with a permitted signature and that interface has a valid binding in the selected snapshot. The binding pins the implementation by `ImplHash`. Ordinary startup performs the required runtime initialization and calls `main() -> ExitStatus` or `main(args: LaunchArgs) -> ExitStatus`. `LaunchArgs` is an ordered sequence of byte arguments and `ExitStatus` is numeric. Embedding and other modes that transfer control directly invoke `_entry` without additional LLMLang runtime initialization. The startup profile defines the `_entry` signature and calling convention.
 
 ## Language, identity, and contracts
 
@@ -53,6 +53,8 @@ A program package is a Git-tracked directory with a separate package manifest an
 
 Each table in that profile has one binary dump and one companion index, including empty tables. A dump stores the table's Protobuf records in independently compressed frames, initially using LZ4. The index maps each Content Hash to the zero-based byte offset of its frame. The companion dump identifies the data file, and the frame header supplies the compressed length. The loader can consult a validated cache by hash before reading the payload. On a miss, it checks the frame bounds, decodes the record, and verifies its hash. Scanning verified records can reconstruct the index. A fixed repository profile produces identical package bytes for identical logical content.
 
+The function signature table has its own dump and companion index. When converting a package with inline signatures, validate the original records under their profile, produce canonical signature strings, and rebuild function rows with verified references. Publish the converted package only after it reconstructs the original typed signatures, implementation identities, and exact bindings.
+
 The persistence library accepts `write_text_dump` on save and load. It defaults to `false`. When enabled, save exports the same Protobuf messages used to write each binary table, and load exports the validated decoded messages. Both emit one additional ProtoJSON file per table in record order. Load writes the text files to a separate output location. Text exports leave canonical package bytes and semantic identities unchanged.
 
 ```mermaid
@@ -68,6 +70,10 @@ flowchart LR
 
 The Toolchain builds the projection from validated canonical package inputs. Versions select exact interface implementations and structure declarations. A structure declaration stores its ordered named field types and can pin its own contract. Functions refer to exact structure declarations by `StructImplHash` in their signatures or bodies. Structural types share representation requirements and resolve layouts for particular target profiles.
 
+Each `FUNCTIONS` row references one `FUNCTION_SIGNATURES` row through `function_signature_hash`. The signature row stores `function_signature_content` as canonical text encoding ordered parameter names and types, the result type, and exact type references. Its primary key is a digest of the UTF-8 text in a signature-specific domain that identifies the semantic profile and encoding version. Several functions can share one signature row. Reusing a hash requires a byte-for-byte match. Publish each function and its signature reference atomically.
+
+`FUNCTIONS.canonical_body` holds only the typed body, including exact call and structure references. The Toolchain resolves the signature from the package or its pinned dependencies, verifies the hash and canonical text, and parses the text into a typed signature with validated type references. A missing signature or unresolved pin rejects the import. The recovered signature supplies parameter declarations for body checking and callable compatibility and participates in computing `ImplHash` from the reconstructed canonical implementation. The provided contract reference resolves to a function contract.
+
 Functions, structures, and domains share the contract and rule tables. Function contracts use typed callable signatures, while state contracts declare the typed variables used by invariants and transitions. State rules capture their check boundaries where applicable. Contract identity uses canonical rule sets, and source requests and signed review records remain attached as metadata.
 
 The Toolchain derives call dependencies from canonical function bodies. Verification obligations identify the exact function through `caller_impl_hash`. Call compatibility also pins the callee and the contract required by the caller. A structure contract check pins the exact structure revision and binds the applicable state contracts, rules, and boundaries through the verification context. Public refinement pins the public contract. The provided function contract is resolved from the relevant function revision. Attempt records retain status and evidence by obligation hash. Admission uses evidence applicable to the exact context.
@@ -75,7 +81,7 @@ The Toolchain derives call dependencies from canonical function bodies. Verifica
 
 Every obligation requires `caller_impl_hash`. Call compatibility additionally requires `callee_impl_hash` and `caller_required_contract_hash`. Public refinement additionally requires `public_contract_hash`. Structure contract checks additionally require `struct_impl_hash`. Body conformance has no additional subject or contract reference. Kind-specific fields are absent for other obligation kinds. An obligation with no applicable result has unchecked status for admission.
 
-The logical schema below covers all twelve tables. PK and FK denote primary and foreign keys. Multiple PK labels form a composite key. `hash` identifies a digest, `ir` a typed intermediate representation, and collection fields hold the listed values. Fields are required unless marked optional or restricted to an obligation or rule kind.
+The logical schema below covers all thirteen tables. PK and FK denote primary and foreign keys. Multiple PK labels form a composite key. `hash` identifies a digest, `ir` a typed intermediate representation, and collection fields hold the listed values. Fields are required unless marked optional or restricted to an obligation or rule kind.
 
 ```mermaid
 erDiagram
@@ -92,9 +98,13 @@ erDiagram
     }
     FUNCTIONS {
         hash impl_hash PK
-        ir typed_signature "may contain StructImplHash"
-        ir canonical_body "holds exact call and structure references"
+        hash function_signature_hash FK
+        ir canonical_body "typed body only"
         hash provided_contract_hash FK
+    }
+    FUNCTION_SIGNATURES {
+        hash function_signature_hash PK
+        string function_signature_content
     }
     CONTRACTS {
         hash contract_hash PK
@@ -139,6 +149,7 @@ erDiagram
     VERSIONS ||--o{ BINDINGS : selects
     INTERFACES ||..o{ BINDINGS : "interface hash"
     FUNCTIONS ||..o{ BINDINGS : "selected implementation"
+    FUNCTION_SIGNATURES ||..o{ FUNCTIONS : "signature of"
     CONTRACTS ||--o{ CONTRACT_RULES : contains
     CONTRACTS ||..o{ INTERFACES : public
     CONTRACTS ||..o{ FUNCTIONS : provided
@@ -190,6 +201,8 @@ erDiagram
 
 JSON through MCP, indexed Protobuf in Git packages, and `llmlang_contract` in native binaries belong to different boundaries. They serve agent-facing exchange, repository reconstruction, and native library inspection, respectively. Open work includes the complete language grammar, hash encodings, several runtime semantics including nested transactions and reentrancy, full target coverage, and validation of the database implementation and migration. The [scalar MVP] exercises a narrower profile. Broader conformance depends on the relevant semantics, implementation and evidence.
 
+The repository profile must specify the exact signature text grammar, digest encoding, and physical record format.
+
 [scalar MVP]: https://github.com/aivibeflow/LLMLang/blob/53584d5089c05717c518cd4b5c3996b166f97d22/tools/llmlang_mvp/README.md
 
 ## Sources
@@ -213,3 +226,4 @@ JSON through MCP, indexed Protobuf in Git packages, and `llmlang_contract` in na
 - [ADR-030 — Per-table package dumps and optional JSON text dumps](adr/030-per-table-package-dumps.md)
 - [ADR-031 — LLMLang Server and MCP package authoring for the MVP](adr/031-llmlang-server-mcp-package-authoring.md)
 - [ADR-032 — Program packages with bound `main` or `_entry` interfaces](adr/032-program-package-main.md)
+- [ADR-033 — Store function signatures in a separate table](adr/033-function-signature-storage.md)
