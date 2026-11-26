@@ -9,7 +9,9 @@ import subprocess
 import sys
 import tempfile
 
-from mcp_e2e import server
+import json
+
+from mcp_e2e import read_object, server
 
 EXAMPLES = Path(__file__).resolve().parents[2] / "examples"
 NATIVE_EXPORT = re.compile(r"pub unsafe fn llmlang_syscall_(\w+)\s*\(")
@@ -74,6 +76,19 @@ def exercise(executable, directory):
                 continue
 
             source = (package / "main.llmlang").read_text()
+            main, = json.loads((package / "functions.json").read_bytes())
+            assert main["canonicalBody"] == {"stringValue": source.rstrip()}
+            obligations = json.loads((package / "verification_obligations.json").read_bytes())
+            assert all(row["kind"] == "call_compatibility"
+                       and row["callerImplHash"] == main["implHash"] for row in obligations)
+            main_object = read_object(
+                client, f"llmlang://snapshot/{imported['snapshot_id']}/object/functions/{main['implHash']}",
+            )
+            assert main_object["row"]["canonical_body"] == source.rstrip()
+            assert {link["uri"].rsplit("/", 1)[-1].replace("%3A", ":")
+                    for link in main_object["outgoing"] if link["relation"] == "Callee"} == {
+                        row["calleeImplHash"] for row in obligations
+                    }
             imports = {line.rsplit(".", 1)[-1] for line in source.splitlines()
                        if line.startswith("import linux.syscalls.")}
             assert generated == imports, (package, generated, imports)

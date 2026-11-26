@@ -294,6 +294,15 @@ def exercise(executable, root, python):
         assert applied["revision"] == workspace["revision"] + 1, applied
         check_rejected_edits(client, workspace, applied, args)
         identities = applied["identities"]
+        stored = json.loads((state / "state.json").read_bytes())
+        tables = stored["workspaces"][workspace["workspace_id"]]["program"]["tables"]
+        obligations = list(tables["verification_obligations"].values())
+        assert len(obligations) == 1, obligations
+        obligation = obligations[0]
+        assert obligation["kind"] == "call_compatibility"
+        assert obligation["caller_impl_hash"] == identities["main"]
+        assert obligation["callee_impl_hash"] == identities["add"]
+        assert tables["verification_runs"] == {}
         workspace_uri = f"llmlang://workspace/{workspace['workspace_id']}"
         main = read_object(client, f"{workspace_uri}/object/functions/{identities['main']}")
         helper = read_object(client, f"{workspace_uri}/object/functions/{identities['add']}")

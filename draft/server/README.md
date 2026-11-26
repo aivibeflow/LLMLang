@@ -43,7 +43,10 @@ new object with `{"local":"its_request_id"}`. Use
 Content Hash, and its dependency links. For a complete example request, see
 [the MCP integration test](tests/mcp_e2e.py).
 
-`apply_change_set` validates the candidate before persisting a new revision.
+`apply_change_set` derives call compatibility obligations for the candidate
+and validates it before persisting a new revision. Each obligation records the
+caller, callee, and caller-required contract. An obligation has no verification
+outcome until it has been checked.
 `verify_workspace` produces a preview. `commit_workspace` runs verification
 for the supplied revision, writes the package, and returns the committed
 snapshot ID and package path. It enables per-table debug ProtoJSON. Committed

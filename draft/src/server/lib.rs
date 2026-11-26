@@ -2,6 +2,7 @@
 
 mod changes;
 mod native;
+mod obligations;
 
 use changes::Selection;
 use fs2::FileExt;
@@ -308,6 +309,14 @@ impl Server {
         )?;
         workspace.program.manifest = package.manifest;
         workspace.program.tables = package.tables;
+        let combined = self.combined_package(&workspace.program)?;
+        let expected = obligations::rows(
+            &combined,
+            &obligations::from_ir(&workspace.program.package()),
+        )?;
+        let mut candidate = workspace.program.package();
+        obligations::replace(&mut candidate, expected);
+        workspace.program.tables = candidate.tables;
         self.validate(&workspace.program)?;
         workspace.revision = workspace
             .revision
@@ -471,9 +480,9 @@ impl Server {
         Ok(exports)
     }
 
-    fn native_call_bindings(&self, program: &Program) -> Result<BTreeSet<(String, String)>> {
+    fn native_call_bindings(&self, program: &Program) -> Result<native::CallBindings> {
         let dependencies = self.dependency_packages(program)?;
-        let mut allowed = BTreeSet::new();
+        let mut bindings = BTreeMap::new();
         for candidate in std::iter::once(program).chain(dependencies.values().copied()) {
             for (name, implementation) in Self::native_exports(candidate)? {
                 let interface = candidate.tables["interfaces"]
@@ -483,10 +492,15 @@ impl Server {
                 let contract = interface["public_contract_hash"]
                     .as_str()
                     .ok_or_else(|| validation("missing native public contract"))?;
-                allowed.insert((implementation, contract.into()));
+                if bindings
+                    .insert(name, (implementation, contract.into()))
+                    .is_some()
+                {
+                    return Err(validation("ambiguous native dependency interface"));
+                }
             }
         }
-        Ok(allowed)
+        Ok(bindings)
     }
 
     fn validate_native(&self, program: &Program) -> Result<Package> {
@@ -512,6 +526,27 @@ impl Server {
             }
         }
         Ok(package)
+    }
+
+    fn native_output(&self, program: &Program, package: &Package) -> Result<native::Output> {
+        let output = native::lower(
+            &program.name,
+            package,
+            &Self::native_exports(program)?,
+            &self.native_call_bindings(program)?,
+        )?;
+        let expected = obligations::rows(package, &output.calls)?;
+        let actual: BTreeMap<_, _> = program.tables["verification_obligations"]
+            .iter()
+            .filter(|(_, row)| row["kind"] == "call_compatibility")
+            .map(|(key, row)| (key.clone(), row.clone()))
+            .collect();
+        if actual != expected {
+            return Err(validation(
+                "native call obligations disagree with the resolved source",
+            ));
+        }
+        Ok(output)
     }
 
     fn backend(
@@ -687,7 +722,8 @@ impl Server {
         self.check_version(&program, &id)?;
         let native = native::is_native(&program.package());
         if native {
-            self.validate_native(&program)?;
+            let package = self.validate_native(&program)?;
+            self.native_output(&program, &package)?;
         } else {
             let combined = self.validate(&program)?;
             let report = self.backend("verify", &program, &combined, None)?;
@@ -732,9 +768,7 @@ impl Server {
         let native = native::is_native(&program.package());
         let (executable, exports) = if native {
             let package = self.validate_native(program)?;
-            let exports = Self::native_exports(program)?;
-            let allowed = self.native_call_bindings(program)?;
-            let output = native::lower(&program.name, &package, &exports, &allowed)?;
+            let output = self.native_output(program, &package)?;
             native::compile(&output, &staged)?;
             (output.executable, output.exports)
         } else {
@@ -863,18 +897,53 @@ impl Server {
             .objects()
             .find(|node| node.object().table == table && node.object().storage_key == key)
             .ok_or_else(|| missing("unknown object"))?;
-        let link = |(relation, node): (_, llmlang_spg::Node<'_>)| {
-            let object = node.object();
+        let link_to = |relation: &str, table: &str, key: &str| {
             json!({
-                "relation": format!("{relation:?}"),
-                "uri": format!("llmlang://{scope}/{id}/object/{}/{}", object.table, encode_segment(&object.storage_key)),
+                "relation": relation,
+                "uri": format!("llmlang://{scope}/{id}/object/{table}/{}", encode_segment(key)),
             })
         };
+        let link = |(relation, node): (_, llmlang_spg::Node<'_>)| {
+            let object = node.object();
+            link_to(&format!("{relation:?}"), object.table, &object.storage_key)
+        };
+        let mut outgoing = node.outgoing().map(link).collect::<Vec<_>>();
+        let mut incoming = node.incoming().map(link).collect::<Vec<_>>();
+        if matches!(table, "functions" | "contracts") && native::is_native(&program.package()) {
+            let resolved = native::lower(
+                &program.name,
+                &package,
+                &Self::native_exports(program)?,
+                &self.native_call_bindings(program)?,
+            )?;
+            for (caller, calls) in resolved.calls {
+                for call in calls {
+                    if table == "functions" && caller == key {
+                        outgoing.push(link_to("Callee", "functions", &call.callee_impl_hash));
+                        outgoing.push(link_to(
+                            "RequiredContract",
+                            "contracts",
+                            &call.required_contract_hash,
+                        ));
+                    }
+                    if (table == "functions" && call.callee_impl_hash == key)
+                        || (table == "contracts" && call.required_contract_hash == key)
+                    {
+                        let relation = if table == "functions" {
+                            "Callee"
+                        } else {
+                            "RequiredContract"
+                        };
+                        incoming.push(link_to(relation, "functions", &caller));
+                    }
+                }
+            }
+        }
         Ok(json!({
             "table": table, "key": key, "content_hash": node.object().content_hash,
             "row": package.tables[table][key],
-            "outgoing": node.outgoing().map(link).collect::<Vec<_>>(),
-            "incoming": node.incoming().map(link).collect::<Vec<_>>(),
+            "outgoing": outgoing,
+            "incoming": incoming,
         }))
     }
 }
