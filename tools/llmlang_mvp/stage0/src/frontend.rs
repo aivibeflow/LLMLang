@@ -423,7 +423,7 @@ fn integer<E>(source: &str, node: &Expr, value: Result<i64, E>) -> Result<(Value
 
 fn failure_call(value: &Expr) -> Option<&ast::ExprCall> {
     if let Expr::Call(call) = value {
-        if matches!(call.func.as_ref(), Expr::Name(name) if normalized(name.id.as_str()) == "fail")
+        if matches!(call.func.as_ref(), Expr::Name(name) if normalized(name.id.as_str()) == "builtin__fail")
         {
             return Some(call);
         }
@@ -444,6 +444,6 @@ fn failure(source: &str, call: &ast::ExprCall) -> Result<Value, String> {
     Err(at(
         source,
         call,
-        "fail requires a supported literal error name",
+        "builtin__fail requires a supported literal error name",
     ))
 }
