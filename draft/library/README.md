@@ -2,7 +2,7 @@
 
 This crate implements the repository persistence layer in the
 [architecture RFC] and [ADR-030], using the twelve tables from [ADR-029].
-The API works with table rows represented by JSON objects. The caller supplies
+The API accepts JSON objects with the columns declared for their table. The caller supplies
 each row's logical key, including a stable composite key where applicable.
 The Toolchain owns semantic identity calculation and verification, and supplies
 verified graphs for pinned package dependencies.
@@ -56,31 +56,34 @@ validation of on-disk frames independently of the graph cache.
 ## Repository profile
 
 The draft specifies the storage contract and leaves the physical encoding to a
-profile. This crate defines `llmlang.spg.tables.v1`.
+profile. This crate writes `llmlang.spg.tables.v2` and can read and rebuild indexes
+for existing `llmlang.spg.tables.v1` packages. Re-save a loaded v1 package to a
+new directory to migrate it. Its rows must satisfy the v2 table schemas.
 
 - `manifest.json` contains `profile`, `language_version`, and `dependencies`.
 - Each of the twelve tables has a lowercase `<table>.dump` and
   `<table>.index.json`, even when empty. The index is a JSON object mapping
   lowercase SHA-256 hex digests to zero-based offsets at the start of a frame.
   Index keys are sorted and the compact encoding ends in a newline.
-- Each dump starts with `LLSPG\x01\r\n`. Frames follow in ascending row key order.
+- Each dump starts with `LLSPG\x02\r\n`. Frames follow in ascending row key order.
   Each comprises a little-endian 32-bit compressed length, a little-endian
   32-bit uncompressed length, a 32-byte Content Hash, and a raw LZ4 block.
   The writer uses LZ4 fast mode with acceleration 1. The uncompressed size limit
   is 1 MiB per record and the metadata size limit is 16 MiB per file.
-- Each block carries the same Protobuf wire message as
-  [the syscall storage schema](../../packages/linux.syscalls/storage.proto).
-  Values support null, bool, signed 64-bit integers, strings, lists, and objects.
-  Object fields are sorted by UTF-8 key. Record values allow nesting depth 24.
+- Each block carries the table's own message from the
+  [SPG Protobuf schema](proto/spg.proto), such as `FunctionRecord` for
+  `functions.dump` and `VersionRecord` for `versions.dump`. Cargo generates
+  these Rust types with Prost and a bundled `protoc`. Columns have explicit
+  field numbers, and nested IR and review payloads use a shared recursive
+  `Value` message. It supports null, bool, signed 64-bit integers, strings,
+  lists, and objects with sorted UTF-8 keys. Nesting depth is limited to 24.
 - Content Hash is SHA-256 over the bytes `llmlang-spg-content/v1\0` followed by
   compact UTF-8 JSON for the record's `content` and `key`, with object keys sorted
   recursively. It is independent of framing and compression.
 - Optional `<table>.json` files contain ProtoJSON messages in frame order.
   They are never read as package inputs.
 
-The profile reuses the syscall record schema and framing. Its package manifest,
-file names, and index encoding define a separate package format. The directory
-publication implementation is tested on Linux.
+The directory publication implementation is tested on Linux.
 
 Run `cargo test --locked --manifest-path draft/library/Cargo.toml` from the repository root.
 

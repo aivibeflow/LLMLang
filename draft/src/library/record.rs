@@ -3,56 +3,13 @@ use prost::Message;
 use serde_json::{json, Map, Value};
 use sha2::{Digest, Sha256};
 
-// Wire schema shared with packages/linux.syscalls/storage.proto.
-#[derive(Clone, PartialEq, Message)]
-pub(crate) struct Record {
-    #[prost(string, tag = "1")]
-    key: String,
-    #[prost(message, optional, tag = "2")]
-    content: Option<Object>,
+#[allow(clippy::enum_variant_names)]
+mod wire {
+    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v2.rs"));
 }
 
-#[derive(Clone, PartialEq, Message)]
-struct Object {
-    #[prost(message, repeated, tag = "1")]
-    fields: Vec<Field>,
-}
-
-#[derive(Clone, PartialEq, Message)]
-struct Field {
-    #[prost(string, tag = "1")]
-    key: String,
-    #[prost(message, optional, tag = "2")]
-    value: Option<WireValue>,
-}
-
-#[derive(Clone, PartialEq, Message)]
-struct List {
-    #[prost(message, repeated, tag = "1")]
-    values: Vec<WireValue>,
-}
-
-#[derive(Clone, PartialEq, Message)]
-struct WireValue {
-    #[prost(oneof = "Kind", tags = "1, 2, 3, 4, 5, 6")]
-    kind: Option<Kind>,
-}
-
-#[derive(Clone, PartialEq, prost::Oneof)]
-enum Kind {
-    #[prost(bool, tag = "1")]
-    Null(bool),
-    #[prost(bool, tag = "2")]
-    Bool(bool),
-    #[prost(sint64, tag = "3")]
-    Int(i64),
-    #[prost(string, tag = "4")]
-    String(String),
-    #[prost(message, tag = "5")]
-    List(List),
-    #[prost(message, tag = "6")]
-    Object(Object),
-}
+pub(crate) use wire::LegacyRecord;
+use wire::{value::Kind, Field, List, Object, Value as WireValue};
 
 impl Object {
     fn encode_fields(fields: &Map<String, Value>, depth: usize) -> Result<Self> {
@@ -116,57 +73,57 @@ impl WireValue {
             return Err(invalid("record exceeds nesting limit"));
         }
         let kind = match value {
-            Value::Null => Kind::Null(true),
-            Value::Bool(value) => Kind::Bool(*value),
-            Value::Number(value) => Kind::Int(
+            Value::Null => Kind::NullValue(true),
+            Value::Bool(value) => Kind::BoolValue(*value),
+            Value::Number(value) => Kind::IntValue(
                 value
                     .as_i64()
                     .ok_or_else(|| invalid("record number must be a signed 64-bit integer"))?,
             ),
-            Value::String(value) => Kind::String(value.clone()),
-            Value::Array(values) => Kind::List(List {
+            Value::String(value) => Kind::StringValue(value.clone()),
+            Value::Array(values) => Kind::ListValue(List {
                 values: values
                     .iter()
                     .map(|value| Self::from_value(value, depth + 1))
                     .collect::<Result<_>>()?,
             }),
-            Value::Object(fields) => Kind::Object(Object::encode_fields(fields, depth + 1)?),
+            Value::Object(fields) => Kind::ObjectValue(Object::encode_fields(fields, depth + 1)?),
         };
         Ok(Self { kind: Some(kind) })
     }
 
     fn logical(&self) -> Result<Value> {
         Ok(match &self.kind {
-            Some(Kind::Null(true)) => Value::Null,
-            Some(Kind::Bool(value)) => json!(value),
-            Some(Kind::Int(value)) => json!(value),
-            Some(Kind::String(value)) => json!(value),
-            Some(Kind::List(list)) => Value::Array(
+            Some(Kind::NullValue(true)) => Value::Null,
+            Some(Kind::BoolValue(value)) => json!(value),
+            Some(Kind::IntValue(value)) => json!(value),
+            Some(Kind::StringValue(value)) => json!(value),
+            Some(Kind::ListValue(list)) => Value::Array(
                 list.values
                     .iter()
                     .map(Self::logical)
                     .collect::<Result<_>>()?,
             ),
-            Some(Kind::Object(object)) => Value::Object(object.logical()?),
+            Some(Kind::ObjectValue(object)) => Value::Object(object.logical()?),
             _ => return Err(invalid("invalid or missing Protobuf value kind")),
         })
     }
 
     fn proto_json(&self) -> Value {
         match self.kind.as_ref().unwrap() {
-            Kind::Null(value) => json!({"nullValue": value}),
-            Kind::Bool(value) => json!({"boolValue": value}),
-            Kind::Int(value) => json!({"intValue": value.to_string()}),
-            Kind::String(value) => json!({"stringValue": value}),
-            Kind::List(list) if list.values.is_empty() => json!({"listValue": {}}),
-            Kind::List(list) => json!({"listValue": {"values": list.values.iter()
+            Kind::NullValue(value) => json!({"nullValue": value}),
+            Kind::BoolValue(value) => json!({"boolValue": value}),
+            Kind::IntValue(value) => json!({"intValue": value.to_string()}),
+            Kind::StringValue(value) => json!({"stringValue": value}),
+            Kind::ListValue(list) if list.values.is_empty() => json!({"listValue": {}}),
+            Kind::ListValue(list) => json!({"listValue": {"values": list.values.iter()
                 .map(Self::proto_json).collect::<Vec<_>>()}}),
-            Kind::Object(object) => json!({"objectValue": object.proto_json()}),
+            Kind::ObjectValue(object) => json!({"objectValue": object.proto_json()}),
         }
     }
 }
 
-impl Record {
+impl LegacyRecord {
     pub(crate) fn new(key: &str, row: &Value) -> Result<Self> {
         if key.is_empty() {
             return Err(invalid("record key is empty"));
@@ -235,4 +192,267 @@ pub(crate) fn digest(key: &str, row: &Value) -> Result<[u8; 32]> {
     let mut material = b"llmlang-spg-content/v1\0".to_vec();
     canonical_json(&json!({"key": key, "content": row}), &mut material)?;
     Ok(Sha256::digest(material).into())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn generated_types_preserve_existing_record_bytes() {
+        let bytes = [
+            0x0a, 0x01, b'r', 0x12, 0x09, 0x0a, 0x07, 0x0a, 0x01, b'n', 0x12, 0x02, 0x18, 0x01,
+        ];
+        let row = json!({"n": -1});
+        let (record, key, decoded) =
+            TableRecord::parse("functions", crate::RepositoryProfile::Legacy, &bytes).unwrap();
+        assert_eq!(record.encode_to_vec(), bytes);
+        assert_eq!(key, "r");
+        assert_eq!(decoded, row);
+        assert_eq!(LegacyRecord::new("r", &row).unwrap().encode_to_vec(), bytes);
+    }
+}
+trait Column: Sized {
+    fn read(value: Option<&Value>) -> Result<Self>;
+    fn logical(&self) -> Result<Option<Value>>;
+    fn proto_json(&self) -> Option<Value>;
+}
+
+impl<T: Column> Column for Option<T> {
+    fn read(value: Option<&Value>) -> Result<Self> {
+        value.map(|value| T::read(Some(value))).transpose()
+    }
+
+    fn logical(&self) -> Result<Option<Value>> {
+        match self {
+            Some(value) => value.logical(),
+            None => Ok(None),
+        }
+    }
+
+    fn proto_json(&self) -> Option<Value> {
+        self.as_ref().and_then(T::proto_json)
+    }
+}
+
+impl<T: Column> Column for Vec<T> {
+    fn read(value: Option<&Value>) -> Result<Self> {
+        value
+            .and_then(Value::as_array)
+            .ok_or_else(|| invalid("expected array column"))?
+            .iter()
+            .map(|element| T::read(Some(element)))
+            .collect()
+    }
+
+    fn logical(&self) -> Result<Option<Value>> {
+        let values = self
+            .iter()
+            .map(|element| {
+                element
+                    .logical()?
+                    .ok_or_else(|| invalid("missing repeated column element"))
+            })
+            .collect::<Result<Vec<_>>>()?;
+        Ok(Some(Value::Array(values)))
+    }
+
+    fn proto_json(&self) -> Option<Value> {
+        (!self.is_empty()).then(|| Value::Array(self.iter().filter_map(T::proto_json).collect()))
+    }
+}
+
+// The generated repeated fields contain concrete strings or messages, so their
+// individual element conversions use the same rules as present singular fields.
+impl Column for String {
+    fn read(value: Option<&Value>) -> Result<Self> {
+        value
+            .and_then(Value::as_str)
+            .map(str::to_owned)
+            .ok_or_else(|| invalid("expected string column"))
+    }
+    fn logical(&self) -> Result<Option<Value>> {
+        Ok(self.proto_json())
+    }
+    fn proto_json(&self) -> Option<Value> {
+        Some(json!(self))
+    }
+}
+
+impl Column for WireValue {
+    fn read(value: Option<&Value>) -> Result<Self> {
+        WireValue::from_value(value.ok_or_else(|| invalid("missing value"))?, 0)
+    }
+    fn logical(&self) -> Result<Option<Value>> {
+        WireValue::logical(self).map(Some)
+    }
+    fn proto_json(&self) -> Option<Value> {
+        Some(WireValue::proto_json(self))
+    }
+}
+
+macro_rules! table_records {
+    ($($table:literal => $name:ident {
+        $($field:ident: ($required:literal, $json_name:literal)),* $(,)?
+    }),* $(,)?) => {
+        pub(crate) enum TableRecord {
+            Legacy(LegacyRecord),
+            $($name(wire::$name)),*
+        }
+
+        impl TableRecord {
+            pub(crate) fn new(table: &str, key: &str, row: &Value) -> Result<Self> {
+                if key.is_empty() {
+                    return Err(invalid("record key is empty"));
+                }
+                let fields = row.as_object().ok_or_else(|| invalid("record content must be an object"))?;
+                match table {
+                    $($table => {
+                        for field in fields.keys() {
+                            if ![$(stringify!($field)),*].contains(&field.as_str()) {
+                                return Err(invalid(format!("{table}: unknown column {field}")));
+                            }
+                        }
+                        Ok(Self::$name(wire::$name {
+                            key: key.into(),
+                            $($field: {
+                                let value = fields.get(stringify!($field));
+                                if $required && value.is_none() {
+                                    return Err(invalid(concat!($table, ": missing column ", stringify!($field))));
+                                }
+                                Column::read(value)?
+                            }),*
+                        }))
+                    }),*
+                    _ => Err(invalid(format!("unknown SPG table {table}"))),
+                }
+            }
+
+            pub(crate) fn parse(table: &str, profile: crate::RepositoryProfile, raw: &[u8]) -> Result<(Self, String, Value)> {
+                if profile == crate::RepositoryProfile::Legacy {
+                    let (record, key, row) = LegacyRecord::parse(raw)?;
+                    return Ok((Self::Legacy(record), key, row));
+                }
+                match table {
+                    $($table => {
+                        let record = wire::$name::decode(raw).map_err(Error::Protobuf)?;
+                        let mut fields = Map::new();
+                        $(if let Some(value) = Column::logical(&record.$field)? {
+                            fields.insert(stringify!($field).into(), value);
+                        })*
+                        let row = Value::Object(fields);
+                        if Self::new(table, &record.key, &row)?.encode_to_vec() != raw {
+                            return Err(invalid(format!("{table}: noncanonical Protobuf record")));
+                        }
+                        let key = record.key.clone();
+                        Ok((Self::$name(record), key, row))
+                    }),*
+                    _ => Err(invalid(format!("unknown SPG table {table}"))),
+                }
+            }
+
+            pub(crate) fn encode_to_vec(&self) -> Vec<u8> {
+                match self {
+                    Self::Legacy(record) => record.encode_to_vec(),
+                    $(Self::$name(record) => record.encode_to_vec()),*
+                }
+            }
+
+            pub(crate) fn proto_json(&self) -> Value {
+                match self {
+                    Self::Legacy(record) => record.proto_json(),
+                    $(Self::$name(record) => {
+                        let mut result = Map::new();
+                        result.insert("key".into(), json!(record.key));
+                        $(if let Some(value) = Column::proto_json(&record.$field) {
+                            result.insert($json_name.into(), value);
+                        })*
+                        Value::Object(result)
+                    }),*
+                }
+            }
+        }
+    };
+}
+table_records! {
+    "versions" => VersionRecord {
+        version_hash: (true, "versionHash"),
+        version: (true, "version"),
+        binding_hash: (true, "bindingHash"),
+    },
+    "interfaces" => InterfaceRecord {
+        interface_hash: (true, "interfaceHash"),
+        name: (true, "name"),
+        public_contract_hash: (true, "publicContractHash"),
+    },
+    "functions" => FunctionRecord {
+        impl_hash: (true, "implHash"),
+        typed_signature: (true, "typedSignature"),
+        canonical_body: (true, "canonicalBody"),
+        provided_contract_hash: (true, "providedContractHash"),
+    },
+    "contracts" => ContractRecord {
+        contract_hash: (true, "contractHash"),
+        contract_kind: (true, "contractKind"),
+        profile: (true, "profile"),
+        typed_signature: (false, "typedSignature"),
+        state_signature: (false, "stateSignature"),
+        user_request_texts: (true, "userRequestTexts"),
+        review_records: (true, "reviewRecords"),
+    },
+    "contract_rules" => ContractRuleRecord {
+        contract_hash: (true, "contractHash"),
+        rule_hash: (true, "ruleHash"),
+        kind: (true, "kind"),
+        error_label: (false, "errorLabel"),
+        predicate: (false, "predicate"),
+        check_boundary: (false, "checkBoundary"),
+    },
+    "bindings" => BindingRecord {
+        version_hash: (true, "versionHash"),
+        interface_hash: (true, "interfaceHash"),
+        impl_hash: (true, "implHash"),
+    },
+    "structures" => StructureRecord {
+        struct_impl_hash: (true, "structImplHash"),
+        type_hash: (true, "typeHash"),
+        contract_hash: (false, "contractHash"),
+        canonical_declaration: (true, "canonicalDeclaration"),
+    },
+    "structure_types" => StructureTypeRecord {
+        type_hash: (true, "typeHash"),
+        identity_hash: (true, "identityHash"),
+        aggregate_kind: (true, "aggregateKind"),
+        ordered_member_types: (true, "orderedMemberTypes"),
+        representation_requirements: (true, "representationRequirements"),
+    },
+    "structure_layouts" => StructureLayoutRecord {
+        layout_hash: (true, "layoutHash"),
+        type_hash: (true, "typeHash"),
+        target_abi_profile: (true, "targetAbiProfile"),
+        layout_descriptor: (true, "layoutDescriptor"),
+    },
+    "structure_bindings" => StructureBindingRecord {
+        version_hash: (true, "versionHash"),
+        name: (true, "name"),
+        struct_impl_hash: (true, "structImplHash"),
+    },
+    "verification_obligations" => VerificationObligationRecord {
+        obligation_hash: (true, "obligationHash"),
+        kind: (true, "kind"),
+        caller_impl_hash: (true, "callerImplHash"),
+        callee_impl_hash: (false, "calleeImplHash"),
+        struct_impl_hash: (false, "structImplHash"),
+        public_contract_hash: (false, "publicContractHash"),
+        caller_required_contract_hash: (false, "callerRequiredContractHash"),
+        verification_context_hash: (true, "verificationContextHash"),
+    },
+    "verification_runs" => VerificationRunRecord {
+        run_id: (true, "runId"),
+        obligation_hash: (true, "obligationHash"),
+        status: (true, "status"),
+        toolchain_digest: (true, "toolchainDigest"),
+        evidence_ref: (true, "evidenceRef"),
+        checked_at: (true, "checkedAt"),
+    },
 }

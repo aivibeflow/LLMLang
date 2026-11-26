@@ -195,7 +195,7 @@ pub fn load_graph(
     supported_versions: &[&str],
     options: GraphLoadOptions<'_>,
 ) -> Result<Graph> {
-    let manifest = read_manifest(path, supported_versions)?;
+    let (manifest, profile) = read_manifest(path, supported_versions)?;
     let mut graph = Graph {
         manifest,
         objects: Vec::new(),
@@ -231,7 +231,7 @@ pub fn load_graph(
             return Err(invalid(format!("{table}: invalid indexed frame offsets")));
         }
         let mut dump = if entries.is_empty() {
-            let (_, size) = open_dump(path, table)?;
+            let (_, size) = open_dump(path, table, profile)?;
             if size != MAGIC.len() as u64 {
                 return Err(invalid(format!("{table}: empty index for nonempty dump")));
             }
@@ -253,11 +253,11 @@ pub fn load_graph(
                 Arc::clone(node.object())
             } else {
                 if dump.is_none() {
-                    dump = Some(open_dump(path, table)?);
+                    dump = Some(open_dump(path, table, profile)?);
                 }
                 let (reader, size) = dump.as_mut().unwrap();
                 reader.seek(SeekFrom::Start(*offset))?;
-                let frame = read_frame(reader, *offset, *size)?;
+                let frame = read_frame(reader, *offset, *size, table, profile)?;
                 let next = entries.get(position + 1).map_or(*size, |entry| entry.1);
                 if hex::encode(frame.hash) != *hash || frame.next != next {
                     return Err(invalid(format!(
