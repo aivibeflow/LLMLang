@@ -3,6 +3,7 @@ use std::{
     fmt::Write,
 };
 
+use serde::Deserialize;
 use serde_json::Value;
 
 use crate::model::{error_message, valid_hash, valid_identifier, Graph, Type, ERRORS, SCHEMA};
@@ -25,13 +26,98 @@ pub fn emit(workload: &str, graph: Option<&Graph>) -> Result<String, String> {
     }
 }
 
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Package {
+    graph: Graph,
+    exports: BTreeMap<String, String>,
+    entry: Option<String>,
+}
+
+pub fn package(package: &Package) -> Result<String, String> {
+    let graph = &package.graph;
+    let mut output = String::from("#![allow(dead_code, unused_parens, unused_variables)]\n");
+    add_errors(&mut output, true);
+    emit_functions(graph, &mut output)?;
+    for (name, selected) in &package.exports {
+        let function = graph
+            .functions
+            .get(selected)
+            .ok_or_else(|| format!("unknown implementation for export {name:?}"))?;
+        let parameters = function
+            .params
+            .iter()
+            .map(|(name, typ)| format!("{}: {typ}", local(name)))
+            .collect::<Vec<_>>()
+            .join(", ");
+        let arguments = function
+            .params
+            .iter()
+            .map(|(name, _)| local(name))
+            .collect::<Vec<_>>()
+            .join(", ");
+        // Encode the interface name as UTF-8 hex to preserve namespaces and
+        // avoid Rust keywords without changing the name in the package.
+        let export = local(name).replacen("v_", "export_", 1);
+        writeln!(
+            output,
+            "\npub fn {export}({parameters}) -> Result<{}, CalcError> {{\n    {}({arguments})\n}}",
+            function.result,
+            symbol(&function.impl_hash)
+        )
+        .unwrap();
+    }
+    if let Some(entry) = &package.entry {
+        let function = graph
+            .functions
+            .get(entry)
+            .filter(|function| function.params.is_empty())
+            .ok_or("package entry point must resolve to a parameterless scalar function")?;
+        writeln!(
+            output,
+            "\nfn main() {{\n    match {}() {{\n        Ok(value) => println!(\"{{value}}\"),\n        Err(error) => {{\n            eprintln!(\"{{}}\", error.message());\n            std::process::exit(1);\n        }}\n    }}\n}}",
+            symbol(&function.impl_hash)
+        ).unwrap();
+    }
+    Ok(output)
+}
+
 fn calculator(graph: &Graph) -> Result<String, String> {
+    let mut output = format!("#![allow(dead_code, unused_parens, unused_variables)]\n\n{OUTPUT}");
+    add_errors(&mut output, false);
+    emit_functions(graph, &mut output)?;
+
+    let mut dispatch = String::new();
+    for (token, name) in OPERATIONS {
+        let function = graph
+            .functions
+            .get(name)
+            .ok_or_else(|| format!("Calculator is missing the public function {name:?}"))?;
+        if function.params.len() != 2
+            || function.params.iter().any(|(_, typ)| *typ != Type::I64)
+            || function.result != Type::I64
+        {
+            return Err(format!(
+                "Calculator function {name:?} requires an (i64, i64) -> i64 signature"
+            ));
+        }
+        writeln!(
+            dispatch,
+            "        b\"{token}\" => {}(left, right),",
+            symbol(&function.impl_hash)
+        )
+        .unwrap();
+    }
+    dispatch.push_str("        _ => Err(CalcError::InvalidInput),");
+    output.push('\n');
+    output.push_str(&CALCULATOR.replace("@DISPATCH@", &dispatch));
+    Ok(output)
+}
+
+fn emit_functions(graph: &Graph, output: &mut String) -> Result<(), String> {
     if graph.schema != SCHEMA {
         return Err(format!("unsupported SPG version {:?}", graph.schema));
     }
-
-    let mut output = format!("#![allow(dead_code, unused_parens, unused_variables)]\n\n{OUTPUT}");
-    add_errors(&mut output);
 
     let mut emitted = BTreeSet::new();
     for (name, function) in &graph.functions {
@@ -73,36 +159,12 @@ fn calculator(graph: &Graph) -> Result<String, String> {
             .unwrap();
         }
     }
-
-    let mut dispatch = String::new();
-    for (token, name) in OPERATIONS {
-        let function = graph
-            .functions
-            .get(name)
-            .ok_or_else(|| format!("Calculator is missing the public function {name:?}"))?;
-        if function.params.len() != 2
-            || function.params.iter().any(|(_, typ)| *typ != Type::I64)
-            || function.result != Type::I64
-        {
-            return Err(format!(
-                "Calculator function {name:?} requires an (i64, i64) -> i64 signature"
-            ));
-        }
-        writeln!(
-            dispatch,
-            "        b\"{token}\" => {}(left, right),",
-            symbol(&function.impl_hash)
-        )
-        .unwrap();
-    }
-    dispatch.push_str("        _ => Err(CalcError::InvalidInput),");
-    output.push('\n');
-    output.push_str(&CALCULATOR.replace("@DISPATCH@", &dispatch));
-    Ok(output)
+    Ok(())
 }
 
-fn add_errors(output: &mut String) {
-    output.push_str("\nenum CalcError {\n");
+fn add_errors(output: &mut String, public: bool) {
+    let visibility = if public { "pub " } else { "" };
+    writeln!(output, "\n{visibility}enum CalcError {{").unwrap();
     for (name, _) in ERRORS {
         writeln!(output, "    {name},").unwrap();
     }
