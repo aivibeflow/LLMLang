@@ -33,9 +33,10 @@ have a parameterless `main`. All return `ExitStatus`.
 
 The manifest of each program selects version `v6.12` of `linux.syscalls`.
 A caller of the SPG graph loader registers the dependency graph for that
-version under `v6.12`. The program records
-retain the exact implementation and required-contract hashes selected for
-the native calls. Their binary and ProtoJSON dumps include all twelve tables.
+version under `v6.12`. A native function body is stored as source text.
+The server resolves source imports in the selected version and checks the
+exact caller, callee, and required contract in each call compatibility
+obligation. Their binary and ProtoJSON dumps include all twelve tables.
 
 The [native MCP build test](../server/tests/native_build_e2e.py) imports and
 builds these packages on Linux x86-64, then executes all five programs. Build

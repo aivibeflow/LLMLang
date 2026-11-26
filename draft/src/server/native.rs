@@ -1,6 +1,10 @@
 //! Lower the native Linux x86-64 profile to a temporary Rust translation unit.
 
-use super::{invalid, validation, Package, Path, Result, ServerError};
+use super::{
+    invalid,
+    obligations::{CallsByCaller, ResolvedCall},
+    validation, Package, Path, Result, ServerError,
+};
 use quote::{format_ident, quote, ToTokens};
 use serde_json::{json, Value};
 use std::{
@@ -110,38 +114,67 @@ fn identifier(name: &str) -> bool {
         && bytes.all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
 }
 
-fn pinned_calls(
+pub(super) type CallBindings = BTreeMap<String, (String, String)>;
+
+fn resolve_source(
     package: &Package,
-    body: &Value,
-    allowed: &BTreeSet<(String, String)>,
-) -> Result<BTreeMap<String, Call>> {
+    row: &Value,
+    bindings: &CallBindings,
+) -> Result<(syn::ItemFn, BTreeMap<String, Call>, Vec<ResolvedCall>)> {
+    let text = row["canonical_body"]
+        .as_str()
+        .ok_or_else(|| invalid("native main requires plain source"))?;
     let mut calls = BTreeMap::new();
-    for pin in body["calls"]
-        .as_array()
-        .ok_or_else(|| invalid("missing native call pins"))?
-    {
-        let implementation = pin["callee_impl_hash"]
-            .as_str()
-            .ok_or_else(|| invalid("missing implementation pin"))?;
-        let row = package.tables["functions"]
+    let mut resolved = Vec::new();
+    let mut function_source = text.trim_start();
+    while let Some(import) = function_source.strip_prefix("import ") {
+        let (name, rest) = import
+            .split_once('\n')
+            .ok_or_else(|| invalid("import requires a following function"))?;
+        let name = name.trim();
+        let (implementation, contract) = bindings
+            .get(name)
+            .ok_or_else(|| invalid(format!("unresolved native import {name}")))?;
+        let callee = package.tables["functions"]
             .get(implementation)
-            .ok_or_else(|| invalid("unresolved native implementation pin"))?;
-        let contract = pin["required_contract_hash"]
-            .as_str()
-            .ok_or_else(|| invalid("missing native contract pin"))?;
-        if row["provided_contract_hash"] != contract
-            || !allowed.contains(&(implementation.to_owned(), contract.to_owned()))
-        {
+            .ok_or_else(|| invalid("unresolved native implementation"))?;
+        if callee["provided_contract_hash"] != *contract {
             return Err(invalid(
-                "native call must use an implementation and contract selected by a public binding",
+                "native binding must select the exact syscall contract",
             ));
         }
-        let call = native_call(row)?;
-        if calls.insert(call.name.clone(), call).is_some() {
-            return Err(invalid("ambiguous native call name"));
+        let call = native_call(callee)?;
+        if name.rsplit_once('.').map(|(_, short)| short) != Some(&call.name)
+            || calls.insert(call.name.clone(), call).is_some()
+        {
+            return Err(invalid("ambiguous native import"));
         }
+        resolved.push(ResolvedCall {
+            callee_impl_hash: implementation.clone(),
+            required_contract_hash: contract.clone(),
+        });
+        function_source = rest.trim_start();
     }
-    Ok(calls)
+    let material = json!({
+        "typed_signature": row["typed_signature"],
+        "canonical_body": text,
+        "provided_contract_hash": row["provided_contract_hash"],
+        "resolved_calls": resolved,
+    });
+    let identity = format!(
+        "sha256:{}",
+        super::hash(&("llmlang-native-source-impl/v1", material))?
+    );
+    if row["impl_hash"] != identity {
+        return Err(validation(
+            "native source or resolved call identity mismatch",
+        ));
+    }
+    Ok((
+        syn::parse_str(function_source).map_err(validation)?,
+        calls,
+        resolved,
+    ))
 }
 
 struct Lower<'a> {
@@ -296,28 +329,26 @@ pub(super) struct Output {
     pub source: String,
     pub executable: bool,
     pub exports: Value,
+    pub calls: CallsByCaller,
 }
 
 pub(super) fn lower(
     package_name: &str,
     package: &Package,
     exports: &BTreeMap<String, String>,
-    allowed: &BTreeSet<(String, String)>,
+    bindings: &CallBindings,
 ) -> Result<Output> {
     let main_name = format!("{package_name}.main");
     let main = exports.get(&main_name);
     let mut source = String::from(include_str!("native_runtime.rs"));
     let mut reachable = BTreeMap::new();
     let mut symbols = BTreeMap::new();
+    let mut resolved_calls = BTreeMap::new();
     for (export, implementation) in exports {
         let row = &package.tables["functions"][implementation];
         if Some(implementation) == main && export == &main_name {
-            let body = &row["canonical_body"];
-            let text = body["source"]
-                .as_str()
-                .ok_or_else(|| invalid("native main requires a source body"))?;
-            let calls = pinned_calls(package, body, allowed)?;
-            let mut function: syn::ItemFn = syn::parse_str(text).map_err(validation)?;
+            let (mut function, calls, resolved) = resolve_source(package, row, bindings)?;
+            resolved_calls.insert(implementation.clone(), resolved.into_iter().collect());
             let signature = &row["typed_signature"];
             let params = signature["parameters"]
                 .as_array()
@@ -414,6 +445,7 @@ pub(super) fn lower(
         source,
         executable: main.is_some(),
         exports: json!(symbols),
+        calls: resolved_calls,
     })
 }
 
