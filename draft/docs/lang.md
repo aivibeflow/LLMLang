@@ -58,7 +58,7 @@ A `canonical_body` is a nonempty array of statements. The notation below uses `E
 | Call | `{"callee_impl_hash": REF, "required_contract_hash": REF, "arguments": [EXPR]}`. Use an empty array for zero arguments. |
 | Local binding | `["let", "name", EXPR]` |
 | Return | `["return", EXPR]` |
-| Explicit error | `["fail", "DivisionByZero"]`. Uses the same set of labels as the text frontend. |
+| Explicit error | `["fail", "DivisionByZero"]`. Represents `builtin__fail` and is allowed by the server only in `stdlib`. Uses the same set of labels as the text frontend. |
 | Branch | `["if", EXPR, THEN, ELSE]`. Each branch is an array of statements. `THEN` is nonempty and `ELSE` may be empty. |
 
 Use an existing server identity (64 lowercase hex digits) or `{"local":"request-id"}` for an object created in the same Change Set. A call pins both the callee implementation and the contract the caller relies on. A function separately pins its provided contract. An exported interface names its public contract, and a version binding selects the implementation. Use the identities returned by the server for MCP calls and resource reads. The scalar text frontend's graph JSON uses its own encoding, including a positional call tuple. [Server schemas](../src/server/main.rs) · [Runnable MCP examples](server.md)

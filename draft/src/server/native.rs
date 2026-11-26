@@ -5,6 +5,7 @@ use super::{
     obligations::{CallsByCaller, ResolvedCall},
     validation, Package, Path, Result, ServerError,
 };
+use proc_macro2::{TokenStream, TokenTree};
 use quote::{format_ident, quote};
 use serde_json::{json, Value};
 use std::{
@@ -25,6 +26,25 @@ pub(super) fn is_native(package: &Package) -> bool {
         && package.tables["contracts"]
             .values()
             .all(|row| row["profile"] == PROFILE)
+}
+
+pub(super) fn referenced_builtin(source: &str) -> Result<Option<String>> {
+    // The native profile includes syscall operands such as `type` that lex as
+    // identifiers but are not valid Rust expressions.
+    let tokens = source.parse().map_err(validation)?;
+    Ok(builtin_in_tokens(tokens))
+}
+
+fn builtin_in_tokens(tokens: TokenStream) -> Option<String> {
+    tokens.into_iter().find_map(|token| match token {
+        TokenTree::Ident(identifier) => {
+            let spelling = identifier.to_string();
+            let name = spelling.strip_prefix("r#").unwrap_or(&spelling);
+            name.starts_with("builtin__").then(|| name.to_owned())
+        }
+        TokenTree::Group(group) => builtin_in_tokens(group.stream()),
+        _ => None,
+    })
 }
 
 #[derive(Clone)]
@@ -222,7 +242,6 @@ fn resolve_source(
 
 struct Lower<'a> {
     calls: &'a BTreeMap<String, Call>,
-    allow_builtins: bool,
     used: BTreeSet<String>,
     error: Option<ServerError>,
 }
@@ -282,21 +301,6 @@ impl VisitMut for Lower<'_> {
     }
     fn visit_item_mut(&mut self, _: &mut Item) {
         self.reject("nested items are unsupported in native source");
-    }
-
-    fn visit_expr_path_mut(&mut self, expr: &mut syn::ExprPath) {
-        if !self.allow_builtins
-            && expr.path.segments.iter().any(|segment| {
-                segment
-                    .ident
-                    .to_string()
-                    .trim_start_matches("r#")
-                    .starts_with("builtin__")
-            })
-        {
-            self.reject("only stdlib may reference built-in functions");
-        }
-        visit_mut::visit_expr_path_mut(self, expr);
     }
 
     fn visit_expr_mut(&mut self, expr: &mut Expr) {
@@ -428,7 +432,6 @@ fn lower_body(
     package: &Package,
     row: &Value,
     bindings: &CallBindings,
-    allow_builtins: bool,
     syscalls: &mut BTreeMap<String, Syscall>,
     pending: &mut BTreeSet<String>,
 ) -> Result<(syn::Block, BTreeSet<ResolvedCall>)> {
@@ -436,7 +439,6 @@ fn lower_body(
     let mut body = syn::parse_str(row["canonical_body"].as_str().unwrap()).map_err(validation)?;
     let mut lower = Lower {
         calls: &calls,
-        allow_builtins,
         used: BTreeSet::new(),
         error: None,
     };
@@ -498,9 +500,6 @@ fn syscall_target(
     }
     // The unbound signal restorer traps if the syscall unexpectedly returns.
     let body = row["canonical_body"].as_str().unwrap();
-    if body.contains("builtin__") {
-        return Err(invalid("only stdlib may reference built-in functions"));
-    }
     let restorer = body.trim() == "{\n    stdlib::syscall(15); stdlib::trap()\n}";
     if restorer {
         let Some(Call::Source {
@@ -549,14 +548,8 @@ pub(super) fn lower(
         let row = &package.tables["functions"][implementation];
         let signature = package.function_signature(row).map_err(validation)?.typed;
         if export == &main_name {
-            let (body, resolved) = lower_body(
-                package,
-                row,
-                bindings,
-                package_name == "stdlib",
-                &mut reachable,
-                &mut pending,
-            )?;
+            let (body, resolved) =
+                lower_body(package, row, bindings, &mut reachable, &mut pending)?;
             resolved_calls.insert(implementation.clone(), resolved);
             let params = signature["parameters"]
                 .as_array()
@@ -634,23 +627,7 @@ pub(super) fn lower(
             continue;
         }
         let row = &package.tables["functions"][&implementation];
-        let allow_builtins = if public_sources.contains(&implementation) {
-            package_name == "stdlib"
-        } else {
-            bindings.iter().any(|(name, (id, _))| {
-                name.rsplit_once('.')
-                    .is_some_and(|(owner, _)| owner == "stdlib")
-                    && id == &implementation
-            })
-        };
-        let (body, resolved) = lower_body(
-            package,
-            row,
-            bindings,
-            allow_builtins,
-            &mut reachable,
-            &mut pending,
-        )?;
+        let (body, resolved) = lower_body(package, row, bindings, &mut reachable, &mut pending)?;
         let signature = package.function_signature(row).map_err(validation)?.typed;
         let parameters = signature["parameters"]
             .as_array()
@@ -723,25 +700,19 @@ pub(super) fn compile(output: &Output, artifact: &Path) -> Result<()> {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::referenced_builtin;
 
     #[test]
-    fn rejects_native_builtin_calls_and_references_outside_stdlib() {
-        let mut lower = Lower {
-            calls: &BTreeMap::new(),
-            allow_builtins: false,
-            used: BTreeSet::new(),
-            error: None,
-        };
-        for mut expr in [parse_quote!(builtin__trap()), parse_quote!(r#builtin__trap)] {
-            lower.visit_expr_mut(&mut expr);
-            assert_eq!(
-                lower.error.take().unwrap().message,
-                "only stdlib may reference built-in functions"
-            );
-        }
-        lower.allow_builtins = true;
-        lower.visit_expr_mut(&mut parse_quote!(builtin__trap()));
-        assert!(lower.error.is_none());
+    fn builtin_references_ignore_comments_and_literals() {
+        assert_eq!(
+            referenced_builtin(r#"{ /* builtin__trap() */ let name = "builtin__trap"; }"#).unwrap(),
+            None,
+        );
+        assert_eq!(
+            referenced_builtin("{ wrapper::<u32>(qualified::r#builtin__size_of::<u32>()); }")
+                .unwrap()
+                .as_deref(),
+            Some("builtin__size_of"),
+        );
     }
 }
