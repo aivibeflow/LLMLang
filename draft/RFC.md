@@ -23,6 +23,10 @@ flowchart LR
     A --> B["Build for the declared target profile"]
 ```
 
+### Program entry points
+
+A package is a program for the selected startup mode when it declares the corresponding public interface with a permitted signature and that interface has a valid binding in the selected snapshot. The binding pins the implementation by `ImplHash`. Ordinary startup performs the required runtime initialization and calls `main() -> ExitStatus` or `main(args: LaunchArgs) -> ExitStatus`. `LaunchArgs` is an ordered sequence of byte arguments and `ExitStatus` is numeric. Embedding and other modes that transfer control directly invoke `_entry` without additional LLMLang runtime initialization. The startup profile defines the `_entry` signature and calling convention. [ADR-032](adr/032-program-package-main.md)
+
 ## Language, identity, and contracts
 
 - **Source dialects.** A build declares dialect and frontend versions. Conforming dialects lower their supported constructs into the same typed SPG with the same observable semantics, exact call bindings and applicable semantic identities. Source locations and formatting can be retained for tooling. A renderer can emit a dialect for the subset it supports, with a reparse and equivalence check.
@@ -208,3 +212,4 @@ JSON through MCP, indexed Protobuf in Git packages, and `llmlang_contract` in na
 - [ADR-029 — Caller-scoped verification obligations](adr/029-caller-scoped-verification-obligations.md)
 - [ADR-030 — Per-table package dumps and optional JSON text dumps](adr/030-per-table-package-dumps.md)
 - [ADR-031 — LLMLang Server and MCP package authoring for the MVP](adr/031-llmlang-server-mcp-package-authoring.md)
+- [ADR-032 — Program packages with bound `main` or `_entry` interfaces](adr/032-program-package-main.md)
