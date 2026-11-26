@@ -11,3 +11,8 @@ This directory contains candidate LLMLang implementations corresponding to task 
 - Keep implementation-specific decisions here; promote any externally observable behavior change to the task statement first.
 - Include a requirement-to-code mapping and test status.
 - Do not label a solution compiled, tested, or verified unless the corresponding tool actually ran and produced evidence.
+
+## Native package example
+
+[linux.syscalls](linux.syscalls/README.md) contains a native Linux x86-64
+package in the current SPG repository format.
