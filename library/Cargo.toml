@@ -1,0 +1,17 @@
+[package]
+name = "llmlang-spg"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "LLMLang SPG repository package persistence"
+
+[dependencies]
+hex = "0.4"
+lz4 = "1.28"
+prost = "0.13"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+tempfile = "=3.15.0"
+thiserror = "2"
+semver = "1"
