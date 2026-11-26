@@ -1,5 +1,7 @@
 //! Deterministic repository persistence for LLMLang Semantic Program Graph tables.
 
+mod graph;
+pub use graph::*;
 mod record;
 
 use prost::Message;

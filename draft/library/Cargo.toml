@@ -5,6 +5,9 @@ edition = "2021"
 rust-version = "1.85"
 description = "LLMLang SPG repository package persistence"
 
+[lib]
+path = "../src/library/spg.rs"
+
 [dependencies]
 hex = "0.4"
 lz4 = "1.28"
