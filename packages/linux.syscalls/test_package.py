@@ -67,7 +67,7 @@ class PackageBindingTests(unittest.TestCase):
     def test_provider_native_intrinsics_must_match_the_pinned_catalog(self):
         source = "src/native.llmlang"
         modified = {**self.files, source: self.files[source].replace(
-            b"syscall(0, words)", b"syscall(999, words)", 1,
+            b"syscall(0, fd, buf, count)", b"syscall(999, fd, buf, count)", 1,
         )}
         with self.assertRaisesRegex(package.PackageError, "active pinned Linux ABI table"):
             package.current_bindings(self.operations, modified)

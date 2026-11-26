@@ -302,8 +302,8 @@ def current_bindings(operations, files):
     if "src/native.llmlang" in files:
         source = files["src/native.llmlang"].decode()
         declarations = re.findall(
-            r"(?m)^(?:unsafe|stackless|restorer|kernel) fn ([a-z][a-z0-9_]*)\([^\n]+?"
-            r"\bsyscall\(([0-9]+)[,)]",
+            r"(?m)^(?:unsafe|stackless|restorer|kernel) fn ([a-z][a-z0-9_]*)\([^{}]+?\{"
+            r"\s*(?:let child = )?syscall\(([0-9]+)[,)]",
             source,
         )
         declared = {name: int(number) for name, number in declarations}

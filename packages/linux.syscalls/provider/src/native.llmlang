@@ -1,360 +1,1433 @@
 package linux.syscalls.native
 
-unsafe fn read(words: AbiWords) -> AbiResult { syscall(0, words) }
-unsafe fn write(words: AbiWords) -> AbiResult { syscall(1, words) }
-unsafe fn open(words: AbiWords) -> AbiResult { syscall(2, words) }
-unsafe fn close(words: AbiWords) -> AbiResult { syscall(3, words) }
-unsafe fn stat(words: AbiWords) -> AbiResult { syscall(4, words) }
-unsafe fn fstat(words: AbiWords) -> AbiResult { syscall(5, words) }
-unsafe fn lstat(words: AbiWords) -> AbiResult { syscall(6, words) }
-unsafe fn poll(words: AbiWords) -> AbiResult { syscall(7, words) }
-unsafe fn lseek(words: AbiWords) -> AbiResult { syscall(8, words) }
-unsafe fn mmap(words: AbiWords) -> AbiResult { syscall(9, words) }
-unsafe fn mprotect(words: AbiWords) -> AbiResult { syscall(10, words) }
-unsafe fn munmap(words: AbiWords) -> AbiResult { syscall(11, words) }
-unsafe fn brk(words: AbiWords) -> AbiResult { syscall(12, words) }
-unsafe fn rt_sigaction(words: AbiWords) -> AbiResult { syscall(13, words) }
-unsafe fn rt_sigprocmask(words: AbiWords) -> AbiResult { syscall(14, words) }
-restorer fn rt_sigreturn() -> Never { syscall(15); trap() }
-unsafe fn ioctl(words: AbiWords) -> AbiResult { syscall(16, words) }
-unsafe fn pread64(words: AbiWords) -> AbiResult { syscall(17, words) }
-unsafe fn pwrite64(words: AbiWords) -> AbiResult { syscall(18, words) }
-unsafe fn readv(words: AbiWords) -> AbiResult { syscall(19, words) }
-unsafe fn writev(words: AbiWords) -> AbiResult { syscall(20, words) }
-unsafe fn access(words: AbiWords) -> AbiResult { syscall(21, words) }
-unsafe fn pipe(words: AbiWords) -> AbiResult { syscall(22, words) }
-unsafe fn select(words: AbiWords) -> AbiResult { syscall(23, words) }
-unsafe fn sched_yield(words: AbiWords) -> AbiResult { syscall(24, words) }
-unsafe fn mremap(words: AbiWords) -> AbiResult { syscall(25, words) }
-unsafe fn msync(words: AbiWords) -> AbiResult { syscall(26, words) }
-unsafe fn mincore(words: AbiWords) -> AbiResult { syscall(27, words) }
-unsafe fn madvise(words: AbiWords) -> AbiResult { syscall(28, words) }
-unsafe fn shmget(words: AbiWords) -> AbiResult { syscall(29, words) }
-unsafe fn shmat(words: AbiWords) -> AbiResult { syscall(30, words) }
-unsafe fn shmctl(words: AbiWords) -> AbiResult { syscall(31, words) }
-unsafe fn dup(words: AbiWords) -> AbiResult { syscall(32, words) }
-unsafe fn dup2(words: AbiWords) -> AbiResult { syscall(33, words) }
-unsafe fn pause(words: AbiWords) -> AbiResult { syscall(34, words) }
-unsafe fn nanosleep(words: AbiWords) -> AbiResult { syscall(35, words) }
-unsafe fn getitimer(words: AbiWords) -> AbiResult { syscall(36, words) }
-unsafe fn alarm(words: AbiWords) -> AbiResult { syscall(37, words) }
-unsafe fn setitimer(words: AbiWords) -> AbiResult { syscall(38, words) }
-unsafe fn getpid(words: AbiWords) -> AbiResult { syscall(39, words) }
-unsafe fn sendfile(words: AbiWords) -> AbiResult { syscall(40, words) }
-unsafe fn socket(words: AbiWords) -> AbiResult { syscall(41, words) }
-unsafe fn connect(words: AbiWords) -> AbiResult { syscall(42, words) }
-unsafe fn accept(words: AbiWords) -> AbiResult { syscall(43, words) }
-unsafe fn sendto(words: AbiWords) -> AbiResult { syscall(44, words) }
-unsafe fn recvfrom(words: AbiWords) -> AbiResult { syscall(45, words) }
-unsafe fn sendmsg(words: AbiWords) -> AbiResult { syscall(46, words) }
-unsafe fn recvmsg(words: AbiWords) -> AbiResult { syscall(47, words) }
-unsafe fn shutdown(words: AbiWords) -> AbiResult { syscall(48, words) }
-unsafe fn bind(words: AbiWords) -> AbiResult { syscall(49, words) }
-unsafe fn listen(words: AbiWords) -> AbiResult { syscall(50, words) }
-unsafe fn getsockname(words: AbiWords) -> AbiResult { syscall(51, words) }
-unsafe fn getpeername(words: AbiWords) -> AbiResult { syscall(52, words) }
-unsafe fn socketpair(words: AbiWords) -> AbiResult { syscall(53, words) }
-unsafe fn setsockopt(words: AbiWords) -> AbiResult { syscall(54, words) }
-unsafe fn getsockopt(words: AbiWords) -> AbiResult { syscall(55, words) }
-unsafe fn clone(words: AbiWords) -> AbiResult { syscall(56, words) }
-unsafe fn fork(words: AbiWords) -> AbiResult { syscall(57, words) }
-stackless fn vfork(image: ExecWords) -> AbiResult { let child = syscall(58); if child == 0 { syscall(execve, image); syscall(exit, 127); trap() } child }
-unsafe fn execve(words: AbiWords) -> AbiResult { syscall(59, words) }
-unsafe fn exit(words: AbiWords) -> AbiResult { syscall(60, words) }
-unsafe fn wait4(words: AbiWords) -> AbiResult { syscall(61, words) }
-unsafe fn kill(words: AbiWords) -> AbiResult { syscall(62, words) }
-unsafe fn uname(words: AbiWords) -> AbiResult { syscall(63, words) }
-unsafe fn semget(words: AbiWords) -> AbiResult { syscall(64, words) }
-unsafe fn semop(words: AbiWords) -> AbiResult { syscall(65, words) }
-unsafe fn semctl(words: AbiWords) -> AbiResult { syscall(66, words) }
-unsafe fn shmdt(words: AbiWords) -> AbiResult { syscall(67, words) }
-unsafe fn msgget(words: AbiWords) -> AbiResult { syscall(68, words) }
-unsafe fn msgsnd(words: AbiWords) -> AbiResult { syscall(69, words) }
-unsafe fn msgrcv(words: AbiWords) -> AbiResult { syscall(70, words) }
-unsafe fn msgctl(words: AbiWords) -> AbiResult { syscall(71, words) }
-unsafe fn fcntl(words: AbiWords) -> AbiResult { syscall(72, words) }
-unsafe fn flock(words: AbiWords) -> AbiResult { syscall(73, words) }
-unsafe fn fsync(words: AbiWords) -> AbiResult { syscall(74, words) }
-unsafe fn fdatasync(words: AbiWords) -> AbiResult { syscall(75, words) }
-unsafe fn truncate(words: AbiWords) -> AbiResult { syscall(76, words) }
-unsafe fn ftruncate(words: AbiWords) -> AbiResult { syscall(77, words) }
-unsafe fn getdents(words: AbiWords) -> AbiResult { syscall(78, words) }
-unsafe fn getcwd(words: AbiWords) -> AbiResult { syscall(79, words) }
-unsafe fn chdir(words: AbiWords) -> AbiResult { syscall(80, words) }
-unsafe fn fchdir(words: AbiWords) -> AbiResult { syscall(81, words) }
-unsafe fn rename(words: AbiWords) -> AbiResult { syscall(82, words) }
-unsafe fn mkdir(words: AbiWords) -> AbiResult { syscall(83, words) }
-unsafe fn rmdir(words: AbiWords) -> AbiResult { syscall(84, words) }
-unsafe fn creat(words: AbiWords) -> AbiResult { syscall(85, words) }
-unsafe fn link(words: AbiWords) -> AbiResult { syscall(86, words) }
-unsafe fn unlink(words: AbiWords) -> AbiResult { syscall(87, words) }
-unsafe fn symlink(words: AbiWords) -> AbiResult { syscall(88, words) }
-unsafe fn readlink(words: AbiWords) -> AbiResult { syscall(89, words) }
-unsafe fn chmod(words: AbiWords) -> AbiResult { syscall(90, words) }
-unsafe fn fchmod(words: AbiWords) -> AbiResult { syscall(91, words) }
-unsafe fn chown(words: AbiWords) -> AbiResult { syscall(92, words) }
-unsafe fn fchown(words: AbiWords) -> AbiResult { syscall(93, words) }
-unsafe fn lchown(words: AbiWords) -> AbiResult { syscall(94, words) }
-unsafe fn umask(words: AbiWords) -> AbiResult { syscall(95, words) }
-unsafe fn gettimeofday(words: AbiWords) -> AbiResult { syscall(96, words) }
-unsafe fn getrlimit(words: AbiWords) -> AbiResult { syscall(97, words) }
-unsafe fn getrusage(words: AbiWords) -> AbiResult { syscall(98, words) }
-unsafe fn sysinfo(words: AbiWords) -> AbiResult { syscall(99, words) }
-unsafe fn times(words: AbiWords) -> AbiResult { syscall(100, words) }
-unsafe fn ptrace(words: AbiWords) -> AbiResult { syscall(101, words) }
-unsafe fn getuid(words: AbiWords) -> AbiResult { syscall(102, words) }
-unsafe fn syslog(words: AbiWords) -> AbiResult { syscall(103, words) }
-unsafe fn getgid(words: AbiWords) -> AbiResult { syscall(104, words) }
-unsafe fn setuid(words: AbiWords) -> AbiResult { syscall(105, words) }
-unsafe fn setgid(words: AbiWords) -> AbiResult { syscall(106, words) }
-unsafe fn geteuid(words: AbiWords) -> AbiResult { syscall(107, words) }
-unsafe fn getegid(words: AbiWords) -> AbiResult { syscall(108, words) }
-unsafe fn setpgid(words: AbiWords) -> AbiResult { syscall(109, words) }
-unsafe fn getppid(words: AbiWords) -> AbiResult { syscall(110, words) }
-unsafe fn getpgrp(words: AbiWords) -> AbiResult { syscall(111, words) }
-unsafe fn setsid(words: AbiWords) -> AbiResult { syscall(112, words) }
-unsafe fn setreuid(words: AbiWords) -> AbiResult { syscall(113, words) }
-unsafe fn setregid(words: AbiWords) -> AbiResult { syscall(114, words) }
-unsafe fn getgroups(words: AbiWords) -> AbiResult { syscall(115, words) }
-unsafe fn setgroups(words: AbiWords) -> AbiResult { syscall(116, words) }
-unsafe fn setresuid(words: AbiWords) -> AbiResult { syscall(117, words) }
-unsafe fn getresuid(words: AbiWords) -> AbiResult { syscall(118, words) }
-unsafe fn setresgid(words: AbiWords) -> AbiResult { syscall(119, words) }
-unsafe fn getresgid(words: AbiWords) -> AbiResult { syscall(120, words) }
-unsafe fn getpgid(words: AbiWords) -> AbiResult { syscall(121, words) }
-unsafe fn setfsuid(words: AbiWords) -> AbiResult { syscall(122, words) }
-unsafe fn setfsgid(words: AbiWords) -> AbiResult { syscall(123, words) }
-unsafe fn getsid(words: AbiWords) -> AbiResult { syscall(124, words) }
-unsafe fn capget(words: AbiWords) -> AbiResult { syscall(125, words) }
-unsafe fn capset(words: AbiWords) -> AbiResult { syscall(126, words) }
-unsafe fn rt_sigpending(words: AbiWords) -> AbiResult { syscall(127, words) }
-unsafe fn rt_sigtimedwait(words: AbiWords) -> AbiResult { syscall(128, words) }
-unsafe fn rt_sigqueueinfo(words: AbiWords) -> AbiResult { syscall(129, words) }
-unsafe fn rt_sigsuspend(words: AbiWords) -> AbiResult { syscall(130, words) }
-unsafe fn sigaltstack(words: AbiWords) -> AbiResult { syscall(131, words) }
-unsafe fn utime(words: AbiWords) -> AbiResult { syscall(132, words) }
-unsafe fn mknod(words: AbiWords) -> AbiResult { syscall(133, words) }
-unsafe fn personality(words: AbiWords) -> AbiResult { syscall(135, words) }
-unsafe fn ustat(words: AbiWords) -> AbiResult { syscall(136, words) }
-unsafe fn statfs(words: AbiWords) -> AbiResult { syscall(137, words) }
-unsafe fn fstatfs(words: AbiWords) -> AbiResult { syscall(138, words) }
-unsafe fn sysfs(words: AbiWords) -> AbiResult { syscall(139, words) }
-unsafe fn getpriority(words: AbiWords) -> AbiResult { syscall(140, words) }
-unsafe fn setpriority(words: AbiWords) -> AbiResult { syscall(141, words) }
-unsafe fn sched_setparam(words: AbiWords) -> AbiResult { syscall(142, words) }
-unsafe fn sched_getparam(words: AbiWords) -> AbiResult { syscall(143, words) }
-unsafe fn sched_setscheduler(words: AbiWords) -> AbiResult { syscall(144, words) }
-unsafe fn sched_getscheduler(words: AbiWords) -> AbiResult { syscall(145, words) }
-unsafe fn sched_get_priority_max(words: AbiWords) -> AbiResult { syscall(146, words) }
-unsafe fn sched_get_priority_min(words: AbiWords) -> AbiResult { syscall(147, words) }
-unsafe fn sched_rr_get_interval(words: AbiWords) -> AbiResult { syscall(148, words) }
-unsafe fn mlock(words: AbiWords) -> AbiResult { syscall(149, words) }
-unsafe fn munlock(words: AbiWords) -> AbiResult { syscall(150, words) }
-unsafe fn mlockall(words: AbiWords) -> AbiResult { syscall(151, words) }
-unsafe fn munlockall(words: AbiWords) -> AbiResult { syscall(152, words) }
-unsafe fn vhangup(words: AbiWords) -> AbiResult { syscall(153, words) }
-unsafe fn modify_ldt(words: AbiWords) -> AbiResult { syscall(154, words) }
-unsafe fn pivot_root(words: AbiWords) -> AbiResult { syscall(155, words) }
-unsafe fn prctl(words: AbiWords) -> AbiResult { syscall(157, words) }
-unsafe fn arch_prctl(words: AbiWords) -> AbiResult { syscall(158, words) }
-unsafe fn adjtimex(words: AbiWords) -> AbiResult { syscall(159, words) }
-unsafe fn setrlimit(words: AbiWords) -> AbiResult { syscall(160, words) }
-unsafe fn chroot(words: AbiWords) -> AbiResult { syscall(161, words) }
-unsafe fn sync(words: AbiWords) -> AbiResult { syscall(162, words) }
-unsafe fn acct(words: AbiWords) -> AbiResult { syscall(163, words) }
-unsafe fn settimeofday(words: AbiWords) -> AbiResult { syscall(164, words) }
-unsafe fn mount(words: AbiWords) -> AbiResult { syscall(165, words) }
-unsafe fn umount2(words: AbiWords) -> AbiResult { syscall(166, words) }
-unsafe fn swapon(words: AbiWords) -> AbiResult { syscall(167, words) }
-unsafe fn swapoff(words: AbiWords) -> AbiResult { syscall(168, words) }
-unsafe fn reboot(words: AbiWords) -> AbiResult { syscall(169, words) }
-unsafe fn sethostname(words: AbiWords) -> AbiResult { syscall(170, words) }
-unsafe fn setdomainname(words: AbiWords) -> AbiResult { syscall(171, words) }
-unsafe fn iopl(words: AbiWords) -> AbiResult { syscall(172, words) }
-unsafe fn ioperm(words: AbiWords) -> AbiResult { syscall(173, words) }
-unsafe fn init_module(words: AbiWords) -> AbiResult { syscall(175, words) }
-unsafe fn delete_module(words: AbiWords) -> AbiResult { syscall(176, words) }
-unsafe fn quotactl(words: AbiWords) -> AbiResult { syscall(179, words) }
-unsafe fn gettid(words: AbiWords) -> AbiResult { syscall(186, words) }
-unsafe fn readahead(words: AbiWords) -> AbiResult { syscall(187, words) }
-unsafe fn setxattr(words: AbiWords) -> AbiResult { syscall(188, words) }
-unsafe fn lsetxattr(words: AbiWords) -> AbiResult { syscall(189, words) }
-unsafe fn fsetxattr(words: AbiWords) -> AbiResult { syscall(190, words) }
-unsafe fn getxattr(words: AbiWords) -> AbiResult { syscall(191, words) }
-unsafe fn lgetxattr(words: AbiWords) -> AbiResult { syscall(192, words) }
-unsafe fn fgetxattr(words: AbiWords) -> AbiResult { syscall(193, words) }
-unsafe fn listxattr(words: AbiWords) -> AbiResult { syscall(194, words) }
-unsafe fn llistxattr(words: AbiWords) -> AbiResult { syscall(195, words) }
-unsafe fn flistxattr(words: AbiWords) -> AbiResult { syscall(196, words) }
-unsafe fn removexattr(words: AbiWords) -> AbiResult { syscall(197, words) }
-unsafe fn lremovexattr(words: AbiWords) -> AbiResult { syscall(198, words) }
-unsafe fn fremovexattr(words: AbiWords) -> AbiResult { syscall(199, words) }
-unsafe fn tkill(words: AbiWords) -> AbiResult { syscall(200, words) }
-unsafe fn time(words: AbiWords) -> AbiResult { syscall(201, words) }
-unsafe fn futex(words: AbiWords) -> AbiResult { syscall(202, words) }
-unsafe fn sched_setaffinity(words: AbiWords) -> AbiResult { syscall(203, words) }
-unsafe fn sched_getaffinity(words: AbiWords) -> AbiResult { syscall(204, words) }
-unsafe fn io_setup(words: AbiWords) -> AbiResult { syscall(206, words) }
-unsafe fn io_destroy(words: AbiWords) -> AbiResult { syscall(207, words) }
-unsafe fn io_getevents(words: AbiWords) -> AbiResult { syscall(208, words) }
-unsafe fn io_submit(words: AbiWords) -> AbiResult { syscall(209, words) }
-unsafe fn io_cancel(words: AbiWords) -> AbiResult { syscall(210, words) }
-unsafe fn epoll_create(words: AbiWords) -> AbiResult { syscall(213, words) }
-unsafe fn remap_file_pages(words: AbiWords) -> AbiResult { syscall(216, words) }
-unsafe fn getdents64(words: AbiWords) -> AbiResult { syscall(217, words) }
-unsafe fn set_tid_address(words: AbiWords) -> AbiResult { syscall(218, words) }
-unsafe fn restart_syscall(words: AbiWords) -> AbiResult { syscall(219, words) }
-unsafe fn semtimedop(words: AbiWords) -> AbiResult { syscall(220, words) }
-unsafe fn fadvise64(words: AbiWords) -> AbiResult { syscall(221, words) }
-unsafe fn timer_create(words: AbiWords) -> AbiResult { syscall(222, words) }
-unsafe fn timer_settime(words: AbiWords) -> AbiResult { syscall(223, words) }
-unsafe fn timer_gettime(words: AbiWords) -> AbiResult { syscall(224, words) }
-unsafe fn timer_getoverrun(words: AbiWords) -> AbiResult { syscall(225, words) }
-unsafe fn timer_delete(words: AbiWords) -> AbiResult { syscall(226, words) }
-unsafe fn clock_settime(words: AbiWords) -> AbiResult { syscall(227, words) }
-unsafe fn clock_gettime(words: AbiWords) -> AbiResult { syscall(228, words) }
-unsafe fn clock_getres(words: AbiWords) -> AbiResult { syscall(229, words) }
-unsafe fn clock_nanosleep(words: AbiWords) -> AbiResult { syscall(230, words) }
-unsafe fn exit_group(words: AbiWords) -> AbiResult { syscall(231, words) }
-unsafe fn epoll_wait(words: AbiWords) -> AbiResult { syscall(232, words) }
-unsafe fn epoll_ctl(words: AbiWords) -> AbiResult { syscall(233, words) }
-unsafe fn tgkill(words: AbiWords) -> AbiResult { syscall(234, words) }
-unsafe fn utimes(words: AbiWords) -> AbiResult { syscall(235, words) }
-unsafe fn mbind(words: AbiWords) -> AbiResult { syscall(237, words) }
-unsafe fn set_mempolicy(words: AbiWords) -> AbiResult { syscall(238, words) }
-unsafe fn get_mempolicy(words: AbiWords) -> AbiResult { syscall(239, words) }
-unsafe fn mq_open(words: AbiWords) -> AbiResult { syscall(240, words) }
-unsafe fn mq_unlink(words: AbiWords) -> AbiResult { syscall(241, words) }
-unsafe fn mq_timedsend(words: AbiWords) -> AbiResult { syscall(242, words) }
-unsafe fn mq_timedreceive(words: AbiWords) -> AbiResult { syscall(243, words) }
-unsafe fn mq_notify(words: AbiWords) -> AbiResult { syscall(244, words) }
-unsafe fn mq_getsetattr(words: AbiWords) -> AbiResult { syscall(245, words) }
-unsafe fn kexec_load(words: AbiWords) -> AbiResult { syscall(246, words) }
-unsafe fn waitid(words: AbiWords) -> AbiResult { syscall(247, words) }
-unsafe fn add_key(words: AbiWords) -> AbiResult { syscall(248, words) }
-unsafe fn request_key(words: AbiWords) -> AbiResult { syscall(249, words) }
-unsafe fn keyctl(words: AbiWords) -> AbiResult { syscall(250, words) }
-unsafe fn ioprio_set(words: AbiWords) -> AbiResult { syscall(251, words) }
-unsafe fn ioprio_get(words: AbiWords) -> AbiResult { syscall(252, words) }
-unsafe fn inotify_init(words: AbiWords) -> AbiResult { syscall(253, words) }
-unsafe fn inotify_add_watch(words: AbiWords) -> AbiResult { syscall(254, words) }
-unsafe fn inotify_rm_watch(words: AbiWords) -> AbiResult { syscall(255, words) }
-unsafe fn migrate_pages(words: AbiWords) -> AbiResult { syscall(256, words) }
-unsafe fn openat(words: AbiWords) -> AbiResult { syscall(257, words) }
-unsafe fn mkdirat(words: AbiWords) -> AbiResult { syscall(258, words) }
-unsafe fn mknodat(words: AbiWords) -> AbiResult { syscall(259, words) }
-unsafe fn fchownat(words: AbiWords) -> AbiResult { syscall(260, words) }
-unsafe fn futimesat(words: AbiWords) -> AbiResult { syscall(261, words) }
-unsafe fn newfstatat(words: AbiWords) -> AbiResult { syscall(262, words) }
-unsafe fn unlinkat(words: AbiWords) -> AbiResult { syscall(263, words) }
-unsafe fn renameat(words: AbiWords) -> AbiResult { syscall(264, words) }
-unsafe fn linkat(words: AbiWords) -> AbiResult { syscall(265, words) }
-unsafe fn symlinkat(words: AbiWords) -> AbiResult { syscall(266, words) }
-unsafe fn readlinkat(words: AbiWords) -> AbiResult { syscall(267, words) }
-unsafe fn fchmodat(words: AbiWords) -> AbiResult { syscall(268, words) }
-unsafe fn faccessat(words: AbiWords) -> AbiResult { syscall(269, words) }
-unsafe fn pselect6(words: AbiWords) -> AbiResult { syscall(270, words) }
-unsafe fn ppoll(words: AbiWords) -> AbiResult { syscall(271, words) }
-unsafe fn unshare(words: AbiWords) -> AbiResult { syscall(272, words) }
-unsafe fn set_robust_list(words: AbiWords) -> AbiResult { syscall(273, words) }
-unsafe fn get_robust_list(words: AbiWords) -> AbiResult { syscall(274, words) }
-unsafe fn splice(words: AbiWords) -> AbiResult { syscall(275, words) }
-unsafe fn tee(words: AbiWords) -> AbiResult { syscall(276, words) }
-unsafe fn sync_file_range(words: AbiWords) -> AbiResult { syscall(277, words) }
-unsafe fn vmsplice(words: AbiWords) -> AbiResult { syscall(278, words) }
-unsafe fn move_pages(words: AbiWords) -> AbiResult { syscall(279, words) }
-unsafe fn utimensat(words: AbiWords) -> AbiResult { syscall(280, words) }
-unsafe fn epoll_pwait(words: AbiWords) -> AbiResult { syscall(281, words) }
-unsafe fn signalfd(words: AbiWords) -> AbiResult { syscall(282, words) }
-unsafe fn timerfd_create(words: AbiWords) -> AbiResult { syscall(283, words) }
-unsafe fn eventfd(words: AbiWords) -> AbiResult { syscall(284, words) }
-unsafe fn fallocate(words: AbiWords) -> AbiResult { syscall(285, words) }
-unsafe fn timerfd_settime(words: AbiWords) -> AbiResult { syscall(286, words) }
-unsafe fn timerfd_gettime(words: AbiWords) -> AbiResult { syscall(287, words) }
-unsafe fn accept4(words: AbiWords) -> AbiResult { syscall(288, words) }
-unsafe fn signalfd4(words: AbiWords) -> AbiResult { syscall(289, words) }
-unsafe fn eventfd2(words: AbiWords) -> AbiResult { syscall(290, words) }
-unsafe fn epoll_create1(words: AbiWords) -> AbiResult { syscall(291, words) }
-unsafe fn dup3(words: AbiWords) -> AbiResult { syscall(292, words) }
-unsafe fn pipe2(words: AbiWords) -> AbiResult { syscall(293, words) }
-unsafe fn inotify_init1(words: AbiWords) -> AbiResult { syscall(294, words) }
-unsafe fn preadv(words: AbiWords) -> AbiResult { syscall(295, words) }
-unsafe fn pwritev(words: AbiWords) -> AbiResult { syscall(296, words) }
-unsafe fn rt_tgsigqueueinfo(words: AbiWords) -> AbiResult { syscall(297, words) }
-unsafe fn perf_event_open(words: AbiWords) -> AbiResult { syscall(298, words) }
-unsafe fn recvmmsg(words: AbiWords) -> AbiResult { syscall(299, words) }
-unsafe fn fanotify_init(words: AbiWords) -> AbiResult { syscall(300, words) }
-unsafe fn fanotify_mark(words: AbiWords) -> AbiResult { syscall(301, words) }
-unsafe fn prlimit64(words: AbiWords) -> AbiResult { syscall(302, words) }
-unsafe fn name_to_handle_at(words: AbiWords) -> AbiResult { syscall(303, words) }
-unsafe fn open_by_handle_at(words: AbiWords) -> AbiResult { syscall(304, words) }
-unsafe fn clock_adjtime(words: AbiWords) -> AbiResult { syscall(305, words) }
-unsafe fn syncfs(words: AbiWords) -> AbiResult { syscall(306, words) }
-unsafe fn sendmmsg(words: AbiWords) -> AbiResult { syscall(307, words) }
-unsafe fn setns(words: AbiWords) -> AbiResult { syscall(308, words) }
-unsafe fn getcpu(words: AbiWords) -> AbiResult { syscall(309, words) }
-unsafe fn process_vm_readv(words: AbiWords) -> AbiResult { syscall(310, words) }
-unsafe fn process_vm_writev(words: AbiWords) -> AbiResult { syscall(311, words) }
-unsafe fn kcmp(words: AbiWords) -> AbiResult { syscall(312, words) }
-unsafe fn finit_module(words: AbiWords) -> AbiResult { syscall(313, words) }
-unsafe fn sched_setattr(words: AbiWords) -> AbiResult { syscall(314, words) }
-unsafe fn sched_getattr(words: AbiWords) -> AbiResult { syscall(315, words) }
-unsafe fn renameat2(words: AbiWords) -> AbiResult { syscall(316, words) }
-unsafe fn seccomp(words: AbiWords) -> AbiResult { syscall(317, words) }
-unsafe fn getrandom(words: AbiWords) -> AbiResult { syscall(318, words) }
-unsafe fn memfd_create(words: AbiWords) -> AbiResult { syscall(319, words) }
-unsafe fn kexec_file_load(words: AbiWords) -> AbiResult { syscall(320, words) }
-unsafe fn bpf(words: AbiWords) -> AbiResult { syscall(321, words) }
-unsafe fn execveat(words: AbiWords) -> AbiResult { syscall(322, words) }
-unsafe fn userfaultfd(words: AbiWords) -> AbiResult { syscall(323, words) }
-unsafe fn membarrier(words: AbiWords) -> AbiResult { syscall(324, words) }
-unsafe fn mlock2(words: AbiWords) -> AbiResult { syscall(325, words) }
-unsafe fn copy_file_range(words: AbiWords) -> AbiResult { syscall(326, words) }
-unsafe fn preadv2(words: AbiWords) -> AbiResult { syscall(327, words) }
-unsafe fn pwritev2(words: AbiWords) -> AbiResult { syscall(328, words) }
-unsafe fn pkey_mprotect(words: AbiWords) -> AbiResult { syscall(329, words) }
-unsafe fn pkey_alloc(words: AbiWords) -> AbiResult { syscall(330, words) }
-unsafe fn pkey_free(words: AbiWords) -> AbiResult { syscall(331, words) }
-unsafe fn statx(words: AbiWords) -> AbiResult { syscall(332, words) }
-unsafe fn io_pgetevents(words: AbiWords) -> AbiResult { syscall(333, words) }
-unsafe fn rseq(words: AbiWords) -> AbiResult { syscall(334, words) }
-kernel fn uretprobe() -> NativeContinuation { syscall(335) }
-unsafe fn pidfd_send_signal(words: AbiWords) -> AbiResult { syscall(424, words) }
-unsafe fn io_uring_setup(words: AbiWords) -> AbiResult { syscall(425, words) }
-unsafe fn io_uring_enter(words: AbiWords) -> AbiResult { syscall(426, words) }
-unsafe fn io_uring_register(words: AbiWords) -> AbiResult { syscall(427, words) }
-unsafe fn open_tree(words: AbiWords) -> AbiResult { syscall(428, words) }
-unsafe fn move_mount(words: AbiWords) -> AbiResult { syscall(429, words) }
-unsafe fn fsopen(words: AbiWords) -> AbiResult { syscall(430, words) }
-unsafe fn fsconfig(words: AbiWords) -> AbiResult { syscall(431, words) }
-unsafe fn fsmount(words: AbiWords) -> AbiResult { syscall(432, words) }
-unsafe fn fspick(words: AbiWords) -> AbiResult { syscall(433, words) }
-unsafe fn pidfd_open(words: AbiWords) -> AbiResult { syscall(434, words) }
-unsafe fn clone3(words: AbiWords) -> AbiResult { syscall(435, words) }
-unsafe fn close_range(words: AbiWords) -> AbiResult { syscall(436, words) }
-unsafe fn openat2(words: AbiWords) -> AbiResult { syscall(437, words) }
-unsafe fn pidfd_getfd(words: AbiWords) -> AbiResult { syscall(438, words) }
-unsafe fn faccessat2(words: AbiWords) -> AbiResult { syscall(439, words) }
-unsafe fn process_madvise(words: AbiWords) -> AbiResult { syscall(440, words) }
-unsafe fn epoll_pwait2(words: AbiWords) -> AbiResult { syscall(441, words) }
-unsafe fn mount_setattr(words: AbiWords) -> AbiResult { syscall(442, words) }
-unsafe fn quotactl_fd(words: AbiWords) -> AbiResult { syscall(443, words) }
-unsafe fn landlock_create_ruleset(words: AbiWords) -> AbiResult { syscall(444, words) }
-unsafe fn landlock_add_rule(words: AbiWords) -> AbiResult { syscall(445, words) }
-unsafe fn landlock_restrict_self(words: AbiWords) -> AbiResult { syscall(446, words) }
-unsafe fn memfd_secret(words: AbiWords) -> AbiResult { syscall(447, words) }
-unsafe fn process_mrelease(words: AbiWords) -> AbiResult { syscall(448, words) }
-unsafe fn futex_waitv(words: AbiWords) -> AbiResult { syscall(449, words) }
-unsafe fn set_mempolicy_home_node(words: AbiWords) -> AbiResult { syscall(450, words) }
-unsafe fn cachestat(words: AbiWords) -> AbiResult { syscall(451, words) }
-unsafe fn fchmodat2(words: AbiWords) -> AbiResult { syscall(452, words) }
-unsafe fn map_shadow_stack(words: AbiWords) -> AbiResult { syscall(453, words) }
-unsafe fn futex_wake(words: AbiWords) -> AbiResult { syscall(454, words) }
-unsafe fn futex_wait(words: AbiWords) -> AbiResult { syscall(455, words) }
-unsafe fn futex_requeue(words: AbiWords) -> AbiResult { syscall(456, words) }
-unsafe fn statmount(words: AbiWords) -> AbiResult { syscall(457, words) }
-unsafe fn listmount(words: AbiWords) -> AbiResult { syscall(458, words) }
-unsafe fn lsm_get_self_attr(words: AbiWords) -> AbiResult { syscall(459, words) }
-unsafe fn lsm_set_self_attr(words: AbiWords) -> AbiResult { syscall(460, words) }
-unsafe fn lsm_list_modules(words: AbiWords) -> AbiResult { syscall(461, words) }
-unsafe fn mseal(words: AbiWords) -> AbiResult { syscall(462, words) }
+unsafe fn read(fd: U32, buf: MutPtr<CChar>, count: Usize) -> AbiResult {
+    syscall(0, fd, buf, count)
+}
+
+unsafe fn write(fd: U32, buf: ConstPtr<CChar>, count: Usize) -> AbiResult {
+    syscall(1, fd, buf, count)
+}
+
+unsafe fn open(path: CString, flags: I32, mode: U16) -> AbiResult {
+    syscall(2, path, flags, mode)
+}
+
+unsafe fn close(fd: U32) -> AbiResult {
+    syscall(3, fd)
+}
+
+unsafe fn stat(filename: ConstPtr<CChar>, statbuf: MutPtr<stat>) -> AbiResult {
+    syscall(4, filename, statbuf)
+}
+
+unsafe fn fstat(fd: U32, statbuf: MutPtr<stat>) -> AbiResult {
+    syscall(5, fd, statbuf)
+}
+
+unsafe fn lstat(filename: ConstPtr<CChar>, statbuf: MutPtr<stat>) -> AbiResult {
+    syscall(6, filename, statbuf)
+}
+
+unsafe fn poll(ufds: MutPtr<pollfd>, nfds: U32, timeout_msecs: I32) -> AbiResult {
+    syscall(7, ufds, nfds, timeout_msecs)
+}
+
+unsafe fn lseek(fd: U32, offset: I64, whence: U32) -> AbiResult {
+    syscall(8, fd, offset, whence)
+}
+
+unsafe fn mmap(addr: U64, len: U64, prot: U64, flags: U64, fd: U64, off: U64) -> AbiResult {
+    syscall(9, addr, len, prot, flags, fd, off)
+}
+
+unsafe fn mprotect(start: U64, len: Usize, prot: U64) -> AbiResult {
+    syscall(10, start, len, prot)
+}
+
+unsafe fn munmap(addr: U64, len: Usize) -> AbiResult {
+    syscall(11, addr, len)
+}
+
+unsafe fn brk(brk: U64) -> AbiResult {
+    syscall(12, brk)
+}
+
+unsafe fn rt_sigaction(sig: I32, act: ConstPtr<sigaction>, oact: MutPtr<sigaction>, sigsetsize: Usize) -> AbiResult {
+    syscall(13, sig, act, oact, sigsetsize)
+}
+
+unsafe fn rt_sigprocmask(how: I32, nset: MutPtr<sigset_t>, oset: MutPtr<sigset_t>, sigsetsize: Usize) -> AbiResult {
+    syscall(14, how, nset, oset, sigsetsize)
+}
+
+restorer fn rt_sigreturn() -> Never {
+    syscall(15); trap()
+}
+
+unsafe fn ioctl(fd: U32, cmd: U32, arg: U64) -> AbiResult {
+    syscall(16, fd, cmd, arg)
+}
+
+unsafe fn pread64(fd: U32, buf: MutPtr<CChar>, count: Usize, pos: I64) -> AbiResult {
+    syscall(17, fd, buf, count, pos)
+}
+
+unsafe fn pwrite64(fd: U32, buf: ConstPtr<CChar>, count: Usize, pos: I64) -> AbiResult {
+    syscall(18, fd, buf, count, pos)
+}
+
+unsafe fn readv(fd: U64, vec: ConstPtr<iovec>, vlen: U64) -> AbiResult {
+    syscall(19, fd, vec, vlen)
+}
+
+unsafe fn writev(fd: U64, vec: ConstPtr<iovec>, vlen: U64) -> AbiResult {
+    syscall(20, fd, vec, vlen)
+}
+
+unsafe fn access(filename: ConstPtr<CChar>, mode: I32) -> AbiResult {
+    syscall(21, filename, mode)
+}
+
+unsafe fn pipe(fildes: MutPtr<I32>) -> AbiResult {
+    syscall(22, fildes)
+}
+
+unsafe fn select(n: I32, inp: MutPtr<fd_set>, outp: MutPtr<fd_set>, exp: MutPtr<fd_set>, tvp: MutPtr<__kernel_old_timeval>) -> AbiResult {
+    syscall(23, n, inp, outp, exp, tvp)
+}
+
+unsafe fn sched_yield() -> AbiResult {
+    syscall(24)
+}
+
+unsafe fn mremap(addr: U64, old_len: U64, new_len: U64, flags: U64, new_addr: U64) -> AbiResult {
+    syscall(25, addr, old_len, new_len, flags, new_addr)
+}
+
+unsafe fn msync(start: U64, len: Usize, flags: I32) -> AbiResult {
+    syscall(26, start, len, flags)
+}
+
+unsafe fn mincore(start: U64, len: Usize, vec: MutPtr<U8>) -> AbiResult {
+    syscall(27, start, len, vec)
+}
+
+unsafe fn madvise(start: U64, len_in: Usize, behavior: I32) -> AbiResult {
+    syscall(28, start, len_in, behavior)
+}
+
+unsafe fn shmget(key: I32, size: Usize, shmflg: I32) -> AbiResult {
+    syscall(29, key, size, shmflg)
+}
+
+unsafe fn shmat(shmid: I32, shmaddr: MutPtr<CChar>, shmflg: I32) -> AbiResult {
+    syscall(30, shmid, shmaddr, shmflg)
+}
+
+unsafe fn shmctl(shmid: I32, cmd: I32, buf: MutPtr<shmid_ds>) -> AbiResult {
+    syscall(31, shmid, cmd, buf)
+}
+
+unsafe fn dup(fildes: U32) -> AbiResult {
+    syscall(32, fildes)
+}
+
+unsafe fn dup2(oldfd: U32, newfd: U32) -> AbiResult {
+    syscall(33, oldfd, newfd)
+}
+
+unsafe fn pause() -> AbiResult {
+    syscall(34)
+}
+
+unsafe fn nanosleep(rqtp: MutPtr<__kernel_timespec>, rmtp: MutPtr<__kernel_timespec>) -> AbiResult {
+    syscall(35, rqtp, rmtp)
+}
+
+unsafe fn getitimer(which: I32, value: MutPtr<__kernel_old_itimerval>) -> AbiResult {
+    syscall(36, which, value)
+}
+
+unsafe fn alarm(seconds: U32) -> AbiResult {
+    syscall(37, seconds)
+}
+
+unsafe fn setitimer(which: I32, value: MutPtr<__kernel_old_itimerval>, ovalue: MutPtr<__kernel_old_itimerval>) -> AbiResult {
+    syscall(38, which, value, ovalue)
+}
+
+unsafe fn getpid() -> AbiResult {
+    syscall(39)
+}
+
+unsafe fn sendfile(out_fd: I32, in_fd: I32, offset: MutPtr<I64>, count: Usize) -> AbiResult {
+    syscall(40, out_fd, in_fd, offset, count)
+}
+
+unsafe fn socket(family: I32, type: I32, protocol: I32) -> AbiResult {
+    syscall(41, family, type, protocol)
+}
+
+unsafe fn connect(fd: I32, uservaddr: MutPtr<sockaddr>, addrlen: I32) -> AbiResult {
+    syscall(42, fd, uservaddr, addrlen)
+}
+
+unsafe fn accept(fd: I32, upeer_sockaddr: MutPtr<sockaddr>, upeer_addrlen: MutPtr<I32>) -> AbiResult {
+    syscall(43, fd, upeer_sockaddr, upeer_addrlen)
+}
+
+unsafe fn sendto(fd: I32, buff: MutPtr<Void>, len: Usize, flags: U32, addr: MutPtr<sockaddr>, addr_len: I32) -> AbiResult {
+    syscall(44, fd, buff, len, flags, addr, addr_len)
+}
+
+unsafe fn recvfrom(fd: I32, ubuf: MutPtr<Void>, size: Usize, flags: U32, addr: MutPtr<sockaddr>, addr_len: MutPtr<I32>) -> AbiResult {
+    syscall(45, fd, ubuf, size, flags, addr, addr_len)
+}
+
+unsafe fn sendmsg(fd: I32, msg: MutPtr<user_msghdr>, flags: U32) -> AbiResult {
+    syscall(46, fd, msg, flags)
+}
+
+unsafe fn recvmsg(fd: I32, msg: MutPtr<user_msghdr>, flags: U32) -> AbiResult {
+    syscall(47, fd, msg, flags)
+}
+
+unsafe fn shutdown(fd: I32, how: I32) -> AbiResult {
+    syscall(48, fd, how)
+}
+
+unsafe fn bind(fd: I32, umyaddr: MutPtr<sockaddr>, addrlen: I32) -> AbiResult {
+    syscall(49, fd, umyaddr, addrlen)
+}
+
+unsafe fn listen(fd: I32, backlog: I32) -> AbiResult {
+    syscall(50, fd, backlog)
+}
+
+unsafe fn getsockname(fd: I32, usockaddr: MutPtr<sockaddr>, usockaddr_len: MutPtr<I32>) -> AbiResult {
+    syscall(51, fd, usockaddr, usockaddr_len)
+}
+
+unsafe fn getpeername(fd: I32, usockaddr: MutPtr<sockaddr>, usockaddr_len: MutPtr<I32>) -> AbiResult {
+    syscall(52, fd, usockaddr, usockaddr_len)
+}
+
+unsafe fn socketpair(family: I32, type: I32, protocol: I32, usockvec: MutPtr<I32>) -> AbiResult {
+    syscall(53, family, type, protocol, usockvec)
+}
+
+unsafe fn setsockopt(fd: I32, level: I32, optname: I32, optval: MutPtr<CChar>, optlen: I32) -> AbiResult {
+    syscall(54, fd, level, optname, optval, optlen)
+}
+
+unsafe fn getsockopt(fd: I32, level: I32, optname: I32, optval: MutPtr<CChar>, optlen: MutPtr<I32>) -> AbiResult {
+    syscall(55, fd, level, optname, optval, optlen)
+}
+
+unsafe fn clone(clone_flags: U64, newsp: U64, parent_tidptr: MutPtr<I32>, tls: U64, child_tidptr: MutPtr<I32>) -> AbiResult {
+    syscall(56, clone_flags, newsp, parent_tidptr, tls, child_tidptr)
+}
+
+unsafe fn fork() -> AbiResult {
+    syscall(57)
+}
+
+stackless fn vfork() -> AbiResult {
+    syscall(58)
+}
+
+unsafe fn execve(filename: ConstPtr<CChar>, argv: ConstPtr<ConstPtr<CChar>>, envp: ConstPtr<ConstPtr<CChar>>) -> AbiResult {
+    syscall(59, filename, argv, envp)
+}
+
+unsafe fn exit(error_code: I32) -> AbiResult {
+    syscall(60, error_code)
+}
+
+unsafe fn wait4(upid: I32, stat_addr: MutPtr<I32>, options: I32, ru: MutPtr<rusage>) -> AbiResult {
+    syscall(61, upid, stat_addr, options, ru)
+}
+
+unsafe fn kill(pid: I32, sig: I32) -> AbiResult {
+    syscall(62, pid, sig)
+}
+
+unsafe fn uname(name: MutPtr<new_utsname>) -> AbiResult {
+    syscall(63, name)
+}
+
+unsafe fn semget(key: I32, nsems: I32, semflg: I32) -> AbiResult {
+    syscall(64, key, nsems, semflg)
+}
+
+unsafe fn semop(semid: I32, tsops: MutPtr<sembuf>, nsops: U32) -> AbiResult {
+    syscall(65, semid, tsops, nsops)
+}
+
+unsafe fn semctl(semid: I32, semnum: I32, cmd: I32, arg: U64) -> AbiResult {
+    syscall(66, semid, semnum, cmd, arg)
+}
+
+unsafe fn shmdt(shmaddr: MutPtr<CChar>) -> AbiResult {
+    syscall(67, shmaddr)
+}
+
+unsafe fn msgget(key: I32, msgflg: I32) -> AbiResult {
+    syscall(68, key, msgflg)
+}
+
+unsafe fn msgsnd(msqid: I32, msgp: MutPtr<msgbuf>, msgsz: Usize, msgflg: I32) -> AbiResult {
+    syscall(69, msqid, msgp, msgsz, msgflg)
+}
+
+unsafe fn msgrcv(msqid: I32, msgp: MutPtr<msgbuf>, msgsz: Usize, msgtyp: I64, msgflg: I32) -> AbiResult {
+    syscall(70, msqid, msgp, msgsz, msgtyp, msgflg)
+}
+
+unsafe fn msgctl(msqid: I32, cmd: I32, buf: MutPtr<msqid_ds>) -> AbiResult {
+    syscall(71, msqid, cmd, buf)
+}
+
+unsafe fn fcntl(fd: U32, cmd: U32, arg: U64) -> AbiResult {
+    syscall(72, fd, cmd, arg)
+}
+
+unsafe fn flock(fd: U32, cmd: U32) -> AbiResult {
+    syscall(73, fd, cmd)
+}
+
+unsafe fn fsync(fd: U32) -> AbiResult {
+    syscall(74, fd)
+}
+
+unsafe fn fdatasync(fd: U32) -> AbiResult {
+    syscall(75, fd)
+}
+
+unsafe fn truncate(path: ConstPtr<CChar>, length: I64) -> AbiResult {
+    syscall(76, path, length)
+}
+
+unsafe fn ftruncate(fd: U32, length: I64) -> AbiResult {
+    syscall(77, fd, length)
+}
+
+unsafe fn getdents(fd: U32, dirent: MutPtr<linux_dirent>, count: U32) -> AbiResult {
+    syscall(78, fd, dirent, count)
+}
+
+unsafe fn getcwd(buf: MutPtr<CChar>, size: U64) -> AbiResult {
+    syscall(79, buf, size)
+}
+
+unsafe fn chdir(filename: ConstPtr<CChar>) -> AbiResult {
+    syscall(80, filename)
+}
+
+unsafe fn fchdir(fd: U32) -> AbiResult {
+    syscall(81, fd)
+}
+
+unsafe fn rename(oldname: ConstPtr<CChar>, newname: ConstPtr<CChar>) -> AbiResult {
+    syscall(82, oldname, newname)
+}
+
+unsafe fn mkdir(pathname: ConstPtr<CChar>, mode: U16) -> AbiResult {
+    syscall(83, pathname, mode)
+}
+
+unsafe fn rmdir(pathname: ConstPtr<CChar>) -> AbiResult {
+    syscall(84, pathname)
+}
+
+unsafe fn creat(pathname: ConstPtr<CChar>, mode: U16) -> AbiResult {
+    syscall(85, pathname, mode)
+}
+
+unsafe fn link(oldname: ConstPtr<CChar>, newname: ConstPtr<CChar>) -> AbiResult {
+    syscall(86, oldname, newname)
+}
+
+unsafe fn unlink(pathname: ConstPtr<CChar>) -> AbiResult {
+    syscall(87, pathname)
+}
+
+unsafe fn symlink(oldname: ConstPtr<CChar>, newname: ConstPtr<CChar>) -> AbiResult {
+    syscall(88, oldname, newname)
+}
+
+unsafe fn readlink(path: ConstPtr<CChar>, buf: MutPtr<CChar>, bufsiz: I32) -> AbiResult {
+    syscall(89, path, buf, bufsiz)
+}
+
+unsafe fn chmod(filename: ConstPtr<CChar>, mode: U16) -> AbiResult {
+    syscall(90, filename, mode)
+}
+
+unsafe fn fchmod(fd: U32, mode: U16) -> AbiResult {
+    syscall(91, fd, mode)
+}
+
+unsafe fn chown(filename: ConstPtr<CChar>, user: U32, group: U32) -> AbiResult {
+    syscall(92, filename, user, group)
+}
+
+unsafe fn fchown(fd: U32, user: U32, group: U32) -> AbiResult {
+    syscall(93, fd, user, group)
+}
+
+unsafe fn lchown(filename: ConstPtr<CChar>, user: U32, group: U32) -> AbiResult {
+    syscall(94, filename, user, group)
+}
+
+unsafe fn umask(mask: I32) -> AbiResult {
+    syscall(95, mask)
+}
+
+unsafe fn gettimeofday(tv: MutPtr<__kernel_old_timeval>, tz: MutPtr<timezone>) -> AbiResult {
+    syscall(96, tv, tz)
+}
+
+unsafe fn getrlimit(resource: U32, rlim: MutPtr<rlimit>) -> AbiResult {
+    syscall(97, resource, rlim)
+}
+
+unsafe fn getrusage(who: I32, ru: MutPtr<rusage>) -> AbiResult {
+    syscall(98, who, ru)
+}
+
+unsafe fn sysinfo(info: MutPtr<sysinfo>) -> AbiResult {
+    syscall(99, info)
+}
+
+unsafe fn times(tbuf: MutPtr<tms>) -> AbiResult {
+    syscall(100, tbuf)
+}
+
+unsafe fn ptrace(request: I64, pid: I64, addr: U64, data: U64) -> AbiResult {
+    syscall(101, request, pid, addr, data)
+}
+
+unsafe fn getuid() -> AbiResult {
+    syscall(102)
+}
+
+unsafe fn syslog(type: I32, buf: MutPtr<CChar>, len: I32) -> AbiResult {
+    syscall(103, type, buf, len)
+}
+
+unsafe fn getgid() -> AbiResult {
+    syscall(104)
+}
+
+unsafe fn setuid(uid: U32) -> AbiResult {
+    syscall(105, uid)
+}
+
+unsafe fn setgid(gid: U32) -> AbiResult {
+    syscall(106, gid)
+}
+
+unsafe fn geteuid() -> AbiResult {
+    syscall(107)
+}
+
+unsafe fn getegid() -> AbiResult {
+    syscall(108)
+}
+
+unsafe fn setpgid(pid: I32, pgid: I32) -> AbiResult {
+    syscall(109, pid, pgid)
+}
+
+unsafe fn getppid() -> AbiResult {
+    syscall(110)
+}
+
+unsafe fn getpgrp() -> AbiResult {
+    syscall(111)
+}
+
+unsafe fn setsid() -> AbiResult {
+    syscall(112)
+}
+
+unsafe fn setreuid(ruid: U32, euid: U32) -> AbiResult {
+    syscall(113, ruid, euid)
+}
+
+unsafe fn setregid(rgid: U32, egid: U32) -> AbiResult {
+    syscall(114, rgid, egid)
+}
+
+unsafe fn getgroups(gidsetsize: I32, grouplist: MutPtr<U32>) -> AbiResult {
+    syscall(115, gidsetsize, grouplist)
+}
+
+unsafe fn setgroups(gidsetsize: I32, grouplist: MutPtr<U32>) -> AbiResult {
+    syscall(116, gidsetsize, grouplist)
+}
+
+unsafe fn setresuid(ruid: U32, euid: U32, suid: U32) -> AbiResult {
+    syscall(117, ruid, euid, suid)
+}
+
+unsafe fn getresuid(ruidp: MutPtr<U32>, euidp: MutPtr<U32>, suidp: MutPtr<U32>) -> AbiResult {
+    syscall(118, ruidp, euidp, suidp)
+}
+
+unsafe fn setresgid(rgid: U32, egid: U32, sgid: U32) -> AbiResult {
+    syscall(119, rgid, egid, sgid)
+}
+
+unsafe fn getresgid(rgidp: MutPtr<U32>, egidp: MutPtr<U32>, sgidp: MutPtr<U32>) -> AbiResult {
+    syscall(120, rgidp, egidp, sgidp)
+}
+
+unsafe fn getpgid(pid: I32) -> AbiResult {
+    syscall(121, pid)
+}
+
+unsafe fn setfsuid(uid: U32) -> AbiResult {
+    syscall(122, uid)
+}
+
+unsafe fn setfsgid(gid: U32) -> AbiResult {
+    syscall(123, gid)
+}
+
+unsafe fn getsid(pid: I32) -> AbiResult {
+    syscall(124, pid)
+}
+
+unsafe fn capget(header: MutPtr<__user_cap_header_struct>, dataptr: MutPtr<__user_cap_data_struct>) -> AbiResult {
+    syscall(125, header, dataptr)
+}
+
+unsafe fn capset(header: MutPtr<__user_cap_header_struct>, data: MutPtr<__user_cap_data_struct>) -> AbiResult {
+    syscall(126, header, data)
+}
+
+unsafe fn rt_sigpending(uset: MutPtr<sigset_t>, sigsetsize: Usize) -> AbiResult {
+    syscall(127, uset, sigsetsize)
+}
+
+unsafe fn rt_sigtimedwait(uthese: ConstPtr<sigset_t>, uinfo: MutPtr<siginfo_t>, uts: ConstPtr<__kernel_timespec>, sigsetsize: Usize) -> AbiResult {
+    syscall(128, uthese, uinfo, uts, sigsetsize)
+}
+
+unsafe fn rt_sigqueueinfo(pid: I32, sig: I32, uinfo: MutPtr<siginfo_t>) -> AbiResult {
+    syscall(129, pid, sig, uinfo)
+}
+
+unsafe fn rt_sigsuspend(unewset: MutPtr<sigset_t>, sigsetsize: Usize) -> AbiResult {
+    syscall(130, unewset, sigsetsize)
+}
+
+unsafe fn sigaltstack(uss: ConstPtr<stack_t>, uoss: MutPtr<stack_t>) -> AbiResult {
+    syscall(131, uss, uoss)
+}
+
+unsafe fn utime(filename: MutPtr<CChar>, times: MutPtr<utimbuf>) -> AbiResult {
+    syscall(132, filename, times)
+}
+
+unsafe fn mknod(filename: ConstPtr<CChar>, mode: U16, dev: U32) -> AbiResult {
+    syscall(133, filename, mode, dev)
+}
+
+unsafe fn personality(personality: U32) -> AbiResult {
+    syscall(135, personality)
+}
+
+unsafe fn ustat(dev: U32, ubuf: MutPtr<ustat>) -> AbiResult {
+    syscall(136, dev, ubuf)
+}
+
+unsafe fn statfs(pathname: ConstPtr<CChar>, buf: MutPtr<statfs>) -> AbiResult {
+    syscall(137, pathname, buf)
+}
+
+unsafe fn fstatfs(fd: U32, buf: MutPtr<statfs>) -> AbiResult {
+    syscall(138, fd, buf)
+}
+
+unsafe fn sysfs(option: I32, arg1: U64, arg2: U64) -> AbiResult {
+    syscall(139, option, arg1, arg2)
+}
+
+unsafe fn getpriority(which: I32, who: I32) -> AbiResult {
+    syscall(140, which, who)
+}
+
+unsafe fn setpriority(which: I32, who: I32, niceval: I32) -> AbiResult {
+    syscall(141, which, who, niceval)
+}
+
+unsafe fn sched_setparam(pid: I32, param: MutPtr<sched_param>) -> AbiResult {
+    syscall(142, pid, param)
+}
+
+unsafe fn sched_getparam(pid: I32, param: MutPtr<sched_param>) -> AbiResult {
+    syscall(143, pid, param)
+}
+
+unsafe fn sched_setscheduler(pid: I32, policy: I32, param: MutPtr<sched_param>) -> AbiResult {
+    syscall(144, pid, policy, param)
+}
+
+unsafe fn sched_getscheduler(pid: I32) -> AbiResult {
+    syscall(145, pid)
+}
+
+unsafe fn sched_get_priority_max(policy: I32) -> AbiResult {
+    syscall(146, policy)
+}
+
+unsafe fn sched_get_priority_min(policy: I32) -> AbiResult {
+    syscall(147, policy)
+}
+
+unsafe fn sched_rr_get_interval(pid: I32, interval: MutPtr<__kernel_timespec>) -> AbiResult {
+    syscall(148, pid, interval)
+}
+
+unsafe fn mlock(start: U64, len: Usize) -> AbiResult {
+    syscall(149, start, len)
+}
+
+unsafe fn munlock(start: U64, len: Usize) -> AbiResult {
+    syscall(150, start, len)
+}
+
+unsafe fn mlockall(flags: I32) -> AbiResult {
+    syscall(151, flags)
+}
+
+unsafe fn munlockall() -> AbiResult {
+    syscall(152)
+}
+
+unsafe fn vhangup() -> AbiResult {
+    syscall(153)
+}
+
+unsafe fn modify_ldt(func: I32, ptr: MutPtr<Void>, bytecount: U64) -> AbiResult {
+    syscall(154, func, ptr, bytecount)
+}
+
+unsafe fn pivot_root(new_root: ConstPtr<CChar>, put_old: ConstPtr<CChar>) -> AbiResult {
+    syscall(155, new_root, put_old)
+}
+
+unsafe fn prctl(option: I32, arg2: U64, arg3: U64, arg4: U64, arg5: U64) -> AbiResult {
+    syscall(157, option, arg2, arg3, arg4, arg5)
+}
+
+unsafe fn arch_prctl(option: I32, arg2: U64) -> AbiResult {
+    syscall(158, option, arg2)
+}
+
+unsafe fn adjtimex(txc_p: MutPtr<__kernel_timex>) -> AbiResult {
+    syscall(159, txc_p)
+}
+
+unsafe fn setrlimit(resource: U32, rlim: MutPtr<rlimit>) -> AbiResult {
+    syscall(160, resource, rlim)
+}
+
+unsafe fn chroot(filename: ConstPtr<CChar>) -> AbiResult {
+    syscall(161, filename)
+}
+
+unsafe fn sync() -> AbiResult {
+    syscall(162)
+}
+
+unsafe fn acct(name: ConstPtr<CChar>) -> AbiResult {
+    syscall(163, name)
+}
+
+unsafe fn settimeofday(tv: MutPtr<__kernel_old_timeval>, tz: MutPtr<timezone>) -> AbiResult {
+    syscall(164, tv, tz)
+}
+
+unsafe fn mount(dev_name: MutPtr<CChar>, dir_name: MutPtr<CChar>, type: MutPtr<CChar>, flags: U64, data: MutPtr<Void>) -> AbiResult {
+    syscall(165, dev_name, dir_name, type, flags, data)
+}
+
+unsafe fn umount2(name: MutPtr<CChar>, flags: I32) -> AbiResult {
+    syscall(166, name, flags)
+}
+
+unsafe fn swapon(specialfile: ConstPtr<CChar>, swap_flags: I32) -> AbiResult {
+    syscall(167, specialfile, swap_flags)
+}
+
+unsafe fn swapoff(specialfile: ConstPtr<CChar>) -> AbiResult {
+    syscall(168, specialfile)
+}
+
+unsafe fn reboot(magic1: I32, magic2: I32, cmd: U32, arg: MutPtr<Void>) -> AbiResult {
+    syscall(169, magic1, magic2, cmd, arg)
+}
+
+unsafe fn sethostname(name: MutPtr<CChar>, len: I32) -> AbiResult {
+    syscall(170, name, len)
+}
+
+unsafe fn setdomainname(name: MutPtr<CChar>, len: I32) -> AbiResult {
+    syscall(171, name, len)
+}
+
+unsafe fn iopl(level: U32) -> AbiResult {
+    syscall(172, level)
+}
+
+unsafe fn ioperm(from: U64, num: U64, turn_on: I32) -> AbiResult {
+    syscall(173, from, num, turn_on)
+}
+
+unsafe fn init_module(umod: MutPtr<Void>, len: U64, uargs: ConstPtr<CChar>) -> AbiResult {
+    syscall(175, umod, len, uargs)
+}
+
+unsafe fn delete_module(name_user: ConstPtr<CChar>, flags: U32) -> AbiResult {
+    syscall(176, name_user, flags)
+}
+
+unsafe fn quotactl(cmd: U32, special: ConstPtr<CChar>, id: U32, addr: MutPtr<Void>) -> AbiResult {
+    syscall(179, cmd, special, id, addr)
+}
+
+unsafe fn gettid() -> AbiResult {
+    syscall(186)
+}
+
+unsafe fn readahead(fd: I32, offset: I64, count: Usize) -> AbiResult {
+    syscall(187, fd, offset, count)
+}
+
+unsafe fn setxattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>, value: ConstPtr<Void>, size: Usize, flags: I32) -> AbiResult {
+    syscall(188, pathname, name, value, size, flags)
+}
+
+unsafe fn lsetxattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>, value: ConstPtr<Void>, size: Usize, flags: I32) -> AbiResult {
+    syscall(189, pathname, name, value, size, flags)
+}
+
+unsafe fn fsetxattr(fd: I32, name: ConstPtr<CChar>, value: ConstPtr<Void>, size: Usize, flags: I32) -> AbiResult {
+    syscall(190, fd, name, value, size, flags)
+}
+
+unsafe fn getxattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>, value: MutPtr<Void>, size: Usize) -> AbiResult {
+    syscall(191, pathname, name, value, size)
+}
+
+unsafe fn lgetxattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>, value: MutPtr<Void>, size: Usize) -> AbiResult {
+    syscall(192, pathname, name, value, size)
+}
+
+unsafe fn fgetxattr(fd: I32, name: ConstPtr<CChar>, value: MutPtr<Void>, size: Usize) -> AbiResult {
+    syscall(193, fd, name, value, size)
+}
+
+unsafe fn listxattr(pathname: ConstPtr<CChar>, list: MutPtr<CChar>, size: Usize) -> AbiResult {
+    syscall(194, pathname, list, size)
+}
+
+unsafe fn llistxattr(pathname: ConstPtr<CChar>, list: MutPtr<CChar>, size: Usize) -> AbiResult {
+    syscall(195, pathname, list, size)
+}
+
+unsafe fn flistxattr(fd: I32, list: MutPtr<CChar>, size: Usize) -> AbiResult {
+    syscall(196, fd, list, size)
+}
+
+unsafe fn removexattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>) -> AbiResult {
+    syscall(197, pathname, name)
+}
+
+unsafe fn lremovexattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>) -> AbiResult {
+    syscall(198, pathname, name)
+}
+
+unsafe fn fremovexattr(fd: I32, name: ConstPtr<CChar>) -> AbiResult {
+    syscall(199, fd, name)
+}
+
+unsafe fn tkill(pid: I32, sig: I32) -> AbiResult {
+    syscall(200, pid, sig)
+}
+
+unsafe fn time(tloc: MutPtr<I64>) -> AbiResult {
+    syscall(201, tloc)
+}
+
+unsafe fn futex(uaddr: MutPtr<U32>, op: I32, val: U32, utime: ConstPtr<__kernel_timespec>, uaddr2: MutPtr<U32>, val3: U32) -> AbiResult {
+    syscall(202, uaddr, op, val, utime, uaddr2, val3)
+}
+
+unsafe fn sched_setaffinity(pid: I32, len: U32, user_mask_ptr: MutPtr<U64>) -> AbiResult {
+    syscall(203, pid, len, user_mask_ptr)
+}
+
+unsafe fn sched_getaffinity(pid: I32, len: U32, user_mask_ptr: MutPtr<U64>) -> AbiResult {
+    syscall(204, pid, len, user_mask_ptr)
+}
+
+unsafe fn io_setup(nr_events: U32, ctxp: MutPtr<U64>) -> AbiResult {
+    syscall(206, nr_events, ctxp)
+}
+
+unsafe fn io_destroy(ctx: U64) -> AbiResult {
+    syscall(207, ctx)
+}
+
+unsafe fn io_getevents(ctx_id: U64, min_nr: I64, nr: I64, events: MutPtr<io_event>, timeout: MutPtr<__kernel_timespec>) -> AbiResult {
+    syscall(208, ctx_id, min_nr, nr, events, timeout)
+}
+
+unsafe fn io_submit(ctx_id: U64, nr: I64, iocbpp: MutPtr<MutPtr<iocb>>) -> AbiResult {
+    syscall(209, ctx_id, nr, iocbpp)
+}
+
+unsafe fn io_cancel(ctx_id: U64, iocb: MutPtr<iocb>, result: MutPtr<io_event>) -> AbiResult {
+    syscall(210, ctx_id, iocb, result)
+}
+
+unsafe fn epoll_create(size: I32) -> AbiResult {
+    syscall(213, size)
+}
+
+unsafe fn remap_file_pages(start: U64, size: U64, prot: U64, pgoff: U64, flags: U64) -> AbiResult {
+    syscall(216, start, size, prot, pgoff, flags)
+}
+
+unsafe fn getdents64(fd: U32, dirent: MutPtr<linux_dirent64>, count: U32) -> AbiResult {
+    syscall(217, fd, dirent, count)
+}
+
+unsafe fn set_tid_address(tidptr: MutPtr<I32>) -> AbiResult {
+    syscall(218, tidptr)
+}
+
+unsafe fn restart_syscall() -> AbiResult {
+    syscall(219)
+}
+
+unsafe fn semtimedop(semid: I32, tsops: MutPtr<sembuf>, nsops: U32, timeout: ConstPtr<__kernel_timespec>) -> AbiResult {
+    syscall(220, semid, tsops, nsops, timeout)
+}
+
+unsafe fn fadvise64(fd: I32, offset: I64, len: Usize, advice: I32) -> AbiResult {
+    syscall(221, fd, offset, len, advice)
+}
+
+unsafe fn timer_create(which_clock: I32, timer_event_spec: MutPtr<sigevent>, created_timer_id: MutPtr<I32>) -> AbiResult {
+    syscall(222, which_clock, timer_event_spec, created_timer_id)
+}
+
+unsafe fn timer_settime(timer_id: I32, flags: I32, new_setting: ConstPtr<__kernel_itimerspec>, old_setting: MutPtr<__kernel_itimerspec>) -> AbiResult {
+    syscall(223, timer_id, flags, new_setting, old_setting)
+}
+
+unsafe fn timer_gettime(timer_id: I32, setting: MutPtr<__kernel_itimerspec>) -> AbiResult {
+    syscall(224, timer_id, setting)
+}
+
+unsafe fn timer_getoverrun(timer_id: I32) -> AbiResult {
+    syscall(225, timer_id)
+}
+
+unsafe fn timer_delete(timer_id: I32) -> AbiResult {
+    syscall(226, timer_id)
+}
+
+unsafe fn clock_settime(which_clock: I32, tp: ConstPtr<__kernel_timespec>) -> AbiResult {
+    syscall(227, which_clock, tp)
+}
+
+unsafe fn clock_gettime(which_clock: I32, tp: MutPtr<__kernel_timespec>) -> AbiResult {
+    syscall(228, which_clock, tp)
+}
+
+unsafe fn clock_getres(which_clock: I32, tp: MutPtr<__kernel_timespec>) -> AbiResult {
+    syscall(229, which_clock, tp)
+}
+
+unsafe fn clock_nanosleep(which_clock: I32, flags: I32, rqtp: ConstPtr<__kernel_timespec>, rmtp: MutPtr<__kernel_timespec>) -> AbiResult {
+    syscall(230, which_clock, flags, rqtp, rmtp)
+}
+
+unsafe fn exit_group(error_code: I32) -> AbiResult {
+    syscall(231, error_code)
+}
+
+unsafe fn epoll_wait(epfd: I32, events: MutPtr<epoll_event>, maxevents: I32, timeout: I32) -> AbiResult {
+    syscall(232, epfd, events, maxevents, timeout)
+}
+
+unsafe fn epoll_ctl(epfd: I32, op: I32, fd: I32, event: MutPtr<epoll_event>) -> AbiResult {
+    syscall(233, epfd, op, fd, event)
+}
+
+unsafe fn tgkill(tgid: I32, pid: I32, sig: I32) -> AbiResult {
+    syscall(234, tgid, pid, sig)
+}
+
+unsafe fn utimes(filename: MutPtr<CChar>, utimes: MutPtr<__kernel_old_timeval>) -> AbiResult {
+    syscall(235, filename, utimes)
+}
+
+unsafe fn mbind(start: U64, len: U64, mode: U64, nmask: ConstPtr<U64>, maxnode: U64, flags: U32) -> AbiResult {
+    syscall(237, start, len, mode, nmask, maxnode, flags)
+}
+
+unsafe fn set_mempolicy(mode: I32, nmask: ConstPtr<U64>, maxnode: U64) -> AbiResult {
+    syscall(238, mode, nmask, maxnode)
+}
+
+unsafe fn get_mempolicy(policy: MutPtr<I32>, nmask: MutPtr<U64>, maxnode: U64, addr: U64, flags: U64) -> AbiResult {
+    syscall(239, policy, nmask, maxnode, addr, flags)
+}
+
+unsafe fn mq_open(u_name: ConstPtr<CChar>, oflag: I32, mode: U16, u_attr: MutPtr<mq_attr>) -> AbiResult {
+    syscall(240, u_name, oflag, mode, u_attr)
+}
+
+unsafe fn mq_unlink(u_name: ConstPtr<CChar>) -> AbiResult {
+    syscall(241, u_name)
+}
+
+unsafe fn mq_timedsend(mqdes: I32, u_msg_ptr: ConstPtr<CChar>, msg_len: Usize, msg_prio: U32, u_abs_timeout: ConstPtr<__kernel_timespec>) -> AbiResult {
+    syscall(242, mqdes, u_msg_ptr, msg_len, msg_prio, u_abs_timeout)
+}
+
+unsafe fn mq_timedreceive(mqdes: I32, u_msg_ptr: MutPtr<CChar>, msg_len: Usize, u_msg_prio: MutPtr<U32>, u_abs_timeout: ConstPtr<__kernel_timespec>) -> AbiResult {
+    syscall(243, mqdes, u_msg_ptr, msg_len, u_msg_prio, u_abs_timeout)
+}
+
+unsafe fn mq_notify(mqdes: I32, u_notification: ConstPtr<sigevent>) -> AbiResult {
+    syscall(244, mqdes, u_notification)
+}
+
+unsafe fn mq_getsetattr(mqdes: I32, u_mqstat: ConstPtr<mq_attr>, u_omqstat: MutPtr<mq_attr>) -> AbiResult {
+    syscall(245, mqdes, u_mqstat, u_omqstat)
+}
+
+unsafe fn kexec_load(entry: U64, nr_segments: U64, segments: MutPtr<kexec_segment>, flags: U64) -> AbiResult {
+    syscall(246, entry, nr_segments, segments, flags)
+}
+
+unsafe fn waitid(which: I32, upid: I32, infop: MutPtr<siginfo>, options: I32, ru: MutPtr<rusage>) -> AbiResult {
+    syscall(247, which, upid, infop, options, ru)
+}
+
+unsafe fn add_key(_type: ConstPtr<CChar>, _description: ConstPtr<CChar>, _payload: ConstPtr<Void>, plen: Usize, ringid: I32) -> AbiResult {
+    syscall(248, _type, _description, _payload, plen, ringid)
+}
+
+unsafe fn request_key(_type: ConstPtr<CChar>, _description: ConstPtr<CChar>, _callout_info: ConstPtr<CChar>, destringid: I32) -> AbiResult {
+    syscall(249, _type, _description, _callout_info, destringid)
+}
+
+unsafe fn keyctl(option: I32, arg2: U64, arg3: U64, arg4: U64, arg5: U64) -> AbiResult {
+    syscall(250, option, arg2, arg3, arg4, arg5)
+}
+
+unsafe fn ioprio_set(which: I32, who: I32, ioprio: I32) -> AbiResult {
+    syscall(251, which, who, ioprio)
+}
+
+unsafe fn ioprio_get(which: I32, who: I32) -> AbiResult {
+    syscall(252, which, who)
+}
+
+unsafe fn inotify_init() -> AbiResult {
+    syscall(253)
+}
+
+unsafe fn inotify_add_watch(fd: I32, pathname: ConstPtr<CChar>, mask: U32) -> AbiResult {
+    syscall(254, fd, pathname, mask)
+}
+
+unsafe fn inotify_rm_watch(fd: I32, wd: I32) -> AbiResult {
+    syscall(255, fd, wd)
+}
+
+unsafe fn migrate_pages(pid: I32, maxnode: U64, old_nodes: ConstPtr<U64>, new_nodes: ConstPtr<U64>) -> AbiResult {
+    syscall(256, pid, maxnode, old_nodes, new_nodes)
+}
+
+unsafe fn openat(dfd: I32, path: CString, flags: I32, mode: U16) -> AbiResult {
+    syscall(257, dfd, path, flags, mode)
+}
+
+unsafe fn mkdirat(dfd: I32, pathname: ConstPtr<CChar>, mode: U16) -> AbiResult {
+    syscall(258, dfd, pathname, mode)
+}
+
+unsafe fn mknodat(dfd: I32, filename: ConstPtr<CChar>, mode: U16, dev: U32) -> AbiResult {
+    syscall(259, dfd, filename, mode, dev)
+}
+
+unsafe fn fchownat(dfd: I32, filename: ConstPtr<CChar>, user: U32, group: U32, flag: I32) -> AbiResult {
+    syscall(260, dfd, filename, user, group, flag)
+}
+
+unsafe fn futimesat(dfd: I32, filename: ConstPtr<CChar>, utimes: MutPtr<__kernel_old_timeval>) -> AbiResult {
+    syscall(261, dfd, filename, utimes)
+}
+
+unsafe fn newfstatat(dfd: I32, filename: ConstPtr<CChar>, statbuf: MutPtr<stat>, flag: I32) -> AbiResult {
+    syscall(262, dfd, filename, statbuf, flag)
+}
+
+unsafe fn unlinkat(dfd: I32, pathname: ConstPtr<CChar>, flag: I32) -> AbiResult {
+    syscall(263, dfd, pathname, flag)
+}
+
+unsafe fn renameat(olddfd: I32, oldname: ConstPtr<CChar>, newdfd: I32, newname: ConstPtr<CChar>) -> AbiResult {
+    syscall(264, olddfd, oldname, newdfd, newname)
+}
+
+unsafe fn linkat(olddfd: I32, oldname: ConstPtr<CChar>, newdfd: I32, newname: ConstPtr<CChar>, flags: I32) -> AbiResult {
+    syscall(265, olddfd, oldname, newdfd, newname, flags)
+}
+
+unsafe fn symlinkat(oldname: ConstPtr<CChar>, newdfd: I32, newname: ConstPtr<CChar>) -> AbiResult {
+    syscall(266, oldname, newdfd, newname)
+}
+
+unsafe fn readlinkat(dfd: I32, pathname: ConstPtr<CChar>, buf: MutPtr<CChar>, bufsiz: I32) -> AbiResult {
+    syscall(267, dfd, pathname, buf, bufsiz)
+}
+
+unsafe fn fchmodat(dfd: I32, filename: ConstPtr<CChar>, mode: U16) -> AbiResult {
+    syscall(268, dfd, filename, mode)
+}
+
+unsafe fn faccessat(dfd: I32, filename: ConstPtr<CChar>, mode: I32) -> AbiResult {
+    syscall(269, dfd, filename, mode)
+}
+
+unsafe fn pselect6(n: I32, inp: MutPtr<fd_set>, outp: MutPtr<fd_set>, exp: MutPtr<fd_set>, tsp: MutPtr<__kernel_timespec>, sig: MutPtr<Void>) -> AbiResult {
+    syscall(270, n, inp, outp, exp, tsp, sig)
+}
+
+unsafe fn ppoll(ufds: MutPtr<pollfd>, nfds: U32, tsp: MutPtr<__kernel_timespec>, sigmask: ConstPtr<sigset_t>, sigsetsize: Usize) -> AbiResult {
+    syscall(271, ufds, nfds, tsp, sigmask, sigsetsize)
+}
+
+unsafe fn unshare(unshare_flags: U64) -> AbiResult {
+    syscall(272, unshare_flags)
+}
+
+unsafe fn set_robust_list(head: MutPtr<robust_list_head>, len: Usize) -> AbiResult {
+    syscall(273, head, len)
+}
+
+unsafe fn get_robust_list(pid: I32, head_ptr: MutPtr<MutPtr<robust_list_head>>, len_ptr: MutPtr<Usize>) -> AbiResult {
+    syscall(274, pid, head_ptr, len_ptr)
+}
+
+unsafe fn splice(fd_in: I32, off_in: MutPtr<I64>, fd_out: I32, off_out: MutPtr<I64>, len: Usize, flags: U32) -> AbiResult {
+    syscall(275, fd_in, off_in, fd_out, off_out, len, flags)
+}
+
+unsafe fn tee(fdin: I32, fdout: I32, len: Usize, flags: U32) -> AbiResult {
+    syscall(276, fdin, fdout, len, flags)
+}
+
+unsafe fn sync_file_range(fd: I32, offset: I64, nbytes: I64, flags: U32) -> AbiResult {
+    syscall(277, fd, offset, nbytes, flags)
+}
+
+unsafe fn vmsplice(fd: I32, uiov: ConstPtr<iovec>, nr_segs: U64, flags: U32) -> AbiResult {
+    syscall(278, fd, uiov, nr_segs, flags)
+}
+
+unsafe fn move_pages(pid: I32, nr_pages: U64, pages: MutPtr<ConstPtr<Void>>, nodes: ConstPtr<I32>, status: MutPtr<I32>, flags: I32) -> AbiResult {
+    syscall(279, pid, nr_pages, pages, nodes, status, flags)
+}
+
+unsafe fn utimensat(dfd: I32, filename: ConstPtr<CChar>, utimes: MutPtr<__kernel_timespec>, flags: I32) -> AbiResult {
+    syscall(280, dfd, filename, utimes, flags)
+}
+
+unsafe fn epoll_pwait(epfd: I32, events: MutPtr<epoll_event>, maxevents: I32, timeout: I32, sigmask: ConstPtr<sigset_t>, sigsetsize: Usize) -> AbiResult {
+    syscall(281, epfd, events, maxevents, timeout, sigmask, sigsetsize)
+}
+
+unsafe fn signalfd(ufd: I32, user_mask: MutPtr<sigset_t>, sizemask: Usize) -> AbiResult {
+    syscall(282, ufd, user_mask, sizemask)
+}
+
+unsafe fn timerfd_create(clockid: I32, flags: I32) -> AbiResult {
+    syscall(283, clockid, flags)
+}
+
+unsafe fn eventfd(count: U32) -> AbiResult {
+    syscall(284, count)
+}
+
+unsafe fn fallocate(fd: I32, mode: I32, offset: I64, len: I64) -> AbiResult {
+    syscall(285, fd, mode, offset, len)
+}
+
+unsafe fn timerfd_settime(ufd: I32, flags: I32, utmr: ConstPtr<__kernel_itimerspec>, otmr: MutPtr<__kernel_itimerspec>) -> AbiResult {
+    syscall(286, ufd, flags, utmr, otmr)
+}
+
+unsafe fn timerfd_gettime(ufd: I32, otmr: MutPtr<__kernel_itimerspec>) -> AbiResult {
+    syscall(287, ufd, otmr)
+}
+
+unsafe fn accept4(fd: I32, upeer_sockaddr: MutPtr<sockaddr>, upeer_addrlen: MutPtr<I32>, flags: I32) -> AbiResult {
+    syscall(288, fd, upeer_sockaddr, upeer_addrlen, flags)
+}
+
+unsafe fn signalfd4(ufd: I32, user_mask: MutPtr<sigset_t>, sizemask: Usize, flags: I32) -> AbiResult {
+    syscall(289, ufd, user_mask, sizemask, flags)
+}
+
+unsafe fn eventfd2(count: U32, flags: I32) -> AbiResult {
+    syscall(290, count, flags)
+}
+
+unsafe fn epoll_create1(flags: I32) -> AbiResult {
+    syscall(291, flags)
+}
+
+unsafe fn dup3(oldfd: U32, newfd: U32, flags: I32) -> AbiResult {
+    syscall(292, oldfd, newfd, flags)
+}
+
+unsafe fn pipe2(fildes: MutPtr<I32>, flags: I32) -> AbiResult {
+    syscall(293, fildes, flags)
+}
+
+unsafe fn inotify_init1(flags: I32) -> AbiResult {
+    syscall(294, flags)
+}
+
+unsafe fn preadv(fd: U64, vec: ConstPtr<iovec>, vlen: U64, pos_l: U64, pos_h: U64) -> AbiResult {
+    syscall(295, fd, vec, vlen, pos_l, pos_h)
+}
+
+unsafe fn pwritev(fd: U64, vec: ConstPtr<iovec>, vlen: U64, pos_l: U64, pos_h: U64) -> AbiResult {
+    syscall(296, fd, vec, vlen, pos_l, pos_h)
+}
+
+unsafe fn rt_tgsigqueueinfo(tgid: I32, pid: I32, sig: I32, uinfo: MutPtr<siginfo_t>) -> AbiResult {
+    syscall(297, tgid, pid, sig, uinfo)
+}
+
+unsafe fn perf_event_open(attr_uptr: MutPtr<perf_event_attr>, pid: I32, cpu: I32, group_fd: I32, flags: U64) -> AbiResult {
+    syscall(298, attr_uptr, pid, cpu, group_fd, flags)
+}
+
+unsafe fn recvmmsg(fd: I32, mmsg: MutPtr<mmsghdr>, vlen: U32, flags: U32, timeout: MutPtr<__kernel_timespec>) -> AbiResult {
+    syscall(299, fd, mmsg, vlen, flags, timeout)
+}
+
+unsafe fn fanotify_init(flags: U32, event_f_flags: U32) -> AbiResult {
+    syscall(300, flags, event_f_flags)
+}
+
+unsafe fn fanotify_mark(fanotify_fd: I32, flags: U32, mask: U64, dfd: I32, pathname: ConstPtr<CChar>) -> AbiResult {
+    syscall(301, fanotify_fd, flags, mask, dfd, pathname)
+}
+
+unsafe fn prlimit64(pid: I32, resource: U32, new_rlim: ConstPtr<rlimit64>, old_rlim: MutPtr<rlimit64>) -> AbiResult {
+    syscall(302, pid, resource, new_rlim, old_rlim)
+}
+
+unsafe fn name_to_handle_at(dfd: I32, name: ConstPtr<CChar>, handle: MutPtr<file_handle>, mnt_id: MutPtr<Void>, flag: I32) -> AbiResult {
+    syscall(303, dfd, name, handle, mnt_id, flag)
+}
+
+unsafe fn open_by_handle_at(mountdirfd: I32, handle: MutPtr<file_handle>, flags: I32) -> AbiResult {
+    syscall(304, mountdirfd, handle, flags)
+}
+
+unsafe fn clock_adjtime(which_clock: I32, utx: MutPtr<__kernel_timex>) -> AbiResult {
+    syscall(305, which_clock, utx)
+}
+
+unsafe fn syncfs(fd: I32) -> AbiResult {
+    syscall(306, fd)
+}
+
+unsafe fn sendmmsg(fd: I32, mmsg: MutPtr<mmsghdr>, vlen: U32, flags: U32) -> AbiResult {
+    syscall(307, fd, mmsg, vlen, flags)
+}
+
+unsafe fn setns(fd: I32, flags: I32) -> AbiResult {
+    syscall(308, fd, flags)
+}
+
+unsafe fn getcpu(cpup: MutPtr<U32>, nodep: MutPtr<U32>, unused: MutPtr<getcpu_cache>) -> AbiResult {
+    syscall(309, cpup, nodep, unused)
+}
+
+unsafe fn process_vm_readv(pid: I32, lvec: ConstPtr<iovec>, liovcnt: U64, rvec: ConstPtr<iovec>, riovcnt: U64, flags: U64) -> AbiResult {
+    syscall(310, pid, lvec, liovcnt, rvec, riovcnt, flags)
+}
+
+unsafe fn process_vm_writev(pid: I32, lvec: ConstPtr<iovec>, liovcnt: U64, rvec: ConstPtr<iovec>, riovcnt: U64, flags: U64) -> AbiResult {
+    syscall(311, pid, lvec, liovcnt, rvec, riovcnt, flags)
+}
+
+unsafe fn kcmp(pid1: I32, pid2: I32, type: I32, idx1: U64, idx2: U64) -> AbiResult {
+    syscall(312, pid1, pid2, type, idx1, idx2)
+}
+
+unsafe fn finit_module(fd: I32, uargs: ConstPtr<CChar>, flags: I32) -> AbiResult {
+    syscall(313, fd, uargs, flags)
+}
+
+unsafe fn sched_setattr(pid: I32, uattr: MutPtr<sched_attr>, flags: U32) -> AbiResult {
+    syscall(314, pid, uattr, flags)
+}
+
+unsafe fn sched_getattr(pid: I32, uattr: MutPtr<sched_attr>, usize: U32, flags: U32) -> AbiResult {
+    syscall(315, pid, uattr, usize, flags)
+}
+
+unsafe fn renameat2(olddfd: I32, oldname: ConstPtr<CChar>, newdfd: I32, newname: ConstPtr<CChar>, flags: U32) -> AbiResult {
+    syscall(316, olddfd, oldname, newdfd, newname, flags)
+}
+
+unsafe fn seccomp(op: U32, flags: U32, uargs: MutPtr<Void>) -> AbiResult {
+    syscall(317, op, flags, uargs)
+}
+
+unsafe fn getrandom(ubuf: MutPtr<CChar>, len: Usize, flags: U32) -> AbiResult {
+    syscall(318, ubuf, len, flags)
+}
+
+unsafe fn memfd_create(uname: ConstPtr<CChar>, flags: U32) -> AbiResult {
+    syscall(319, uname, flags)
+}
+
+unsafe fn kexec_file_load(kernel_fd: I32, initrd_fd: I32, cmdline_len: U64, cmdline_ptr: ConstPtr<CChar>, flags: U64) -> AbiResult {
+    syscall(320, kernel_fd, initrd_fd, cmdline_len, cmdline_ptr, flags)
+}
+
+unsafe fn bpf(cmd: I32, uattr: MutPtr<bpf_attr>, size: U32) -> AbiResult {
+    syscall(321, cmd, uattr, size)
+}
+
+unsafe fn execveat(fd: I32, filename: ConstPtr<CChar>, argv: ConstPtr<ConstPtr<CChar>>, envp: ConstPtr<ConstPtr<CChar>>, flags: I32) -> AbiResult {
+    syscall(322, fd, filename, argv, envp, flags)
+}
+
+unsafe fn userfaultfd(flags: I32) -> AbiResult {
+    syscall(323, flags)
+}
+
+unsafe fn membarrier(cmd: I32, flags: U32, cpu_id: I32) -> AbiResult {
+    syscall(324, cmd, flags, cpu_id)
+}
+
+unsafe fn mlock2(start: U64, len: Usize, flags: I32) -> AbiResult {
+    syscall(325, start, len, flags)
+}
+
+unsafe fn copy_file_range(fd_in: I32, off_in: MutPtr<I64>, fd_out: I32, off_out: MutPtr<I64>, len: Usize, flags: U32) -> AbiResult {
+    syscall(326, fd_in, off_in, fd_out, off_out, len, flags)
+}
+
+unsafe fn preadv2(fd: U64, vec: ConstPtr<iovec>, vlen: U64, pos_l: U64, pos_h: U64, flags: I32) -> AbiResult {
+    syscall(327, fd, vec, vlen, pos_l, pos_h, flags)
+}
+
+unsafe fn pwritev2(fd: U64, vec: ConstPtr<iovec>, vlen: U64, pos_l: U64, pos_h: U64, flags: I32) -> AbiResult {
+    syscall(328, fd, vec, vlen, pos_l, pos_h, flags)
+}
+
+unsafe fn pkey_mprotect(start: U64, len: Usize, prot: U64, pkey: I32) -> AbiResult {
+    syscall(329, start, len, prot, pkey)
+}
+
+unsafe fn pkey_alloc(flags: U64, init_val: U64) -> AbiResult {
+    syscall(330, flags, init_val)
+}
+
+unsafe fn pkey_free(pkey: I32) -> AbiResult {
+    syscall(331, pkey)
+}
+
+unsafe fn statx(dfd: I32, filename: ConstPtr<CChar>, flags: U32, mask: U32, buffer: MutPtr<statx>) -> AbiResult {
+    syscall(332, dfd, filename, flags, mask, buffer)
+}
+
+unsafe fn io_pgetevents(ctx_id: U64, min_nr: I64, nr: I64, events: MutPtr<io_event>, timeout: MutPtr<__kernel_timespec>, usig: ConstPtr<__aio_sigset>) -> AbiResult {
+    syscall(333, ctx_id, min_nr, nr, events, timeout, usig)
+}
+
+unsafe fn rseq(rseq: MutPtr<rseq>, rseq_len: U32, flags: I32, sig: U32) -> AbiResult {
+    syscall(334, rseq, rseq_len, flags, sig)
+}
+
+kernel fn uretprobe() -> NativeContinuation {
+    syscall(335)
+}
+
+unsafe fn pidfd_send_signal(pidfd: I32, sig: I32, info: MutPtr<siginfo_t>, flags: U32) -> AbiResult {
+    syscall(424, pidfd, sig, info, flags)
+}
+
+unsafe fn io_uring_setup(entries: U32, params: MutPtr<io_uring_params>) -> AbiResult {
+    syscall(425, entries, params)
+}
+
+unsafe fn io_uring_enter(fd: U32, to_submit: U32, min_complete: U32, flags: U32, argp: ConstPtr<Void>, argsz: Usize) -> AbiResult {
+    syscall(426, fd, to_submit, min_complete, flags, argp, argsz)
+}
+
+unsafe fn io_uring_register(fd: U32, opcode: U32, arg: MutPtr<Void>, nr_args: U32) -> AbiResult {
+    syscall(427, fd, opcode, arg, nr_args)
+}
+
+unsafe fn open_tree(dfd: I32, filename: ConstPtr<CChar>, flags: U32) -> AbiResult {
+    syscall(428, dfd, filename, flags)
+}
+
+unsafe fn move_mount(from_dfd: I32, from_pathname: ConstPtr<CChar>, to_dfd: I32, to_pathname: ConstPtr<CChar>, flags: U32) -> AbiResult {
+    syscall(429, from_dfd, from_pathname, to_dfd, to_pathname, flags)
+}
+
+unsafe fn fsopen(_fs_name: ConstPtr<CChar>, flags: U32) -> AbiResult {
+    syscall(430, _fs_name, flags)
+}
+
+unsafe fn fsconfig(fd: I32, cmd: U32, _key: ConstPtr<CChar>, _value: ConstPtr<Void>, aux: I32) -> AbiResult {
+    syscall(431, fd, cmd, _key, _value, aux)
+}
+
+unsafe fn fsmount(fs_fd: I32, flags: U32, attr_flags: U32) -> AbiResult {
+    syscall(432, fs_fd, flags, attr_flags)
+}
+
+unsafe fn fspick(dfd: I32, path: ConstPtr<CChar>, flags: U32) -> AbiResult {
+    syscall(433, dfd, path, flags)
+}
+
+unsafe fn pidfd_open(pid: I32, flags: U32) -> AbiResult {
+    syscall(434, pid, flags)
+}
+
+unsafe fn clone3(uargs: MutPtr<clone_args>, size: Usize) -> AbiResult {
+    syscall(435, uargs, size)
+}
+
+unsafe fn close_range(fd: U32, max_fd: U32, flags: U32) -> AbiResult {
+    syscall(436, fd, max_fd, flags)
+}
+
+unsafe fn openat2(dfd: I32, filename: ConstPtr<CChar>, how: MutPtr<open_how>, usize: Usize) -> AbiResult {
+    syscall(437, dfd, filename, how, usize)
+}
+
+unsafe fn pidfd_getfd(pidfd: I32, fd: I32, flags: U32) -> AbiResult {
+    syscall(438, pidfd, fd, flags)
+}
+
+unsafe fn faccessat2(dfd: I32, filename: ConstPtr<CChar>, mode: I32, flags: I32) -> AbiResult {
+    syscall(439, dfd, filename, mode, flags)
+}
+
+unsafe fn process_madvise(pidfd: I32, vec: ConstPtr<iovec>, vlen: Usize, behavior: I32, flags: U32) -> AbiResult {
+    syscall(440, pidfd, vec, vlen, behavior, flags)
+}
+
+unsafe fn epoll_pwait2(epfd: I32, events: MutPtr<epoll_event>, maxevents: I32, timeout: ConstPtr<__kernel_timespec>, sigmask: ConstPtr<sigset_t>, sigsetsize: Usize) -> AbiResult {
+    syscall(441, epfd, events, maxevents, timeout, sigmask, sigsetsize)
+}
+
+unsafe fn mount_setattr(dfd: I32, path: ConstPtr<CChar>, flags: U32, uattr: MutPtr<mount_attr>, usize: Usize) -> AbiResult {
+    syscall(442, dfd, path, flags, uattr, usize)
+}
+
+unsafe fn quotactl_fd(fd: U32, cmd: U32, id: U32, addr: MutPtr<Void>) -> AbiResult {
+    syscall(443, fd, cmd, id, addr)
+}
+
+unsafe fn landlock_create_ruleset(attr: ConstPtr<landlock_ruleset_attr>, size: Usize, flags: U32) -> AbiResult {
+    syscall(444, attr, size, flags)
+}
+
+unsafe fn landlock_add_rule(ruleset_fd: I32, rule_type: U32, rule_attr: ConstPtr<Void>, flags: U32) -> AbiResult {
+    syscall(445, ruleset_fd, rule_type, rule_attr, flags)
+}
+
+unsafe fn landlock_restrict_self(ruleset_fd: I32, flags: U32) -> AbiResult {
+    syscall(446, ruleset_fd, flags)
+}
+
+unsafe fn memfd_secret(flags: U32) -> AbiResult {
+    syscall(447, flags)
+}
+
+unsafe fn process_mrelease(pidfd: I32, flags: U32) -> AbiResult {
+    syscall(448, pidfd, flags)
+}
+
+unsafe fn futex_waitv(waiters: MutPtr<futex_waitv>, nr_futexes: U32, flags: U32, timeout: MutPtr<__kernel_timespec>, clockid: I32) -> AbiResult {
+    syscall(449, waiters, nr_futexes, flags, timeout, clockid)
+}
+
+unsafe fn set_mempolicy_home_node(start: U64, len: U64, home_node: U64, flags: U64) -> AbiResult {
+    syscall(450, start, len, home_node, flags)
+}
+
+unsafe fn cachestat(fd: U32, cstat_range: MutPtr<cachestat_range>, cstat: MutPtr<cachestat>, flags: U32) -> AbiResult {
+    syscall(451, fd, cstat_range, cstat, flags)
+}
+
+unsafe fn fchmodat2(dfd: I32, filename: ConstPtr<CChar>, mode: U16, flags: U32) -> AbiResult {
+    syscall(452, dfd, filename, mode, flags)
+}
+
+unsafe fn map_shadow_stack(addr: U64, size: U64, flags: U32) -> AbiResult {
+    syscall(453, addr, size, flags)
+}
+
+unsafe fn futex_wake(uaddr: MutPtr<Void>, mask: U64, nr: I32, flags: U32) -> AbiResult {
+    syscall(454, uaddr, mask, nr, flags)
+}
+
+unsafe fn futex_wait(uaddr: MutPtr<Void>, val: U64, mask: U64, flags: U32, timeout: MutPtr<__kernel_timespec>, clockid: I32) -> AbiResult {
+    syscall(455, uaddr, val, mask, flags, timeout, clockid)
+}
+
+unsafe fn futex_requeue(waiters: MutPtr<futex_waitv>, flags: U32, nr_wake: I32, nr_requeue: I32) -> AbiResult {
+    syscall(456, waiters, flags, nr_wake, nr_requeue)
+}
+
+unsafe fn statmount(req: ConstPtr<mnt_id_req>, buf: MutPtr<statmount>, bufsize: Usize, flags: U32) -> AbiResult {
+    syscall(457, req, buf, bufsize, flags)
+}
+
+unsafe fn listmount(req: ConstPtr<mnt_id_req>, mnt_ids: MutPtr<U64>, nr_mnt_ids: Usize, flags: U32) -> AbiResult {
+    syscall(458, req, mnt_ids, nr_mnt_ids, flags)
+}
+
+unsafe fn lsm_get_self_attr(attr: U32, ctx: MutPtr<lsm_ctx>, size: MutPtr<U32>, flags: U32) -> AbiResult {
+    syscall(459, attr, ctx, size, flags)
+}
+
+unsafe fn lsm_set_self_attr(attr: U32, ctx: MutPtr<lsm_ctx>, size: U32, flags: U32) -> AbiResult {
+    syscall(460, attr, ctx, size, flags)
+}
+
+unsafe fn lsm_list_modules(ids: MutPtr<U64>, size: MutPtr<U32>, flags: U32) -> AbiResult {
+    syscall(461, ids, size, flags)
+}
+
+unsafe fn mseal(start: U64, len: Usize, flags: U64) -> AbiResult {
+    syscall(462, start, len, flags)
+}

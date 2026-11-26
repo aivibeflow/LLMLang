@@ -56,4 +56,10 @@ python3 packages/linux.syscalls/catalog/catalog.py diff --before path/to/previou
 python3 packages/linux.syscalls/catalog/test_catalog.py
 ```
 
+The native LLMLang declarations can also be checked against a checkout of the pinned Linux commit. The signature generator reads the native `SYSCALL_DEFINE` parameters and applies the x86-64 configuration for `clone`. `--write` regenerates the declarations for the checked pin. [Native declarations](../provider/src/native.llmlang)
+
+```sh
+python3 packages/linux.syscalls/catalog/generate_native.py /path/to/pinned/linux --check
+```
+
 Run `catalog.py check --require-complete` for the plan's coverage exit gate. To change the pin, update the commit, table hash and table bytes together, review all changed row assignments and regenerate `catalog.json` with `catalog.py generate`.

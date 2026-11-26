@@ -39,7 +39,15 @@ pub fn open(path: CString, options: OpenOptions) -> OpenResult {
 
 The compiler lowers the path, flags and mode to Linux x86-64 ABI words and decodes the return into the owned descriptor result. Callers supply `O_CLOEXEC` when they want the descriptor closed on exec. The same rule applies to caller flags on `openat2_beneath`, `pipe2`, `eventfd2`, `timerfd_create`, and `epoll_create1`. Operations with fixed profiles document their own arguments. [Public contracts](contracts/README.md)
 
-[The native LLMLang module](provider/src/native.llmlang) defines all 358 active ABI entries. The compiler lowers calls with already marshalled ABI words and generates the stackless implementation for `vfork` and the fixed signal restorer. The `uretprobe` declaration records a continuation invoked by the kernel's own trampoline. Typed adapters handle argument preparation, resource ownership and result decoding around these entries. The snapshot pins the LLMLang bodies and their lowering alongside the native ABI backend. Applications use the public imports.
+The native LLMLang module declares the individual parameters of all 358 active ABI entries using the pinned kernel's `SYSCALL_DEFINE` signatures. `ConstPtr<T>` and `MutPtr<T>` name native user pointers, and `Usize` represents the Linux x86-64 size type. Named arguments pass to `syscall` in their declared order. The compiler preserves the register words of declared operands and zeroes unused argument slots. [Native declarations](provider/src/native.llmlang)
+
+```rust
+unsafe fn open(path: CString, flags: I32, mode: U16) -> AbiResult {
+    syscall(2, path, flags, mode)
+}
+```
+
+The zero-argument `vfork` declaration supplies the entry for the generated stackless launch sequence. The signal restorer and the kernel's `uretprobe` trampoline also have dedicated continuation profiles. Typed package adapters handle argument preparation, resource ownership and result decoding. The snapshot pins the LLMLang bodies and their lowering alongside the native ABI backend. Applications use the public imports.
 
 From a clean checkout on native Linux x86-64, use Python 3.12, Rust 1.85.1 targeting `x86_64-unknown-linux-gnu`, and a native linker. Install the storage dependencies and fetch the locked Stage 0 dependencies once. The CLI's Cargo invocations then run offline.
 

@@ -117,63 +117,152 @@ pub fn lower(source: &str) -> Result<String, String> {
     Ok(rust)
 }
 
+fn identifier(name: &str) -> bool {
+    name.starts_with(|ch: char| ch.is_ascii_alphabetic() || ch == '_')
+        && name
+            .bytes()
+            .all(|ch| ch.is_ascii_alphanumeric() || ch == b'_')
+}
+
+fn pointer_type(kind: &str) -> bool {
+    let Some((outer, inner)) = kind.split_once('<') else {
+        return false;
+    };
+    matches!(outer, "ConstPtr" | "MutPtr")
+        && inner
+            .strip_suffix('>')
+            .is_some_and(|inner| identifier(inner) || pointer_type(inner))
+}
+
+fn native_parameters(parameters: &str) -> Result<Vec<&str>, String> {
+    if parameters.trim().is_empty() {
+        return Ok(Vec::new());
+    }
+    let mut names = Vec::new();
+    for parameter in parameters.split(',') {
+        let (name, kind) = parameter
+            .split_once(':')
+            .ok_or("expected native parameter name and type")?;
+        let (name, kind) = (name.trim(), kind.trim());
+        if !identifier(name) || names.contains(&name) {
+            return Err(format!("invalid or duplicate native parameter {name}"));
+        }
+        if !matches!(
+            kind,
+            "CString" | "U8" | "U16" | "U32" | "U64" | "Usize" | "I32" | "I64"
+        ) && !pointer_type(kind)
+        {
+            return Err(format!("unsupported native parameter type {kind}"));
+        }
+        names.push(name);
+    }
+    if names.len() > 6 {
+        return Err("native syscall takes at most six arguments".into());
+    }
+    Ok(names)
+}
+
 pub fn lower_native(source: &str) -> Result<String, String> {
-    let mut lines = source.lines();
-    if lines
-        .next()
-        .map(str::split_whitespace)
-        .is_none_or(|header| header.ne(["package", "linux.syscalls.native"]))
+    let (header, mut input) = source
+        .split_once('\n')
+        .ok_or("expected package linux.syscalls.native")?;
+    if header
+        .split_whitespace()
+        .ne(["package", "linux.syscalls.native"])
     {
         return Err("expected package linux.syscalls.native".into());
     }
     let mut numbers = std::collections::BTreeMap::new();
     let mut used_numbers = BTreeSet::new();
+    let mut wrappers = String::new();
     let mut dispatch = String::new();
-    for line in lines.map(str::trim).filter(|line| !line.is_empty()) {
-        let (signature, body) = line
-            .split_once(" { ")
+    while !input.trim().is_empty() {
+        let (signature, remaining) = input
+            .split_once('{')
             .ok_or("expected native syscall body")?;
-        let body = body
-            .strip_suffix(" }")
+        let (body, remaining) = remaining
+            .split_once('}')
             .ok_or("unclosed native syscall body")?;
+        input = remaining;
         let (profile, signature) = signature
+            .trim()
             .split_once(" fn ")
             .ok_or("expected native function")?;
         let (name, parameters) = signature
             .split_once('(')
             .ok_or("expected native parameters")?;
-        if !name.starts_with(|ch: char| ch.is_ascii_lowercase())
-            || !name
-                .bytes()
-                .all(|ch| ch.is_ascii_lowercase() || ch.is_ascii_digit() || ch == b'_')
-        {
+        let (parameters, result) = parameters
+            .split_once(')')
+            .ok_or("unclosed native parameters")?;
+        let result = result
+            .trim()
+            .strip_prefix("->")
+            .ok_or("expected native result type")?
+            .trim();
+        if !identifier(name) {
             return Err(format!("invalid native entry name {name}"));
         }
-        let number = body
-            .split_once("syscall(")
-            .and_then(|(_, args)| args.split([',', ')']).next())
+        let body = body
+            .trim()
+            .strip_prefix("syscall(")
+            .ok_or("expected native syscall invocation")?;
+        let (arguments, continuation) = body
+            .split_once(')')
+            .ok_or("unclosed native syscall invocation")?;
+        let mut arguments = arguments.split(',').map(str::trim);
+        let number = arguments
+            .next()
             .and_then(|number| number.parse::<u16>().ok())
             .ok_or("expected native syscall number")?;
         if numbers.insert(name, number).is_some() || !used_numbers.insert(number) {
             return Err(format!("duplicate native entry {name} or number {number}"));
         }
-
-        match (profile, name, parameters) {
-            ("unsafe", _, "words: AbiWords) -> AbiResult")
-                if body == format!("syscall({number}, words)") =>
-            {
+        let parameters = native_parameters(parameters)?;
+        if arguments.ne(parameters.iter().copied()) {
+            return Err(format!(
+                "{name}: syscall operands must match its declared parameter order"
+            ));
+        }
+        match (profile, name, result, continuation.trim()) {
+            ("unsafe", _, "AbiResult", "") => {
                 if ["vfork", "rt_sigreturn", "uretprobe"].contains(&name) {
-                    return Err(format!("{name}: requires its dedicated continuation profile"));
+                    return Err(format!(
+                        "{name}: requires its dedicated continuation profile"
+                    ));
                 }
-                writeln!(dispatch, "        {number} => unsafe {{ enter::<{number}>(words) }},")
-                    .expect("writing to String");
+                // The surrounding adapter provides the original register bits.
+                // ABI lowering erases source types without creating Rust references
+                // from pointers or narrowing the already-marshalled words.
+                let mut lowered_words: [String; 6] = std::array::from_fn(|_| "0".into());
+                let mut lowered_parameters = Vec::new();
+                let mut routed_words = Vec::new();
+                for (index, parameter) in parameters.iter().enumerate() {
+                    let word = if parameter.starts_with('_') {
+                        format!("arg_{index}_{}", parameter.trim_start_matches('_'))
+                    } else {
+                        format!("arg_{parameter}")
+                    };
+                    lowered_words[index] = word.clone();
+                    lowered_parameters.push(format!("{word}: usize"));
+                    routed_words.push(format!("words[{index}]"));
+                }
+                writeln!(
+                    wrappers,
+                    "#[inline]\nunsafe fn native_{name}({}) -> isize {{\n    unsafe {{ enter::<{number}>([{}]) }}\n}}",
+                    lowered_parameters.join(", "),
+                    lowered_words.join(", "),
+                ).expect("writing to String");
+                writeln!(
+                    dispatch,
+                    "        {number} => unsafe {{ native_{name}({}) }},",
+                    routed_words.join(", ")
+                )
+                .expect("writing to String");
             }
-            ("stackless", "vfork", "image: ExecWords) -> AbiResult")
-                if body == format!("let child = syscall({number}); if child == 0 {{ syscall(execve, image); syscall(exit, 127); trap() }} child") => {}
-            ("restorer", "rt_sigreturn", ") -> Never")
-                if body == format!("syscall({number}); trap()") => {}
-            ("kernel", "uretprobe", ") -> NativeContinuation")
-                if body == format!("syscall({number})") => {}
+            ("stackless", "vfork", "AbiResult", "")
+            | ("restorer", "rt_sigreturn", "Never", "; trap()")
+            | ("kernel", "uretprobe", "NativeContinuation", "")
+                if parameters.is_empty() => {}
             _ => return Err(format!("{name}: invalid native syscall signature or body")),
         }
     }
@@ -191,7 +280,7 @@ pub fn lower_native(source: &str) -> Result<String, String> {
     );
     get("uretprobe")?;
     let code = format!(
-        r#"
+        r#"{wrappers}
 /// Invoke a declared native entry with already marshalled ABI words.
 /// The caller is responsible for the validity and lifetime of indirect inputs.
 #[inline]
