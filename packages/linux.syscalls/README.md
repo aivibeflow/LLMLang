@@ -39,7 +39,9 @@ pub fn open(path: CString, options: OpenOptions) -> OpenResult {
 
 The compiler lowers the path, flags and mode to Linux x86-64 ABI words and decodes the return into the owned descriptor result. Callers supply `O_CLOEXEC` when they want the descriptor closed on exec. The same rule applies to caller flags on `openat2_beneath`, `pipe2`, `eventfd2`, `timerfd_create`, and `epoll_create1`. Operations with fixed profiles document their own arguments. [Public contracts](contracts/README.md)
 
-The native LLMLang module declares the individual parameters of all 358 active ABI entries using the pinned kernel's `SYSCALL_DEFINE` signatures. `ConstPtr<T>` and `MutPtr<T>` name native user pointers, and `Usize` represents the Linux x86-64 size type. Named arguments pass to `syscall` in their declared order. The compiler preserves the register words of declared operands and zeroes unused argument slots. [Native declarations](provider/src/native.llmlang)
+The native LLMLang module declares the individual parameters of all 358 active ABI entries using the pinned kernel's `SYSCALL_DEFINE` signatures and reviewed pointer semantics. `CString` denotes a NUL-terminated input. `ConstPtr<T>` and `MutPtr<T>` name native user pointers. `ReadBuffer<N>` and `WriteBuffer<N>` describe input and output byte buffers whose capacity comes from integer parameter `N`. `Nullable<T>` allows a null pointer in the modes specified by Linux. [Native declarations](provider/src/native.llmlang) · [Pointer contracts](catalog/README.md#native-pointer-contracts)
+
+The lowerer checks the declared operand order and verifies that buffer sizes reference integer parameters. These constraints describe the unsafe caller's obligations. The lowerer preserves the register words of declared operands, zeroes unused argument slots, and leaves memory access and syscall-specific validation to the kernel.
 
 ```rust
 unsafe fn open(path: CString, flags: I32, mode: U16) -> AbiResult {

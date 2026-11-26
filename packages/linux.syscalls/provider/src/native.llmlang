@@ -1,10 +1,10 @@
 package linux.syscalls.native
 
-unsafe fn read(fd: U32, buf: MutPtr<CChar>, count: Usize) -> AbiResult {
+unsafe fn read(fd: U32, buf: WriteBuffer<count>, count: Usize) -> AbiResult {
     syscall(0, fd, buf, count)
 }
 
-unsafe fn write(fd: U32, buf: ConstPtr<CChar>, count: Usize) -> AbiResult {
+unsafe fn write(fd: U32, buf: ReadBuffer<count>, count: Usize) -> AbiResult {
     syscall(1, fd, buf, count)
 }
 
@@ -16,7 +16,7 @@ unsafe fn close(fd: U32) -> AbiResult {
     syscall(3, fd)
 }
 
-unsafe fn stat(filename: ConstPtr<CChar>, statbuf: MutPtr<stat>) -> AbiResult {
+unsafe fn stat(filename: CString, statbuf: MutPtr<stat>) -> AbiResult {
     syscall(4, filename, statbuf)
 }
 
@@ -24,7 +24,7 @@ unsafe fn fstat(fd: U32, statbuf: MutPtr<stat>) -> AbiResult {
     syscall(5, fd, statbuf)
 }
 
-unsafe fn lstat(filename: ConstPtr<CChar>, statbuf: MutPtr<stat>) -> AbiResult {
+unsafe fn lstat(filename: CString, statbuf: MutPtr<stat>) -> AbiResult {
     syscall(6, filename, statbuf)
 }
 
@@ -52,11 +52,11 @@ unsafe fn brk(brk: U64) -> AbiResult {
     syscall(12, brk)
 }
 
-unsafe fn rt_sigaction(sig: I32, act: ConstPtr<sigaction>, oact: MutPtr<sigaction>, sigsetsize: Usize) -> AbiResult {
+unsafe fn rt_sigaction(sig: I32, act: Nullable<ConstPtr<sigaction>>, oact: Nullable<MutPtr<sigaction>>, sigsetsize: Usize) -> AbiResult {
     syscall(13, sig, act, oact, sigsetsize)
 }
 
-unsafe fn rt_sigprocmask(how: I32, nset: MutPtr<sigset_t>, oset: MutPtr<sigset_t>, sigsetsize: Usize) -> AbiResult {
+unsafe fn rt_sigprocmask(how: I32, nset: Nullable<ConstPtr<sigset_t>>, oset: Nullable<MutPtr<sigset_t>>, sigsetsize: Usize) -> AbiResult {
     syscall(14, how, nset, oset, sigsetsize)
 }
 
@@ -68,11 +68,11 @@ unsafe fn ioctl(fd: U32, cmd: U32, arg: U64) -> AbiResult {
     syscall(16, fd, cmd, arg)
 }
 
-unsafe fn pread64(fd: U32, buf: MutPtr<CChar>, count: Usize, pos: I64) -> AbiResult {
+unsafe fn pread64(fd: U32, buf: WriteBuffer<count>, count: Usize, pos: I64) -> AbiResult {
     syscall(17, fd, buf, count, pos)
 }
 
-unsafe fn pwrite64(fd: U32, buf: ConstPtr<CChar>, count: Usize, pos: I64) -> AbiResult {
+unsafe fn pwrite64(fd: U32, buf: ReadBuffer<count>, count: Usize, pos: I64) -> AbiResult {
     syscall(18, fd, buf, count, pos)
 }
 
@@ -84,7 +84,7 @@ unsafe fn writev(fd: U64, vec: ConstPtr<iovec>, vlen: U64) -> AbiResult {
     syscall(20, fd, vec, vlen)
 }
 
-unsafe fn access(filename: ConstPtr<CChar>, mode: I32) -> AbiResult {
+unsafe fn access(filename: CString, mode: I32) -> AbiResult {
     syscall(21, filename, mode)
 }
 
@@ -92,7 +92,7 @@ unsafe fn pipe(fildes: MutPtr<I32>) -> AbiResult {
     syscall(22, fildes)
 }
 
-unsafe fn select(n: I32, inp: MutPtr<fd_set>, outp: MutPtr<fd_set>, exp: MutPtr<fd_set>, tvp: MutPtr<__kernel_old_timeval>) -> AbiResult {
+unsafe fn select(n: I32, inp: Nullable<MutPtr<fd_set>>, outp: Nullable<MutPtr<fd_set>>, exp: Nullable<MutPtr<fd_set>>, tvp: Nullable<MutPtr<__kernel_old_timeval>>) -> AbiResult {
     syscall(23, n, inp, outp, exp, tvp)
 }
 
@@ -120,7 +120,7 @@ unsafe fn shmget(key: I32, size: Usize, shmflg: I32) -> AbiResult {
     syscall(29, key, size, shmflg)
 }
 
-unsafe fn shmat(shmid: I32, shmaddr: MutPtr<CChar>, shmflg: I32) -> AbiResult {
+unsafe fn shmat(shmid: I32, shmaddr: Nullable<MutPtr<Void>>, shmflg: I32) -> AbiResult {
     syscall(30, shmid, shmaddr, shmflg)
 }
 
@@ -140,7 +140,7 @@ unsafe fn pause() -> AbiResult {
     syscall(34)
 }
 
-unsafe fn nanosleep(rqtp: MutPtr<__kernel_timespec>, rmtp: MutPtr<__kernel_timespec>) -> AbiResult {
+unsafe fn nanosleep(rqtp: ConstPtr<__kernel_timespec>, rmtp: Nullable<MutPtr<__kernel_timespec>>) -> AbiResult {
     syscall(35, rqtp, rmtp)
 }
 
@@ -172,15 +172,15 @@ unsafe fn connect(fd: I32, uservaddr: MutPtr<sockaddr>, addrlen: I32) -> AbiResu
     syscall(42, fd, uservaddr, addrlen)
 }
 
-unsafe fn accept(fd: I32, upeer_sockaddr: MutPtr<sockaddr>, upeer_addrlen: MutPtr<I32>) -> AbiResult {
+unsafe fn accept(fd: I32, upeer_sockaddr: Nullable<MutPtr<sockaddr>>, upeer_addrlen: Nullable<MutPtr<I32>>) -> AbiResult {
     syscall(43, fd, upeer_sockaddr, upeer_addrlen)
 }
 
-unsafe fn sendto(fd: I32, buff: MutPtr<Void>, len: Usize, flags: U32, addr: MutPtr<sockaddr>, addr_len: I32) -> AbiResult {
+unsafe fn sendto(fd: I32, buff: ReadBuffer<len>, len: Usize, flags: U32, addr: Nullable<ConstPtr<sockaddr>>, addr_len: I32) -> AbiResult {
     syscall(44, fd, buff, len, flags, addr, addr_len)
 }
 
-unsafe fn recvfrom(fd: I32, ubuf: MutPtr<Void>, size: Usize, flags: U32, addr: MutPtr<sockaddr>, addr_len: MutPtr<I32>) -> AbiResult {
+unsafe fn recvfrom(fd: I32, ubuf: WriteBuffer<size>, size: Usize, flags: U32, addr: Nullable<MutPtr<sockaddr>>, addr_len: Nullable<MutPtr<I32>>) -> AbiResult {
     syscall(45, fd, ubuf, size, flags, addr, addr_len)
 }
 
@@ -216,7 +216,7 @@ unsafe fn socketpair(family: I32, type: I32, protocol: I32, usockvec: MutPtr<I32
     syscall(53, family, type, protocol, usockvec)
 }
 
-unsafe fn setsockopt(fd: I32, level: I32, optname: I32, optval: MutPtr<CChar>, optlen: I32) -> AbiResult {
+unsafe fn setsockopt(fd: I32, level: I32, optname: I32, optval: ReadBuffer<optlen>, optlen: I32) -> AbiResult {
     syscall(54, fd, level, optname, optval, optlen)
 }
 
@@ -236,7 +236,7 @@ stackless fn vfork() -> AbiResult {
     syscall(58)
 }
 
-unsafe fn execve(filename: ConstPtr<CChar>, argv: ConstPtr<ConstPtr<CChar>>, envp: ConstPtr<ConstPtr<CChar>>) -> AbiResult {
+unsafe fn execve(filename: CString, argv: Nullable<NulTerminatedArray<CString>>, envp: Nullable<NulTerminatedArray<CString>>) -> AbiResult {
     syscall(59, filename, argv, envp)
 }
 
@@ -244,7 +244,7 @@ unsafe fn exit(error_code: I32) -> AbiResult {
     syscall(60, error_code)
 }
 
-unsafe fn wait4(upid: I32, stat_addr: MutPtr<I32>, options: I32, ru: MutPtr<rusage>) -> AbiResult {
+unsafe fn wait4(upid: I32, stat_addr: Nullable<MutPtr<I32>>, options: I32, ru: Nullable<MutPtr<rusage>>) -> AbiResult {
     syscall(61, upid, stat_addr, options, ru)
 }
 
@@ -268,7 +268,7 @@ unsafe fn semctl(semid: I32, semnum: I32, cmd: I32, arg: U64) -> AbiResult {
     syscall(66, semid, semnum, cmd, arg)
 }
 
-unsafe fn shmdt(shmaddr: MutPtr<CChar>) -> AbiResult {
+unsafe fn shmdt(shmaddr: ConstPtr<Void>) -> AbiResult {
     syscall(67, shmaddr)
 }
 
@@ -304,7 +304,7 @@ unsafe fn fdatasync(fd: U32) -> AbiResult {
     syscall(75, fd)
 }
 
-unsafe fn truncate(path: ConstPtr<CChar>, length: I64) -> AbiResult {
+unsafe fn truncate(path: CString, length: I64) -> AbiResult {
     syscall(76, path, length)
 }
 
@@ -316,11 +316,11 @@ unsafe fn getdents(fd: U32, dirent: MutPtr<linux_dirent>, count: U32) -> AbiResu
     syscall(78, fd, dirent, count)
 }
 
-unsafe fn getcwd(buf: MutPtr<CChar>, size: U64) -> AbiResult {
+unsafe fn getcwd(buf: WriteBuffer<size>, size: U64) -> AbiResult {
     syscall(79, buf, size)
 }
 
-unsafe fn chdir(filename: ConstPtr<CChar>) -> AbiResult {
+unsafe fn chdir(filename: CString) -> AbiResult {
     syscall(80, filename)
 }
 
@@ -328,39 +328,39 @@ unsafe fn fchdir(fd: U32) -> AbiResult {
     syscall(81, fd)
 }
 
-unsafe fn rename(oldname: ConstPtr<CChar>, newname: ConstPtr<CChar>) -> AbiResult {
+unsafe fn rename(oldname: CString, newname: CString) -> AbiResult {
     syscall(82, oldname, newname)
 }
 
-unsafe fn mkdir(pathname: ConstPtr<CChar>, mode: U16) -> AbiResult {
+unsafe fn mkdir(pathname: CString, mode: U16) -> AbiResult {
     syscall(83, pathname, mode)
 }
 
-unsafe fn rmdir(pathname: ConstPtr<CChar>) -> AbiResult {
+unsafe fn rmdir(pathname: CString) -> AbiResult {
     syscall(84, pathname)
 }
 
-unsafe fn creat(pathname: ConstPtr<CChar>, mode: U16) -> AbiResult {
+unsafe fn creat(pathname: CString, mode: U16) -> AbiResult {
     syscall(85, pathname, mode)
 }
 
-unsafe fn link(oldname: ConstPtr<CChar>, newname: ConstPtr<CChar>) -> AbiResult {
+unsafe fn link(oldname: CString, newname: CString) -> AbiResult {
     syscall(86, oldname, newname)
 }
 
-unsafe fn unlink(pathname: ConstPtr<CChar>) -> AbiResult {
+unsafe fn unlink(pathname: CString) -> AbiResult {
     syscall(87, pathname)
 }
 
-unsafe fn symlink(oldname: ConstPtr<CChar>, newname: ConstPtr<CChar>) -> AbiResult {
+unsafe fn symlink(oldname: CString, newname: CString) -> AbiResult {
     syscall(88, oldname, newname)
 }
 
-unsafe fn readlink(path: ConstPtr<CChar>, buf: MutPtr<CChar>, bufsiz: I32) -> AbiResult {
+unsafe fn readlink(path: CString, buf: WriteBuffer<bufsiz>, bufsiz: I32) -> AbiResult {
     syscall(89, path, buf, bufsiz)
 }
 
-unsafe fn chmod(filename: ConstPtr<CChar>, mode: U16) -> AbiResult {
+unsafe fn chmod(filename: CString, mode: U16) -> AbiResult {
     syscall(90, filename, mode)
 }
 
@@ -368,7 +368,7 @@ unsafe fn fchmod(fd: U32, mode: U16) -> AbiResult {
     syscall(91, fd, mode)
 }
 
-unsafe fn chown(filename: ConstPtr<CChar>, user: U32, group: U32) -> AbiResult {
+unsafe fn chown(filename: CString, user: U32, group: U32) -> AbiResult {
     syscall(92, filename, user, group)
 }
 
@@ -376,7 +376,7 @@ unsafe fn fchown(fd: U32, user: U32, group: U32) -> AbiResult {
     syscall(93, fd, user, group)
 }
 
-unsafe fn lchown(filename: ConstPtr<CChar>, user: U32, group: U32) -> AbiResult {
+unsafe fn lchown(filename: CString, user: U32, group: U32) -> AbiResult {
     syscall(94, filename, user, group)
 }
 
@@ -384,7 +384,7 @@ unsafe fn umask(mask: I32) -> AbiResult {
     syscall(95, mask)
 }
 
-unsafe fn gettimeofday(tv: MutPtr<__kernel_old_timeval>, tz: MutPtr<timezone>) -> AbiResult {
+unsafe fn gettimeofday(tv: Nullable<MutPtr<__kernel_old_timeval>>, tz: Nullable<MutPtr<timezone>>) -> AbiResult {
     syscall(96, tv, tz)
 }
 
@@ -524,15 +524,15 @@ unsafe fn rt_sigsuspend(unewset: MutPtr<sigset_t>, sigsetsize: Usize) -> AbiResu
     syscall(130, unewset, sigsetsize)
 }
 
-unsafe fn sigaltstack(uss: ConstPtr<stack_t>, uoss: MutPtr<stack_t>) -> AbiResult {
+unsafe fn sigaltstack(uss: Nullable<ConstPtr<stack_t>>, uoss: Nullable<MutPtr<stack_t>>) -> AbiResult {
     syscall(131, uss, uoss)
 }
 
-unsafe fn utime(filename: MutPtr<CChar>, times: MutPtr<utimbuf>) -> AbiResult {
+unsafe fn utime(filename: CString, times: Nullable<ConstPtr<utimbuf>>) -> AbiResult {
     syscall(132, filename, times)
 }
 
-unsafe fn mknod(filename: ConstPtr<CChar>, mode: U16, dev: U32) -> AbiResult {
+unsafe fn mknod(filename: CString, mode: U16, dev: U32) -> AbiResult {
     syscall(133, filename, mode, dev)
 }
 
@@ -544,7 +544,7 @@ unsafe fn ustat(dev: U32, ubuf: MutPtr<ustat>) -> AbiResult {
     syscall(136, dev, ubuf)
 }
 
-unsafe fn statfs(pathname: ConstPtr<CChar>, buf: MutPtr<statfs>) -> AbiResult {
+unsafe fn statfs(pathname: CString, buf: MutPtr<statfs>) -> AbiResult {
     syscall(137, pathname, buf)
 }
 
@@ -616,7 +616,7 @@ unsafe fn modify_ldt(func: I32, ptr: MutPtr<Void>, bytecount: U64) -> AbiResult 
     syscall(154, func, ptr, bytecount)
 }
 
-unsafe fn pivot_root(new_root: ConstPtr<CChar>, put_old: ConstPtr<CChar>) -> AbiResult {
+unsafe fn pivot_root(new_root: CString, put_old: CString) -> AbiResult {
     syscall(155, new_root, put_old)
 }
 
@@ -636,7 +636,7 @@ unsafe fn setrlimit(resource: U32, rlim: MutPtr<rlimit>) -> AbiResult {
     syscall(160, resource, rlim)
 }
 
-unsafe fn chroot(filename: ConstPtr<CChar>) -> AbiResult {
+unsafe fn chroot(filename: CString) -> AbiResult {
     syscall(161, filename)
 }
 
@@ -644,7 +644,7 @@ unsafe fn sync() -> AbiResult {
     syscall(162)
 }
 
-unsafe fn acct(name: ConstPtr<CChar>) -> AbiResult {
+unsafe fn acct(name: Nullable<CString>) -> AbiResult {
     syscall(163, name)
 }
 
@@ -652,19 +652,19 @@ unsafe fn settimeofday(tv: MutPtr<__kernel_old_timeval>, tz: MutPtr<timezone>) -
     syscall(164, tv, tz)
 }
 
-unsafe fn mount(dev_name: MutPtr<CChar>, dir_name: MutPtr<CChar>, type: MutPtr<CChar>, flags: U64, data: MutPtr<Void>) -> AbiResult {
+unsafe fn mount(dev_name: Nullable<CString>, dir_name: CString, type: Nullable<CString>, flags: U64, data: Nullable<ConstPtr<Void>>) -> AbiResult {
     syscall(165, dev_name, dir_name, type, flags, data)
 }
 
-unsafe fn umount2(name: MutPtr<CChar>, flags: I32) -> AbiResult {
+unsafe fn umount2(name: CString, flags: I32) -> AbiResult {
     syscall(166, name, flags)
 }
 
-unsafe fn swapon(specialfile: ConstPtr<CChar>, swap_flags: I32) -> AbiResult {
+unsafe fn swapon(specialfile: CString, swap_flags: I32) -> AbiResult {
     syscall(167, specialfile, swap_flags)
 }
 
-unsafe fn swapoff(specialfile: ConstPtr<CChar>) -> AbiResult {
+unsafe fn swapoff(specialfile: CString) -> AbiResult {
     syscall(168, specialfile)
 }
 
@@ -672,11 +672,11 @@ unsafe fn reboot(magic1: I32, magic2: I32, cmd: U32, arg: MutPtr<Void>) -> AbiRe
     syscall(169, magic1, magic2, cmd, arg)
 }
 
-unsafe fn sethostname(name: MutPtr<CChar>, len: I32) -> AbiResult {
+unsafe fn sethostname(name: ReadBuffer<len>, len: I32) -> AbiResult {
     syscall(170, name, len)
 }
 
-unsafe fn setdomainname(name: MutPtr<CChar>, len: I32) -> AbiResult {
+unsafe fn setdomainname(name: ReadBuffer<len>, len: I32) -> AbiResult {
     syscall(171, name, len)
 }
 
@@ -688,15 +688,15 @@ unsafe fn ioperm(from: U64, num: U64, turn_on: I32) -> AbiResult {
     syscall(173, from, num, turn_on)
 }
 
-unsafe fn init_module(umod: MutPtr<Void>, len: U64, uargs: ConstPtr<CChar>) -> AbiResult {
+unsafe fn init_module(umod: ReadBuffer<len>, len: U64, uargs: CString) -> AbiResult {
     syscall(175, umod, len, uargs)
 }
 
-unsafe fn delete_module(name_user: ConstPtr<CChar>, flags: U32) -> AbiResult {
+unsafe fn delete_module(name_user: CString, flags: U32) -> AbiResult {
     syscall(176, name_user, flags)
 }
 
-unsafe fn quotactl(cmd: U32, special: ConstPtr<CChar>, id: U32, addr: MutPtr<Void>) -> AbiResult {
+unsafe fn quotactl(cmd: U32, special: Nullable<CString>, id: U32, addr: MutPtr<Void>) -> AbiResult {
     syscall(179, cmd, special, id, addr)
 }
 
@@ -708,51 +708,51 @@ unsafe fn readahead(fd: I32, offset: I64, count: Usize) -> AbiResult {
     syscall(187, fd, offset, count)
 }
 
-unsafe fn setxattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>, value: ConstPtr<Void>, size: Usize, flags: I32) -> AbiResult {
+unsafe fn setxattr(pathname: CString, name: CString, value: ReadBuffer<size>, size: Usize, flags: I32) -> AbiResult {
     syscall(188, pathname, name, value, size, flags)
 }
 
-unsafe fn lsetxattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>, value: ConstPtr<Void>, size: Usize, flags: I32) -> AbiResult {
+unsafe fn lsetxattr(pathname: CString, name: CString, value: ReadBuffer<size>, size: Usize, flags: I32) -> AbiResult {
     syscall(189, pathname, name, value, size, flags)
 }
 
-unsafe fn fsetxattr(fd: I32, name: ConstPtr<CChar>, value: ConstPtr<Void>, size: Usize, flags: I32) -> AbiResult {
+unsafe fn fsetxattr(fd: I32, name: CString, value: ReadBuffer<size>, size: Usize, flags: I32) -> AbiResult {
     syscall(190, fd, name, value, size, flags)
 }
 
-unsafe fn getxattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>, value: MutPtr<Void>, size: Usize) -> AbiResult {
+unsafe fn getxattr(pathname: CString, name: CString, value: WriteBuffer<size>, size: Usize) -> AbiResult {
     syscall(191, pathname, name, value, size)
 }
 
-unsafe fn lgetxattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>, value: MutPtr<Void>, size: Usize) -> AbiResult {
+unsafe fn lgetxattr(pathname: CString, name: CString, value: WriteBuffer<size>, size: Usize) -> AbiResult {
     syscall(192, pathname, name, value, size)
 }
 
-unsafe fn fgetxattr(fd: I32, name: ConstPtr<CChar>, value: MutPtr<Void>, size: Usize) -> AbiResult {
+unsafe fn fgetxattr(fd: I32, name: CString, value: WriteBuffer<size>, size: Usize) -> AbiResult {
     syscall(193, fd, name, value, size)
 }
 
-unsafe fn listxattr(pathname: ConstPtr<CChar>, list: MutPtr<CChar>, size: Usize) -> AbiResult {
+unsafe fn listxattr(pathname: CString, list: WriteBuffer<size>, size: Usize) -> AbiResult {
     syscall(194, pathname, list, size)
 }
 
-unsafe fn llistxattr(pathname: ConstPtr<CChar>, list: MutPtr<CChar>, size: Usize) -> AbiResult {
+unsafe fn llistxattr(pathname: CString, list: WriteBuffer<size>, size: Usize) -> AbiResult {
     syscall(195, pathname, list, size)
 }
 
-unsafe fn flistxattr(fd: I32, list: MutPtr<CChar>, size: Usize) -> AbiResult {
+unsafe fn flistxattr(fd: I32, list: WriteBuffer<size>, size: Usize) -> AbiResult {
     syscall(196, fd, list, size)
 }
 
-unsafe fn removexattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>) -> AbiResult {
+unsafe fn removexattr(pathname: CString, name: CString) -> AbiResult {
     syscall(197, pathname, name)
 }
 
-unsafe fn lremovexattr(pathname: ConstPtr<CChar>, name: ConstPtr<CChar>) -> AbiResult {
+unsafe fn lremovexattr(pathname: CString, name: CString) -> AbiResult {
     syscall(198, pathname, name)
 }
 
-unsafe fn fremovexattr(fd: I32, name: ConstPtr<CChar>) -> AbiResult {
+unsafe fn fremovexattr(fd: I32, name: CString) -> AbiResult {
     syscall(199, fd, name)
 }
 
@@ -760,7 +760,7 @@ unsafe fn tkill(pid: I32, sig: I32) -> AbiResult {
     syscall(200, pid, sig)
 }
 
-unsafe fn time(tloc: MutPtr<I64>) -> AbiResult {
+unsafe fn time(tloc: Nullable<MutPtr<I64>>) -> AbiResult {
     syscall(201, tloc)
 }
 
@@ -784,7 +784,7 @@ unsafe fn io_destroy(ctx: U64) -> AbiResult {
     syscall(207, ctx)
 }
 
-unsafe fn io_getevents(ctx_id: U64, min_nr: I64, nr: I64, events: MutPtr<io_event>, timeout: MutPtr<__kernel_timespec>) -> AbiResult {
+unsafe fn io_getevents(ctx_id: U64, min_nr: I64, nr: I64, events: MutPtr<io_event>, timeout: Nullable<ConstPtr<__kernel_timespec>>) -> AbiResult {
     syscall(208, ctx_id, min_nr, nr, events, timeout)
 }
 
@@ -828,7 +828,7 @@ unsafe fn timer_create(which_clock: I32, timer_event_spec: MutPtr<sigevent>, cre
     syscall(222, which_clock, timer_event_spec, created_timer_id)
 }
 
-unsafe fn timer_settime(timer_id: I32, flags: I32, new_setting: ConstPtr<__kernel_itimerspec>, old_setting: MutPtr<__kernel_itimerspec>) -> AbiResult {
+unsafe fn timer_settime(timer_id: I32, flags: I32, new_setting: ConstPtr<__kernel_itimerspec>, old_setting: Nullable<MutPtr<__kernel_itimerspec>>) -> AbiResult {
     syscall(223, timer_id, flags, new_setting, old_setting)
 }
 
@@ -856,7 +856,7 @@ unsafe fn clock_getres(which_clock: I32, tp: MutPtr<__kernel_timespec>) -> AbiRe
     syscall(229, which_clock, tp)
 }
 
-unsafe fn clock_nanosleep(which_clock: I32, flags: I32, rqtp: ConstPtr<__kernel_timespec>, rmtp: MutPtr<__kernel_timespec>) -> AbiResult {
+unsafe fn clock_nanosleep(which_clock: I32, flags: I32, rqtp: ConstPtr<__kernel_timespec>, rmtp: Nullable<MutPtr<__kernel_timespec>>) -> AbiResult {
     syscall(230, which_clock, flags, rqtp, rmtp)
 }
 
@@ -876,7 +876,7 @@ unsafe fn tgkill(tgid: I32, pid: I32, sig: I32) -> AbiResult {
     syscall(234, tgid, pid, sig)
 }
 
-unsafe fn utimes(filename: MutPtr<CChar>, utimes: MutPtr<__kernel_old_timeval>) -> AbiResult {
+unsafe fn utimes(filename: CString, utimes: Nullable<ConstPtr<__kernel_old_timeval>>) -> AbiResult {
     syscall(235, filename, utimes)
 }
 
@@ -892,19 +892,19 @@ unsafe fn get_mempolicy(policy: MutPtr<I32>, nmask: MutPtr<U64>, maxnode: U64, a
     syscall(239, policy, nmask, maxnode, addr, flags)
 }
 
-unsafe fn mq_open(u_name: ConstPtr<CChar>, oflag: I32, mode: U16, u_attr: MutPtr<mq_attr>) -> AbiResult {
+unsafe fn mq_open(u_name: CString, oflag: I32, mode: U16, u_attr: Nullable<ConstPtr<mq_attr>>) -> AbiResult {
     syscall(240, u_name, oflag, mode, u_attr)
 }
 
-unsafe fn mq_unlink(u_name: ConstPtr<CChar>) -> AbiResult {
+unsafe fn mq_unlink(u_name: CString) -> AbiResult {
     syscall(241, u_name)
 }
 
-unsafe fn mq_timedsend(mqdes: I32, u_msg_ptr: ConstPtr<CChar>, msg_len: Usize, msg_prio: U32, u_abs_timeout: ConstPtr<__kernel_timespec>) -> AbiResult {
+unsafe fn mq_timedsend(mqdes: I32, u_msg_ptr: ReadBuffer<msg_len>, msg_len: Usize, msg_prio: U32, u_abs_timeout: Nullable<ConstPtr<__kernel_timespec>>) -> AbiResult {
     syscall(242, mqdes, u_msg_ptr, msg_len, msg_prio, u_abs_timeout)
 }
 
-unsafe fn mq_timedreceive(mqdes: I32, u_msg_ptr: MutPtr<CChar>, msg_len: Usize, u_msg_prio: MutPtr<U32>, u_abs_timeout: ConstPtr<__kernel_timespec>) -> AbiResult {
+unsafe fn mq_timedreceive(mqdes: I32, u_msg_ptr: WriteBuffer<msg_len>, msg_len: Usize, u_msg_prio: Nullable<MutPtr<U32>>, u_abs_timeout: Nullable<ConstPtr<__kernel_timespec>>) -> AbiResult {
     syscall(243, mqdes, u_msg_ptr, msg_len, u_msg_prio, u_abs_timeout)
 }
 
@@ -920,15 +920,15 @@ unsafe fn kexec_load(entry: U64, nr_segments: U64, segments: MutPtr<kexec_segmen
     syscall(246, entry, nr_segments, segments, flags)
 }
 
-unsafe fn waitid(which: I32, upid: I32, infop: MutPtr<siginfo>, options: I32, ru: MutPtr<rusage>) -> AbiResult {
+unsafe fn waitid(which: I32, upid: I32, infop: Nullable<MutPtr<siginfo>>, options: I32, ru: Nullable<MutPtr<rusage>>) -> AbiResult {
     syscall(247, which, upid, infop, options, ru)
 }
 
-unsafe fn add_key(_type: ConstPtr<CChar>, _description: ConstPtr<CChar>, _payload: ConstPtr<Void>, plen: Usize, ringid: I32) -> AbiResult {
+unsafe fn add_key(_type: CString, _description: Nullable<CString>, _payload: ReadBuffer<plen>, plen: Usize, ringid: I32) -> AbiResult {
     syscall(248, _type, _description, _payload, plen, ringid)
 }
 
-unsafe fn request_key(_type: ConstPtr<CChar>, _description: ConstPtr<CChar>, _callout_info: ConstPtr<CChar>, destringid: I32) -> AbiResult {
+unsafe fn request_key(_type: CString, _description: CString, _callout_info: Nullable<CString>, destringid: I32) -> AbiResult {
     syscall(249, _type, _description, _callout_info, destringid)
 }
 
@@ -948,7 +948,7 @@ unsafe fn inotify_init() -> AbiResult {
     syscall(253)
 }
 
-unsafe fn inotify_add_watch(fd: I32, pathname: ConstPtr<CChar>, mask: U32) -> AbiResult {
+unsafe fn inotify_add_watch(fd: I32, pathname: CString, mask: U32) -> AbiResult {
     syscall(254, fd, pathname, mask)
 }
 
@@ -964,59 +964,59 @@ unsafe fn openat(dfd: I32, path: CString, flags: I32, mode: U16) -> AbiResult {
     syscall(257, dfd, path, flags, mode)
 }
 
-unsafe fn mkdirat(dfd: I32, pathname: ConstPtr<CChar>, mode: U16) -> AbiResult {
+unsafe fn mkdirat(dfd: I32, pathname: CString, mode: U16) -> AbiResult {
     syscall(258, dfd, pathname, mode)
 }
 
-unsafe fn mknodat(dfd: I32, filename: ConstPtr<CChar>, mode: U16, dev: U32) -> AbiResult {
+unsafe fn mknodat(dfd: I32, filename: CString, mode: U16, dev: U32) -> AbiResult {
     syscall(259, dfd, filename, mode, dev)
 }
 
-unsafe fn fchownat(dfd: I32, filename: ConstPtr<CChar>, user: U32, group: U32, flag: I32) -> AbiResult {
+unsafe fn fchownat(dfd: I32, filename: CString, user: U32, group: U32, flag: I32) -> AbiResult {
     syscall(260, dfd, filename, user, group, flag)
 }
 
-unsafe fn futimesat(dfd: I32, filename: ConstPtr<CChar>, utimes: MutPtr<__kernel_old_timeval>) -> AbiResult {
+unsafe fn futimesat(dfd: I32, filename: Nullable<CString>, utimes: Nullable<ConstPtr<__kernel_old_timeval>>) -> AbiResult {
     syscall(261, dfd, filename, utimes)
 }
 
-unsafe fn newfstatat(dfd: I32, filename: ConstPtr<CChar>, statbuf: MutPtr<stat>, flag: I32) -> AbiResult {
+unsafe fn newfstatat(dfd: I32, filename: Nullable<CString>, statbuf: MutPtr<stat>, flag: I32) -> AbiResult {
     syscall(262, dfd, filename, statbuf, flag)
 }
 
-unsafe fn unlinkat(dfd: I32, pathname: ConstPtr<CChar>, flag: I32) -> AbiResult {
+unsafe fn unlinkat(dfd: I32, pathname: CString, flag: I32) -> AbiResult {
     syscall(263, dfd, pathname, flag)
 }
 
-unsafe fn renameat(olddfd: I32, oldname: ConstPtr<CChar>, newdfd: I32, newname: ConstPtr<CChar>) -> AbiResult {
+unsafe fn renameat(olddfd: I32, oldname: CString, newdfd: I32, newname: CString) -> AbiResult {
     syscall(264, olddfd, oldname, newdfd, newname)
 }
 
-unsafe fn linkat(olddfd: I32, oldname: ConstPtr<CChar>, newdfd: I32, newname: ConstPtr<CChar>, flags: I32) -> AbiResult {
+unsafe fn linkat(olddfd: I32, oldname: CString, newdfd: I32, newname: CString, flags: I32) -> AbiResult {
     syscall(265, olddfd, oldname, newdfd, newname, flags)
 }
 
-unsafe fn symlinkat(oldname: ConstPtr<CChar>, newdfd: I32, newname: ConstPtr<CChar>) -> AbiResult {
+unsafe fn symlinkat(oldname: CString, newdfd: I32, newname: CString) -> AbiResult {
     syscall(266, oldname, newdfd, newname)
 }
 
-unsafe fn readlinkat(dfd: I32, pathname: ConstPtr<CChar>, buf: MutPtr<CChar>, bufsiz: I32) -> AbiResult {
+unsafe fn readlinkat(dfd: I32, pathname: CString, buf: WriteBuffer<bufsiz>, bufsiz: I32) -> AbiResult {
     syscall(267, dfd, pathname, buf, bufsiz)
 }
 
-unsafe fn fchmodat(dfd: I32, filename: ConstPtr<CChar>, mode: U16) -> AbiResult {
+unsafe fn fchmodat(dfd: I32, filename: CString, mode: U16) -> AbiResult {
     syscall(268, dfd, filename, mode)
 }
 
-unsafe fn faccessat(dfd: I32, filename: ConstPtr<CChar>, mode: I32) -> AbiResult {
+unsafe fn faccessat(dfd: I32, filename: CString, mode: I32) -> AbiResult {
     syscall(269, dfd, filename, mode)
 }
 
-unsafe fn pselect6(n: I32, inp: MutPtr<fd_set>, outp: MutPtr<fd_set>, exp: MutPtr<fd_set>, tsp: MutPtr<__kernel_timespec>, sig: MutPtr<Void>) -> AbiResult {
+unsafe fn pselect6(n: I32, inp: Nullable<MutPtr<fd_set>>, outp: Nullable<MutPtr<fd_set>>, exp: Nullable<MutPtr<fd_set>>, tsp: Nullable<MutPtr<__kernel_timespec>>, sig: Nullable<ConstPtr<Void>>) -> AbiResult {
     syscall(270, n, inp, outp, exp, tsp, sig)
 }
 
-unsafe fn ppoll(ufds: MutPtr<pollfd>, nfds: U32, tsp: MutPtr<__kernel_timespec>, sigmask: ConstPtr<sigset_t>, sigsetsize: Usize) -> AbiResult {
+unsafe fn ppoll(ufds: MutPtr<pollfd>, nfds: U32, tsp: Nullable<MutPtr<__kernel_timespec>>, sigmask: Nullable<ConstPtr<sigset_t>>, sigsetsize: Usize) -> AbiResult {
     syscall(271, ufds, nfds, tsp, sigmask, sigsetsize)
 }
 
@@ -1052,7 +1052,7 @@ unsafe fn move_pages(pid: I32, nr_pages: U64, pages: MutPtr<ConstPtr<Void>>, nod
     syscall(279, pid, nr_pages, pages, nodes, status, flags)
 }
 
-unsafe fn utimensat(dfd: I32, filename: ConstPtr<CChar>, utimes: MutPtr<__kernel_timespec>, flags: I32) -> AbiResult {
+unsafe fn utimensat(dfd: I32, filename: Nullable<CString>, utimes: Nullable<ConstPtr<__kernel_timespec>>, flags: I32) -> AbiResult {
     syscall(280, dfd, filename, utimes, flags)
 }
 
@@ -1076,7 +1076,7 @@ unsafe fn fallocate(fd: I32, mode: I32, offset: I64, len: I64) -> AbiResult {
     syscall(285, fd, mode, offset, len)
 }
 
-unsafe fn timerfd_settime(ufd: I32, flags: I32, utmr: ConstPtr<__kernel_itimerspec>, otmr: MutPtr<__kernel_itimerspec>) -> AbiResult {
+unsafe fn timerfd_settime(ufd: I32, flags: I32, utmr: ConstPtr<__kernel_itimerspec>, otmr: Nullable<MutPtr<__kernel_itimerspec>>) -> AbiResult {
     syscall(286, ufd, flags, utmr, otmr)
 }
 
@@ -1084,7 +1084,7 @@ unsafe fn timerfd_gettime(ufd: I32, otmr: MutPtr<__kernel_itimerspec>) -> AbiRes
     syscall(287, ufd, otmr)
 }
 
-unsafe fn accept4(fd: I32, upeer_sockaddr: MutPtr<sockaddr>, upeer_addrlen: MutPtr<I32>, flags: I32) -> AbiResult {
+unsafe fn accept4(fd: I32, upeer_sockaddr: Nullable<MutPtr<sockaddr>>, upeer_addrlen: Nullable<MutPtr<I32>>, flags: I32) -> AbiResult {
     syscall(288, fd, upeer_sockaddr, upeer_addrlen, flags)
 }
 
@@ -1136,7 +1136,7 @@ unsafe fn fanotify_init(flags: U32, event_f_flags: U32) -> AbiResult {
     syscall(300, flags, event_f_flags)
 }
 
-unsafe fn fanotify_mark(fanotify_fd: I32, flags: U32, mask: U64, dfd: I32, pathname: ConstPtr<CChar>) -> AbiResult {
+unsafe fn fanotify_mark(fanotify_fd: I32, flags: U32, mask: U64, dfd: I32, pathname: Nullable<CString>) -> AbiResult {
     syscall(301, fanotify_fd, flags, mask, dfd, pathname)
 }
 
@@ -1144,7 +1144,7 @@ unsafe fn prlimit64(pid: I32, resource: U32, new_rlim: ConstPtr<rlimit64>, old_r
     syscall(302, pid, resource, new_rlim, old_rlim)
 }
 
-unsafe fn name_to_handle_at(dfd: I32, name: ConstPtr<CChar>, handle: MutPtr<file_handle>, mnt_id: MutPtr<Void>, flag: I32) -> AbiResult {
+unsafe fn name_to_handle_at(dfd: I32, name: CString, handle: MutPtr<file_handle>, mnt_id: MutPtr<Void>, flag: I32) -> AbiResult {
     syscall(303, dfd, name, handle, mnt_id, flag)
 }
 
@@ -1184,7 +1184,7 @@ unsafe fn kcmp(pid1: I32, pid2: I32, type: I32, idx1: U64, idx2: U64) -> AbiResu
     syscall(312, pid1, pid2, type, idx1, idx2)
 }
 
-unsafe fn finit_module(fd: I32, uargs: ConstPtr<CChar>, flags: I32) -> AbiResult {
+unsafe fn finit_module(fd: I32, uargs: CString, flags: I32) -> AbiResult {
     syscall(313, fd, uargs, flags)
 }
 
@@ -1196,7 +1196,7 @@ unsafe fn sched_getattr(pid: I32, uattr: MutPtr<sched_attr>, usize: U32, flags: 
     syscall(315, pid, uattr, usize, flags)
 }
 
-unsafe fn renameat2(olddfd: I32, oldname: ConstPtr<CChar>, newdfd: I32, newname: ConstPtr<CChar>, flags: U32) -> AbiResult {
+unsafe fn renameat2(olddfd: I32, oldname: CString, newdfd: I32, newname: CString, flags: U32) -> AbiResult {
     syscall(316, olddfd, oldname, newdfd, newname, flags)
 }
 
@@ -1204,15 +1204,15 @@ unsafe fn seccomp(op: U32, flags: U32, uargs: MutPtr<Void>) -> AbiResult {
     syscall(317, op, flags, uargs)
 }
 
-unsafe fn getrandom(ubuf: MutPtr<CChar>, len: Usize, flags: U32) -> AbiResult {
+unsafe fn getrandom(ubuf: WriteBuffer<len>, len: Usize, flags: U32) -> AbiResult {
     syscall(318, ubuf, len, flags)
 }
 
-unsafe fn memfd_create(uname: ConstPtr<CChar>, flags: U32) -> AbiResult {
+unsafe fn memfd_create(uname: CString, flags: U32) -> AbiResult {
     syscall(319, uname, flags)
 }
 
-unsafe fn kexec_file_load(kernel_fd: I32, initrd_fd: I32, cmdline_len: U64, cmdline_ptr: ConstPtr<CChar>, flags: U64) -> AbiResult {
+unsafe fn kexec_file_load(kernel_fd: I32, initrd_fd: I32, cmdline_len: U64, cmdline_ptr: ReadBuffer<cmdline_len>, flags: U64) -> AbiResult {
     syscall(320, kernel_fd, initrd_fd, cmdline_len, cmdline_ptr, flags)
 }
 
@@ -1220,7 +1220,7 @@ unsafe fn bpf(cmd: I32, uattr: MutPtr<bpf_attr>, size: U32) -> AbiResult {
     syscall(321, cmd, uattr, size)
 }
 
-unsafe fn execveat(fd: I32, filename: ConstPtr<CChar>, argv: ConstPtr<ConstPtr<CChar>>, envp: ConstPtr<ConstPtr<CChar>>, flags: I32) -> AbiResult {
+unsafe fn execveat(fd: I32, filename: CString, argv: Nullable<NulTerminatedArray<CString>>, envp: Nullable<NulTerminatedArray<CString>>, flags: I32) -> AbiResult {
     syscall(322, fd, filename, argv, envp, flags)
 }
 
@@ -1260,11 +1260,11 @@ unsafe fn pkey_free(pkey: I32) -> AbiResult {
     syscall(331, pkey)
 }
 
-unsafe fn statx(dfd: I32, filename: ConstPtr<CChar>, flags: U32, mask: U32, buffer: MutPtr<statx>) -> AbiResult {
+unsafe fn statx(dfd: I32, filename: Nullable<CString>, flags: U32, mask: U32, buffer: MutPtr<statx>) -> AbiResult {
     syscall(332, dfd, filename, flags, mask, buffer)
 }
 
-unsafe fn io_pgetevents(ctx_id: U64, min_nr: I64, nr: I64, events: MutPtr<io_event>, timeout: MutPtr<__kernel_timespec>, usig: ConstPtr<__aio_sigset>) -> AbiResult {
+unsafe fn io_pgetevents(ctx_id: U64, min_nr: I64, nr: I64, events: MutPtr<io_event>, timeout: Nullable<ConstPtr<__kernel_timespec>>, usig: Nullable<ConstPtr<__aio_sigset>>) -> AbiResult {
     syscall(333, ctx_id, min_nr, nr, events, timeout, usig)
 }
 
@@ -1292,19 +1292,19 @@ unsafe fn io_uring_register(fd: U32, opcode: U32, arg: MutPtr<Void>, nr_args: U3
     syscall(427, fd, opcode, arg, nr_args)
 }
 
-unsafe fn open_tree(dfd: I32, filename: ConstPtr<CChar>, flags: U32) -> AbiResult {
+unsafe fn open_tree(dfd: I32, filename: CString, flags: U32) -> AbiResult {
     syscall(428, dfd, filename, flags)
 }
 
-unsafe fn move_mount(from_dfd: I32, from_pathname: ConstPtr<CChar>, to_dfd: I32, to_pathname: ConstPtr<CChar>, flags: U32) -> AbiResult {
+unsafe fn move_mount(from_dfd: I32, from_pathname: CString, to_dfd: I32, to_pathname: CString, flags: U32) -> AbiResult {
     syscall(429, from_dfd, from_pathname, to_dfd, to_pathname, flags)
 }
 
-unsafe fn fsopen(_fs_name: ConstPtr<CChar>, flags: U32) -> AbiResult {
+unsafe fn fsopen(_fs_name: CString, flags: U32) -> AbiResult {
     syscall(430, _fs_name, flags)
 }
 
-unsafe fn fsconfig(fd: I32, cmd: U32, _key: ConstPtr<CChar>, _value: ConstPtr<Void>, aux: I32) -> AbiResult {
+unsafe fn fsconfig(fd: I32, cmd: U32, _key: Nullable<CString>, _value: ConstPtr<Void>, aux: I32) -> AbiResult {
     syscall(431, fd, cmd, _key, _value, aux)
 }
 
@@ -1312,7 +1312,7 @@ unsafe fn fsmount(fs_fd: I32, flags: U32, attr_flags: U32) -> AbiResult {
     syscall(432, fs_fd, flags, attr_flags)
 }
 
-unsafe fn fspick(dfd: I32, path: ConstPtr<CChar>, flags: U32) -> AbiResult {
+unsafe fn fspick(dfd: I32, path: CString, flags: U32) -> AbiResult {
     syscall(433, dfd, path, flags)
 }
 
@@ -1328,7 +1328,7 @@ unsafe fn close_range(fd: U32, max_fd: U32, flags: U32) -> AbiResult {
     syscall(436, fd, max_fd, flags)
 }
 
-unsafe fn openat2(dfd: I32, filename: ConstPtr<CChar>, how: MutPtr<open_how>, usize: Usize) -> AbiResult {
+unsafe fn openat2(dfd: I32, filename: CString, how: ConstPtr<open_how>, usize: Usize) -> AbiResult {
     syscall(437, dfd, filename, how, usize)
 }
 
@@ -1336,7 +1336,7 @@ unsafe fn pidfd_getfd(pidfd: I32, fd: I32, flags: U32) -> AbiResult {
     syscall(438, pidfd, fd, flags)
 }
 
-unsafe fn faccessat2(dfd: I32, filename: ConstPtr<CChar>, mode: I32, flags: I32) -> AbiResult {
+unsafe fn faccessat2(dfd: I32, filename: CString, mode: I32, flags: I32) -> AbiResult {
     syscall(439, dfd, filename, mode, flags)
 }
 
@@ -1348,7 +1348,7 @@ unsafe fn epoll_pwait2(epfd: I32, events: MutPtr<epoll_event>, maxevents: I32, t
     syscall(441, epfd, events, maxevents, timeout, sigmask, sigsetsize)
 }
 
-unsafe fn mount_setattr(dfd: I32, path: ConstPtr<CChar>, flags: U32, uattr: MutPtr<mount_attr>, usize: Usize) -> AbiResult {
+unsafe fn mount_setattr(dfd: I32, path: CString, flags: U32, uattr: MutPtr<mount_attr>, usize: Usize) -> AbiResult {
     syscall(442, dfd, path, flags, uattr, usize)
 }
 
@@ -1388,7 +1388,7 @@ unsafe fn cachestat(fd: U32, cstat_range: MutPtr<cachestat_range>, cstat: MutPtr
     syscall(451, fd, cstat_range, cstat, flags)
 }
 
-unsafe fn fchmodat2(dfd: I32, filename: ConstPtr<CChar>, mode: U16, flags: U32) -> AbiResult {
+unsafe fn fchmodat2(dfd: I32, filename: CString, mode: U16, flags: U32) -> AbiResult {
     syscall(452, dfd, filename, mode, flags)
 }
 
