@@ -56,9 +56,7 @@ validation of on-disk frames independently of the graph cache.
 ## Repository profile
 
 The draft specifies the storage contract and leaves the physical encoding to a
-profile. This crate writes `llmlang.spg.tables.v2` and can read and rebuild indexes
-for existing `llmlang.spg.tables.v1` packages. Re-save a loaded v1 package to a
-new directory to migrate it. Its rows must satisfy the v2 table schemas.
+profile. This crate uses `llmlang.spg.tables.v2`.
 
 - `manifest.json` contains `profile`, `language_version`, and `dependencies`.
 - Each of the twelve tables has a lowercase `<table>.dump` and

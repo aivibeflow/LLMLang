@@ -4,8 +4,8 @@ mod graph;
 pub use graph::*;
 mod record;
 
-use prost::Message;
-use record::{digest, LegacyRecord, TableRecord as Record};
+pub use record::content_hash;
+use record::{digest, TableRecord as Record};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::collections::BTreeMap;
@@ -30,7 +30,6 @@ pub const TABLES: [&str; 12] = [
 ];
 
 const PROFILE: &str = "llmlang.spg.tables.v2";
-const LEGACY_PROFILE: &str = "llmlang.spg.tables.v1";
 const MANIFEST: &str = "manifest.json";
 const MAGIC: &[u8; 8] = b"LLSPG\x02\r\n";
 const HEADER: u64 = 40;
@@ -119,37 +118,17 @@ fn check_manifest(manifest: &Manifest, supported_versions: &[&str]) -> Result<()
     Ok(())
 }
 
-#[derive(Clone, Copy, PartialEq, Eq)]
-enum RepositoryProfile {
-    Legacy,
-    PerTable,
-}
-
-impl RepositoryProfile {
-    fn magic(self) -> &'static [u8; 8] {
-        match self {
-            Self::Legacy => b"LLSPG\x01\r\n",
-            Self::PerTable => MAGIC,
-        }
-    }
-}
-
-fn read_manifest(
-    path: &Path,
-    supported_versions: &[&str],
-) -> Result<(Manifest, RepositoryProfile)> {
+fn read_manifest(path: &Path, supported_versions: &[&str]) -> Result<Manifest> {
     let manifest: PackageManifest = serde_json::from_slice(&read_metadata(&path.join(MANIFEST))?)?;
-    let profile = match manifest.profile.as_str() {
-        PROFILE => RepositoryProfile::PerTable,
-        LEGACY_PROFILE => RepositoryProfile::Legacy,
-        _ => return Err(invalid("unsupported repository profile")),
-    };
+    if manifest.profile != PROFILE {
+        return Err(invalid("unsupported repository profile"));
+    }
     let result = Manifest {
         language_version: manifest.language_version,
         dependencies: manifest.dependencies,
     };
     check_manifest(&result, supported_versions)?;
-    Ok((result, profile))
+    Ok(result)
 }
 
 /// Write a complete package and publish it at a new directory.
@@ -199,7 +178,7 @@ pub fn save(path: &Path, package: &Package, options: SaveOptions) -> Result<()> 
 
 /// Read all records and verify that every index describes its companion dump.
 pub fn load(path: &Path, supported_versions: &[&str], options: LoadOptions<'_>) -> Result<Package> {
-    let (manifest, profile) = read_manifest(path, supported_versions)?;
+    let manifest = read_manifest(path, supported_versions)?;
     let text = if options.write_text_dump {
         let destination = options
             .text_dump_dir
@@ -223,7 +202,7 @@ pub fn load(path: &Path, supported_versions: &[&str], options: LoadOptions<'_>) 
             table,
             text.is_some(),
         )?;
-        let observed = scan(path, table, profile, |frame| {
+        let observed = scan(path, table, |frame| {
             output.record(&frame.record)?;
             rows.insert(frame.key, frame.row);
             Ok(())
@@ -242,9 +221,9 @@ pub fn load(path: &Path, supported_versions: &[&str], options: LoadOptions<'_>) 
 
 /// Rebuild a table index from a fully verified dump and replace it atomically.
 pub fn rebuild_index(path: &Path, supported_versions: &[&str], table: &str) -> Result<Index> {
-    let (_, profile) = read_manifest(path, supported_versions)?;
+    read_manifest(path, supported_versions)?;
     check_table(table)?;
-    let index = scan(path, table, profile, |_| Ok(()))?;
+    let index = scan(path, table, |_| Ok(()))?;
     write_index(path, table, &index)?;
     Ok(index)
 }
@@ -258,7 +237,7 @@ pub fn load_record(
     hash: &str,
     cache: Option<&BTreeMap<String, (String, Value)>>,
 ) -> Result<Option<(String, Value)>> {
-    let (_, profile) = read_manifest(path, supported_versions)?;
+    read_manifest(path, supported_versions)?;
     check_table(table)?;
     check_hash(hash)?;
     let index = read_index(path, table)?;
@@ -266,10 +245,7 @@ pub fn load_record(
         return Ok(None);
     };
     if let Some((key, row)) = cache.and_then(|cache| cache.get(hash)) {
-        let size = match profile {
-            RepositoryProfile::Legacy => LegacyRecord::new(key, row)?.encoded_len(),
-            RepositoryProfile::PerTable => Record::new(table, key, row)?.encode_to_vec().len(),
-        };
+        let size = Record::new(table, key, row)?.encode_to_vec().len();
         if size > MAX_RECORD || hex::encode(digest(key, row)?) != hash {
             return Err(invalid(
                 "cached record content hash mismatch or invalid size",
@@ -277,18 +253,13 @@ pub fn load_record(
         }
         return Ok(Some((key.clone(), row.clone())));
     }
-    let (mut dump, size) = open_dump(path, table, profile)?;
+    let (mut dump, size) = open_dump(path, table)?;
     dump.seek(SeekFrom::Start(offset))?;
-    let frame = read_frame(&mut dump, offset, size, table, profile)?;
+    let frame = read_frame(&mut dump, offset, size, table)?;
     if hex::encode(frame.hash) != hash {
         return Err(invalid("indexed offset points to a different record"));
     }
     Ok(Some((frame.key, frame.row)))
-}
-
-pub fn content_hash(key: &str, row: &Value) -> Result<String> {
-    LegacyRecord::new(key, row)?;
-    Ok(hex::encode(digest(key, row)?))
 }
 
 struct Frame {
@@ -299,29 +270,19 @@ struct Frame {
     next: u64,
 }
 
-fn open_dump(
-    path: &Path,
-    table: &str,
-    profile: RepositoryProfile,
-) -> Result<(BufReader<File>, u64)> {
+fn open_dump(path: &Path, table: &str) -> Result<(BufReader<File>, u64)> {
     let file = File::open(dump_path(path, table))?;
     let size = file.metadata()?.len();
     let mut stream = BufReader::new(file);
     let mut magic = [0; MAGIC.len()];
     stream.read_exact(&mut magic)?;
-    if &magic != profile.magic() {
+    if &magic != MAGIC {
         return Err(invalid(format!("{table}: invalid dump magic")));
     }
     Ok((stream, size))
 }
 
-fn read_frame(
-    stream: &mut impl Read,
-    offset: u64,
-    size: u64,
-    table: &str,
-    profile: RepositoryProfile,
-) -> Result<Frame> {
+fn read_frame(stream: &mut impl Read, offset: u64, size: u64, table: &str) -> Result<Frame> {
     if offset < MAGIC.len() as u64 || size.saturating_sub(offset) < HEADER {
         return Err(invalid("frame header outside dump"));
     }
@@ -343,7 +304,7 @@ fn read_frame(
     if raw_bytes.len() != raw {
         return Err(invalid("decompressed record size mismatch"));
     }
-    let (record, key, row) = Record::parse(table, profile, &raw_bytes)?;
+    let (record, key, row) = Record::parse(table, &raw_bytes)?;
     if digest(&key, &row)? != hash {
         return Err(invalid("record content hash mismatch"));
     }
@@ -356,18 +317,13 @@ fn read_frame(
     })
 }
 
-fn scan(
-    path: &Path,
-    table: &str,
-    profile: RepositoryProfile,
-    mut record: impl FnMut(Frame) -> Result<()>,
-) -> Result<Index> {
-    let (mut dump, size) = open_dump(path, table, profile)?;
+fn scan(path: &Path, table: &str, mut record: impl FnMut(Frame) -> Result<()>) -> Result<Index> {
+    let (mut dump, size) = open_dump(path, table)?;
     let mut offset = MAGIC.len() as u64;
     let mut index = Index::new();
     let mut previous = String::new();
     while offset < size {
-        let frame = read_frame(&mut dump, offset, size, table, profile)?;
+        let frame = read_frame(&mut dump, offset, size, table)?;
         if frame.key <= previous {
             return Err(invalid("duplicate or unordered record key"));
         }
