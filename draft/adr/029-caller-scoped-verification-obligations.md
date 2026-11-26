@@ -40,7 +40,7 @@ For call compatibility, validate that the pinned callee and requirement occur to
 
 ## Complete logical schema
 
-The logical schema below covers all twelve tables. PK and FK denote primary and foreign keys. Multiple PK labels form a composite key. `hash` identifies a digest, `ir` a typed intermediate representation, and collection fields hold the listed values. Fields are required unless marked optional or restricted to an obligation or rule kind. The green marker identifies obligation fields added or renamed by the caller-scoped design.
+The logical schema below covers all twelve tables. PK and FK denote primary and foreign keys. Multiple PK labels form a composite key. `hash` identifies a digest, `ir` a typed intermediate representation, and collection fields hold the listed values. Fields are required unless marked optional or restricted to an obligation or rule kind.
 
 ```mermaid
 erDiagram
@@ -86,11 +86,11 @@ erDiagram
     VERIFICATION_OBLIGATIONS {
         hash obligation_hash PK
         text kind "obligation kind"
-        hash caller_impl_hash FK "🟩 required function revision"
-        hash callee_impl_hash FK "🟩 call compatibility only"
-        hash struct_impl_hash FK "🟩 structure contract check only"
+        hash caller_impl_hash FK "required function revision"
+        hash callee_impl_hash FK "call compatibility only"
+        hash struct_impl_hash FK "structure contract check only"
         hash public_contract_hash FK "public refinement only"
-        hash caller_required_contract_hash FK "🟩 call compatibility only"
+        hash caller_required_contract_hash FK "call compatibility only"
         hash verification_context_hash "digest of exact verification context"
     }
     VERIFICATION_RUNS {
@@ -107,11 +107,11 @@ erDiagram
     CONTRACTS ||--o{ CONTRACT_RULES : contains
     CONTRACTS ||..o{ INTERFACES : public
     CONTRACTS ||..o{ FUNCTIONS : provided
-    FUNCTIONS ||..o{ VERIFICATION_OBLIGATIONS : "🟩 caller_impl_hash"
-    FUNCTIONS |o..o{ VERIFICATION_OBLIGATIONS : "🟩 callee_impl_hash"
-    STRUCTURES |o..o{ VERIFICATION_OBLIGATIONS : "🟩 struct_impl_hash"
+    FUNCTIONS ||..o{ VERIFICATION_OBLIGATIONS : "caller_impl_hash"
+    FUNCTIONS |o..o{ VERIFICATION_OBLIGATIONS : "callee_impl_hash"
+    STRUCTURES |o..o{ VERIFICATION_OBLIGATIONS : "struct_impl_hash"
     CONTRACTS |o..o{ VERIFICATION_OBLIGATIONS : public
-    CONTRACTS |o..o{ VERIFICATION_OBLIGATIONS : "🟩 caller_required_contract_hash"
+    CONTRACTS |o..o{ VERIFICATION_OBLIGATIONS : "caller_required_contract_hash"
     VERIFICATION_OBLIGATIONS ||..o{ VERIFICATION_RUNS : "checked by"
     STRUCTURES {
         hash struct_impl_hash PK
