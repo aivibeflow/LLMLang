@@ -200,11 +200,11 @@ erDiagram
 
 ## Boundaries and open work
 
-JSON through MCP, indexed Protobuf in Git packages, and `llmlang_contract` in native binaries belong to different boundaries. They serve agent-facing exchange, repository reconstruction, and native library inspection, respectively. Open work includes the complete language grammar, hash encodings, several runtime semantics including nested transactions and reentrancy, full target coverage, and validation of the database implementation and migration. The [scalar MVP] exercises a narrower profile. Broader conformance depends on the relevant semantics, implementation and evidence.
+JSON through MCP, indexed Protobuf in Git packages, and `llmlang_contract` in native binaries belong to different boundaries. They serve agent-facing exchange, repository reconstruction, and native library inspection, respectively. Open work includes the complete language grammar, hash encodings, several runtime semantics including nested transactions and reentrancy, full target coverage, and validation of the database implementation and migration. The [scalar MVP] exercises a narrower profile and supplies the Stage 0 compiler and verification backend used by the draft server's scalar profile. Broader conformance depends on the relevant semantics, implementation and evidence.
 
 The repository profile must specify the exact signature text grammar, digest encoding, and physical record format.
 
-[scalar MVP]: https://github.com/aivibeflow/LLMLang/blob/53584d5089c05717c518cd4b5c3996b166f97d22/tools/llmlang_mvp/README.md
+[scalar MVP]: llmlang_mvp/README.md
 
 ## Sources
 

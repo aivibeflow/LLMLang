@@ -235,7 +235,7 @@ def main():
     try:
         corpus = runpy.run_path(str(RUNNER))
         stage0 = Path(stage0_compiler(args.stage0)).resolve()
-        cli = [sys.executable, "-B", "-m", "tools.llmlang_mvp", "--stage0", str(stage0)]
+        cli = [sys.executable, "-B", "-m", "draft.llmlang_mvp", "--stage0", str(stage0)]
         spg = _check_spg_reconstruction(cli)
         print(f"Canonical SPG reproduced {spg}")
         with TemporaryDirectory(prefix="llmlang-mvp-conformance-") as temporary:

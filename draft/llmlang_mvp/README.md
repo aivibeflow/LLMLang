@@ -24,17 +24,17 @@ The tested target is `x86_64-unknown-linux-gnu`. Use Python 3.12, Rust 1.85.1 wi
 ```sh
 rustup toolchain install 1.85.1 --profile minimal
 rustup override set 1.85.1
-cargo fetch --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
-cargo build --offline --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
-cargo test --offline --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
+cargo fetch --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
+cargo build --offline --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
+cargo test --offline --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
 
-python -B -m tools.llmlang_mvp show-spg
-python -B -m tools.llmlang_mvp export-contract-ir
-python -B -m tools.llmlang_mvp review
-python -B -m tools.llmlang_mvp check
-python -B -m tools.llmlang_mvp.controls
-python -B -m tools.llmlang_mvp.conformance --report /tmp/llmlang-conformance.json
-lean tools/llmlang_mvp/ScalarChecks.lean
+python -B -m draft.llmlang_mvp show-spg
+python -B -m draft.llmlang_mvp export-contract-ir
+python -B -m draft.llmlang_mvp review
+python -B -m draft.llmlang_mvp check
+python -B -m draft.llmlang_mvp.controls
+python -B -m draft.llmlang_mvp.conformance --report /tmp/llmlang-conformance.json
+lean draft/llmlang_mvp/ScalarChecks.lean
 ```
 
 The RT-01 command creates a temporary **test** signing identity and builds Calculator, Hello and Echo. The synthetic approval exercises the signing protocol. Its report records exact input and output bytes as hex, exit statuses, tool versions, input hashes, and the repeated SPG reconstruction hash. Hello and Echo exercise the host runtime adapters. For Calculator, the runtime takes one record terminated by LF or EOF and separates its three tokens with spaces, tabs or carriage returns. RT-01 leaves tokens split across multiple records and trailing records outside the acceptance corpus.
@@ -47,11 +47,11 @@ Set up a local reviewer key and trusted policy. In a shared deployment, the buil
 review_dir=$(mktemp -d)
 openssl genpkey -algorithm ED25519 -out "$review_dir/reviewer.pem"
 openssl pkey -in "$review_dir/reviewer.pem" -pubout -out "$review_dir/reviewer.pub.pem"
-key_id=$(python -B -m tools.llmlang_mvp review-key-id "$review_dir/reviewer.pub.pem")
+key_id=$(python -B -m draft.llmlang_mvp review-key-id "$review_dir/reviewer.pub.pem")
 printf '{ "schema": "llmlang-review-policy/v1", "reviewer": "Calculator reviewer", "public_key": "reviewer.pub.pem", "public_key_id": "%s" }\n' \
   "$key_id" > "$review_dir/policy.json"
 
-python -B -m tools.llmlang_mvp review > "$review_dir/packet.txt"
+python -B -m draft.llmlang_mvp review > "$review_dir/packet.txt"
 cat "$review_dir/packet.txt"
 ```
 
@@ -59,10 +59,10 @@ After inspecting the controlled prose, clause origins and scenarios, approve the
 
 ```sh
 packet=$(sed -n 's/^Review packet: //p' "$review_dir/packet.txt")
-python -B -m tools.llmlang_mvp approve-review --packet "$packet" \
+python -B -m draft.llmlang_mvp approve-review --packet "$packet" \
   --reviewer "Calculator reviewer" --signing-key "$review_dir/reviewer.pem" \
   -o "$review_dir/receipt.json"
-python -B -m tools.llmlang_mvp build --review-receipt "$review_dir/receipt.json" \
+python -B -m draft.llmlang_mvp build --review-receipt "$review_dir/receipt.json" \
   --review-policy "$review_dir/policy.json" -o "$review_dir/calculator"
 printf '%s\n' '-7 / 2' | "$review_dir/calculator"
 ```

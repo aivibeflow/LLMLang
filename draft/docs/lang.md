@@ -4,7 +4,7 @@ This reference covers the syntax implemented in the current checkout. The scalar
 
 ## Scalar text source
 
-A module contains one or more plain `def` declarations with a type annotation on every parameter and on the return value. Write `int` for signed 64-bit integers and `bool` for Booleans. Use indentation for blocks, `#` for comments, and ASCII identifiers such as `safe_divide` for portable source. Each function name must be unique within the module. [Stage 0 frontend](../../tools/llmlang_mvp/stage0/src/frontend.rs) · [Python frontend](../../tools/llmlang_mvp/frontend.py)
+A module contains one or more plain `def` declarations with a type annotation on every parameter and on the return value. Write `int` for signed 64-bit integers and `bool` for Booleans. Use indentation for blocks, `#` for comments, and ASCII identifiers such as `safe_divide` for portable source. Each function name must be unique within the module. [Stage 0 frontend](../llmlang_mvp/stage0/src/frontend.rs) · [Python frontend](../llmlang_mvp/frontend.py)
 
 ```python
 def divide(left: int, right: int) -> int:
@@ -33,12 +33,12 @@ Grouping and precedence follow the Python parser. Expressions and call arguments
 Lower a source file from the repository root after building Stage 0. This checks source syntax and types and prints the graph with exact implementation pins.
 
 ```sh
-cargo build --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
-tools/llmlang_mvp/stage0/target/debug/llmlang-stage0 lower \
-  tools/llmlang_mvp/calculator.llmlang
+cargo build --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
+draft/llmlang_mvp/stage0/target/debug/llmlang-stage0 lower \
+  draft/llmlang_mvp/calculator.llmlang
 ```
 
-An optional second argument supplies a JSON object mapping every declared function name to its provided contract hash, in `sha256:<64 lowercase hex digits>` form for this frontend. Use the scalar MVP CLI for contract checking and the Calculator build workflow. [Calculator source](../../tools/llmlang_mvp/calculator.llmlang) · [Scalar MVP commands](../../tools/llmlang_mvp/README.md)
+An optional second argument supplies a JSON object mapping every declared function name to its provided contract hash, in `sha256:<64 lowercase hex digits>` form for this frontend. Use the scalar MVP CLI for contract checking and the Calculator build workflow. [Calculator source](../llmlang_mvp/calculator.llmlang) · [Scalar MVP commands](../llmlang_mvp/README.md)
 
 ## Scalar MCP authoring
 
@@ -76,7 +76,7 @@ A `put_contract` operation takes a typed signature and an array of rules. `requi
 ]
 ```
 
-Predicate values can be JSON Booleans or Boolean expression strings. The predicate language supports comparisons, including chains, `and`, `or`, `not`, and mathematical integer `+`, `-`, `*`, and unary minus. Use `quotient(a, b)` for the totalized quotient, which truncates toward zero and returns zero when `b` is zero. Program arithmetic can fail. The example rules apply to the `divide` signature with `left` and `right` as `i64`. The precondition excludes the signed division overflow case. [Scalar Contract IR](../../tools/llmlang_mvp/CONTRACT-IR.md) · [Server rule adapter](../server/scalar.py)
+Predicate values can be JSON Booleans or Boolean expression strings. The predicate language supports comparisons, including chains, `and`, `or`, `not`, and mathematical integer `+`, `-`, `*`, and unary minus. Use `quotient(a, b)` for the totalized quotient, which truncates toward zero and returns zero when `b` is zero. Program arithmetic can fail. The example rules apply to the `divide` signature with `left` and `right` as `i64`. The precondition excludes the signed division overflow case. [Scalar Contract IR](../llmlang_mvp/CONTRACT-IR.md) · [Server rule adapter](../server/scalar.py)
 
 ## Native source syntax
 

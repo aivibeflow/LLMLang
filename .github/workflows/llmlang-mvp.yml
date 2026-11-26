@@ -3,7 +3,7 @@ name: LLMLang scalar MVP
 on:
   pull_request:
     paths:
-      - "tools/llmlang_mvp/**"
+      - "draft/llmlang_mvp/**"
       - "draft/library/**"
       - "draft/server/**"
       - "draft/src/library/**"
@@ -36,32 +36,32 @@ jobs:
           command -v z3
           rustup toolchain install 1.85.1 --profile minimal
           rustup default 1.85.1
-          cargo fetch --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
+          cargo fetch --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
           echo "$RUNNER_TEMP/boogie" >> "$GITHUB_PATH"
       - name: Build and test Stage 0 offline
         run: |
-          cargo build --offline --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
-          cargo test --offline --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
+          cargo build --offline --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
+          cargo test --offline --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
       - name: Exercise scalar package authoring through the MCP client
         run: |
           cargo build --locked --manifest-path draft/server/Cargo.toml
-          export LLMLANG_STAGE0="$PWD/tools/llmlang_mvp/stage0/target/debug/llmlang-stage0"
+          export LLMLANG_STAGE0="$PWD/draft/llmlang_mvp/stage0/target/debug/llmlang-stage0"
           python -B draft/server/tests/mcp_e2e.py draft/server/target/debug/llmlang-server
       - name: Check scalar model in Lean
         run: |
           curl --proto '=https' --tlsv1.2 -fsSL https://raw.githubusercontent.com/leanprover/elan/58e8d545e33641f66dbcbd22c4283109e71757be/elan-init.sh | sh -s -- -y --default-toolchain leanprover/lean4:v4.36.0
-          "$HOME/.elan/bin/lean" tools/llmlang_mvp/ScalarChecks.lean
+          "$HOME/.elan/bin/lean" draft/llmlang_mvp/ScalarChecks.lean
       - name: Check review and verification controls
         run: |
-          python -B -m tools.llmlang_mvp.controls
-          python -B -m unittest -v tools.llmlang_mvp.test_contract_wire tools.llmlang_mvp.test_contract_profiles tools.llmlang_mvp.test_counterexamples
-          python -B -m tools.llmlang_mvp review > "$RUNNER_TEMP/llmlang-review.txt"
-          python -B -m tools.llmlang_mvp check > "$RUNNER_TEMP/llmlang-verification.json"
-          python -B -m tools.llmlang_mvp.contract_profiles check \
-            tools/llmlang_mvp/trace_examples/withdrawal.contract.json \
-            tools/llmlang_mvp/trace_examples/withdrawal-failure.trace.json > "$RUNNER_TEMP/llmlang-trace.json"
+          python -B -m draft.llmlang_mvp.controls
+          python -B -m unittest -v draft.llmlang_mvp.test_contract_wire draft.llmlang_mvp.test_contract_profiles draft.llmlang_mvp.test_counterexamples
+          python -B -m draft.llmlang_mvp review > "$RUNNER_TEMP/llmlang-review.txt"
+          python -B -m draft.llmlang_mvp check > "$RUNNER_TEMP/llmlang-verification.json"
+          python -B -m draft.llmlang_mvp.contract_profiles check \
+            draft/llmlang_mvp/trace_examples/withdrawal.contract.json \
+            draft/llmlang_mvp/trace_examples/withdrawal-failure.trace.json > "$RUNNER_TEMP/llmlang-trace.json"
       - name: Run RT-01 against both execution paths
-        run: python -B -m tools.llmlang_mvp.conformance --report "$RUNNER_TEMP/llmlang-conformance.json"
+        run: python -B -m draft.llmlang_mvp.conformance --report "$RUNNER_TEMP/llmlang-conformance.json"
       - uses: actions/upload-artifact@v4
         with:
           name: llmlang-mvp-evidence

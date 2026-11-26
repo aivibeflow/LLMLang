@@ -4,7 +4,7 @@ LLMLang is a research project designing a programming language and development t
 
 LLMLang — исследовательский проект языка программирования для ИИ-агентов и больших языковых моделей. Модель предлагает изменения в типизированном графе программы, человек утверждает требования и решения, а инструменты независимо проверяют результат.
 
-**Project status:** The scalar MVP builds and verifies a native Calculator on Linux x86-64. The general language and runtime remain under design. [MVP quickstart](tools/llmlang_mvp/README.md) · [Linux syscall package](draft/examples/linux.syscalls/README.md) · [LLMLang architecture RFC](draft/RFC.md) · [Candidate specification](draft/README.md) · [Example implementations](draft/examples/README.md) · [Feature registry](FEATURE-REGISTRY.md)
+**Project status:** The scalar MVP builds and verifies a native Calculator on Linux x86-64. The general language and runtime remain under design. [MVP quickstart](draft/llmlang_mvp/README.md) · [Linux syscall package](draft/examples/linux.syscalls/README.md) · [LLMLang architecture RFC](draft/RFC.md) · [Candidate specification](draft/README.md) · [Example implementations](draft/examples/README.md) · [Feature registry](FEATURE-REGISTRY.md)
 
 ## How the language is designed
 
