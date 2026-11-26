@@ -1,5 +1,6 @@
 import linux.syscalls.read
 import linux.syscalls.write
+import stdlib.errno_message
 
 pub fn main() -> ExitStatus {
     let mut buffer = [0_u8; 8192];
@@ -19,7 +20,7 @@ pub fn main() -> ExitStatus {
             sent += written as Usize;
         }
     };
-    let diagnostic = builtin__errno_message(-error);
+    let diagnostic = errno_message(-error);
     write(2, &diagnostic[..], diagnostic.len());
     return 1;
 }

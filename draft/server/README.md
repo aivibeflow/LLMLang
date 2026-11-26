@@ -78,14 +78,10 @@ five draft syscall programs. The existing
 scalar executable convention prints its scalar result. Supported
 interface-only packages produce a Rust `rlib`.
 
-Compiler built-ins in the draft source profiles use the `builtin__` prefix.
-The scalar profile provides `builtin__fail`. The native profile provides
-`builtin__syscall` and `builtin__write_utf8` for [stdlib](../stdlib/README.md),
-and `builtin__trap`,
-`builtin__size_of`, `builtin__cstring_from_bytes`, `builtin__errno_message`,
-and `builtin__sockaddr_in_loopback` for program bodies. The error formatter
-takes a positive Linux errno and returns diagnostic bytes. A program calls exported
-functions such as `linux.syscalls.open` through its package bindings.
+Compiler built-ins use the `builtin__` prefix. Native code accesses them
+through [stdlib](../stdlib/README.md), whose implementations call the
+built-ins directly. Native lowering rejects direct references from other
+packages. The scalar text frontend currently provides `builtin__fail`.
 
 The compiler writes its Rust translation unit in a temporary directory and
 removes the directory when compilation ends. Executables and libraries go

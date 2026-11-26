@@ -41,7 +41,10 @@ def limit_file_size():
 
 
 def check_stdlib(artifact, exports, directory):
-    assert set(exports) == {"stdlib.write", "stdlib.syscall"}, exports
+    assert set(exports) == {
+        "stdlib.write", "stdlib.syscall", "stdlib.errno_message", "stdlib.cstring_from_bytes",
+        "stdlib.trap", "stdlib.sockaddr_in_loopback", "stdlib.sockaddr_in_size",
+    }, exports
     output = Path(directory, "utf8-output")
     harness = Path(directory, "stdlib-test.rs")
     harness.write_text(
@@ -121,24 +124,31 @@ def exercise(executable, directory):
 
             reachable_stdlib = {name for name, symbol in stdlib_symbols.items()
                                 if re.search(rf"\bfn {symbol}\s*\(", generated_source)}
-            assert reachable_stdlib == ({"stdlib.write"} if package == hello else {"stdlib.syscall"})
             if package == dependency:
+                assert reachable_stdlib == {"stdlib.syscall"}
                 raw_functions = json.loads((package / "functions.json").read_bytes())
                 assert len(raw_functions) == 358
                 assert all(row["canonicalBody"]["stringValue"].startswith("{\n")
                            for row in raw_functions)
                 assert all("stdlib::syscall(" in row["canonicalBody"]["stringValue"]
                            for row in raw_functions)
+                assert all("builtin__" not in row["canonicalBody"]["stringValue"] for row in raw_functions)
                 obligations = json.loads((package / "verification_obligations.json").read_bytes())
-                assert {row["callerImplHash"] for row in obligations} == {
+                assert {row["callerImplHash"] for row in obligations
+                        if row["calleeImplHash"] == syscall_impl} == {
                     row["implHash"] for row in raw_functions}
-                assert {row["calleeImplHash"] for row in obligations} == {syscall_impl}
+                stdlib_trap = stdlib_symbols["stdlib.trap"].replace("llmlang_source_", "sha256:")
+                restorer, = (row["implHash"] for row in raw_functions
+                             if "stdlib::trap()" in row["canonicalBody"]["stringValue"])
+                extra, = (row for row in obligations if row["calleeImplHash"] != syscall_impl)
+                assert (extra["callerImplHash"], extra["calleeImplHash"]) == (restorer, stdlib_trap)
                 assert artifact.suffix == ".rlib"
                 assert len(generated) == 355
                 assert {"rt_sigreturn", "vfork", "uretprobe"}.isdisjoint(generated)
                 continue
 
             source = (package / "main.llmlang").read_text()
+            assert "builtin__" not in source
             body = source[source.index("{"):].rstrip()
             main, = json.loads((package / "functions.json").read_bytes())
             assert main["canonicalBody"] == {"stringValue": body}
@@ -161,6 +171,10 @@ def exercise(executable, directory):
             imports = {line.rsplit(".", 1)[-1] for line in source.splitlines()
                        if line.startswith("import linux.syscalls.")}
             assert generated == imports, (package, generated, imports)
+            direct_stdlib = {line.removeprefix("import ") for line in source.splitlines()
+                             if line.startswith("import stdlib.")}
+            expected_stdlib = direct_stdlib | ({"stdlib.syscall"} if imports else set())
+            assert reachable_stdlib == expected_stdlib, (package, reachable_stdlib, expected_stdlib)
             payload = bytes(range(256)) * 83 + b"\x00\xff"
             if package == hello:
                 assert execute(artifact) == (0, b"Hello, world!\n")
@@ -168,7 +182,10 @@ def exercise(executable, directory):
                 with open("/dev/full", "wb") as full:
                     assert execute(artifact, stdout=full) == (1, None)
             elif package.name == "0004-syscall-echo":
-                wrapper = next(link for link in main_object["outgoing"] if link["relation"] == "Callee")
+                errno_impl = stdlib_symbols["stdlib.errno_message"].replace("llmlang_source_", "sha256:")
+                wrapper = next(link for link in main_object["outgoing"]
+                               if link["relation"] == "Callee"
+                               and link["uri"].rsplit("/", 1)[-1].replace("%3A", ":") != errno_impl)
                 wrapper_object = read_object(client, wrapper["uri"])
                 assert any(link["relation"] == "Callee"
                            and link["uri"].rsplit("/", 1)[-1].replace("%3A", ":") == syscall_impl
