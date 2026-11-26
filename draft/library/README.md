@@ -2,8 +2,9 @@
 
 This crate implements the repository persistence layer in the
 [architecture RFC] and [ADR-030], using the twelve tables from [ADR-029].
-The API accepts JSON objects with the columns declared for their table. The caller supplies
-each row's logical key, including a stable composite key where applicable.
+The API accepts JSON objects with the columns declared for their table. Each
+map key must match the row's primary-key columns, joined with `:` for a
+composite key. The binary record contains only the table columns.
 The Toolchain owns semantic identity calculation and verification, and supplies
 verified graphs for pinned package dependencies.
 
@@ -56,14 +57,14 @@ validation of on-disk frames independently of the graph cache.
 ## Repository profile
 
 The draft specifies the storage contract and leaves the physical encoding to a
-profile. This crate uses `llmlang.spg.tables.v2`.
+profile. This crate uses `llmlang.spg.tables.v3`.
 
 - `manifest.json` contains `profile`, `language_version`, and `dependencies`.
 - Each of the twelve tables has a lowercase `<table>.dump` and
   `<table>.index.json`, even when empty. The index is a JSON object mapping
   lowercase SHA-256 hex digests to zero-based offsets at the start of a frame.
   Index keys are sorted and the compact encoding ends in a newline.
-- Each dump starts with `LLSPG\x02\r\n`. Frames follow in ascending row key order.
+- Each dump starts with `LLSPG\x03\r\n`. Frames follow in ascending row key order.
   Each comprises a little-endian 32-bit compressed length, a little-endian
   32-bit uncompressed length, a 32-byte Content Hash, and a raw LZ4 block.
   The writer uses LZ4 fast mode with acceleration 1. The uncompressed size limit

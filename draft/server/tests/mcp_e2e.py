@@ -195,12 +195,13 @@ TABLES = (
 
 def check_dump(path):
     manifest = json.loads((path / "manifest.json").read_text(encoding="utf-8"))
-    assert manifest["profile"] == "llmlang.spg.tables.v2", manifest
+    assert manifest["profile"] == "llmlang.spg.tables.v3", manifest
     assert manifest["language_version"] == "0.1.0", manifest
     for table in TABLES:
-        assert (path / f"{table}.dump").read_bytes().startswith(b"LLSPG\x02\r\n"), table
+        assert (path / f"{table}.dump").read_bytes().startswith(b"LLSPG\x03\r\n"), table
         assert isinstance(json.loads((path / f"{table}.index.json").read_text()), dict), table
-        assert isinstance(json.loads((path / f"{table}.json").read_text()), list), table
+        rows = json.loads((path / f"{table}.json").read_text())
+        assert isinstance(rows, list) and all("key" not in row for row in rows), table
     contents = json.loads((path / "functions.json").read_text(encoding="utf-8"))
     assert any("canonicalBody" in row and "implHash" in row for row in contents), contents
 

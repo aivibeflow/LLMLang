@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package llmlang.spg.storage.v2;
+package llmlang.spg.storage.v3;
 
 // Fields in an Object are unique and stored in increasing Unicode key order.
 message Object {
@@ -27,23 +27,26 @@ message Value {
   }
 }
 
-// Each dump selects one message below by table name. The key is the storage key.
+// Each dump selects one message below by table name.
 message VersionRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string version_hash = 2;
   optional string version = 3;
   optional string binding_hash = 4;
 }
 
 message InterfaceRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string interface_hash = 2;
   optional string name = 3;
   optional string public_contract_hash = 4;
 }
 
 message FunctionRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string impl_hash = 2;
   Value typed_signature = 3;
   Value canonical_body = 4;
@@ -51,7 +54,8 @@ message FunctionRecord {
 }
 
 message ContractRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string contract_hash = 2;
   optional string contract_kind = 3;
   optional string profile = 4;
@@ -62,7 +66,8 @@ message ContractRecord {
 }
 
 message ContractRuleRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string contract_hash = 2;
   optional string rule_hash = 3;
   optional string kind = 4;
@@ -72,14 +77,16 @@ message ContractRuleRecord {
 }
 
 message BindingRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string version_hash = 2;
   optional string interface_hash = 3;
   optional string impl_hash = 4;
 }
 
 message StructureRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string struct_impl_hash = 2;
   optional string type_hash = 3;
   optional string contract_hash = 4;
@@ -87,7 +94,8 @@ message StructureRecord {
 }
 
 message StructureTypeRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string type_hash = 2;
   optional string identity_hash = 3;
   optional string aggregate_kind = 4;
@@ -96,7 +104,8 @@ message StructureTypeRecord {
 }
 
 message StructureLayoutRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string layout_hash = 2;
   optional string type_hash = 3;
   Value target_abi_profile = 4;
@@ -104,14 +113,16 @@ message StructureLayoutRecord {
 }
 
 message StructureBindingRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string version_hash = 2;
   optional string name = 3;
   optional string struct_impl_hash = 4;
 }
 
 message VerificationObligationRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string obligation_hash = 2;
   optional string kind = 3;
   optional string caller_impl_hash = 4;
@@ -123,7 +134,8 @@ message VerificationObligationRecord {
 }
 
 message VerificationRunRecord {
-  string key = 1;
+  reserved 1;
+  reserved "key";
   optional string run_id = 2;
   optional string obligation_hash = 3;
   optional string status = 4;

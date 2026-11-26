@@ -70,12 +70,14 @@ fn round_trip_binary_and_protojson() {
     assert_eq!(read(&exported, "interfaces.json"), b"[]\n");
     let rows: serde_json::Value =
         serde_json::from_slice(&read(&exported, "functions.json")).unwrap();
-    assert_eq!(rows[0]["key"], "first");
+    assert_eq!(rows[0]["implHash"], "first");
+    assert!(rows[0].get("key").is_none());
     assert_eq!(
         rows[0]["canonicalBody"]["objectValue"]["fields"][0]["value"]["intValue"],
         "-9223372036854775808",
     );
-    assert_eq!(rows[1]["key"], "second");
+    assert_eq!(rows[1]["implHash"], "second");
+    assert!(rows[1].get("key").is_none());
 }
 
 #[test]
@@ -115,7 +117,7 @@ fn rejects_invalid_versions_indexes_and_frames() {
     let manifest = read(&path, "manifest.json");
     let old_manifest = String::from_utf8(manifest.clone())
         .unwrap()
-        .replace("llmlang.spg.tables.v2", "llmlang.spg.tables.v1");
+        .replace("llmlang.spg.tables.v3", "llmlang.spg.tables.v2");
     fs::write(path.join("manifest.json"), old_manifest).unwrap();
     let error = load(&path, VERSIONS, LoadOptions::default()).unwrap_err();
     assert!(error.to_string().contains("unsupported repository profile"));
@@ -149,45 +151,55 @@ fn all_tables_round_trip_with_their_own_columns() {
     let area = tempfile::tempdir().unwrap();
     let path = area.path().join("package");
     let mut package = fixture();
-    for (table, row) in [
+    for (table, key, row) in [
         (
             "interfaces",
+            "i",
             json!({"interface_hash": "i", "name": "f", "public_contract_hash": "c"}),
         ),
         (
             "contracts",
+            "c",
             json!({"contract_hash": "c", "contract_kind": "function", "profile": "scalar", "typed_signature": {}, "user_request_texts": ["request"], "review_records": [{"decision": "approved"}]}),
         ),
         (
             "contract_rules",
+            "c:r",
             json!({"contract_hash": "c", "rule_hash": "r", "kind": "requires", "predicate": true}),
         ),
         (
             "bindings",
+            "v:i",
             json!({"version_hash": "v", "interface_hash": "i", "impl_hash": "first"}),
         ),
         (
             "structures",
+            "s",
             json!({"struct_impl_hash": "s", "type_hash": "t", "canonical_declaration": {}}),
         ),
         (
             "structure_types",
+            "t",
             json!({"type_hash": "t", "identity_hash": "id", "aggregate_kind": "struct", "ordered_member_types": [], "representation_requirements": {}}),
         ),
         (
             "structure_layouts",
+            "l",
             json!({"layout_hash": "l", "type_hash": "t", "target_abi_profile": {}, "layout_descriptor": {}}),
         ),
         (
             "structure_bindings",
+            "v:s",
             json!({"version_hash": "v", "name": "s", "struct_impl_hash": "s"}),
         ),
         (
             "verification_obligations",
+            "o",
             json!({"obligation_hash": "o", "kind": "body_conformance", "caller_impl_hash": "first", "verification_context_hash": "ctx"}),
         ),
         (
             "verification_runs",
+            "run",
             json!({"run_id": "run", "obligation_hash": "o", "status": "proved", "toolchain_digest": "toolchain", "evidence_ref": "evidence", "checked_at": "2026-11-26T00:00:00Z"}),
         ),
     ] {
@@ -195,7 +207,7 @@ fn all_tables_round_trip_with_their_own_columns() {
             .tables
             .get_mut(table)
             .unwrap()
-            .insert("row".into(), row);
+            .insert(key.into(), row);
     }
     save(&path, &package, SaveOptions::default()).unwrap();
     assert_eq!(
@@ -204,6 +216,18 @@ fn all_tables_round_trip_with_their_own_columns() {
     );
 
     let wrong = area.path().join("wrong");
+    let bindings = package.tables.get_mut("bindings").unwrap();
+    let binding = bindings.remove("v:i").unwrap();
+    bindings.insert("arbitrary-key".into(), binding);
+    let error = save(&wrong, &package, SaveOptions::default()).unwrap_err();
+    assert!(error
+        .to_string()
+        .contains("bindings: row key does not match"));
+    assert!(!wrong.exists());
+    let bindings = package.tables.get_mut("bindings").unwrap();
+    let binding = bindings.remove("arbitrary-key").unwrap();
+    bindings.insert("v:i".into(), binding);
+
     let version = package.tables["versions"]["v"].clone();
     package
         .tables

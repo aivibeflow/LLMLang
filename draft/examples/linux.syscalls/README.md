@@ -1,22 +1,19 @@
-# Linux syscalls SPG package example
+# Native Linux syscalls SPG package
 
-This is the `linux.syscalls` package in repository profile
-`llmlang.spg.tables.v2` with language version `0.1.0`. The directory contains
-the manifest and a table-specific Protobuf/LZ4 dump and Content Hash index for
-each of the twelve tables. The debug export also includes one ProtoJSON file
-per table in binary record order, including an empty array for an empty table.
-Package metadata selects version `0.1.0`.
+This Linux x86-64 example uses repository profile `llmlang.spg.tables.v3`
+and language version `0.1.0`. It includes a manifest and a Protobuf/LZ4 dump,
+Content Hash index, and debug ProtoJSON file for each of the twelve tables.
+Package metadata selects version `v6.12`, the pinned Linux kernel tag. Every
+binding references that version.
 
-The package projects the existing [Linux syscall snapshot](../../../packages/linux.syscalls/README.md)
-into SPG tables. It contains 393 public interfaces, 393 native implementation
-references, their exact version bindings, both public and provided contracts,
-and their clauses. The function records retain native ABI information, provider
-file digests, and declarations. Contract rule predicates retain the native
-clause category and original text. The provider sources remain in the source
-package. Structure, layout, and verification tables are empty because this
-projection supplies no SPG structure identities, layouts, or verification runs.
+The function table contains the 358 native declarations from the pinned
+[Linux syscall source](../../../packages/linux.syscalls/provider/src/native.llmlang).
+Each `canonicalBody` stores the corresponding LLMLang function text. The
+355 unsafe interfaces bind directly to those implementations. The
+`stackless`, `restorer`, and `kernel` entries remain unbound because they
+use dedicated continuation profiles. The function table has no wrapper rows.
 
-The Rust SPG library has checked a full read with `load` and reference resolution
-with `load_graph`. Two serializations produced identical files. The scalar
-server and compiler currently accept scalar implementations. This package
-requires a native backend for its provider references and contracts.
+Contract rows carry the typed native signatures. The example supplies no
+behavioral rules, layout records, or verification evidence. The Rust SPG
+library loads the package and resolves its graph references. Native builds
+require a backend that supports these syscall bodies and signatures.
