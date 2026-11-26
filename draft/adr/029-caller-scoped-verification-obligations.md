@@ -5,7 +5,6 @@
 - **Date** — 2026-11-26
 - **Scope** — Stage 2 of the logical SPG database design
 - **Related decisions** — [ADR-026](026-structure-contracts-and-invariant-verification.md) · [ADR-027](027-scalar-spg-relational-projection.md) · [ADR-028](028-structure-relational-projection.md)
-- **Schema** — [Full entity–relationship diagram](../VERIFICATION-RELATIONAL-SCHEMA.md)
 
 ## Context
 
@@ -38,6 +37,112 @@ Store verification obligations in `VERIFICATION_OBLIGATIONS` and retain attempt 
 Other kind-specific references are absent. Read the provided function contract from `FUNCTIONS.provided_contract_hash` using the callee for call compatibility and the caller for the other kinds. Read a structure's directly attached contract from `STRUCTURES.contract_hash`. Include exact applicable state contract hashes, rule identities, structure bindings, and check boundaries in the verification context, including inherited and domain obligations. Derive due obligations from uses and effects as defined in ADR-026. A check deferred to an enclosing boundary must be discharged there before publication.
 
 For call compatibility, validate that the pinned callee and requirement occur together in the caller's canonical body. Individual call argument checks remain part of verification of the caller's body. For public refinement, validate the exact interface and binding in context. Compute the obligation hash from its kind, applicable references, resolved contracts used in the check, and context hash. Context includes the applicable profile and assumptions. Read attempt outcomes by obligation hash. An obligation with no applicable result is unchecked for admission. A change to a consumed premise requires evidence applicable to the new obligation.
+
+## Complete logical schema
+
+The logical schema below covers all twelve tables. PK and FK denote primary and foreign keys. Multiple PK labels form a composite key. `hash` identifies a digest, `ir` a typed intermediate representation, and collection fields hold the listed values. Fields are required unless marked optional or restricted to an obligation or rule kind. The green marker identifies obligation fields added or renamed by the caller-scoped design.
+
+```mermaid
+erDiagram
+    direction LR
+    VERSIONS {
+        hash version_hash PK
+        string version
+        hash binding_hash
+    }
+    INTERFACES {
+        hash interface_hash PK
+        text name
+        hash public_contract_hash FK
+    }
+    FUNCTIONS {
+        hash impl_hash PK
+        ir typed_signature "may contain StructImplHash"
+        ir canonical_body "holds exact call and structure references"
+        hash provided_contract_hash FK
+    }
+    CONTRACTS {
+        hash contract_hash PK
+        text contract_kind "function, structure, or domain"
+        text profile
+        ir typed_signature "function contract"
+        ir state_signature "structure or domain contract"
+        texts user_request_texts
+        records review_records
+    }
+    CONTRACT_RULES {
+        hash contract_hash PK,FK
+        hash rule_hash PK
+        text kind
+        text error_label "for error rules"
+        ir predicate "for predicate rules"
+        ir check_boundary "for state rules where applicable"
+    }
+    BINDINGS {
+        hash version_hash PK,FK
+        hash interface_hash PK,FK
+        hash impl_hash FK
+    }
+    VERIFICATION_OBLIGATIONS {
+        hash obligation_hash PK
+        text kind "obligation kind"
+        hash caller_impl_hash FK "🟩 required function revision"
+        hash callee_impl_hash FK "🟩 call compatibility only"
+        hash struct_impl_hash FK "🟩 structure contract check only"
+        hash public_contract_hash FK "public refinement only"
+        hash caller_required_contract_hash FK "🟩 call compatibility only"
+        hash verification_context_hash "digest of exact verification context"
+    }
+    VERIFICATION_RUNS {
+        id run_id PK
+        hash obligation_hash FK
+        text status
+        hash toolchain_digest
+        text evidence_ref
+        timestamp checked_at
+    }
+    VERSIONS ||--o{ BINDINGS : selects
+    INTERFACES ||..o{ BINDINGS : "interface hash"
+    FUNCTIONS ||..o{ BINDINGS : "selected implementation"
+    CONTRACTS ||--o{ CONTRACT_RULES : contains
+    CONTRACTS ||..o{ INTERFACES : public
+    CONTRACTS ||..o{ FUNCTIONS : provided
+    FUNCTIONS ||..o{ VERIFICATION_OBLIGATIONS : "🟩 caller_impl_hash"
+    FUNCTIONS |o..o{ VERIFICATION_OBLIGATIONS : "🟩 callee_impl_hash"
+    STRUCTURES |o..o{ VERIFICATION_OBLIGATIONS : "🟩 struct_impl_hash"
+    CONTRACTS |o..o{ VERIFICATION_OBLIGATIONS : public
+    CONTRACTS |o..o{ VERIFICATION_OBLIGATIONS : "🟩 caller_required_contract_hash"
+    VERIFICATION_OBLIGATIONS ||..o{ VERIFICATION_RUNS : "checked by"
+    STRUCTURES {
+        hash struct_impl_hash PK
+        hash type_hash FK
+        hash contract_hash FK "optional own contract"
+        ir canonical_declaration "includes ordered named fields"
+    }
+    STRUCTURE_TYPES {
+        hash type_hash PK
+        hash identity_hash
+        text aggregate_kind
+        list ordered_member_types
+        ir representation_requirements
+    }
+    STRUCTURE_LAYOUTS {
+        hash layout_hash PK
+        hash type_hash FK
+        ir target_abi_profile "includes profile version"
+        ir layout_descriptor
+    }
+    STRUCTURE_BINDINGS {
+        hash version_hash PK,FK
+        text name PK
+        hash struct_impl_hash FK
+    }
+    VERSIONS ||--o{ STRUCTURE_BINDINGS : selects
+    STRUCTURES ||..o{ STRUCTURE_BINDINGS : resolves
+    STRUCTURE_TYPES ||..o{ STRUCTURES : describes
+    STRUCTURE_TYPES ||..o{ STRUCTURE_LAYOUTS : resolves
+    CONTRACTS |o..o{ STRUCTURES : "own contract"
+```
 
 ## Alternatives and consequences
 

@@ -8,7 +8,7 @@ Write project files in English. Follow the [project language rule](CONTRIBUTING.
 
 ## ADR and RFC maintenance
 
-When adding or changing an ADR under `draft/adr/`, follow the [contribution rule for updating the RFC in the same change](CONTRIBUTING.md#keep-the-rfc-in-sync-with-adrs).
+When adding or changing an ADR under `draft/adr/`, follow the [contribution rule for updating the RFC in the same change](CONTRIBUTING.md#keep-the-rfc-in-sync-with-adrs). Make each ADR and the RFC self-contained within its scope. Include the complete design information in the document, including columns, types, keys, and constraints for any schema it defines. Keep ADR links in the RFC's Sources section.
 
 ## Research deliverables: explanations and visual evidence
 

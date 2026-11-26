@@ -61,6 +61,112 @@ Functions, structures, and domains share the contract and rule tables. Function 
 The Toolchain derives call dependencies from canonical function bodies. Verification obligations identify the exact function through `caller_impl_hash`. Call compatibility also pins the callee and the contract required by the caller. A structure contract check pins the exact structure revision and binds the applicable state contracts, rules, and boundaries through the verification context. Public refinement pins the public contract. The provided function contract is resolved from the relevant function revision. Attempt records retain status and evidence by obligation hash. Admission uses evidence applicable to the exact context.
 
 
+Every obligation requires `caller_impl_hash`. Call compatibility additionally requires `callee_impl_hash` and `caller_required_contract_hash`. Public refinement additionally requires `public_contract_hash`. Structure contract checks additionally require `struct_impl_hash`. Body conformance has no additional subject or contract reference. Kind-specific fields are absent for other obligation kinds. An obligation with no applicable result has unchecked status for admission.
+
+The logical schema below covers all twelve tables. PK and FK denote primary and foreign keys. Multiple PK labels form a composite key. `hash` identifies a digest, `ir` a typed intermediate representation, and collection fields hold the listed values. Fields are required unless marked optional or restricted to an obligation or rule kind. The green marker identifies obligation fields added or renamed by the caller-scoped design.
+
+```mermaid
+erDiagram
+    direction LR
+    VERSIONS {
+        hash version_hash PK
+        string version
+        hash binding_hash
+    }
+    INTERFACES {
+        hash interface_hash PK
+        text name
+        hash public_contract_hash FK
+    }
+    FUNCTIONS {
+        hash impl_hash PK
+        ir typed_signature "may contain StructImplHash"
+        ir canonical_body "holds exact call and structure references"
+        hash provided_contract_hash FK
+    }
+    CONTRACTS {
+        hash contract_hash PK
+        text contract_kind "function, structure, or domain"
+        text profile
+        ir typed_signature "function contract"
+        ir state_signature "structure or domain contract"
+        texts user_request_texts
+        records review_records
+    }
+    CONTRACT_RULES {
+        hash contract_hash PK,FK
+        hash rule_hash PK
+        text kind
+        text error_label "for error rules"
+        ir predicate "for predicate rules"
+        ir check_boundary "for state rules where applicable"
+    }
+    BINDINGS {
+        hash version_hash PK,FK
+        hash interface_hash PK,FK
+        hash impl_hash FK
+    }
+    VERIFICATION_OBLIGATIONS {
+        hash obligation_hash PK
+        text kind "obligation kind"
+        hash caller_impl_hash FK "🟩 required function revision"
+        hash callee_impl_hash FK "🟩 call compatibility only"
+        hash struct_impl_hash FK "🟩 structure contract check only"
+        hash public_contract_hash FK "public refinement only"
+        hash caller_required_contract_hash FK "🟩 call compatibility only"
+        hash verification_context_hash "digest of exact verification context"
+    }
+    VERIFICATION_RUNS {
+        id run_id PK
+        hash obligation_hash FK
+        text status
+        hash toolchain_digest
+        text evidence_ref
+        timestamp checked_at
+    }
+    VERSIONS ||--o{ BINDINGS : selects
+    INTERFACES ||..o{ BINDINGS : "interface hash"
+    FUNCTIONS ||..o{ BINDINGS : "selected implementation"
+    CONTRACTS ||--o{ CONTRACT_RULES : contains
+    CONTRACTS ||..o{ INTERFACES : public
+    CONTRACTS ||..o{ FUNCTIONS : provided
+    FUNCTIONS ||..o{ VERIFICATION_OBLIGATIONS : "🟩 caller_impl_hash"
+    FUNCTIONS |o..o{ VERIFICATION_OBLIGATIONS : "🟩 callee_impl_hash"
+    STRUCTURES |o..o{ VERIFICATION_OBLIGATIONS : "🟩 struct_impl_hash"
+    CONTRACTS |o..o{ VERIFICATION_OBLIGATIONS : public
+    CONTRACTS |o..o{ VERIFICATION_OBLIGATIONS : "🟩 caller_required_contract_hash"
+    VERIFICATION_OBLIGATIONS ||..o{ VERIFICATION_RUNS : "checked by"
+    STRUCTURES {
+        hash struct_impl_hash PK
+        hash type_hash FK
+        hash contract_hash FK "optional own contract"
+        ir canonical_declaration "includes ordered named fields"
+    }
+    STRUCTURE_TYPES {
+        hash type_hash PK
+        hash identity_hash
+        text aggregate_kind
+        list ordered_member_types
+        ir representation_requirements
+    }
+    STRUCTURE_LAYOUTS {
+        hash layout_hash PK
+        hash type_hash FK
+        ir target_abi_profile "includes profile version"
+        ir layout_descriptor
+    }
+    STRUCTURE_BINDINGS {
+        hash version_hash PK,FK
+        text name PK
+        hash struct_impl_hash FK
+    }
+    VERSIONS ||--o{ STRUCTURE_BINDINGS : selects
+    STRUCTURES ||..o{ STRUCTURE_BINDINGS : resolves
+    STRUCTURE_TYPES ||..o{ STRUCTURES : describes
+    STRUCTURE_TYPES ||..o{ STRUCTURE_LAYOUTS : resolves
+    CONTRACTS |o..o{ STRUCTURES : "own contract"
+```
+
 ## Verification, bootstrap, and native artifacts
 
 - **Verification routes.** Typed obligations retain backend-independent meaning. The initial routes are Boogie with Z3 for supported automated obligations, Lean for supported kernel-checked proofs and cvc5 with Logos for supported certificate checks. TLA+ remains a candidate for bounded concurrent and progress models. Evidence records source and dependency revisions, assumptions, profile and tool versions. Reports distinguish proved and conditional claims, source-confirmed counterexamples, inconclusive or unsupported cases, tool errors and bounded results.
