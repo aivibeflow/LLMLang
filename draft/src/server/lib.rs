@@ -806,13 +806,18 @@ impl Server {
         } else {
             format!("libllmlang_{}.rlib", args.snapshot_id)
         };
-        let artifact = self.root.join("artifacts").join(name);
+        let artifact = self.root.join("artifacts").join(&name);
+        let mut response = json!({"snapshot_id": args.snapshot_id, "target": args.target,
+            "artifact": artifact, "exports": exports, "verification_status": "unchecked"});
+        if executable {
+            let debug = native::split_debug(&staged, &name)?;
+            let destination = artifact.with_file_name(debug.file_name().unwrap());
+            // Publish the content-addressed companion first so a previous build keeps its debug link.
+            fs::rename(debug, &destination)?;
+            response["debug_artifact"] = json!(destination);
+        }
         fs::rename(staged, &artifact)?;
-        Ok(
-            json!({"snapshot_id": args.snapshot_id, "target": args.target,
-            "artifact": artifact, "exports": exports,
-                "verification_status": "unchecked"}),
-        )
+        Ok(response)
     }
 
     fn store(&mut self, state: State) -> Result<()> {

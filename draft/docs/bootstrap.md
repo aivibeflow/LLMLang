@@ -17,8 +17,9 @@ requests, tool arguments, and resource reads. Use the
 ## Build and run native examples
 
 Use a Linux x86-64 checkout with Rust 1.85.1 or newer, the
-`x86_64-unknown-linux-gnu` Rust target, Cargo, and a native linker. The
-repository test client uses Python 3.10 or newer. Run these commands from
+`x86_64-unknown-linux-gnu` Rust target, Cargo, a native linker, and GNU
+`objcopy`. The repository test client uses Python 3.10 or newer and
+`readelf`. Run these commands from
 the repository root.
 
 ```sh
@@ -46,6 +47,7 @@ before calling tools. [Client configuration and handshake](server.md#build-and-c
    `linux-x86_64`.
 4. Run the file at the returned `artifact` path. Both Hello World examples
    write `Hello, world!` followed by a newline and exit with status 0.
+   For executables, the returned `debug_artifact` is the companion debug file.
 
 | Examples | Package path |
 | --- | --- |

@@ -8,9 +8,12 @@ use super::{
 use proc_macro2::{TokenStream, TokenTree};
 use quote::{format_ident, quote};
 use serde_json::{json, Value};
+use sha2::{Digest, Sha256};
 use std::{
     collections::{BTreeMap, BTreeSet},
+    ffi::OsString,
     fs,
+    path::PathBuf,
     process::Command,
 };
 use syn::{
@@ -240,9 +243,32 @@ fn resolve_source(
     Ok((calls, resolved.into_values().collect()))
 }
 
+#[derive(Default)]
+struct RuntimeRequirements {
+    builtins: BTreeSet<String>,
+    requires_std: bool,
+}
+
+impl RuntimeRequirements {
+    fn freestanding(&self) -> bool {
+        !self.requires_std
+            && self.builtins.contains("builtin__syscall")
+            && self.builtins.iter().all(|name| {
+                matches!(
+                    name.as_str(),
+                    "builtin__syscall"
+                        | "builtin__size_of"
+                        | "builtin__sockaddr_in_loopback"
+                        | "builtin__write_utf8"
+                )
+            })
+    }
+}
+
 struct Lower<'a> {
     calls: &'a BTreeMap<String, Call>,
     used: BTreeSet<String>,
+    requirements: &'a mut RuntimeRequirements,
     error: Option<ServerError>,
 }
 
@@ -303,6 +329,18 @@ impl VisitMut for Lower<'_> {
         self.reject("nested items are unsupported in native source");
     }
 
+    fn visit_path_mut(&mut self, path: &mut syn::Path) {
+        if path.segments.first().is_some_and(|segment| {
+            matches!(
+                segment.ident.to_string().as_str(),
+                "std" | "Vec" | "String" | "CString" | "LaunchArgs"
+            )
+        }) {
+            self.requirements.requires_std = true;
+        }
+        visit_mut::visit_path_mut(self, path);
+    }
+
     fn visit_expr_mut(&mut self, expr: &mut Expr) {
         visit_mut::visit_expr_mut(self, expr);
 
@@ -313,7 +351,7 @@ impl VisitMut for Lower<'_> {
         if let Expr::Array(array) = expr {
             for value in &mut array.elems {
                 if matches!(value, Expr::Path(path) if path.path.is_ident("null")) {
-                    *value = parse_quote!(std::ptr::null::<std::ffi::c_char>());
+                    *value = parse_quote!(core::ptr::null::<core::ffi::c_char>());
                 } else if matches!(value, Expr::Lit(literal) if matches!(literal.lit, syn::Lit::CStr(_)))
                 {
                     *value = parse_quote!((#value).as_ptr());
@@ -388,10 +426,13 @@ impl VisitMut for Lower<'_> {
             *expr = parse_quote!(unsafe { #func(#(#words),*) });
             return;
         }
+        if name.starts_with("builtin__") {
+            self.requirements.builtins.insert(name.clone());
+        }
         match name.as_str() {
             "builtin__size_of" if call.args.is_empty() => {
                 let generics = &callee.path.segments.last().unwrap().arguments;
-                call.func = Box::new(parse_quote!(std::mem::size_of #generics));
+                call.func = Box::new(parse_quote!(core::mem::size_of #generics));
             }
             "builtin__trap" if call.args.is_empty() => {
                 *expr = parse_quote!(std::process::abort());
@@ -424,6 +465,7 @@ impl VisitMut for Lower<'_> {
 pub(super) struct Output {
     pub source: String,
     pub executable: bool,
+    freestanding: bool,
     pub exports: Value,
     pub calls: CallsByCaller,
 }
@@ -434,12 +476,14 @@ fn lower_body(
     bindings: &CallBindings,
     syscalls: &mut BTreeMap<String, Syscall>,
     pending: &mut BTreeSet<String>,
+    requirements: &mut RuntimeRequirements,
 ) -> Result<(syn::Block, BTreeSet<ResolvedCall>)> {
     let (calls, resolved) = resolve_source(package, row, bindings)?;
     let mut body = syn::parse_str(row["canonical_body"].as_str().unwrap()).map_err(validation)?;
     let mut lower = Lower {
         calls: &calls,
         used: BTreeSet::new(),
+        requirements,
         error: None,
     };
     lower.visit_block_mut(&mut body);
@@ -536,7 +580,9 @@ pub(super) fn lower(
     }
     let main_name = format!("{package_name}.main");
     let main = exports.get(&main_name);
-    let mut source = String::from(include_str!("native_runtime.rs"));
+    let mut source = String::new();
+    let mut main_wrapper = TokenStream::new();
+    let mut requirements = RuntimeRequirements::default();
     let mut reachable = BTreeMap::new();
     let mut pending = BTreeSet::new();
     let mut symbols = BTreeMap::new();
@@ -548,8 +594,14 @@ pub(super) fn lower(
         let row = &package.tables["functions"][implementation];
         let signature = package.function_signature(row).map_err(validation)?.typed;
         if export == &main_name {
-            let (body, resolved) =
-                lower_body(package, row, bindings, &mut reachable, &mut pending)?;
+            let (body, resolved) = lower_body(
+                package,
+                row,
+                bindings,
+                &mut reachable,
+                &mut pending,
+                &mut requirements,
+            )?;
             resolved_calls.insert(implementation.clone(), resolved);
             let params = signature["parameters"]
                 .as_array()
@@ -560,6 +612,7 @@ pub(super) fn lower(
             let (declaration, arguments) = match params.as_slice() {
                 [] => (quote!(), quote!()),
                 [param] if param["type"] == "LaunchArgs" => {
+                    requirements.requires_std = true;
                     let name: syn::Ident =
                         syn::parse_str(param["name"].as_str().unwrap_or("")).map_err(validation)?;
                     (
@@ -575,10 +628,10 @@ pub(super) fn lower(
             source.push_str(
                 &quote! {
                     fn llmlang_main(#declaration) -> ExitStatus #body
-                    fn main() { std::process::exit(llmlang_main(#arguments)); }
                 }
                 .to_string(),
             );
+            main_wrapper = quote!(fn main() { std::process::exit(llmlang_main(#arguments)); });
         } else if is_syscall_wrapper(row) {
             let (_, name) = export
                 .rsplit_once('.')
@@ -627,7 +680,14 @@ pub(super) fn lower(
             continue;
         }
         let row = &package.tables["functions"][&implementation];
-        let (body, resolved) = lower_body(package, row, bindings, &mut reachable, &mut pending)?;
+        let (body, resolved) = lower_body(
+            package,
+            row,
+            bindings,
+            &mut reachable,
+            &mut pending,
+            &mut requirements,
+        )?;
         let signature = package.function_signature(row).map_err(validation)?.typed;
         let parameters = signature["parameters"]
             .as_array()
@@ -641,6 +701,12 @@ pub(super) fn lower(
             })
             .collect::<Result<Vec<_>>>()?;
         let result = library_type(&signature["result"], false)?;
+        if matches!(
+            signature["result"].as_str(),
+            Some("ByteVec" | "CStringResult")
+        ) {
+            requirements.requires_std = true;
+        }
         let safety = (signature["result"] == "AbiResult").then(|| quote!(unsafe));
         let symbol = source_symbol(&implementation);
         let visibility = if public_sources.contains(&implementation) {
@@ -660,9 +726,23 @@ pub(super) fn lower(
             resolved_calls.insert(implementation.clone(), resolved);
         }
     }
+    let freestanding = main.is_some() && requirements.freestanding();
+    let mut translation_unit = String::new();
+    if freestanding {
+        translation_unit.push_str("#![no_std]\n#![no_main]\n");
+    }
+    translation_unit.push_str(include_str!("native_runtime.rs"));
+    if freestanding {
+        translation_unit.push_str(include_str!("native_start.rs"));
+    } else {
+        translation_unit.push_str(include_str!("native_runtime_std.rs"));
+        translation_unit.push_str(&main_wrapper.to_string());
+    }
+    translation_unit.push_str(&source);
     Ok(Output {
-        source,
+        source: translation_unit,
         executable: main.is_some(),
+        freestanding,
         exports: json!(symbols),
         calls: resolved_calls,
     })
@@ -672,30 +752,76 @@ pub(super) fn compile(output: &Output, artifact: &Path) -> Result<()> {
     let directory = tempfile::tempdir()?;
     let source = directory.path().join("package.rs");
     fs::write(&source, &output.source)?;
-    let result = Command::new(std::env::var_os("RUSTC").unwrap_or_else(|| "rustc".into()))
-        .current_dir(directory.path())
-        .args([
-            "--edition=2021",
-            "--target",
-            "x86_64-unknown-linux-gnu",
-            "--crate-name",
-            "llmlang_native",
-            "--crate-type",
-            if output.executable { "bin" } else { "rlib" },
+    let mut compiler = Command::new(std::env::var_os("RUSTC").unwrap_or_else(|| "rustc".into()));
+    compiler.current_dir(directory.path()).args([
+        "--edition=2021",
+        "--target",
+        "x86_64-unknown-linux-gnu",
+        "--crate-name",
+        "llmlang_native",
+        "--crate-type",
+        if output.executable { "bin" } else { "rlib" },
+        "-C",
+        "overflow-checks=yes",
+    ]);
+    if output.executable {
+        compiler.args(["-C", "debuginfo=2"]);
+    }
+    if output.freestanding {
+        compiler.args([
             "-C",
-            "overflow-checks=yes",
-            "-o",
-        ])
-        .arg(artifact)
-        .arg(&source)
-        .output()?;
+            "panic=abort",
+            "-C",
+            "opt-level=s",
+            "-C",
+            "relocation-model=static",
+            "-C",
+            "link-arg=-nostartfiles",
+            "-C",
+            "link-arg=-static",
+        ]);
+    }
+    run_build_tool(compiler.arg("-o").arg(artifact).arg(&source))
+}
+
+fn run_build_tool(command: &mut Command) -> Result<()> {
+    let program = command.get_program().to_string_lossy().into_owned();
+    let result = command
+        .output()
+        .map_err(|error| ServerError::new("BuildFailed", format!("{program}: {error}")))?;
     if !result.status.success() {
         return Err(ServerError::new(
             "BuildFailed",
-            String::from_utf8_lossy(&result.stderr).trim(),
+            format!(
+                "{program}: {}",
+                String::from_utf8_lossy(&result.stderr).trim()
+            ),
         ));
     }
     Ok(())
+}
+
+pub(super) fn split_debug(artifact: &Path, name: &str) -> Result<PathBuf> {
+    let objcopy = std::env::var_os("OBJCOPY").unwrap_or_else(|| "objcopy".into());
+    let extracted = artifact.with_extension("debug");
+    run_build_tool(
+        Command::new(&objcopy)
+            .arg("--only-keep-debug")
+            .arg(artifact)
+            .arg(&extracted),
+    )?;
+    let digest = Sha256::digest(fs::read(&extracted)?);
+    let debug = artifact.with_file_name(format!("{name}.{digest:x}.debug"));
+    fs::rename(extracted, &debug)?;
+    let mut debuglink = OsString::from("--add-gnu-debuglink=");
+    debuglink.push(&debug);
+    run_build_tool(
+        Command::new(&objcopy)
+            .arg("--strip-all")
+            .arg(debuglink)
+            .arg(artifact),
+    )?;
+    Ok(debug)
 }
 
 #[cfg(test)]

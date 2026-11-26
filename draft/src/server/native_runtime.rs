@@ -1,11 +1,9 @@
 // Included as source in the temporary translation unit.
 #![allow(dead_code, non_camel_case_types)]
 
-use std::arch::asm;
-use std::ffi::CString;
+use core::arch::asm;
 
 type ExitStatus = i32;
-type LaunchArgs = Vec<Vec<u8>>;
 type I32 = i32;
 type AbiResult = isize;
 type IoResult = Result<(), I32>;
@@ -51,10 +49,6 @@ impl sockaddr_in {
             padding: [0; 8],
         }
     }
-}
-
-fn errno_message(errno: isize) -> Vec<u8> {
-    format!("Error: Kernel(Errno({errno}))\n").into_bytes()
 }
 
 fn write_utf8(fd: I32, utf8: Utf8<'_>) -> IoResult {

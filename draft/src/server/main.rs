@@ -540,10 +540,11 @@ fn tools() -> Vec<Value> {
             record(
                 &[
                     ("artifact", string()),
+                    ("debug_artifact", string()),
                     ("snapshot_id", string()),
                     ("target", string()),
                 ],
-                &[],
+                &["debug_artifact"],
                 true,
             ),
         ),

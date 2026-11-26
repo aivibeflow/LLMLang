@@ -49,6 +49,23 @@ def limit_file_size():
     resource.setrlimit(resource.RLIMIT_FSIZE, (FILE_LIMIT, FILE_LIMIT))
 
 
+def check_executable(artifact, debug, freestanding):
+    assert debug.is_file() and debug.parent == artifact.parent
+    sections = subprocess.check_output(["readelf", "-SW", artifact], text=True)
+    assert ".debug_info" not in sections and ".symtab" not in sections, sections
+    debug_sections = subprocess.check_output(
+        ["readelf", "-SW", debug], stderr=subprocess.PIPE, text=True,
+    )
+    assert ".debug_info" in debug_sections and ".symtab" in debug_sections, debug_sections
+    link = subprocess.check_output(["readelf", "-p", ".gnu_debuglink", artifact])
+    assert os.fsencode(debug.name) in link, link
+    if freestanding:
+        headers = subprocess.check_output(["readelf", "-lW", artifact], text=True)
+        assert "INTERP" not in headers and "DYNAMIC" not in headers, headers
+        symbols = subprocess.check_output(["readelf", "-sW", debug], text=True)
+        assert re.search(r"\b_start$", symbols, re.M) and "lang_start_internal" not in symbols
+
+
 def check_stdlib(artifact, exports, directory):
     assert set(exports) == {
         "stdlib.write", "stdlib.syscall", "stdlib.errno_message", "stdlib.cstring_from_bytes",
@@ -125,6 +142,14 @@ def exercise(executable, directory):
             generated = set(NATIVE_EXPORT.findall(generated_source))
             assert not list(compile_tmp.iterdir()), "temporary source directory survived the build"
             assert read_package(package) == before, package
+            if package in (stdlib, dependency):
+                assert "debug_artifact" not in build, build
+            else:
+                freestanding = package.name in {
+                    "0006-syscall-pipe-poll", "0008-syscall-tcp-echo", "0009-syscall-hello-world",
+                }
+                assert ("#![no_std]" in generated_source) == freestanding, package
+                check_executable(artifact, Path(build["debug_artifact"]), freestanding)
             if package == stdlib:
                 assert artifact.suffix == ".rlib" and not generated
                 check_stdlib(artifact, build["exports"], directory)
@@ -200,6 +225,12 @@ def exercise(executable, directory):
                 assert execute(artifact, "ignored", data=b"ignored") == (0, b"Hello, world!\n")
                 with open("/dev/full", "wb") as full:
                     assert execute(artifact, stdout=full) == (1, None)
+                read_end, write_end = os.pipe()
+                os.close(read_end)
+                try:
+                    assert execute(artifact, stdout=write_end) == (1, None)
+                finally:
+                    os.close(write_end)
             elif package.name == "0004-syscall-echo":
                 errno_impl = stdlib_symbols["stdlib.errno_message"].replace("llmlang_source_", "sha256:")
                 wrapper = next(link for link in main_object["outgoing"]
