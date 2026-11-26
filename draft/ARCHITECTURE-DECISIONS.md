@@ -12,3 +12,4 @@
 - [ADR-023 — Immutable components and single-version Toolchain compatibility](adr/023-immutable-components-and-toolchain-compatibility.md) — Accepted on 2026-11-20.
 - [ADR-024 — Package directories and indexed Protobuf dumps](adr/024-package-directory-and-protobuf-dumps.md) — Accepted on 2026-11-26.
 - [ADR-026 — Structure contracts and invariant verification](adr/026-structure-contracts-and-invariant-verification.md) — Accepted on 2026-11-26.
+- [ADR-027 — Relational projection for the scalar SPG](adr/027-scalar-spg-relational-projection.md) — Accepted on 2026-11-26.
