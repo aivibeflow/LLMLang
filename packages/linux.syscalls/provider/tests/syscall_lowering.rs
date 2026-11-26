@@ -69,3 +69,32 @@ fn lowers_native_table_and_rejects_duplicate_or_callable_continuations() {
     .unwrap_err()
     .contains("declared parameter order"));
 }
+
+#[test]
+fn native_pointer_contracts_preserve_register_packing_and_check_count_references() {
+    let source = include_str!("../src/native.llmlang");
+    let abi_only = source
+        .replace("filename: CString", "filename: ConstPtr<CChar>")
+        .replace("how: ConstPtr<open_how>", "how: MutPtr<open_how>")
+        .replace("filename: Nullable<CString>", "filename: ConstPtr<CChar>")
+        .replace("buf: WriteBuffer<count>", "buf: MutPtr<CChar>");
+    assert_eq!(
+        lower_native(source).unwrap(),
+        lower_native(&abi_only).unwrap()
+    );
+    assert!(
+        lower_native(&source.replace("WriteBuffer<count>", "WriteBuffer<missing>"))
+            .unwrap_err()
+            .contains("must name an integer parameter")
+    );
+    assert!(
+        lower_native(&source.replace("WriteBuffer<count>", "WriteBuffer<buf>"))
+            .unwrap_err()
+            .contains("must name an integer parameter")
+    );
+    assert!(
+        lower_native(&source.replace("Nullable<CString>", "Nullable<I32>"))
+            .unwrap_err()
+            .contains("unsupported native parameter type")
+    );
+}

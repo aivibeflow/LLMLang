@@ -125,6 +125,12 @@ fn identifier(name: &str) -> bool {
 }
 
 fn pointer_type(kind: &str) -> bool {
+    if matches!(kind, "CString" | "NulTerminatedArray<CString>") {
+        return true;
+    }
+    if buffer_length(kind).is_some() {
+        return true;
+    }
     let Some((outer, inner)) = kind.split_once('<') else {
         return false;
     };
@@ -134,11 +140,26 @@ fn pointer_type(kind: &str) -> bool {
             .is_some_and(|inner| identifier(inner) || pointer_type(inner))
 }
 
+fn buffer_length(kind: &str) -> Option<&str> {
+    let (direction, argument) = kind.split_once('<')?;
+    let argument = argument.strip_suffix('>')?;
+    (matches!(direction, "ReadBuffer" | "WriteBuffer") && identifier(argument)).then_some(argument)
+}
+
+fn integer_type(kind: &str) -> bool {
+    matches!(kind, "U8" | "U16" | "U32" | "U64" | "Usize" | "I32" | "I64")
+}
+
+fn nullable_inner(kind: &str) -> Option<&str> {
+    kind.strip_prefix("Nullable<")?.strip_suffix('>')
+}
+
 fn native_parameters(parameters: &str) -> Result<Vec<&str>, String> {
     if parameters.trim().is_empty() {
         return Ok(Vec::new());
     }
     let mut names = Vec::new();
+    let mut kinds = Vec::new();
     for parameter in parameters.split(',') {
         let (name, kind) = parameter
             .split_once(':')
@@ -147,17 +168,30 @@ fn native_parameters(parameters: &str) -> Result<Vec<&str>, String> {
         if !identifier(name) || names.contains(&name) {
             return Err(format!("invalid or duplicate native parameter {name}"));
         }
-        if !matches!(
-            kind,
-            "CString" | "U8" | "U16" | "U32" | "U64" | "Usize" | "I32" | "I64"
-        ) && !pointer_type(kind)
+        if !integer_type(kind)
+            && !pointer_type(kind)
+            && !nullable_inner(kind).is_some_and(pointer_type)
         {
             return Err(format!("unsupported native parameter type {kind}"));
         }
         names.push(name);
+        kinds.push(kind);
     }
     if names.len() > 6 {
         return Err("native syscall takes at most six arguments".into());
+    }
+    for (name, kind) in names.iter().zip(&kinds) {
+        if let Some(length) = buffer_length(nullable_inner(kind).unwrap_or(kind)) {
+            if !names
+                .iter()
+                .zip(&kinds)
+                .any(|(param, kind)| *param == length && integer_type(kind))
+            {
+                return Err(format!(
+                    "{name}: byte count {length} must name an integer parameter"
+                ));
+            }
+        }
     }
     Ok(names)
 }

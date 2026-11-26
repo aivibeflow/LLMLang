@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 
 from catalog import TABLE_HASH, TABLE_PATH, load_catalog
+from native_pointer_contracts import RAW_CHAR_POINTERS, refinements
 
 
 DESTINATION = Path(__file__).resolve().parents[1] / "provider/src/native.llmlang"
@@ -91,18 +92,34 @@ def render(source_root):
     names = {row["entry_point"].removeprefix("sys_") for row in rows}
     definitions = scan_definitions(source_root, names)
     lines = ["package linux.syscalls.native", ""]
+    overrides = refinements()
+    raw_char_pointers = set(RAW_CHAR_POINTERS)
     for row in rows:
         name, number = row["name"], row["number"]
         signature = definitions[row["entry_point"].removeprefix("sys_")]
-        parameters = [
-            ("path", "CString") if name in {"open", "openat"} and parameter == "filename"
-            else (parameter, abi_type(c_type))
-            for c_type, parameter in signature
-        ]
+        parameters = []
+        for c_type, parameter in signature:
+            kind = abi_type(c_type)
+            key = (name, parameter)
+            override = overrides.pop(key, None)
+            if override is not None:
+                if not kind.startswith(("ConstPtr<", "MutPtr<")):
+                    raise ValueError(f"{name}.{parameter}: pointer contract attached to {kind}")
+                kind = override
+            elif "CChar>" in kind:
+                if key not in raw_char_pointers:
+                    raise ValueError(f"{name}.{parameter}: unaudited C char pointer")
+                raw_char_pointers.remove(key)
+            if name in {"open", "openat"} and parameter == "filename":
+                parameter = "path"
+            parameters.append((parameter, kind))
         profile, result, suffix = SPECIAL.get(name, ("unsafe", "AbiResult", ""))
         prototype = ", ".join(f"{parameter}: {kind}" for parameter, kind in parameters)
         arguments = ", ".join([str(number), *(parameter for parameter, _ in parameters)])
         lines.extend([f"{profile} fn {name}({prototype}) -> {result} {{", f"    syscall({arguments}){suffix}", "}", ""])
+    if overrides or raw_char_pointers:
+        stale = ", ".join(f"{name}.{parameter}" for name, parameter in sorted(overrides.keys() | raw_char_pointers))
+        raise ValueError(f"stale native pointer contracts: {stale}")
     return "\n".join(lines)
 
 
