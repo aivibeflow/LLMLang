@@ -1,4 +1,4 @@
-"""Build and run the draft syscall packages through an independent MCP client."""
+"""Build and run the draft native packages through an independent MCP client."""
 
 import argparse
 import os
@@ -15,7 +15,8 @@ import json
 
 from mcp_e2e import read_object, server
 
-EXAMPLES = Path(__file__).resolve().parents[2] / "examples"
+DRAFT = Path(__file__).resolve().parents[2]
+EXAMPLES = DRAFT / "examples"
 NATIVE_EXPORT = re.compile(r"pub unsafe fn llmlang_syscall_(\w+)\s*\(")
 FILE_LIMIT = 4096
 
@@ -37,6 +38,33 @@ def execute(artifact, *arguments, data=b"", errno=None, stdout=subprocess.PIPE, 
 def limit_file_size():
     signal.signal(signal.SIGXFSZ, signal.SIG_IGN)
     resource.setrlimit(resource.RLIMIT_FSIZE, (FILE_LIMIT, FILE_LIMIT))
+
+
+def check_stdlib(artifact, exports, directory):
+    assert set(exports) == {"stdlib.write", "stdlib.syscall"}, exports
+    output = Path(directory, "utf8-output")
+    harness = Path(directory, "stdlib-test.rs")
+    harness.write_text(
+        "use std::{fs::File, os::fd::AsRawFd};\n"
+        "fn main() {\n"
+        "    let output = File::create(std::env::args_os().nth(1).unwrap()).unwrap();\n"
+        f"    use llmlang_native::{exports['stdlib.write']} as write;\n"
+        f"    use llmlang_native::{exports['stdlib.syscall']} as syscall;\n"
+        '    assert_eq!(write(output.as_raw_fd(), "Привет!\\n"), Ok(()));\n'
+        '    assert_eq!(write(-1, "error"), Err(9));\n'
+        "    assert_eq!(unsafe { syscall(39, 0, 0, 0, 0, 0, 0) }, std::process::id() as isize);\n"
+        "    assert_eq!(unsafe { syscall(15, 0, 0, 0, 0, 0, 0) }, -38);\n"
+        "}\n",
+        encoding="utf-8",
+    )
+    program = Path(directory, "stdlib-test")
+    subprocess.run(
+        [os.environ["LLMLANG_REAL_RUSTC"], "--edition=2021", "--crate-name", "stdlib_test",
+         "--extern", f"llmlang_native={artifact}", "-o", program, harness],
+        check=True, timeout=30,
+    )
+    assert execute(program, output) == (0, b"")
+    assert output.read_bytes() == "Привет!\n".encode()
 
 
 def exercise(executable, directory):
@@ -62,11 +90,13 @@ def exercise(executable, directory):
     os.environ["TMPDIR"] = str(compile_tmp)
 
     with server(executable, Path(directory, "state"), "python3") as client:
+        stdlib = DRAFT / "stdlib"
         dependency = EXAMPLES / "linux.syscalls"
-        original_dependency = read_package(dependency)
+        hello = EXAMPLES / "0001-hello-world"
+        original_dependencies = {path: read_package(path) for path in (stdlib, dependency)}
         programs = sorted(EXAMPLES.glob("000[4-8]-syscall-*"))
         assert len(programs) == 5
-        for package in [dependency, *programs]:
+        for package in [stdlib, dependency, hello, *programs]:
             before = read_package(package)
             imported = client.call("import_package", {"path": str(package)})
             assert imported["verification_status"] == "unchecked"
@@ -76,16 +106,33 @@ def exercise(executable, directory):
             assert build["verification_status"] == "unchecked"
             artifact = Path(build["artifact"])
             assert artifact.is_file() and artifact.is_relative_to(Path(directory, "state", "artifacts"))
-            generated = set(NATIVE_EXPORT.findall(capture.read_text()))
+            generated_source = capture.read_text()
+            generated = set(NATIVE_EXPORT.findall(generated_source))
             assert not list(compile_tmp.iterdir()), "temporary source directory survived the build"
             assert read_package(package) == before, package
+            if package == stdlib:
+                assert artifact.suffix == ".rlib" and not generated
+                check_stdlib(artifact, build["exports"], directory)
+                stdlib_symbols = build["exports"]
+                stdlib_functions = json.loads((package / "functions.json").read_bytes())
+                syscall_impl, = (row["implHash"] for row in stdlib_functions
+                                 if "builtin__syscall(" in row["canonicalBody"]["stringValue"])
+                continue
+
+            reachable_stdlib = {name for name, symbol in stdlib_symbols.items()
+                                if re.search(rf"\bfn {symbol}\s*\(", generated_source)}
+            assert reachable_stdlib == ({"stdlib.write"} if package == hello else {"stdlib.syscall"})
             if package == dependency:
                 raw_functions = json.loads((package / "functions.json").read_bytes())
                 assert len(raw_functions) == 358
                 assert all(row["canonicalBody"]["stringValue"].startswith("{\n")
                            for row in raw_functions)
-                assert all("builtin__syscall(" in row["canonicalBody"]["stringValue"]
+                assert all("stdlib::syscall(" in row["canonicalBody"]["stringValue"]
                            for row in raw_functions)
+                obligations = json.loads((package / "verification_obligations.json").read_bytes())
+                assert {row["callerImplHash"] for row in obligations} == {
+                    row["implHash"] for row in raw_functions}
+                assert {row["calleeImplHash"] for row in obligations} == {syscall_impl}
                 assert artifact.suffix == ".rlib"
                 assert len(generated) == 355
                 assert {"rt_sigreturn", "vfork", "uretprobe"}.isdisjoint(generated)
@@ -115,7 +162,17 @@ def exercise(executable, directory):
                        if line.startswith("import linux.syscalls.")}
             assert generated == imports, (package, generated, imports)
             payload = bytes(range(256)) * 83 + b"\x00\xff"
-            if package.name == "0004-syscall-echo":
+            if package == hello:
+                assert execute(artifact) == (0, b"Hello, world!\n")
+                assert execute(artifact, "ignored", data=b"ignored") == (0, b"Hello, world!\n")
+                with open("/dev/full", "wb") as full:
+                    assert execute(artifact, stdout=full) == (1, None)
+            elif package.name == "0004-syscall-echo":
+                wrapper = next(link for link in main_object["outgoing"] if link["relation"] == "Callee")
+                wrapper_object = read_object(client, wrapper["uri"])
+                assert any(link["relation"] == "Callee"
+                           and link["uri"].rsplit("/", 1)[-1].replace("%3A", ":") == syscall_impl
+                           for link in wrapper_object["outgoing"])
                 assert execute(artifact) == (0, b"")
                 assert execute(artifact, data=payload) == (0, payload)
                 read_end, write_end = os.pipe()
@@ -146,7 +203,7 @@ def exercise(executable, directory):
                 assert execute(artifact) == (0, b"LLMLang TCP echo\x00\xff\n")
             else:
                 assert execute(artifact) == (0, b"")
-        assert read_package(dependency) == original_dependency
+        assert all(read_package(path) == original for path, original in original_dependencies.items())
 
 
 if __name__ == "__main__":

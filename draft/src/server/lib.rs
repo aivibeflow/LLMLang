@@ -383,17 +383,15 @@ impl Server {
 
     fn combined_package(&self, program: &Program) -> Result<Package> {
         let mut package = program.package();
+        let include_native_calls = native::is_native(&package);
         for dependency in self.dependency_packages(program)?.values() {
             for (table, rows) in &dependency.tables {
                 // Catalog selections are package-local. Dependencies supply pinned objects.
                 if matches!(
                     table.as_str(),
-                    "versions"
-                        | "bindings"
-                        | "structure_bindings"
-                        | "verification_obligations"
-                        | "verification_runs"
-                ) {
+                    "versions" | "bindings" | "structure_bindings" | "verification_runs"
+                ) || (table == "verification_obligations" && !include_native_calls)
+                {
                     continue;
                 }
                 for (key, row) in rows {
@@ -536,10 +534,17 @@ impl Server {
         let output = native::lower(
             &program.name,
             package,
+            &program.tables["functions"],
             &Self::native_exports(program)?,
             &self.native_call_bindings(program)?,
         )?;
-        let expected = obligations::rows(package, &output.calls)?;
+        let local_calls = output
+            .calls
+            .iter()
+            .filter(|(caller, _)| program.tables["functions"].contains_key(*caller))
+            .map(|(caller, calls)| (caller.clone(), calls.clone()))
+            .collect();
+        let expected = obligations::rows(package, &local_calls)?;
         let actual: BTreeMap<_, _> = program.tables["verification_obligations"]
             .iter()
             .filter(|(_, row)| row["kind"] == "call_compatibility")
@@ -898,10 +903,11 @@ impl Server {
         key: &str,
     ) -> Result<Value> {
         let mut package = self.combined_package(program)?;
-        package.manifest.dependencies.clear();
+        let dependencies = std::mem::take(&mut package.manifest.dependencies);
         let area = tempfile::tempdir_in(&self.root)?;
         let path = area.path().join("graph");
         llmlang_spg::save(&path, &package, SaveOptions::default()).map_err(validation)?;
+        package.manifest.dependencies = dependencies;
         let graph: Graph = llmlang_spg::load_graph(&path, VERSIONS, GraphLoadOptions::default())
             .map_err(validation)?;
         let node = graph
@@ -921,12 +927,7 @@ impl Server {
         let mut outgoing = node.outgoing().map(link).collect::<Vec<_>>();
         let mut incoming = node.incoming().map(link).collect::<Vec<_>>();
         if matches!(table, "functions" | "contracts") && native::is_native(&program.package()) {
-            let resolved = native::lower(
-                &program.name,
-                &package,
-                &Self::native_exports(program)?,
-                &self.native_call_bindings(program)?,
-            )?;
+            let resolved = self.native_output(program, &package)?;
             for (caller, calls) in resolved.calls {
                 for call in calls {
                     if table == "functions" && caller == key {

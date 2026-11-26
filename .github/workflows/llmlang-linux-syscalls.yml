@@ -6,6 +6,7 @@ on:
       - "draft/examples/**"
       - "draft/library/**"
       - "draft/server/**"
+      - "draft/stdlib/**"
       - "draft/src/library/**"
       - "draft/src/server/**"
       - ".github/workflows/llmlang-linux-syscalls.yml"
@@ -15,6 +16,7 @@ on:
       - "draft/examples/**"
       - "draft/library/**"
       - "draft/server/**"
+      - "draft/stdlib/**"
       - "draft/src/library/**"
       - "draft/src/server/**"
       - ".github/workflows/llmlang-linux-syscalls.yml"
@@ -40,7 +42,7 @@ jobs:
         run: cargo +1.85.1 test --locked --manifest-path draft/library/Cargo.toml
       - name: Build the draft server
         run: cargo +1.85.1 build --locked --manifest-path draft/server/Cargo.toml
-      - name: Run draft syscall examples through MCP
+      - name: Run draft native packages through MCP
         run: |
           export RUSTUP_TOOLCHAIN=1.85.1
           python -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llmlang-server

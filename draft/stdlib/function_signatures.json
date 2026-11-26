@@ -1,0 +1,4 @@
+[
+{"functionSignatureContent":"linux-x86_64-native-v1 (fd: I32, utf8: Utf8) -> IoResult","functionSignatureHash":"sha256:2d409839bdc42abbde7fb3f35de66a737e3a838bd0e4751f909a8391a8470994"},
+{"functionSignatureContent":"linux-x86_64-native-v1 (number: Usize, arg0: Usize, arg1: Usize, arg2: Usize, arg3: Usize, arg4: Usize, arg5: Usize) -> AbiResult","functionSignatureHash":"sha256:9d93900df48b78523a5a74ac08350eb840cbb9339420769e72071f4003fc9f5d"}
+]

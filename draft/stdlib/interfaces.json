@@ -1,0 +1,4 @@
+[
+{"interfaceHash":"sha256:6c9077fcd3ca7974d6bfe21ed1d88acf63d8be13ce6daa590b0dc13faddb0c4f","name":"stdlib.write","publicContractHash":"sha256:b23c1ffd73841fde8cc3096b70b2715f90486a2cec16d8b57d7e58d098f70dea"},
+{"interfaceHash":"sha256:fd7df30f5a90f0551752db01c360aec2c6e0018e94906eb740de5709c9fcd7d1","name":"stdlib.syscall","publicContractHash":"sha256:e1c15d34fed155b872e18ed920d212114c780849440de88515774b14f1f36ae1"}
+]

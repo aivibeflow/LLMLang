@@ -1,0 +1,4 @@
+[
+{"canonicalBody":{"stringValue":"{\n    builtin__syscall(number, arg0, arg1, arg2, arg3, arg4, arg5)\n}"},"functionSignatureHash":"sha256:9d93900df48b78523a5a74ac08350eb840cbb9339420769e72071f4003fc9f5d","implHash":"sha256:013f10629704f89b893196be07b00bb7d65115b674e2ecb1b36cddb75febbeb2","providedContractHash":"sha256:e1c15d34fed155b872e18ed920d212114c780849440de88515774b14f1f36ae1"},
+{"canonicalBody":{"stringValue":"{\n    builtin__write_utf8(fd, utf8)\n}"},"functionSignatureHash":"sha256:2d409839bdc42abbde7fb3f35de66a737e3a838bd0e4751f909a8391a8470994","implHash":"sha256:c6de2690664b804c254d80ff82ff3c5973af7f268a4b8db2ca986e977b90cf62","providedContractHash":"sha256:b23c1ffd73841fde8cc3096b70b2715f90486a2cec16d8b57d7e58d098f70dea"}
+]
