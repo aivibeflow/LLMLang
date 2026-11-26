@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package llmlang.spg.storage.v3;
+package llmlang.spg.storage.v4;
 
 // Fields in an Object are unique and stored in increasing Unicode key order.
 message Object {
@@ -48,9 +48,16 @@ message FunctionRecord {
   reserved 1;
   reserved "key";
   optional string impl_hash = 2;
-  Value typed_signature = 3;
+  reserved 3;
+  reserved "typed_signature";
+  optional string function_signature_hash = 6;
   Value canonical_body = 4;
   optional string provided_contract_hash = 5;
+}
+
+message FunctionSignatureRecord {
+  optional string function_signature_hash = 1;
+  optional string function_signature_content = 2;
 }
 
 message ContractRecord {

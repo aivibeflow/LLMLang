@@ -230,6 +230,7 @@ version = "0.1.0"
 dependencies = [
  "hex",
  "lz4",
+ "proc-macro2",
  "prost",
  "prost-build",
  "protoc-bin-vendored",

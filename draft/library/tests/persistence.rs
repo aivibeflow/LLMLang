@@ -9,14 +9,17 @@ fn fixture() -> Package {
         language_version: VERSIONS[0].into(),
         dependencies: BTreeMap::from([("stdlib".into(), "pinned-package".into())]),
     });
+    let signature = package
+        .stage_function_signature("scalar-v1", &json!({"params": [], "result": "i64"}))
+        .unwrap();
     let rows = package.tables.get_mut("functions").unwrap();
     rows.insert(
         "second".into(),
-        json!({"impl_hash": "second", "typed_signature": {}, "canonical_body": [null, false, [], {}], "provided_contract_hash": "contract"}),
+        json!({"impl_hash": "second", "function_signature_hash": signature, "canonical_body": [null, false, [], {}], "provided_contract_hash": "contract"}),
     );
     rows.insert(
         "first".into(),
-        json!({"impl_hash": "first", "typed_signature": {}, "canonical_body": {"literal": i64::MIN}, "provided_contract_hash": "contract"}),
+        json!({"impl_hash": "first", "function_signature_hash": signature, "canonical_body": {"literal": i64::MIN}, "provided_contract_hash": "contract"}),
     );
     package.tables.get_mut("versions").unwrap().insert(
         "v".into(),
@@ -117,7 +120,7 @@ fn rejects_invalid_versions_indexes_and_frames() {
     let manifest = read(&path, "manifest.json");
     let old_manifest = String::from_utf8(manifest.clone())
         .unwrap()
-        .replace("llmlang.spg.tables.v3", "llmlang.spg.tables.v2");
+        .replace("llmlang.spg.tables.v4", "llmlang.spg.tables.v3");
     fs::write(path.join("manifest.json"), old_manifest).unwrap();
     let error = load(&path, VERSIONS, LoadOptions::default()).unwrap_err();
     assert!(error.to_string().contains("unsupported repository profile"));

@@ -5,8 +5,9 @@ use super::{
     obligations::{CallsByCaller, ResolvedCall},
     validation, Package, Path, Result, ServerError,
 };
-use quote::{format_ident, quote, ToTokens};
+use quote::{format_ident, quote};
 use serde_json::{json, Value};
+use sha2::{Digest, Sha256};
 use std::{
     collections::{BTreeMap, BTreeSet},
     fs,
@@ -34,66 +35,67 @@ struct Call {
     types: Vec<String>,
 }
 
-fn native_call(row: &Value) -> Result<Call> {
-    let source = row["canonical_body"]
+fn native_call(name: &str, package: &Package, row: &Value) -> Result<Call> {
+    let body = row["canonical_body"]
         .as_str()
         .ok_or_else(|| invalid("expected native syscall source"))?;
-    let (head, body) = source
-        .split_once('{')
-        .ok_or_else(|| invalid("native syscall has no body"))?;
-    let head = head
-        .strip_prefix("unsafe fn ")
-        .ok_or_else(|| invalid("expected directly callable unsafe syscall"))?;
-    let (name, params) = head
-        .split_once('(')
-        .ok_or_else(|| invalid("missing native parameters"))?;
-    let (params, result) = params
-        .split_once(')')
-        .ok_or_else(|| invalid("missing native result"))?;
-    if !identifier(name) || result.trim() != "-> AbiResult" {
-        return Err(invalid("unsupported native syscall declaration"));
+    let signature = package.function_signature(row).map_err(validation)?.typed;
+    // Preserve the implementation's semantic hash across storage profiles.
+    let identity_input = json!({
+        "typed_signature": signature,
+        "canonical_body": body,
+        "provided_contract_hash": row["provided_contract_hash"],
+    });
+    let mut identity = Sha256::new();
+    identity.update(b"llmlang-native-projection-impl/v1\0");
+    identity.update(serde_json::to_vec(&identity_input)?);
+    if row["impl_hash"] != format!("sha256:{:x}", identity.finalize()) {
+        return Err(validation(
+            "native syscall implementation identity mismatch",
+        ));
     }
-    let (mut names, mut types) = (Vec::new(), Vec::new());
-    let expected = row["typed_signature"]["parameters"]
+    if !identifier(name) || signature["result"] != "AbiResult" {
+        return Err(invalid("unsupported native syscall signature"));
+    }
+    let mut names = Vec::new();
+    let mut types = Vec::new();
+    let params = signature["parameters"]
         .as_array()
-        .ok_or_else(|| invalid("missing native signature"))?;
-    for parameter in params.split(',').filter(|part| !part.trim().is_empty()) {
-        let (param, kind) = parameter
-            .split_once(':')
-            .ok_or_else(|| invalid("invalid native parameter"))?;
-        let (param, kind) = (param.trim(), kind.trim());
-        let declared = expected
-            .get(names.len())
-            .ok_or_else(|| invalid("native signature arity mismatch"))?;
-        if !identifier(param)
-            || names.contains(&param)
-            || declared["name"] != param
-            || declared["type"] != kind
-        {
-            return Err(invalid(format!(
-                "native signature disagrees with source for {name}"
-            )));
+        .ok_or_else(|| invalid("missing native parameters"))?;
+    if params.len() > 6 {
+        return Err(invalid("unsupported syscall arity"));
+    }
+    for parameter in params {
+        let param = parameter["name"]
+            .as_str()
+            .filter(|param| identifier(param))
+            .ok_or_else(|| invalid("invalid native parameter name"))?;
+        let kind = parameter["type"]
+            .as_str()
+            .ok_or_else(|| invalid("missing native parameter type"))?;
+        if names.contains(&param) {
+            return Err(invalid("duplicate native parameter"));
         }
         names.push(param);
         types.push(kind.to_owned());
     }
-    if names.len() != expected.len()
-        || names.len() > 6
-        || row["typed_signature"]["result"] != "AbiResult"
-    {
-        return Err(invalid("unsupported syscall signature"));
-    }
     let args = body
         .trim()
-        .strip_suffix('}')
+        .strip_prefix('{')
+        .and_then(|body| body.strip_suffix('}'))
         .and_then(|body| body.trim().strip_prefix("syscall("))
         .and_then(|body| body.strip_suffix(')'))
-        .ok_or_else(|| invalid("expected a single syscall invocation"))?;
+        .ok_or_else(|| invalid("expected a syscall in a body-only block"))?;
     let mut args = args.split(',').map(str::trim);
     let number = args
         .next()
         .and_then(|number| number.parse().ok())
         .ok_or_else(|| invalid("invalid syscall number"))?;
+    if matches!(number, 15 | 58 | 335) {
+        return Err(invalid(
+            "syscall requires its dedicated continuation profile",
+        ));
+    }
     if args.ne(names) {
         return Err(invalid(format!(
             "{name}: syscall operands disagree with signature"
@@ -120,46 +122,63 @@ fn resolve_source(
     package: &Package,
     row: &Value,
     bindings: &CallBindings,
-) -> Result<(syn::ItemFn, BTreeMap<String, Call>, Vec<ResolvedCall>)> {
+) -> Result<(syn::Block, BTreeMap<String, Call>, BTreeSet<ResolvedCall>)> {
     let text = row["canonical_body"]
         .as_str()
         .ok_or_else(|| invalid("native main requires plain source"))?;
+    let block = syn::parse_str(text).map_err(validation)?;
     let mut calls = BTreeMap::new();
-    let mut resolved = Vec::new();
-    let mut function_source = text.trim_start();
-    while let Some(import) = function_source.strip_prefix("import ") {
-        let (name, rest) = import
-            .split_once('\n')
-            .ok_or_else(|| invalid("import requires a following function"))?;
-        let name = name.trim();
-        let (implementation, contract) = bindings
-            .get(name)
-            .ok_or_else(|| invalid(format!("unresolved native import {name}")))?;
+    let mut resolved = BTreeMap::new();
+    for obligation in package.tables["verification_obligations"]
+        .values()
+        .filter(|obligation| {
+            obligation["kind"] == "call_compatibility"
+                && obligation["caller_impl_hash"] == row["impl_hash"]
+        })
+    {
+        let implementation = obligation["callee_impl_hash"]
+            .as_str()
+            .ok_or_else(|| invalid("missing native callee pin"))?;
+        let contract = obligation["caller_required_contract_hash"]
+            .as_str()
+            .ok_or_else(|| invalid("missing native contract pin"))?;
+        let mut matches = bindings
+            .iter()
+            .filter(|(_, (callee, required))| callee == implementation && required == contract);
+        let (qualified, _) = matches
+            .next()
+            .ok_or_else(|| invalid("native call is absent from public bindings"))?;
+        if matches.next().is_some() {
+            return Err(invalid("ambiguous native call binding"));
+        }
+        let (_, name) = qualified
+            .rsplit_once('.')
+            .ok_or_else(|| invalid("missing native namespace"))?;
         let callee = package.tables["functions"]
             .get(implementation)
             .ok_or_else(|| invalid("unresolved native implementation"))?;
-        if callee["provided_contract_hash"] != *contract {
+        if callee["provided_contract_hash"] != contract {
             return Err(invalid(
                 "native binding must select the exact syscall contract",
             ));
         }
-        let call = native_call(callee)?;
-        if name.rsplit_once('.').map(|(_, short)| short) != Some(&call.name)
-            || calls.insert(call.name.clone(), call).is_some()
-        {
-            return Err(invalid("ambiguous native import"));
+        let call = native_call(name, package, callee)?;
+        if calls.insert(name.to_owned(), call).is_some() {
+            return Err(invalid("ambiguous native call name"));
         }
-        resolved.push(ResolvedCall {
-            callee_impl_hash: implementation.clone(),
-            required_contract_hash: contract.clone(),
-        });
-        function_source = rest.trim_start();
+        resolved.insert(
+            name,
+            ResolvedCall {
+                callee_impl_hash: implementation.into(),
+                required_contract_hash: contract.into(),
+            },
+        );
     }
     let material = json!({
-        "typed_signature": row["typed_signature"],
+        "typed_signature": package.function_signature(row).map_err(validation)?.typed,
         "canonical_body": text,
         "provided_contract_hash": row["provided_contract_hash"],
-        "resolved_calls": resolved,
+        "resolved_calls": resolved.values().collect::<Vec<_>>(),
     });
     let identity = format!(
         "sha256:{}",
@@ -170,11 +189,7 @@ fn resolve_source(
             "native source or resolved call identity mismatch",
         ));
     }
-    Ok((
-        syn::parse_str(function_source).map_err(validation)?,
-        calls,
-        resolved,
-    ))
+    Ok((block, calls, resolved.into_values().collect()))
 }
 
 struct Lower<'a> {
@@ -347,44 +362,27 @@ pub(super) fn lower(
     for (export, implementation) in exports {
         let row = &package.tables["functions"][implementation];
         if Some(implementation) == main && export == &main_name {
-            let (mut function, calls, resolved) = resolve_source(package, row, bindings)?;
-            resolved_calls.insert(implementation.clone(), resolved.into_iter().collect());
-            let signature = &row["typed_signature"];
+            let (mut body, calls, resolved) = resolve_source(package, row, bindings)?;
+            resolved_calls.insert(implementation.clone(), resolved);
+            let signature = package.function_signature(row).map_err(validation)?.typed;
             let params = signature["parameters"]
                 .as_array()
                 .ok_or_else(|| invalid("missing main signature"))?;
-            let output = &function.sig.output;
-            if function.sig.ident != "main"
-                || quote!(#output).to_string() != "-> ExitStatus"
-                || signature["result"] != "ExitStatus"
-                || params.len() != function.sig.inputs.len()
-                || function.sig.unsafety.is_some()
-                || function.sig.abi.is_some()
-                || function.sig.asyncness.is_some()
-                || function.sig.constness.is_some()
-                || !function.sig.generics.params.is_empty()
-            {
+            if signature["result"] != "ExitStatus" {
                 return Err(invalid("expected ordinary main with an ADR-032 signature"));
             }
-            let arguments = match params.as_slice() {
-                [] => quote!(),
+            let (declaration, arguments) = match params.as_slice() {
+                [] => (quote!(), quote!()),
                 [param] if param["type"] == "LaunchArgs" => {
-                    let input = function.sig.inputs.first().unwrap();
-                    let expected: syn::FnArg = syn::parse_str(&format!(
-                        "{}: LaunchArgs",
-                        param["name"].as_str().unwrap_or("")
-                    ))
-                    .map_err(validation)?;
-                    if input.to_token_stream().to_string() != expected.to_token_stream().to_string()
-                    {
-                        return Err(invalid(
-                            "main source disagrees with its LaunchArgs signature",
-                        ));
-                    }
-                    quote!(std::env::args_os()
-                        .skip(1)
-                        .map(std::os::unix::ffi::OsStringExt::into_vec)
-                        .collect())
+                    let name: syn::Ident =
+                        syn::parse_str(param["name"].as_str().unwrap_or("")).map_err(validation)?;
+                    (
+                        quote!(#name: LaunchArgs),
+                        quote!(std::env::args_os()
+                            .skip(1)
+                            .map(std::os::unix::ffi::OsStringExt::into_vec)
+                            .collect()),
+                    )
                 }
                 _ => return Err(invalid("unsupported ordinary main parameters")),
             };
@@ -393,7 +391,7 @@ pub(super) fn lower(
                 used: BTreeSet::new(),
                 error: None,
             };
-            lower.visit_item_fn_mut(&mut function);
+            lower.visit_block_mut(&mut body);
             if let Some(error) = lower.error {
                 return Err(error);
             }
@@ -401,16 +399,18 @@ pub(super) fn lower(
                 return Err(invalid("unused pin in native main"));
             }
             reachable.extend(calls);
-            function.sig.ident = format_ident!("llmlang_main");
             source.push_str(
                 &quote! {
-                    #function
+                    fn llmlang_main(#declaration) -> ExitStatus #body
                     fn main() { std::process::exit(llmlang_main(#arguments)); }
                 }
                 .to_string(),
             );
         } else {
-            let call = native_call(row)?;
+            let (_, name) = export
+                .rsplit_once('.')
+                .ok_or_else(|| invalid("missing native namespace"))?;
+            let call = native_call(name, package, row)?;
             let symbol = format!("llmlang_syscall_{}", call.name);
             symbols.insert(export, symbol);
             reachable.insert(call.name.clone(), call);
