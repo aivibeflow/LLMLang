@@ -70,7 +70,7 @@ Read successful values from `result.structuredContent`. The result also includes
 | `apply_change_set` | `workspace_id`, `expected_revision`, `idempotency_key`, `operations` | Validate a batch, derive caller-scoped call compatibility obligations, and apply it atomically. Returns the new revision, local-to-canonical identity mappings, and affected function identities. |
 | `verify_workspace` | `workspace_id`, `expected_revision` | Preview the verification report for an exact open revision. Check `report.report.status` for `VERIFIED`. The outer `report` is the backend reply, with `ok` and a nested verifier `report`. A returned reply can describe failed or inconclusive verification. |
 | `commit_workspace` | `workspace_id`, `expected_revision` | Commit a persistable workspace after verification. Scalar workspaces return `UnsupportedProfile`. |
-| `build_package` | `snapshot_id`, `target` | Build a committed or imported snapshot for `linux-x86_64`. Returns an `artifact` path, `verification_status`, and an `exports` map of public names to Rust symbols. |
+| `build_package` | `snapshot_id`, `target` | Build a committed or imported snapshot for `linux-x86_64`. Returns an `artifact` path, `verification_status`, and an `exports` map of public names to Rust symbols. Executables also return `debug_artifact`, an adjacent file with the extracted debug information. |
 
 Call `resources/read` with a URI. Parse the JSON in `result.contents[0].text`.
 

@@ -13,7 +13,7 @@ The Rust sources are in [draft/src/server](../src/server).
 ## Build and run
 
 Use Rust 1.85.1 or newer, Python 3.10 or newer, Boogie with its .NET runtime,
-and Z3. The native build target is Linux x86-64. Run the following from the
+and Z3. Native Linux x86-64 executable builds also use GNU `objcopy`. Run the following from the
 repository root.
 
 ```sh
@@ -87,6 +87,18 @@ The compiler writes its Rust translation unit in a temporary directory and
 removes the directory when compilation ends. Executables and libraries go
 under `<state-dir>/artifacts/`. Package directories are read-only during
 import and build.
+
+The native backend collects built-in calls while lowering reachable functions.
+A parameterless entry point reaching `builtin__syscall` can use a Linux
+`_start` and `exit_group` when the reachable code needs no Rust `std`.
+Programs using `LaunchArgs` or built-ins backed by `std` use the Rust entry
+point. The Linux entry point sets `SIGPIPE` to ignored so writes to closed
+pipes return `EPIPE`.
+
+For executables, `build_package` returns `debug_artifact` alongside
+`artifact`. The stripped ELF uses `.gnu_debuglink` to find the adjacent
+debug file. Set `OBJCOPY` to select another executable providing GNU
+`objcopy` options. The native integration test also uses `readelf`.
 
 ## Verification
 
