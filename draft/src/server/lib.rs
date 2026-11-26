@@ -1,6 +1,7 @@
 //! Local, single-principal LLMLang package authoring service.
 
 mod changes;
+mod native;
 
 use changes::Selection;
 use fs2::FileExt;
@@ -335,27 +336,37 @@ impl Server {
         program: &Program,
     ) -> Result<BTreeMap<String, &'a Program>> {
         let mut dependencies = BTreeMap::new();
-        let mut queue: Vec<_> = program.manifest.dependencies.values().cloned().collect();
-        while let Some(pin) = queue.pop() {
-            if dependencies.contains_key(&pin) {
+        let mut queue: Vec<_> = program.manifest.dependencies.iter().collect();
+        let mut resolved = BTreeSet::new();
+        while let Some((name, pin)) = queue.pop() {
+            if !resolved.insert((name, pin)) {
                 continue;
             }
-            let dependency = self
+            let exact = self
                 .state
                 .snapshots
-                .get(&pin)
-                .filter(|candidate| candidate.selection.version.is_some())
+                .get_key_value(pin)
+                .filter(|(_, candidate)| candidate.selection.version.is_some());
+            let (id, dependency) = exact
+                .or_else(|| {
+                    self.state.snapshots.iter().find(|(_, candidate)| {
+                        candidate.name == *name && candidate.selection.version.as_ref() == Some(pin)
+                    })
+                })
                 .ok_or_else(|| {
-                    ServerError::new("MissingDependency", format!("unavailable snapshot {pin}"))
+                    ServerError::new("MissingDependency", format!("unavailable {name} at {pin}"))
                 })?;
+            if dependencies.contains_key(id) {
+                continue;
+            }
             if dependency.manifest.language_version != program.manifest.language_version {
                 return Err(ServerError::new(
                     "UnsupportedProfile",
                     "dependency language version differs",
                 ));
             }
-            queue.extend(dependency.manifest.dependencies.values().cloned());
-            dependencies.insert(pin, dependency);
+            queue.extend(dependency.manifest.dependencies.iter());
+            dependencies.insert(id.clone(), dependency);
         }
         Ok(dependencies)
     }
@@ -396,6 +407,17 @@ impl Server {
     fn validate(&self, program: &Program) -> Result<Package> {
         changes::check_identities(&program.package(), &program.selection)?;
         let package = self.combined_package(program)?;
+        self.check_graph(&package)?;
+        if let Some(entry) = &program.selection.entry_point {
+            if !program.tables["functions"].contains_key(entry) {
+                return Err(validation("entry point must select a local implementation"));
+            }
+        }
+        self.backend("validate", program, &package, None)?;
+        Ok(package)
+    }
+
+    fn check_graph(&self, package: &Package) -> Result<()> {
         let mut combined = package.clone();
         combined.manifest.dependencies.clear();
         let area = tempfile::tempdir_in(&self.root)?;
@@ -403,12 +425,92 @@ impl Server {
         llmlang_spg::save(&path, &combined, SaveOptions::default()).map_err(validation)?;
         llmlang_spg::load_graph(&path, VERSIONS, GraphLoadOptions::default())
             .map_err(validation)?;
-        if let Some(entry) = &program.selection.entry_point {
-            if !program.tables["functions"].contains_key(entry) {
-                return Err(validation("entry point must select a local implementation"));
+        Ok(())
+    }
+
+    fn native_exports(program: &Program) -> Result<BTreeMap<String, String>> {
+        let version = program
+            .selection
+            .version
+            .as_deref()
+            .ok_or_else(|| invalid("missing selected version"))?;
+        let mut versions = program.tables["versions"]
+            .values()
+            .filter(|row| row["version"] == version);
+        let version_hash = versions
+            .next()
+            .and_then(|row| row["version_hash"].as_str())
+            .ok_or_else(|| validation("selected version is absent from the package"))?;
+        if versions.next().is_some() {
+            return Err(validation("ambiguous package version"));
+        }
+        let mut exports = BTreeMap::new();
+        for binding in program.tables["bindings"]
+            .values()
+            .filter(|row| row["version_hash"] == version_hash)
+        {
+            let hash = binding["interface_hash"]
+                .as_str()
+                .ok_or_else(|| validation("missing interface identity"))?;
+            let interface = program.tables["interfaces"]
+                .get(hash)
+                .ok_or_else(|| validation("missing local interface"))?;
+            let name = interface["name"]
+                .as_str()
+                .ok_or_else(|| validation("missing interface name"))?;
+            let implementation = binding["impl_hash"]
+                .as_str()
+                .ok_or_else(|| validation("missing implementation identity"))?;
+            if name.rsplit_once('.').map(|(namespace, _)| namespace) != Some(&program.name) {
+                return Err(validation("export must belong to the package namespace"));
+            }
+            if exports.insert(name.into(), implementation.into()).is_some() {
+                return Err(validation("ambiguous public binding"));
             }
         }
-        self.backend("validate", program, &package, None)?;
+        Ok(exports)
+    }
+
+    fn native_call_bindings(&self, program: &Program) -> Result<BTreeSet<(String, String)>> {
+        let dependencies = self.dependency_packages(program)?;
+        let mut allowed = BTreeSet::new();
+        for candidate in std::iter::once(program).chain(dependencies.values().copied()) {
+            for (name, implementation) in Self::native_exports(candidate)? {
+                let interface = candidate.tables["interfaces"]
+                    .values()
+                    .find(|row| row["name"] == name)
+                    .ok_or_else(|| validation("missing native interface"))?;
+                let contract = interface["public_contract_hash"]
+                    .as_str()
+                    .ok_or_else(|| validation("missing native public contract"))?;
+                allowed.insert((implementation, contract.into()));
+            }
+        }
+        Ok(allowed)
+    }
+
+    fn validate_native(&self, program: &Program) -> Result<Package> {
+        let package = self.combined_package(program)?;
+        self.check_graph(&package)?;
+        let exports = Self::native_exports(program)?;
+        for (name, implementation) in &exports {
+            let interface = program.tables["interfaces"]
+                .values()
+                .find(|row| row["name"] == *name)
+                .ok_or_else(|| validation("missing native interface"))?;
+            let function = &package.tables["functions"][implementation];
+            let contract = interface["public_contract_hash"]
+                .as_str()
+                .ok_or_else(|| validation("missing public contract pin"))?;
+            if function["provided_contract_hash"] != contract
+                || package.tables["contracts"][contract]["typed_signature"]
+                    != function["typed_signature"]
+            {
+                return Err(validation(
+                    "native export contract and implementation must have the exact signature",
+                ));
+            }
+        }
         Ok(package)
     }
 
@@ -583,15 +685,20 @@ impl Server {
             return Err(validation("package snapshot identity mismatch"));
         }
         self.check_version(&program, &id)?;
-        let combined = self.validate(&program)?;
-        let report = self.backend("verify", &program, &combined, None)?;
-        if report["ok"] != true {
-            return Err(ServerError::new(
-                "VerificationFailed",
-                report["message"]
-                    .as_str()
-                    .unwrap_or("imported package verification failed"),
-            ));
+        let native = native::is_native(&program.package());
+        if native {
+            self.validate_native(&program)?;
+        } else {
+            let combined = self.validate(&program)?;
+            let report = self.backend("verify", &program, &combined, None)?;
+            if report["ok"] != true {
+                return Err(ServerError::new(
+                    "VerificationFailed",
+                    report["message"]
+                        .as_str()
+                        .unwrap_or("imported package verification failed"),
+                ));
+            }
         }
         let mut next = self.state.clone();
         let versions: BTreeSet<_> = next
@@ -603,7 +710,8 @@ impl Server {
             .collect();
         next.snapshots.insert(id.clone(), program);
         self.store(next)?;
-        Ok(json!({"snapshot_id": id, "versions": versions}))
+        Ok(json!({"snapshot_id": id, "versions": versions,
+            "verification_status": if native { "unchecked" } else { "verified" }}))
     }
 
     fn build(&self, args: Build) -> Result<Value> {
@@ -619,17 +727,31 @@ impl Server {
                 "expected linux-x86_64",
             ));
         }
-        let package = self.combined_package(program)?;
         let area = tempfile::tempdir_in(self.root.join("artifacts"))?;
         let staged = area.path().join("program");
-        let build = self.backend("build", program, &package, Some((&args.target, &staged)))?;
+        let native = native::is_native(&program.package());
+        let (executable, exports) = if native {
+            let package = self.validate_native(program)?;
+            let exports = Self::native_exports(program)?;
+            let allowed = self.native_call_bindings(program)?;
+            let output = native::lower(&program.name, &package, &exports, &allowed)?;
+            native::compile(&output, &staged)?;
+            (output.executable, output.exports)
+        } else {
+            let package = self.combined_package(program)?;
+            let build = self.backend("build", program, &package, Some((&args.target, &staged)))?;
+            (
+                program.selection.entry_point.is_some(),
+                build["exports"].clone(),
+            )
+        };
         if !staged.is_file() {
             return Err(ServerError::new(
                 "ToolError",
                 "backend did not create the artifact",
             ));
         }
-        let name = if program.selection.entry_point.is_some() {
+        let name = if executable {
             format!("{}-{}", args.snapshot_id, args.target)
         } else {
             format!("libllmlang_{}.rlib", args.snapshot_id)
@@ -638,7 +760,8 @@ impl Server {
         fs::rename(staged, &artifact)?;
         Ok(
             json!({"snapshot_id": args.snapshot_id, "target": args.target,
-            "artifact": artifact, "exports": build["exports"]}),
+            "artifact": artifact, "exports": exports,
+                "verification_status": if native { "unchecked" } else { "verified" }}),
         )
     }
 

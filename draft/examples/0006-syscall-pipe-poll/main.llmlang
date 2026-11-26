@@ -1,0 +1,22 @@
+import linux.syscalls.close
+import linux.syscalls.pipe2
+import linux.syscalls.poll
+import linux.syscalls.read
+import linux.syscalls.write
+
+pub fn main() -> ExitStatus {
+    let mut fds = [-1_i32; 2];
+    if pipe2(&mut fds[0], O_CLOEXEC) < 0 { return 1; }
+    let mut entry = pollfd { fd: fds[0], events: POLLIN, revents: 0 };
+    let mut byte = [0_u8; 1];
+    let passed = poll(&mut entry, 1, 10) == 0
+        && write(fds[1] as U32, b"x", 1) == 1
+        && poll(&mut entry, 1, 1000) == 1
+        && entry.revents & POLLIN != 0
+        && read(fds[0] as U32, &mut byte, 1) == 1
+        && byte[0] == b'x';
+    let output_closed = close(fds[1] as U32);
+    let input_closed = close(fds[0] as U32);
+    if passed && output_closed == 0 && input_closed == 0 { return 0; }
+    return 1;
+}

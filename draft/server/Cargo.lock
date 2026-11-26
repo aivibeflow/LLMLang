@@ -215,10 +215,12 @@ version = "0.1.0"
 dependencies = [
  "fs2",
  "llmlang-spg",
+ "quote",
  "rustix",
  "serde",
  "serde_json",
  "sha2",
+ "syn 2.0.119",
  "tempfile",
 ]
 

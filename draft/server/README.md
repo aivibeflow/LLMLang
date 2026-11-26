@@ -1,6 +1,7 @@
 # LLMLang Server MVP
 
-This Linux server implements scalar package authoring over MCP stdio. Run a
+This Linux server implements scalar package authoring and scalar and native
+package compilation over MCP stdio. Run a
 server per local OS principal with an owner-private state directory. Its
 Toolchain operations are also available through the Rust `Server` API.
 The service serializes operations within one process and holds an exclusive
@@ -52,20 +53,33 @@ version directories are immutable. The configured destination is
 The package contains the standard SPG manifest, table dumps and indexes, plus
 `package.json` with the package name, version selection, optional entry point,
 and snapshot ID used by this server. Import verifies the package, reconstructs
-its identity, and registers the snapshot. Import pinned dependencies before
-importing a package that uses them. Dependency pins are exact snapshot IDs.
+its identity, and registers the snapshot. Import dependencies before importing a package that uses them. A dependency
+may select an imported package by its name and version or pin its snapshot ID.
+Native imports validate storage, graph references and selected interfaces.
+They report verification status `unchecked`. Scalar imports still require
+verification.
 
-`build_package` accepts `target: "linux-x86_64"`. A package with a
-parameterless scalar entry point produces an executable that prints its
-result. An interface-only package produces a Rust `rlib` and reports the
-exported Rust symbol names. The first profile uses a fixed admission policy
-that requires successful scalar verification.
+`build_package` accepts `target: "linux-x86_64"`. The server starts from
+the selected public bindings and emits the functions reachable through exact
+call pins, including required implementations from dependencies. For native
+programs, the bound interface `<package>.main` selects an executable with
+`main() -> ExitStatus` or `main(args: LaunchArgs) -> ExitStatus`. Launch
+arguments retain their original Unix bytes. The native backend covers the
+native syscall package and the five draft syscall programs. The existing
+scalar executable convention prints its scalar result. Supported
+interface-only packages produce a Rust `rlib`.
+
+The compiler writes its Rust translation unit in a temporary directory and
+removes the directory when compilation ends. Executables and libraries go
+under `<state-dir>/artifacts/`. Package directories are read-only during
+import and build.
 
 ## Verification
 
 ```sh
 cargo test --locked --manifest-path draft/server/Cargo.toml
 python3 -B draft/server/tests/mcp_e2e.py draft/server/target/debug/llmlang-server
+python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llmlang-server
 ```
 
 The end-to-end test starts independent MCP client and server processes. It
