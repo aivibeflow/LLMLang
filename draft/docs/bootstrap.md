@@ -11,7 +11,7 @@ requests, tool arguments, and resource reads. Use the
 | --- | --- |
 | Build and run a checked-in native example | Follow [Build and run native examples](#build-and-run-native-examples). |
 | Edit and verify a scalar workspace over MCP | Follow [Edit and verify a scalar workspace](#edit-and-verify-a-scalar-workspace). |
-| Read or edit standalone scalar source | Use the [scalar text syntax](lang.md#scalar-text-source) and the [scalar MVP CLI](../../tools/llmlang_mvp/README.md) for Calculator and Stage 0. |
+| Read or edit standalone scalar source | Use the [scalar text syntax](lang.md#scalar-text-source) and the [scalar MVP CLI](../llmlang_mvp/README.md) for Calculator and Stage 0. |
 | Inspect an existing package | Import its dependencies and the package, then use [MCP resource reads](server.md#tools-and-resources) to inspect the returned snapshot's objects and links. |
 
 ## Run the Python MCP client

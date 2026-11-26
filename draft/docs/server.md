@@ -9,7 +9,7 @@ Use Linux x86-64, Rust 1.85.1 or newer with Cargo and a native linker, Python 3.
 From the repository root, build both executables.
 
 ```sh
-cargo build --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
+cargo build --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
 cargo build --locked --manifest-path draft/server/Cargo.toml
 ```
 
@@ -22,7 +22,7 @@ Add a local stdio server in your MCP client. The example uses the common `mcpSer
       "command": "/path/to/LLMLang/draft/server/target/debug/llmlang-server",
       "args": ["--state-dir", "/path/to/private/llmlang-state"],
       "env": {
-        "LLMLANG_STAGE0": "/path/to/LLMLang/tools/llmlang_mvp/stage0/target/debug/llmlang-stage0",
+        "LLMLANG_STAGE0": "/path/to/LLMLang/draft/llmlang_mvp/stage0/target/debug/llmlang-stage0",
         "BOOGIE": "/path/to/boogie",
         "Z3": "/path/to/z3"
       }

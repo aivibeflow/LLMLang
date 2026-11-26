@@ -17,10 +17,10 @@ and Z3. Native Linux x86-64 executable builds also use GNU `objcopy`. Run the fo
 repository root.
 
 ```sh
-cargo build --locked --manifest-path tools/llmlang_mvp/stage0/Cargo.toml
+cargo build --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
 cargo build --locked --manifest-path draft/server/Cargo.toml
 
-export LLMLANG_STAGE0="$PWD/tools/llmlang_mvp/stage0/target/debug/llmlang-stage0"
+export LLMLANG_STAGE0="$PWD/draft/llmlang_mvp/stage0/target/debug/llmlang-stage0"
 export BOOGIE=/path/to/boogie
 export Z3=/path/to/z3
 

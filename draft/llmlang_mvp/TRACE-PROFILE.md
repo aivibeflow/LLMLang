@@ -20,10 +20,10 @@ The CNL comparison checks structural fidelity. The observation checker evaluates
 Run the commands from a repository checkout with Python 3.12.
 
 ```sh
-example=tools/llmlang_mvp/trace_examples
-python -B -m tools.llmlang_mvp.contract_profiles render "$example/withdrawal.contract.json"
-python -B -m tools.llmlang_mvp.contract_profiles check "$example/withdrawal.contract.json" "$example/withdrawal-failure.trace.json"
-python -B -m unittest tools.llmlang_mvp.test_contract_profiles
+example=draft/llmlang_mvp/trace_examples
+python -B -m draft.llmlang_mvp.contract_profiles render "$example/withdrawal.contract.json"
+python -B -m draft.llmlang_mvp.contract_profiles check "$example/withdrawal.contract.json" "$example/withdrawal-failure.trace.json"
+python -B -m unittest draft.llmlang_mvp.test_contract_profiles
 ```
 
 Use `parse PATH` to parse controlled text into normalized JSON. Use `check CONTRACT TRACE --reference TRACE` for a paired observation. The scalar CLI and trace CLI require their own schema at the input boundary. [Trace CLI implementation](contract_profiles.py)

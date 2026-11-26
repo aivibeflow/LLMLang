@@ -13,8 +13,8 @@ from tempfile import TemporaryDirectory
 if not __package__:
     sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from tools.llmlang_mvp import contract, frontend, verify
-from tools.llmlang_mvp.__main__ import TARGET, canonical_json, stage0_compiler
+from draft.llmlang_mvp import contract, frontend, verify
+from draft.llmlang_mvp.__main__ import TARGET, canonical_json, stage0_compiler
 
 TYPES = {"i64": "int", "bool": "bool"}
 CONTRACT_TYPES = {"i64": "I64", "bool": "Bool"}

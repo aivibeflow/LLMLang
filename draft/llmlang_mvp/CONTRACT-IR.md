@@ -100,8 +100,8 @@ The renderer encodes each operator with a phrase and each subtree with parenthes
 
 ## Executable checks
 
-- `python -B -m unittest tools.llmlang_mvp.test_contract_wire` checks exchange, migration, exact semantic identities, big integers, binder and type restrictions, and CNL round trips.
-- `python -B -m tools.llmlang_mvp.controls` exercises exact bindings, review and the separated provider conformance and refinement checks.
-- `lean tools/llmlang_mvp/ScalarChecks.lean` checks the shared addition claims in the designated Lean model.
+- `python -B -m unittest draft.llmlang_mvp.test_contract_wire` checks exchange, migration, exact semantic identities, big integers, binder and type restrictions, and CNL round trips.
+- `python -B -m draft.llmlang_mvp.controls` exercises exact bindings, review and the separated provider conformance and refinement checks.
+- `lean draft/llmlang_mvp/ScalarChecks.lean` checks the shared addition claims in the designated Lean model.
 
 The CLI checks body conformance and public refinement using [Boogie and Z3](verify.py). Conformance checks that every admitted input produces an outcome allowed by the provided contract. Refinement checks that the provided domain contains the public domain and that, on public inputs, each provided outcome is allowed publicly. The scalar runtime and contract evaluator provide separate observations for replay. The [MVP README](README.md) describes tooling and proof scope.

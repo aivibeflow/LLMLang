@@ -179,7 +179,7 @@ The CNL round trip checks that the review text preserves the formal contract. Hu
 
 The development scope includes every class in the [verification coverage matrix](research/formal-verification/VERIFICATION-COVERAGE.ru.md). The rows below are required work, including the later profiles. The evidence routes describe an implementation sequence. A route counts as supported only for its declared semantics and evidence policy. Backend selection follows [ADR-018](draft/adr/018-formal-verification-backends.md).
 
-The [MVP release record](tools/llmlang_mvp/RELEASE.md#contract-ir-coverage-for-plan-13) maps the executable scalar and bounded trace coverage to these families. The broader models and evidence routes below remain part of the roadmap.
+The [MVP release record](draft/llmlang_mvp/RELEASE.md#contract-ir-coverage-for-plan-13) maps the executable scalar and bounded trace coverage to these families. The broader models and evidence routes below remain part of the roadmap.
 
 | Contract family | Required Contract IR and controlled natural language | Profile and validation boundary |
 |---|---|---|
@@ -919,7 +919,7 @@ The [Research State 2026-11-19](research/research-management/RESEARCH-STATE-2026
 
 ## 8.1 MVP implementation plan
 
-Deliver one reproducible LLMLang CLI application from a clean checkout. Use Calculator as the end-to-end workload, with Hello and Echo as runtime smoke tests. Start on Linux x86-64 with one source dialect, one typed SPG subset, and Rust code generation. Preserve the existing full Contract IR roadmap and accepted architectural requirements as the scope for later milestones. [Reference workloads](research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md) · [Calculator MVP source](tools/llmlang_mvp/calculator.llmlang) · [ADR-016](draft/adr/016-compiler-bootstrap.md)
+Deliver one reproducible LLMLang CLI application from a clean checkout. Use Calculator as the end-to-end workload, with Hello and Echo as runtime smoke tests. Start on Linux x86-64 with one source dialect, one typed SPG subset, and Rust code generation. Preserve the existing full Contract IR roadmap and accepted architectural requirements as the scope for later milestones. [Reference workloads](research/language-design/RT-01/RT-01-REFERENCE-WORKLOADS.md) · [Calculator MVP source](draft/llmlang_mvp/calculator.llmlang) · [ADR-016](draft/adr/016-compiler-bootstrap.md)
 
 <a name="ownership-and-integration-boundary"></a>
 
@@ -927,7 +927,7 @@ Deliver one reproducible LLMLang CLI application from a clean checkout. Use Calc
 
 The MVP workstream includes the Contract IR language, its formal semantics, typed grammar and versioned representation, as well as the LLMLang frontend and SPG, the interpreter and native backend, verification and evidence admission, controlled natural-language rendering and review, and CLI and CI integration. Use the typed Contract IR interface as the boundary for parallel implementation.
 
-- [x] Freeze the [versioned scalar Contract IR](tools/llmlang_mvp/CONTRACT-IR.md) with typed input and diagnostics, numeric and overflow rules, callable signatures, scoped clauses, outcomes and canonical contract identity.
+- [x] Freeze the [versioned scalar Contract IR](draft/llmlang_mvp/CONTRACT-IR.md) with typed input and diagnostics, numeric and overflow rules, callable signatures, scoped clauses, outcomes and canonical contract identity.
 - [x] Integrate the typed interchange with the frontend, SPG, execution and verification and reject unsupported schemas and profiles explicitly. [Contract IR roadmap](#contract-ir-and-controlled-natural-language-rendering)
 
 <a name="implementation-sequence"></a>
@@ -944,14 +944,14 @@ The MVP workstream includes the Contract IR language, its formal semantics, type
 
 ### 8.1.3 MVP acceptance
 
-The [scalar implementation](tools/llmlang_mvp/README.md) provides a Rust Stage 0 compiler, reference interpreter, versioned typed Contract IR, controlled rendering, exact-revision signed approval and Boogie + Z3 checks with counterexample replay. The [release record](tools/llmlang_mvp/RELEASE.md) reports reproducible checks, the proof and test scopes, and the bounded trace coverage. The full contract-family roadmap remains open.
+The [scalar implementation](draft/llmlang_mvp/README.md) provides a Rust Stage 0 compiler, reference interpreter, versioned typed Contract IR, controlled rendering, exact-revision signed approval and Boogie + Z3 checks with counterexample replay. The [release record](draft/llmlang_mvp/RELEASE.md) reports reproducible checks, the proof and test scopes, and the bounded trace coverage. The full contract-family roadmap remains open.
 
 
 - [x] A clean checkout produces a native Calculator executable through the documented commands, and the frontend reconstructs the same canonical SPG on repeated runs.
 - [x] The interpreter and native executable agree with the applicable RT-01 reference cases for Calculator. Hello and Echo pass the documented smoke tests. The conformance report lists every case in scope and the remaining exclusions.
 - [x] A reviewer can see the full controlled rendering of the MVP contract, with checked round-trip fidelity and exact revision identity.
 - [x] One conforming provider binds successfully. Stronger preconditions and body violations fail separate checks. An old `ImplHash` binding stays unchanged when a replacement is published. Stale approval or a mismatched binding blocks admission.
-- [x] The [release record](tools/llmlang_mvp/RELEASE.md) states the supported profiles and links the reproducible checks.
+- [x] The [release record](draft/llmlang_mvp/RELEASE.md) states the supported profiles and links the reproducible checks.
 
 Full self-hosting, additional dialects, semantic Git merge, broader native ABI support, and the full contract-family rollout follow this CLI milestone. An agent workflow over MCP can build on the same typed change, validation and review interfaces after the CLI path is reproducible. [ADR-015](draft/adr/015-toolchain-server-semantic-api.md) · [ADR-017](draft/adr/017-mcp-agent-object-format.md)
 
@@ -965,7 +965,7 @@ The LLMLang `linux.syscalls` package must cover every native Linux x86-64 ABI sy
 
 ### 8.2.1 Baseline and binding
 
-The Calculator scalar MVP already provides a typed SPG, an interpreter, Rust code generation, separate public and implementation contracts, Boogie/Z3 verification, and the `review`, `check`, and `build` commands. Add cross-module imports, I/O types and effects for the package. Keep Calculator as a regression check and use Echo as the first consumer. [Scalar MVP](tools/llmlang_mvp/README.md)
+The Calculator scalar MVP already provides a typed SPG, an interpreter, Rust code generation, separate public and implementation contracts, Boogie/Z3 verification, and the `review`, `check`, and `build` commands. Add cross-module imports, I/O types and effects for the package. Keep Calculator as a regression check and use Echo as the first consumer. [Scalar MVP](draft/llmlang_mvp/README.md)
 
 The build resolves qualified names through a pinned catalog and records the public interface revision, public and provided contract hashes, target ABI, and exact `ImplHash`. The native adapter owns syscall numbers and the calling convention. Publishing a new provider preserves the old binding. An explicit update requires checking that the evidence still applies. [ADR-020](draft/adr/020-immutable-objects-and-implhash-calls.md) · [RT-10 adapters](research/runtime-and-systems/RT-10/RT-10-LINUX-SYSCALL-ABI-ISOLATION-2026-11-25.md)
 
