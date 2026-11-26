@@ -1,0 +1,139 @@
+syntax = "proto3";
+
+package llmlang.spg.storage.v2;
+
+// Fields in an Object are unique and stored in increasing Unicode key order.
+// Read-only compatibility with the v1 repository profile.
+message LegacyRecord {
+  string key = 1;
+  Object content = 2;
+}
+
+message Object {
+  repeated Field fields = 1;
+}
+
+message Field {
+  string key = 1;
+  Value value = 2;
+}
+
+message List {
+  repeated Value values = 1;
+}
+
+message Value {
+  oneof kind {
+    bool null_value = 1;
+    bool bool_value = 2;
+    sint64 int_value = 3;
+    string string_value = 4;
+    List list_value = 5;
+    Object object_value = 6;
+  }
+}
+
+// Each dump selects one message below by table name. The key is the storage key.
+message VersionRecord {
+  string key = 1;
+  optional string version_hash = 2;
+  optional string version = 3;
+  optional string binding_hash = 4;
+}
+
+message InterfaceRecord {
+  string key = 1;
+  optional string interface_hash = 2;
+  optional string name = 3;
+  optional string public_contract_hash = 4;
+}
+
+message FunctionRecord {
+  string key = 1;
+  optional string impl_hash = 2;
+  Value typed_signature = 3;
+  Value canonical_body = 4;
+  optional string provided_contract_hash = 5;
+}
+
+message ContractRecord {
+  string key = 1;
+  optional string contract_hash = 2;
+  optional string contract_kind = 3;
+  optional string profile = 4;
+  Value typed_signature = 5;
+  Value state_signature = 6;
+  repeated string user_request_texts = 7;
+  repeated Value review_records = 8;
+}
+
+message ContractRuleRecord {
+  string key = 1;
+  optional string contract_hash = 2;
+  optional string rule_hash = 3;
+  optional string kind = 4;
+  optional string error_label = 5;
+  Value predicate = 6;
+  Value check_boundary = 7;
+}
+
+message BindingRecord {
+  string key = 1;
+  optional string version_hash = 2;
+  optional string interface_hash = 3;
+  optional string impl_hash = 4;
+}
+
+message StructureRecord {
+  string key = 1;
+  optional string struct_impl_hash = 2;
+  optional string type_hash = 3;
+  optional string contract_hash = 4;
+  Value canonical_declaration = 5;
+}
+
+message StructureTypeRecord {
+  string key = 1;
+  optional string type_hash = 2;
+  optional string identity_hash = 3;
+  optional string aggregate_kind = 4;
+  repeated Value ordered_member_types = 5;
+  Value representation_requirements = 6;
+}
+
+message StructureLayoutRecord {
+  string key = 1;
+  optional string layout_hash = 2;
+  optional string type_hash = 3;
+  Value target_abi_profile = 4;
+  Value layout_descriptor = 5;
+}
+
+message StructureBindingRecord {
+  string key = 1;
+  optional string version_hash = 2;
+  optional string name = 3;
+  optional string struct_impl_hash = 4;
+}
+
+message VerificationObligationRecord {
+  string key = 1;
+  optional string obligation_hash = 2;
+  optional string kind = 3;
+  optional string caller_impl_hash = 4;
+  optional string callee_impl_hash = 5;
+  optional string struct_impl_hash = 6;
+  optional string public_contract_hash = 7;
+  optional string caller_required_contract_hash = 8;
+  optional string verification_context_hash = 9;
+}
+
+message VerificationRunRecord {
+  string key = 1;
+  optional string run_id = 2;
+  optional string obligation_hash = 3;
+  optional string status = 4;
+  optional string toolchain_digest = 5;
+  optional string evidence_ref = 6;
+  optional string checked_at = 7;
+}

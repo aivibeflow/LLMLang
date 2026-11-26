@@ -12,17 +12,16 @@ fn fixture() -> Package {
     let rows = package.tables.get_mut("functions").unwrap();
     rows.insert(
         "second".into(),
-        json!({"canonical_body": [null, false, [], {}]}),
+        json!({"impl_hash": "second", "typed_signature": {}, "canonical_body": [null, false, [], {}], "provided_contract_hash": "contract"}),
     );
     rows.insert(
         "first".into(),
-        json!({"canonical_body": {"literal": i64::MIN}}),
+        json!({"impl_hash": "first", "typed_signature": {}, "canonical_body": {"literal": i64::MIN}, "provided_contract_hash": "contract"}),
     );
-    package
-        .tables
-        .get_mut("versions")
-        .unwrap()
-        .insert("v".into(), json!({"version": "v"}));
+    package.tables.get_mut("versions").unwrap().insert(
+        "v".into(),
+        json!({"version_hash": "v", "version": "v", "binding_hash": "bindings"}),
+    );
     package
 }
 
@@ -73,7 +72,7 @@ fn round_trip_binary_and_protojson() {
         serde_json::from_slice(&read(&exported, "functions.json")).unwrap();
     assert_eq!(rows[0]["key"], "first");
     assert_eq!(
-        rows[0]["content"]["fields"][0]["value"]["objectValue"]["fields"][0]["value"]["intValue"],
+        rows[0]["canonicalBody"]["objectValue"]["fields"][0]["value"]["intValue"],
         "-9223372036854775808",
     );
     assert_eq!(rows[1]["key"], "second");
@@ -137,4 +136,75 @@ fn rejects_invalid_versions_indexes_and_frames() {
     assert!(load(&path, VERSIONS, options).is_err());
     assert!(!output.exists());
     assert!(save(&path, &package, SaveOptions::default()).is_err());
+}
+
+#[test]
+fn all_tables_round_trip_with_their_own_columns() {
+    let area = tempfile::tempdir().unwrap();
+    let path = area.path().join("package");
+    let mut package = fixture();
+    for (table, row) in [
+        (
+            "interfaces",
+            json!({"interface_hash": "i", "name": "f", "public_contract_hash": "c"}),
+        ),
+        (
+            "contracts",
+            json!({"contract_hash": "c", "contract_kind": "function", "profile": "scalar", "typed_signature": {}, "user_request_texts": ["request"], "review_records": [{"decision": "approved"}]}),
+        ),
+        (
+            "contract_rules",
+            json!({"contract_hash": "c", "rule_hash": "r", "kind": "requires", "predicate": true}),
+        ),
+        (
+            "bindings",
+            json!({"version_hash": "v", "interface_hash": "i", "impl_hash": "first"}),
+        ),
+        (
+            "structures",
+            json!({"struct_impl_hash": "s", "type_hash": "t", "canonical_declaration": {}}),
+        ),
+        (
+            "structure_types",
+            json!({"type_hash": "t", "identity_hash": "id", "aggregate_kind": "struct", "ordered_member_types": [], "representation_requirements": {}}),
+        ),
+        (
+            "structure_layouts",
+            json!({"layout_hash": "l", "type_hash": "t", "target_abi_profile": {}, "layout_descriptor": {}}),
+        ),
+        (
+            "structure_bindings",
+            json!({"version_hash": "v", "name": "s", "struct_impl_hash": "s"}),
+        ),
+        (
+            "verification_obligations",
+            json!({"obligation_hash": "o", "kind": "body_conformance", "caller_impl_hash": "first", "verification_context_hash": "ctx"}),
+        ),
+        (
+            "verification_runs",
+            json!({"run_id": "run", "obligation_hash": "o", "status": "proved", "toolchain_digest": "toolchain", "evidence_ref": "evidence", "checked_at": "2026-11-26T00:00:00Z"}),
+        ),
+    ] {
+        package
+            .tables
+            .get_mut(table)
+            .unwrap()
+            .insert("row".into(), row);
+    }
+    save(&path, &package, SaveOptions::default()).unwrap();
+    assert_eq!(
+        load(&path, VERSIONS, LoadOptions::default()).unwrap(),
+        package
+    );
+
+    let wrong = area.path().join("wrong");
+    let version = package.tables["versions"]["v"].clone();
+    package
+        .tables
+        .get_mut("functions")
+        .unwrap()
+        .insert("wrong".into(), version);
+    let error = save(&wrong, &package, SaveOptions::default()).unwrap_err();
+    assert!(error.to_string().contains("functions: unknown column"));
+    assert!(!wrong.exists());
 }
