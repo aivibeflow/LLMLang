@@ -29,6 +29,7 @@ A package is a program for the selected startup mode when it declares the corres
 
 ## Language, identity, and contracts
 
+- **Built-in function names.** Every LLMLang built-in function name starts with `builtin__`, with two underscores after `builtin`. For example, the system call built-in is named `builtin__syscall`.
 - **Source dialects.** A build declares dialect and frontend versions. Conforming dialects lower their supported constructs into the same typed SPG with the same observable semantics, exact call bindings and applicable semantic identities. Source locations and formatting can be retained for tooling. A renderer can emit a dialect for the subset it supports, with a reparse and equivalence check.
 - **Immutable objects and calls.** Changes produce new semantic objects or component versions. `ImplHash` identifies a canonical implementation with its provided contract and hash-relevant dependencies. A caller retains its required contract reference. A resolved direct call pins its exact callee. A public interface can resolve by qualified name in a pinned catalog, but changing its concrete provider requires an explicit new binding and applicable evidence. The build rejects missing pins and incompatible calls. Build-time callable compatibility is scoped to one coherent Toolchain version.
 - **Behavioral verification.** A public interface revision specifies the contract callers can rely on. Provider admission checks the callable signature and two distinct obligations. The body must satisfy the provided contract, and that contract must refine the public contract for the applicable profile and assumptions. Evidence binds to the exact revisions.
@@ -227,3 +228,4 @@ The repository profile must specify the exact signature text grammar, digest enc
 - [ADR-031 — LLMLang Server and MCP package authoring for the MVP](adr/031-llmlang-server-mcp-package-authoring.md)
 - [ADR-032 — Program packages with bound `main` or `_entry` interfaces](adr/032-program-package-main.md)
 - [ADR-033 — Store function signatures in a separate table](adr/033-function-signature-storage.md)
+- [ADR-034 — Prefix built-in function names with `builtin__`](adr/034-built-in-function-prefix.md)

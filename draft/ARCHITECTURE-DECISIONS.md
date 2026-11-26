@@ -19,3 +19,4 @@
 - [ADR-031 — LLMLang Server and MCP package authoring for the MVP](adr/031-llmlang-server-mcp-package-authoring.md) — Accepted on 2026-11-26.
 - [ADR-032 — Program packages with bound `main` or `_entry` interfaces](adr/032-program-package-main.md) — Accepted on 2026-11-26.
 - [ADR-033 — Store function signatures in a separate table](adr/033-function-signature-storage.md) — Accepted on 2026-11-27.
+- [ADR-034 — Prefix built-in function names with `builtin__`](adr/034-built-in-function-prefix.md) — Accepted on 2026-11-27.
