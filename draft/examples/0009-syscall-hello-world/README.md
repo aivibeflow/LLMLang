@@ -1,6 +1,6 @@
 # 0009 — Hello, World! using a syscall
 
-[`main.llmlang`](main.llmlang) calls `linux.syscalls.write` with file
+The body in [`functions.json`](functions.json) calls `linux.syscalls.write` with file
 descriptor 1, the remaining bytes, and their length. It retries interrupted
 writes, advances after short writes, and returns 1 if output fails.
 
