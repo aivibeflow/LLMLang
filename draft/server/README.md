@@ -32,6 +32,51 @@ state directory if it is missing. It accepts `--python` and `--backend`
 overrides for the trusted scalar toolchain. Its default backend is
 [scalar.py](scalar.py). The MCP stream uses one JSON-RPC message per line.
 
+## Python stdio client
+
+The bundled [client](mcp_client.py) uses the Python 3.10+ standard library.
+It launches the server with the command after `--server` and inherits the
+toolchain environment set above. List tools with their input and output
+schemas, then pass any advertised tool name and its arguments as JSON.
+
+```sh
+python3 draft/server/mcp_client.py tools/list \
+  --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
+python3 draft/server/mcp_client.py tools/call \
+  '{"name":"create_package","arguments":{"name":"demo","profile":"scalar","language_version":"0.1.0"}}' \
+  --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
+python3 draft/server/mcp_client.py resources/templates/list \
+  --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
+```
+
+The first argument is an MCP method. Pass `-` in place of the JSON object to
+read parameters from stdin. Use `resources/read` with `{"uri":"…"}` to read
+a resource. The client initializes the session automatically. The `initialize`
+command displays the negotiated protocol version and server capabilities.
+The CLI prints complete MCP results, including tool error results, to stdout.
+It prints JSON-RPC errors to stderr and exits with status 1 for either kind
+of error. Set `--timeout` before `--server` to change the 180-second response
+timeout.
+
+Each CLI invocation starts a new server process. To work with scalar workspaces
+or imported packages across multiple requests, keep a single connection open
+with `connect` from `mcp_client.py` (with `draft/server` on Python's module search path).
+
+```python
+from mcp_client import connect
+
+with connect(["draft/server/target/debug/llmlang-server", "--state-dir", "./private-state"]) as client:
+    tools = client.request("tools/list")["tools"]
+    result = client.call_tool("create_package", {
+        "name": "demo", "profile": "scalar", "language_version": "0.1.0",
+    })
+```
+
+Tool names, schemas, and resource templates come from the running server.
+New tools and argument changes are available through the same API. The
+scalar and native end-to-end tests exercise this client against the server
+built from the same checkout.
+
 ## Package lifecycle
 
 Use `tools/list` to discover the input and output schemas. Start with
@@ -108,5 +153,6 @@ python3 -B draft/server/tests/mcp_e2e.py draft/server/target/debug/llmlang-serve
 python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llmlang-server
 ```
 
-The end-to-end test starts independent MCP client and server processes. It
-requires the real Boogie, Z3, and native build tools. It verifies scalar edits and their in-memory lifetime. The native test imports packages and executes the binaries.
+The end-to-end tests run the bundled Python client against the server process.
+The scalar test uses Boogie and Z3 to verify edits in an in-memory workspace.
+The native test imports packages, builds artifacts, and executes the binaries.

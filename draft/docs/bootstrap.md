@@ -14,6 +14,40 @@ requests, tool arguments, and resource reads. Use the
 | Read or edit standalone scalar source | Use the [scalar text syntax](lang.md#scalar-text-source) and the [scalar MVP CLI](../../tools/llmlang_mvp/README.md) for Calculator and Stage 0. |
 | Inspect an existing package | Import its dependencies and the package, then use [MCP resource reads](server.md#tools-and-resources) to inspect the returned snapshot's objects and links. |
 
+## Run the Python MCP client
+
+Build the server and set up the toolchain environment first. From the repository root, use the bundled Python 3.10+ client to discover the current tool schemas and resource URI templates. Each CLI invocation starts a server process. Use one Python API session for related requests that share a workspace. [Build and connection instructions](server.md#build-and-connect) · [Client source](../server/mcp_client.py) · [CLI and API reference](../server/README.md#python-stdio-client)
+
+```sh
+state_dir=$(mktemp -d)
+server=draft/server/target/debug/llmlang-server
+
+python3 draft/server/mcp_client.py tools/list --server "$server" --state-dir "$state_dir"
+python3 draft/server/mcp_client.py resources/templates/list --server "$server" --state-dir "$state_dir"
+```
+
+In the same shell, use the Python API to create a package and read the workspace over one connection.
+
+```sh
+PYTHONPATH=draft/server python3 - "$server" "$state_dir" <<'PY'
+import json
+import sys
+
+from mcp_client import connect
+
+server, state_dir = sys.argv[1:]
+with connect([server, "--state-dir", state_dir]) as client:
+    result = client.call_tool("create_package", {
+        "name": "answer", "profile": "scalar", "language_version": "0.1.0",
+    })
+    if result.get("isError"):
+        raise SystemExit(result["content"][0]["text"])
+    workspace_id = result["structuredContent"]["workspace_id"]
+    resource = client.request("resources/read", uri=f"llmlang://workspace/{workspace_id}")
+    print(json.dumps(json.loads(resource["contents"][0]["text"]), indent=2))
+PY
+```
+
 ## Build and run native examples
 
 Use a Linux x86-64 checkout with Rust 1.85.1 or newer, the
@@ -66,7 +100,8 @@ Build Stage 0 and configure the verifier before starting the server. Set
 [server setup](server.md#build-and-connect).
 
 1. Connect to the server and use `tools/list` and `resources/templates/list`
-   to discover the interface. Call `create_package` with `profile: "scalar"`
+   to discover the interface. For a local session, use the [Python MCP client](#run-the-python-mcp-client).
+   Call `create_package` with `profile: "scalar"`
    and `language_version: "0.1.0"`. Keep the returned `workspace_id` and
    `revision`.
 2. Describe the behavior with typed signatures, contracts, and implementation
