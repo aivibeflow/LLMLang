@@ -35,6 +35,14 @@ flowchart LR
 - **Git and semantic merge.** Git versions and distributes the authoritative program inputs. The content-addressed semantic store is reconstructible from the checkout and declared dependencies. Git IDs describe physical history, semantic hashes describe logical content, and action keys describe computations and their inputs. Merge compares base, ours, and theirs as semantic states. A Git driver can invoke the merge, and repository-wide validation gates acceptance. Ambiguous or invalid merges produce diagnostics.
 - **Toolchain and agent access.** The transport-neutral Toolchain API owns semantic operations, errors and policy. Workspaces isolate changes against a base Snapshot. Change Sets carry typed operations, expected hashes, provenance and validation evidence. Optimistic concurrency rejects stale writes. The Toolchain enforces authorization and acceptance and starts as a modular monolith. MCP exposes operations and read-only views. Agent-facing SPG objects use JSON by default and refer to other graph objects by ID.
 
+### MVP package authoring through MCP
+
+`llmlang-server` supports creating and editing a scalar package through its Toolchain API. The MCP adapter exposes structured JSON tools and read-only Resources for scoped graph objects, dependencies, and reports. `create_package` opens a workspace on an empty snapshot. `import_package` reconstructs a snapshot from its manifest and verified table files, and `open_workspace` opens an isolated view of that snapshot for editing. `inspect_workspace` returns the revision and current package selection. Workspace state and accepted snapshots persist across restart.
+
+`apply_change_set` applies typed operations for versions, dependencies, contracts, implementations, interfaces, bindings, calls, and entry points. A batch can refer to objects created in the same request. The server checks the expected revision and object or binding preconditions, resolves references, and validates the complete candidate before advancing the revision. A failed batch leaves the workspace untouched. A retry with the same request and idempotency key returns the stored result.
+
+`verify_workspace` provides a preview report. `commit_workspace` invokes verification on the exact requested revision and checks authorization, applicable review policy, and revision freshness before publication. Verification covers body conformance, public contract refinement, and exact call compatibility. Every successful commit publishes an immutable snapshot and writes its package directory to the configured destination. It returns the snapshot ID and package location. A failed commit preserves the previous package and accepted catalog. An interrupted commit must recover to a consistent package and catalog before either is served as committed. The MVP server enables per-table ProtoJSON by default on commit for debugging. `build_package` builds a selected committed snapshot for a supported target. The package directory can be imported in a fresh server process and tracked in Git.
+
 ### Repository package format
 
 A program package is a Git-tracked directory with a separate package manifest and declared dependencies. The manifest carries the required `language_version`. The loader reads it before table records and rejects missing, invalid, or unsupported versions. The repository profile defines the physical encodings, file names, and deterministic record order.
@@ -199,3 +207,4 @@ JSON through MCP, indexed Protobuf in Git packages, and `llmlang_contract` in na
 - [ADR-028 — Relational projection for structures](adr/028-structure-relational-projection.md)
 - [ADR-029 — Caller-scoped verification obligations](adr/029-caller-scoped-verification-obligations.md)
 - [ADR-030 — Per-table package dumps and optional JSON text dumps](adr/030-per-table-package-dumps.md)
+- [ADR-031 — LLMLang Server and MCP package authoring for the MVP](adr/031-llmlang-server-mcp-package-authoring.md)

@@ -16,3 +16,4 @@
 - [ADR-028 — Relational projection for structures](adr/028-structure-relational-projection.md) — Accepted on 2026-11-26.
 - [ADR-029 — Caller-scoped verification obligations](adr/029-caller-scoped-verification-obligations.md) — Accepted on 2026-11-26.
 - [ADR-030 — Per-table package dumps and optional JSON text dumps](adr/030-per-table-package-dumps.md) — Accepted on 2026-11-26.
+- [ADR-031 — LLMLang Server and MCP package authoring for the MVP](adr/031-llmlang-server-mcp-package-authoring.md) — Accepted on 2026-11-26.
