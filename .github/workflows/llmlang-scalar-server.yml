@@ -1,0 +1,42 @@
+name: LLMLang scalar server
+
+on:
+  pull_request:
+    paths:
+      - "draft/library/**"
+      - "draft/server/**"
+      - "draft/src/library/**"
+      - "draft/src/server/**"
+      - ".github/workflows/llmlang-scalar-server.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - name: Install Boogie and Z3
+        run: |
+          dotnet tool install Boogie --version 3.5.5 --tool-path "$RUNNER_TEMP/boogie"
+          python -m pip install z3-solver==4.13.3.0
+          command -v z3
+          echo "$RUNNER_TEMP/boogie" >> "$GITHUB_PATH"
+      - name: Test the scalar verifier
+        run: python -B -m unittest -v draft.server.scalar_verification.test_counterexamples
+      - name: Exercise scalar package authoring through MCP
+        run: |
+          rustup toolchain install 1.85.1 --profile minimal
+          cargo +1.85.1 build --locked --manifest-path draft/server/Cargo.toml
+          python -B draft/server/tests/mcp_e2e.py draft/server/target/debug/llmlang-server

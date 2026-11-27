@@ -5,16 +5,12 @@ import json
 import keyword
 import os
 from pathlib import Path
-import subprocess
-import shutil
 import sys
-from tempfile import TemporaryDirectory
 
 if not __package__:
     sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from draft.llmlang_mvp import contract, frontend, verify
-from draft.llmlang_mvp.__main__ import TARGET, canonical_json, stage0_compiler
+from draft.server.scalar_verification import contract, frontend, verify
 
 TYPES = {"i64": "int", "bool": "bool"}
 CONTRACT_TYPES = {"i64": "I64", "bool": "Bool"}
@@ -178,25 +174,11 @@ def block(nodes, aliases, depth=1):
     return lines
 
 
-def view_package(package, version_hash, entry_identity=None, *, build=False):
+def view_package(package, version_hash):
     tables = package["tables"]
     functions = by_hash(tables, "functions", "impl_hash")
     interfaces = by_hash(tables, "interfaces", "interface_hash")
     contracts = read_contracts(tables)
-    if build:
-        roots = [row["impl_hash"] for row in tables["bindings"].values()
-                 if row["version_hash"] == version_hash]
-        if entry_identity is not None:
-            roots.append(entry_identity)
-        reachable = {}
-        while roots:
-            identity = roots.pop()
-            if identity in reachable:
-                continue
-            row = functions[identity]
-            reachable[identity] = row
-            roots.extend(callee for callee, _ in call_pins(row["canonical_body"]))
-        functions = reachable
     pairs = {
         (identity, row["provided_contract_hash"]) for identity, row in functions.items()
     }
@@ -206,18 +188,16 @@ def view_package(package, version_hash, entry_identity=None, *, build=False):
             pairs.add((callee, required))
             calls.add((caller, callee, required))
 
-    exports = {}
+    export_names = set()
     for row in tables["bindings"].values():
-        if build and row["version_hash"] != version_hash:
-            continue
         interface = interfaces[row["interface_hash"]]
         pair = (row["impl_hash"], interface["public_contract_hash"])
         pairs.add(pair)
         if version_hash == row["version_hash"]:
             name = interface["name"]
-            if name in exports:
+            if name in export_names:
                 raise ValueError(f"duplicate export name {name!r} in selected version")
-            exports[name] = pair
+            export_names.add(name)
 
     aliases = {pair: f"function_{index}" for index, pair in enumerate(sorted(pairs))}
     definitions = {}
@@ -249,57 +229,25 @@ def view_package(package, version_hash, entry_identity=None, *, build=False):
         )
     else:
         program = {"schema": frontend.SCHEMA, "functions": {}}
-    return program, definitions, aliases, functions, exports, calls
-
-
-def build(program, exports, entry, request):
-    if request.get("target") not in {"linux-x86_64", TARGET}:
-        return {"ok": False, "code": "UnsupportedProfile", "message": "unsupported build target"}
-    output = Path(request["output"])
-    stage0 = stage0_compiler(os.environ.get("LLMLANG_STAGE0"))
-    payload = {"graph": program, "exports": exports, "entry": entry}
-    source = subprocess.run(
-        [stage0, "emit-rust", "package"], input=canonical_json(payload),
-        check=True, capture_output=True, text=True, timeout=60,
-    ).stdout
-    with TemporaryDirectory(prefix="llmlang-build-") as directory:
-        source_file = Path(directory, "package.rs")
-        artifact = Path(directory, "artifact")
-        source_file.write_text(source, encoding="utf-8")
-        command = [
-            os.environ.get("RUSTC", "rustc"), "--edition=2021", "--target", TARGET,
-            "--crate-name", "llmlang_package", "--crate-type", "bin" if entry else "rlib",
-            "-O", source_file, "-o", artifact,
-        ]
-        subprocess.run(command, check=True, capture_output=True, text=True, timeout=60)
-        shutil.move(artifact, output)
-    return {
-        "ok": True, "artifact": str(output), "target": TARGET,
-        "exports": {name: "export_" + name.encode("utf-8").hex() for name in exports},
-    }
+    return program, definitions, aliases, functions, calls
 
 
 def handle(request):
     action = request["action"]
-    if action not in {"validate", "verify", "build"}:
+    if action not in {"validate", "verify"}:
         return {"ok": False, "code": "InvalidArguments", "message": "unknown scalar action"}
-    program, definitions, aliases, functions, exports, calls = view_package(
-        request["package"], request.get("version_hash"), request.get("entry_impl_hash"),
-        build=action == "build",
+    program, definitions, aliases, functions, calls = view_package(
+        request["package"], request.get("version_hash"),
     )
     entry_identity = request.get("entry_impl_hash")
-    entry = None
     if entry_identity is not None:
         target = functions.get(entry_identity)
         if target is None or signature(target["typed_signature"])[0]:
             raise ValueError("an executable entry point must be a parameterless scalar implementation")
-        entry = aliases[entry_identity, target["provided_contract_hash"]]
     if action == "validate":
         return {"ok": True}
     if not functions:
         return {"ok": False, "code": "ValidationFailed", "message": "package contains no functions"}
-    if action == "build":
-        return build(program, {name: aliases[pair] for name, pair in exports.items()}, entry, request)
 
     report = verify.verify(
         program, definitions, boogie=os.environ.get("BOOGIE", "boogie"),
@@ -333,9 +281,6 @@ def main():
         result = handle(json.load(sys.stdin))
     except (TypeError, ValueError, KeyError, RecursionError) as error:
         result = {"ok": False, "code": "ValidationFailed", "message": str(error)}
-    except (OSError, subprocess.SubprocessError) as error:
-        diagnostic = getattr(error, "stderr", None) or str(error)
-        result = {"ok": False, "code": "BuildFailed", "message": diagnostic[-5000:]}
     print(json.dumps(result, allow_nan=False, separators=(",", ":")))
 
 

@@ -1,9 +1,0 @@
-{
-  "schema": "llmlang-observation-trace/v1",
-  "subject": "sha256:3427fd1c912271b3e727118f60eb24b6692788a3a28cfca5854022d44ab028ca",
-  "pre": {"amount": 101, "balance": 100},
-  "post": {"amount": 101, "balance": 100},
-  "complete": true,
-  "outcome": "error",
-  "events": []
-}

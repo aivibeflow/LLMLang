@@ -8,7 +8,7 @@
 
 ## Context
 
-The scalar compiler and verifier exercise typed functions and exact call bindings. The SPG persistence library can save and restore graph tables. The MCP prototype opens a workspace on a seeded snapshot and accepts changes to it. The authoring MVP needs to connect these capabilities so an agent can start from an empty package and produce a portable artifact that it can reopen in another process. [Scalar MVP](../llmlang_mvp/README.md) · [MCP prototype](../../research/toolchain-and-collaboration/RT-19/MCP-STDIO-01/server.py)
+The standalone scalar compiler and verifier exercised typed functions and exact call bindings. The SPG persistence library can save and restore graph tables. The MCP prototype opens a workspace on a seeded snapshot and accepts changes to it. The authoring MVP needs to connect these capabilities so an agent can start from an empty package and produce a portable artifact that it can reopen in another process. [Standalone scalar MVP release](https://github.com/aivibeflow/LLMLang/blob/138ba12f754967c9fbc6c0adbf29fc8d591836a3/draft/llmlang_mvp/RELEASE.md) · [MCP prototype](../../research/toolchain-and-collaboration/RT-19/MCP-STDIO-01/server.py)
 
 ## Decision
 
