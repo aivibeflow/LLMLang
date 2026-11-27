@@ -4,6 +4,12 @@
 
 Write project files in English, including documentation, plans, ADRs, RFCs, code comments, and user-facing strings.
 
+## Package source storage
+
+Store package function bodies in SPG records. Do not generate or commit
+standalone `.llmlang` files. For a readable view, inspect `canonicalBody`
+in the package's `functions.json` debug dump.
+
 ## Keep the RFC in sync with ADRs
 
 When adding or changing an architecture decision record under `draft/adr/`, update the [LLMLang architecture RFC](draft/RFC.md) in the same change. Synthesize the current accepted decisions by topic into self-contained architecture text. Merge overlapping decisions into one description of the resulting design and resolve amendments and supersessions before writing. Keep proposed decisions out of the accepted architecture. Where relevant, describe unresolved questions under open work. Keep ADR links exclusively in the RFC's Sources section. Read each affected section as a whole and check that its text, diagrams, and source list agree.

@@ -1,3 +1,0 @@
-pub fn write(fd: I32, utf8: Utf8) -> IoResult {
-    builtin__write_utf8(fd, utf8)
-}

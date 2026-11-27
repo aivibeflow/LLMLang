@@ -1,3 +1,0 @@
-pub fn trap() -> Never {
-    builtin__trap()
-}

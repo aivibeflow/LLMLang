@@ -1,3 +1,0 @@
-pub fn sockaddr_in_size() -> Usize {
-    builtin::sockaddr_in_size()
-}
