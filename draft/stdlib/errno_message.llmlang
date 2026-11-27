@@ -1,3 +1,0 @@
-pub fn errno_message(errno: AbiResult) -> ByteVec {
-    builtin::errno_message(errno)
-}

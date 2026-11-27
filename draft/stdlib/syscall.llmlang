@@ -1,3 +1,0 @@
-pub unsafe fn syscall(number: Usize, arg0: Usize, arg1: Usize, arg2: Usize, arg3: Usize, arg4: Usize, arg5: Usize) -> AbiResult {
-    builtin::syscall(number, arg0, arg1, arg2, arg3, arg4, arg5)
-}

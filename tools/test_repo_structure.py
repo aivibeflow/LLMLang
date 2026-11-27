@@ -29,6 +29,14 @@ class RepositoryStructureTests(unittest.TestCase):
         errors = validate_paths(self.valid_layout() | {"PROTOTYPES/example/main.py"})
         self.assertTrue(any("PROTOTYPES/example/main.py" in e for e in errors))
 
+    def test_rejects_standalone_llmlang_source_files(self):
+        forbidden = {"main.llmlang", "draft/stdlib/write.llmlang", "research/sample.LLMLANG"}
+        errors = validate_paths(self.valid_layout() | forbidden)
+        self.assertEqual(errors, [
+            f"standalone .llmlang source files are prohibited: {path}"
+            for path in sorted(forbidden)
+        ])
+
     def test_rejects_missing_research_documents(self):
         paths = {p for p in self.valid_layout() if not (p.startswith("research/") and p.endswith(".md"))}
         errors = validate_paths(paths)

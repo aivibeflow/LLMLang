@@ -1,3 +1,0 @@
-pub fn sockaddr_in_loopback(port: U16) -> sockaddr_in {
-    builtin::sockaddr_in_loopback(port)
-}

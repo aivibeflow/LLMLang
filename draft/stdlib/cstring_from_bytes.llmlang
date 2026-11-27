@@ -1,3 +1,0 @@
-pub fn cstring_from_bytes(bytes: ByteSlice) -> CStringResult {
-    builtin::cstring_from_bytes(bytes)
-}

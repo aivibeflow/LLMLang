@@ -52,6 +52,8 @@ def validate_paths(paths: Iterable[str]) -> list[str]:
         errors.extend(f"misplaced path at repository root: {path}" for path in misplaced)
 
     for path in sorted(tracked):
+        if path.lower().endswith(".llmlang"):
+            errors.append(f"standalone .llmlang source files are prohibited: {path}")
         if "/" not in path and path.startswith(FORBIDDEN_ROOT_FILE_PREFIXES):
             errors.append(f"research document must be under research/: {path}")
 
