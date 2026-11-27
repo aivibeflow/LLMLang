@@ -4,12 +4,11 @@ The Linux MVP edits and verifies LLMLang `0.1.0` scalar workspaces in memory and
 
 ## Build and connect
 
-Use Linux x86-64, Rust 1.85.1 or newer with Cargo and a native linker, Python 3.10 or newer, Boogie with its .NET runtime, and Z3. The scalar CI setup uses Python 3.12, Boogie 3.5.5 on .NET 8, and Z3 4.13.3. The Boogie and Z3 executables are required for scalar verification. The native package backend compiles with `rustc`. [Scalar CI setup](../../.github/workflows/llmlang-mvp.yml)
+Use Linux x86-64, Rust 1.85.1 or newer with Cargo and a native linker, Python 3.10 or newer, Boogie with its .NET runtime, and Z3. The scalar CI setup uses Python 3.12, Boogie 3.5.5 on .NET 8, and Z3 4.13.3. The Boogie and Z3 executables are required for scalar verification. The native package backend compiles with `rustc`. [Scalar CI setup](../../.github/workflows/llmlang-scalar-server.yml)
 
-From the repository root, build both executables.
+Build the server from the repository root.
 
 ```sh
-cargo build --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
 cargo build --locked --manifest-path draft/server/Cargo.toml
 ```
 
@@ -22,7 +21,6 @@ Add a local stdio server in your MCP client. The example uses the common `mcpSer
       "command": "/path/to/LLMLang/draft/server/target/debug/llmlang-server",
       "args": ["--state-dir", "/path/to/private/llmlang-state"],
       "env": {
-        "LLMLANG_STAGE0": "/path/to/LLMLang/draft/llmlang_mvp/stage0/target/debug/llmlang-stage0",
         "BOOGIE": "/path/to/boogie",
         "Z3": "/path/to/z3"
       }
@@ -162,7 +160,7 @@ The native build resolves `<package>.main` through the selected version's bindin
 - On `MissingDependency`, import the required snapshot or named version and its transitive dependencies. On a verification failure, inspect the preview report and revise the contract or implementation according to the intended behavior. Check the Boogie and Z3 paths if the report indicates a tool error.
 - After an interrupted commit, reconnect to the same state directory and inspect the workspace for `state: "committed"` and its `snapshot_id`. The server recovers pending publication on startup. For further edits, open a workspace from the committed snapshot.
 
-Run the repository's end-to-end check from the root with `LLMLANG_STAGE0`, `BOOGIE`, and `Z3` set for the test process. The tests cover scalar editing, verification, and in-memory lifetime, as well as import, build, and execution of native package examples.
+Run the repository's end-to-end check from the root with `BOOGIE` and `Z3` available to the test process. The tests cover scalar editing, verification, and in-memory lifetime, as well as import, build, and execution of native package examples.
 
 ```sh
 python3 -B draft/server/tests/mcp_e2e.py draft/server/target/debug/llmlang-server

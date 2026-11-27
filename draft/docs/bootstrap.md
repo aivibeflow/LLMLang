@@ -11,7 +11,6 @@ requests, tool arguments, and resource reads. Use the
 | --- | --- |
 | Build and run a checked-in native example | Follow [Build and run native examples](#build-and-run-native-examples). |
 | Edit and verify a scalar workspace over MCP | Follow [Edit and verify a scalar workspace](#edit-and-verify-a-scalar-workspace). |
-| Read or edit standalone scalar source | Use the [scalar text syntax](lang.md#scalar-text-source) and the [scalar MVP CLI](../llmlang_mvp/README.md) for Calculator and Stage 0. |
 | Inspect an existing package | Import its dependencies and the package, then use [MCP resource reads](server.md#tools-and-resources) to inspect the returned snapshot's objects and links. |
 
 ## Run the Python MCP client
@@ -63,7 +62,7 @@ python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llml
 
 The test client starts its own MCP server and builds and runs both Hello World
 examples, the calculator, and all five other syscall programs. This workflow uses `rustc` on `PATH`
-or from `RUSTC`. Stage 0, Boogie, and Z3 are needed for the scalar workflow
+or from `RUSTC`. Boogie and Z3 are needed for the scalar workflow
 below.
 
 To build one package with your MCP client, configure it to launch
@@ -96,8 +95,8 @@ observed execution results. [Example catalog](../examples/README.md) · [Native 
 
 ## Edit and verify a scalar workspace
 
-Build Stage 0 and configure the verifier before starting the server. Set
-`LLMLANG_STAGE0`, `BOOGIE`, and `Z3` as described in the
+Configure the verifier before starting the server. Set
+`BOOGIE` and `Z3` as described in the
 [server setup](server.md#build-and-connect).
 
 1. Connect to the server and use `tools/list` and `resources/templates/list`

@@ -1,3 +1,0 @@
-fn main() {
-    std::process::exit(write_output(b"Hello, world!\n"));
-}

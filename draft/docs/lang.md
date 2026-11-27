@@ -1,48 +1,10 @@
 # LLMLang syntax
 
-This reference covers the syntax implemented in the current checkout. The scalar MVP has a Python-shaped text frontend and a structured MCP authoring interface. The native profile uses Rust-shaped syntax with braced function bodies. A semantic profile defines the available constructs and their meaning. A dialect defines their source spelling. LLMLang supports versioned dialects that lower to a shared typed Semantic Program Graph (SPG), and the architecture leaves a default dialect open. [Architecture RFC](../RFC.md) · [Syntax dialects](../adr/022-syntax-dialects-and-shared-semantics.md)
-
-## Scalar text source
-
-A module contains one or more plain `def` declarations with a type annotation on every parameter and on the return value. Write `int` for signed 64-bit integers and `bool` for Booleans. Use indentation for blocks, `#` for comments, and ASCII identifiers such as `safe_divide` for portable source. Each function name must be unique within the module. [Stage 0 frontend](../llmlang_mvp/stage0/src/frontend.rs) · [Python frontend](../llmlang_mvp/frontend.py)
-
-```python
-def divide(left: int, right: int) -> int:
-    if right == 0:
-        builtin__fail("DivisionByZero")
-    return left / right
-
-def is_negative_half(value: int) -> bool:
-    half = divide(value, 2)
-    return half < 0
-```
-
-| Construct | Supported form |
-| --- | --- |
-| Literals | Integer literals in the signed 64-bit range, including negative literals, and `True` or `False` |
-| Local binding | `name = expression` introduces a fresh name. Branches inherit the enclosing names, and their new bindings stay local to the branch. |
-| Branch | `if condition:` with an optional `else:`. The condition has type `bool`. |
-| Return | `return expression`. The expression must have the declared result type. |
-| Explicit error | `builtin__fail("ErrorName")` or `return builtin__fail("ErrorName")`. Allowed names are `ArithmeticOverflow`, `DivisionByZero`, and `InvalidInput`. |
-| Arithmetic | `+`, `-`, `*`, `/` on integers. Unary minus applies to integer literals. |
-| Comparison | `==` and `!=` compare values of the same type. `<`, `<=`, `>`, and `>=` take integers. Write one comparison per comparison expression. |
-| Call | `callee(arg1, arg2)` calls a declared function with typed positional arguments. The call graph must be acyclic. |
-
-Grouping and precedence follow the Python parser. Expressions and call arguments evaluate left to right. Integer arithmetic is checked. Division truncates toward zero, division by zero produces `DivisionByZero`, and an unrepresentable result such as the minimum signed integer divided by `-1` produces `ArithmeticOverflow`. Every path must return or fail, and unreachable statements are rejected. Loops, mutation, general strings, imports, collections, and Boolean connectives in implementation bodies are outside this scalar frontend.
-
-Lower a source file from the repository root after building Stage 0. This checks source syntax and types and prints the graph with exact implementation pins.
-
-```sh
-cargo build --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
-draft/llmlang_mvp/stage0/target/debug/llmlang-stage0 lower \
-  draft/llmlang_mvp/calculator.llmlang
-```
-
-An optional second argument supplies a JSON object mapping every declared function name to its provided contract hash, in `sha256:<64 lowercase hex digits>` form for this frontend. Use the scalar MVP CLI for contract checking and the Calculator build workflow. [Calculator source](../llmlang_mvp/calculator.llmlang) · [Scalar MVP commands](../llmlang_mvp/README.md)
+This reference covers the syntax implemented in the current checkout. The scalar verifier accepts structured MCP Change Sets. The native profile uses Rust-shaped syntax with braced function bodies. A semantic profile defines the available constructs and their meaning. A dialect defines their source spelling. LLMLang supports versioned dialects that lower to a shared typed Semantic Program Graph (SPG), and the architecture leaves a default dialect open. [Architecture RFC](../RFC.md) · [Syntax dialects](../adr/022-syntax-dialects-and-shared-semantics.md)
 
 ## Scalar MCP authoring
 
-The server accepts typed Change Set objects. Signatures use `i64` and `bool`. For example, a function taking `value: int` and returning `bool` has this signature.
+The server accepts typed Change Set objects. Signatures use `i64` and `bool`. For example, a function taking a signed 64-bit integer and returning a Boolean has this signature.
 
 ```json
 {"params":[["value","i64"]],"result":"bool"}
@@ -54,14 +16,21 @@ A `canonical_body` is a nonempty array of statements. The notation below uses `E
 | --- | --- |
 | Integer or Boolean | `["i64", -7]` or `["bool", true]` |
 | Variable | `["var", "value"]` |
-| Binary expression | `["bin", "<", EXPR, EXPR]`. Uses the scalar arithmetic and comparison operators above. |
+| Binary expression | `["bin", "<", EXPR, EXPR]`. Uses the operators described below. |
 | Call | `{"callee_impl_hash": REF, "required_contract_hash": REF, "arguments": [EXPR]}`. Use an empty array for zero arguments. |
 | Local binding | `["let", "name", EXPR]` |
 | Return | `["return", EXPR]` |
-| Explicit error | `["fail", "DivisionByZero"]`. Represents `builtin__fail` and is allowed by the server only in `stdlib`. Uses the same set of labels as the text frontend. |
+| Explicit error | `["fail", "DivisionByZero"]`. Represents `builtin__fail` and is allowed by the server only in `stdlib`. Supported labels are `ArithmeticOverflow`, `DivisionByZero`, and `InvalidInput`. |
 | Branch | `["if", EXPR, THEN, ELSE]`. Each branch is an array of statements. `THEN` is nonempty and `ELSE` may be empty. |
 
-Use an existing server identity (64 lowercase hex digits) or `{"local":"request-id"}` for an object created in the same Change Set. A call pins both the callee implementation and the contract the caller relies on. A function separately pins its provided contract. An exported interface names its public contract, and a version binding selects the implementation. Use the identities returned by the server for MCP calls and resource reads. The scalar text frontend's graph JSON uses its own encoding, including a positional call tuple. [Server schemas](../src/server/main.rs) · [Runnable MCP examples](server.md)
+Use an existing server identity (64 lowercase hex digits) or `{"local":"request-id"}` for an object created in the same Change Set. A call pins both the callee implementation and the contract the caller relies on. A function separately pins its provided contract. An exported interface names its public contract, and a version binding selects the implementation. Use the identities returned by the server for MCP calls and resource reads. Direct calls must form an acyclic graph. [Server schemas](../src/server/main.rs) · [Runnable MCP examples](server.md)
+
+Scalar arithmetic supports checked `+`, `-`, `*`, and `/` on signed
+64-bit integers. Division truncates toward zero. A zero divisor produces
+`DivisionByZero`. An unrepresentable result produces `ArithmeticOverflow`.
+Equality operators `==` and `!=` require operands of the same type.
+Ordering operators `<`, `<=`, `>`, and `>=` require integers.
+Branch conditions have type `bool`, and every path must return or fail.
 
 ### Contract rules
 
@@ -76,7 +45,7 @@ A `put_contract` operation takes a typed signature and an array of rules. `requi
 ]
 ```
 
-Predicate values can be JSON Booleans or Boolean expression strings. The predicate language supports comparisons, including chains, `and`, `or`, `not`, and mathematical integer `+`, `-`, `*`, and unary minus. Use `quotient(a, b)` for the totalized quotient, which truncates toward zero and returns zero when `b` is zero. Program arithmetic can fail. The example rules apply to the `divide` signature with `left` and `right` as `i64`. The precondition excludes the signed division overflow case. [Scalar Contract IR](../llmlang_mvp/CONTRACT-IR.md) · [Server rule adapter](../server/scalar.py)
+Predicate values can be JSON Booleans or Boolean expression strings. The predicate language supports comparisons, including chains, `and`, `or`, `not`, and mathematical integer `+`, `-`, `*`, and unary minus. Use `quotient(a, b)` for the totalized quotient, which truncates toward zero and returns zero when `b` is zero. Program arithmetic can fail. The example rules apply to the `divide` signature with `left` and `right` as `i64`. The precondition excludes the signed division overflow case. [Historical Scalar Contract IR](https://github.com/aivibeflow/LLMLang/blob/138ba12f754967c9fbc6c0adbf29fc8d591836a3/draft/llmlang_mvp/CONTRACT-IR.md) · [Server rule adapter](../server/scalar.py)
 
 ## Native source syntax
 

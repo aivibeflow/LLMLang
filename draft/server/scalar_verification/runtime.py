@@ -1,7 +1,6 @@
-"""Reference execution for validated MVP semantic graphs and RT-01 CLI input."""
+"""Reference execution of scalar semantic graphs for counterexample replay."""
 
 import operator
-import re
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 
@@ -16,12 +15,6 @@ _COMPARISONS = {
     "<=": operator.le,
     ">": operator.gt,
     ">=": operator.ge,
-}
-_OPERATIONS = {b"+": "add", b"-": "sub", b"*": "mul", b"/": "div"}
-_DIAGNOSTICS = {
-    "DivisionByZero": b"division by zero\n",
-    "ArithmeticOverflow": b"arithmetic overflow\n",
-    "InvalidInput": b"invalid input\n",
 }
 
 
@@ -154,38 +147,3 @@ def evaluate(
         return Outcome(value=_invoke(name, args, functions, observe_call))
     except _ExecutionError as error:
         return Outcome(error=str(error))
-
-
-def _parse_i64(token):
-    if not re.fullmatch(rb"[+-]?[0-9]+", token):
-        raise ValueError("invalid integer")
-    magnitude = token.lstrip(b"+-").lstrip(b"0") or b"0"
-    if len(magnitude) > 19:
-        raise ValueError("integer out of range")
-    value = int(magnitude)
-    if token.startswith(b"-"):
-        value = -value
-    if not MIN_I64 <= value <= MAX_I64:
-        raise ValueError("integer out of range")
-    return value
-
-
-def run_calculator(spg: dict, stdin: bytes) -> tuple[int, bytes, bytes]:
-    """Observe one RT-01 calculator record as (exit status, stdout, stderr)."""
-    record = stdin.split(b"\n", 1)[0].strip(b" \t\r")
-    parts = re.split(rb"[ \t\r]+", record)
-    if len(parts) != 3 or parts[1] not in _OPERATIONS:
-        return 1, b"", _DIAGNOSTICS["InvalidInput"]
-    left, operation, right = parts
-    try:
-        args = [_parse_i64(left), _parse_i64(right)]
-    except ValueError:
-        return 1, b"", _DIAGNOSTICS["InvalidInput"]
-    result = evaluate(spg, _OPERATIONS[operation], args)
-    if result.error is not None:
-        if result.error not in _DIAGNOSTICS:
-            raise ValueError(f"unrecognized calculator error {result.error!r}")
-        return 1, b"", _DIAGNOSTICS[result.error]
-    if type(result.value) is not int:
-        raise ValueError("calculator operation must return i64")
-    return 0, f"{result.value}\n".encode("ascii"), b""

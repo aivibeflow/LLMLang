@@ -17,10 +17,8 @@ and Z3. Native Linux x86-64 executable builds also use GNU `objcopy`. Run the fo
 repository root.
 
 ```sh
-cargo build --locked --manifest-path draft/llmlang_mvp/stage0/Cargo.toml
 cargo build --locked --manifest-path draft/server/Cargo.toml
 
-export LLMLANG_STAGE0="$PWD/draft/llmlang_mvp/stage0/target/debug/llmlang-stage0"
 export BOOGIE=/path/to/boogie
 export Z3=/path/to/z3
 
@@ -30,7 +28,7 @@ draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
 Configure the MCP client to launch that last command. The server creates its
 state directory if it is missing. It accepts `--python` and `--backend`
 overrides for the trusted scalar toolchain. Its default backend is
-[scalar.py](scalar.py). The MCP stream uses one JSON-RPC message per line.
+[scalar.py](scalar.py), which uses the [scalar verifier](scalar_verification/verify.py). The MCP stream uses one JSON-RPC message per line.
 
 ## Python stdio client
 
@@ -149,6 +147,7 @@ debug file. Set `OBJCOPY` to select another executable providing GNU
 
 ```sh
 cargo test --locked --manifest-path draft/server/Cargo.toml
+python3 -B -m unittest draft.server.scalar_verification.test_counterexamples
 python3 -B draft/server/tests/mcp_e2e.py draft/server/target/debug/llmlang-server
 python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llmlang-server
 ```
