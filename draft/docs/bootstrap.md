@@ -72,7 +72,7 @@ To build one package with your MCP client, configure it to launch
 before calling tools. [Client configuration and handshake](server.md#build-and-connect)
 
 1. Call `import_package` with a `path` containing the absolute path to
-   `draft/builtin`, then import `draft/stdlib` (both version `0.1.0`).
+   `draft/builtin` (version `0.1.0`).
 2. For a syscall example, import `draft/examples/linux.syscalls` (version
    `v6.12`) in the same session.
 3. Import the example directory and use its returned `snapshot_id` as the
@@ -84,7 +84,7 @@ before calling tools. [Client configuration and handshake](server.md#build-and-c
 
 | Examples | Package path |
 | --- | --- |
-| Hello World through the standard library | `draft/examples/0001-hello-world` |
+| Hello World through the built-in write interface | `draft/examples/0001-hello-world` |
 | Hello World through the Linux write interface | `draft/examples/0009-syscall-hello-world` |
 | [Integer Calculator](../examples/0003-calculator/README.md) | `draft/examples/0003-calculator` |
 | Syscall programs for echo, copy, pipe readiness, child exit, and TCP echo | `draft/examples/0004-syscall-echo` through `draft/examples/0008-syscall-tcp-echo` |

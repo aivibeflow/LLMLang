@@ -87,19 +87,19 @@ def check_executable(artifact, debug, freestanding):
         assert re.search(r"\b_start$", symbols, re.M) and "lang_start_internal" not in symbols
 
 
-def check_stdlib(artifact, exports, directory):
+def check_builtin(artifact, exports, directory):
     assert set(exports) == {
-        "stdlib.write", "stdlib.syscall", "stdlib.errno_message", "stdlib.cstring_from_bytes",
-        "stdlib.trap", "stdlib.sockaddr_in_loopback", "stdlib.sockaddr_in_size",
+        "builtin.write", "builtin.syscall", "builtin.errno_message", "builtin.cstring_from_bytes",
+        "builtin.trap", "builtin.sockaddr_in_loopback", "builtin.sockaddr_in_size",
     }, exports
     output = Path(directory, "utf8-output")
-    harness = Path(directory, "stdlib-test.rs")
+    harness = Path(directory, "builtin-test.rs")
     harness.write_text(
         "use std::{fs::File, os::fd::AsRawFd};\n"
         "fn main() {\n"
         "    let output = File::create(std::env::args_os().nth(1).unwrap()).unwrap();\n"
-        f"    use llmlang_native::{exports['stdlib.write']} as write;\n"
-        f"    use llmlang_native::{exports['stdlib.syscall']} as syscall;\n"
+        f"    use llmlang_native::{exports['builtin.write']} as write;\n"
+        f"    use llmlang_native::{exports['builtin.syscall']} as syscall;\n"
         '    assert_eq!(write(output.as_raw_fd(), "Привет!\\n"), Ok(()));\n'
         '    assert_eq!(write(-1, "error"), Err(9));\n'
         "    assert_eq!(unsafe { syscall(39, 0, 0, 0, 0, 0, 0) }, std::process::id() as isize);\n"
@@ -107,9 +107,9 @@ def check_stdlib(artifact, exports, directory):
         "}\n",
         encoding="utf-8",
     )
-    program = Path(directory, "stdlib-test")
+    program = Path(directory, "builtin-test")
     subprocess.run(
-        [os.environ["LLMLANG_REAL_RUSTC"], "--edition=2021", "--crate-name", "stdlib_test",
+        [os.environ["LLMLANG_REAL_RUSTC"], "--edition=2021", "--crate-name", "builtin_test",
          "--extern", f"llmlang_native={artifact}", "-o", program, harness],
         check=True, timeout=30,
     )
@@ -141,17 +141,16 @@ def exercise(executable, directory):
 
     with server(executable, Path(directory, "state"), "python3") as client:
         builtin = DRAFT / "builtin"
-        stdlib = DRAFT / "stdlib"
         dependency = EXAMPLES / "linux.syscalls"
         hello = EXAMPLES / "0001-hello-world"
         calculator = EXAMPLES / "0003-calculator"
         syscall_hello = EXAMPLES / "0009-syscall-hello-world"
-        original_dependencies = {path: read_package(path) for path in (builtin, stdlib, dependency)}
+        original_dependencies = {path: read_package(path) for path in (builtin, dependency)}
         programs = sorted(EXAMPLES.glob("000[4-8]-syscall-*"))
         assert len(programs) == 5
-        missing = client.call("import_package", {"path": str(stdlib)}, succeeds=False)
+        missing = client.call("import_package", {"path": str(dependency)}, succeeds=False)
         assert missing["code"] == "MissingDependency", missing
-        for package in [builtin, stdlib, dependency, hello, calculator, syscall_hello, *programs]:
+        for package in [builtin, dependency, hello, calculator, syscall_hello, *programs]:
             before = read_package(package)
             assert json.loads(before["manifest.json"])["profile"] == "llmlang.spg.tables.v5"
             assert before["functions.dump"].startswith(b"LLSPG\x05\r\n")
@@ -167,7 +166,7 @@ def exercise(executable, directory):
             generated = set(NATIVE_EXPORT.findall(generated_source))
             assert not list(compile_tmp.iterdir()), "temporary source directory survived the build"
             assert read_package(package) == before, package
-            if package in (builtin, stdlib, dependency):
+            if package in (builtin, dependency):
                 assert "debug_artifact" not in build, build
             else:
                 freestanding = package.name in {
@@ -177,55 +176,35 @@ def exercise(executable, directory):
                 check_executable(artifact, Path(build["debug_artifact"]), freestanding)
             if package == builtin:
                 assert artifact.suffix == ".rlib" and not generated
+                check_builtin(artifact, build["exports"], directory)
                 builtin_symbols = build["exports"]
                 builtin_exports = selected_exports(before)
                 assert set(builtin_symbols) == set(builtin_exports)
+                syscall_impl = builtin_exports["builtin.syscall"]
                 assert all("builtin__" in row["canonicalBody"]
                            for row in json.loads(before["functions.json"]))
                 continue
 
             reachable_builtin = {name for name, symbol in builtin_symbols.items()
                                  if re.search(rf"\bfn {symbol}\s*\(", generated_source)}
-            if package == stdlib:
-                assert artifact.suffix == ".rlib" and not generated
-                check_stdlib(artifact, build["exports"], directory)
-                stdlib_symbols = build["exports"]
-                stdlib_exports = selected_exports(before)
-                assert reachable_builtin == set(builtin_symbols)
-                assert set(builtin_exports) == {
-                    name.replace("stdlib.", "builtin.", 1) for name in stdlib_exports
-                }
-                assert all("builtin__" not in row["canonicalBody"] and "builtin::" in row["canonicalBody"]
-                           for row in json.loads(before["functions.json"]))
-                obligations = json.loads(before["verification_obligations.json"])
-                assert {(row["callerImplHash"], row["calleeImplHash"]) for row in obligations} == {
-                    (impl, builtin_exports[name.replace("stdlib.", "builtin.", 1)])
-                    for name, impl in stdlib_exports.items()
-                }
-                syscall_impl = stdlib_exports["stdlib.syscall"]
-                continue
-
-            reachable_stdlib = {name for name, symbol in stdlib_symbols.items()
-                                if re.search(rf"\bfn {symbol}\s*\(", generated_source)}
             if package == dependency:
-                assert reachable_stdlib == {"stdlib.syscall"}
                 assert reachable_builtin == {"builtin.syscall"}
                 raw_functions = json.loads((package / "functions.json").read_bytes())
                 assert len(raw_functions) == 358
                 assert all(row["canonicalBody"].startswith("{\n")
                            for row in raw_functions)
-                assert all("stdlib::syscall(" in row["canonicalBody"]
+                assert all("builtin::syscall(" in row["canonicalBody"]
                            for row in raw_functions)
                 assert all("builtin__" not in row["canonicalBody"] for row in raw_functions)
                 obligations = json.loads((package / "verification_obligations.json").read_bytes())
                 assert {row["callerImplHash"] for row in obligations
                         if row["calleeImplHash"] == syscall_impl} == {
                     row["implHash"] for row in raw_functions}
-                stdlib_trap = stdlib_symbols["stdlib.trap"].replace("llmlang_source_", "sha256:")
+                builtin_trap = builtin_exports["builtin.trap"]
                 restorer, = (row["implHash"] for row in raw_functions
-                             if "stdlib::trap()" in row["canonicalBody"])
+                             if "builtin::trap()" in row["canonicalBody"])
                 extra, = (row for row in obligations if row["calleeImplHash"] != syscall_impl)
-                assert (extra["callerImplHash"], extra["calleeImplHash"]) == (restorer, stdlib_trap)
+                assert (extra["callerImplHash"], extra["calleeImplHash"]) == (restorer, builtin_trap)
                 assert artifact.suffix == ".rlib"
                 assert len(generated) == 355
                 assert {"rt_sigreturn", "vfork", "uretprobe"}.isdisjoint(generated)
@@ -256,16 +235,14 @@ def exercise(executable, directory):
             callee_pins = {row["calleeImplHash"] for row in obligations}
             linux_calls = {name.rsplit(".", 1)[-1] for name, impl in linux_exports.items()
                            if impl in callee_pins}
-            stdlib_calls = {name for name, impl in stdlib_exports.items() if impl in callee_pins}
-            assert len(linux_calls) + len(stdlib_calls) == len(callee_pins), (package, obligations)
+            builtin_calls = {name for name, impl in builtin_exports.items() if impl in callee_pins}
+            assert len(linux_calls) + len(builtin_calls) == len(callee_pins), (package, obligations)
             assert generated == linux_calls, (package, generated, linux_calls)
-            expected_stdlib = stdlib_calls | ({"stdlib.syscall"} if linux_calls else set())
-            assert reachable_stdlib == expected_stdlib, (package, reachable_stdlib, expected_stdlib)
-            expected_builtin = {name.replace("stdlib.", "builtin.", 1) for name in expected_stdlib}
+            expected_builtin = builtin_calls | ({"builtin.syscall"} if linux_calls else set())
             assert reachable_builtin == expected_builtin, (package, reachable_builtin, expected_builtin)
             payload = bytes(range(256)) * 83 + b"\x00\xff"
             if package == hello:
-                assert callee_pins == {stdlib_exports["stdlib.write"]}
+                assert callee_pins == {builtin_exports["builtin.write"]}
             elif package == syscall_hello:
                 assert callee_pins == {linux_exports["linux.syscalls.write"]}
             if package in (hello, syscall_hello):
@@ -283,7 +260,7 @@ def exercise(executable, directory):
                 assert linux_calls == {"read", "write"}
                 check_calculator(artifact)
             elif package.name == "0004-syscall-echo":
-                errno_impl = stdlib_symbols["stdlib.errno_message"].replace("llmlang_source_", "sha256:")
+                errno_impl = builtin_exports["builtin.errno_message"]
                 wrapper = next(link for link in main_object["outgoing"]
                                if link["relation"] == "Callee"
                                and link["uri"].rsplit("/", 1)[-1].replace("%3A", ":") != errno_impl)

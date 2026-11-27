@@ -1281,7 +1281,7 @@ mod tests {
         let server = Server::open(directory.path(), "python3", &backend).unwrap();
 
         let package = llmlang_spg::load(
-            &Path::new(env!("CARGO_MANIFEST_DIR")).join("../stdlib"),
+            &Path::new(env!("CARGO_MANIFEST_DIR")).join("../builtin"),
             VERSIONS,
             LoadOptions::default(),
         )

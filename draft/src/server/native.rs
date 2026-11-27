@@ -109,9 +109,9 @@ fn native_call(name: &str, package: &Package, row: &Value) -> Result<Syscall> {
         .trim()
         .strip_prefix('{')
         .and_then(|body| body.strip_suffix('}'))
-        .and_then(|body| body.trim().strip_prefix("stdlib::syscall("))
+        .and_then(|body| body.trim().strip_prefix("builtin::syscall("))
         .and_then(|body| body.strip_suffix(')'))
-        .ok_or_else(|| invalid("expected stdlib::syscall in a body-only block"))?;
+        .ok_or_else(|| invalid("expected builtin::syscall in a body-only block"))?;
     let mut args = args.split(',').map(str::trim);
     let number = args
         .next()
@@ -138,12 +138,13 @@ fn native_call(name: &str, package: &Package, row: &Value) -> Result<Syscall> {
     })
 }
 
-fn is_syscall_wrapper(row: &Value) -> bool {
-    row["canonical_body"].as_str().is_some_and(|body| {
-        body.trim()
-            .strip_prefix('{')
-            .is_some_and(|body| body.trim_start().starts_with("stdlib::syscall("))
-    })
+fn is_syscall_wrapper(package_name: &str, row: &Value) -> bool {
+    package_name == "linux.syscalls"
+        && row["canonical_body"].as_str().is_some_and(|body| {
+            body.trim()
+                .strip_prefix('{')
+                .is_some_and(|body| body.trim_start().starts_with("builtin::syscall("))
+        })
 }
 
 fn identifier(name: &str) -> bool {
@@ -202,7 +203,7 @@ fn resolve_source(
             .function_signature(callee)
             .map_err(validation)?
             .typed;
-        let call = if is_syscall_wrapper(callee) {
+        let call = if is_syscall_wrapper(namespace, callee) {
             Call::Syscall(native_call(name, package, callee)?)
         } else {
             let params = signature["parameters"]
@@ -214,7 +215,7 @@ fn resolve_source(
                 raw_abi: signature["result"] == "AbiResult",
             }
         };
-        // Qualified calls distinguish a primitive wrapper from its stdlib forwarder.
+        // Primitive interfaces use their qualified source names.
         let source_name = if namespace == BUILTIN {
             format!("{namespace}::{name}")
         } else {
@@ -541,34 +542,35 @@ fn syscall_target(
         implementation,
         arity: 7,
         raw_abi: true,
-    }) = calls.get("syscall")
+    }) = calls.get("builtin::syscall")
     else {
-        return Err(invalid("native syscall wrapper must pin stdlib.syscall"));
+        return Err(invalid("native syscall wrapper must pin builtin.syscall"));
     };
-    if bindings.get("stdlib.syscall").map(|(id, _)| id) != Some(implementation) {
-        return Err(invalid("native syscall wrapper must pin stdlib.syscall"));
+    if bindings.get("builtin.syscall").map(|(id, _)| id) != Some(implementation) {
+        return Err(invalid("native syscall wrapper must pin builtin.syscall"));
     }
     // The unbound signal restorer traps if the syscall unexpectedly returns.
     let body = row["canonical_body"].as_str().unwrap();
-    let restorer = body.trim() == "{\n    stdlib::syscall(15); stdlib::trap()\n}";
+    let restorer = body.trim() == "{\n    builtin::syscall(15); builtin::trap()\n}";
     if restorer {
         let Some(Call::Source {
             implementation,
             arity: 0,
             raw_abi: false,
-        }) = calls.get("trap")
+        }) = calls.get("builtin::trap")
         else {
-            return Err(invalid("signal restorer must pin stdlib.trap"));
+            return Err(invalid("signal restorer must pin builtin.trap"));
         };
-        if calls.len() != 2 || bindings.get("stdlib.trap").map(|(id, _)| id) != Some(implementation)
+        if calls.len() != 2
+            || bindings.get("builtin.trap").map(|(id, _)| id) != Some(implementation)
         {
             return Err(invalid(
-                "signal restorer must pin stdlib.syscall and stdlib.trap",
+                "signal restorer must pin builtin.syscall and builtin.trap",
             ));
         }
     } else if calls.len() != 1 {
         return Err(invalid(
-            "native syscall wrapper must pin only stdlib.syscall",
+            "native syscall wrapper must pin only builtin.syscall",
         ));
     }
     Ok((implementation.clone(), resolved))
@@ -638,7 +640,7 @@ pub(super) fn lower(
                 .to_string(),
             );
             main_wrapper = quote!(fn main() { std::process::exit(llmlang_main(#arguments)); });
-        } else if is_syscall_wrapper(row) {
+        } else if is_syscall_wrapper(package_name, row) {
             let (_, name) = export
                 .rsplit_once('.')
                 .ok_or_else(|| invalid("missing native namespace"))?;
@@ -727,7 +729,7 @@ pub(super) fn lower(
     }
     // Preserve and check the call links for unbound continuation entries without emitting them.
     for (implementation, row) in local_functions {
-        if is_syscall_wrapper(row) && !resolved_calls.contains_key(implementation) {
+        if is_syscall_wrapper(package_name, row) && !resolved_calls.contains_key(implementation) {
             let (_, resolved) = syscall_target(package, row, bindings)?;
             resolved_calls.insert(implementation.clone(), resolved);
         }

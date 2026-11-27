@@ -1,9 +1,0 @@
-[
-{"functionSignatureContent":"linux-x86_64-native-v1 (errno: AbiResult) -> ByteVec","functionSignatureHash":"sha256:04b0e86b9059e3eb5c780f27fc530140a2bb588753f5e09d10ce53fcb2d894be"},
-{"functionSignatureContent":"linux-x86_64-native-v1 (fd: I32, utf8: Utf8) -> IoResult","functionSignatureHash":"sha256:2d409839bdc42abbde7fb3f35de66a737e3a838bd0e4751f909a8391a8470994"},
-{"functionSignatureContent":"linux-x86_64-native-v1 (port: U16) -> sockaddr_in","functionSignatureHash":"sha256:599502301754c886ec074dd4c73fdfd5fff27bba6f546baef69462624fba5e05"},
-{"functionSignatureContent":"linux-x86_64-native-v1 () -> Usize","functionSignatureHash":"sha256:858cfc6cd5118cbd52d1ab3f49550e5e546ffa1334ae3b830cc91e71e9bbe113"},
-{"functionSignatureContent":"linux-x86_64-native-v1 () -> Never","functionSignatureHash":"sha256:8caf29bbd61196eac6e459374d962e5b0034c82801ec894ceb3ca9e736f8ba54"},
-{"functionSignatureContent":"linux-x86_64-native-v1 (number: Usize, arg0: Usize, arg1: Usize, arg2: Usize, arg3: Usize, arg4: Usize, arg5: Usize) -> AbiResult","functionSignatureHash":"sha256:9d93900df48b78523a5a74ac08350eb840cbb9339420769e72071f4003fc9f5d"},
-{"functionSignatureContent":"linux-x86_64-native-v1 (bytes: ByteSlice) -> CStringResult","functionSignatureHash":"sha256:fb80ce3078e8af6bc956c7825edc820ce76b786a77023117d74c0f432987c28e"}
-]
