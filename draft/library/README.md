@@ -1,7 +1,8 @@
 # LLMLang SPG persistence
 
 This crate implements the repository persistence layer in the
-[architecture RFC] and [ADR-030], including the signature table from [ADR-033].
+[architecture RFC] and [ADR-030], including the signature table from [ADR-033]
+and architecture and OS bindings from [ADR-036].
 The API accepts JSON objects with the columns declared for their table. Each
 map key must match the row's primary-key columns, joined with `:` for a
 composite key. The binary record contains only the table columns.
@@ -42,6 +43,7 @@ node by its table and primary key with `Graph::get`. Follow `Node::outgoing`,
 `Node::incoming`, or `Node::calls` to traverse resolved nodes. Canonical IR is
 preserved as JSON. In that IR, `struct_impl_hash` is a structure pin and
 `callee_impl_hash` with `required_contract_hash` is an exact call pin pair.
+For stored native source, `Node::calls` follows the call compatibility rows.
 
 Supply the previous graph in `GraphLoadOptions::previous` when loading another
 snapshot. A matching table and Content Hash shares the immutable object and
@@ -73,22 +75,30 @@ The signature hash consists of `sha256:` and the lowercase SHA-256 hex digest
 of `llmlang-function-signature/v1\0`, the profile, a NUL byte, and the UTF-8
 signature text, in that order.
 
-Version 5 stores `FunctionRecord.canonical_body` as a Protobuf `string`.
+`FunctionRecord.canonical_body` is a Protobuf `string`.
 In the debug dump, `canonicalBody` is a JSON string containing the original body block.
 Structured scalar bodies are used only for in-memory editing and verification.
-The checked-in native packages retain their logical rows, hashes, and bindings.
+
+## Platform-specific bindings
+
+`BindingRecord.arch` and `BindingRecord.os` are required strings in fields 6
+and 7. Each empty string matches every registered value in that column. The
+crate validates nonempty values against the target registry. Look up a row
+with `Graph::get("bindings", &[version_hash, interface_hash, arch, os])`.
+The row map joins these four values with `:`. For example, a portable row
+with version key `v` and interface key `i` has storage key `v:i::`.
 
 ## Repository profile
 
 The draft specifies the storage contract and leaves the physical encoding to a
-profile. This crate uses `llmlang.spg.tables.v5`.
+profile. This crate uses `llmlang.spg.tables.v7`.
 
 - `manifest.json` contains `profile`, `language_version`, and `dependencies`.
 - Each of the thirteen tables has a lowercase `<table>.dump` and
   `<table>.index.json`, even when empty. The index is a JSON object mapping
   lowercase SHA-256 hex digests to zero-based offsets at the start of a frame.
   Index keys are sorted and the compact encoding ends in a newline.
-- Each dump starts with `LLSPG\x05\r\n`. Frames follow in ascending row key order.
+- Each dump starts with `LLSPG\x07\r\n`. Frames follow in ascending row key order.
   Each comprises a little-endian 32-bit compressed length, a little-endian
   32-bit uncompressed length, a 32-byte Content Hash, and a raw LZ4 block.
   The writer uses LZ4 fast mode with acceleration 1. The uncompressed size limit
@@ -112,5 +122,6 @@ Run `cargo test --locked --manifest-path draft/library/Cargo.toml` from the repo
 
 [architecture RFC]: https://github.com/aivibeflow/LLMLang/blob/main/draft/RFC.md
 [ADR-029]: https://github.com/aivibeflow/LLMLang/blob/main/draft/adr/029-caller-scoped-verification-obligations.md
+[ADR-036]: ../adr/036-canonical-platform-identifiers.md
 [ADR-030]: https://github.com/aivibeflow/LLMLang/blob/main/draft/adr/030-per-table-package-dumps.md
 [ADR-033]: ../adr/033-function-signature-storage.md

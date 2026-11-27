@@ -9,6 +9,16 @@ use std::collections::{BTreeMap, BTreeSet};
 pub(super) struct ResolvedCall {
     pub callee_impl_hash: String,
     pub required_contract_hash: String,
+    pub binding: Option<ResolvedBinding>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize)]
+pub(super) struct ResolvedBinding {
+    pub target_arch: String,
+    pub target_os: String,
+    pub binding_arch: String,
+    pub binding_os: String,
+    pub interface: super::native::InterfacePin,
 }
 
 pub(super) type CallsByCaller = BTreeMap<String, BTreeSet<ResolvedCall>>;
@@ -35,6 +45,7 @@ fn collect_pins(value: &Value, calls: &mut BTreeSet<ResolvedCall>) {
                 calls.insert(ResolvedCall {
                     callee_impl_hash: callee.into(),
                     required_contract_hash: required.into(),
+                    binding: None,
                 });
             }
             for child in fields.values() {
@@ -73,13 +84,17 @@ pub(super) fn rows(package: &Package, calls: &CallsByCaller) -> Result<BTreeMap<
             {
                 return Err(validation("unresolved call contract"));
             }
-            let context = json!({
+            let mut context = json!({
                 "language_version": package.manifest.language_version,
                 "profile": profile,
-                "dependencies": package.manifest.dependencies,
                 "caller_provided_contract_hash": caller_provided,
                 "callee_provided_contract_hash": provided,
             });
+            if let Some(binding) = &call.binding {
+                context["binding"] = json!(binding);
+            } else {
+                context["dependencies"] = json!(package.manifest.dependencies);
+            }
             let context_hash = format!(
                 "sha256:{}",
                 hash(&("llmlang-verification-context/v1", context))?

@@ -256,6 +256,26 @@ def exercise(executable, root, python):
         assert second["identities"]["add_v2"] != identities["add"], second
         new_main = read_object(client, f"{workspace_uri}/object/functions/{second['identities']['main_v2']}")
         assert second["identities"]["add_v2"] in json.dumps(new_main), new_main
+
+        bind = {
+            "op": "bind", "interface": second["identities"]["public_v2"],
+            "implementation": second["identities"]["main_v2"], "expected_implementation": None,
+        }
+        invalid = client.call("apply_change_set", apply_request(
+            workspace["workspace_id"], second["revision"], "bad-target", [{**bind, "arch": "armv7", "os": "linux"}],
+        ), succeeds=False)
+        assert invalid["code"] == "InvalidArguments", invalid
+        variants = client.call("apply_change_set", apply_request(
+            workspace["workspace_id"], second["revision"], "target", [{**bind, "arch": "x86_64", "os": "linux"}, {**bind, "os": "linux"}],
+        ))
+        assert {(row["arch"], row["os"]) for row in variants["exports"]} == {("", ""), ("x86_64", "linux"), ("", "linux")}, variants
+        removed = client.call("apply_change_set", apply_request(
+            workspace["workspace_id"], variants["revision"], "remove-target", [{
+                "op": "unbind", "name": "main", "arch": "x86_64", "os": "linux",
+                "expected_implementation": bind["implementation"],
+            }],
+        ))
+        assert {(row["arch"], row["os"]) for row in removed["exports"]} == {("", ""), ("", "linux")}, removed
         assert not list((state / "packages").iterdir())
         assert not (state / "pending-package").exists()
         stored = json.loads((state / "state.json").read_bytes())

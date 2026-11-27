@@ -86,6 +86,10 @@ new object with `{"local":"its_request_id"}`. Use
 Content Hash, and its dependency links. For a complete example request, see
 [the MCP integration test](tests/mcp_e2e.py).
 
+`bind` and `unbind` take optional `arch` and `os` fields. Each defaults to `""`.
+Their preconditions apply to that exact pair. All rows for a public
+name in the version must refer to the same interface revision.
+
 `apply_change_set` derives call compatibility obligations for the candidate
 and validates it before advancing the revision. Each obligation records the
 caller, callee, and caller-required contract. An obligation has no verification
@@ -109,9 +113,16 @@ may select an imported package by its name and version or pin its snapshot ID.
 Native imports validate storage, graph references and selected interfaces.
 They report verification status `unchecked`.
 
-`build_package` accepts `target: "linux-x86_64"`. The server starts from
-the selected public bindings and emits the functions reachable through exact
-call pins, including required implementations from dependencies. For native
+`build_package` accepts `target: "linux-x86_64"` and resolves it to
+`(arch = "x86_64", os = "linux")`. The server first tries an exact row,
+then a row matching one dimension, then a row with both fields empty.
+Two matching partial rows without an exact row produce `AmbiguousBinding`.
+Native interface calls
+retain their interface revision, version, and required contract. The server
+resolves the implementation for the build target and records the selected
+callee and binding context in the build's transient graph. A missing variant
+for a required interface produces `MissingImplementation`. The compiler emits
+only the functions reachable from the selected public bindings. For native
 programs, the bound interface `<package>.main` selects an executable with
 `main() -> ExitStatus` or `main(args: LaunchArgs) -> ExitStatus`. Launch
 arguments retain their original Unix bytes. The native backend covers the
@@ -123,12 +134,17 @@ Compiler built-ins use the `builtin__` prefix. The server returns
 It checks every function body in the package and its dependencies, including
 unbound implementations. The rule also covers scalar `fail` statements,
 which are the canonical form of `builtin__fail`. Packages call the exported
-`builtin` interfaces through exact pins.
+`builtin` interfaces through bindings.
 
 The compiler writes its Rust translation unit in a temporary directory and
 removes the directory when compilation ends. Executables and libraries go
 under `<state-dir>/artifacts/`. Package directories are read-only during
 import and build.
+
+The checked-in packages use repository profile `llmlang.spg.tables.v7`. Start
+with a fresh state directory and reimport dependencies before their consumers
+when switching a server from the v6 examples to the v7 examples. The package
+versions still identify the same releases and v7 packages have new snapshot IDs.
 
 The native backend collects built-in calls while lowering reachable functions.
 A parameterless entry point reaching `builtin__syscall` can use a Linux
