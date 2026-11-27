@@ -476,10 +476,15 @@ impl Server {
             let interface_hash = binding["interface_hash"]
                 .as_str()
                 .ok_or_else(|| validation("missing interface identity"))?;
-            let platform = binding["platform"]
+            let arch = binding["arch"]
                 .as_str()
-                .filter(|value| llmlang_spg::valid_binding_platform(value))
-                .ok_or_else(|| validation("missing or invalid binding platform"))?;
+                .ok_or_else(|| validation("missing or invalid binding arch"))?;
+            let os = binding["os"]
+                .as_str()
+                .ok_or_else(|| validation("missing or invalid binding os"))?;
+            if !llmlang_spg::valid_binding_target(arch, os) {
+                return Err(validation("unregistered binding architecture or OS target"));
+            }
             let implementation = binding["impl_hash"]
                 .as_str()
                 .ok_or_else(|| validation("missing implementation identity"))?;
@@ -511,7 +516,9 @@ impl Server {
             if entry.pin.interface_hash != interface_hash
                 || entry
                     .implementations
-                    .insert(platform.into(), implementation.into())
+                    .entry(arch.into())
+                    .or_default()
+                    .insert(os.into(), implementation.into())
                     .is_some()
             {
                 return Err(validation("ambiguous public binding"));
@@ -570,9 +577,11 @@ impl Server {
                     "native export contract and implementation must have the exact signature",
                 ));
             }
-            if binding["platform"] == "" && native::requires_platform(&program.name, function)? {
+            if (binding["arch"] == "" || binding["os"] == "")
+                && native::requires_platform(&program.name, function)?
+            {
                 return Err(validation(
-                    "platform-specific native implementation requires a platform binding",
+                    "platform-specific native implementation requires both an architecture and an OS",
                 ));
             }
         }
@@ -583,18 +592,18 @@ impl Server {
         &self,
         program: &Program,
         package: &mut Package,
-        platform: &str,
+        target: native::Target<'_>,
     ) -> Result<native::Output> {
         let exports = Self::native_catalog(program)?
             .into_iter()
-            .map(|(name, binding)| Ok((name, binding.select(platform)?.1.into())))
+            .map(|(name, binding)| Ok((name, binding.select(target)?.1.into())))
             .collect::<Result<_>>()?;
         let output = native::lower(
             &program.name,
             package,
             &exports,
             &self.native_catalogs(program)?,
-            platform,
+            target,
         )?;
         // Keep the selected call graph in the build's transient SPG.
         let rows = obligations::rows(package, &output.calls)?;
@@ -633,7 +642,7 @@ impl Server {
                         package,
                         row,
                         &catalogs,
-                        native::PLATFORM,
+                        native::LINUX_X86_64,
                     )?,
                 );
             }
@@ -850,8 +859,8 @@ impl Server {
             .get(&args.snapshot_id)
             .filter(|program| program.selection.version.is_some())
             .ok_or_else(|| missing("unknown committed snapshot"))?;
-        let platform = match args.target.as_str() {
-            "linux-x86_64" => native::PLATFORM,
+        let target = match args.target.as_str() {
+            "linux-x86_64" => native::LINUX_X86_64,
             _ => {
                 return Err(ServerError::new(
                     "UnsupportedProfile",
@@ -870,7 +879,7 @@ impl Server {
         let mut package = self.combined_package(program)?;
         self.validate_native(program, &package)?;
         self.validate_native_sources(program, &package)?;
-        let output = self.native_output(program, &mut package, platform)?;
+        let output = self.native_output(program, &mut package, target)?;
         native::compile(&output, &staged)?;
         let (executable, exports) = (output.executable, output.exports);
         if !staged.is_file() {
@@ -1111,7 +1120,7 @@ fn view(id: &str, workspace: &Workspace) -> Value {
     let exports: Vec<_> = program.tables["bindings"].values().filter_map(|binding| {
         let interface_hash = binding["interface_hash"].as_str()?;
         let interface = program.tables["interfaces"].get(interface_hash)?;
-        Some(json!({"name":interface["name"],"interface_hash":interface_hash,"impl_hash":binding["impl_hash"],"platform":binding["platform"]}))
+        Some(json!({"name":interface["name"],"interface_hash":interface_hash,"impl_hash":binding["impl_hash"],"arch":binding["arch"],"os":binding["os"]}))
     }).collect();
     json!({
         "workspace_id": id,
@@ -1301,7 +1310,7 @@ mod tests {
         let builtin = server.state.snapshots.get_mut(&builtin_id).unwrap();
         let catalog = Server::native_catalog(builtin).unwrap();
         let write = &catalog["builtin.write"];
-        let portable = write.implementations[""].clone();
+        let portable = write.implementations[""][""].clone();
         let mut function = builtin.tables["functions"][&portable].clone();
         function["canonical_body"] = json!("{ builtin__write_utf8(-1, utf8) }");
         let exact =
@@ -1313,20 +1322,23 @@ mod tests {
             .get_mut("functions")
             .unwrap()
             .insert(exact.clone(), function);
-        let portable_key = format!("{}:{}:", write.pin.version_hash, write.pin.interface_hash);
+        let portable_key = format!("{}:{}::", write.pin.version_hash, write.pin.interface_hash);
         let mut binding = builtin.tables["bindings"][&portable_key].clone();
-        binding["platform"] = json!(native::PLATFORM);
+        binding["arch"] = json!(native::LINUX_X86_64.0);
+        binding["os"] = json!(native::LINUX_X86_64.1);
         binding["impl_hash"] = json!(exact);
-        builtin
-            .tables
-            .get_mut("bindings")
-            .unwrap()
-            .insert(format!("{portable_key}{}", native::PLATFORM), binding);
+        builtin.tables.get_mut("bindings").unwrap().insert(
+            format!(
+                "{}:{}:x86_64:linux",
+                write.pin.version_hash, write.pin.interface_hash
+            ),
+            binding,
+        );
 
         let caller = program.tables["functions"].keys().next().unwrap();
         let mut package = server.combined_package(&program).unwrap();
         let selected = server
-            .native_output(&program, &mut package, native::PLATFORM)
+            .native_output(&program, &mut package, native::LINUX_X86_64)
             .unwrap();
         assert_eq!(
             selected.calls[caller].first().unwrap().callee_impl_hash,
@@ -1334,7 +1346,7 @@ mod tests {
         );
         let exact_rows = package.tables["verification_obligations"].clone();
 
-        let portable_target = "linux_aarch64";
+        let portable_target = ("aarch64", "linux");
         let mut package = server.combined_package(&program).unwrap();
         let selected = server
             .native_output(&program, &mut package, portable_target)
@@ -1361,7 +1373,7 @@ mod tests {
         assert_eq!(error.code, "MissingImplementation");
         assert!(error
             .message
-            .contains("builtin.write at version 0.1.0 has no binding for linux_aarch64"));
+            .contains("builtin.write at version 0.1.0 has no binding for (aarch64, linux)"));
     }
 
     #[test]

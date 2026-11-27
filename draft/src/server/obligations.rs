@@ -14,8 +14,10 @@ pub(super) struct ResolvedCall {
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize)]
 pub(super) struct ResolvedBinding {
-    pub target_platform: String,
-    pub binding_platform: String,
+    pub target_arch: String,
+    pub target_os: String,
+    pub binding_arch: String,
+    pub binding_os: String,
     pub interface: super::native::InterfacePin,
 }
 

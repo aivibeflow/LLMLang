@@ -262,20 +262,20 @@ def exercise(executable, root, python):
             "implementation": second["identities"]["main_v2"], "expected_implementation": None,
         }
         invalid = client.call("apply_change_set", apply_request(
-            workspace["workspace_id"], second["revision"], "bad-platform", [{**bind, "platform": "linux-x86_64"}],
+            workspace["workspace_id"], second["revision"], "bad-target", [{**bind, "arch": "armv7", "os": "linux"}],
         ), succeeds=False)
         assert invalid["code"] == "InvalidArguments", invalid
         variants = client.call("apply_change_set", apply_request(
-            workspace["workspace_id"], second["revision"], "platform", [{**bind, "platform": "linux_x86_64"}],
+            workspace["workspace_id"], second["revision"], "target", [{**bind, "arch": "x86_64", "os": "linux"}, {**bind, "os": "linux"}],
         ))
-        assert {row["platform"] for row in variants["exports"]} == {"", "linux_x86_64"}, variants
+        assert {(row["arch"], row["os"]) for row in variants["exports"]} == {("", ""), ("x86_64", "linux"), ("", "linux")}, variants
         removed = client.call("apply_change_set", apply_request(
-            workspace["workspace_id"], variants["revision"], "remove-platform", [{
-                "op": "unbind", "name": "main", "platform": "linux_x86_64",
+            workspace["workspace_id"], variants["revision"], "remove-target", [{
+                "op": "unbind", "name": "main", "arch": "x86_64", "os": "linux",
                 "expected_implementation": bind["implementation"],
             }],
         ))
-        assert removed["exports"] == second["exports"], removed
+        assert {(row["arch"], row["os"]) for row in removed["exports"]} == {("", ""), ("", "linux")}, removed
         assert not list((state / "packages").iterdir())
         assert not (state / "pending-package").exists()
         stored = json.loads((state / "state.json").read_bytes())

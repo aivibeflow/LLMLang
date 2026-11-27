@@ -86,8 +86,8 @@ new object with `{"local":"its_request_id"}`. Use
 Content Hash, and its dependency links. For a complete example request, see
 [the MCP integration test](tests/mcp_e2e.py).
 
-`bind` and `unbind` take an optional `platform` that defaults to `""`.
-Their preconditions apply to the named platform row. All rows for a public
+`bind` and `unbind` take optional `arch` and `os` fields. Each defaults to `""`.
+Their preconditions apply to that exact pair. All rows for a public
 name in the version must refer to the same interface revision.
 
 `apply_change_set` derives call compatibility obligations for the candidate
@@ -113,8 +113,11 @@ may select an imported package by its name and version or pin its snapshot ID.
 Native imports validate storage, graph references and selected interfaces.
 They report verification status `unchecked`.
 
-`build_package` accepts `target: "linux-x86_64"` and selects `linux_x86_64`
-bindings before portable bindings with `platform: ""`. Native interface calls
+`build_package` accepts `target: "linux-x86_64"` and resolves it to
+`(arch = "x86_64", os = "linux")`. The server first tries an exact row,
+then a row matching one dimension, then a row with both fields empty.
+Two matching partial rows without an exact row produce `AmbiguousBinding`.
+Native interface calls
 retain their interface revision, version, and required contract. The server
 resolves the implementation for the build target and records the selected
 callee and binding context in the build's transient graph. A missing variant
@@ -138,10 +141,10 @@ removes the directory when compilation ends. Executables and libraries go
 under `<state-dir>/artifacts/`. Package directories are read-only during
 import and build.
 
-The checked-in packages use repository profile `llmlang.spg.tables.v6`. Start
+The checked-in packages use repository profile `llmlang.spg.tables.v7`. Start
 with a fresh state directory and reimport dependencies before their consumers
-when switching a server from the v5 examples to the v6 examples. The package
-versions still identify the same releases and v6 packages have new snapshot IDs.
+when switching a server from the v6 examples to the v7 examples. The package
+versions still identify the same releases and v7 packages have new snapshot IDs.
 
 The native backend collects built-in calls while lowering reachable functions.
 A parameterless entry point reaching `builtin__syscall` can use a Linux

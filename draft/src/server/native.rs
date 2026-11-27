@@ -179,7 +179,8 @@ fn identifier(name: &str) -> bool {
         && bytes.all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
 }
 
-pub(super) const PLATFORM: &str = "linux_x86_64";
+pub(super) type Target<'a> = (&'a str, &'a str);
+pub(super) const LINUX_X86_64: Target<'static> = ("x86_64", "linux");
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, serde::Serialize)]
 pub(super) struct InterfacePin {
@@ -193,24 +194,39 @@ pub(super) struct InterfacePin {
 pub(super) struct InterfaceBinding {
     pub pin: InterfacePin,
     pub version: String,
-    pub implementations: BTreeMap<String, String>,
+    pub implementations: BTreeMap<String, BTreeMap<String, String>>,
 }
 
 impl InterfaceBinding {
-    pub fn select(&self, platform: &str) -> Result<(&str, &str)> {
-        self.implementations
-            .get_key_value(platform)
-            .or_else(|| self.implementations.get_key_value(""))
-            .map(|(platform, implementation)| (platform.as_str(), implementation.as_str()))
-            .ok_or_else(|| {
+    pub fn select(&self, (arch, os): Target<'_>) -> Result<(Target<'_>, &str)> {
+        let lookup = |arch: &str, os: &str| {
+            let (arch, rows) = self.implementations.get_key_value(arch)?;
+            let (os, implementation) = rows.get_key_value(os)?;
+            Some(((arch.as_str(), os.as_str()), implementation.as_str()))
+        };
+
+        if let Some(exact) = lookup(arch, os) {
+            return Ok(exact);
+        }
+        match (lookup(arch, ""), lookup("", os)) {
+            (Some(_), Some(_)) => Err(ServerError::new(
+                "AmbiguousBinding",
+                format!(
+                    "{} at version {} matches both ({arch:?}, \"\") and (\"\", {os:?})",
+                    self.pin.name, self.version,
+                ),
+            )),
+            (Some(binding), None) | (None, Some(binding)) => Ok(binding),
+            (None, None) => lookup("", "").ok_or_else(|| {
                 ServerError::new(
                     "MissingImplementation",
                     format!(
-                        "{} at version {} has no binding for {platform}",
-                        self.pin.name, self.version
+                        "{} at version {} has no binding for ({arch}, {os})",
+                        self.pin.name, self.version,
                     ),
                 )
-            })
+            }),
+        }
     }
 }
 
@@ -303,7 +319,7 @@ fn resolve_source(
     package: &Package,
     row: &Value,
     bindings: &CallBindings,
-    platform: &str,
+    target: Target<'_>,
 ) -> Result<(BTreeMap<String, Call>, BTreeSet<ResolvedCall>)> {
     let catalog = bindings
         .get(row["impl_hash"].as_str().unwrap())
@@ -311,7 +327,7 @@ fn resolve_source(
     let mut calls = BTreeMap::new();
     let mut resolved = BTreeSet::new();
     for (source_name, binding) in interface_calls(owner, row, catalog)? {
-        let (binding_platform, implementation) = binding.select(platform)?;
+        let ((binding_arch, binding_os), implementation) = binding.select(target)?;
         let (namespace, name) = binding.pin.name.rsplit_once('.').unwrap();
         let contract = &binding.pin.required_contract_hash;
         let callee = package.tables["functions"]
@@ -341,8 +357,10 @@ fn resolve_source(
             callee_impl_hash: implementation.into(),
             required_contract_hash: contract.clone(),
             binding: Some(super::obligations::ResolvedBinding {
-                target_platform: platform.into(),
-                binding_platform: binding_platform.into(),
+                target_arch: target.0.into(),
+                target_os: target.1.into(),
+                binding_arch: binding_arch.into(),
+                binding_os: binding_os.into(),
                 interface: binding.pin.clone(),
             }),
         });
@@ -355,9 +373,9 @@ pub(super) fn resolved_calls(
     package: &Package,
     row: &Value,
     bindings: &CallBindings,
-    platform: &str,
+    target: Target<'_>,
 ) -> Result<BTreeSet<ResolvedCall>> {
-    Ok(resolve_source(owner, package, row, bindings, platform)?.1)
+    Ok(resolve_source(owner, package, row, bindings, target)?.1)
 }
 
 #[derive(Default)]
@@ -585,12 +603,12 @@ fn lower_body(
     package: &Package,
     row: &Value,
     bindings: &CallBindings,
-    platform: &str,
+    target: Target<'_>,
     syscalls: &mut BTreeMap<syn::Ident, Syscall>,
     pending: &mut BTreeSet<String>,
     requirements: &mut RuntimeRequirements,
 ) -> Result<(syn::Block, BTreeSet<ResolvedCall>)> {
-    let (calls, resolved) = resolve_source("", package, row, bindings, platform)?;
+    let (calls, resolved) = resolve_source("", package, row, bindings, target)?;
     let mut body = syn::parse_str(row["canonical_body"].as_str().unwrap()).map_err(validation)?;
     let mut lower = Lower {
         calls: &calls,
@@ -641,9 +659,9 @@ fn syscall_target(
     package: &Package,
     row: &Value,
     bindings: &CallBindings,
-    platform: &str,
+    target: Target<'_>,
 ) -> Result<(String, BTreeSet<ResolvedCall>)> {
-    let (calls, resolved) = resolve_source("linux.syscalls", package, row, bindings, platform)?;
+    let (calls, resolved) = resolve_source("linux.syscalls", package, row, bindings, target)?;
     let Some(Call::Source {
         implementation,
         arity: 7,
@@ -682,7 +700,7 @@ pub(super) fn lower(
     package: &Package,
     exports: &BTreeMap<String, String>,
     bindings: &CallBindings,
-    platform: &str,
+    target: Target<'_>,
 ) -> Result<Output> {
     if exports.is_empty() {
         return Err(invalid("package has no public bindings"));
@@ -707,7 +725,7 @@ pub(super) fn lower(
                 package,
                 row,
                 bindings,
-                platform,
+                target,
                 &mut reachable,
                 &mut pending,
                 &mut requirements,
@@ -762,7 +780,7 @@ pub(super) fn lower(
                 continue;
             }
             let row = &package.tables["functions"][&call.implementation];
-            let (implementation, resolved) = syscall_target(package, row, bindings, platform)?;
+            let (implementation, resolved) = syscall_target(package, row, bindings, target)?;
             let target = source_symbol(&implementation);
             pending.insert(implementation);
             resolved_calls.insert(call.implementation, resolved);
@@ -794,7 +812,7 @@ pub(super) fn lower(
             package,
             row,
             bindings,
-            platform,
+            target,
             &mut reachable,
             &mut pending,
             &mut requirements,
@@ -930,7 +948,58 @@ pub(super) fn split_debug(artifact: &Path, name: &str) -> Result<PathBuf> {
 
 #[cfg(test)]
 mod tests {
-    use super::referenced_builtin;
+    use super::*;
+
+    #[test]
+    fn selects_bindings_by_specificity_and_reports_overlapping_partial_matches() {
+        let mut binding = InterfaceBinding {
+            pin: InterfacePin {
+                name: "example.write".into(),
+                version_hash: "version".into(),
+                interface_hash: "interface".into(),
+                required_contract_hash: "contract".into(),
+            },
+            version: "1".into(),
+            implementations: BTreeMap::new(),
+        };
+        for (arch, os, implementation) in [
+            ("", "", "portable"),
+            ("x86_64", "", "architecture-only"),
+            ("", "linux", "os-only"),
+            ("x86_64", "linux", "exact"),
+            ("aarch64", "ios", "device"),
+            ("aarch64", "ios-simulator", "simulator"),
+        ] {
+            binding
+                .implementations
+                .entry(arch.into())
+                .or_default()
+                .insert(os.into(), implementation.into());
+        }
+        for (target, selected) in [
+            (LINUX_X86_64, (LINUX_X86_64, "exact")),
+            (("x86_64", "windows"), (("x86_64", ""), "architecture-only")),
+            (("i686", "linux"), (("", "linux"), "os-only")),
+            (("aarch64", "android"), (("", ""), "portable")),
+            (("aarch64", "ios"), (("aarch64", "ios"), "device")),
+            (
+                ("aarch64", "ios-simulator"),
+                (("aarch64", "ios-simulator"), "simulator"),
+            ),
+        ] {
+            assert_eq!(binding.select(target).unwrap(), selected);
+        }
+        binding
+            .implementations
+            .get_mut("x86_64")
+            .unwrap()
+            .remove("linux");
+        let error = binding.select(LINUX_X86_64).unwrap_err();
+        assert_eq!(error.code, "AmbiguousBinding");
+        assert!(error
+            .message
+            .contains(r#"("x86_64", "") and ("", "linux")"#));
+    }
 
     #[test]
     fn builtin_references_ignore_comments_and_literals() {

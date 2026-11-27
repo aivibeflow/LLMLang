@@ -111,14 +111,18 @@ enum Operation {
         interface: Reference,
         implementation: Reference,
         #[serde(default)]
-        platform: String,
+        arch: String,
+        #[serde(default)]
+        os: String,
         #[serde(deserialize_with = "Deserialize::deserialize")]
         expected_implementation: Option<String>,
     },
     Unbind {
         name: String,
         #[serde(default)]
-        platform: String,
+        arch: String,
+        #[serde(default)]
+        os: String,
         expected_implementation: String,
     },
     SetEntryPoint {
@@ -134,7 +138,7 @@ enum Operation {
     },
 }
 
-type Exports = BTreeMap<(String, String), (String, String)>;
+type Exports = BTreeMap<(String, String, String), (String, String)>;
 
 fn invalid(message: impl Into<String>) -> ServerError {
     ServerError::new("InvalidArguments", message)
@@ -229,7 +233,7 @@ pub(super) fn binding_identity(package: &Package, version_hash: &str) -> Result<
         .collect();
     Ok(format!(
         "sha256:{}",
-        hash("llmlang-server-bindings-v2", &json!({"bindings": rows}))?
+        hash("llmlang-server-bindings-v3", &json!({"bindings": rows}))?
     ))
 }
 
@@ -293,17 +297,18 @@ fn exports(package: &Package) -> Result<Exports> {
     for binding in package.tables["bindings"].values() {
         let interface = string(binding, "interface_hash")?;
         let name = string(row(package, Table::Interfaces, interface)?, "name")?;
-        let platform = string(binding, "platform")?;
+        let arch = string(binding, "arch")?;
+        let os = string(binding, "os")?;
         let implementation = string(binding, "impl_hash")?;
         if exports
             .insert(
-                (name.into(), platform.into()),
+                (name.into(), arch.into(), os.into()),
                 (interface.to_string(), implementation.to_string()),
             )
             .is_some()
         {
             return Err(conflict(format!(
-                "duplicate export {name} for {platform:?}"
+                "duplicate export {name} for ({arch:?}, {os:?})"
             )));
         }
     }
@@ -323,13 +328,13 @@ fn write_selection(package: &mut Package, selection: &Selection, exports: &Expor
         .clear();
     if let Some(version) = &selection.version {
         let version_hash = version_identity(version)?;
-        for ((_, platform), (interface, implementation)) in exports {
-            let key = format!("{version_hash}:{interface}:{platform}");
+        for ((_, arch, os), (interface, implementation)) in exports {
+            let key = format!("{version_hash}:{interface}:{arch}:{os}");
             insert_row(
                 package,
                 "bindings",
                 &key,
-                json!({"version_hash":version_hash,"interface_hash":interface,"platform":platform,"impl_hash":implementation}),
+                json!({"version_hash":version_hash,"interface_hash":interface,"arch":arch,"os":os,"impl_hash":implementation}),
             )?;
         }
         let binding_hash = binding_identity(package, &version_hash)?;
@@ -695,11 +700,11 @@ fn references_to(
             }
         }
     }
-    for ((name, platform), (interface, implementation)) in exports {
+    for ((name, arch, os), (interface, implementation)) in exports {
         if (table == Table::Interfaces && interface == hash)
             || (table == Table::Functions && implementation == hash)
         {
-            references.insert(format!("exports/{name}/{platform}"));
+            references.insert(format!("exports/{name}/{arch}/{os}"));
         }
     }
     if table == Table::Functions && selection.entry_point.as_deref() == Some(hash) {
@@ -803,17 +808,18 @@ pub(crate) fn apply(
             Operation::Bind {
                 interface,
                 implementation,
-                platform,
+                arch,
+                os,
                 expected_implementation,
             } => {
-                if !llmlang_spg::valid_binding_platform(&platform) {
-                    return Err(invalid("invalid binding platform"));
+                if !llmlang_spg::valid_binding_target(&arch, &os) {
+                    return Err(invalid("unregistered binding architecture or OS target"));
                 }
                 let interface = locals.resolve(&interface, Table::Interfaces)?;
                 let implementation = locals.resolve(&implementation, Table::Functions)?;
                 let name =
                     string(row(&candidate, Table::Interfaces, &interface)?, "name")?.to_owned();
-                let key = (name, platform);
+                let key = (name, arch, os);
                 let prior = exports.get(&key);
                 check_expected(
                     prior.map(|pair| &pair.1),
@@ -829,13 +835,14 @@ pub(crate) fn apply(
             }
             Operation::Unbind {
                 name,
-                platform,
+                arch,
+                os,
                 expected_implementation,
             } => {
-                if !llmlang_spg::valid_binding_platform(&platform) {
-                    return Err(invalid("invalid binding platform"));
+                if !llmlang_spg::valid_binding_target(&arch, &os) {
+                    return Err(invalid("unregistered binding architecture or OS target"));
                 }
-                let key = (name, platform);
+                let key = (name, arch, os);
                 check_expected(
                     exports.get(&key).map(|pair| &pair.1),
                     Some(&expected_implementation),

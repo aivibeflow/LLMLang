@@ -1,65 +1,107 @@
-# ADR-036 — Define canonical platform identifiers
+# ADR-036 — Split binding targets into architecture and operating system
 
-- **Status** — Proposed
+- **Status** — Accepted
+- **Accepted** — 2026-11-27
 - **Date** — 2026-11-27
-- **Scope** — Values of `BINDINGS.platform` and their use in build-time selection
+- **Scope** — Binding keys, canonical build targets, and selection priority
 - **Related decisions** — [ADR-035](035-platform-specific-bindings.md)
 
 ## Context
 
-The Toolchain selects platform-specific bindings by exact identifier. Rust,
-Clang, and GCC can use different spellings for the same platform. A shared
-LLMLang list lets package authors and build tools agree on the value stored
-in `BINDINGS.platform`. The selected build profile supplies the compiler's
-target spelling, SDK, and other toolchain options.
+An implementation can depend on the operating system or the processor
+architecture. For example, one implementation may use a Linux API available
+on several architectures, while another may use x86-64 instructions across
+several operating systems. A binding needs to express either constraint
+independently. The Toolchain derives the target from the build request and
+uses the build profile to map it to compiler options and an SDK.
 
 ## Decision
 
-Use `<architecture>-<os>` for a canonical platform identifier. Append an
-environment suffix where the list distinguishes environments for the same
-architecture and OS. For example, `aarch64-ios` identifies an iPhone device
-and `aarch64-ios-simulator` identifies the ARM64 simulator.
+Replace the `platform` column in `BINDINGS` with required `arch` and `os`
+columns. Each is a case-sensitive ASCII string that fully matches
+`[A-Za-z0-9_-]*`. An empty string `""` matches every registered target value
+for that column.
 
-The entire `BINDINGS.platform` value must match `[A-Za-z0-9_-]*`. The allowed
-characters are ASCII letters, digits, underscores, and hyphens. A nonempty
-value must match a listed identifier exactly and case-sensitively. The
-empty string `""` denotes a platform-independent binding. For a given pinned
-version and interface, the Toolchain selects the exact platform row first and
-uses the empty row when the exact row is absent.
+| Column | Logical type | Key and meaning |
+| --- | --- | --- |
+| `version_hash` | Hash | Primary key component and foreign key to `VERSIONS.version_hash`. |
+| `interface_hash` | Hash | Primary key component and foreign key to `INTERFACES.interface_hash`. |
+| `arch` | ASCII string | Primary key component. A canonical processor architecture or `""`. |
+| `os` | ASCII string | Primary key component. A canonical OS target, including its execution environment where applicable, or `""`. |
+| `impl_hash` | Hash | Foreign key to `FUNCTIONS.impl_hash`. Identifies the selected implementation. |
 
-### Allowed platform identifiers
+The primary key is `(version_hash, interface_hash, arch, os)`. Each key is
+unique. Within a version, a qualified public name identifies one interface
+revision across all its binding rows. The version's `binding_hash` covers
+both target columns and the implementation hash of each row. The repository
+profile defines the physical encoding.
 
-- `x86_64-linux`
-- `aarch64-linux`
-- `i686-linux`
-- `x86_64-windows`
-- `aarch64-windows`
-- `aarch64-macos`
-- `x86_64-macos`
-- `aarch64-android`
-- `armv7-android`
-- `x86_64-android`
-- `i686-android`
-- `aarch64-ios`
-- `aarch64-ios-simulator`
-- `x86_64-ios-simulator`
+### Allowed build targets
+
+Every build target specifies a nonempty pair from this list. A binding with
+both columns set must use a listed pair. A binding with one column set must
+use a value from the corresponding column of the list.
+
+| `arch` | `os` |
+| --- | --- |
+| `x86_64` | `linux` |
+| `aarch64` | `linux` |
+| `i686` | `linux` |
+| `x86_64` | `windows` |
+| `aarch64` | `windows` |
+| `aarch64` | `macos` |
+| `x86_64` | `macos` |
+| `aarch64` | `android` |
+| `armv7` | `android` |
+| `x86_64` | `android` |
+| `i686` | `android` |
+| `aarch64` | `ios` |
+| `aarch64` | `ios-simulator` |
+| `x86_64` | `ios-simulator` |
+
+The `os` value `ios` identifies an iPhone device target. The
+`ios-simulator` value identifies the simulator's execution environment, which
+has its own compiler target and SDK.
+
+### Binding selection
+
+For the pinned version and interface revision, a binding is eligible when
+each of its target columns is empty or equals the corresponding build target
+value. An explicit match takes precedence over an empty column. For a build
+with `arch = "x86_64"` and `os = "linux"`, this gives the following order.
+
+| Priority | Eligible pairs `(arch, os)` | Coverage |
+| --- | --- | --- |
+| 1 | `("x86_64", "linux")` | Exact architecture and OS |
+| 2 | `("x86_64", "")` or `("", "linux")` | One explicit constraint |
+| 3 | `("", "")` | All targets |
+
+If both partial matches are eligible and no exact row exists, the build
+reports an ambiguous binding with both keys. An exact row resolves this
+overlap. If no row is eligible, the build reports the missing implementation
+with the interface, version, architecture, and OS. A selected row with an
+invalid implementation fails validation at its priority.
+
+A provider must match the interface signature and refine the public contract
+on every supported target covered by its row. The call verification context
+records the build target and the selected binding, including its exact
+implementation hash. Direct calls continue to pin platform-independent
+implementations.
 
 ## Alternatives and consequences
 
-Compiler target triples can encode vendor and runtime choices directly.
-Using them in package rows would couple binding keys to compiler-specific
-names. Canonical identifiers give the Toolchain a shared key and require each
-build profile to supply its compiler mapping. A listed identifier may be
-stored as a binding value. Building for it also requires a Toolchain profile
-that supports the target.
-
-Adopting this decision updates the allowed characters and canonical examples
-in ADR-035. The existing binding key and selection order continue to apply.
+A single identifier can represent each exact target. Independent columns
+also let a package share one implementation across architectures or OS
+targets. Giving one column precedence over the other would resolve overlapping
+partial rows automatically. Reporting the overlap instead lets the package
+author choose the implementation by supplying an exact row.
 
 ## Implementation validation
 
-- Accept every listed identifier and the empty binding value. Reject unknown
-  names, case variants, and strings containing characters outside the grammar.
-- Resolve `i686-linux` as the canonical identifier for 32-bit Linux x86.
-- Check that ARM64 iPhone and ARM64 iOS Simulator builds select their own
-  exact rows when both appear in the same version.
+- Accept all listed target pairs and reject pairs absent from the list.
+- Verify that an exact row wins over both partial rows and the universal row.
+- Verify that either partial row wins over the universal row when it is the
+  only matching partial row. Report ambiguity when both partial rows match
+  and there is no exact row.
+- Verify that an ARM64 iPhone and an ARM64 iOS Simulator select their own exact
+  rows when both appear in one version.

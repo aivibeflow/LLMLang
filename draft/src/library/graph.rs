@@ -46,7 +46,7 @@ rows! {
         contract_hash: String, rule_hash: String, kind: String,
         error_label: Option<String>, predicate: Option<Value>, check_boundary: Option<Value>,
     },
-    "bindings" => Binding { version_hash: String, interface_hash: String, platform: String, impl_hash: String },
+    "bindings" => Binding { version_hash: String, interface_hash: String, arch: String, os: String, impl_hash: String },
     "structures" => Structure {
         struct_impl_hash: String, type_hash: String, contract_hash: Option<String>, canonical_declaration: Value,
     },
@@ -346,7 +346,7 @@ impl Graph {
         if key
             .iter()
             .enumerate()
-            .any(|(index, part)| part.is_empty() && !(object.table == "bindings" && index == 2))
+            .any(|(index, part)| part.is_empty() && !(object.table == "bindings" && index >= 2))
         {
             return Err(invalid(format!("{}: empty primary key", object.table)));
         }
@@ -373,8 +373,8 @@ impl Graph {
         let mut obligation_calls = Vec::new();
         for (source, object) in self.objects.iter().enumerate() {
             if let Row::Binding(binding) = &object.row {
-                if !super::valid_binding_platform(&binding.platform) {
-                    return Err(invalid("invalid binding platform"));
+                if !super::valid_binding_target(&binding.arch, &binding.os) {
+                    return Err(invalid("bindings: unregistered architecture or OS target"));
                 }
                 if let Some(interface) = self.get("interfaces", &[&binding.interface_hash]) {
                     if let Row::Interface(interface) = &interface.object().row {
@@ -506,7 +506,7 @@ impl Row {
             Self::SignatureRow(r) => vec![&r.function_signature_hash],
             Self::Contract(r) => vec![&r.contract_hash],
             Self::ContractRule(r) => vec![&r.contract_hash, &r.rule_hash],
-            Self::Binding(r) => vec![&r.version_hash, &r.interface_hash, &r.platform],
+            Self::Binding(r) => vec![&r.version_hash, &r.interface_hash, &r.arch, &r.os],
             Self::Structure(r) => vec![&r.struct_impl_hash],
             Self::StructureType(r) => vec![&r.type_hash],
             Self::StructureLayout(r) => vec![&r.layout_hash],

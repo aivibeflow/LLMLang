@@ -6,6 +6,9 @@
 - **Scope** — Function bindings, direct calls, and build-time resolution of platform-specific calls
 - **Related decisions** — [ADR-020](020-immutable-objects-and-implhash-calls.md) · [ADR-021](021-structures-and-data-layout.md) · [ADR-027](027-scalar-spg-relational-projection.md) · [ADR-029](029-caller-scoped-verification-obligations.md)
 
+[ADR-036](036-canonical-platform-identifiers.md) amends the platform column
+and binding selection rules below.
+
 ## Context
 
 A public interface can have implementations that use different system calls,

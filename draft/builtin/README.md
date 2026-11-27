@@ -17,6 +17,6 @@ Their signatures are in [`function_signatures.json`](function_signatures.json).
 | `builtin.sockaddr_in_loopback` | `builtin__sockaddr_in_loopback` | Constructs a Linux IPv4 loopback address with a port supplied in host byte order. |
 | `builtin.sockaddr_in_size` | `builtin__size_of` specialized to `sockaddr_in` | Returns the size of `sockaddr_in` for the native ABI. |
 
-The raw `builtin.syscall` binding specifies `linux_x86_64`. The other
+The raw `builtin.syscall` binding specifies `arch: "x86_64", os: "linux"`. The other
 interfaces have portable bindings. Import this package before its consumers.
-Use a fresh server state directory when switching to repository profile v6.
+Use a fresh server state directory when switching to repository profile v7.

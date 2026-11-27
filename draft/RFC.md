@@ -54,7 +54,7 @@ A program package is a Git-tracked directory with a separate package manifest an
 
 Each table in that profile has one binary dump and one companion index, including empty tables. A dump stores the table's Protobuf records in independently compressed frames, initially using LZ4. The index maps each Content Hash to the zero-based byte offset of its frame. The companion dump identifies the data file, and the frame header supplies the compressed length. The loader can consult a validated cache by hash before reading the payload. On a miss, it checks the frame bounds, decodes the record, and verifies its hash. Scanning verified records can reconstruct the index. A fixed repository profile produces identical package bytes for identical logical content.
 
-The function signature table has its own dump and companion index. In repository profile v6, `FunctionRecord.canonical_body` is a Protobuf `string` containing the source block. The corresponding ProtoJSON field is a JSON string. Scalar structured bodies stay in memory. When converting a package with inline signatures, validate the original records under their profile, produce canonical signature strings, and rebuild function rows with verified references. Publish the converted package only after checking the reconstructed typed signatures, implementation identities, and bindings.
+The function signature table has its own dump and companion index. In repository profile v7, `FunctionRecord.canonical_body` is a Protobuf `string` containing the source block. The corresponding ProtoJSON field is a JSON string. Scalar structured bodies stay in memory. When converting a package with inline signatures, validate the original records under their profile, produce canonical signature strings, and rebuild function rows with verified references. Publish the converted package only after checking the reconstructed typed signatures, implementation identities, and bindings.
 
 The persistence library accepts `write_text_dump` on save and load. It defaults to `false`. When enabled, save exports the same Protobuf messages used to write each binary table, and load exports the validated decoded messages. Both emit one additional ProtoJSON file per table in record order. Load writes the text files to a separate output location. Text exports leave canonical package bytes and semantic identities unchanged.
 
@@ -127,7 +127,8 @@ erDiagram
     BINDINGS {
         hash version_hash PK,FK
         hash interface_hash PK,FK
-        ascii_string platform PK "empty for a platform-independent implementation"
+        ascii_string arch PK "empty matches every architecture"
+        ascii_string os PK "empty matches every OS target"
         hash impl_hash FK
     }
     VERIFICATION_OBLIGATIONS {
@@ -194,28 +195,53 @@ erDiagram
 
 #### Platform-specific bindings
 
-`BINDINGS` has the primary key `(version_hash, interface_hash, platform)`.
+`BINDINGS` has the primary key `(version_hash, interface_hash, arch, os)`.
 `version_hash`, `interface_hash`, and `impl_hash` reference `VERSIONS`,
-`INTERFACES`, and `FUNCTIONS`, respectively. A qualified name identifies one
-interface revision per version across its platform rows. The version's
-`binding_hash` covers every platform value and its implementation hash. The
-repository profile defines the physical encoding. Profile v6 stores `platform`
-in Protobuf field 5 and includes it in the key used for the record Content Hash.
+`INTERFACES`, and `FUNCTIONS`, respectively. Each key is unique. A qualified
+name identifies one interface revision per version across its binding rows.
+The version's `binding_hash` covers both target columns and the implementation
+hash of each row. Repository profile v7 stores both columns in Protobuf
+fields 6 and 7 and includes both in the key used for the record Content Hash.
 
-`platform` is a required ASCII string whose entire value must match
-`[A-Za-z0-9_]*`. A nonempty value such as `linux_x86_64` identifies a target
-ABI. The empty string `""` denotes a platform-independent implementation
-usable on every supported target. The Toolchain derives the platform from
-the build target. For public entry points and interface calls, it selects
-the exact row first and uses the empty-platform row only if no exact row
-exists. The build fails if no row matches or the selected row is invalid.
-Each provider must match the callable signature and refine the public
-contract on the applicable targets.
+`arch` and `os` are required, case-sensitive ASCII strings. Each value must
+fully match `[A-Za-z0-9_-]*`. Each empty string `""` matches any registered
+value in its column. The build request supplies a nonempty registered target
+pair. A binding with two nonempty values must use a registered pair. A binding
+with one nonempty value must use a registered value from that column.
+
+| `arch` | `os` |
+| --- | --- |
+| `x86_64` | `linux` |
+| `aarch64` | `linux` |
+| `i686` | `linux` |
+| `x86_64` | `windows` |
+| `aarch64` | `windows` |
+| `aarch64` | `macos` |
+| `x86_64` | `macos` |
+| `aarch64` | `android` |
+| `armv7` | `android` |
+| `x86_64` | `android` |
+| `i686` | `android` |
+| `aarch64` | `ios` |
+| `aarch64` | `ios-simulator` |
+| `x86_64` | `ios-simulator` |
+
+The `ios` target identifies an iPhone device. The `ios-simulator` target
+selects the simulator's compiler target and SDK.
+
+For public entry points and interface calls, the Toolchain selects an exact
+pair first, then a row with one matching nonempty value, then a row with both
+columns empty. If an architecture-only row and an OS-only row both match and
+no exact row exists, the build reports ambiguity with both keys. If no row
+matches, the build reports the missing implementation with its interface,
+version, architecture, and OS. An invalid selected row fails validation at
+its priority. Each provider must match the callable signature and refine the
+public contract on every supported target covered by the row.
 
 An interface call retains its pinned version context, interface revision,
 and required contract until the build selects a binding. The call
 compatibility obligation records the exact `callee_impl_hash`, and its
-verification context identifies the target ABI and selected binding.
+verification context identifies the build target, its ABI, and the selected binding.
 Evidence is reusable only when it applies to those inputs. The same source
 snapshot can therefore resolve an interface call to different providers
 when built for different targets. Direct calls retain their exact callee
@@ -233,12 +259,6 @@ across targets.
 JSON through MCP, indexed Protobuf in Git packages, and `llmlang_contract` in native binaries belong to different boundaries. They serve agent-facing exchange, repository reconstruction, and native library inspection, respectively. Open work includes the complete language grammar, hash encodings, several runtime semantics including nested transactions and reentrancy, full target coverage, and validation of the database implementation and migration. The [draft server](server/README.md) exercises a narrower scalar profile for in-memory authoring and verification. The [standalone scalar MVP release] records earlier evidence for the CLI and its Stage 0 compiler. Broader conformance depends on the relevant semantics, implementation and evidence.
 
 The repository profile must specify the exact signature text grammar, digest encoding, and physical record format.
-
-A proposed platform registry uses architecture-first identifiers such as
-`x86_64-linux` and `i686-linux`. It limits nonempty `BINDINGS.platform` values
-to a documented list and adds hyphens to the allowed ASCII characters. An
-environment suffix distinguishes iOS device and simulator targets. The build
-profile maps each supported identifier to its compiler target and SDK.
 
 [standalone scalar MVP release]: https://github.com/aivibeflow/LLMLang/blob/138ba12f754967c9fbc6c0adbf29fc8d591836a3/draft/llmlang_mvp/RELEASE.md
 
@@ -266,4 +286,4 @@ profile maps each supported identifier to its compiler target and SDK.
 - [ADR-033 — Store function signatures in a separate table](adr/033-function-signature-storage.md)
 - [ADR-034 — Prefix built-in function names with `builtin__`](adr/034-built-in-function-prefix.md)
 - [ADR-035 — Select platform-specific implementations through bindings](adr/035-platform-specific-bindings.md)
-- [ADR-036 — Define canonical platform identifiers (proposed)](adr/036-canonical-platform-identifiers.md)
+- [ADR-036 — Split binding targets into architecture and operating system](adr/036-canonical-platform-identifiers.md)

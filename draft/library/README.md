@@ -2,7 +2,7 @@
 
 This crate implements the repository persistence layer in the
 [architecture RFC] and [ADR-030], including the signature table from [ADR-033]
-and platform-specific bindings from [ADR-035].
+and architecture and OS bindings from [ADR-036].
 The API accepts JSON objects with the columns declared for their table. Each
 map key must match the row's primary-key columns, joined with `:` for a
 composite key. The binary record contains only the table columns.
@@ -81,23 +81,24 @@ Structured scalar bodies are used only for in-memory editing and verification.
 
 ## Platform-specific bindings
 
-`BindingRecord.platform` is a required string in field 5, including when it
-is empty. Its allowed characters are ASCII letters, digits, and underscores.
-Look up a binding with `Graph::get("bindings", &[version_hash, interface_hash,
-platform])`. The key used in a package row map joins these three values with
-`:` and ends in `:` for a portable binding.
+`BindingRecord.arch` and `BindingRecord.os` are required strings in fields 6
+and 7. Each empty string matches every registered value in that column. The
+crate validates nonempty values against the target registry. Look up a row
+with `Graph::get("bindings", &[version_hash, interface_hash, arch, os])`.
+The row map joins these four values with `:`. For example, a portable row
+with version key `v` and interface key `i` has storage key `v:i::`.
 
 ## Repository profile
 
 The draft specifies the storage contract and leaves the physical encoding to a
-profile. This crate uses `llmlang.spg.tables.v6`.
+profile. This crate uses `llmlang.spg.tables.v7`.
 
 - `manifest.json` contains `profile`, `language_version`, and `dependencies`.
 - Each of the thirteen tables has a lowercase `<table>.dump` and
   `<table>.index.json`, even when empty. The index is a JSON object mapping
   lowercase SHA-256 hex digests to zero-based offsets at the start of a frame.
   Index keys are sorted and the compact encoding ends in a newline.
-- Each dump starts with `LLSPG\x06\r\n`. Frames follow in ascending row key order.
+- Each dump starts with `LLSPG\x07\r\n`. Frames follow in ascending row key order.
   Each comprises a little-endian 32-bit compressed length, a little-endian
   32-bit uncompressed length, a 32-byte Content Hash, and a raw LZ4 block.
   The writer uses LZ4 fast mode with acceleration 1. The uncompressed size limit
@@ -121,6 +122,6 @@ Run `cargo test --locked --manifest-path draft/library/Cargo.toml` from the repo
 
 [architecture RFC]: https://github.com/aivibeflow/LLMLang/blob/main/draft/RFC.md
 [ADR-029]: https://github.com/aivibeflow/LLMLang/blob/main/draft/adr/029-caller-scoped-verification-obligations.md
-[ADR-035]: https://github.com/aivibeflow/LLMLang/blob/main/draft/adr/035-platform-specific-bindings.md
+[ADR-036]: ../adr/036-canonical-platform-identifiers.md
 [ADR-030]: https://github.com/aivibeflow/LLMLang/blob/main/draft/adr/030-per-table-package-dumps.md
 [ADR-033]: ../adr/033-function-signature-storage.md

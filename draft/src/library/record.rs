@@ -5,7 +5,7 @@ use sha2::{Digest, Sha256};
 
 #[allow(clippy::enum_variant_names)]
 mod wire {
-    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v6.rs"));
+    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v7.rs"));
 }
 
 use wire::{value::Kind, Field, List, Object, Value as WireValue};
@@ -264,7 +264,7 @@ macro_rules! table_records {
                         let parts = [$(
                             row[stringify!($primary)].as_str()
                                 .filter(|value| match stringify!($primary) {
-                                    "platform" => super::valid_binding_platform(value),
+                                    "arch" | "os" => true,
                                     _ => !value.is_empty(),
                                 })
                                 .ok_or_else(|| invalid(concat!($table, ": missing or invalid primary key column ", stringify!($primary))))?
@@ -288,6 +288,13 @@ macro_rules! table_records {
                             }
                         }
                         match table {
+                            "bindings" => {
+                                let arch = row["arch"].as_str().ok_or_else(|| invalid("bindings: missing or invalid arch"))?;
+                                let os = row["os"].as_str().ok_or_else(|| invalid("bindings: missing or invalid os"))?;
+                                if !super::valid_binding_target(arch, os) {
+                                    return Err(invalid("bindings: unregistered architecture or OS target"));
+                                }
+                            }
                             "function_signatures" => {
                                 let text = row["function_signature_content"].as_str()
                                     .ok_or_else(|| invalid("missing function signature content"))?;
@@ -397,11 +404,12 @@ table_records! {
         predicate: (false, "predicate"),
         check_boundary: (false, "checkBoundary"),
     },
-    "bindings" => Binding(BindingRecord) [version_hash, interface_hash, platform] {
+    "bindings" => Binding(BindingRecord) [version_hash, interface_hash, arch, os] {
         version_hash: (true, "versionHash"),
         interface_hash: (true, "interfaceHash"),
         impl_hash: (true, "implHash"),
-        platform: (true, "platform"),
+        arch: (true, "arch"),
+        os: (true, "os"),
     },
     "structures" => Structure(StructureRecord) [struct_impl_hash] {
         struct_impl_hash: (true, "structImplHash"),

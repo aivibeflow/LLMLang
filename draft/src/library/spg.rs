@@ -32,18 +32,36 @@ pub const TABLES: [&str; 13] = [
     "versions",
 ];
 
-const PROFILE: &str = "llmlang.spg.tables.v6";
+const PROFILE: &str = "llmlang.spg.tables.v7";
 const MANIFEST: &str = "manifest.json";
-const MAGIC: &[u8; 8] = b"LLSPG\x06\r\n";
+const MAGIC: &[u8; 8] = b"LLSPG\x07\r\n";
 const HEADER: u64 = 40;
 const MAX_RECORD: usize = 1 << 20;
 const MAX_COMPRESSED: usize = MAX_RECORD + MAX_RECORD / 255 + 16;
 
-/// The empty platform denotes a portable binding.
-pub fn valid_binding_platform(platform: &str) -> bool {
-    platform
-        .bytes()
-        .all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
+/// Canonical architecture and OS pairs registered by ADR-036.
+pub const BUILD_TARGETS: &[(&str, &str)] = &[
+    ("x86_64", "linux"),
+    ("aarch64", "linux"),
+    ("i686", "linux"),
+    ("x86_64", "windows"),
+    ("aarch64", "windows"),
+    ("aarch64", "macos"),
+    ("x86_64", "macos"),
+    ("aarch64", "android"),
+    ("armv7", "android"),
+    ("x86_64", "android"),
+    ("i686", "android"),
+    ("aarch64", "ios"),
+    ("aarch64", "ios-simulator"),
+    ("x86_64", "ios-simulator"),
+];
+
+/// An empty column matches every registered value in its dimension.
+pub fn valid_binding_target(arch: &str, os: &str) -> bool {
+    BUILD_TARGETS.iter().any(|&(known_arch, known_os)| {
+        (arch.is_empty() || arch == known_arch) && (os.is_empty() || os == known_os)
+    })
 }
 const MAX_METADATA: usize = 16 << 20;
 
