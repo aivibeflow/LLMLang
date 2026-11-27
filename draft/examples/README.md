@@ -19,6 +19,10 @@ body is available as `canonicalBody` in the package's `functions.json` debug dum
 greeting through `linux.syscalls.write`. Import `draft/stdlib` first, then
 import `draft/examples/linux.syscalls` before the syscall variant.
 
+[0003-calculator](0003-calculator/README.md) reads one integer expression
+from standard input and reports its result or diagnostic. It uses the same
+two dependencies as the syscall variant.
+
 [linux.syscalls](linux.syscalls/README.md) contains a native Linux x86-64
 package in the current SPG repository format.
 
@@ -44,7 +48,7 @@ It checks the caller, callee, and required contract in each call
 compatibility obligation against the block and selected dependency bindings. Their binary and ProtoJSON dumps include all thirteen tables.
 
 The [native MCP build test](../server/tests/native_build_e2e.py) imports and
-builds these packages on Linux x86-64, then runs both Hello World examples and eleven
-scenarios across the five syscall programs. The scenarios check exit status, binary I/O, Linux error diagnostics,
+builds these packages on Linux x86-64, then runs both Hello World examples,
+the calculator and the five syscall programs. The scenarios check exit status, binary I/O, Linux error diagnostics,
 and partial file contents after a write failure. Build artifacts are stored in
 server state.
