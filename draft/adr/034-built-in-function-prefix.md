@@ -13,10 +13,12 @@ Readers and tools need a consistent spelling convention for functions provided b
 
 Every LLMLang built-in function name starts with `builtin__`, spelled with two underscores after `builtin`. The system call built-in is named `builtin__syscall`.
 
-Only code in the `stdlib` package may reference or call a built-in function. The toolchain rejects direct uses of built-ins in every other package. Other packages can access operations backed by built-ins through public interfaces exposed by `stdlib`.
+Only code in the package named `builtin` may reference or call a built-in function directly. The toolchain checks the owning package of each implementation, including implementations reached through dependencies and unbound bodies. This restriction applies to scalar error statements that represent `builtin__fail` and to native source references.
+
+The `builtin` library exposes typed interfaces for the primitives it wraps. A call such as `builtin::syscall` is an ordinary call through an interface pinned to an implementation and its required contract. The `stdlib` package depends on `builtin` and forwards through those interfaces while retaining public names such as `stdlib.syscall` and `stdlib.write`.
 
 ## Consequences
 
 Built-in function names share a visible marker in source text. Existing built-ins with names that lack the prefix need to adopt the new spelling. A convention based on a list of individual names would avoid renaming existing built-ins but would require readers and tools to consult that list.
 
-Existing direct uses of built-ins outside `stdlib` must move to calls through its public interfaces or be rewritten.
+Existing direct calls in `stdlib` move to `builtin`. Forwarding wrappers and their callers record new implementation identities and exact call pins. Native example imports load `builtin` before `stdlib`.

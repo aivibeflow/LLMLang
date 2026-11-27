@@ -20,7 +20,7 @@ A `canonical_body` is a nonempty array of statements. The notation below uses `E
 | Call | `{"callee_impl_hash": REF, "required_contract_hash": REF, "arguments": [EXPR]}`. Use an empty array for zero arguments. |
 | Local binding | `["let", "name", EXPR]` |
 | Return | `["return", EXPR]` |
-| Explicit error | `["fail", "DivisionByZero"]`. Represents `builtin__fail` and is allowed by the server only in `stdlib`. Supported labels are `ArithmeticOverflow`, `DivisionByZero`, and `InvalidInput`. |
+| Explicit error | `["fail", "DivisionByZero"]`. Represents `builtin__fail` and is allowed by the server only in `builtin`. Supported labels are `ArithmeticOverflow`, `DivisionByZero`, and `InvalidInput`. |
 | Branch | `["if", EXPR, THEN, ELSE]`. Each branch is an array of statements. `THEN` is nonempty and `ELSE` may be empty. |
 
 Use an existing server identity (64 lowercase hex digits) or `{"local":"request-id"}` for an object created in the same Change Set. A call pins both the callee implementation and the contract the caller relies on. A function separately pins its provided contract. An exported interface names its public contract, and a version binding selects the implementation. Use the identities returned by the server for MCP calls and resource reads. Direct calls must form an acyclic graph. [Server schemas](../src/server/main.rs) · [Runnable MCP examples](server.md)
@@ -53,4 +53,4 @@ Place imports before function declarations. In an import, the last dot separates
 
 Function declarations use `fn`, parameter types follow their names, and a return type follows `->`. The public entry point is `pub fn main() -> ExitStatus` or `pub fn main(args: LaunchArgs) -> ExitStatus`. The function body is enclosed in braces. [Entry point](../adr/032-program-package-main.md) · [Copy example](../examples/0005-syscall-copy/functions.json)
 
-Built-in function names start with `builtin__`. In native source, only `stdlib` can reference them directly. [Built-in names and visibility](../adr/034-built-in-function-prefix.md)
+Built-in function names start with `builtin__`. Only code in the `builtin` package can reference them directly. Native calls such as `builtin::syscall` resolve through exact package bindings. [Built-in names and visibility](../adr/034-built-in-function-prefix.md)

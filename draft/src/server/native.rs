@@ -3,7 +3,7 @@
 use super::{
     invalid,
     obligations::{CallsByCaller, ResolvedCall},
-    validation, Package, Path, Result, ServerError,
+    validation, Package, Path, Result, ServerError, BUILTIN,
 };
 use proc_macro2::{TokenStream, TokenTree};
 use quote::{format_ident, quote};
@@ -189,7 +189,7 @@ fn resolve_source(
         if matches.next().is_some() {
             return Err(invalid("ambiguous native call binding"));
         }
-        let (_, name) = qualified
+        let (namespace, name) = qualified
             .rsplit_once('.')
             .ok_or_else(|| invalid("missing native namespace"))?;
         let callee = package.tables["functions"]
@@ -214,11 +214,17 @@ fn resolve_source(
                 raw_abi: signature["result"] == "AbiResult",
             }
         };
-        if calls.insert(name.to_owned(), call).is_some() {
+        // Qualified calls distinguish a primitive wrapper from its stdlib forwarder.
+        let source_name = if namespace == BUILTIN {
+            format!("{namespace}::{name}")
+        } else {
+            name.to_owned()
+        };
+        if calls.insert(source_name.clone(), call).is_some() {
             return Err(invalid("ambiguous native call name"));
         }
         resolved.insert(
-            name,
+            source_name,
             ResolvedCall {
                 callee_impl_hash: implementation.into(),
                 required_contract_hash: contract.into(),

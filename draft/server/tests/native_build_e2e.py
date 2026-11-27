@@ -140,15 +140,18 @@ def exercise(executable, directory):
     os.environ["TMPDIR"] = str(compile_tmp)
 
     with server(executable, Path(directory, "state"), "python3") as client:
+        builtin = DRAFT / "builtin"
         stdlib = DRAFT / "stdlib"
         dependency = EXAMPLES / "linux.syscalls"
         hello = EXAMPLES / "0001-hello-world"
         calculator = EXAMPLES / "0003-calculator"
         syscall_hello = EXAMPLES / "0009-syscall-hello-world"
-        original_dependencies = {path: read_package(path) for path in (stdlib, dependency)}
+        original_dependencies = {path: read_package(path) for path in (builtin, stdlib, dependency)}
         programs = sorted(EXAMPLES.glob("000[4-8]-syscall-*"))
         assert len(programs) == 5
-        for package in [stdlib, dependency, hello, calculator, syscall_hello, *programs]:
+        missing = client.call("import_package", {"path": str(stdlib)}, succeeds=False)
+        assert missing["code"] == "MissingDependency", missing
+        for package in [builtin, stdlib, dependency, hello, calculator, syscall_hello, *programs]:
             before = read_package(package)
             assert json.loads(before["manifest.json"])["profile"] == "llmlang.spg.tables.v5"
             assert before["functions.dump"].startswith(b"LLSPG\x05\r\n")
@@ -164,7 +167,7 @@ def exercise(executable, directory):
             generated = set(NATIVE_EXPORT.findall(generated_source))
             assert not list(compile_tmp.iterdir()), "temporary source directory survived the build"
             assert read_package(package) == before, package
-            if package in (stdlib, dependency):
+            if package in (builtin, stdlib, dependency):
                 assert "debug_artifact" not in build, build
             else:
                 freestanding = package.name in {
@@ -172,20 +175,41 @@ def exercise(executable, directory):
                 }
                 assert ("#![no_std]" in generated_source) == freestanding, package
                 check_executable(artifact, Path(build["debug_artifact"]), freestanding)
+            if package == builtin:
+                assert artifact.suffix == ".rlib" and not generated
+                builtin_symbols = build["exports"]
+                builtin_exports = selected_exports(before)
+                assert set(builtin_symbols) == set(builtin_exports)
+                assert all("builtin__" in row["canonicalBody"]
+                           for row in json.loads(before["functions.json"]))
+                continue
+
+            reachable_builtin = {name for name, symbol in builtin_symbols.items()
+                                 if re.search(rf"\bfn {symbol}\s*\(", generated_source)}
             if package == stdlib:
                 assert artifact.suffix == ".rlib" and not generated
                 check_stdlib(artifact, build["exports"], directory)
                 stdlib_symbols = build["exports"]
                 stdlib_exports = selected_exports(before)
-                stdlib_functions = json.loads((package / "functions.json").read_bytes())
-                syscall_impl, = (row["implHash"] for row in stdlib_functions
-                                 if "builtin__syscall(" in row["canonicalBody"])
+                assert reachable_builtin == set(builtin_symbols)
+                assert set(builtin_exports) == {
+                    name.replace("stdlib.", "builtin.", 1) for name in stdlib_exports
+                }
+                assert all("builtin__" not in row["canonicalBody"] and "builtin::" in row["canonicalBody"]
+                           for row in json.loads(before["functions.json"]))
+                obligations = json.loads(before["verification_obligations.json"])
+                assert {(row["callerImplHash"], row["calleeImplHash"]) for row in obligations} == {
+                    (impl, builtin_exports[name.replace("stdlib.", "builtin.", 1)])
+                    for name, impl in stdlib_exports.items()
+                }
+                syscall_impl = stdlib_exports["stdlib.syscall"]
                 continue
 
             reachable_stdlib = {name for name, symbol in stdlib_symbols.items()
                                 if re.search(rf"\bfn {symbol}\s*\(", generated_source)}
             if package == dependency:
                 assert reachable_stdlib == {"stdlib.syscall"}
+                assert reachable_builtin == {"builtin.syscall"}
                 raw_functions = json.loads((package / "functions.json").read_bytes())
                 assert len(raw_functions) == 358
                 assert all(row["canonicalBody"].startswith("{\n")
@@ -237,6 +261,8 @@ def exercise(executable, directory):
             assert generated == linux_calls, (package, generated, linux_calls)
             expected_stdlib = stdlib_calls | ({"stdlib.syscall"} if linux_calls else set())
             assert reachable_stdlib == expected_stdlib, (package, reachable_stdlib, expected_stdlib)
+            expected_builtin = {name.replace("stdlib.", "builtin.", 1) for name in expected_stdlib}
+            assert reachable_builtin == expected_builtin, (package, reachable_builtin, expected_builtin)
             payload = bytes(range(256)) * 83 + b"\x00\xff"
             if package == hello:
                 assert callee_pins == {stdlib_exports["stdlib.write"]}

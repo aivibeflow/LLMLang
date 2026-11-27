@@ -16,12 +16,12 @@ body is available as `canonicalBody` in the package's `functions.json` debug dum
 [0001-hello-world](0001-hello-world/README.md) writes its greeting through
 [`stdlib.write`](../stdlib/README.md).
 [0009-syscall-hello-world](0009-syscall-hello-world/README.md) writes the same
-greeting through `linux.syscalls.write`. Import `draft/stdlib` first, then
-import `draft/examples/linux.syscalls` before the syscall variant.
+greeting through `linux.syscalls.write`. Import `draft/builtin` before `draft/stdlib`, then import
+`draft/examples/linux.syscalls` before the syscall variant.
 
 [0003-calculator](0003-calculator/README.md) reads one integer expression
 from standard input and reports its result or diagnostic. It uses the same
-two dependencies as the syscall variant.
+import order as the syscall variant.
 
 [linux.syscalls](linux.syscalls/README.md) contains a native Linux x86-64
 package in the current SPG repository format.

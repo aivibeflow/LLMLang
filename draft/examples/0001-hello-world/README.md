@@ -1,8 +1,8 @@
 # 0001 — Hello, World!
 
 The function body for [Task 0001](../../../examples/0001-hello-world.md) is in
-[`functions.json`](functions.json). Import `draft/stdlib` first, then import and
-build this package with MCP for `linux-x86_64`.
+[`functions.json`](functions.json). Import `draft/builtin` and `draft/stdlib`
+in that order. Then import and build this package with MCP for `linux-x86_64`.
 
 | Requirements | Implementation |
 |---|---|

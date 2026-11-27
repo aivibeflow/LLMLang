@@ -1,6 +1,6 @@
 # Native standard library
 
-Import this SPG package as `stdlib` version `0.1.0` on Linux x86-64.
+On Linux x86-64, import [`builtin` version `0.1.0`](../builtin/README.md), then import this SPG package as `stdlib` version `0.1.0`.
 Applications import its functions through package bindings.
 
 | Function | Behavior |
@@ -13,5 +13,6 @@ Applications import its functions through package bindings.
 | [`sockaddr_in_loopback(port: U16) -> sockaddr_in`](sockaddr_in_loopback.llmlang) | Constructs a Linux IPv4 loopback address with a port supplied in host byte order. |
 | [`sockaddr_in_size() -> Usize`](sockaddr_in_size.llmlang) | Returns the size of `sockaddr_in` for the native ABI. |
 
-The package implements these interfaces with native built-ins. The MCP build includes the
-implementations reachable from the package's selected public bindings.
+These interfaces forward to [`builtin`](../builtin/README.md) through exact
+implementation and contract pins. The MCP build includes the implementations
+reachable from the package's selected public bindings.
