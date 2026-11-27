@@ -378,8 +378,11 @@ fn operation_schema() -> Value {
         put("put_interface", &[("name", string()), ("public_contract", object_ref())], &[]),
         operation("bind", &[
             ("interface", object_ref()), ("implementation", object_ref()), ("expected_implementation", nullable(string())),
-        ], &[]),
-        operation("unbind", &[("name", string()), ("expected_implementation", string())], &[]),
+            ("platform", json!({"type": "string", "pattern": "^[A-Za-z0-9_]*$", "default": ""})),
+        ], &["platform"]),
+        operation("unbind", &[("name", string()), ("expected_implementation", string()),
+            ("platform", json!({"type": "string", "pattern": "^[A-Za-z0-9_]*$", "default": ""})),
+        ], &["platform"]),
         operation("set_entry_point", &[
             ("implementation", nullable(object_ref())), ("expected_implementation", nullable(string())),
         ], &[]),

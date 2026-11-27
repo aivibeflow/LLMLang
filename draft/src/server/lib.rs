@@ -358,31 +358,31 @@ impl Server {
         Ok(result)
     }
 
+    fn dependency<'a>(&'a self, name: &str, pin: &str) -> Result<(&'a String, &'a Program)> {
+        self.state
+            .snapshots
+            .get_key_value(pin)
+            .filter(|(_, candidate)| {
+                candidate.name == name && candidate.selection.version.is_some()
+            })
+            .or_else(|| {
+                self.state.snapshots.iter().find(|(_, candidate)| {
+                    candidate.name == name && candidate.selection.version.as_deref() == Some(pin)
+                })
+            })
+            .ok_or_else(|| {
+                ServerError::new("MissingDependency", format!("unavailable {name} at {pin}"))
+            })
+    }
+
     fn dependency_packages<'a>(
         &'a self,
         program: &Program,
     ) -> Result<BTreeMap<String, &'a Program>> {
         let mut dependencies = BTreeMap::new();
         let mut queue: Vec<_> = program.manifest.dependencies.iter().collect();
-        let mut resolved = BTreeSet::new();
         while let Some((name, pin)) = queue.pop() {
-            if !resolved.insert((name, pin)) {
-                continue;
-            }
-            let exact = self
-                .state
-                .snapshots
-                .get_key_value(pin)
-                .filter(|(_, candidate)| candidate.selection.version.is_some());
-            let (id, dependency) = exact
-                .or_else(|| {
-                    self.state.snapshots.iter().find(|(_, candidate)| {
-                        candidate.name == *name && candidate.selection.version.as_ref() == Some(pin)
-                    })
-                })
-                .ok_or_else(|| {
-                    ServerError::new("MissingDependency", format!("unavailable {name} at {pin}"))
-                })?;
+            let (id, dependency) = self.dependency(name, pin)?;
             if dependencies.contains_key(id) {
                 continue;
             }
@@ -452,7 +452,7 @@ impl Server {
         Ok(())
     }
 
-    fn native_exports(program: &Program) -> Result<BTreeMap<String, String>> {
+    fn native_catalog(program: &Program) -> Result<native::Catalog> {
         let version = program
             .selection
             .version
@@ -468,69 +468,97 @@ impl Server {
         if versions.next().is_some() {
             return Err(validation("ambiguous package version"));
         }
-        let mut exports = BTreeMap::new();
+        let mut catalog = native::Catalog::new();
         for binding in program.tables["bindings"]
             .values()
             .filter(|row| row["version_hash"] == version_hash)
         {
-            let hash = binding["interface_hash"]
+            let interface_hash = binding["interface_hash"]
                 .as_str()
                 .ok_or_else(|| validation("missing interface identity"))?;
+            let platform = binding["platform"]
+                .as_str()
+                .filter(|value| llmlang_spg::valid_binding_platform(value))
+                .ok_or_else(|| validation("missing or invalid binding platform"))?;
+            let implementation = binding["impl_hash"]
+                .as_str()
+                .ok_or_else(|| validation("missing implementation identity"))?;
             let interface = program.tables["interfaces"]
-                .get(hash)
+                .get(interface_hash)
                 .ok_or_else(|| validation("missing local interface"))?;
             let name = interface["name"]
                 .as_str()
                 .ok_or_else(|| validation("missing interface name"))?;
-            let implementation = binding["impl_hash"]
+            let contract = interface["public_contract_hash"]
                 .as_str()
-                .ok_or_else(|| validation("missing implementation identity"))?;
+                .ok_or_else(|| validation("missing public contract pin"))?;
             if name.rsplit_once('.').map(|(namespace, _)| namespace) != Some(&program.name) {
                 return Err(validation("export must belong to the package namespace"));
             }
-            if exports.insert(name.into(), implementation.into()).is_some() {
+            let entry =
+                catalog
+                    .entry(name.to_owned())
+                    .or_insert_with(|| native::InterfaceBinding {
+                        version: version.into(),
+                        pin: native::InterfacePin {
+                            name: name.into(),
+                            version_hash: version_hash.into(),
+                            interface_hash: interface_hash.into(),
+                            required_contract_hash: contract.into(),
+                        },
+                        implementations: BTreeMap::new(),
+                    });
+            if entry.pin.interface_hash != interface_hash
+                || entry
+                    .implementations
+                    .insert(platform.into(), implementation.into())
+                    .is_some()
+            {
                 return Err(validation("ambiguous public binding"));
             }
         }
-        Ok(exports)
+        Ok(catalog)
     }
 
-    fn native_call_bindings(&self, program: &Program) -> Result<native::CallBindings> {
+    fn native_catalogs(&self, program: &Program) -> Result<native::CallBindings> {
         let dependencies = self.dependency_packages(program)?;
         let mut bindings = BTreeMap::new();
         for candidate in std::iter::once(program).chain(dependencies.values().copied()) {
-            for (name, implementation) in Self::native_exports(candidate)? {
-                let interface = candidate.tables["interfaces"]
-                    .values()
-                    .find(|row| row["name"] == name)
-                    .ok_or_else(|| validation("missing native interface"))?;
-                let contract = interface["public_contract_hash"]
-                    .as_str()
-                    .ok_or_else(|| validation("missing native public contract"))?;
-                if bindings
-                    .insert(name, (implementation, contract.into()))
-                    .is_some()
-                {
-                    return Err(validation("ambiguous native dependency interface"));
+            let mut catalog = Self::native_catalog(candidate)?;
+            for (name, version) in &candidate.manifest.dependencies {
+                let (_, dependency) = self.dependency(name, version)?;
+                for (name, binding) in Self::native_catalog(dependency)? {
+                    if catalog.insert(name, binding).is_some() {
+                        return Err(validation("ambiguous native dependency interface"));
+                    }
                 }
+            }
+            let catalog = std::sync::Arc::new(catalog);
+            for implementation in candidate.tables["functions"].keys() {
+                bindings
+                    .entry(implementation.clone())
+                    .or_insert_with(|| catalog.clone());
             }
         }
         Ok(bindings)
     }
 
-    fn validate_native(&self, program: &Program) -> Result<Package> {
-        let package = self.combined_package(program)?;
-        self.check_graph(&package)?;
-        let exports = Self::native_exports(program)?;
-        for (name, implementation) in &exports {
-            let interface = program.tables["interfaces"]
-                .values()
-                .find(|row| row["name"] == *name)
-                .ok_or_else(|| validation("missing native interface"))?;
-            let function = &package.tables["functions"][implementation];
+    fn validate_native(&self, program: &Program, package: &Package) -> Result<()> {
+        self.check_graph(package)?;
+        let local = program.package();
+        for (version, row) in &local.tables["versions"] {
+            if row["binding_hash"] != changes::binding_identity(&local, version)? {
+                return Err(validation("invalid version binding hash"));
+            }
+        }
+        for binding in local.tables["bindings"].values() {
+            let interface = local.tables["interfaces"]
+                .get(binding["interface_hash"].as_str().unwrap())
+                .ok_or_else(|| validation("missing local interface"))?;
+            let function = &package.tables["functions"][binding["impl_hash"].as_str().unwrap()];
             let contract = interface["public_contract_hash"]
                 .as_str()
-                .ok_or_else(|| validation("missing public contract pin"))?;
+                .ok_or_else(|| validation("missing local public contract pin"))?;
             if function["provided_contract_hash"] != contract
                 || package.tables["contracts"][contract]["typed_signature"]
                     != package
@@ -542,36 +570,80 @@ impl Server {
                     "native export contract and implementation must have the exact signature",
                 ));
             }
+            if binding["platform"] == "" && native::requires_platform(&program.name, function)? {
+                return Err(validation(
+                    "platform-specific native implementation requires a platform binding",
+                ));
+            }
         }
-        Ok(package)
+        Ok(())
     }
 
-    fn native_output(&self, program: &Program, package: &Package) -> Result<native::Output> {
+    fn native_output(
+        &self,
+        program: &Program,
+        package: &mut Package,
+        platform: &str,
+    ) -> Result<native::Output> {
+        let exports = Self::native_catalog(program)?
+            .into_iter()
+            .map(|(name, binding)| Ok((name, binding.select(platform)?.1.into())))
+            .collect::<Result<_>>()?;
         let output = native::lower(
             &program.name,
             package,
-            &program.tables["functions"],
-            &Self::native_exports(program)?,
-            &self.native_call_bindings(program)?,
+            &exports,
+            &self.native_catalogs(program)?,
+            platform,
         )?;
-        let local_calls = output
-            .calls
-            .iter()
-            .filter(|(caller, _)| program.tables["functions"].contains_key(*caller))
-            .map(|(caller, calls)| (caller.clone(), calls.clone()))
-            .collect();
-        let expected = obligations::rows(package, &local_calls)?;
+        // Keep the selected call graph in the build's transient SPG.
+        let rows = obligations::rows(package, &output.calls)?;
+        obligations::replace(package, rows);
+        self.check_graph(package)?;
+        Ok(output)
+    }
+
+    fn validate_native_sources(&self, program: &Program, package: &Package) -> Result<()> {
+        let catalogs = self.native_catalogs(program)?;
         let actual: BTreeMap<_, _> = program.tables["verification_obligations"]
             .iter()
             .filter(|(_, row)| row["kind"] == "call_compatibility")
             .map(|(key, row)| (key.clone(), row.clone()))
             .collect();
-        if actual != expected {
+        let callers: BTreeSet<_> = actual
+            .values()
+            .filter_map(|row| row["caller_impl_hash"].as_str())
+            .collect();
+        let mut calls = obligations::CallsByCaller::new();
+        for (implementation, row) in &program.tables["functions"] {
+            if native::implementation_identity(
+                &program.name,
+                package,
+                row,
+                &catalogs[implementation],
+            )? != *implementation
+            {
+                return Err(validation("native source or interface identity mismatch"));
+            }
+            if callers.contains(implementation.as_str()) {
+                calls.insert(
+                    implementation.clone(),
+                    native::resolved_calls(
+                        &program.name,
+                        package,
+                        row,
+                        &catalogs,
+                        native::PLATFORM,
+                    )?,
+                );
+            }
+        }
+        if obligations::rows(package, &calls)? != actual {
             return Err(validation(
                 "native call obligations disagree with the resolved source",
             ));
         }
-        Ok(output)
+        Ok(())
     }
 
     fn backend(&self, action: &str, program: &Program, package: &Package) -> Result<Value> {
@@ -754,8 +826,9 @@ impl Server {
                 "only native source packages can be imported",
             ));
         }
-        let package = self.validate_native(&program)?;
-        self.native_output(&program, &package)?;
+        let package = self.combined_package(&program)?;
+        self.validate_native(&program, &package)?;
+        self.validate_native_sources(&program, &package)?;
         let mut next = self.state.clone();
         let versions: BTreeSet<_> = next
             .snapshots
@@ -777,12 +850,15 @@ impl Server {
             .get(&args.snapshot_id)
             .filter(|program| program.selection.version.is_some())
             .ok_or_else(|| missing("unknown committed snapshot"))?;
-        if args.target != "linux-x86_64" {
-            return Err(ServerError::new(
-                "UnsupportedProfile",
-                "expected linux-x86_64",
-            ));
-        }
+        let platform = match args.target.as_str() {
+            "linux-x86_64" => native::PLATFORM,
+            _ => {
+                return Err(ServerError::new(
+                    "UnsupportedProfile",
+                    "expected linux-x86_64",
+                ))
+            }
+        };
         let area = tempfile::tempdir_in(self.root.join("artifacts"))?;
         let staged = area.path().join("program");
         if !native::is_native(&program.tables) {
@@ -791,8 +867,10 @@ impl Server {
                 "only native source packages can be built",
             ));
         }
-        let package = self.validate_native(program)?;
-        let output = self.native_output(program, &package)?;
+        let mut package = self.combined_package(program)?;
+        self.validate_native(program, &package)?;
+        self.validate_native_sources(program, &package)?;
+        let output = self.native_output(program, &mut package, platform)?;
         native::compile(&output, &staged)?;
         let (executable, exports) = (output.executable, output.exports);
         if !staged.is_file() {
@@ -941,27 +1019,26 @@ impl Server {
         let mut outgoing = node.outgoing().map(link).collect::<Vec<_>>();
         let mut incoming = node.incoming().map(link).collect::<Vec<_>>();
         if matches!(table, "functions" | "contracts") && native::is_native(&program.tables) {
-            let resolved = self.native_output(program, &package)?;
-            for (caller, calls) in resolved.calls {
-                for call in calls {
-                    if table == "functions" && caller == key {
-                        outgoing.push(link_to("Callee", "functions", &call.callee_impl_hash));
-                        outgoing.push(link_to(
-                            "RequiredContract",
-                            "contracts",
-                            &call.required_contract_hash,
-                        ));
-                    }
-                    if (table == "functions" && call.callee_impl_hash == key)
-                        || (table == "contracts" && call.required_contract_hash == key)
-                    {
-                        let relation = if table == "functions" {
-                            "Callee"
-                        } else {
-                            "RequiredContract"
-                        };
-                        incoming.push(link_to(relation, "functions", &caller));
-                    }
+            for row in package.tables["verification_obligations"]
+                .values()
+                .filter(|row| row["kind"] == "call_compatibility")
+            {
+                let caller = row["caller_impl_hash"].as_str().unwrap();
+                let callee = row["callee_impl_hash"].as_str().unwrap();
+                let contract = row["caller_required_contract_hash"].as_str().unwrap();
+                if table == "functions" && caller == key {
+                    outgoing.push(link_to("Callee", "functions", callee));
+                    outgoing.push(link_to("RequiredContract", "contracts", contract));
+                }
+                if (table == "functions" && callee == key)
+                    || (table == "contracts" && contract == key)
+                {
+                    let relation = if table == "functions" {
+                        "Callee"
+                    } else {
+                        "RequiredContract"
+                    };
+                    incoming.push(link_to(relation, "functions", caller));
                 }
             }
         }
@@ -1034,7 +1111,7 @@ fn view(id: &str, workspace: &Workspace) -> Value {
     let exports: Vec<_> = program.tables["bindings"].values().filter_map(|binding| {
         let interface_hash = binding["interface_hash"].as_str()?;
         let interface = program.tables["interfaces"].get(interface_hash)?;
-        Some(json!({"name":interface["name"],"interface_hash":interface_hash,"impl_hash":binding["impl_hash"]}))
+        Some(json!({"name":interface["name"],"interface_hash":interface_hash,"impl_hash":binding["impl_hash"],"platform":binding["platform"]}))
     }).collect();
     json!({
         "workspace_id": id,
@@ -1203,6 +1280,89 @@ struct Build {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn native_build_resolves_the_same_caller_for_each_platform() {
+        let directory = tempfile::tempdir().unwrap();
+        let draft = Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap();
+        let mut server =
+            Server::open(directory.path(), "python3", &draft.join("server/scalar.py")).unwrap();
+        let builtin_id = server.import(&draft.join("builtin")).unwrap()["snapshot_id"]
+            .as_str()
+            .unwrap()
+            .to_owned();
+        let hello_id = server
+            .import(&draft.join("examples/0001-hello-world"))
+            .unwrap()["snapshot_id"]
+            .as_str()
+            .unwrap()
+            .to_owned();
+        let program = server.state.snapshots[&hello_id].clone();
+        let builtin = server.state.snapshots.get_mut(&builtin_id).unwrap();
+        let catalog = Server::native_catalog(builtin).unwrap();
+        let write = &catalog["builtin.write"];
+        let portable = write.implementations[""].clone();
+        let mut function = builtin.tables["functions"][&portable].clone();
+        function["canonical_body"] = json!("{ builtin__write_utf8(-1, utf8) }");
+        let exact =
+            native::implementation_identity(BUILTIN, &builtin.package(), &function, &catalog)
+                .unwrap();
+        function["impl_hash"] = json!(exact);
+        builtin
+            .tables
+            .get_mut("functions")
+            .unwrap()
+            .insert(exact.clone(), function);
+        let portable_key = format!("{}:{}:", write.pin.version_hash, write.pin.interface_hash);
+        let mut binding = builtin.tables["bindings"][&portable_key].clone();
+        binding["platform"] = json!(native::PLATFORM);
+        binding["impl_hash"] = json!(exact);
+        builtin
+            .tables
+            .get_mut("bindings")
+            .unwrap()
+            .insert(format!("{portable_key}{}", native::PLATFORM), binding);
+
+        let caller = program.tables["functions"].keys().next().unwrap();
+        let mut package = server.combined_package(&program).unwrap();
+        let selected = server
+            .native_output(&program, &mut package, native::PLATFORM)
+            .unwrap();
+        assert_eq!(
+            selected.calls[caller].first().unwrap().callee_impl_hash,
+            exact
+        );
+        let exact_rows = package.tables["verification_obligations"].clone();
+
+        let portable_target = "linux_aarch64";
+        let mut package = server.combined_package(&program).unwrap();
+        let selected = server
+            .native_output(&program, &mut package, portable_target)
+            .unwrap();
+        assert_eq!(
+            selected.calls[caller].first().unwrap().callee_impl_hash,
+            portable
+        );
+        assert_ne!(exact_rows, package.tables["verification_obligations"]);
+
+        server
+            .state
+            .snapshots
+            .get_mut(&builtin_id)
+            .unwrap()
+            .tables
+            .get_mut("bindings")
+            .unwrap()
+            .remove(&portable_key);
+        let mut package = server.combined_package(&program).unwrap();
+        let Err(error) = server.native_output(&program, &mut package, portable_target) else {
+            panic!("a missing target binding was accepted");
+        };
+        assert_eq!(error.code, "MissingImplementation");
+        assert!(error
+            .message
+            .contains("builtin.write at version 0.1.0 has no binding for linux_aarch64"));
+    }
 
     #[test]
     fn checks_native_builtin_access_at_import_and_build() {

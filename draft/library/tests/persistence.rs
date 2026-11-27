@@ -118,7 +118,7 @@ fn rejects_invalid_versions_indexes_and_frames() {
     let manifest = read(&path, "manifest.json");
     let old_manifest = String::from_utf8(manifest.clone())
         .unwrap()
-        .replace("llmlang.spg.tables.v5", "llmlang.spg.tables.v4");
+        .replace("llmlang.spg.tables.v6", "llmlang.spg.tables.v5");
     fs::write(path.join("manifest.json"), old_manifest).unwrap();
     let error = load(&path, VERSIONS, LoadOptions::default()).unwrap_err();
     assert!(error.to_string().contains("unsupported repository profile"));
@@ -170,8 +170,13 @@ fn all_tables_round_trip_with_their_own_columns() {
         ),
         (
             "bindings",
-            "v:i",
-            json!({"version_hash": "v", "interface_hash": "i", "impl_hash": "first"}),
+            "v:i:",
+            json!({"version_hash": "v", "interface_hash": "i", "platform": "", "impl_hash": "first"}),
+        ),
+        (
+            "bindings",
+            "v:i:linux_x86_64",
+            json!({"version_hash": "v", "interface_hash": "i", "platform": "linux_x86_64", "impl_hash": "second"}),
         ),
         (
             "structures",
@@ -218,7 +223,7 @@ fn all_tables_round_trip_with_their_own_columns() {
 
     let wrong = area.path().join("wrong");
     let bindings = package.tables.get_mut("bindings").unwrap();
-    let binding = bindings.remove("v:i").unwrap();
+    let binding = bindings.remove("v:i:").unwrap();
     bindings.insert("arbitrary-key".into(), binding);
     let error = save(&wrong, &package, SaveOptions::default()).unwrap_err();
     assert!(error
@@ -227,7 +232,18 @@ fn all_tables_round_trip_with_their_own_columns() {
     assert!(!wrong.exists());
     let bindings = package.tables.get_mut("bindings").unwrap();
     let binding = bindings.remove("arbitrary-key").unwrap();
-    bindings.insert("v:i".into(), binding);
+    bindings.insert("v:i:".into(), binding);
+
+    let mut invalid_binding = package.clone();
+    let bindings = invalid_binding.tables.get_mut("bindings").unwrap();
+    let mut row = bindings.remove("v:i:").unwrap();
+    row["platform"] = json!("linux-x86_64");
+    bindings.insert("v:i:linux-x86_64".into(), row);
+    let error = save(&wrong, &invalid_binding, SaveOptions::default()).unwrap_err();
+    assert!(error
+        .to_string()
+        .contains("invalid primary key column platform"));
+    assert!(!wrong.exists());
 
     let version = package.tables["versions"]["v"].clone();
     package

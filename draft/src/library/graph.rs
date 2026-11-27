@@ -46,7 +46,7 @@ rows! {
         contract_hash: String, rule_hash: String, kind: String,
         error_label: Option<String>, predicate: Option<Value>, check_boundary: Option<Value>,
     },
-    "bindings" => Binding { version_hash: String, interface_hash: String, impl_hash: String },
+    "bindings" => Binding { version_hash: String, interface_hash: String, platform: String, impl_hash: String },
     "structures" => Structure {
         struct_impl_hash: String, type_hash: String, contract_hash: Option<String>, canonical_declaration: Value,
     },
@@ -150,7 +150,7 @@ impl<'a> Node<'a> {
         self.links(&self.graph.outgoing[self.index])
     }
 
-    /// Exact callee and required-contract pairs derived from canonical IR.
+    /// Exact callee and required-contract pairs recorded for this function.
     pub fn calls(self) -> impl Iterator<Item = (Self, Self)> + 'a {
         self.graph.calls[self.index]
             .iter()
@@ -343,7 +343,11 @@ impl Graph {
             return Ok(());
         }
         let key = object.row.primary_key();
-        if key.iter().any(|part| part.is_empty()) {
+        if key
+            .iter()
+            .enumerate()
+            .any(|(index, part)| part.is_empty() && !(object.table == "bindings" && index == 2))
+        {
             return Err(invalid(format!("{}: empty primary key", object.table)));
         }
         let index = self.objects.len();
@@ -365,7 +369,26 @@ impl Graph {
 
     fn resolve(&mut self) -> Result<()> {
         self.incoming.resize_with(self.objects.len(), Vec::new);
+        let mut bound_names = BTreeMap::new();
+        let mut obligation_calls = Vec::new();
         for (source, object) in self.objects.iter().enumerate() {
+            if let Row::Binding(binding) = &object.row {
+                if !super::valid_binding_platform(&binding.platform) {
+                    return Err(invalid("invalid binding platform"));
+                }
+                if let Some(interface) = self.get("interfaces", &[&binding.interface_hash]) {
+                    if let Row::Interface(interface) = &interface.object().row {
+                        let key = (binding.version_hash.clone(), interface.name.clone());
+                        let revision = bound_names.entry(key).or_insert(&binding.interface_hash);
+                        if *revision != &binding.interface_hash {
+                            return Err(invalid(format!(
+                                "multiple revisions of {} in version {}",
+                                interface.name, binding.version_hash
+                            )));
+                        }
+                    }
+                }
+            }
             if let Row::Function(function) = &object.row {
                 let signature = self
                     .get("function_signatures", &[&function.function_signature_hash])
@@ -422,6 +445,22 @@ impl Graph {
                     target: source,
                 });
             }
+            if let Row::VerificationObligation(obligation) = &object.row {
+                if obligation.kind == "call_compatibility" {
+                    let target = |relation| {
+                        outgoing
+                            .iter()
+                            .find(|edge| edge.relation == relation)
+                            .expect("validated call compatibility reference")
+                            .target
+                    };
+                    obligation_calls.push((
+                        target(Relation::Caller),
+                        target(Relation::Callee),
+                        target(Relation::RequiredContract),
+                    ));
+                }
+            }
             let calls = references
                 .calls
                 .into_iter()
@@ -438,6 +477,13 @@ impl Graph {
                 .collect();
             self.calls.push(calls);
             self.outgoing.push(outgoing);
+        }
+        for (caller, callee, contract) in obligation_calls {
+            self.calls[caller].push((callee, contract));
+        }
+        for calls in &mut self.calls {
+            calls.sort_unstable();
+            calls.dedup();
         }
         Ok(())
     }
@@ -460,7 +506,7 @@ impl Row {
             Self::SignatureRow(r) => vec![&r.function_signature_hash],
             Self::Contract(r) => vec![&r.contract_hash],
             Self::ContractRule(r) => vec![&r.contract_hash, &r.rule_hash],
-            Self::Binding(r) => vec![&r.version_hash, &r.interface_hash],
+            Self::Binding(r) => vec![&r.version_hash, &r.interface_hash, &r.platform],
             Self::Structure(r) => vec![&r.struct_impl_hash],
             Self::StructureType(r) => vec![&r.type_hash],
             Self::StructureLayout(r) => vec![&r.layout_hash],

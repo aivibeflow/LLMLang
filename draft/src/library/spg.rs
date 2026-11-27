@@ -32,12 +32,19 @@ pub const TABLES: [&str; 13] = [
     "versions",
 ];
 
-const PROFILE: &str = "llmlang.spg.tables.v5";
+const PROFILE: &str = "llmlang.spg.tables.v6";
 const MANIFEST: &str = "manifest.json";
-const MAGIC: &[u8; 8] = b"LLSPG\x05\r\n";
+const MAGIC: &[u8; 8] = b"LLSPG\x06\r\n";
 const HEADER: u64 = 40;
 const MAX_RECORD: usize = 1 << 20;
 const MAX_COMPRESSED: usize = MAX_RECORD + MAX_RECORD / 255 + 16;
+
+/// The empty platform denotes a portable binding.
+pub fn valid_binding_platform(platform: &str) -> bool {
+    platform
+        .bytes()
+        .all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
+}
 const MAX_METADATA: usize = 16 << 20;
 
 pub type Rows = BTreeMap<String, Value>;

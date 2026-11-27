@@ -188,16 +188,15 @@ def view_package(package, version_hash):
             pairs.add((callee, required))
             calls.add((caller, callee, required))
 
-    export_names = set()
+    export_names = {}
     for row in tables["bindings"].values():
         interface = interfaces[row["interface_hash"]]
         pair = (row["impl_hash"], interface["public_contract_hash"])
         pairs.add(pair)
         if version_hash == row["version_hash"]:
             name = interface["name"]
-            if name in export_names:
-                raise ValueError(f"duplicate export name {name!r} in selected version")
-            export_names.add(name)
+            if export_names.setdefault(name, row["interface_hash"]) != row["interface_hash"]:
+                raise ValueError(f"multiple revisions of export {name!r} in selected version")
 
     aliases = {pair: f"function_{index}" for index, pair in enumerate(sorted(pairs))}
     definitions = {}

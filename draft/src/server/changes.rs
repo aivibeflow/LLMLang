@@ -110,11 +110,15 @@ enum Operation {
     Bind {
         interface: Reference,
         implementation: Reference,
+        #[serde(default)]
+        platform: String,
         #[serde(deserialize_with = "Deserialize::deserialize")]
         expected_implementation: Option<String>,
     },
     Unbind {
         name: String,
+        #[serde(default)]
+        platform: String,
         expected_implementation: String,
     },
     SetEntryPoint {
@@ -130,7 +134,7 @@ enum Operation {
     },
 }
 
-type Exports = BTreeMap<String, (String, String)>;
+type Exports = BTreeMap<(String, String), (String, String)>;
 
 fn invalid(message: impl Into<String>) -> ServerError {
     ServerError::new("InvalidArguments", message)
@@ -218,11 +222,15 @@ fn version_identity(version: &str) -> Result<String> {
     hash("llmlang-server-version-v1", &json!({"version": version}))
 }
 
-fn binding_identity(selection: &Selection, exports: &Exports) -> Result<String> {
-    hash(
-        "llmlang-server-bindings-v1",
-        &json!({"exports": exports, "entry_point": &selection.entry_point}),
-    )
+pub(super) fn binding_identity(package: &Package, version_hash: &str) -> Result<String> {
+    let rows: Vec<_> = package.tables["bindings"]
+        .values()
+        .filter(|row| row["version_hash"] == version_hash)
+        .collect();
+    Ok(format!(
+        "sha256:{}",
+        hash("llmlang-server-bindings-v2", &json!({"bindings": rows}))?
+    ))
 }
 
 fn check_expected<T: PartialEq + std::fmt::Debug>(
@@ -285,15 +293,18 @@ fn exports(package: &Package) -> Result<Exports> {
     for binding in package.tables["bindings"].values() {
         let interface = string(binding, "interface_hash")?;
         let name = string(row(package, Table::Interfaces, interface)?, "name")?;
+        let platform = string(binding, "platform")?;
         let implementation = string(binding, "impl_hash")?;
         if exports
             .insert(
-                name.to_string(),
+                (name.into(), platform.into()),
                 (interface.to_string(), implementation.to_string()),
             )
             .is_some()
         {
-            return Err(conflict(format!("duplicate export {name}")));
+            return Err(conflict(format!(
+                "duplicate export {name} for {platform:?}"
+            )));
         }
     }
     Ok(exports)
@@ -312,22 +323,22 @@ fn write_selection(package: &mut Package, selection: &Selection, exports: &Expor
         .clear();
     if let Some(version) = &selection.version {
         let version_hash = version_identity(version)?;
-        let binding_hash = binding_identity(selection, exports)?;
+        for ((_, platform), (interface, implementation)) in exports {
+            let key = format!("{version_hash}:{interface}:{platform}");
+            insert_row(
+                package,
+                "bindings",
+                &key,
+                json!({"version_hash":version_hash,"interface_hash":interface,"platform":platform,"impl_hash":implementation}),
+            )?;
+        }
+        let binding_hash = binding_identity(package, &version_hash)?;
         insert_row(
             package,
             "versions",
             &version_hash,
             json!({"version_hash": version_hash, "version": version, "binding_hash": binding_hash}),
         )?;
-        for (interface, implementation) in exports.values() {
-            let key = format!("{version_hash}:{interface}");
-            insert_row(
-                package,
-                "bindings",
-                &key,
-                json!({"version_hash":version_hash,"interface_hash":interface,"impl_hash":implementation}),
-            )?;
-        }
     } else if !exports.is_empty() || selection.entry_point.is_some() {
         return Err(invalid(
             "set a package version before selecting exports or an entry point",
@@ -684,11 +695,11 @@ fn references_to(
             }
         }
     }
-    for (name, (interface, implementation)) in exports {
+    for ((name, platform), (interface, implementation)) in exports {
         if (table == Table::Interfaces && interface == hash)
             || (table == Table::Functions && implementation == hash)
         {
-            references.insert(format!("exports/{name}"));
+            references.insert(format!("exports/{name}/{platform}"));
         }
     }
     if table == Table::Functions && selection.entry_point.as_deref() == Some(hash) {
@@ -792,13 +803,18 @@ pub(crate) fn apply(
             Operation::Bind {
                 interface,
                 implementation,
+                platform,
                 expected_implementation,
             } => {
+                if !llmlang_spg::valid_binding_platform(&platform) {
+                    return Err(invalid("invalid binding platform"));
+                }
                 let interface = locals.resolve(&interface, Table::Interfaces)?;
                 let implementation = locals.resolve(&implementation, Table::Functions)?;
                 let name =
                     string(row(&candidate, Table::Interfaces, &interface)?, "name")?.to_owned();
-                let prior = exports.get(&name);
+                let key = (name, platform);
+                let prior = exports.get(&key);
                 check_expected(
                     prior.map(|pair| &pair.1),
                     expected_implementation.as_ref(),
@@ -809,18 +825,23 @@ pub(crate) fn apply(
                         seeds.insert(old.clone());
                     }
                 }
-                exports.insert(name, (interface, implementation));
+                exports.insert(key, (interface, implementation));
             }
             Operation::Unbind {
                 name,
+                platform,
                 expected_implementation,
             } => {
+                if !llmlang_spg::valid_binding_platform(&platform) {
+                    return Err(invalid("invalid binding platform"));
+                }
+                let key = (name, platform);
                 check_expected(
-                    exports.get(&name).map(|pair| &pair.1),
+                    exports.get(&key).map(|pair| &pair.1),
                     Some(&expected_implementation),
                     "export binding",
                 )?;
-                exports.remove(&name);
+                exports.remove(&key);
                 seeds.insert(expected_implementation);
             }
             Operation::SetEntryPoint {

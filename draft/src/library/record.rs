@@ -5,7 +5,7 @@ use sha2::{Digest, Sha256};
 
 #[allow(clippy::enum_variant_names)]
 mod wire {
-    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v5.rs"));
+    include!(concat!(env!("OUT_DIR"), "/llmlang.spg.storage.v6.rs"));
 }
 
 use wire::{value::Kind, Field, List, Object, Value as WireValue};
@@ -262,8 +262,12 @@ macro_rules! table_records {
                 match table {
                     $($table => {
                         let parts = [$(
-                            row[stringify!($primary)].as_str().filter(|value| !value.is_empty())
-                                .ok_or_else(|| invalid(concat!($table, ": missing or empty primary key column ", stringify!($primary))))?
+                            row[stringify!($primary)].as_str()
+                                .filter(|value| match stringify!($primary) {
+                                    "platform" => super::valid_binding_platform(value),
+                                    _ => !value.is_empty(),
+                                })
+                                .ok_or_else(|| invalid(concat!($table, ": missing or invalid primary key column ", stringify!($primary))))?
                         ),+];
                         Ok(parts.join(":"))
                     }),*
@@ -393,10 +397,11 @@ table_records! {
         predicate: (false, "predicate"),
         check_boundary: (false, "checkBoundary"),
     },
-    "bindings" => Binding(BindingRecord) [version_hash, interface_hash] {
+    "bindings" => Binding(BindingRecord) [version_hash, interface_hash, platform] {
         version_hash: (true, "versionHash"),
         interface_hash: (true, "interfaceHash"),
         impl_hash: (true, "implHash"),
+        platform: (true, "platform"),
     },
     "structures" => Structure(StructureRecord) [struct_impl_hash] {
         struct_impl_hash: (true, "structImplHash"),

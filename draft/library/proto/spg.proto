@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package llmlang.spg.storage.v5;
+package llmlang.spg.storage.v6;
 
 // Fields in an Object are unique and stored in increasing Unicode key order.
 message Object {
@@ -89,6 +89,7 @@ message BindingRecord {
   optional string version_hash = 2;
   optional string interface_hash = 3;
   optional string impl_hash = 4;
+  optional string platform = 5;
 }
 
 message StructureRecord {

@@ -18,7 +18,7 @@ from mcp_e2e import read_object, server
 
 DRAFT = Path(__file__).resolve().parents[2]
 EXAMPLES = DRAFT / "examples"
-NATIVE_EXPORT = re.compile(r"pub unsafe fn llmlang_syscall_(\w+)\s*\(")
+NATIVE_EXPORT = re.compile(r"pub unsafe fn llmlang_syscall_(\w+)__[0-9a-f]{64}\s*\(")
 FILE_LIMIT = 4096
 CLI_CASES = (
     DRAFT.parent / "research/language-design/PROTOTYPES/CLI-WORKLOADS-01/run.py"
@@ -33,9 +33,11 @@ def selected_exports(files):
     version = json.loads(files["package.json"])["selection"]["version"]
     version_row, = (row for row in json.loads(files["versions.json"]) if row["version"] == version)
     names = {row["interfaceHash"]: row["name"] for row in json.loads(files["interfaces.json"])}
+    rows = [row for row in json.loads(files["bindings.json"])
+            if row["versionHash"] == version_row["versionHash"]]
     return {names[row["interfaceHash"]]: row["implHash"]
-            for row in json.loads(files["bindings.json"])
-            if row["versionHash"] == version_row["versionHash"]}
+            for platform in ("", "linux_x86_64") for row in rows
+            if row["platform"] == platform}
 
 
 def execute(artifact, *arguments, data=b"", errno=None, stdout=subprocess.PIPE, preexec_fn=None):
@@ -152,8 +154,8 @@ def exercise(executable, directory):
         assert missing["code"] == "MissingDependency", missing
         for package in [builtin, dependency, hello, calculator, syscall_hello, *programs]:
             before = read_package(package)
-            assert json.loads(before["manifest.json"])["profile"] == "llmlang.spg.tables.v5"
-            assert before["functions.dump"].startswith(b"LLSPG\x05\r\n")
+            assert json.loads(before["manifest.json"])["profile"] == "llmlang.spg.tables.v6"
+            assert before["functions.dump"].startswith(b"LLSPG\x06\r\n")
             imported = client.call("import_package", {"path": str(package)})
             assert imported["verification_status"] == "unchecked"
             build = client.call("build_package", {
@@ -181,6 +183,8 @@ def exercise(executable, directory):
                 builtin_exports = selected_exports(before)
                 assert set(builtin_symbols) == set(builtin_exports)
                 syscall_impl = builtin_exports["builtin.syscall"]
+                assert {row["implHash"] for row in json.loads(before["bindings.json"])
+                        if row["platform"] == "linux_x86_64"} == {syscall_impl}
                 assert all("builtin__" in row["canonicalBody"]
                            for row in json.loads(before["functions.json"]))
                 continue
@@ -188,6 +192,7 @@ def exercise(executable, directory):
             reachable_builtin = {name for name, symbol in builtin_symbols.items()
                                  if re.search(rf"\bfn {symbol}\s*\(", generated_source)}
             if package == dependency:
+                assert {row["platform"] for row in json.loads(before["bindings.json"])} == {"linux_x86_64"}
                 assert reachable_builtin == {"builtin.syscall"}
                 raw_functions = json.loads((package / "functions.json").read_bytes())
                 assert len(raw_functions) == 358
@@ -212,6 +217,8 @@ def exercise(executable, directory):
                 continue
 
             main, = json.loads(before["functions.json"])
+            main_binding, = json.loads(before["bindings.json"])
+            assert main_binding["platform"] == ""
             assert selected_exports(before) == {f"{package.name}.main": main["implHash"]}
             body = main["canonicalBody"]
             assert isinstance(body, str) and body.startswith("{") and body.endswith("}")

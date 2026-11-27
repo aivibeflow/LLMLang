@@ -256,6 +256,26 @@ def exercise(executable, root, python):
         assert second["identities"]["add_v2"] != identities["add"], second
         new_main = read_object(client, f"{workspace_uri}/object/functions/{second['identities']['main_v2']}")
         assert second["identities"]["add_v2"] in json.dumps(new_main), new_main
+
+        bind = {
+            "op": "bind", "interface": second["identities"]["public_v2"],
+            "implementation": second["identities"]["main_v2"], "expected_implementation": None,
+        }
+        invalid = client.call("apply_change_set", apply_request(
+            workspace["workspace_id"], second["revision"], "bad-platform", [{**bind, "platform": "linux-x86_64"}],
+        ), succeeds=False)
+        assert invalid["code"] == "InvalidArguments", invalid
+        variants = client.call("apply_change_set", apply_request(
+            workspace["workspace_id"], second["revision"], "platform", [{**bind, "platform": "linux_x86_64"}],
+        ))
+        assert {row["platform"] for row in variants["exports"]} == {"", "linux_x86_64"}, variants
+        removed = client.call("apply_change_set", apply_request(
+            workspace["workspace_id"], variants["revision"], "remove-platform", [{
+                "op": "unbind", "name": "main", "platform": "linux_x86_64",
+                "expected_implementation": bind["implementation"],
+            }],
+        ))
+        assert removed["exports"] == second["exports"], removed
         assert not list((state / "packages").iterdir())
         assert not (state / "pending-package").exists()
         stored = json.loads((state / "state.json").read_bytes())
