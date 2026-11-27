@@ -72,7 +72,7 @@ To build one package with your MCP client, configure it to launch
 before calling tools. [Client configuration and handshake](server.md#build-and-connect)
 
 1. Call `import_package` with a `path` containing the absolute path to
-   `draft/stdlib` (version `0.1.0`).
+   `draft/builtin`, then import `draft/stdlib` (both version `0.1.0`).
 2. For a syscall example, import `draft/examples/linux.syscalls` (version
    `v6.12`) in the same session.
 3. Import the example directory and use its returned `snapshot_id` as the

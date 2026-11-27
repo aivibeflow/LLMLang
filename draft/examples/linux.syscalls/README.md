@@ -21,4 +21,4 @@ use dedicated continuation profiles. The function table has no wrapper rows.
 
 Contract rows carry typed native signatures, and the call obligations are
 unchecked. The native MCP server resolves the links and builds the package
-after importing its `stdlib` dependency.
+after importing `builtin` and then its `stdlib` dependency.

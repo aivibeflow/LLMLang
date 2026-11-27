@@ -19,7 +19,7 @@ use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
 const VERSIONS: &[&str] = &["0.1.0"];
-const STDLIB: &str = "stdlib";
+const BUILTIN: &str = "builtin";
 type Result<T> = std::result::Result<T, ServerError>;
 
 #[derive(Debug)]
@@ -975,7 +975,7 @@ impl Server {
 }
 
 fn check_builtin_access(program: &Program) -> Result<()> {
-    if program.name == STDLIB {
+    if program.name == BUILTIN {
         return Ok(());
     }
     for row in program.tables["functions"].values() {
@@ -987,7 +987,7 @@ fn check_builtin_access(program: &Program) -> Result<()> {
         };
         if let Some(builtin) = builtin {
             return Err(validation(format!(
-                "{builtin} may only be used in package {STDLIB} (found in package {})",
+                "{builtin} may only be used in package {BUILTIN} (found in package {})",
                 program.name
             )));
         }
@@ -1211,13 +1211,13 @@ mod tests {
         let mut server =
             Server::open(directory.path(), "python3", &server_dir.join("scalar.py")).unwrap();
         let package = llmlang_spg::load(
-            &server_dir.join("../stdlib"),
+            &server_dir.join("../builtin"),
             VERSIONS,
             LoadOptions::default(),
         )
         .unwrap();
         let legacy = Program {
-            name: "legacy".into(),
+            name: "stdlib".into(),
             selection: Selection {
                 version: Some("0.1.0".into()),
                 entry_point: None,
@@ -1242,7 +1242,7 @@ mod tests {
             .unwrap_err();
         assert_eq!(error.code, "ValidationFailed");
         assert!(error.message.starts_with("builtin__"));
-        assert!(error.message.ends_with("(found in package legacy)"));
+        assert!(error.message.ends_with("(found in package stdlib)"));
         assert!(!server.state.snapshots.contains_key(&id));
 
         // Simulate a snapshot persisted before the ownership check was added.
@@ -1263,13 +1263,13 @@ mod tests {
             .next()
             .is_none());
 
-        let mut stdlib = Program {
-            name: STDLIB.into(),
+        let mut builtin = Program {
+            name: BUILTIN.into(),
             ..legacy
         };
-        assert!(server.combined_package(&stdlib).is_ok());
-        stdlib.manifest.dependencies.insert(STDLIB.into(), id);
-        let dependency_error = server.combined_package(&stdlib).unwrap_err();
+        assert!(server.combined_package(&builtin).is_ok());
+        builtin.manifest.dependencies.insert("stdlib".into(), id);
+        let dependency_error = server.combined_package(&builtin).unwrap_err();
         assert_eq!(dependency_error.code, error.code);
         assert_eq!(dependency_error.message, error.message);
     }

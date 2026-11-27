@@ -146,10 +146,10 @@ remain available until the server process exits.
 
 ### Build an existing native program
 
-1. Import [`draft/stdlib`](../stdlib/README.md) with `import_package`.
+1. Call `import_package` for [`draft/builtin`](../builtin/README.md), then for [`draft/stdlib`](../stdlib/README.md).
 2. Call `import_package` with the absolute path to the checkout's [Linux syscall package](../examples/linux.syscalls/README.md) at `draft/examples/linux.syscalls`. This registers the dependency at version `v6.12`.
 3. Call `import_package` with the absolute path to `draft/examples/0004-syscall-echo`. Use its returned `snapshot_id` and `target: "linux-x86_64"` in `build_package`.
-3. Run the returned `artifact` and pass input on stdin. For example, `printf '%s\n' 'hello' | /path/to/artifact` prints the input unchanged. Building the dependency snapshot itself produces a Rust `rlib`.
+4. Run the returned `artifact` and pass input on stdin. For example, `printf '%s\n' 'hello' | /path/to/artifact` prints the input unchanged. Building the dependency snapshot itself produces a Rust `rlib`.
 
 The native build resolves `<package>.main` through the selected version's bindings. The supported entry signatures are `main() -> ExitStatus` and `main(args: LaunchArgs) -> ExitStatus`. `LaunchArgs` excludes the program name and preserves each Unix argument's bytes. Native import and build return `verification_status: "unchecked"`. They check package storage, graph references, and supported bindings and lowering. Scalar Change Sets serve the scalar authoring workflow. [Native examples](../examples/README.md#linux-syscall-program-packages) · [Native MCP test](../server/tests/native_build_e2e.py)
 

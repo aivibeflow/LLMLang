@@ -182,18 +182,18 @@ def check_scalar_builtin_access(client):
         "rules": [{"kind": "error_declaration", "error_label": "DivisionByZero"}],
     }
     operations = [declared_error, failure]
-    for package in ("stdlib.extra", "stdlib"):
+    for package in ("builtin.extra", "stdlib", "builtin"):
         workspace = create(client, package)
         request = apply_request(workspace["workspace_id"], workspace["revision"],
                                 "builtin-access", operations)
-        allowed = package == "stdlib"
+        allowed = package == "builtin"
         result = client.call("apply_change_set", request, succeeds=allowed)
         if allowed:
             assert "failure" in result["identities"], result
         else:
             assert result["code"] == "ValidationFailed", result
             assert result["message"] == (
-                "builtin__fail may only be used in package stdlib (found in package stdlib.extra)"
+                f"builtin__fail may only be used in package builtin (found in package {package})"
             ), result
             current = client.call("inspect_workspace", {"workspace_id": workspace["workspace_id"]})
             assert current["revision"] == workspace["revision"], current
