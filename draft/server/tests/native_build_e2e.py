@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import re
 import resource
+import runpy
 import shutil
 import signal
 import subprocess
@@ -19,6 +20,9 @@ DRAFT = Path(__file__).resolve().parents[2]
 EXAMPLES = DRAFT / "examples"
 NATIVE_EXPORT = re.compile(r"pub unsafe fn llmlang_syscall_(\w+)\s*\(")
 FILE_LIMIT = 4096
+CLI_CASES = (
+    DRAFT.parent / "research/language-design/PROTOTYPES/CLI-WORKLOADS-01/run.py"
+)
 
 
 def read_package(path):
@@ -47,6 +51,23 @@ def execute(artifact, *arguments, data=b"", errno=None, stdout=subprocess.PIPE, 
 def limit_file_size():
     signal.signal(signal.SIGXFSZ, signal.SIG_IGN)
     resource.setrlimit(resource.RLIMIT_FSIZE, (FILE_LIMIT, FILE_LIMIT))
+
+
+def check_calculator(artifact):
+    corpus = runpy.run_path(str(CLI_CASES))
+    cases = [case for case in corpus["CASES"] if case.program == "calculator"]
+    cases.extend([
+        corpus["calculation"]("calculator-buffer-boundary", b" " * 4094 + b"12 + 30\n", b"42\n"),
+        corpus["calculation"]("calculator-first-record", b"20 / 4\n1 / 0\n", b"5\n"),
+        corpus["calculation"]("calculator-split-expression", b"1 +\n2\n", stderr=b"invalid input\n"),
+    ])
+    for case in cases:
+        result = corpus["run_case"]([artifact], case)
+        assert (result.returncode, result.stdout, result.stderr) == (
+            0 if case.success else 1, case.stdout, case.stderr,
+        ), (case.identifier, result)
+    with open("/dev/full", "wb") as full:
+        assert execute(artifact, data=b"1 + 2\n", stdout=full) == (1, None)
 
 
 def check_executable(artifact, debug, freestanding):
@@ -122,11 +143,12 @@ def exercise(executable, directory):
         stdlib = DRAFT / "stdlib"
         dependency = EXAMPLES / "linux.syscalls"
         hello = EXAMPLES / "0001-hello-world"
+        calculator = EXAMPLES / "0003-calculator"
         syscall_hello = EXAMPLES / "0009-syscall-hello-world"
         original_dependencies = {path: read_package(path) for path in (stdlib, dependency)}
         programs = sorted(EXAMPLES.glob("000[4-8]-syscall-*"))
         assert len(programs) == 5
-        for package in [stdlib, dependency, hello, syscall_hello, *programs]:
+        for package in [stdlib, dependency, hello, calculator, syscall_hello, *programs]:
             before = read_package(package)
             assert json.loads(before["manifest.json"])["profile"] == "llmlang.spg.tables.v5"
             assert before["functions.dump"].startswith(b"LLSPG\x05\r\n")
@@ -231,6 +253,9 @@ def exercise(executable, directory):
                     assert execute(artifact, stdout=write_end) == (1, None)
                 finally:
                     os.close(write_end)
+            elif package == calculator:
+                assert linux_calls == {"read", "write"}
+                check_calculator(artifact)
             elif package.name == "0004-syscall-echo":
                 errno_impl = stdlib_symbols["stdlib.errno_message"].replace("llmlang_source_", "sha256:")
                 wrapper = next(link for link in main_object["outgoing"]

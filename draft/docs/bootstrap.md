@@ -62,7 +62,7 @@ python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llml
 ```
 
 The test client starts its own MCP server and builds and runs both Hello World
-examples and all five syscall programs. This workflow uses `rustc` on `PATH`
+examples, the calculator, and all five other syscall programs. This workflow uses `rustc` on `PATH`
 or from `RUSTC`. Stage 0, Boogie, and Z3 are needed for the scalar workflow
 below.
 
@@ -87,6 +87,7 @@ before calling tools. [Client configuration and handshake](server.md#build-and-c
 | --- | --- |
 | Hello World through the standard library | `draft/examples/0001-hello-world` |
 | Hello World through the Linux write interface | `draft/examples/0009-syscall-hello-world` |
+| [Integer Calculator](../examples/0003-calculator/README.md) | `draft/examples/0003-calculator` |
 | Syscall programs for echo, copy, pipe readiness, child exit, and TCP echo | `draft/examples/0004-syscall-echo` through `draft/examples/0008-syscall-tcp-echo` |
 
 The server builds from the SPG package tables. Native import and build return

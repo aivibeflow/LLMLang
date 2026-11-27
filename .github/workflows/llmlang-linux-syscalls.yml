@@ -9,6 +9,7 @@ on:
       - "draft/stdlib/**"
       - "draft/src/library/**"
       - "draft/src/server/**"
+      - "research/language-design/PROTOTYPES/CLI-WORKLOADS-01/run.py"
       - ".github/workflows/llmlang-linux-syscalls.yml"
   push:
     branches: [main]
@@ -19,6 +20,7 @@ on:
       - "draft/stdlib/**"
       - "draft/src/library/**"
       - "draft/src/server/**"
+      - "research/language-design/PROTOTYPES/CLI-WORKLOADS-01/run.py"
       - ".github/workflows/llmlang-linux-syscalls.yml"
   workflow_dispatch:
 
