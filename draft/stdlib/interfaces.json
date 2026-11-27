@@ -1,9 +1,0 @@
-[
-{"interfaceHash":"sha256:02fa652e6faf58f14f529cd89f1bb552c4629be740779be88492eb3564526095","name":"stdlib.trap","publicContractHash":"sha256:338d19cbd7f81215c4c21da6fc44c1851419cab46e6bcfc36dbf0e1281c51742"},
-{"interfaceHash":"sha256:42dc10de1b291a6626cbb1ea7ce91013d459421485421eff38deb4294a98f72e","name":"stdlib.errno_message","publicContractHash":"sha256:88d1b9cb2d80aa08dab8afd21861f468e7b12863e5b9e3a079660935dca848bb"},
-{"interfaceHash":"sha256:528899050228b4286084fd8f24804e6daa60a9f587d179e53479e0ec129ea055","name":"stdlib.cstring_from_bytes","publicContractHash":"sha256:506e836ec60a592f4d66dd6589dfaada56f6ce843e2333403096794aae6f43f0"},
-{"interfaceHash":"sha256:6c9077fcd3ca7974d6bfe21ed1d88acf63d8be13ce6daa590b0dc13faddb0c4f","name":"stdlib.write","publicContractHash":"sha256:b23c1ffd73841fde8cc3096b70b2715f90486a2cec16d8b57d7e58d098f70dea"},
-{"interfaceHash":"sha256:a238ff063fe9e70599df9c236bfe52ca0a2077f4d4c0c8dc11c6ad8a584bf75a","name":"stdlib.sockaddr_in_size","publicContractHash":"sha256:c7a7c01d6df092c01c24d379cbf973bac2d8d94f0d18d0dec0551b779e537007"},
-{"interfaceHash":"sha256:fd7df30f5a90f0551752db01c360aec2c6e0018e94906eb740de5709c9fcd7d1","name":"stdlib.syscall","publicContractHash":"sha256:e1c15d34fed155b872e18ed920d212114c780849440de88515774b14f1f36ae1"},
-{"interfaceHash":"sha256:ff0b9b152981d6ff33ae0bf45733b9d9533caddbffee28add260e6a88b6f991a","name":"stdlib.sockaddr_in_loopback","publicContractHash":"sha256:4a60108a1bfa6ab0abffb614995efc8d10b0bca76e6acc6492b864bb9a2ea9db"}
-]

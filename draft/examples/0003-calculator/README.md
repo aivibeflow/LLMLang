@@ -7,7 +7,7 @@ exports a parameterless `main() -> ExitStatus`.
 ## Build and run
 
 Start the [MCP server](../../docs/bootstrap.md#build-and-run-native-examples)
-on Linux x86-64. Use `import_package` to import `draft/builtin`, `draft/stdlib`,
+on Linux x86-64. Use `import_package` to import `draft/builtin`,
 `draft/examples/linux.syscalls`, and `draft/examples/0003-calculator` in
 that order. Call `build_package` with the calculator's returned
 `snapshot_id` and target `linux-x86_64`. Run the returned artifact.

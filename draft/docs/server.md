@@ -146,7 +146,7 @@ remain available until the server process exits.
 
 ### Build an existing native program
 
-1. Call `import_package` for [`draft/builtin`](../builtin/README.md), then for [`draft/stdlib`](../stdlib/README.md).
+1. Call `import_package` for [`draft/builtin`](../builtin/README.md).
 2. Call `import_package` with the absolute path to the checkout's [Linux syscall package](../examples/linux.syscalls/README.md) at `draft/examples/linux.syscalls`. This registers the dependency at version `v6.12`.
 3. Call `import_package` with the absolute path to `draft/examples/0004-syscall-echo`. Use its returned `snapshot_id` and `target: "linux-x86_64"` in `build_package`.
 4. Run the returned `artifact` and pass input on stdin. For example, `printf '%s\n' 'hello' | /path/to/artifact` prints the input unchanged. Building the dependency snapshot itself produces a Rust `rlib`.

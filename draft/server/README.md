@@ -115,15 +115,15 @@ call pins, including required implementations from dependencies. For native
 programs, the bound interface `<package>.main` selects an executable with
 `main() -> ExitStatus` or `main(args: LaunchArgs) -> ExitStatus`. Launch
 arguments retain their original Unix bytes. The native backend covers the
-built-in library, standard library, native syscall package, and native examples. Supported
+built-in library, native syscall package, and native examples. Supported
 interface-only packages produce a Rust `rlib`.
 
 Compiler built-ins use the `builtin__` prefix. The server returns
 `ValidationFailed` for a direct reference outside the [`builtin` package](../builtin/README.md).
 It checks every function body in the package and its dependencies, including
 unbound implementations. The rule also covers scalar `fail` statements,
-which are the canonical form of `builtin__fail`. The public `stdlib` interfaces
-forward to pinned `builtin` implementations.
+which are the canonical form of `builtin__fail`. Packages call the exported
+`builtin` interfaces through exact pins.
 
 The compiler writes its Rust translation unit in a temporary directory and
 removes the directory when compilation ends. Executables and libraries go
