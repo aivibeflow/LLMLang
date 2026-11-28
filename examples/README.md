@@ -6,6 +6,7 @@ This directory contains progressively harder, implementation-independent program
 - [0001 — Hello, World!](0001-hello-world.md)
 - [0002 — Echo](0002-echo.md)
 - [0003 — Integer calculator](0003-calculator.md)
+- [0010 — Balance transfer](0010-balance-transfer.md)
 
 ## Directory contract
 

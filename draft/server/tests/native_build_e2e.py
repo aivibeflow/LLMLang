@@ -72,6 +72,33 @@ def check_calculator(artifact):
         assert execute(artifact, data=b"1 + 2\n", stdout=full) == (1, None)
 
 
+def check_balance_transfer(artifact):
+    maximum = 2**64 - 1
+    cases = [
+        ((100, 50, 30), 0, "committed", (70, 80, 1)),
+        ((30, 50, 30), 0, "committed", (0, 80, 1)),
+        ((20, 50, 30), 1, "insufficient funds", (20, 50, 0)),
+        ((100, maximum, 1), 1, "balance overflow", (100, maximum, 0)),
+        ((0, maximum, 1), 1, "insufficient funds", (0, maximum, 0)),
+        ((maximum, 1, 1), 0, "committed", (maximum - 1, 2, 1)),
+        (("00100", 50, "030"), 0, "committed", (70, 80, 1)),
+    ]
+    for arguments, status, outcome, (source, destination, count) in cases:
+        expected = f"{outcome} {source} {destination} {count}\n".encode()
+        assert execute(artifact, *map(str, arguments)) == (status, expected), arguments
+        assert source + destination == int(arguments[0]) + int(arguments[1]), arguments
+
+    for arguments in (("100", "50", "0"), ("-1", "50", "1"),
+                      ("100", str(maximum + 1), "1"), ("100", "50"),
+                      ("100", "50", "30", "1"), ("", "50", "1")):
+        result = subprocess.run([artifact, *arguments], capture_output=True, timeout=10)
+        assert (result.returncode, result.stdout, result.stderr) == (
+            2, b"", b"invalid input\n",
+        ), arguments
+    with open("/dev/full", "wb") as full:
+        assert execute(artifact, "100", "50", "30", stdout=full) == (2, None)
+
+
 def check_executable(artifact, debug, freestanding):
     assert debug.is_file() and debug.parent == artifact.parent
     sections = subprocess.check_output(["readelf", "-SW", artifact], text=True)
@@ -175,12 +202,14 @@ def exercise(executable, directory):
         hello = EXAMPLES / "0001-hello-world"
         calculator = EXAMPLES / "0003-calculator"
         syscall_hello = EXAMPLES / "0009-syscall-hello-world"
+        balance_transfer = EXAMPLES / "0010-balance-transfer"
         original_dependencies = {path: read_package(path) for path in (builtin, dependency)}
         programs = sorted(EXAMPLES.glob("000[4-8]-syscall-*"))
         assert len(programs) == 5
         missing = client.call("import_package", {"path": str(dependency)}, succeeds=False)
         assert missing["code"] == "MissingDependency", missing
-        for package in [builtin, dependency, hello, calculator, syscall_hello, *programs]:
+        for package in [builtin, dependency, hello, calculator, syscall_hello,
+                        balance_transfer, *programs]:
             before = read_package(package)
             manifest = json.loads(before["manifest.json"])
             assert manifest["profile"] == "llmlang.spg.tables.v8"
@@ -301,6 +330,9 @@ def exercise(executable, directory):
             elif package == calculator:
                 assert linux_calls == {"read", "write"}
                 check_calculator(artifact)
+            elif package == balance_transfer:
+                assert callee_pins == {builtin_exports["builtin.write"]}
+                check_balance_transfer(artifact)
             elif package.name == "0004-syscall-echo":
                 errno_impl = builtin_exports["builtin.errno_message"]
                 wrapper = next(link for link in main_object["outgoing"]

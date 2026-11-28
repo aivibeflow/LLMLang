@@ -23,6 +23,10 @@ before the syscall variant.
 from standard input and reports its result or diagnostic. It uses the same
 import order as the syscall variant.
 
+[0010-balance-transfer](0010-balance-transfer/README.md) reconciles two
+candidate balances with a journal entry before publishing the transfer.
+Import `draft/builtin` before this package.
+
 [linux.syscalls](linux.syscalls/README.md) contains a native Linux x86-64
 package in the current SPG repository format.
 
@@ -49,6 +53,6 @@ compatibility obligation against the block and selected dependency bindings. The
 
 The [native MCP build test](../server/tests/native_build_e2e.py) imports and
 builds these packages on Linux x86-64, then runs both Hello World examples,
-the calculator and the five syscall programs. The scenarios check exit status, binary I/O, Linux error diagnostics,
+the calculator, the balance transfer, and the five syscall programs. The scenarios check exit status, binary I/O, Linux error diagnostics,
 and partial file contents after a write failure. Build artifacts are stored in
 server state.
