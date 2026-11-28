@@ -1,6 +1,6 @@
 //! Derive unchecked call compatibility obligations from resolved calls.
 
-use super::{hash, validation, Package, Result};
+use super::{hash, scalar_source, validation, Package, Result};
 use serde::Serialize;
 use serde_json::{json, Value};
 use std::collections::{BTreeMap, BTreeSet};
@@ -23,16 +23,17 @@ pub(super) struct ResolvedBinding {
 
 pub(super) type CallsByCaller = BTreeMap<String, BTreeSet<ResolvedCall>>;
 
-pub(super) fn from_ir(package: &Package) -> CallsByCaller {
+pub(super) fn from_ir(package: &Package) -> Result<CallsByCaller> {
     let mut result = BTreeMap::new();
     for (caller, row) in &package.tables["functions"] {
         let mut calls = BTreeSet::new();
-        collect_pins(&row["canonical_body"], &mut calls);
+        let body = scalar_source::body(package, row)?;
+        collect_pins(&body, &mut calls);
         if !calls.is_empty() {
             result.insert(caller.clone(), calls);
         }
     }
-    result
+    Ok(result)
 }
 
 fn collect_pins(value: &Value, calls: &mut BTreeSet<ResolvedCall>) {
@@ -86,6 +87,7 @@ pub(super) fn rows(package: &Package, calls: &CallsByCaller) -> Result<BTreeMap<
             }
             let mut context = json!({
                 "language_version": package.manifest.language_version,
+                "language_component_registry_digest": package.manifest.language_component_registry_digest,
                 "profile": profile,
                 "caller_provided_contract_hash": caller_provided,
                 "callee_provided_contract_hash": provided,

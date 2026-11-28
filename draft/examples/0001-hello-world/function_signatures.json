@@ -1,3 +1,3 @@
 [
-{"functionSignatureContent":"linux-x86_64-native-v1 () -> ExitStatus","functionSignatureHash":"sha256:6b03c8e0a1455d5b33c400bd7ab1b65823f154c4c383b679c9961a4c788570b5"}
+{"functionSignatureContent":"() -> ExitStatus","functionSignatureHash":"sha256:5bc65ae83b81dcf975487e87ca84f8a2069e7157f41777ef009a1dfca794d342"}
 ]

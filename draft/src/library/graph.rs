@@ -213,6 +213,13 @@ pub fn load_graph(
                 .ok_or_else(|| invalid(format!("missing loaded dependency {name} ({pin})")))
         })
         .collect::<Result<Vec<_>>>()?;
+    if dependencies.iter().any(|dependency| {
+        dependency.manifest.language_version != graph.manifest.language_version
+            || dependency.manifest.language_component_registry_digest
+                != graph.manifest.language_component_registry_digest
+    }) {
+        return Err(invalid("dependency language definition differs"));
+    }
     for table in TABLES {
         let mut entries: Vec<_> = read_index(path, table)?.into_iter().collect();
         entries.sort_unstable_by_key(|(_, offset)| *offset);
@@ -252,7 +259,7 @@ pub fn load_graph(
                 }
                 let (reader, size) = dump.as_mut().unwrap();
                 reader.seek(SeekFrom::Start(*offset))?;
-                let frame = read_frame(reader, *offset, *size, table)?;
+                let frame = read_frame(reader, &graph.manifest, *offset, *size, table)?;
                 let next = entries.get(position + 1).map_or(*size, |entry| entry.1);
                 if hex::encode(frame.hash) != *hash || frame.next != next {
                     return Err(invalid(format!(
@@ -389,37 +396,12 @@ impl Graph {
                     }
                 }
             }
-            if let Row::Function(function) = &object.row {
-                let signature = self
-                    .get("function_signatures", &[&function.function_signature_hash])
-                    .ok_or_else(|| {
-                        invalid(format!(
-                            "missing function signature {}",
-                            function.function_signature_hash
-                        ))
-                    })?;
-                let contract = self
-                    .get("contracts", &[&function.provided_contract_hash])
-                    .ok_or_else(|| invalid("missing function contract"))?;
-                if let (Row::SignatureRow(signature), Row::Contract(contract)) =
-                    (&signature.object().row, &contract.object().row)
-                {
-                    if super::resolve_function_signature(
-                        &signature.function_signature_hash,
-                        &signature.function_signature_content,
-                    )?
-                    .profile
-                        != contract.profile
-                    {
-                        return Err(invalid("function signature and contract profiles disagree"));
-                    }
-                }
-            }
             let mut outgoing = Vec::new();
             let mut references = object.row.references()?;
             let decoded_signature;
             if let Row::SignatureRow(row) = &object.row {
                 decoded_signature = super::resolve_function_signature(
+                    &self.manifest,
                     &row.function_signature_hash,
                     &row.function_signature_content,
                 )?;

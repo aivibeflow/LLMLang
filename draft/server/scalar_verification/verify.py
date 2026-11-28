@@ -1,6 +1,5 @@
 """Generate scalar LLMLang obligations and check them with Boogie and Z3."""
 
-import ast
 from dataclasses import asdict
 from hashlib import sha256
 from pathlib import Path
@@ -18,11 +17,8 @@ from .frontend import IDENTIFIER, _digest
 
 MIN_I64 = -(2**63)
 MAX_I64 = 2**63 - 1
-COMPARISONS = {
-    ast.Eq: "==", ast.NotEq: "!=", ast.Lt: "<", ast.LtE: "<=",
-    ast.Gt: ">", ast.GtE: ">=",
-}
-ARITHMETIC = {ast.Add: "+", ast.Sub: "-", ast.Mult: "*"}
+COMPARISONS = frozenset({"==", "!=", "<", "<=", ">", ">="})
+ARITHMETIC = frozenset({"+", "-", "*"})
 BPL_TYPES = {"i64": "int", "bool": "bool"}
 CALL_REQUIREMENT = "callee public precondition: "
 PROVIDER_REQUIREMENT = "provider strengthens public preconditions"
@@ -50,51 +46,42 @@ def bounded(value):
 
 
 def contract_expr(expr, names):
-    if isinstance(expr, ast.Constant):
-        if type(expr.value) is bool:
-            return str(expr.value).lower()
-        if type(expr.value) is int:
-            return str(expr.value)
-    if isinstance(expr, ast.Name) and expr.id in names:
-        return names[expr.id]
-    if isinstance(expr, ast.UnaryOp) and isinstance(expr.op, (ast.Not, ast.USub)):
-        operator = "!" if isinstance(expr.op, ast.Not) else "-"
-        return f"({operator}{contract_expr(expr.operand, names)})"
-    if isinstance(expr, ast.BoolOp) and isinstance(expr.op, (ast.And, ast.Or)):
-        operator = " && " if isinstance(expr.op, ast.And) else " || "
-        return "(" + operator.join(contract_expr(item, names) for item in expr.values) + ")"
-    if isinstance(expr, ast.BinOp) and type(expr.op) in ARITHMETIC:
-        left, right = (contract_expr(item, names) for item in (expr.left, expr.right))
-        return f"({left} {ARITHMETIC[type(expr.op)]} {right})"
-    if isinstance(expr, ast.Compare) and all(type(op) in COMPARISONS for op in expr.ops):
-        values = [contract_expr(item, names) for item in (expr.left, *expr.comparators)]
-        return conjunction([
-            f"({left} {COMPARISONS[type(op)]} {right})"
-            for left, op, right in zip(values, expr.ops, values[1:])
-        ])
-    if (isinstance(expr, ast.Call) and isinstance(expr.func, ast.Name)
-            and expr.func.id == "quotient" and len(expr.args) == 2 and not expr.keywords):
-        args = ", ".join(contract_expr(arg, names) for arg in expr.args)
-        return f"quotient({args})"
-    raise Unsupported(f"unsupported contract expression {ast.dump(expr)}")
+    op = expr["op"]
+    if op == "literal":
+        value = expr["value"]
+        return str(value).lower() if expr["type"] == "Bool" else value
+    if op == "variable":
+        return names[expr["name"]]
+    args = [contract_expr(arg, names) for arg in expr["args"]]
+    if op in {"not", "negate"}:
+        operator = "!" if op == "not" else "-"
+        return f"({operator}{args[0]})"
+    if op in {"and", "or"}:
+        operator = " && " if op == "and" else " || "
+        return "(" + operator.join(args) + ")"
+    if op in ARITHMETIC or op in COMPARISONS:
+        return f"({args[0]} {op} {args[1]})"
+    if op == "quotient":
+        return f"quotient({', '.join(args)})"
+    raise Unsupported(f"unsupported Contract IR operator {op!r}")
 
 
 def condition(clauses, names):
     return conjunction([contract_expr(expr, names) for expr in clauses])
 
 
-def precondition(contract, args):
-    names = dict(zip((name for name, _ in contract.parameters), args, strict=True))
-    return condition(contract.requires, names)
+def precondition(ir, args):
+    names = dict(zip((param["name"] for param in ir["parameters"]), args, strict=True))
+    return condition(ir["requires"], names)
 
 
-def outcome(contract, args, errors):
-    names = dict(zip((name for name, _ in contract.parameters), args, strict=True))
-    success = condition(contract.ensures, dict(names, result="result_value"))
+def outcome(ir, args, errors):
+    names = dict(zip((param["name"] for param in ir["parameters"]), args, strict=True))
+    success = condition(ir["ensures"], dict(names, result="result_value"))
     alternatives = [f"(result_error == 0 && {success})"]
     alternatives.extend(
-        f"(result_error == {errors[name]} && {condition(eq, names)})"
-        for name, eq in contract.errors.items()
+        f"(result_error == {errors[name]} && {condition(guards, names)})"
+        for name, guards in ir["errors"].items()
     )
     return "(" + " || ".join(alternatives) + ")"
 
@@ -185,12 +172,12 @@ class Procedure:
             operator, lhs, rhs = parts
             left, _ = self.emit_expr(lhs, names, statements)
             right, _ = self.emit_expr(rhs, names, statements)
-            if operator in COMPARISONS.values():
+            if operator in COMPARISONS:
                 return f"({left} {operator} {right})", "bool"
             if operator == "/":
                 self.fail_if(f"{right} == 0", "DivisionByZero", statements)
                 term = f"quotient({left}, {right})"
-            elif operator in ARITHMETIC.values():
+            elif operator in ARITHMETIC:
                 term = f"({left} {operator} {right})"
             else:
                 raise Unsupported(f"unsupported operator {operator}")
@@ -253,6 +240,10 @@ def build_obligations(program, contracts):
     if any(not IDENTIFIER.fullmatch(name) for name in functions):
         raise Unsupported("invalid SPG function name")
     check_call_graph(functions)
+    checked_ir = {
+        name: {role: contract.to_ir() for role, contract in pair.items()}
+        for name, pair in contracts.items()
+    }
     names = {name: f"body_{index}" for index, name in enumerate(sorted(functions))}
     errors = error_codes(functions, contracts)
     declarations = [SUPPORT]
@@ -280,13 +271,14 @@ def build_obligations(program, contracts):
             param: (symbol, typ)
             for symbol, (param, typ) in zip(arguments, parameters, strict=True)
         }
-        pre_public = precondition(public, arguments)
-        pre_provided = precondition(provided, arguments)
-        post_public = outcome(public, arguments, errors)
-        post_provided = outcome(provided, arguments, errors)
+        public_ir, provided_ir = (checked_ir[name][role] for role in ("public", "provided"))
+        pre_public = precondition(public_ir, arguments)
+        pre_provided = precondition(provided_ir, arguments)
+        post_public = outcome(public_ir, arguments, errors)
+        post_provided = outcome(provided_ir, arguments, errors)
         return_type = BPL_TYPES[fn["result"]]
         result_range = bounded("result_value") if return_type == "int" else "true"
-        proc = Procedure(functions, contracts, names, errors)
+        proc = Procedure(functions, checked_ir, names, errors)
         default = "0" if return_type == "int" else "false"
         statements = [f"result_value := {default};", "result_error := 0;"]
         proc.emit_block(fn["body"], names_in_body, statements)

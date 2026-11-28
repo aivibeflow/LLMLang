@@ -3,7 +3,9 @@
 mod changes;
 mod native;
 mod obligations;
+mod scalar_source;
 mod upgrade;
+mod verification_report;
 
 use changes::Selection;
 use fs2::FileExt;
@@ -19,7 +21,7 @@ use std::os::unix::fs::{DirBuilderExt, MetadataExt, PermissionsExt};
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
-const VERSIONS: &[&str] = &["0.1.0"];
+const VERSIONS: &[&str] = &[llmlang_spg::LANGUAGE_VERSION];
 const BUILTIN: &str = "builtin";
 type Result<T> = std::result::Result<T, ServerError>;
 
@@ -27,6 +29,7 @@ type Result<T> = std::result::Result<T, ServerError>;
 pub struct ServerError {
     pub code: &'static str,
     pub message: String,
+    pub verification: Option<Box<Value>>,
 }
 
 impl ServerError {
@@ -34,7 +37,13 @@ impl ServerError {
         Self {
             code,
             message: message.into(),
+            verification: None,
         }
+    }
+
+    fn with_verification(mut self, verification: Value) -> Self {
+        self.verification = Some(Box::new(verification));
+        self
     }
 }
 
@@ -152,21 +161,33 @@ pub struct Server {
 }
 
 impl Server {
-    /// Convert a private, disposable copy after the v6 server has released it.
-    pub fn migrate_v6_copy(state_dir: &Path, python: &str, backend: &Path) -> Result<Value> {
+    /// Convert a private, disposable copy after the old server has released it.
+    pub fn migrate_copy(
+        state_dir: &Path,
+        python: &str,
+        backend: &Path,
+        format: u8,
+    ) -> Result<Value> {
         if !state_dir.is_dir()
             || state_dir.join("pending.json").try_exists()?
             || state_dir.join("pending-package").try_exists()?
         {
             return Err(conflict(
-                "v6 state must be an offline copy with no pending commit",
+                "state must be an offline copy with no pending commit",
             ));
         }
-        let mut server = Self::open(state_dir, python, backend)?;
-        upgrade::migrate(&mut server)
+        let mut server = Self::open_state(state_dir, python, backend)?;
+        upgrade::migrate(&mut server, format)
     }
 
     pub fn open(state_dir: &Path, python: &str, backend: &Path) -> Result<Self> {
+        let mut server = Self::open_state(state_dir, python, backend)?;
+        check_state_language(&server.state)?;
+        server.recover()?;
+        Ok(server)
+    }
+
+    fn open_state(state_dir: &Path, python: &str, backend: &Path) -> Result<Self> {
         fs::DirBuilder::new()
             .recursive(true)
             .mode(0o700)
@@ -198,7 +219,6 @@ impl Server {
         };
         server.state.retain_native();
         check_state_layout(&server.state)?;
-        server.recover()?;
         Ok(server)
     }
 
@@ -213,11 +233,13 @@ impl Server {
                 if !VERSIONS.contains(&args.language_version.as_str()) || args.profile != "scalar" {
                     return Err(ServerError::new(
                         "UnsupportedProfile",
-                        "expected scalar LLMLang 0.1.0",
+                        format!("expected scalar LLMLang {}", llmlang_spg::LANGUAGE_VERSION),
                     ));
                 }
                 let package = Package::empty(Manifest {
                     language_version: args.language_version,
+                    language_component_registry_digest:
+                        llmlang_spg::language_component_registry_digest(),
                     dependencies: BTreeMap::new(),
                 });
                 let program = Program {
@@ -245,10 +267,7 @@ impl Server {
             "apply_change_set" => self.apply(serde_json::from_value(args)?),
             "verify_workspace" => {
                 let args: RevisionInput = serde_json::from_value(args)?;
-                let workspace = self.checked_workspace(&args)?;
-                let package = self.validate(&workspace.program)?;
-                let report = self.backend("verify", &workspace.program, &package)?;
-                let result = json!({"workspace_id": args.workspace_id, "revision": args.expected_revision, "report": report});
+                let result = self.verify_revision(&args)?;
                 let mut next = self.state.clone();
                 next.workspaces
                     .get_mut(&args.workspace_id)
@@ -334,6 +353,7 @@ impl Server {
             };
         }
         let mut workspace = self.checked_workspace(&revision)?.clone();
+        let native_profile = native::is_native(&workspace.program.tables);
         let mut package = workspace.program.package();
         let changes = changes::apply(
             &mut package,
@@ -342,15 +362,7 @@ impl Server {
         )?;
         workspace.program.manifest = package.manifest;
         workspace.program.tables = package.tables;
-        let combined = self.combined_package(&workspace.program)?;
-        let expected = obligations::rows(
-            &combined,
-            &obligations::from_ir(&workspace.program.package()),
-        )?;
-        let mut candidate = workspace.program.package();
-        obligations::replace(&mut candidate, expected);
-        workspace.program.tables = candidate.tables;
-        self.validate(&workspace.program)?;
+        self.validate_edit(&mut workspace.program, native_profile)?;
         workspace.revision = workspace
             .revision
             .checked_add(1)
@@ -371,6 +383,31 @@ impl Server {
         next.workspaces.insert(id.clone(), workspace);
         self.store(next)?;
         Ok(result)
+    }
+
+    fn validate_edit(&self, program: &mut Program, native_profile: bool) -> Result<()> {
+        let combined = self.combined_package(program)?;
+        let mut candidate = program.package();
+        let rows = if native_profile {
+            if !native::is_native(&program.tables) {
+                return Err(ServerError::new(
+                    "UnsupportedProfile",
+                    "a native Change Set must retain the native profile",
+                ));
+            }
+            self.validate_native(program, &combined)?;
+            self.native_call_rows(program, &combined, |_| true)?
+        } else {
+            obligations::rows(&combined, &obligations::from_ir(&candidate)?)?
+        };
+        obligations::replace(&mut candidate, rows);
+        program.tables = candidate.tables;
+        if native_profile {
+            self.check_graph(&self.combined_package(program)?)?;
+        } else {
+            self.validate(program)?;
+        }
+        Ok(())
     }
 
     fn dependency<'a>(&'a self, name: &str, pin: &str) -> Result<(&'a String, &'a Program)> {
@@ -401,7 +438,10 @@ impl Server {
             if dependencies.contains_key(id) {
                 continue;
             }
-            if dependency.manifest.language_version != program.manifest.language_version {
+            if dependency.manifest.language_version != program.manifest.language_version
+                || dependency.manifest.language_component_registry_digest
+                    != program.manifest.language_component_registry_digest
+            {
                 return Err(ServerError::new(
                     "UnsupportedProfile",
                     "dependency language version differs",
@@ -451,13 +491,18 @@ impl Server {
         let package = self.combined_package(program)?;
         changes::check_identities(&program.package(), &program.selection, &package)?;
         self.check_graph(&package)?;
+        Self::check_entry_point(program)?;
+        self.backend("validate", program, &package)?;
+        Ok(package)
+    }
+
+    fn check_entry_point(program: &Program) -> Result<()> {
         if let Some(entry) = &program.selection.entry_point {
             if !program.tables["functions"].contains_key(entry) {
                 return Err(validation("entry point must select a local implementation"));
             }
         }
-        self.backend("validate", program, &package)?;
-        Ok(package)
+        Ok(())
     }
 
     fn check_graph(&self, package: &Package) -> Result<()> {
@@ -567,6 +612,7 @@ impl Server {
 
     fn validate_native(&self, program: &Program, package: &Package) -> Result<()> {
         self.check_graph(package)?;
+        Self::check_entry_point(program)?;
         let local = program.package();
         for (version, row) in &local.tables["versions"] {
             if row["binding_hash"] != changes::binding_identity(&local, version)? {
@@ -628,7 +674,6 @@ impl Server {
     }
 
     fn validate_native_sources(&self, program: &Program, package: &Package) -> Result<()> {
-        let catalogs = self.native_catalogs(program)?;
         let actual: BTreeMap<_, _> = program.tables["verification_obligations"]
             .iter()
             .filter(|(_, row)| row["kind"] == "call_compatibility")
@@ -638,6 +683,21 @@ impl Server {
             .values()
             .filter_map(|row| row["caller_impl_hash"].as_str())
             .collect();
+        if self.native_call_rows(program, package, |caller| callers.contains(caller))? != actual {
+            return Err(validation(
+                "native call obligations disagree with the resolved source",
+            ));
+        }
+        Ok(())
+    }
+
+    fn native_call_rows(
+        &self,
+        program: &Program,
+        package: &Package,
+        resolve: impl Fn(&str) -> bool,
+    ) -> Result<BTreeMap<String, Value>> {
+        let catalogs = self.native_catalogs(program)?;
         let mut calls = obligations::CallsByCaller::new();
         for (implementation, row) in &program.tables["functions"] {
             if native::implementation_identity(
@@ -649,7 +709,7 @@ impl Server {
             {
                 return Err(validation("native source or interface identity mismatch"));
             }
-            if callers.contains(implementation.as_str()) {
+            if resolve(implementation) {
                 calls.insert(
                     implementation.clone(),
                     native::resolved_calls(
@@ -662,12 +722,7 @@ impl Server {
                 );
             }
         }
-        if obligations::rows(package, &calls)? != actual {
-            return Err(validation(
-                "native call obligations disagree with the resolved source",
-            ));
-        }
-        Ok(())
+        obligations::rows(package, &calls)
     }
 
     fn backend(&self, action: &str, program: &Program, package: &Package) -> Result<Value> {
@@ -679,7 +734,23 @@ impl Server {
         // remain normalized and the view is local to this backend request.
         let mut tables = package.tables.clone();
         for row in tables.get_mut("functions").unwrap().values_mut() {
+            let body = scalar_source::body(package, row)?;
+            if let std::borrow::Cow::Owned(body) = body {
+                row["canonical_body"] = body;
+            }
             row["typed_signature"] = package.function_signature(row).map_err(validation)?.typed;
+        }
+        for row in tables.get_mut("contracts").unwrap().values_mut() {
+            if row["profile"] != scalar_source::PROFILE {
+                continue;
+            }
+            let text = row["typed_signature"]
+                .as_str()
+                .ok_or_else(|| validation("missing scalar contract signature text"))?;
+            let signature = llmlang_spg::parse_function_signature(&program.manifest, text)
+                .and_then(llmlang_spg::FunctionSignature::into_scalar)
+                .map_err(validation)?;
+            row["typed_signature"] = signature.typed;
         }
         let request = json!({
             "action": action,
@@ -722,15 +793,28 @@ impl Server {
         Ok(reply)
     }
 
+    fn verify_revision(&self, args: &RevisionInput) -> Result<Value> {
+        let program = &self.checked_workspace(args)?.program;
+        if native::is_native(&program.tables) {
+            return Err(ServerError::new(
+                "UnsupportedProfile",
+                "contract verification is unavailable for native workspaces",
+            ));
+        }
+        let package = self.validate(program)?;
+        let report = self.backend("verify", program, &package)?;
+        let failures = verification_report::failures(&package, &report["report"])?;
+        Ok(json!({
+            "workspace_id": args.workspace_id,
+            "revision": args.expected_revision,
+            "report": report,
+            "failures": failures,
+        }))
+    }
+
     fn commit(&mut self, args: RevisionInput) -> Result<Value> {
         let workspace = self.checked_workspace(&args)?.clone();
         let program = &workspace.program;
-        if !native::is_native(&program.tables) {
-            return Err(ServerError::new(
-                "UnsupportedProfile",
-                "scalar workspaces support verification only and cannot be committed",
-            ));
-        }
         let version = program
             .selection
             .version
@@ -742,16 +826,25 @@ impl Server {
         }
         let id = snapshot_id(program)?;
         self.check_version(program, &id)?;
-        let package = self.validate(program)?;
-        let report = self.backend("verify", program, &package)?;
-        if report["ok"] != true {
+        let verification = self.verify_revision(&args)?;
+        let report = &verification["report"];
+        if report["ok"] != true || report["report"]["status"] != "VERIFIED" {
             return Err(ServerError::new(
                 "VerificationFailed",
                 report["message"]
                     .as_str()
                     .unwrap_or("required verification failed"),
-            ));
+            )
+            .with_verification(verification));
         }
+        if !native::is_native(&program.tables) {
+            return Err(ServerError::new(
+                "UnsupportedProfile",
+                "verified scalar workspaces cannot be published",
+            )
+            .with_verification(verification));
+        }
+        self.checked_workspace(&args)?;
         let path = self.package_path(program)?;
         if path.exists() {
             return Err(conflict("package destination already exists"));
@@ -778,7 +871,7 @@ impl Server {
         let mut next = self.state.clone();
         let revised = next.workspaces.get_mut(&args.workspace_id).unwrap();
         revised.committed = Some(id.clone());
-        revised.reports.insert(args.expected_revision, json!({"workspace_id": args.workspace_id, "revision": args.expected_revision, "report": report}));
+        revised.reports.insert(args.expected_revision, verification);
         next.snapshots.insert(id.clone(), program.clone());
         let pending = PendingCommit {
             state: next.persisted(),
@@ -931,6 +1024,7 @@ impl Server {
     fn recover(&mut self) -> Result<()> {
         if let Some(pending) = read_optional::<PendingCommit>(&self.root.join("pending.json"))? {
             check_state_layout(&pending.state)?;
+            check_state_language(&pending.state)?;
             let program = pending
                 .state
                 .snapshots
@@ -1042,7 +1136,7 @@ impl Server {
         };
         let mut outgoing = node.outgoing().map(link).collect::<Vec<_>>();
         let mut incoming = node.incoming().map(link).collect::<Vec<_>>();
-        if matches!(table, "functions" | "contracts") && native::is_native(&program.tables) {
+        if matches!(table, "functions" | "contracts") {
             for row in package.tables["verification_obligations"]
                 .values()
                 .filter(|row| row["kind"] == "call_compatibility")
@@ -1051,8 +1145,14 @@ impl Server {
                 let callee = row["callee_impl_hash"].as_str().unwrap();
                 let contract = row["caller_required_contract_hash"].as_str().unwrap();
                 if table == "functions" && caller == key {
-                    outgoing.push(link_to("Callee", "functions", callee));
-                    outgoing.push(link_to("RequiredContract", "contracts", contract));
+                    for edge in [
+                        link_to("Callee", "functions", callee),
+                        link_to("RequiredContract", "contracts", contract),
+                    ] {
+                        if !outgoing.contains(&edge) {
+                            outgoing.push(edge);
+                        }
+                    }
                 }
                 if (table == "functions" && callee == key)
                     || (table == "contracts" && contract == key)
@@ -1062,7 +1162,10 @@ impl Server {
                     } else {
                         "RequiredContract"
                     };
-                    incoming.push(link_to(relation, "functions", caller));
+                    let edge = link_to(relation, "functions", caller);
+                    if !incoming.contains(&edge) {
+                        incoming.push(edge);
+                    }
                 }
             }
         }
@@ -1105,6 +1208,30 @@ fn scalar_uses_fail(node: &Value) -> bool {
         Value::Object(fields) => fields.values().any(scalar_uses_fail),
         _ => false,
     }
+}
+
+fn check_state_language(state: &State) -> Result<()> {
+    let registry = llmlang_spg::language_component_registry_digest();
+    if state
+        .snapshots
+        .values()
+        .chain(
+            state
+                .workspaces
+                .values()
+                .map(|workspace| &workspace.program),
+        )
+        .any(|program| {
+            program.manifest.language_version != llmlang_spg::LANGUAGE_VERSION
+                || program.manifest.language_component_registry_digest != registry
+        })
+    {
+        return Err(ServerError::new(
+            "UnsupportedProfile",
+            "server state requires migration to the composite language version",
+        ));
+    }
+    Ok(())
 }
 
 fn check_state_layout(state: &State) -> Result<()> {

@@ -14,7 +14,7 @@ import tempfile
 
 import json
 
-from mcp_e2e import read_object, server
+from mcp_e2e import apply_request, read_object, scope, server
 
 DRAFT = Path(__file__).resolve().parents[2]
 EXAMPLES = DRAFT / "examples"
@@ -119,6 +119,34 @@ def check_builtin(artifact, exports, directory):
     assert output.read_bytes() == "Привет!\n".encode()
 
 
+def check_native_edits(client, snapshot, main, before, callee):
+    workspace = client.call("open_workspace", {"snapshot_id": snapshot})
+    workspace_id = workspace["workspace_id"]
+    uri = f"llmlang://workspace/{workspace_id}/object/functions/{main['implHash']}"
+    original = read_object(client, uri)
+    dependency, pin = next(iter(json.loads(before["manifest.json"])["dependencies"].items()))
+    old_version = json.loads(before["package.json"])["selection"]["version"]
+    set_version = {"op": "set_version", "version": "0.2.0", "expected_version": old_version}
+    unpin = {"op": "unpin_dependency", "name": dependency, "expected_snapshot_id": pin}
+    request = apply_request(workspace_id, 0, "native-edit", [set_version, unpin])
+    rejected = client.call("apply_change_set", request, succeeds=False)
+    assert "no interface" in rejected["message"], rejected
+    assert client.call("inspect_workspace", {"workspace_id": workspace_id}) == workspace
+    assert read_object(client, uri) == original
+
+    revised = client.call("apply_change_set", {**request, "operations": [set_version]})
+    assert revised["revision"] == 1 and revised["version"] == "0.2.0", revised
+    assert {link["uri"].rsplit("/", 1)[-1].replace("%3A", ":")
+            for link in read_object(client, uri)["outgoing"]
+            if link["relation"] == "Callee"} == {callee}
+    assert read_object(
+        client, f"llmlang://snapshot/{snapshot}/object/functions/{main['implHash']}",
+    )["row"] == original["row"]
+    rejected = client.call("commit_workspace", scope(revised), succeeds=False)
+    assert rejected["code"] == "UnsupportedProfile" and "contract verification" in rejected["message"]
+    assert client.call("inspect_workspace", {"workspace_id": workspace_id})["state"] == "open"
+
+
 def exercise(executable, directory):
     compiler = Path(directory, "rustc")
     capture = Path(directory, "captured.rs")
@@ -154,8 +182,13 @@ def exercise(executable, directory):
         assert missing["code"] == "MissingDependency", missing
         for package in [builtin, dependency, hello, calculator, syscall_hello, *programs]:
             before = read_package(package)
-            assert json.loads(before["manifest.json"])["profile"] == "llmlang.spg.tables.v7"
-            assert before["functions.dump"].startswith(b"LLSPG\x07\r\n")
+            manifest = json.loads(before["manifest.json"])
+            assert manifest["profile"] == "llmlang.spg.tables.v8"
+            assert manifest["language_version"] == "0.1.0.0.0"
+            assert re.fullmatch(r"sha256:[0-9a-f]{64}", manifest["language_component_registry_digest"])
+            assert before["functions.dump"].startswith(b"LLSPG\x08\r\n")
+            assert all(row["functionSignatureContent"].startswith("(")
+                       for row in json.loads(before["function_signatures.json"]))
             imported = client.call("import_package", {"path": str(package)})
             assert imported["verification_status"] == "unchecked"
             build = client.call("build_package", {
@@ -250,6 +283,8 @@ def exercise(executable, directory):
             payload = bytes(range(256)) * 83 + b"\x00\xff"
             if package == hello:
                 assert callee_pins == {builtin_exports["builtin.write"]}
+                check_native_edits(client, imported["snapshot_id"], main, before,
+                                   builtin_exports["builtin.write"])
             elif package == syscall_hello:
                 assert callee_pins == {linux_exports["linux.syscalls.write"]}
             if package in (hello, syscall_hello):

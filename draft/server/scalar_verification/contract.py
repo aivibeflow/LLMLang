@@ -18,6 +18,7 @@ import re
 
 
 PROFILE = "scalar-v1"
+IR_SCHEMA = "llmlang-contract-ir/scalar-v1"
 VALUE_TYPES = frozenset({"Bool", "I64"})
 IDENTIFIER = re.compile(r"[A-Za-z_][A-Za-z0-9_]*", re.ASCII)
 
@@ -243,6 +244,33 @@ def _clause_sources(raw: object, symbols: dict[str, str], context: str) -> tuple
     return tuple(result)
 
 
+def _ir_term(node: ast.expr, symbols: dict[str, str]) -> dict:
+    """Encode a checked, normalized expression in the versioned Contract IR."""
+    match node:
+        case ast.Constant(value=value) if type(value) is bool:
+            return {"op": "literal", "type": "Bool", "value": value}
+        case ast.Constant(value=value):
+            return {"op": "literal", "type": "Int", "value": str(value)}
+        case ast.Name(id=name):
+            kind = "Int" if symbols[name] == "I64" else "Bool"
+            return {"op": "variable", "type": kind, "name": name}
+        case ast.UnaryOp(op=ast.Not(), operand=operand):
+            op, kind, operands = "not", "Bool", (operand,)
+        case ast.UnaryOp(op=ast.USub(), operand=operand):
+            op, kind, operands = "negate", "Int", (operand,)
+        case ast.BinOp(left=left, op=operator, right=right):
+            op, kind, operands = BINARY_PHRASES[type(operator)][2], "Int", (left, right)
+        case ast.BoolOp(op=operator, values=values):
+            op, kind, operands = BINARY_PHRASES[type(operator)][2], "Bool", values
+        case ast.Compare(left=left, ops=[operator], comparators=[right]):
+            op, kind, operands = BINARY_PHRASES[type(operator)][2], "Bool", (left, right)
+        case ast.Call(func=ast.Name(id="quotient"), args=[left, right], keywords=[]):
+            op, kind, operands = "quotient", "Int", (left, right)
+        case _:
+            raise ContractError("unsupported normalized contract term")
+    return {"op": op, "type": kind, "args": [_ir_term(item, symbols) for item in operands]}
+
+
 @dataclass(frozen=True)
 class Contract:
     """Checked immutable scalar clauses. AST properties return fresh trees."""
@@ -264,6 +292,20 @@ class Contract:
     @property
     def errors(self) -> dict[str, tuple[ast.expr, ...]]:
         return {name: tuple(map(_expression, clauses)) for name, clauses in self._errors}
+
+    def to_ir(self) -> dict:
+        """Return the typed input to proof lowering and its agent-facing report."""
+        symbols = dict(self.parameters)
+        result_symbols = dict(symbols, result=self.returns)
+        return {
+            "schema": IR_SCHEMA,
+            "parameters": [{"name": name, "type": kind} for name, kind in self.parameters],
+            "returns": self.returns,
+            "requires": [_ir_term(expr, symbols) for expr in self.requires],
+            "ensures": [_ir_term(expr, result_symbols) for expr in self.ensures],
+            "errors": {name: [_ir_term(expr, symbols) for expr in guards]
+                       for name, guards in self.errors.items()},
+        }
 
 
 def parse_contract(data: object) -> Contract:

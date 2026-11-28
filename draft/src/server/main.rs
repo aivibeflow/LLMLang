@@ -9,13 +9,13 @@ use std::process::ExitCode;
 
 const PROTOCOL_VERSION: &str = "2025-11-25";
 const SUPPORTED_VERSIONS: &[&str] = &[PROTOCOL_VERSION, "2025-06-18"];
-const USAGE: &str = "Usage: llmlang-server --state-dir PATH [--python PROGRAM] [--backend PATH] [--migrate-v6-copy]";
+const USAGE: &str = "Usage: llmlang-server --state-dir PATH [--python PROGRAM] [--backend PATH] [--migrate-v6-copy | --migrate-v7-copy]";
 
 struct Options {
     state_dir: PathBuf,
     python: String,
     backend: PathBuf,
-    migrate_v6_copy: bool,
+    migrate_from: Option<u8>,
 }
 
 impl Options {
@@ -23,7 +23,7 @@ impl Options {
         let mut state_dir = None;
         let mut python = None;
         let mut backend = None;
-        let mut migrate_v6_copy = false;
+        let mut migrate_from = None;
         let mut args = env::args_os().skip(1);
         while let Some(flag) = args.next() {
             match flag.to_str() {
@@ -42,7 +42,8 @@ impl Options {
                 Some("--backend") if backend.is_none() => {
                     backend = Some(PathBuf::from(args.next().ok_or("missing backend path")?));
                 }
-                Some("--migrate-v6-copy") if !migrate_v6_copy => migrate_v6_copy = true,
+                Some("--migrate-v6-copy") if migrate_from.is_none() => migrate_from = Some(6),
+                Some("--migrate-v7-copy") if migrate_from.is_none() => migrate_from = Some(7),
                 _ => return Err(format!("unexpected argument {}", flag.to_string_lossy())),
             }
         }
@@ -51,7 +52,7 @@ impl Options {
             python: python.unwrap_or_else(|| "python3".into()),
             backend: backend
                 .unwrap_or_else(|| PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("scalar.py")),
-            migrate_v6_copy,
+            migrate_from,
         }))
     }
 }
@@ -229,7 +230,11 @@ fn required_string<'a>(params: &'a Map<String, Value>, key: &str) -> Result<&'a 
 }
 
 fn domain_error(error: &ServerError) -> Value {
-    json!({"code": error.code, "message": error.message})
+    let mut result = json!({"code": error.code, "message": error.message});
+    if let Some(verification) = &error.verification {
+        result["verification"] = json!(verification);
+    }
+    result
 }
 
 fn tool_result(result: Result<Value, ServerError>) -> Value {
@@ -339,22 +344,6 @@ fn body_schema() -> Value {
 }
 
 fn operation_schema() -> Value {
-    let signature = || {
-        record(
-            &[
-                (
-                    "params",
-                    json!({"type": "array", "items": {
-                        "type": "array", "minItems": 2, "maxItems": 2,
-                        "prefixItems": [string(), {"enum": ["i64", "bool"]}]
-                    }}),
-                ),
-                ("result", json!({"enum": ["i64", "bool"]})),
-            ],
-            &[],
-            false,
-        )
-    };
     let kind = json!({"enum": ["requires", "ensures", "error_declaration", "error_guard"]});
     let rule = record(
         &[
@@ -383,11 +372,11 @@ fn operation_schema() -> Value {
         ], &[]),
         operation("unpin_dependency", &[("name", string()), ("expected_snapshot_id", string())], &[]),
         put("put_contract", &[
-            ("typed_signature", signature()), ("rules", json!({"type": "array", "items": rule})),
+            ("signature", string()), ("rules", json!({"type": "array", "items": rule})),
             ("user_request_texts", json!({"type": "array", "items": {"type": "string"}})),
         ], &["user_request_texts"]),
         put("put_function", &[
-            ("typed_signature", signature()), ("canonical_body", json!({"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/statement"}})),
+            ("signature", string()), ("canonical_body", json!({"oneOf": [string(), {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/statement"}}]})),
             ("provided_contract", object_ref()),
         ], &[]),
         put("put_interface", &[("name", string()), ("public_contract", object_ref())], &[]),
@@ -530,6 +519,22 @@ fn tools() -> Vec<Value> {
                     ("workspace_id", string()),
                     ("revision", revision()),
                     ("report", object()),
+                    (
+                        "failures",
+                        json!({"type": "array", "items": {
+                            "type": "object",
+                            "required": ["kind", "contract_role", "function", "contract", "evidence"],
+                            "properties": {
+                                "kind": {"enum": ["body-postcondition", "provider-precondition",
+                                    "provider-guarantee", "callee-precondition", "empty-domain"]},
+                                "contract_role": {"enum": ["provided", "public_or_required", "required"]},
+                                "function": {"type": "object"}, "contract": {"type": "object"},
+                                "evidence": {"type": "object"}, "comparison_contract": {"type": "object"},
+                                "callee": {"type": "object"}
+                            },
+                            "additionalProperties": false
+                        }}),
+                    ),
                 ],
                 &[],
                 true,
@@ -581,9 +586,14 @@ fn resource_templates() -> Value {
 }
 
 fn run(options: Options) -> Result<(), String> {
-    if options.migrate_v6_copy {
-        let result = Server::migrate_v6_copy(&options.state_dir, &options.python, &options.backend)
-            .map_err(|error| error.to_string())?;
+    if let Some(format) = options.migrate_from {
+        let result = Server::migrate_copy(
+            &options.state_dir,
+            &options.python,
+            &options.backend,
+            format,
+        )
+        .map_err(|error| error.to_string())?;
         println!("{result}");
         return Ok(());
     }

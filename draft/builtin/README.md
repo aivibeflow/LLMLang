@@ -19,4 +19,4 @@ Their signatures are in [`function_signatures.json`](function_signatures.json).
 
 The raw `builtin.syscall` binding specifies `arch: "x86_64", os: "linux"`. The other
 interfaces have portable bindings. Import this package before its consumers.
-Use a fresh server state directory when switching to repository profile v7.
+Use the MCP supervisor to migrate an existing server state to repository profile v8.

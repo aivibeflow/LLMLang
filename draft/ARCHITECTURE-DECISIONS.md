@@ -11,6 +11,7 @@
 - [ADR-022 — Syntax dialects with shared semantics](adr/022-syntax-dialects-and-shared-semantics.md) — Accepted on 2026-11-25.
 - [ADR-023 — Immutable components and single-version Toolchain compatibility](adr/023-immutable-components-and-toolchain-compatibility.md) — Accepted on 2026-11-20.
 - [ADR-024 — Package directories and indexed Protobuf dumps](adr/024-package-directory-and-protobuf-dumps.md) — Accepted on 2026-11-26.
+- [ADR-025 — Optional embedded library contracts](adr/025-optional-embedded-library-contract.md) — Accepted on 2026-11-26.
 - [ADR-026 — Structure contracts and invariant verification](adr/026-structure-contracts-and-invariant-verification.md) — Accepted on 2026-11-26.
 - [ADR-027 — Relational projection for the scalar SPG](adr/027-scalar-spg-relational-projection.md) — Accepted on 2026-11-26.
 - [ADR-028 — Relational projection for structures](adr/028-structure-relational-projection.md) — Accepted on 2026-11-26.
@@ -20,3 +21,7 @@
 - [ADR-032 — Program packages with bound `main` or `_entry` interfaces](adr/032-program-package-main.md) — Accepted on 2026-11-26.
 - [ADR-033 — Store function signatures in a separate table](adr/033-function-signature-storage.md) — Accepted on 2026-11-27.
 - [ADR-034 — Prefix built-in function names with `builtin__`](adr/034-built-in-function-prefix.md) — Accepted on 2026-11-27.
+- [ADR-035 — Select platform-specific implementations through bindings](adr/035-platform-specific-bindings.md) — Accepted on 2026-11-27.
+- [ADR-036 — Split binding targets into architecture and operating system](adr/036-canonical-platform-identifiers.md) — Accepted on 2026-11-27.
+- [ADR-037 — Define the scalar function contract language](adr/037-scalar-contract-language.md) — Accepted on 2026-11-28.
+- [ADR-038 — Version LLMLang through language components](adr/038-composite-language-version.md) — Accepted on 2026-11-28.

@@ -224,8 +224,8 @@ class Supervisor:
             if version not in self.releases:
                 raise UpgradeError("UnknownRelease", "The release is absent from the approved catalog")
             route = self.releases[current]["state_format"], self.releases[version]["state_format"]
-            if version != current and route not in {(6, 7), (7, 7)}:
-                raise UpgradeError("UnsupportedUpgrade", "Supported release paths are v6 to v7 and v7 to v7")
+            if version != current and route not in {(6, 7), (7, 7), (6, 8), (7, 8), (8, 8)}:
+                raise UpgradeError("UnsupportedUpgrade", "Supported upgrades are 6 to 7, 6 or 7 to 8, and 7 or 8 to the same format")
             if version != current and self.edited_scalar:
                 raise UpgradeError("UnsavedWork", "An edited in-memory scalar workspace is still open")
             identifier = uuid.uuid4().hex
@@ -289,8 +289,8 @@ class Supervisor:
 
     def prepare_release(self, version, candidate, route):
         command = self.command(version, candidate)
-        if route == (6, 7):
-            migration = subprocess.run([*command, "--migrate-v6-copy"], stdin=subprocess.DEVNULL,
+        if route[0] != route[1]:
+            migration = subprocess.run([*command, f"--migrate-v{route[0]}-copy"], stdin=subprocess.DEVNULL,
                                        capture_output=True, text=True, timeout=DEFAULT_TIMEOUT)
             if migration.returncode:
                 raise UpgradeError("MigrationFailed", migration.stderr.strip() or "State conversion failed")

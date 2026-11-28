@@ -22,7 +22,7 @@ use syn::{
     Expr, Item, Type,
 };
 
-const PROFILE: &str = "linux-x86_64-native-v1";
+pub(super) const PROFILE: &str = "linux-x86_64-native-v1";
 
 pub(super) fn is_native(tables: &super::Tables) -> bool {
     !tables["contracts"].is_empty()

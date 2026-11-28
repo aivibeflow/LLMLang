@@ -2,15 +2,16 @@ use llmlang_spg::*;
 use serde_json::json;
 use std::{collections::BTreeMap, fs, path::Path};
 
-const VERSIONS: &[&str] = &["0.1.0"];
+const VERSIONS: &[&str] = &[llmlang_spg::LANGUAGE_VERSION];
 
 fn fixture() -> Package {
     let mut package = Package::empty(Manifest {
         language_version: VERSIONS[0].into(),
+        language_component_registry_digest: llmlang_spg::language_component_registry_digest(),
         dependencies: BTreeMap::from([("stdlib".into(), "pinned-package".into())]),
     });
     let signature = package
-        .stage_function_signature("scalar-v1", &json!({"params": [], "result": "i64"}))
+        .stage_function_signature(&json!({"parameters": [], "result": "I64"}))
         .unwrap();
     let rows = package.tables.get_mut("functions").unwrap();
     rows.insert(
@@ -116,9 +117,23 @@ fn rejects_invalid_versions_indexes_and_frames() {
     save(&path, &package, SaveOptions::default()).unwrap();
     assert!(load(&path, &["9.9.9"], LoadOptions::default()).is_err());
     let manifest = read(&path, "manifest.json");
+    let mut incompatible: serde_json::Value = serde_json::from_slice(&manifest).unwrap();
+    incompatible["language_version"] = json!("0.1.0");
+    fs::write(path.join("manifest.json"), incompatible.to_string()).unwrap();
+    let error = load(&path, VERSIONS, LoadOptions::default()).unwrap_err();
+    assert!(error
+        .to_string()
+        .contains("invalid manifest language_version"));
+    incompatible["language_version"] = json!(VERSIONS[0]);
+    incompatible["language_component_registry_digest"] = json!("sha256:unrecognized");
+    fs::write(path.join("manifest.json"), incompatible.to_string()).unwrap();
+    let error = load(&path, VERSIONS, LoadOptions::default()).unwrap_err();
+    assert!(error
+        .to_string()
+        .contains("unknown language component registry digest"));
     let old_manifest = String::from_utf8(manifest.clone())
         .unwrap()
-        .replace("llmlang.spg.tables.v7", "llmlang.spg.tables.v6");
+        .replace("llmlang.spg.tables.v8", "llmlang.spg.tables.v6");
     fs::write(path.join("manifest.json"), old_manifest).unwrap();
     let error = load(&path, VERSIONS, LoadOptions::default()).unwrap_err();
     assert!(error.to_string().contains("unsupported repository profile"));

@@ -41,7 +41,7 @@ schemas, then pass any advertised tool name and its arguments as JSON.
 python3 draft/server/mcp_client.py tools/list \
   --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
 python3 draft/server/mcp_client.py tools/call \
-  '{"name":"create_package","arguments":{"name":"demo","profile":"scalar","language_version":"0.1.0"}}' \
+  '{"name":"create_package","arguments":{"name":"demo","profile":"scalar","language_version":"0.1.0.0.0"}}' \
   --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
 python3 draft/server/mcp_client.py resources/templates/list \
   --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
@@ -66,7 +66,7 @@ from mcp_client import connect
 with connect(["draft/server/target/debug/llmlang-server", "--state-dir", "./private-state"]) as client:
     tools = client.request("tools/list")["tools"]
     result = client.call_tool("create_package", {
-        "name": "demo", "profile": "scalar", "language_version": "0.1.0",
+        "name": "demo", "profile": "scalar", "language_version": "0.1.0.0.0",
     })
 ```
 
@@ -78,7 +78,7 @@ built from the same checkout.
 ## Package lifecycle
 
 Use `tools/list` to discover the input and output schemas. Start with
-`create_package` using `profile: "scalar"` and `language_version: "0.1.0"`.
+`create_package` using `profile: "scalar"` and `language_version: "0.1.0.0.0"`.
 With `apply_change_set`, select a package version and submit structured
 contracts, implementations, interfaces, and bindings. A batch can refer to a
 new object with `{"local":"its_request_id"}`. Use
@@ -141,9 +141,9 @@ removes the directory when compilation ends. Executables and libraries go
 under `<state-dir>/artifacts/`. Package directories are read-only during
 import and build.
 
-The checked-in packages use repository profile `llmlang.spg.tables.v7`.
+The checked-in packages use repository profile `llmlang.spg.tables.v8`.
 The [MCP supervisor](../docs/server.md#upgrade-through-mcp) migrates an existing
-v6 state directory and returns the new snapshot IDs. For standalone server
+v6 or v7 state directory and returns the new snapshot IDs. For standalone server
 use, start with a fresh state directory and reimport dependencies before
 their consumers.
 
@@ -172,10 +172,11 @@ The end-to-end tests run the bundled Python client against the server process.
 The scalar test uses Boogie and Z3 to verify edits in an in-memory workspace.
 The native test imports packages, builds artifacts, and executes the binaries.
 
-For an upgrade test, provide the v6 executable, the current executable and
-the `draft` directory from the v6 source checkout.
+For an upgrade test, provide the previous executable, the current executable,
+and the `draft` directory from the previous source checkout. Pass
+`--old-format 6` for v6 fixtures. The default is v7.
 
 ```sh
 python3 -B draft/server/tests/mcp_upgrade_e2e.py \
-  /path/to/v6/llmlang-server draft/server/target/debug/llmlang-server /path/to/v6/draft
+  /path/to/v7/llmlang-server draft/server/target/debug/llmlang-server /path/to/v7/draft
 ```
