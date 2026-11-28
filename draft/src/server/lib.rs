@@ -3,6 +3,7 @@
 mod changes;
 mod native;
 mod obligations;
+mod upgrade;
 
 use changes::Selection;
 use fs2::FileExt;
@@ -151,6 +152,20 @@ pub struct Server {
 }
 
 impl Server {
+    /// Convert a private, disposable copy after the v6 server has released it.
+    pub fn migrate_v6_copy(state_dir: &Path, python: &str, backend: &Path) -> Result<Value> {
+        if !state_dir.is_dir()
+            || state_dir.join("pending.json").try_exists()?
+            || state_dir.join("pending-package").try_exists()?
+        {
+            return Err(conflict(
+                "v6 state must be an offline copy with no pending commit",
+            ));
+        }
+        let mut server = Self::open(state_dir, python, backend)?;
+        upgrade::migrate(&mut server)
+    }
+
     pub fn open(state_dir: &Path, python: &str, backend: &Path) -> Result<Self> {
         fs::DirBuilder::new()
             .recursive(true)

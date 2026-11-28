@@ -49,6 +49,62 @@ EOF_MCP
 
 The three responses contain server capabilities, tool schemas, and resource URI templates. EOF closes the process. `resources/list` returns an empty list because the resources are addressed through templates.
 
+## Upgrade through MCP
+
+Configure the MCP client once to launch the Python supervisor with the
+existing state directory. Close any direct connection to the same directory
+before launching the supervisor. The supervisor owns the backend process
+and keeps the MCP connection open during an upgrade.
+
+```sh
+python3 /path/to/LLMLang/draft/server/mcp_supervisor.py \
+  --state-dir /path/to/private/llmlang-state \
+  --releases /path/to/releases.json
+```
+
+The release catalog must be owned by the launching OS user and writable only
+by that user. Each entry points to a trusted executable already available
+locally. Keep the previous executable available for recovery. Supply an
+absolute `backend` path if a release's default scalar backend is unavailable.
+`initial_version` identifies the binary that can open the state directory on
+its first managed launch.
+
+```json
+{
+  "initial_version": "v6",
+  "releases": {
+    "v6": {"binary": "/opt/llmlang/v6/llmlang-server", "state_format": 6},
+    "v7": {"binary": "/opt/llmlang/v7/llmlang-server", "state_format": 7}
+  }
+}
+```
+
+Call `upgrade_server` with `version` and an `idempotency_key`.
+Poll the same tool with the returned `operation_id`. A retry with the same
+key and version returns the same operation, including after reconnecting.
+
+```json
+{"jsonrpc":"2.0","id":5,"method":"tools/call","params":{"name":"upgrade_server","arguments":{"version":"v7","idempotency_key":"switch-to-v7"}}}
+```
+
+The result has status `running`, `succeeded`, or `failed`, and includes the
+active `version`. After success, use `snapshot_ids` to update exact snapshot
+references and use `tools/list` to refresh the active schemas. The result
+includes `backup_path`. During v6 conversion it also reports the snapshot ID
+used for the smoke build when a buildable snapshot was available. Package versions and version-based
+dependency pins are preserved. Imported external directories stay at their
+existing paths. Managed packages under `--state-dir` receive new dumps
+and indexes.
+
+The supervisor pauses package operations, migrates a copy of the catalog,
+checks the new server through MCP, and activates it at the same
+`--state-dir` path. If startup fails before package operations resume,
+it restores the previous binary and directory. A supervisor restart recovers
+an interrupted switch from the adjacent upgrade journal. The retained backup
+contains the previous state and its verification history. An edited in-memory
+scalar workspace or an uncommitted edited native workspace blocks the upgrade.
+The supported state-format transitions are 6 to 7 and 7 to 7.
+
 ## Tools and resources
 
 For a raw client, invoke tools with `tools/call`. This request creates an empty package and opens a workspace at revision 0.
@@ -69,6 +125,7 @@ Read successful values from `result.structuredContent`. The result also includes
 | `verify_workspace` | `workspace_id`, `expected_revision` | Preview the verification report for an exact open revision. Check `report.report.status` for `VERIFIED`. The outer `report` is the backend reply, with `ok` and a nested verifier `report`. A returned reply can describe failed or inconclusive verification. |
 | `commit_workspace` | `workspace_id`, `expected_revision` | Commit a persistable workspace after verification. Scalar workspaces return `UnsupportedProfile`. |
 | `build_package` | `snapshot_id`, `target` | Build a committed or imported snapshot for `linux-x86_64`. Returns an `artifact` path, `verification_status`, and an `exports` map of public names to Rust symbols. Executables also return `debug_artifact`, an adjacent file with the extracted debug information. |
+| `upgrade_server` | `version` and `idempotency_key`, or `operation_id` | Start or poll an approved upgrade through the MCP supervisor. |
 
 Call `resources/read` with a URI. Parse the JSON in `result.contents[0].text`.
 
