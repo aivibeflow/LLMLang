@@ -8,9 +8,9 @@ from pathlib import Path
 import sys
 
 if not __package__:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 
-from draft.server.scalar_verification import contract, frontend, verify
+from draft.build.server.scalar_verification import contract, frontend, verify
 
 TYPES = {"i64": "int", "u64": "u64", "bool": "bool"}
 CONTRACT_TYPES = {"i64": "I64", "u64": "U64", "bool": "Bool"}

@@ -230,8 +230,8 @@ comparison chains, checked arithmetic outcomes, and exact callee pins.
 It exercises body conformance, provider refinement, and call precondition
 failures at commit time. The verifier tests exercise independent
 counterexample replay. The language reference and server guide document the
-authoring syntax and report shape. [MCP test](../server/tests/mcp_e2e.py) ·
-[Replay test](../server/scalar_verification/test_counterexamples.py) ·
+authoring syntax and report shape. [MCP test](../build/server/tests/mcp_e2e.py) ·
+[Replay test](../build/server/scalar_verification/test_counterexamples.py) ·
 [Language reference](../docs/lang.md#contract-rules) · [Server guide](../docs/server.md)
 
 To validate the signature encoding, verify that function and

@@ -4,8 +4,8 @@ on:
   pull_request:
     paths:
       - "draft/examples/**"
-      - "draft/library/**"
-      - "draft/server/**"
+      - "draft/build/library/**"
+      - "draft/build/server/**"
       - "draft/builtin/**"
       - "draft/src/library/**"
       - "draft/src/server/**"
@@ -15,8 +15,8 @@ on:
     branches: [main]
     paths:
       - "draft/examples/**"
-      - "draft/library/**"
-      - "draft/server/**"
+      - "draft/build/library/**"
+      - "draft/build/server/**"
       - "draft/builtin/**"
       - "draft/src/library/**"
       - "draft/src/server/**"
@@ -41,12 +41,12 @@ jobs:
       - name: Install Rust
         run: rustup toolchain install 1.85.1 --profile minimal
       - name: Test the draft SPG library
-        run: cargo +1.85.1 test --locked --manifest-path draft/library/Cargo.toml
+        run: cargo +1.85.1 test --locked --manifest-path draft/build/library/Cargo.toml
       - name: Test and build the draft server
         run: |
-          cargo +1.85.1 test --locked --manifest-path draft/server/Cargo.toml
-          cargo +1.85.1 build --locked --manifest-path draft/server/Cargo.toml
+          cargo +1.85.1 test --locked --manifest-path draft/build/server/Cargo.toml
+          cargo +1.85.1 build --locked --manifest-path draft/build/server/Cargo.toml
       - name: Run draft native packages through MCP
         run: |
           export RUSTUP_TOOLCHAIN=1.85.1
-          python -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llmlang-server
+          python -B draft/build/server/tests/native_build_e2e.py draft/build/server/target/debug/llmlang-server

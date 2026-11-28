@@ -5,11 +5,11 @@ edition = "2021"
 rust-version = "1.85"
 
 [lib]
-path = "../src/server/lib.rs"
+path = "../../src/server/lib.rs"
 
 [[bin]]
 name = "llmlang-server"
-path = "../src/server/main.rs"
+path = "../../src/server/main.rs"
 
 [dependencies]
 fs2 = "0.4"

@@ -45,11 +45,11 @@ flowchart LR
 | R-0010-04 | Return the initial state on failed subtraction or addition, in that order. |
 | R-0010-05 | Report the selected state via `builtin.write` and propagate a report write failure as status 2. |
 
-The [native MCP test](../../server/tests/native_build_e2e.py) builds the
+The [native MCP test](../../build/server/tests/native_build_e2e.py) builds the
 package, checks the exact call pin to `builtin.write`, and exercises all
 task scenarios, including a sum above the balance type's range. The entry
 point calls the same private checked function for both balances. The
-[MCP verification test](../../server/tests/mcp_e2e.py) proves the private
+[MCP verification test](../../build/server/tests/mcp_e2e.py) proves the private
 function's contract for all admissible inputs and checks a mutation that
 would fail to credit the recipient. The outstanding call obligation is to
 show that `main` passes a positive amount to the private function. The
