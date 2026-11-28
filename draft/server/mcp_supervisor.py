@@ -329,11 +329,14 @@ class Supervisor:
         if method == "initialize" and self.session == "new":
             self.session = "initializing"
             requested = params.get("protocolVersion")
-            return {
+            result = {
                 "protocolVersion": requested if requested in SUPPORTED_VERSIONS else SUPPORTED_VERSIONS[0],
                 "serverInfo": {"name": "llmlang-supervisor", "version": self.journal["version"]},
                 "capabilities": {"tools": {}, "resources": {}},
             }
+            if self.child is not None and "instructions" in self.child.server:
+                result["instructions"] = self.child.server["instructions"]
+            return result
         if self.session != "ready":
             raise RpcError({"code": -32600, "message": "Initialization required"})
         if method == "tools/list":

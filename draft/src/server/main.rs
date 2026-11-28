@@ -1,3 +1,5 @@
+mod documentation;
+
 use llmlang_server::{Server, ServerError};
 use serde_json::{json, Map, Value};
 use std::env;
@@ -168,7 +170,8 @@ impl Adapter {
                 return Ok(json!({
                     "protocolVersion": version,
                     "serverInfo": {"name": "llmlang-server", "version": env!("CARGO_PKG_VERSION")},
-                    "capabilities": {"tools": {}, "resources": {}}
+                    "capabilities": {"tools": {}, "resources": {}},
+                    "instructions": documentation::INSTRUCTIONS,
                 }));
             }
             "ping" => return Ok(json!({})),
@@ -195,10 +198,18 @@ impl Adapter {
                 };
                 Ok(tool_result(self.server.call(name, arguments)))
             }
-            "resources/list" => Ok(json!({"resources": []})),
+            "resources/list" => Ok(json!({"resources": documentation::list()})),
             "resources/templates/list" => Ok(json!({"resourceTemplates": resource_templates()})),
             "resources/read" => {
                 let uri = required_string(params, "uri")?;
+                if let Some(path) = uri.strip_prefix(documentation::URI_PREFIX) {
+                    return documentation::read(uri, path).ok_or_else(|| {
+                        RpcError::resource(ServerError::new(
+                            "MissingReference",
+                            "Unknown documentation resource",
+                        ))
+                    });
+                }
                 let value = self.server.read_resource(uri).map_err(RpcError::resource)?;
                 Ok(json!({"contents": [{
                     "uri": uri, "mimeType": "application/json", "text": value.to_string()

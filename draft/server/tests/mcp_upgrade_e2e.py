@@ -100,6 +100,9 @@ def exercise(old, new, fixtures, directory):
         assert repeated["operation_id"] == operation["operation_id"]
         operation = finished(client, operation)
         assert operation["status"] == "succeeded" and operation["version"] == "v7", operation
+        bootstrap = "llmlang://doc/bootstrap.md"
+        assert any(item["uri"] == bootstrap for item in client.request("resources/list")["resources"])
+        assert client.request("resources/read", uri=bootstrap)["contents"][0]["mimeType"] == "text/markdown"
         mapped = operation["snapshot_ids"]
         assert set(mapped) == {hello, builtin} and all(a != b for a, b in mapped.items())
         assert operation["smoke_snapshot_id"] == mapped[hello], operation
@@ -123,6 +126,7 @@ def exercise(old, new, fixtures, directory):
              error="UnsavedWork")
     with connect(command) as client:
         assert client.server["serverInfo"]["version"] == "v7"
+        assert "llmlang://doc/bootstrap.md" in client.server["instructions"]
         assert call(client, "upgrade_server", request) == operation
 
     # Recreate a crash after the old directory was moved and before the new one was activated.

@@ -47,7 +47,21 @@ draft/server/target/debug/llmlang-server --state-dir "$state_dir" <<'EOF_MCP'
 EOF_MCP
 ```
 
-The three responses contain server capabilities, tool schemas, and resource URI templates. EOF closes the process. `resources/list` returns an empty list because the resources are addressed through templates.
+The three responses contain server capabilities, tool schemas, and resource URI templates. EOF closes the process. `resources/list` lists static documentation. `resources/templates/list` describes dynamic workspace and snapshot resources.
+
+### Read the documentation
+
+Start with [the bootstrap guide](bootstrap.md). The initialize response points
+to `llmlang://doc/bootstrap.md`, and `llmlang://doc/index.md` lists the bundled
+documents. Request each page by URI using `resources/read`.
+
+```json
+{"jsonrpc":"2.0","id":4,"method":"resources/read","params":{"uri":"llmlang://doc/bootstrap.md"}}
+```
+
+Read the Markdown directly from `result.contents[0].text`. Documentation
+resources use `text/markdown`, and workspace and snapshot resources use
+`application/json`.
 
 ## Upgrade through MCP
 

@@ -1,5 +1,17 @@
 # LLMLang agent bootstrap
 
+## Documentation over MCP
+
+Use `resources/read` with one of these URIs to read the next document.
+
+- [Documentation index](llmlang://doc/index.md) lists all bundled documents.
+- [Server guide](llmlang://doc/server.md) covers MCP requests, tools, and package workflows.
+- [Language reference](llmlang://doc/lang.md) covers LLMLang syntax and scalar authoring.
+- [Examples](llmlang://doc/examples.md) lists packages you can build and run.
+- [Architecture RFC](llmlang://doc/rfc.md) describes the program graph and package format.
+
+## Repository guides
+
 Use the [MCP server guide](server.md) for client configuration, JSON-RPC
 requests, tool arguments, and resource reads. Use the
 [repository instructions](../../AGENTS.md) for checkout changes and the
