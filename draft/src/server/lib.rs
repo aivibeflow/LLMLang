@@ -1432,9 +1432,16 @@ struct Build {
 mod tests {
     use super::*;
 
+    fn private_state_directory() -> tempfile::TempDir {
+        tempfile::Builder::new()
+            .permissions(fs::Permissions::from_mode(0o700))
+            .tempdir()
+            .unwrap()
+    }
+
     #[test]
     fn native_build_resolves_the_same_caller_for_each_platform() {
-        let directory = tempfile::tempdir().unwrap();
+        let directory = private_state_directory();
         let draft = Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap();
         let mut server =
             Server::open(directory.path(), "python3", &draft.join("server/scalar.py")).unwrap();
@@ -1520,7 +1527,7 @@ mod tests {
 
     #[test]
     fn checks_native_builtin_access_at_import_and_build() {
-        let directory = tempfile::tempdir().unwrap();
+        let directory = private_state_directory();
         let server_dir = Path::new(env!("CARGO_MANIFEST_DIR"));
         let mut server =
             Server::open(directory.path(), "python3", &server_dir.join("scalar.py")).unwrap();
@@ -1590,7 +1597,7 @@ mod tests {
 
     #[test]
     fn recovers_published_package_after_interruption() {
-        let directory = tempfile::tempdir().unwrap();
+        let directory = private_state_directory();
         let backend = Path::new(env!("CARGO_MANIFEST_DIR")).join("scalar.py");
         let server = Server::open(directory.path(), "python3", &backend).unwrap();
 
