@@ -1,3 +1,3 @@
 [
-{"contractHash":"sha256:3b4f01c7d399a35060b68b7ec6d6792664f23e238f525f8b81f7b578902d0c2c","contractKind":"function","profile":"linux-x86_64-native-v1","typedSignature":{"objectValue":{"fields":[{"key":"parameters","value":{"listValue":{}}},{"key":"result","value":{"stringValue":"ExitStatus"}}]}}}
+{"contractHash":"3c64dce27bca6e7c47b65af8e46b64a1038e04f7254a859defc32abfcbf96211","contractKind":"function"}
 ]

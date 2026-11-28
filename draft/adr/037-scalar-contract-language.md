@@ -7,6 +7,10 @@
 - **Related decisions** — [Formal verification backends](018-formal-verification-backends.md) · [Caller-scoped obligations](029-caller-scoped-verification-obligations.md) · [MCP package authoring](031-llmlang-server-mcp-package-authoring.md) · [Composite language version](038-composite-language-version.md)
 - **Design sources** — [Package manifest and table dumps](030-per-table-package-dumps.md) · [Function signature storage](033-function-signature-storage.md) · [RT-18 language versioning](../../research/packages-and-ecosystem/RT-18/LANGUAGE-VERSIONING.md)
 
+The signature storage described here reflects the accepted v8 design.
+[ADR-039](039-unified-compilation-and-contract-verification.md) specifies
+the updated v9 contract and interface records.
+
 ## Context
 
 A coding agent needs to state what a function guarantees, inspect the exact

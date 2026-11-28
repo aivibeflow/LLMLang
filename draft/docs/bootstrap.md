@@ -49,7 +49,7 @@ from mcp_client import connect
 server, state_dir = sys.argv[1:]
 with connect([server, "--state-dir", state_dir]) as client:
     result = client.call_tool("create_package", {
-        "name": "answer", "profile": "scalar", "language_version": "0.1.0.0.0",
+        "name": "answer", "language_version": "0.1.0.0.0",
     })
     if result.get("isError"):
         raise SystemExit(result["content"][0]["text"])
@@ -113,8 +113,7 @@ Configure the verifier before starting the server. Set
 
 1. Connect to the server and use `tools/list` and `resources/templates/list`
    to discover the interface. For a local session, use the [Python MCP client](#run-the-python-mcp-client).
-   Call `create_package` with `profile: "scalar"`
-   and `language_version: "0.1.0.0.0"`. Keep the returned `workspace_id` and
+   Call `create_package` with `language_version: "0.1.0.0.0"`. Keep the returned `workspace_id` and
    `revision`.
 2. Describe the behavior with typed signatures, contracts, and implementation
    bodies. Submit the batch with `apply_change_set`, the current
@@ -124,6 +123,6 @@ Configure the verifier before starting the server. Set
    `report.report.status` and inspect diagnostics when it differs from
    `VERIFIED`. The report applies to that revision.
 
-Scalar workspaces last for the lifetime of the server process.
-`commit_workspace` returns `UnsupportedProfile` for these workspaces.
+Call `commit_workspace` with the same revision to verify and write the package.
+The returned snapshot can be passed to `build_package`.
 [Structured scalar syntax](lang.md#scalar-mcp-authoring) · [Complete verification example](server.md#verify-a-scalar-workspace) · [Conflict recovery](server.md#recover-from-a-conflict-or-interrupted-request)

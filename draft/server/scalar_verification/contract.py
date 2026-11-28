@@ -1,12 +1,14 @@
 """Scalar Contract IR and a checked controlled natural-language projection.
 
-The scalar-v1 profile uses Bool and I64 for values crossing the interface.
+The scalar-v1 profile uses Bool, I64, and U64 for values crossing the interface.
 Predicate arithmetic is mathematical integer arithmetic. The total quotient
 truncates toward zero and returns zero for a zero divisor. Program errors
 are represented separately as outcomes with explicit guards.
 """
 
 from __future__ import annotations
+
+from .frontend import INTEGER_TYPES
 
 import ast
 from dataclasses import dataclass
@@ -19,7 +21,7 @@ import re
 
 PROFILE = "scalar-v1"
 IR_SCHEMA = "llmlang-contract-ir/scalar-v1"
-VALUE_TYPES = frozenset({"Bool", "I64"})
+VALUE_TYPES = frozenset({"Bool", "I64", "U64"})
 IDENTIFIER = re.compile(r"[A-Za-z_][A-Za-z0-9_]*", re.ASCII)
 
 # Each phrase is a production in the controlled language. Parentheses
@@ -106,8 +108,10 @@ def admits_outcome(contract: Contract, names: dict[str, int | bool], outcome) ->
         if contract.returns == "Bool":
             if type(outcome.value) is not bool:
                 return False
-        elif type(outcome.value) is not int or not -(2**63) <= outcome.value < 2**63:
-            return False
+        else:
+            low, high = INTEGER_TYPES[contract.returns.lower()]
+            if type(outcome.value) is not int or not low <= outcome.value <= high:
+                return False
         return holds(contract.ensures, dict(names, result=outcome.value))
     clauses = contract.errors.get(outcome.error)
     return outcome.value is None and clauses is not None and holds(clauses, names)
@@ -136,7 +140,7 @@ def _kind(node: ast.expr, symbols: dict[str, str]) -> str:
     elif isinstance(node, ast.Name):
         if node.id not in symbols:
             raise ContractError(f"unbound contract operand {node.id!r}")
-        return symbols[node.id]
+        return "Bool" if symbols[node.id] == "Bool" else "I64"
     elif isinstance(node, ast.UnaryOp) and type(node.op) in UNARY_PHRASES:
         expected = "Bool" if isinstance(node.op, ast.Not) else "I64"
         return _check_operands((node.operand,), symbols, expected, expected)
@@ -252,7 +256,7 @@ def _ir_term(node: ast.expr, symbols: dict[str, str]) -> dict:
         case ast.Constant(value=value):
             return {"op": "literal", "type": "Int", "value": str(value)}
         case ast.Name(id=name):
-            kind = "Int" if symbols[name] == "I64" else "Bool"
+            kind = "Bool" if symbols[name] == "Bool" else "Int"
             return {"op": "variable", "type": kind, "name": name}
         case ast.UnaryOp(op=ast.Not(), operand=operand):
             op, kind, operands = "not", "Bool", (operand,)

@@ -3,8 +3,8 @@
 use super::*;
 
 pub(super) fn migrate(server: &mut Server, format: u8) -> Result<Value> {
-    if !matches!(format, 6 | 7) {
-        return Err(invalid("expected v6 or v7 state format"));
+    if !matches!(format, 6..=8) {
+        return Err(invalid("expected v6, v7, or v8 state format"));
     }
     let old = &server.state;
     for (id, workspace) in &old.workspaces {
@@ -58,8 +58,11 @@ pub(super) fn migrate(server: &mut Server, format: u8) -> Result<Value> {
         if format == 6 {
             convert_bindings(&mut program)?;
         }
-        convert_language(&mut program, &mut signature_ids)?;
-        refresh_obligations(server, &mut program)?;
+        if format < 8 {
+            convert_language(&mut program, &mut signature_ids)?;
+        }
+        convert_contracts(server, &mut program)?;
+        server.validate_edit(&mut program)?;
         let id = snapshot_id(&program)?;
         server.check_version(&program, &id)?;
 
@@ -185,7 +188,7 @@ fn convert_language(
         let (profile, new_text) = text
             .split_once(' ')
             .ok_or_else(|| validation("missing old signature profile"))?;
-        if profile != native::PROFILE || row["function_signature_hash"] != old_hash {
+        if profile != "linux-x86_64-native-v1" || row["function_signature_hash"] != old_hash {
             return Err(validation("invalid old signature profile or key"));
         }
         let mut digest = Sha256::new();
@@ -213,40 +216,150 @@ fn convert_language(
     Ok(())
 }
 
-fn refresh_obligations(server: &Server, program: &mut Program) -> Result<()> {
-    let combined = server.combined_package(program)?;
-    let catalogs = server.native_catalogs(program)?;
-    let callers: BTreeSet<_> = program.tables["verification_obligations"]
-        .values()
-        .filter(|row| row["kind"] == "call_compatibility")
-        .map(|row| {
-            row["caller_impl_hash"]
-                .as_str()
-                .ok_or_else(|| validation("invalid old caller"))
-        })
-        .collect::<Result<_>>()?;
-    let mut calls = obligations::CallsByCaller::new();
-    for caller in callers {
-        let row = program.tables["functions"]
-            .get(caller)
-            .ok_or_else(|| validation("old caller is absent from the package"))?;
-        calls.insert(
-            caller.to_owned(),
-            native::resolved_calls(
-                &program.name,
-                &combined,
-                row,
-                &catalogs,
-                native::LINUX_X86_64,
-            )?,
-        );
-    }
+fn convert_contracts(server: &Server, program: &mut Program) -> Result<()> {
     let mut package = program.package();
-    obligations::replace(&mut package, obligations::rows(&combined, &calls)?);
+    let mut contract_ids = BTreeMap::new();
+    let mut interface_ids = BTreeMap::new();
+    let rules = &package.tables["contract_rules"];
+    let owned_rules: BTreeMap<_, BTreeSet<_>> = package.tables["contracts"]
+        .keys()
+        .map(|hash| {
+            (
+                hash.clone(),
+                rules
+                    .values()
+                    .filter(|row| row["contract_hash"] == *hash)
+                    .filter_map(|row| row["rule_hash"].as_str().map(str::to_owned))
+                    .collect(),
+            )
+        })
+        .collect();
+    for (old, mut row) in std::mem::take(package.tables.get_mut("contracts").unwrap()) {
+        let kind = row["contract_kind"]
+            .as_str()
+            .ok_or_else(|| validation("missing old contract kind"))?
+            .to_owned();
+        let fields = row
+            .as_object_mut()
+            .ok_or_else(|| validation("invalid old contract"))?;
+        if fields.remove("profile").is_none() {
+            return Err(validation("missing old contract profile"));
+        }
+        if kind == "function" && fields.remove("typed_signature").is_none() {
+            return Err(validation("missing old function contract signature"));
+        }
+        let hash = changes::contract_identity(
+            &package.manifest,
+            &kind,
+            &row["state_signature"],
+            owned_rules[&old].iter(),
+        )?;
+        row["contract_hash"] = json!(hash);
+        let contracts = package.tables.get_mut("contracts").unwrap();
+        if let Some(existing) = contracts.get_mut(&hash) {
+            for field in ["user_request_texts", "review_records"] {
+                let mut entries = existing[field].as_array().cloned().unwrap_or_default();
+                for item in row[field].as_array().into_iter().flatten() {
+                    if !entries.contains(item) {
+                        entries.push(item.clone());
+                    }
+                }
+                existing[field] = json!(entries);
+                row[field] = existing[field].clone();
+            }
+            if existing != &row {
+                return Err(validation("conflicting migrated contract rows"));
+            }
+        } else {
+            contracts.insert(hash.clone(), row);
+        }
+        contract_ids.insert(old.clone(), hash);
+    }
+    let rules = package.tables.get_mut("contract_rules").unwrap();
+    for (_, mut row) in std::mem::take(rules) {
+        let owner = mapped_id(
+            &contract_ids,
+            row["contract_hash"]
+                .as_str()
+                .ok_or_else(|| validation("missing rule owner"))?,
+        )?;
+        let rule = row["rule_hash"]
+            .as_str()
+            .ok_or_else(|| validation("missing rule hash"))?;
+        let key = format!("{owner}:{rule}");
+        row["contract_hash"] = json!(owner);
+        rules.insert(key, row);
+    }
+    let interfaces = std::mem::take(package.tables.get_mut("interfaces").unwrap());
+    for (old, mut row) in interfaces {
+        let public = row["public_contract_hash"]
+            .as_str()
+            .ok_or_else(|| validation("missing public contract"))?;
+        let contract = mapped_id(&contract_ids, public)?;
+        let name = row["name"]
+            .as_str()
+            .ok_or_else(|| validation("missing public name"))?;
+        let identity = changes::interface_identity(name, contract)?;
+        row["interface_hash"] = json!(identity);
+        row["public_contract_hash"] = json!(contract);
+        package
+            .tables
+            .get_mut("interfaces")
+            .unwrap()
+            .insert(identity.clone(), row);
+        interface_ids.insert(old, identity);
+    }
+    for row in package.tables.get_mut("bindings").unwrap().values_mut() {
+        row["interface_hash"] = json!(mapped_id(
+            &interface_ids,
+            row["interface_hash"]
+                .as_str()
+                .ok_or_else(|| validation("missing binding interface"))?
+        )?);
+    }
+    for row in package.tables.get_mut("structures").unwrap().values_mut() {
+        if let Some(old) = row["contract_hash"].as_str() {
+            row["contract_hash"] = json!(mapped_id(&contract_ids, old)?);
+        }
+    }
+    for table in ["verification_obligations", "verification_runs"] {
+        package.tables.get_mut(table).unwrap().clear();
+    }
+    changes::rebuild_selection(&mut package, &program.selection)?;
     program.tables = package.tables;
     let combined = server.combined_package(program)?;
-    server.validate_native(program, &combined)?;
-    server.validate_native_sources(program, &combined)
+    let catalogs = server.native_catalogs(program)?;
+    let mut mapped = BTreeMap::new();
+    let functions = program.tables.get_mut("functions").unwrap();
+    for (old, mut row) in std::mem::take(functions) {
+        let contract = mapped_id(
+            &contract_ids,
+            row["provided_contract_hash"]
+                .as_str()
+                .ok_or_else(|| validation("missing provided contract"))?,
+        )?;
+        row["provided_contract_hash"] = json!(contract);
+        let hash =
+            native::implementation_identity(&program.name, &combined, &row, &catalogs[&old])?;
+        row["impl_hash"] = json!(hash);
+        functions.insert(hash.clone(), row);
+        mapped.insert(old, hash);
+    }
+    for row in program.tables.get_mut("bindings").unwrap().values_mut() {
+        row["impl_hash"] = json!(mapped_id(
+            &mapped,
+            row["impl_hash"]
+                .as_str()
+                .ok_or_else(|| validation("missing binding implementation"))?
+        )?);
+    }
+    if let Some(old) = &mut program.selection.entry_point {
+        *old = mapped_id(&mapped, old)?.into();
+    }
+    let mut package = program.package();
+    changes::rebuild_selection(&mut package, &program.selection)?;
+    program.tables = package.tables;
+    Ok(())
 }
 
 fn regenerate_packages(

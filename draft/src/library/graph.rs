@@ -38,8 +38,8 @@ rows! {
     },
     "function_signatures" => SignatureRow { function_signature_hash: String, function_signature_content: String },
     "contracts" => Contract {
-        contract_hash: String, contract_kind: String, profile: String,
-        typed_signature: Option<Value>, state_signature: Option<Value>,
+        contract_hash: String, contract_kind: String,
+        state_signature: Option<Value>,
         user_request_texts: Vec<String>, review_records: Vec<Value>,
     },
     "contract_rules" => ContractRule {
@@ -359,16 +359,25 @@ impl Graph {
         }
         let index = self.objects.len();
         let key: Vec<_> = key.into_iter().map(str::to_owned).collect();
-        if self
-            .primary
-            .insert((object.table, key.clone()), index)
-            .is_some()
-        {
+        let primary_key = (object.table, key);
+        if let Some(&existing) = self.primary.get(&primary_key) {
+            // A contract may have distinct request and review metadata in each package.
+            // The graph takes that metadata from the first occurrence.
+            if let (Row::Contract(left), Row::Contract(right)) =
+                (&self.objects[existing].row, &object.row)
+            {
+                if left.contract_kind == right.contract_kind
+                    && left.state_signature == right.state_signature
+                {
+                    return Ok(());
+                }
+            }
             return Err(invalid(format!(
-                "{}: conflicting primary key {key:?}",
-                object.table
+                "{}: conflicting primary key {:?}",
+                object.table, primary_key.1
             )));
         }
+        self.primary.insert(primary_key, index);
         table.insert(object.content_hash.clone(), index);
         self.objects.push(object);
         Ok(())
@@ -398,15 +407,17 @@ impl Graph {
             }
             let mut outgoing = Vec::new();
             let mut references = object.row.references()?;
-            let decoded_signature;
-            if let Row::SignatureRow(row) = &object.row {
-                decoded_signature = super::resolve_function_signature(
+            let decoded_signature = match &object.row {
+                Row::SignatureRow(row) => Some(super::resolve_function_signature(
                     &self.manifest,
                     &row.function_signature_hash,
                     &row.function_signature_content,
-                )?;
+                )?),
+                _ => None,
+            };
+            if let Some(signature) = &decoded_signature {
                 ir_pins(
-                    &decoded_signature.typed,
+                    &signature.typed,
                     &mut references.pins,
                     &mut references.calls,
                 )?;
@@ -421,6 +432,18 @@ impl Graph {
                         ))
                     })?
                     .index;
+                if matches!(
+                    relation,
+                    Relation::ProvidedContract
+                        | Relation::PublicContract
+                        | Relation::RequiredContract
+                ) {
+                    if let Row::Contract(contract) = &self.objects[target].row {
+                        if contract.contract_kind != "function" {
+                            return Err(invalid("function reference requires a function contract"));
+                        }
+                    }
+                }
                 outgoing.push(Edge { relation, target });
                 self.incoming[target].push(Edge {
                     relation,
@@ -514,14 +537,13 @@ impl Row {
                 ir_pins(&r.canonical_body, &mut pins, &mut calls)?;
             }
             Self::SignatureRow(_) => {}
-            Self::Contract(r) => {
-                let signature = match (&*r.contract_kind, &r.typed_signature, &r.state_signature) {
-                    ("function", Some(signature), None)
-                    | ("structure" | "domain", None, Some(signature)) => signature,
-                    _ => return Err(invalid("contract kind and signature do not agree")),
-                };
-                ir_pins(signature, &mut pins, &mut calls)?;
-            }
+            Self::Contract(r) => match (&*r.contract_kind, &r.state_signature) {
+                ("function", None) => {}
+                ("structure" | "domain", Some(signature)) => {
+                    ir_pins(signature, &mut pins, &mut calls)?;
+                }
+                _ => return Err(invalid("contract kind and signature do not agree")),
+            },
             Self::ContractRule(r) => {
                 add(OwningContract, "contracts", &r.contract_hash);
                 for ir in [&r.predicate, &r.check_boundary].into_iter().flatten() {

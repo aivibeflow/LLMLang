@@ -12,14 +12,12 @@ from tempfile import TemporaryDirectory
 
 from . import runtime
 from .contract import admits_outcome, contract_hash, holds
-from .frontend import IDENTIFIER, _digest
+from .frontend import IDENTIFIER, INTEGER_TYPES, _digest
 
 
-MIN_I64 = -(2**63)
-MAX_I64 = 2**63 - 1
 COMPARISONS = frozenset({"==", "!=", "<", "<=", ">", ">="})
 ARITHMETIC = frozenset({"+", "-", "*"})
-BPL_TYPES = {"i64": "int", "bool": "bool"}
+BPL_TYPES = {"i64": "int", "u64": "int", "bool": "bool"}
 CALL_REQUIREMENT = "callee public precondition: "
 PROVIDER_REQUIREMENT = "provider strengthens public preconditions"
 PROVIDER_GUARANTEE = "provider weakens public guarantees"
@@ -41,8 +39,9 @@ def conjunction(clauses):
     return "(" + " && ".join(clauses) + ")" if clauses else "true"
 
 
-def bounded(value):
-    return f"({MIN_I64} <= {value} && {value} <= {MAX_I64})"
+def bounded(value, kind):
+    low, high = INTEGER_TYPES[kind]
+    return f"({low} <= {value} && {value} <= {high})"
 
 
 def contract_expr(expr, names):
@@ -141,10 +140,11 @@ class Procedure:
 
     def emit_expr(self, expr, names, statements):
         kind, *parts = expr
-        if kind == "i64":
-            if type(parts[0]) is not int or not MIN_I64 <= parts[0] <= MAX_I64:
-                raise Unsupported("invalid signed 64-bit SPG literal")
-            return str(parts[0]), "i64"
+        if kind in INTEGER_TYPES:
+            low, high = INTEGER_TYPES[kind]
+            if type(parts[0]) is not int or not low <= parts[0] <= high:
+                raise Unsupported(f"invalid {'signed' if kind == 'i64' else 'unsigned'} 64-bit SPG literal")
+            return str(parts[0]), kind
         if kind == "bool":
             if type(parts[0]) is not bool:
                 raise Unsupported("invalid Bool SPG literal")
@@ -170,8 +170,10 @@ class Procedure:
             return value, target["result"]
         if kind == "bin":
             operator, lhs, rhs = parts
-            left, _ = self.emit_expr(lhs, names, statements)
-            right, _ = self.emit_expr(rhs, names, statements)
+            left, left_type = self.emit_expr(lhs, names, statements)
+            right, right_type = self.emit_expr(rhs, names, statements)
+            if left_type != right_type:
+                raise Unsupported("inconsistent operand types")
             if operator in COMPARISONS:
                 return f"({left} {operator} {right})", "bool"
             if operator == "/":
@@ -181,10 +183,10 @@ class Procedure:
                 term = f"({left} {operator} {right})"
             else:
                 raise Unsupported(f"unsupported operator {operator}")
-            value = self.local("i64")
+            value = self.local(left_type)
             statements.append(f"{value} := {term};")
-            self.fail_if(f"!{bounded(value)}", "ArithmeticOverflow", statements)
-            return value, "i64"
+            self.fail_if(f"!{bounded(value, left_type)}", "ArithmeticOverflow", statements)
+            return value, left_type
         raise Unsupported(f"unsupported program expression {kind}")
 
     def fail_if(self, predicate, error, statements):
@@ -264,8 +266,8 @@ def build_obligations(program, contracts):
             in zip(arguments, parameters, strict=True)
         )
         ranges = [
-            bounded(symbol) for symbol, (_, typ) in zip(arguments, parameters, strict=True)
-            if typ == "i64"
+            bounded(symbol, typ) for symbol, (_, typ) in zip(arguments, parameters, strict=True)
+            if typ in INTEGER_TYPES
         ]
         names_in_body = {
             param: (symbol, typ)
@@ -277,7 +279,7 @@ def build_obligations(program, contracts):
         post_public = outcome(public_ir, arguments, errors)
         post_provided = outcome(provided_ir, arguments, errors)
         return_type = BPL_TYPES[fn["result"]]
-        result_range = bounded("result_value") if return_type == "int" else "true"
+        result_range = bounded("result_value", fn["result"]) if return_type == "int" else "true"
         proc = Procedure(functions, checked_ir, names, errors)
         default = "0" if return_type == "int" else "false"
         statements = [f"result_value := {default};", "result_error := 0;"]
@@ -380,7 +382,7 @@ def _scalar(state, name, kind, completed):
         negative = re.fullmatch(r"\(- ([0-9]+)\)", value)
         if negative or re.fullmatch(r"-?[0-9]+", value):
             number = -int(negative[1]) if negative else int(value)
-            if MIN_I64 <= number <= MAX_I64:
+            if INTEGER_TYPES[kind][0] <= number <= INTEGER_TYPES[kind][1]:
                 return number
     raise ValueError(f"missing or invalid {kind} model value for {name}")
 

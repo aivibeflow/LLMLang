@@ -169,9 +169,12 @@ def check_native_edits(client, snapshot, main, before, callee):
     assert read_object(
         client, f"llmlang://snapshot/{snapshot}/object/functions/{main['implHash']}",
     )["row"] == original["row"]
-    rejected = client.call("commit_workspace", scope(revised), succeeds=False)
-    assert rejected["code"] == "UnsupportedProfile" and "contract verification" in rejected["message"]
-    assert client.call("inspect_workspace", {"workspace_id": workspace_id})["state"] == "open"
+    verification = client.call("verify_workspace", scope(revised))["report"]["report"]
+    assert verification["status"] == "NO_OBLIGATIONS", verification
+    assert set(verification["no_behavioral_obligations"]) == {main["implHash"], callee}
+    committed = client.call("commit_workspace", scope(revised))
+    assert Path(committed["package_path"], "functions.dump").is_file()
+    assert client.call("inspect_workspace", {"workspace_id": workspace_id})["state"] == "committed"
 
 
 def exercise(executable, directory):
@@ -212,10 +215,12 @@ def exercise(executable, directory):
                         balance_transfer, *programs]:
             before = read_package(package)
             manifest = json.loads(before["manifest.json"])
-            assert manifest["profile"] == "llmlang.spg.tables.v8"
+            assert manifest["profile"] == "llmlang.spg.tables.v9"
             assert manifest["language_version"] == "0.1.0.0.0"
+            assert all("profile" not in row and "typedSignature" not in row
+                       for row in json.loads(before["contracts.json"]))
             assert re.fullmatch(r"sha256:[0-9a-f]{64}", manifest["language_component_registry_digest"])
-            assert before["functions.dump"].startswith(b"LLSPG\x08\r\n")
+            assert before["functions.dump"].startswith(b"LLSPG\x09\r\n")
             assert all(row["functionSignatureContent"].startswith("(")
                        for row in json.loads(before["function_signatures.json"]))
             imported = client.call("import_package", {"path": str(package)})
@@ -278,8 +283,9 @@ def exercise(executable, directory):
                 linux_exports = selected_exports(before)
                 continue
 
-            main, = json.loads(before["functions.json"])
+            functions = {row["implHash"]: row for row in json.loads(before["functions.json"])}
             main_binding, = json.loads(before["bindings.json"])
+            main = functions[main_binding["implHash"]]
             assert (main_binding["arch"], main_binding["os"]) == ("", "")
             assert selected_exports(before) == {f"{package.name}.main": main["implHash"]}
             body = main["canonicalBody"]
@@ -287,8 +293,8 @@ def exercise(executable, directory):
             assert "builtin__" not in body
             assert "typedSignature" not in main
             signatures = json.loads((package / "function_signatures.json").read_bytes())
-            signature, = signatures
-            assert main["functionSignatureHash"] == signature["functionSignatureHash"]
+            signature = next(row for row in signatures
+                             if row["functionSignatureHash"] == main["functionSignatureHash"])
             assert signature["functionSignatureContent"].endswith(" -> ExitStatus")
             obligations = json.loads((package / "verification_obligations.json").read_bytes())
             assert all(row["kind"] == "call_compatibility"
@@ -305,7 +311,8 @@ def exercise(executable, directory):
             linux_calls = {name.rsplit(".", 1)[-1] for name, impl in linux_exports.items()
                            if impl in callee_pins}
             builtin_calls = {name for name, impl in builtin_exports.items() if impl in callee_pins}
-            assert len(linux_calls) + len(builtin_calls) == len(callee_pins), (package, obligations)
+            local_calls = callee_pins & functions.keys()
+            assert len(linux_calls) + len(builtin_calls) + len(local_calls) == len(callee_pins), (package, obligations)
             assert generated == linux_calls, (package, generated, linux_calls)
             expected_builtin = builtin_calls | ({"builtin.syscall"} if linux_calls else set())
             assert reachable_builtin == expected_builtin, (package, reachable_builtin, expected_builtin)
@@ -331,7 +338,9 @@ def exercise(executable, directory):
                 assert linux_calls == {"read", "write"}
                 check_calculator(artifact)
             elif package == balance_transfer:
-                assert callee_pins == {builtin_exports["builtin.write"]}
+                assert builtin_calls == {"builtin.write"} and not linux_calls
+                helper, = local_calls
+                assert helper != main["implHash"]
                 check_balance_transfer(artifact)
             elif package.name == "0004-syscall-echo":
                 errno_impl = builtin_exports["builtin.errno_message"]

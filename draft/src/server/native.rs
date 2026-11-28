@@ -1,4 +1,4 @@
-//! Lower the native Linux x86-64 profile to a temporary Rust translation unit.
+//! Lower a package to a temporary Rust translation unit for Linux x86-64.
 
 use super::{
     invalid,
@@ -21,15 +21,6 @@ use syn::{
     visit_mut::{self, VisitMut},
     Expr, Item, Type,
 };
-
-pub(super) const PROFILE: &str = "linux-x86_64-native-v1";
-
-pub(super) fn is_native(tables: &super::Tables) -> bool {
-    !tables["contracts"].is_empty()
-        && tables["contracts"]
-            .values()
-            .all(|row| row["profile"] == PROFILE)
-}
 
 pub(super) fn referenced_builtin(source: &str) -> Result<Option<String>> {
     find_builtin(source, |name| name.starts_with("builtin__"))
@@ -82,7 +73,7 @@ enum Call {
     },
 }
 
-fn source_symbol(implementation: &str) -> syn::Ident {
+pub(super) fn source_symbol(implementation: &str) -> syn::Ident {
     format_ident!(
         "llmlang_source_{}",
         implementation.trim_start_matches("sha256:")
@@ -242,38 +233,77 @@ fn call_spelling(path: &syn::Path) -> String {
 }
 
 #[derive(Default)]
-struct SourceCalls(BTreeSet<String>);
+struct SourceCalls {
+    names: BTreeSet<String>,
+    direct: BTreeSet<ResolvedCall>,
+    error: Option<ServerError>,
+}
+
+fn direct_pin(call: &syn::ExprCall) -> Result<ResolvedCall> {
+    use syn::spanned::Spanned;
+    let mut args = call.args.iter();
+    Ok(ResolvedCall {
+        callee_impl_hash: super::scalar_source::exact_hash(
+            args.next(),
+            call.span(),
+            "implementation",
+        )?,
+        required_contract_hash: super::scalar_source::exact_hash(
+            args.next(),
+            call.span(),
+            "contract",
+        )?,
+        binding: None,
+    })
+}
 
 impl VisitMut for SourceCalls {
     fn visit_expr_call_mut(&mut self, call: &mut syn::ExprCall) {
         if let Expr::Path(path) = call.func.as_ref() {
-            self.0.insert(call_spelling(&path.path));
+            let name = call_spelling(&path.path);
+            if name == "call" {
+                match direct_pin(call) {
+                    Ok(pin) => {
+                        self.direct.insert(pin);
+                    }
+                    Err(error) => {
+                        self.error.get_or_insert(error);
+                    }
+                }
+            } else {
+                self.names.insert(name);
+            }
         }
         visit_mut::visit_expr_call_mut(self, call);
     }
 }
 
-fn interface_calls<'a>(
-    owner: &str,
-    row: &Value,
-    catalog: &'a Catalog,
-) -> Result<BTreeMap<String, &'a InterfaceBinding>> {
+fn source_calls(owner: &str, row: &Value) -> Result<SourceCalls> {
     let source = row["canonical_body"]
         .as_str()
         .ok_or_else(|| invalid("native implementation requires plain source"))?;
     let mut calls = SourceCalls::default();
     if is_syscall_wrapper(owner, row) {
         // Some ABI operand names are reserved Rust words.
-        calls.0.insert("builtin::syscall".into());
+        calls.names.insert("builtin::syscall".into());
         if source.trim() == "{\n    builtin::syscall(15); builtin::trap()\n}" {
-            calls.0.insert("builtin::trap".into());
+            calls.names.insert("builtin::trap".into());
         }
     } else {
         let mut body: syn::Block = syn::parse_str(source).map_err(validation)?;
         calls.visit_block_mut(&mut body);
     }
-    calls
-        .0
+    if let Some(error) = calls.error.take() {
+        return Err(error);
+    }
+    Ok(calls)
+}
+
+fn interface_calls<'a>(
+    names: BTreeSet<String>,
+    catalog: &'a Catalog,
+) -> Result<BTreeMap<String, &'a InterfaceBinding>> {
+    names
         .into_iter()
         .filter(|name| !name.starts_with("builtin__"))
         .map(|name| {
@@ -301,7 +331,7 @@ pub(super) fn implementation_identity(
     row: &Value,
     catalog: &Catalog,
 ) -> Result<String> {
-    let calls = interface_calls(owner, row, catalog)?;
+    let calls = interface_calls(source_calls(owner, row)?.names, catalog)?;
     let material = json!({
         "typed_signature": package.function_signature(row).map_err(validation)?.typed,
         "canonical_body": row["canonical_body"],
@@ -325,17 +355,31 @@ fn resolve_source(
         .get(row["impl_hash"].as_str().unwrap())
         .ok_or_else(|| validation("missing native interface catalog"))?;
     let mut calls = BTreeMap::new();
-    let mut resolved = BTreeSet::new();
-    for (source_name, binding) in interface_calls(owner, row, catalog)? {
+    let source = source_calls(owner, row)?;
+    let mut resolved = source.direct;
+    for pin in &resolved {
+        let callee = package.tables["functions"]
+            .get(&pin.callee_impl_hash)
+            .ok_or_else(|| validation("missing direct callee"))?;
+        if is_syscall_wrapper("linux.syscalls", callee)
+            || requires_platform(super::BUILTIN, callee)?
+        {
+            return Err(validation("platform-dependent calls require a binding"));
+        }
+        let required = package.tables["contracts"]
+            .get(&pin.required_contract_hash)
+            .ok_or_else(|| validation("missing required direct call contract"))?;
+        if required["contract_kind"] != "function" {
+            return Err(validation("direct call requires a function contract"));
+        }
+    }
+    for (source_name, binding) in interface_calls(source.names, catalog)? {
         let ((binding_arch, binding_os), implementation) = binding.select(target)?;
         let (namespace, name) = binding.pin.name.rsplit_once('.').unwrap();
         let contract = &binding.pin.required_contract_hash;
         let callee = package.tables["functions"]
             .get(implementation)
             .ok_or_else(|| invalid("unresolved native implementation"))?;
-        if callee["provided_contract_hash"] != *contract {
-            return Err(invalid("native binding must select the exact contract"));
-        }
         let signature = package
             .function_signature(callee)
             .map_err(validation)?
@@ -507,6 +551,19 @@ impl VisitMut for Lower<'_> {
             return;
         };
         let name = call_spelling(&callee.path);
+        if name == "call" {
+            match direct_pin(call) {
+                Ok(pin) => {
+                    let target = source_symbol(&pin.callee_impl_hash);
+                    let arguments = call.args.iter().skip(2);
+                    *expr = parse_quote!(#target(#(#arguments),*));
+                }
+                Err(error) => {
+                    self.error.get_or_insert(error);
+                }
+            }
+            return;
+        }
         if let Some(Call::Source {
             implementation,
             arity,
@@ -608,6 +665,13 @@ fn lower_body(
     pending: &mut BTreeSet<String>,
     requirements: &mut RuntimeRequirements,
 ) -> Result<(syn::Block, BTreeSet<ResolvedCall>)> {
+    if super::scalar_source::supported_signature(package, row) {
+        let body = super::scalar_source::body(package, row)?;
+        let mut resolved = BTreeSet::new();
+        super::obligations::collect_pins(&body, &mut resolved);
+        pending.extend(resolved.iter().map(|call| call.callee_impl_hash.clone()));
+        return Ok((super::scalar_source::compile(&body)?, resolved));
+    }
     let (calls, resolved) = resolve_source("", package, row, bindings, target)?;
     let mut body = syn::parse_str(row["canonical_body"].as_str().unwrap()).map_err(validation)?;
     let mut lower = Lower {
@@ -633,11 +697,20 @@ fn lower_body(
             }
         }
     }
+    pending.extend(
+        resolved
+            .iter()
+            .filter(|call| call.binding.is_none())
+            .map(|call| call.callee_impl_hash.clone()),
+    );
     Ok((body, resolved))
 }
 
 fn library_type(kind: &Value, parameter: bool) -> Result<Type> {
     match (kind.as_str(), parameter) {
+        (Some("I64"), _) => Ok(parse_quote!(i64)),
+        (Some("U64"), _) => Ok(parse_quote!(u64)),
+        (Some("Bool"), _) => Ok(parse_quote!(bool)),
         (Some("I32"), _) => Ok(parse_quote!(I32)),
         (Some("U16"), true) => Ok(parse_quote!(u16)),
         (Some("Usize"), _) => Ok(parse_quote!(Usize)),
@@ -716,6 +789,7 @@ pub(super) fn lower(
     let mut resolved_calls = BTreeMap::new();
     let mut emitted = BTreeSet::new();
     let mut public_sources = BTreeSet::new();
+    let mut checked_arithmetic = false;
     let mut emitted_syscalls = BTreeSet::new();
     for (export, implementation) in exports {
         let row = &package.tables["functions"][implementation];
@@ -829,7 +903,11 @@ pub(super) fn lower(
                 Ok(quote!(#name: #kind))
             })
             .collect::<Result<Vec<_>>>()?;
-        let result = library_type(&signature["result"], false)?;
+        let mut result = library_type(&signature["result"], false)?;
+        if super::scalar_source::supported_signature(package, row) {
+            checked_arithmetic = true;
+            result = parse_quote!(core::result::Result<#result, LlmlangError>);
+        }
         if matches!(
             signature["result"].as_str(),
             Some("ByteVec" | "CStringResult")
@@ -859,6 +937,15 @@ pub(super) fn lower(
     } else {
         translation_unit.push_str(include_str!("native_runtime_std.rs"));
         translation_unit.push_str(&main_wrapper.to_string());
+    }
+    if checked_arithmetic {
+        translation_unit.push_str(
+            &quote! {
+                #[derive(Debug, PartialEq, Eq)]
+                pub enum LlmlangError { ArithmeticOverflow, DivisionByZero, InvalidInput }
+            }
+            .to_string(),
+        );
     }
     translation_unit.push_str(&source);
     Ok(Output {

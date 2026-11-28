@@ -38,9 +38,9 @@ pub const TABLES: [&str; 13] = [
     "versions",
 ];
 
-const PROFILE: &str = "llmlang.spg.tables.v8";
+const PROFILE: &str = "llmlang.spg.tables.v9";
 const MANIFEST: &str = "manifest.json";
-const MAGIC: &[u8; 8] = b"LLSPG\x08\r\n";
+const MAGIC: &[u8; 8] = b"LLSPG\x09\r\n";
 const HEADER: u64 = 40;
 const MAX_RECORD: usize = 1 << 20;
 const MAX_COMPRESSED: usize = MAX_RECORD + MAX_RECORD / 255 + 16;

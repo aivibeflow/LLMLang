@@ -385,8 +385,6 @@ table_records! {
     "contracts" => Contract(ContractRecord) [contract_hash] {
         contract_hash: (true, "contractHash"),
         contract_kind: (true, "contractKind"),
-        profile: (true, "profile"),
-        typed_signature: (false, "typedSignature"),
         state_signature: (false, "stateSignature"),
         user_request_texts: (true, "userRequestTexts"),
         review_records: (true, "reviewRecords"),

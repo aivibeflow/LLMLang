@@ -1,4 +1,4 @@
-"""Upgrade a live MCP session from a real v6 or v7 server and verify rollback."""
+"""Upgrade a live MCP session from a real v6, v7, or v8 server and verify rollback."""
 
 import argparse
 import hashlib
@@ -75,9 +75,9 @@ def exercise(old, new, fixtures, directory, old_format):
         "initial_version": old_release,
         "releases": {
             old_release: {"binary": str(old), "state_format": old_format},
-            "bad": {"binary": str(failing), "state_format": 8},
-            "v8": {"binary": str(new), "state_format": 8},
-            "v8-next": {"binary": str(new), "state_format": 8},
+            "bad": {"binary": str(failing), "state_format": 9},
+            "v9": {"binary": str(new), "state_format": 9},
+            "v9-next": {"binary": str(new), "state_format": 9},
         },
     }))
     command = [sys.executable, "-B", str(DRAFT / "server/mcp_supervisor.py"),
@@ -94,13 +94,13 @@ def exercise(old, new, fixtures, directory, old_format):
         assert json.loads((managed / "manifest.json").read_text())["profile"] == f"llmlang.spg.tables.{old_release}"
         call(client, "build_package", {"snapshot_id": hello, "target": "linux-x86_64"})
 
-        request = {"version": "v8", "idempotency_key": "v8"}
+        request = {"version": "v9", "idempotency_key": "v9"}
         operation = call(client, "upgrade_server", request)
         assert operation["status"] == "running"
         repeated = call(client, "upgrade_server", request)
         assert repeated["operation_id"] == operation["operation_id"]
         operation = finished(client, operation)
-        assert operation["status"] == "succeeded" and operation["version"] == "v8", operation
+        assert operation["status"] == "succeeded" and operation["version"] == "v9", operation
         bootstrap = "llmlang://doc/bootstrap.md"
         assert any(item["uri"] == bootstrap for item in client.request("resources/list")["resources"])
         assert client.request("resources/read", uri=bootstrap)["contents"][0]["mimeType"] == "text/markdown"
@@ -108,14 +108,14 @@ def exercise(old, new, fixtures, directory, old_format):
         assert set(mapped) == {hello, builtin} and all(a != b for a, b in mapped.items())
         assert operation["smoke_snapshot_id"] == mapped[hello], operation
         assert (Path(operation["backup_path"]) / "state.json").read_text() == old_catalog
-        assert json.loads((managed / "manifest.json").read_text())["profile"] == "llmlang.spg.tables.v8"
+        assert json.loads((managed / "manifest.json").read_text())["profile"] == "llmlang.spg.tables.v9"
         assert json.loads((managed / "package.json").read_text())["snapshot_id"] == mapped[builtin]
         assert (managed / "README.md").read_bytes() == (fixtures / "builtin/README.md").read_bytes()
         assert json.loads(state_file.read_text())["snapshots"][mapped[hello]]["manifest"]["dependencies"]["builtin"] == mapped[builtin]
         output = call(client, "build_package", {"snapshot_id": mapped[hello], "target": "linux-x86_64"})
         assert Path(output["artifact"]).is_file()
         workspace = call(client, "create_package", {
-            "name": "unsaved", "profile": "scalar", "language_version": "0.1.0.0.0",
+            "name": "unsaved", "language_version": "0.1.0.0.0",
         })
         call(client, "apply_change_set", {
             "workspace_id": workspace["workspace_id"], "expected_revision": 0,
@@ -123,12 +123,12 @@ def exercise(old, new, fixtures, directory, old_format):
                 {"op": "set_version", "version": "1", "expected_version": None},
             ],
         })
-        call(client, "upgrade_server", {"version": "v8-next", "idempotency_key": "next"},
-             error="UnsavedWork")
+        saved_workspace = workspace["workspace_id"]
     with connect(command) as client:
-        assert client.server["serverInfo"]["version"] == "v8"
+        assert client.server["serverInfo"]["version"] == "v9"
         assert "llmlang://doc/bootstrap.md" in client.server["instructions"]
         assert call(client, "upgrade_server", request) == operation
+        assert call(client, "inspect_workspace", {"workspace_id": saved_workspace})["revision"] == 1
 
     # Recreate a crash after the old directory was moved and before the new one was activated.
     management = directory / ".state.upgrade"
@@ -137,7 +137,7 @@ def exercise(old, new, fixtures, directory, old_format):
     record = json.loads(journal.read_text())
     record["pending"] = interrupted
     record["operations"][interrupted] = {
-        "operation_id": interrupted, "requested_version": "v8-next", "version": "v8",
+        "operation_id": interrupted, "requested_version": "v9-next", "version": "v9",
         "idempotency_key": interrupted, "status": "running",
     }
     journal.write_text(json.dumps(record))
@@ -148,10 +148,12 @@ def exercise(old, new, fixtures, directory, old_format):
         recovered = call(client, "upgrade_server", {"operation_id": interrupted})
         assert recovered["status"] == "failed" and recovered["error"]["code"] == "UpgradeInterrupted"
         call(client, "build_package", {"snapshot_id": mapped[hello], "target": "linux-x86_64"})
-        next_release = call(client, "upgrade_server", {"version": "v8-next", "idempotency_key": "next"})
+        next_release = call(client, "upgrade_server", {"version": "v9-next", "idempotency_key": "next"})
         next_release = finished(client, next_release)
-        assert next_release["status"] == "succeeded" and next_release["version"] == "v8-next"
-        assert next_release["snapshot_ids"] == {identifier: identifier for identifier in mapped.values()}
+        assert next_release["status"] == "succeeded" and next_release["version"] == "v9-next"
+        assert all(next_release["snapshot_ids"][identifier] == identifier
+                   for identifier in mapped.values())
+        assert call(client, "inspect_workspace", {"workspace_id": saved_workspace})["revision"] == 1
 
 
 def main():
@@ -159,7 +161,7 @@ def main():
     parser.add_argument("old", type=Path)
     parser.add_argument("new", type=Path)
     parser.add_argument("old_draft", type=Path)
-    parser.add_argument("--old-format", type=int, choices=(6, 7), default=7)
+    parser.add_argument("--old-format", type=int, choices=(6, 7, 8), default=8)
     args = parser.parse_args()
     with tempfile.TemporaryDirectory(prefix="llmlang-upgrade-e2e-") as directory:
         exercise(args.old.resolve(), args.new.resolve(), args.old_draft.resolve(),

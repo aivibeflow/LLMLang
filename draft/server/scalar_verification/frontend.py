@@ -12,7 +12,9 @@ from collections.abc import Mapping
 SCHEMA = "llmlang-spg/v1"
 MIN_I64 = -(2**63)
 MAX_I64 = 2**63 - 1
-SOURCE_TYPES = {"int": "i64", "bool": "bool"}
+MAX_U64 = 2**64 - 1
+INTEGER_TYPES = {"i64": (MIN_I64, MAX_I64), "u64": (0, MAX_U64)}
+SOURCE_TYPES = {"int": "i64", "u64": "u64", "bool": "bool"}
 ARITHMETIC_OPERATORS = {ast.Add: "+", ast.Sub: "-", ast.Mult: "*", ast.Div: "/"}
 COMPARISON_OPERATORS = {
     ast.Eq: "==",
@@ -44,7 +46,7 @@ def _identifier(node: ast.AST, name: str) -> str:
 def _source_type(annotation: ast.expr | None, node: ast.AST) -> str:
     if isinstance(annotation, ast.Name) and annotation.id in SOURCE_TYPES:
         return SOURCE_TYPES[annotation.id]
-    raise _error(annotation or node, "type annotation must be int or bool")
+    raise _error(annotation or node, "type annotation must be int, u64, or bool")
 
 
 def _signature(node: ast.FunctionDef) -> dict:
@@ -164,17 +166,21 @@ class _Lowerer:
             case ast.BinOp(left=left, op=op, right=right) if type(op) in ARITHMETIC_OPERATORS:
                 lhs, lhs_type = self.expression(left, bindings)
                 rhs, rhs_type = self.expression(right, bindings)
-                if lhs_type != "i64" or rhs_type != "i64":
-                    raise _error(node, "arithmetic operands must have type i64")
-                return ["bin", ARITHMETIC_OPERATORS[type(op)], lhs, rhs], "i64"
+                if lhs_type != rhs_type or lhs_type not in INTEGER_TYPES:
+                    raise _error(node, "arithmetic operands must have the same integer type")
+                return ["bin", ARITHMETIC_OPERATORS[type(op)], lhs, rhs], lhs_type
             case ast.Compare(left=left, ops=[op], comparators=[right]) if type(op) in COMPARISON_OPERATORS:
                 lhs, lhs_type = self.expression(left, bindings)
                 rhs, rhs_type = self.expression(right, bindings)
                 if lhs_type != rhs_type or (
-                    lhs_type != "i64" and not isinstance(op, (ast.Eq, ast.NotEq))
+                    lhs_type not in INTEGER_TYPES and not isinstance(op, (ast.Eq, ast.NotEq))
                 ):
                     raise _error(node, "incompatible comparison operands")
                 return ["bin", COMPARISON_OPERATORS[type(op)], lhs, rhs], "bool"
+            case ast.Call(func=ast.Name(id="u64"), args=[ast.Constant(value=value)], keywords=[]) if type(value) is int:
+                if not 0 <= value <= MAX_U64:
+                    raise _error(node, "integer literal out of unsigned 64-bit range")
+                return ["u64", value], "u64"
             case ast.Call(func=ast.Name(id=name), args=args, keywords=[]):
                 if name not in self.nodes:
                     raise _error(node, f"unknown function {name!r}")

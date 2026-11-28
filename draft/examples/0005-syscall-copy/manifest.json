@@ -1,1 +1,1 @@
-{"profile":"llmlang.spg.tables.v8","language_version":"0.1.0.0.0","language_component_registry_digest":"sha256:455f7cd2d2d7a113645df451b5b3bed3ddfe1d98099b71eabae516d4060c11e6","dependencies":{"builtin":"0.1.0","linux.syscalls":"v6.12"}}
+{"profile":"llmlang.spg.tables.v9","language_version":"0.1.0.0.0","language_component_registry_digest":"sha256:455f7cd2d2d7a113645df451b5b3bed3ddfe1d98099b71eabae516d4060c11e6","dependencies":{"builtin":"0.1.0","linux.syscalls":"v6.12"}}

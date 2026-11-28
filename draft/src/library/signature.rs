@@ -5,8 +5,6 @@ use serde_json::{json, Value};
 use sha2::{Digest, Sha256};
 use std::collections::BTreeSet;
 
-const SCALAR: &str = "scalar-v1";
-
 /// A canonical signature decoded to ordered typed parameters and result.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct FunctionSignature {
@@ -72,6 +70,11 @@ fn bare_type(value: &str) -> bool {
 }
 
 fn type_text(kind: &Value) -> Result<String> {
+    if matches!(kind.as_str(), Some("i64" | "u64" | "bool")) {
+        return Err(invalid(
+            "scalar signature types are spelled I64, U64, and Bool",
+        ));
+    }
     if let Some(name) = kind.as_str().filter(|name| bare_type(name)) {
         return Ok(name.into());
     }
@@ -140,6 +143,7 @@ impl FunctionSignature {
         fn scalar_type(value: &Value) -> Result<&str> {
             match value.as_str() {
                 Some("I64") => Ok("i64"),
+                Some("U64") => Ok("u64"),
                 Some("Bool") => Ok("bool"),
                 _ => Err(invalid("unsupported scalar signature type")),
             }
@@ -208,16 +212,7 @@ impl Package {
         let text = row["function_signature_content"]
             .as_str()
             .ok_or_else(|| invalid("missing function signature content"))?;
-        let signature = resolve_function_signature(&self.manifest, hash, text)?;
-        let profile = function["provided_contract_hash"]
-            .as_str()
-            .and_then(|key| self.tables["contracts"].get(key))
-            .and_then(|contract| contract["profile"].as_str());
-        if profile == Some(SCALAR) {
-            signature.into_scalar()
-        } else {
-            Ok(signature)
-        }
+        resolve_function_signature(&self.manifest, hash, text)
     }
 }
 

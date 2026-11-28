@@ -1,3 +1,4 @@
 [
-{"contractHash":"sha256:f0a8e04f68be9660f8ea799d0060a710233bfc7b7c82be432dc4c315384f87cf","contractKind":"function","profile":"linux-x86_64-native-v1","typedSignature":{"objectValue":{"fields":[{"key":"parameters","value":{"listValue":{"values":[{"objectValue":{"fields":[{"key":"name","value":{"stringValue":"args"}},{"key":"type","value":{"stringValue":"LaunchArgs"}}]}}]}}},{"key":"result","value":{"stringValue":"ExitStatus"}}]}}}
+{"contractHash":"3c64dce27bca6e7c47b65af8e46b64a1038e04f7254a859defc32abfcbf96211","contractKind":"function"},
+{"contractHash":"57135164be6386be290677c20c1f0ab3af9f525a3aef11721b92ed5a2e4dffea","contractKind":"function"}
 ]

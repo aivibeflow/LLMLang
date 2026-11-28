@@ -64,7 +64,8 @@ writing its function row. The row stores `function_signature_hash` and
 body-only `canonical_body` as LLMLang source text. `Package::function_signature` reconstructs the
 original typed signature. A graph function links to its signature row, and
 the signature row links to its exact structure revisions when applicable.
-Function contracts retain their typed signatures.
+Function contracts carry rules. Each application gets its signature from the
+function under verification.
 
 The signature text has the form `(<name>: <type>, ...) -> <type>`. The owning manifest supplies the language definition.
 For example, the scalar signature for one integer parameter is
@@ -77,7 +78,7 @@ registry digest, a NUL byte, and the UTF-8 signature text, in that order.
 
 `FunctionRecord.canonical_body` is a Protobuf `string`.
 In the debug dump, `canonicalBody` is a JSON string containing the original body block.
-Structured scalar bodies are used only for in-memory editing and verification.
+The server renders structured Change Set shorthand to source before storing the function.
 
 ## Platform-specific bindings
 
@@ -91,14 +92,14 @@ with version key `v` and interface key `i` has storage key `v:i::`.
 ## Repository profile
 
 The draft specifies the storage contract and leaves the physical encoding to a
-profile. This crate uses `llmlang.spg.tables.v8`.
+profile. This crate uses `llmlang.spg.tables.v9`.
 
 - `manifest.json` contains `profile`, `language_version`, `language_component_registry_digest`, and `dependencies`.
 - Each of the thirteen tables has a lowercase `<table>.dump` and
   `<table>.index.json`, even when empty. The index is a JSON object mapping
   lowercase SHA-256 hex digests to zero-based offsets at the start of a frame.
   Index keys are sorted and the compact encoding ends in a newline.
-- Each dump starts with `LLSPG\x08\r\n`. Frames follow in ascending row key order.
+- Each dump starts with `LLSPG\x09\r\n`. Frames follow in ascending row key order.
   Each comprises a little-endian 32-bit compressed length, a little-endian
   32-bit uncompressed length, a 32-byte Content Hash, and a raw LZ4 block.
   The writer uses LZ4 fast mode with acceleration 1. The uncompressed size limit

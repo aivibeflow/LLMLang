@@ -1,6 +1,6 @@
 # 0010 — Balance Transfer
 
-This SPG v8 package implements [Task 0010](../../../examples/0010-balance-transfer.md).
+This SPG v9 package implements [Task 0010](../../../examples/0010-balance-transfer.md).
 The program body is stored as `canonicalBody` in [functions.json](functions.json).
 The package exports `main(args: LaunchArgs) -> ExitStatus` and pins
 `builtin` version `0.1.0` for writing the report and diagnostics.
@@ -47,6 +47,11 @@ flowchart LR
 
 The [native MCP test](../../server/tests/native_build_e2e.py) builds the
 package, checks the exact call pin to `builtin.write`, and exercises all
-task scenarios, including a sum above the balance type's range. The example
-checks invariants at runtime in a single process. Native verification status
-is `unchecked`.
+task scenarios, including a sum above the balance type's range. The entry
+point calls the same private checked function for both balances. The
+[MCP verification test](../../server/tests/mcp_e2e.py) proves the private
+function's contract for all admissible inputs and checks a mutation that
+would fail to credit the recipient. The outstanding call obligation is to
+show that `main` passes a positive amount to the private function. The
+write function has an empty contract. The entry point checks the
+journal before reporting the committed state.

@@ -67,7 +67,6 @@ def contract(name, value):
     return {
         "op": "put_contract",
         "id": name,
-        "signature": SIGNATURE,
         "rules": [{"kind": "ensures", "predicate": f"result == {value}"}],
     }
 
@@ -95,7 +94,7 @@ def first_operations(result=42, promised=42):
 
 def create(client, name):
     return client.call("create_package", {
-        "name": name, "language_version": "0.1.0.0.0", "profile": "scalar",
+        "name": name, "language_version": "0.1.0.0.0",
     })
 
 
@@ -149,7 +148,8 @@ def check_rejected_edits(client, workspace, accepted, request):
     assert error["code"] == "Conflict", error
     cases = {
         "invalid-signature": [
-            {**contract("bad-signature", 42), "signature": "() -> i64"},
+            {**implementation("bad-signature", constant(42), accepted["identities"]["contract"]),
+             "signature": "() -> i64"},
         ],
         "invalid-type": [implementation(
             "wrong-type", ["bool", True], accepted["identities"]["contract"],
@@ -219,7 +219,7 @@ def check_scalar_source(client):
     }
     first = client.call("apply_change_set", apply_request(workspace_id, 0, "source", [
         {"op": "set_version", "version": "1", "expected_version": None},
-        {"op": "put_contract", "id": "contract", "signature": signature, "rules": [
+        {"op": "put_contract", "id": "contract", "rules": [
             {"kind": "requires", "predicate": "0 <= value <= 10"},
             {"kind": "ensures", "predicate": "result == value + 1"},
         ]},
@@ -246,7 +246,7 @@ def check_scalar_source(client):
     proof = verified["report"]
     assert {"caller_impl_hash": caller, "callee_impl_hash": callee,
             "required_contract_hash": required} in proof["calls"]
-    ir = proof["contract_ir"][required]
+    ir = proof["contract_ir"][callee][required]
     assert ir["schema"] == "llmlang-contract-ir/scalar-v1" and ir["requires"][0]["op"] == "and"
     assert ir["ensures"][0]["args"][1]["args"][1] == {"op": "literal", "type": "Int", "value": "1"}
 
@@ -281,16 +281,16 @@ def check_scalar_source(client):
     assert failed_function["canonical_body"] == "{ return value + 2; }"
     assert failed_function["function_signature"]["function_signature_content"] == signature
     assert failed_function["function_signature"]["typed_signature"] == {
-        "params": [["value", "i64"]], "result": "i64",
+        "parameters": [{"name": "value", "type": "I64"}], "result": "I64",
     }
-    assert failure["contract"]["typed_signature"] == signature
+    assert "typed_signature" not in failure["contract"]
     assert failed_function["provided_contract"] == failure["contract"]
     assert failure["contract"]["contract_hash"] == required and failure["contract"]["ir"] == ir
     assert any(rule.get("predicate") == "result == value + 1" for rule in failure["contract"]["rules"])
     assert failure["evidence"]["status"] == "confirmed-source"
 
     related = client.call("apply_change_set", apply_request(workspace_id, 3, "related-contracts", [
-        {"op": "put_contract", "id": "wider", "signature": signature, "rules": [
+        {"op": "put_contract", "id": "wider", "rules": [
             {"kind": "requires", "predicate": "value == -1"},
             {"kind": "ensures", "predicate": "result == value + 1"},
         ]},
@@ -316,6 +316,53 @@ def check_scalar_source(client):
     assert refinement["comparison_contract"]["contract_hash"] == related["identities"]["wider"]
 
 
+def check_contract_reuse(client):
+    workspace = create(client, "contract_reuse")
+    workspace_id = workspace["workspace_id"]
+    spec = {"op": "put_contract", "id": "spec", "rules": [
+        {"kind": "ensures", "predicate": "result >= 0"},
+    ]}
+    no_args = implementation("constant", constant(1), local("spec"))
+    one_arg = {**no_args, "id": "with_arg", "signature": "(value: I64) -> I64"}
+    with_arg = {**spec, "id": "needs_arg", "rules": [
+        {"kind": "ensures", "predicate": "result >= value"},
+    ]}
+    applied = client.call("apply_change_set", apply_request(workspace_id, 0, "reuse", [
+        {"op": "set_version", "version": "1", "expected_version": None},
+        spec, no_args, one_arg, with_arg, {**spec, "id": "same_spec"},
+        {"op": "put_interface", "id": "api", "name": "contract_reuse.get",
+         "public_contract": local("spec")},
+        {"op": "put_interface", "id": "api_with_arg", "name": "contract_reuse.needs_arg",
+         "public_contract": local("needs_arg")},
+        {"op": "bind", "interface": local("api"), "implementation": local("constant"),
+         "expected_implementation": None},
+        {"op": "bind", "interface": local("api"), "implementation": local("with_arg"),
+         "arch": "aarch64", "os": "linux", "expected_implementation": None},
+    ]))
+    identities = applied["identities"]
+    assert identities["spec"] == identities["same_spec"]
+    exports = client.call("inspect_workspace", {"workspace_id": workspace_id})["exports"]
+    assert {row["interface_hash"] for row in exports} == {identities["api"]}
+    assert {row["impl_hash"] for row in exports} == {identities["constant"], identities["with_arg"]}
+    verification = client.call("verify_workspace", scope(workspace, 1))
+    assert verification["report"]["ok"], verification
+    typed = verification["report"]["report"]["contract_ir"]
+    assert typed[identities["constant"]][identities["spec"]]["parameters"] == []
+    assert typed[identities["with_arg"]][identities["spec"]]["parameters"][0]["name"] == "value"
+    rejected = client.call("apply_change_set", apply_request(workspace_id, 1, "missing_param", [
+        {"op": "bind", "interface": identities["api_with_arg"],
+         "implementation": identities["constant"], "expected_implementation": None},
+    ]), succeeds=False)
+    assert rejected["code"] == "ValidationFailed" and "value" in rejected["message"], rejected
+    assert identities["constant"] in rejected["message"], rejected
+    rejected = client.call("apply_change_set", apply_request(workspace_id, 1, "wrong_result_type", [
+        {**no_args, "signature": "() -> Bool", "canonical_body": "{ return true; }",
+         "provided_contract": identities["spec"]},
+    ]), succeeds=False)
+    assert rejected["code"] == "ValidationFailed", rejected
+    assert client.call("inspect_workspace", {"workspace_id": workspace_id})["revision"] == 1
+
+
 def check_source_arithmetic(client):
     workspace = create(client, "arithmetic")
     ops = [{"op": "set_version", "version": "1", "expected_version": None}]
@@ -332,7 +379,7 @@ def check_source_arithmetic(client):
     ]:
         contract_id = f"{name}_contract"
         ops.extend([
-            {"op": "put_contract", "id": contract_id, "signature": SIGNATURE, "rules": rules},
+            {"op": "put_contract", "id": contract_id, "rules": rules},
             {"op": "put_function", "id": name, "signature": SIGNATURE,
              "provided_contract": local(contract_id), "canonical_body": body},
         ])
@@ -380,11 +427,95 @@ def check_documentation(client):
             raise AssertionError(f"Unavailable document was returned: {path}")
 
 
+def check_balance_proof(client):
+    draft = CLIENT.parents[1]
+    client.call("import_package", {"path": str(draft / "builtin")})
+    package = draft / "examples" / "0010-balance-transfer"
+    imported = client.call("import_package", {"path": str(package)})
+    workspace = client.call("open_workspace", {"snapshot_id": imported["snapshot_id"]})
+    functions = json.loads((package / "functions.json").read_text())
+    core, = (row for row in functions if "if recipient" in row["canonicalBody"])
+    main, = (row for row in functions if row != core)
+    reply = client.call("verify_workspace", scope(workspace))
+    report = reply["report"]["report"]
+    assert report["status"] == "UNSUPPORTED", report
+    core_check, = report["checks"]
+    assert core_check["body"] == core_check["refinement"] == "verified", core_check
+    assert report["identities"][core_check["function"]]["implementation_hash"] == core["implHash"]
+    outstanding, = report["unsupported"]
+    assert outstanding["kind"] == "callee_precondition", outstanding
+    assert outstanding["implementation_hash"] == main["implHash"]
+    assert outstanding["callee_impl_hash"] == core["implHash"]
+    assert outstanding["contract_hash"] == core["providedContractHash"]
+    assert len(report["no_behavioral_obligations"]) == 1  # builtin.write
+
+    body = core["canonicalBody"].replace("return destination + amount;", "return destination;")
+    changes = client.call("apply_change_set", apply_request(workspace["workspace_id"], 0, "break-conservation", [{
+        "op":"put_function", "id":"broken",
+        "signature":"(source: U64, destination: U64, amount: U64, recipient: Bool) -> U64",
+        "canonical_body": body, "provided_contract": core["providedContractHash"],
+    }]))
+    rejected = client.call("verify_workspace", scope(changes))
+    assert rejected["report"]["report"]["status"] == "REJECTED", rejected
+    assert any(item["function"]["impl_hash"] == changes["identities"]["broken"]
+               and item["kind"] == "body-postcondition"
+               and item["contract"]["contract_hash"] == core["providedContractHash"]
+               for item in rejected["failures"]), rejected
+
+
+def check_committed_library(client, executable, root, python):
+    workspace = create(client, "verified")
+    signature = "(value: I64) -> I64"
+    applied = client.call("apply_change_set", apply_request(workspace["workspace_id"], 0, "library", [
+        {"op": "set_version", "version": "1", "expected_version": None},
+        {"op": "put_contract", "id": "arithmetic", "rules": [
+            {"kind": "ensures", "predicate": "result == value + 1"},
+            {"kind": "error_declaration", "error_label": "ArithmeticOverflow"},
+            {"kind": "error_guard", "error_label": "ArithmeticOverflow",
+             "predicate": "value == 9223372036854775807"},
+        ]},
+        {"op":"put_function", "id":"next", "signature": signature,
+         "canonical_body":"{ return value + 1; }", "provided_contract": local("arithmetic")},
+        {"op":"put_interface", "id":"next_api", "name":"verified.next",
+         "public_contract": local("arithmetic")},
+        {"op":"bind", "interface": local("next_api"), "implementation":local("next"),
+         "expected_implementation": None},
+    ]))
+    committed = client.call("commit_workspace", scope(workspace, applied["revision"]))
+    package = Path(committed["package_path"])
+    assert json.loads((package / "manifest.json").read_text())["profile"] == "llmlang.spg.tables.v9"
+    assert all("profile" not in row and "typedSignature" not in row for row in json.loads((package / "contracts.json").read_text()))
+    with server(executable, root / "reloaded", python) as fresh:
+        loaded = fresh.call("import_package", {"path": str(package)})
+        assert loaded["snapshot_id"] == committed["snapshot_id"]
+        output = fresh.call("build_package", {
+            "snapshot_id": loaded["snapshot_id"], "target": "linux-x86_64",
+        })
+
+    symbol = output["exports"]["verified.next"]
+    source = root / "proof-harness.rs"
+    source.write_text(
+        f"fn main() {{\n"
+        f"    assert_eq!(llmlang_native::{symbol}(41), Ok(42));\n"
+        f"    assert_eq!(llmlang_native::{symbol}(i64::MAX),"
+        " Err(llmlang_native::LlmlangError::ArithmeticOverflow));\n"
+        "}\n",
+        encoding="utf-8",
+    )
+    harness = root / "proof-harness"
+    subprocess.run([os.environ.get("RUSTC", "rustc"), "--crate-name", "proof_harness",
+                    "--edition=2021", "--extern", f"llmlang_native={output['artifact']}",
+                    "-o", str(harness), str(source)], check=True, timeout=30)
+    subprocess.run([harness], check=True, timeout=10)
+
+
 def exercise(executable, root, python):
     state = root / "author"
     with server(executable, state, python) as client:
         check_documentation(client)
+        check_balance_proof(client)
         check_scalar_source(client)
+        check_contract_reuse(client)
         check_source_arithmetic(client)
         templates = client.request("resources/templates/list")["resourceTemplates"]
         workspace_template = next(template["uriTemplate"] for template in templates
@@ -406,7 +537,7 @@ def exercise(executable, root, python):
         check_rejected_edits(client, workspace, applied, args)
         identities = applied["identities"]
         stored = json.loads((state / "state.json").read_bytes())
-        assert stored["workspaces"] == {} and stored["snapshots"] == {}, stored
+        assert stored["workspaces"][workspace["workspace_id"]]["program"]["tables"]["functions"], stored
         workspace_uri = workspace_template.format(workspace_id=workspace["workspace_id"])
         main = read_object(client, f"{workspace_uri}/object/functions/{identities['main']}")
         helper = read_object(client, f"{workspace_uri}/object/functions/{identities['add']}")
@@ -417,9 +548,6 @@ def exercise(executable, root, python):
         assert client.call("apply_change_set", args) == applied
         verified = client.call("verify_workspace", scope(workspace, applied["revision"]))
         assert verified["report"]["ok"], verified
-        error = client.call("commit_workspace", scope(workspace, applied["revision"]), succeeds=False)
-        assert error["code"] == "UnsupportedProfile", error
-        assert error["verification"]["report"]["report"]["status"] == "VERIFIED", error
         stale = client.call("commit_workspace", scope(workspace), succeeds=False)
         assert stale["code"] == "StaleRevision" and "verification" not in stale, stale
 
@@ -459,27 +587,25 @@ def exercise(executable, root, python):
         assert not list((state / "packages").iterdir())
         assert not (state / "pending-package").exists()
         stored = json.loads((state / "state.json").read_bytes())
-        assert stored["workspaces"] == {} and stored["snapshots"] == {}, stored
+        assert stored["workspaces"][workspace["workspace_id"]]["program"]["tables"]["functions"], stored
 
     with server(executable, state, python) as client:
-        error = client.call(
-            "inspect_workspace", {"workspace_id": workspace["workspace_id"]}, succeeds=False,
-        )
-        assert error["code"] == "MissingReference", error
+        reopened = client.call("inspect_workspace", {"workspace_id": workspace["workspace_id"]})
+        assert reopened["revision"] == removed["revision"]
+        check_committed_library(client, executable, root, python)
 
-    # A fresh CLI session discovers the same schemas and cannot read the old workspace.
+    # A fresh CLI session discovers the same schemas and reads the saved workspace.
     command = [sys.executable, "-B", CLIENT]
     launch = ["--server", executable, "--state-dir", state, "--python", python]
     listed = subprocess.check_output([*command, "tools/list", *launch], timeout=10)
     assert json.loads(listed)["tools"] == list(tools.values())
-    missing = subprocess.run(
+    saved = subprocess.check_output(
         [*command, "resources/read", "-", *launch], input=json.dumps({"uri": workspace_uri}),
-        text=True, capture_output=True, timeout=10,
+        text=True, timeout=10,
     )
-    assert missing.returncode == 1, missing
-    assert json.loads(missing.stderr)["data"]["code"] == "MissingReference", missing
+    assert json.loads(json.loads(saved)["contents"][0]["text"])["revision"] == removed["revision"]
 
-    print("MCP scalar editing, verification, and non-persistence checks passed")
+    print("MCP editing, verification, publication, and compilation checks passed")
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)

@@ -4,13 +4,13 @@ This reference covers the syntax implemented in the current checkout. The scalar
 
 ## Scalar MCP authoring
 
-The scalar Change Set operations `put_function` and `put_contract` take a `signature` string. Use `I64` and `Bool` with the spacing shown below. The server stores that canonical string and uses the owning package's manifest to select the language definition.
+The Change Set operation `put_function` takes a `signature` string. Use `I64`, `U64`, and `Bool` with the spacing shown below. The server stores that canonical string and uses the owning package's manifest to select the language definition.
 
 ```text
 (value: I64) -> Bool
 ```
 
-A `canonical_body` is a braced source string or a nonempty array of structured statements. The notation below uses `EXPR`, `THEN`, `ELSE`, and `REF` as placeholders for the structured form.
+A `canonical_body` is a braced source string. The server also accepts a nonempty array of structured statements as Change Set shorthand and renders it to source before storage. The notation below uses `EXPR`, `THEN`, `ELSE`, and `REF` as placeholders for the structured form.
 
 | Kind | JSON shape |
 | --- | --- |
@@ -23,7 +23,7 @@ A `canonical_body` is a braced source string or a nonempty array of structured s
 | Explicit error | `["fail", "DivisionByZero"]`. Represents `builtin__fail` and is allowed by the server only in `builtin`. Supported labels are `ArithmeticOverflow`, `DivisionByZero`, and `InvalidInput`. |
 | Branch | `["if", EXPR, THEN, ELSE]`. Each branch is an array of statements. `THEN` is nonempty and `ELSE` may be empty. |
 
-Use an existing server identity (64 lowercase hex digits) or `{"local":"request-id"}` for an object created in the same Change Set. A call pins both the callee implementation and the contract the caller relies on. A function separately pins its provided contract. An exported interface names its public contract, and a version binding selects the implementation. Use the identities returned by the server for MCP calls and resource reads. Direct calls must form an acyclic graph. [Server schemas](../src/server/main.rs) · [Runnable MCP examples](server.md)
+Use an existing server identity (64 lowercase hex digits with an optional `sha256:` prefix) or `{"local":"request-id"}` for an object created in the same Change Set. A call pins both the callee implementation and the contract the caller relies on. A function separately pins its provided contract. An exported interface names its public contract, and a version binding selects the implementation. Use the identities returned by the server for MCP calls and resource reads. Direct calls must form an acyclic graph. [Server schemas](../src/server/main.rs) · [Runnable MCP examples](server.md)
 
 ### Source bodies
 
@@ -44,7 +44,7 @@ separators, negative integer literals, Boolean literals `true` and `false`,
 parentheses, names, binary operators, immutable `let` bindings, explicit `return`,
 and `if` with optional `else` or `else if`. A `let` or `return` ends with a semicolon.
 Direct calls use `call("implementation_hash", "required_contract_hash", args...)`,
-where the two quoted values are existing 64-digit lowercase scalar hashes.
+where the two quoted values are existing lowercase SHA-256 identities.
 Structured bodies additionally support local references in the same batch and
 the explicit error statement for the `builtin` package. The server retains
 source text in `canonical_body` and uses its typed lowering for validation,
@@ -82,7 +82,7 @@ outcomes and exact callee pins. [Reference evaluator](../server/scalar_verificat
 
 ### Contract rules
 
-A `put_contract` operation takes a signature string and an array of rules. `requires` and `ensures` have a `predicate`. `error_declaration` has an `error_label`. An `error_guard` has both and refers to a declared error. Multiple predicates for one outcome are conjoined. An error declaration with no guards admits that error anywhere in the contract's input domain. Optional `user_request_texts` records the request prose alongside the formal rules. Use parameter names in all predicates and `result` in `ensures`. The contract parser reserves `result` and `quotient` as parameter names.
+A `put_contract` operation takes an array of rules. The server takes the parameter and result types from each checked function, so a single contract can apply to different signatures when its rules type-check for each. `requires` and `ensures` have a `predicate`. `error_declaration` has an `error_label`. An `error_guard` has both and refers to a declared error. Multiple predicates for one outcome are conjoined. An error declaration with no guards admits that error anywhere in the contract's input domain. Optional `user_request_texts` records the request prose alongside the formal rules. Use parameter names in all predicates and `result` in `ensures`. The contract parser reserves `result` and `quotient` as parameter names.
 
 ```json
 [
@@ -104,6 +104,8 @@ from declared labels to guard lists. Each list is a conjunction, including
 the empty conjunction, which is true. A declared error admits just that
 label when its guards hold. Preconditions and error guards may read only
 inputs. Postconditions can also read `result` for a successful return.
+
+Unsigned scalar source literals carry the suffix `u64`. The verifier bounds `U64` from zero through `18446744073709551615`.
 
 Each expression has an `op` and a `type` of `Bool` or mathematical `Int`.
 Literals carry `value` and integer literals use decimal strings. Variables
@@ -132,11 +134,11 @@ contract. At each direct call, the checked argument values must satisfy the
 caller-required precondition, with a refinement check for the selected callee.
 The verifier checks that the public and provided domains are inhabited.
 
-`verify_workspace` reports the Contract IR keyed by SPG contract hash in
-`report.report.contract_ir`, alongside the verified revision and the exact
+`verify_workspace` reports the Contract IR keyed by implementation hash and
+then by SPG contract hash in `report.report.contract_ir`, alongside the verified revision and the exact
 caller/callee pins. `VERIFIED` is a result for the scoped profile and backend.
 Timeout, unsupported constructs, and solver failures retain their respective
-statuses. Scalar source workspaces currently support in-memory verification.
+statuses. A fully verified source workspace can be committed and built.
 [Verifier](../server/scalar_verification/verify.py) · [Verification architecture](../adr/018-formal-verification-backends.md)
 
 ## Native source syntax

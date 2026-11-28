@@ -122,21 +122,6 @@ struct State {
     workspaces: BTreeMap<String, Workspace>,
 }
 
-impl State {
-    fn retain_native(&mut self) {
-        self.snapshots
-            .retain(|_, program| native::is_native(&program.tables));
-        self.workspaces
-            .retain(|_, workspace| native::is_native(&workspace.program.tables));
-    }
-
-    fn persisted(&self) -> Self {
-        let mut state = self.clone();
-        state.retain_native();
-        state
-    }
-}
-
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct PackageMetadata {
@@ -182,7 +167,7 @@ impl Server {
 
     pub fn open(state_dir: &Path, python: &str, backend: &Path) -> Result<Self> {
         let mut server = Self::open_state(state_dir, python, backend)?;
-        check_state_language(&server.state)?;
+        check_current_state(&server.state)?;
         server.recover()?;
         Ok(server)
     }
@@ -209,7 +194,7 @@ impl Server {
             .map_err(|_| conflict("state directory is already in use"))?;
         fs::create_dir_all(root.join("packages"))?;
         fs::create_dir_all(root.join("artifacts"))?;
-        let mut server = Self {
+        let server = Self {
             state: read_optional(&root.join("state.json"))?.unwrap_or_default(),
             root,
             python: python.into(),
@@ -217,7 +202,6 @@ impl Server {
             principal_uid: metadata.uid(),
             _lock: lock,
         };
-        server.state.retain_native();
         check_state_layout(&server.state)?;
         Ok(server)
     }
@@ -230,10 +214,10 @@ impl Server {
             "create_package" => {
                 let args: Create = serde_json::from_value(args)?;
                 safe_name(&args.name)?;
-                if !VERSIONS.contains(&args.language_version.as_str()) || args.profile != "scalar" {
+                if !VERSIONS.contains(&args.language_version.as_str()) {
                     return Err(ServerError::new(
                         "UnsupportedProfile",
-                        format!("expected scalar LLMLang {}", llmlang_spg::LANGUAGE_VERSION),
+                        format!("expected LLMLang {}", llmlang_spg::LANGUAGE_VERSION),
                     ));
                 }
                 let package = Package::empty(Manifest {
@@ -353,7 +337,6 @@ impl Server {
             };
         }
         let mut workspace = self.checked_workspace(&revision)?.clone();
-        let native_profile = native::is_native(&workspace.program.tables);
         let mut package = workspace.program.package();
         let changes = changes::apply(
             &mut package,
@@ -362,7 +345,7 @@ impl Server {
         )?;
         workspace.program.manifest = package.manifest;
         workspace.program.tables = package.tables;
-        self.validate_edit(&mut workspace.program, native_profile)?;
+        self.validate_edit(&mut workspace.program)?;
         workspace.revision = workspace
             .revision
             .checked_add(1)
@@ -385,28 +368,13 @@ impl Server {
         Ok(result)
     }
 
-    fn validate_edit(&self, program: &mut Program, native_profile: bool) -> Result<()> {
+    fn validate_edit(&self, program: &mut Program) -> Result<()> {
         let combined = self.combined_package(program)?;
+        let rows = self.call_rows(program, &combined)?;
         let mut candidate = program.package();
-        let rows = if native_profile {
-            if !native::is_native(&program.tables) {
-                return Err(ServerError::new(
-                    "UnsupportedProfile",
-                    "a native Change Set must retain the native profile",
-                ));
-            }
-            self.validate_native(program, &combined)?;
-            self.native_call_rows(program, &combined, |_| true)?
-        } else {
-            obligations::rows(&combined, &obligations::from_ir(&candidate)?)?
-        };
         obligations::replace(&mut candidate, rows);
         program.tables = candidate.tables;
-        if native_profile {
-            self.check_graph(&self.combined_package(program)?)?;
-        } else {
-            self.validate(program)?;
-        }
+        self.validate(program)?;
         Ok(())
     }
 
@@ -457,7 +425,6 @@ impl Server {
         // Check the owner of each function while package rows are still separate.
         check_builtin_access(program)?;
         let mut package = program.package();
-        let include_native_calls = native::is_native(&package.tables);
         for dependency in self.dependency_packages(program)?.values() {
             check_builtin_access(dependency)?;
             for (table, rows) in &dependency.tables {
@@ -465,8 +432,7 @@ impl Server {
                 if matches!(
                     table.as_str(),
                     "versions" | "bindings" | "structure_bindings" | "verification_runs"
-                ) || (table == "verification_obligations" && !include_native_calls)
-                {
+                ) {
                     continue;
                 }
                 for (key, row) in rows {
@@ -476,7 +442,13 @@ impl Server {
                         .unwrap()
                         .entry(key.clone())
                         .or_insert_with(|| row.clone());
-                    if stored != row {
+                    // Contracts share behavior identity across packages. Keep the
+                    // first package's request and review metadata in the combined view.
+                    if stored != row
+                        && !(table == "contracts"
+                            && stored["contract_kind"] == row["contract_kind"]
+                            && stored["state_signature"] == row["state_signature"])
+                    {
                         return Err(conflict(format!(
                             "conflicting dependency row {table}/{key}"
                         )));
@@ -489,9 +461,9 @@ impl Server {
 
     fn validate(&self, program: &Program) -> Result<Package> {
         let package = self.combined_package(program)?;
-        changes::check_identities(&program.package(), &program.selection, &package)?;
-        self.check_graph(&package)?;
-        Self::check_entry_point(program)?;
+        changes::check_identities(&program.package(), &program.selection)?;
+        self.validate_native(program, &package)?;
+        self.validate_sources(program, &package)?;
         self.backend("validate", program, &package)?;
         Ok(package)
     }
@@ -513,11 +485,9 @@ impl Server {
     }
 
     fn native_catalog(program: &Program) -> Result<native::Catalog> {
-        let version = program
-            .selection
-            .version
-            .as_deref()
-            .ok_or_else(|| invalid("missing selected version"))?;
+        let Some(version) = program.selection.version.as_deref() else {
+            return Ok(native::Catalog::new());
+        };
         let mut versions = program.tables["versions"]
             .values()
             .filter(|row| row["version"] == version);
@@ -557,9 +527,11 @@ impl Server {
             let contract = interface["public_contract_hash"]
                 .as_str()
                 .ok_or_else(|| validation("missing public contract pin"))?;
-            if name.rsplit_once('.').map(|(namespace, _)| namespace) != Some(&program.name) {
-                return Err(validation("export must belong to the package namespace"));
-            }
+            let name = match name.rsplit_once('.') {
+                Some((namespace, _)) if namespace == program.name => name.to_owned(),
+                Some(_) => return Err(validation("export must belong to the package namespace")),
+                None => format!("{}.{name}", program.name),
+            };
             let entry =
                 catalog
                     .entry(name.to_owned())
@@ -620,24 +592,7 @@ impl Server {
             }
         }
         for binding in local.tables["bindings"].values() {
-            let interface = local.tables["interfaces"]
-                .get(binding["interface_hash"].as_str().unwrap())
-                .ok_or_else(|| validation("missing local interface"))?;
             let function = &package.tables["functions"][binding["impl_hash"].as_str().unwrap()];
-            let contract = interface["public_contract_hash"]
-                .as_str()
-                .ok_or_else(|| validation("missing local public contract pin"))?;
-            if function["provided_contract_hash"] != contract
-                || package.tables["contracts"][contract]["typed_signature"]
-                    != package
-                        .function_signature(function)
-                        .map_err(validation)?
-                        .typed
-            {
-                return Err(validation(
-                    "native export contract and implementation must have the exact signature",
-                ));
-            }
             if (binding["arch"] == "" || binding["os"] == "")
                 && native::requires_platform(&program.name, function)?
             {
@@ -673,43 +628,44 @@ impl Server {
         Ok(output)
     }
 
-    fn validate_native_sources(&self, program: &Program, package: &Package) -> Result<()> {
+    fn validate_sources(&self, program: &Program, package: &Package) -> Result<()> {
         let actual: BTreeMap<_, _> = program.tables["verification_obligations"]
             .iter()
             .filter(|(_, row)| row["kind"] == "call_compatibility")
             .map(|(key, row)| (key.clone(), row.clone()))
             .collect();
-        let callers: BTreeSet<_> = actual
-            .values()
-            .filter_map(|row| row["caller_impl_hash"].as_str())
-            .collect();
-        if self.native_call_rows(program, package, |caller| callers.contains(caller))? != actual {
+        if self.call_rows(program, package)? != actual {
             return Err(validation(
-                "native call obligations disagree with the resolved source",
+                "call obligations disagree with the resolved source",
             ));
         }
         Ok(())
     }
 
-    fn native_call_rows(
-        &self,
-        program: &Program,
-        package: &Package,
-        resolve: impl Fn(&str) -> bool,
-    ) -> Result<BTreeMap<String, Value>> {
+    fn call_rows(&self, program: &Program, package: &Package) -> Result<BTreeMap<String, Value>> {
         let catalogs = self.native_catalogs(program)?;
-        let mut calls = obligations::CallsByCaller::new();
+        let mut calls = obligations::from_ir(&program.package())?;
         for (implementation, row) in &program.tables["functions"] {
-            if native::implementation_identity(
-                &program.name,
-                package,
-                row,
-                &catalogs[implementation],
-            )? != *implementation
-            {
-                return Err(validation("native source or interface identity mismatch"));
-            }
-            if resolve(implementation) {
+            let signature = package.function_signature(row).map_err(validation)?;
+            let contract = row["provided_contract_hash"]
+                .as_str()
+                .ok_or_else(|| validation("missing provided contract"))?;
+            let source = &row["canonical_body"];
+            let authored = changes::function_identity(&signature.typed, source, contract)?;
+            if scalar_source::supported_signature(package, row) {
+                if authored != *implementation {
+                    return Err(validation("function source identity mismatch"));
+                }
+            } else {
+                let linked = native::implementation_identity(
+                    &program.name,
+                    package,
+                    row,
+                    &catalogs[implementation],
+                )?;
+                if authored != *implementation && linked != *implementation {
+                    return Err(validation("function source or interface identity mismatch"));
+                }
                 calls.insert(
                     implementation.clone(),
                     native::resolved_calls(
@@ -730,32 +686,143 @@ impl Server {
             .values()
             .find(|row| row["version"].as_str() == program.selection.version.as_deref())
             .and_then(|row| row["version_hash"].as_str());
-        // The scalar frontend consumes its typed view. The repository rows
-        // remain normalized and the view is local to this backend request.
-        let mut tables = package.tables.clone();
-        for row in tables.get_mut("functions").unwrap().values_mut() {
-            let body = scalar_source::body(package, row)?;
-            if let std::borrow::Cow::Owned(body) = body {
-                row["canonical_body"] = body;
+        let mut edges = BTreeMap::<&str, Vec<&str>>::new();
+        for row in package.tables["verification_obligations"].values() {
+            if row["kind"] == "call_compatibility" {
+                if let (Some(caller), Some(callee)) = (
+                    row["caller_impl_hash"].as_str(),
+                    row["callee_impl_hash"].as_str(),
+                ) {
+                    edges.entry(caller).or_default().push(callee);
+                }
             }
-            row["typed_signature"] = package.function_signature(row).map_err(validation)?.typed;
         }
-        for row in tables.get_mut("contracts").unwrap().values_mut() {
-            if row["profile"] != scalar_source::PROFILE {
+        let mut pending: Vec<_> = program.tables["functions"]
+            .keys()
+            .map(String::as_str)
+            .chain(
+                program.tables["bindings"]
+                    .values()
+                    .filter_map(|row| row["impl_hash"].as_str()),
+            )
+            .collect();
+        let mut checked = BTreeSet::new();
+        while let Some(hash) = pending.pop() {
+            if checked.insert(hash) {
+                pending.extend(edges.get(hash).into_iter().flatten().copied());
+            }
+        }
+        let reachable = checked.clone();
+        let mut unsupported = Vec::new();
+        let mut no_behavioral_obligations = Vec::new();
+        if action == "verify" {
+            let obligations = verification_report::behavioral_checks(package, &checked);
+            let mut proof_scope = BTreeSet::new();
+            let mut pending = Vec::new();
+            for (&hash, checks) in &obligations {
+                let row = &package.tables["functions"][hash];
+                if scalar_source::supported_signature(package, row) {
+                    pending.push(hash);
+                } else {
+                    unsupported.extend(checks.iter().cloned().map(|mut check| {
+                        check["implementation_hash"] = json!(hash);
+                        check["reason"] =
+                            json!("the verifier has no model for this callable signature and body");
+                        check
+                    }));
+                }
+            }
+            // A proof can also depend on a callee whose own contract has no rules.
+            while let Some(hash) = pending.pop() {
+                if proof_scope.insert(hash) {
+                    pending.extend(edges.get(hash).into_iter().flatten().copied());
+                }
+            }
+            no_behavioral_obligations.extend(
+                checked
+                    .iter()
+                    .copied()
+                    .filter(|hash| !obligations.contains_key(hash) && !proof_scope.contains(hash)),
+            );
+            checked = proof_scope;
+            for (hash, row) in &program.tables["contracts"] {
+                if row["contract_kind"] != "function"
+                    && program.tables["contract_rules"]
+                        .values()
+                        .any(|rule| rule["contract_hash"] == *hash)
+                {
+                    unsupported.push(json!({
+                        "kind": "state_contract", "contract_hash": hash,
+                        "reason": "state contract verification is unavailable",
+                    }));
+                }
+            }
+            if checked.is_empty() {
+                return Ok(if unsupported.is_empty() {
+                    json!({
+                        "ok": true,
+                        "report": {"status": "NO_OBLIGATIONS", "checks": [],
+                                   "no_behavioral_obligations": no_behavioral_obligations},
+                    })
+                } else {
+                    json!({
+                        "ok": false, "message": "required obligations are unsupported",
+                        "report": {"status": "UNSUPPORTED", "checks": [], "unsupported": unsupported,
+                                   "no_behavioral_obligations": no_behavioral_obligations},
+                    })
+                });
+            }
+        }
+        let mut tables = package.tables.clone();
+        tables
+            .get_mut("functions")
+            .unwrap()
+            .retain(|id, _| checked.contains(id.as_str()));
+        for hash in checked {
+            let row = &package.tables["functions"][hash];
+            if !scalar_source::supported_signature(package, row) {
+                tables.get_mut("functions").unwrap().remove(hash);
                 continue;
             }
-            let text = row["typed_signature"]
-                .as_str()
-                .ok_or_else(|| validation("missing scalar contract signature text"))?;
-            let signature = llmlang_spg::parse_function_signature(&program.manifest, text)
+            let view = tables.get_mut("functions").unwrap().get_mut(hash).unwrap();
+            view["canonical_body"] = scalar_source::body(package, row)?.into_owned();
+            view["typed_signature"] = package
+                .function_signature(row)
                 .and_then(llmlang_spg::FunctionSignature::into_scalar)
-                .map_err(validation)?;
-            row["typed_signature"] = signature.typed;
+                .map_err(validation)?
+                .typed;
         }
+        let function_ids: BTreeSet<_> = tables["functions"].keys().cloned().collect();
+        tables.get_mut("bindings").unwrap().retain(|_, row| {
+            row["impl_hash"]
+                .as_str()
+                .is_some_and(|id| function_ids.contains(id))
+        });
+        tables
+            .get_mut("verification_obligations")
+            .unwrap()
+            .retain(|_, row| {
+                row["caller_impl_hash"]
+                    .as_str()
+                    .is_some_and(|id| reachable.contains(id))
+            });
+        let contracts = tables.get_mut("contracts").unwrap();
+        contracts.retain(|_, row| row["contract_kind"] == "function");
+        let supported: BTreeSet<_> = contracts.keys().cloned().collect();
+        tables.get_mut("contract_rules").unwrap().retain(|_, row| {
+            row["contract_hash"]
+                .as_str()
+                .is_some_and(|id| supported.contains(id))
+        });
+        let entry = program
+            .selection
+            .entry_point
+            .as_deref()
+            .filter(|hash| tables["functions"].contains_key(*hash));
         let request = json!({
             "action": action,
             "package": {"manifest": package.manifest, "tables": tables},
-            "entry_impl_hash": program.selection.entry_point,
+            "entry_impl_hash": entry,
             "version_hash": version_hash,
         });
         let input = serde_json::to_vec(&request)?;
@@ -774,7 +841,7 @@ impl Server {
                 String::from_utf8_lossy(&output.stderr).trim(),
             ));
         }
-        let reply: Value = serde_json::from_slice(&output.stdout)
+        let mut reply: Value = serde_json::from_slice(&output.stdout)
             .map_err(|error| ServerError::new("ToolError", error.to_string()))?;
         if reply["ok"] != true && !(action == "verify" && reply["report"].is_object()) {
             let code = match reply["code"].as_str() {
@@ -790,17 +857,22 @@ impl Server {
                     .unwrap_or("scalar backend rejected the request"),
             ));
         }
+        if action == "verify" {
+            reply["report"]["no_behavioral_obligations"] = json!(no_behavioral_obligations);
+        }
+        if action == "verify" && !unsupported.is_empty() {
+            reply["report"]["unsupported"] = json!(unsupported);
+            if reply["ok"] == true {
+                reply["ok"] = json!(false);
+                reply["report"]["status"] = json!("UNSUPPORTED");
+                reply["message"] = json!("required obligations are unsupported");
+            }
+        }
         Ok(reply)
     }
 
     fn verify_revision(&self, args: &RevisionInput) -> Result<Value> {
         let program = &self.checked_workspace(args)?.program;
-        if native::is_native(&program.tables) {
-            return Err(ServerError::new(
-                "UnsupportedProfile",
-                "contract verification is unavailable for native workspaces",
-            ));
-        }
         let package = self.validate(program)?;
         let report = self.backend("verify", program, &package)?;
         let failures = verification_report::failures(&package, &report["report"])?;
@@ -828,19 +900,17 @@ impl Server {
         self.check_version(program, &id)?;
         let verification = self.verify_revision(&args)?;
         let report = &verification["report"];
-        if report["ok"] != true || report["report"]["status"] != "VERIFIED" {
+        if report["ok"] != true
+            || !matches!(
+                report["report"]["status"].as_str(),
+                Some("VERIFIED" | "NO_OBLIGATIONS")
+            )
+        {
             return Err(ServerError::new(
                 "VerificationFailed",
                 report["message"]
                     .as_str()
                     .unwrap_or("required verification failed"),
-            )
-            .with_verification(verification));
-        }
-        if !native::is_native(&program.tables) {
-            return Err(ServerError::new(
-                "UnsupportedProfile",
-                "verified scalar workspaces cannot be published",
             )
             .with_verification(verification));
         }
@@ -874,7 +944,7 @@ impl Server {
         revised.reports.insert(args.expected_revision, verification);
         next.snapshots.insert(id.clone(), program.clone());
         let pending = PendingCommit {
-            state: next.persisted(),
+            state: next.clone(),
             snapshot_id: id.clone(),
         };
         if let Err(error) = write_atomic(&self.root.join("pending.json"), &pending) {
@@ -937,15 +1007,7 @@ impl Server {
             return Err(validation("package snapshot identity mismatch"));
         }
         self.check_version(&program, &id)?;
-        if !native::is_native(&program.tables) {
-            return Err(ServerError::new(
-                "UnsupportedProfile",
-                "only native source packages can be imported",
-            ));
-        }
-        let package = self.combined_package(&program)?;
-        self.validate_native(&program, &package)?;
-        self.validate_native_sources(&program, &package)?;
+        self.validate(&program)?;
         let mut next = self.state.clone();
         let versions: BTreeSet<_> = next
             .snapshots
@@ -978,15 +1040,7 @@ impl Server {
         };
         let area = tempfile::tempdir_in(self.root.join("artifacts"))?;
         let staged = area.path().join("program");
-        if !native::is_native(&program.tables) {
-            return Err(ServerError::new(
-                "UnsupportedProfile",
-                "only native source packages can be built",
-            ));
-        }
-        let mut package = self.combined_package(program)?;
-        self.validate_native(program, &package)?;
-        self.validate_native_sources(program, &package)?;
+        let mut package = self.validate(program)?;
         let output = self.native_output(program, &mut package, target)?;
         native::compile(&output, &staged)?;
         let (executable, exports) = (output.executable, output.exports);
@@ -1016,7 +1070,7 @@ impl Server {
     }
 
     fn store(&mut self, state: State) -> Result<()> {
-        write_atomic(&self.root.join("state.json"), &state.persisted())?;
+        write_atomic(&self.root.join("state.json"), &state)?;
         self.state = state;
         Ok(())
     }
@@ -1024,7 +1078,7 @@ impl Server {
     fn recover(&mut self) -> Result<()> {
         if let Some(pending) = read_optional::<PendingCommit>(&self.root.join("pending.json"))? {
             check_state_layout(&pending.state)?;
-            check_state_language(&pending.state)?;
+            check_current_state(&pending.state)?;
             let program = pending
                 .state
                 .snapshots
@@ -1043,19 +1097,7 @@ impl Server {
                 if package != program.package() {
                     return Err(validation("pending package differs from journal"));
                 }
-                let mut recovered = pending.state;
-                for (key, program) in &self.state.snapshots {
-                    if !native::is_native(&program.tables) {
-                        recovered.snapshots.insert(key.clone(), program.clone());
-                    }
-                }
-                for (key, workspace) in &self.state.workspaces {
-                    if !native::is_native(&workspace.program.tables) {
-                        recovered.workspaces.insert(key.clone(), workspace.clone());
-                    }
-                }
-                recovered.sequence = recovered.sequence.max(self.state.sequence);
-                self.store(recovered)?;
+                self.store(pending.state)?;
             }
         }
         self.clear_pending()
@@ -1210,7 +1252,7 @@ fn scalar_uses_fail(node: &Value) -> bool {
     }
 }
 
-fn check_state_language(state: &State) -> Result<()> {
+fn check_current_state(state: &State) -> Result<()> {
     let registry = llmlang_spg::language_component_registry_digest();
     if state
         .snapshots
@@ -1224,11 +1266,14 @@ fn check_state_language(state: &State) -> Result<()> {
         .any(|program| {
             program.manifest.language_version != llmlang_spg::LANGUAGE_VERSION
                 || program.manifest.language_component_registry_digest != registry
+                || program.tables["contracts"]
+                    .values()
+                    .any(|row| row.get("profile").is_some() || row.get("typed_signature").is_some())
         })
     {
         return Err(ServerError::new(
             "UnsupportedProfile",
-            "server state requires migration to the composite language version",
+            "server state requires migration to SPG v9",
         ));
     }
     Ok(())
@@ -1383,7 +1428,6 @@ fn publish_new(staged: &Path, destination: &Path) -> Result<()> {
 #[serde(deny_unknown_fields)]
 struct Create {
     name: String,
-    profile: String,
     language_version: String,
 }
 
@@ -1462,6 +1506,16 @@ mod tests {
         let portable = write.implementations[""][""].clone();
         let mut function = builtin.tables["functions"][&portable].clone();
         function["canonical_body"] = json!("{ builtin__write_utf8(-1, utf8) }");
+        let mut builtin_package = builtin.package();
+        let signature = llmlang_spg::parse_function_signature(
+            &builtin.manifest,
+            "(fd: I64, utf8: Utf8) -> IoResult",
+        )
+        .unwrap();
+        function["function_signature_hash"] = json!(builtin_package
+            .stage_function_signature(&signature.typed)
+            .unwrap());
+        builtin.tables = builtin_package.tables;
         let exact =
             native::implementation_identity(BUILTIN, &builtin.package(), &function, &catalog)
                 .unwrap();
@@ -1493,6 +1547,7 @@ mod tests {
             selected.calls[caller].first().unwrap().callee_impl_hash,
             exact
         );
+        assert!(selected.source.contains("fd : i64"));
         let exact_rows = package.tables["verification_obligations"].clone();
 
         let portable_target = ("aarch64", "linux");
@@ -1504,6 +1559,7 @@ mod tests {
             selected.calls[caller].first().unwrap().callee_impl_hash,
             portable
         );
+        assert!(selected.source.contains("fd : I32"));
         assert_ne!(exact_rows, package.tables["verification_obligations"]);
 
         server

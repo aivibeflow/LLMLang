@@ -1,4 +1,4 @@
-//! Typed changes and their canonical identities for the scalar authoring profile.
+//! Typed workspace changes and their canonical identities.
 use crate::{scalar_source, ServerError};
 use llmlang_spg::{content_hash, parse_function_signature, Package};
 use serde::{Deserialize, Serialize};
@@ -6,7 +6,6 @@ use serde_json::{json, Value};
 use std::collections::{BTreeMap, BTreeSet};
 
 type Result<T> = std::result::Result<T, ServerError>;
-use scalar_source::PROFILE as SCALAR_PROFILE;
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
@@ -85,7 +84,6 @@ enum Operation {
     },
     PutContract {
         id: String,
-        signature: String,
         rules: Vec<Rule>,
         #[serde(default)]
         user_request_texts: Vec<String>,
@@ -160,6 +158,7 @@ fn require_text(value: &str, what: &str) -> Result<()> {
 }
 
 fn require_hash(value: &str, what: &str) -> Result<()> {
+    let value = value.strip_prefix("sha256:").unwrap_or(value);
     if value.len() == 64
         && value
             .bytes()
@@ -198,15 +197,16 @@ fn rule_identity(rule: &Value) -> Result<String> {
     hash("llmlang-server-rule-v1", rule)
 }
 
-fn contract_identity<'a>(
+pub(super) fn contract_identity<'a>(
     manifest: &llmlang_spg::Manifest,
-    signature: &str,
+    kind: &str,
+    state_signature: &Value,
     rule_hashes: impl Iterator<Item = &'a String>,
 ) -> Result<String> {
     hash(
-        "llmlang-server-contract-v1",
+        "llmlang-server-contract-v3",
         &json!({
-            "profile": SCALAR_PROFILE, "signature": signature,
+            "kind": kind, "state_signature": state_signature,
             "language_version": manifest.language_version,
             "language_component_registry_digest": manifest.language_component_registry_digest,
             "rules": rule_hashes.collect::<Vec<_>>(),
@@ -214,14 +214,14 @@ fn contract_identity<'a>(
     )
 }
 
-fn function_identity(signature: &Value, body: &Value, provided: &str) -> Result<String> {
+pub(super) fn function_identity(signature: &Value, body: &Value, provided: &str) -> Result<String> {
     hash(
         "llmlang-server-implementation-v1",
         &json!({"signature": signature, "body": body, "provided_contract_hash": provided}),
     )
 }
 
-fn interface_identity(name: &str, public: &str) -> Result<String> {
+pub(super) fn interface_identity(name: &str, public: &str) -> Result<String> {
     hash(
         "llmlang-server-interface-v1",
         &json!({"name": name, "public_contract_hash": public}),
@@ -356,6 +356,11 @@ fn write_selection(package: &mut Package, selection: &Selection, exports: &Expor
         ));
     }
     Ok(())
+}
+
+pub(super) fn rebuild_selection(package: &mut Package, selection: &Selection) -> Result<()> {
+    let exports = exports(package)?;
+    write_selection(package, selection, &exports)
 }
 
 fn local_id(operation: &Operation) -> Option<(&str, Table)> {
@@ -509,7 +514,6 @@ fn put(
 ) -> Result<String> {
     match operation {
         Operation::PutContract {
-            signature,
             rules,
             user_request_texts,
             previous,
@@ -525,10 +529,12 @@ fn put(
                     return Err(invalid("duplicate contract rule"));
                 }
             }
-            parse_function_signature(&package.manifest, signature)
-                .and_then(llmlang_spg::FunctionSignature::into_scalar)
-                .map_err(|error| invalid(error.to_string()))?;
-            let identity = contract_identity(&package.manifest, signature, canonical.keys())?;
+            let identity = contract_identity(
+                &package.manifest,
+                "function",
+                &Value::Null,
+                canonical.keys(),
+            )?;
             let mut texts: BTreeSet<_> = user_request_texts.iter().cloned().collect();
             let mut reviews = Vec::new();
             if let Some(existing) = package.tables["contracts"].get(&identity) {
@@ -540,8 +546,8 @@ fn put(
                 }
             }
             let content = json!({
-                "contract_hash": identity, "contract_kind": "function", "profile": SCALAR_PROFILE,
-                "typed_signature": signature, "user_request_texts": texts, "review_records": reviews
+                "contract_hash": identity, "contract_kind": "function",
+                "user_request_texts": texts, "review_records": reviews
             });
             package
                 .tables
@@ -570,22 +576,25 @@ fn put(
         } => {
             check_edit(baseline, Table::Functions, previous, expected_hash)?;
             let provided = locals.resolve(provided_contract, Table::Contracts)?;
-            let mut body = canonical_body.clone();
-            if let Some(source) = body.as_str() {
-                scalar_source::lower(source)?;
-            } else {
-                locals.rewrite_ir(&mut body)?;
-            }
             let parsed = parse_function_signature(&package.manifest, signature)
                 .map_err(|error| invalid(error.to_string()))?;
+            let mut body = canonical_body.clone();
+            if let Some(source) = body.as_str() {
+                if parsed.clone().into_scalar().is_ok() {
+                    scalar_source::lower(source)?;
+                }
+            } else {
+                parsed
+                    .clone()
+                    .into_scalar()
+                    .map_err(|error| invalid(error.to_string()))?;
+                locals.rewrite_ir(&mut body)?;
+                body = json!(scalar_source::render(&body)?);
+            }
             let signature = package
                 .stage_function_signature(&parsed.typed)
                 .map_err(|error| invalid(error.to_string()))?;
-            let typed = parsed
-                .into_scalar()
-                .map_err(|error| invalid(error.to_string()))?
-                .typed;
-            let identity = function_identity(&typed, &body, &provided)?;
+            let identity = function_identity(&parsed.typed, &body, &provided)?;
             insert_row(
                 package,
                 "functions",
@@ -974,11 +983,7 @@ pub(crate) fn apply(
     })
 }
 
-pub(crate) fn check_identities(
-    package: &Package,
-    selection: &Selection,
-    resolved: &Package,
-) -> Result<()> {
+pub(crate) fn check_identities(package: &Package, selection: &Selection) -> Result<()> {
     let mut rules = BTreeMap::<String, BTreeSet<String>>::new();
     for (key, row) in &package.tables["contract_rules"] {
         let contract = string(row, "contract_hash")?;
@@ -1000,30 +1005,15 @@ pub(crate) fn check_identities(
             .insert(identity.into());
     }
     for (key, row) in &package.tables["contracts"] {
-        if string(row, "profile")? != SCALAR_PROFILE
-            || string(row, "contract_kind")? != "function"
-            || string(row, "contract_hash")? != key
+        if string(row, "contract_hash")? != key
             || contract_identity(
                 &package.manifest,
-                string(row, "typed_signature")?,
+                string(row, "contract_kind")?,
+                &row["state_signature"],
                 rules.get(key).into_iter().flatten(),
             )? != *key
         {
             return Err(invalid(format!("invalid contract identity {key}")));
-        }
-    }
-    for (key, row) in &package.tables["functions"] {
-        let signature = resolved
-            .function_signature(row)
-            .map_err(|error| invalid(error.to_string()))?;
-        if string(row, "impl_hash")? != key
-            || function_identity(
-                &signature.typed,
-                &row["canonical_body"],
-                string(row, "provided_contract_hash")?,
-            )? != *key
-        {
-            return Err(invalid(format!("invalid function identity {key}")));
         }
     }
     for (key, row) in &package.tables["interfaces"] {
@@ -1060,7 +1050,7 @@ mod tests {
         let mut selection = Selection::default();
         let signature = "() -> I64";
         let contract = json!({
-            "op": "put_contract", "id": "contract", "signature": signature,
+            "op": "put_contract", "id": "contract",
             "rules": [{"kind": "ensures", "predicate": "result == 42"}]
         });
         let function = |id, body: Value| {
@@ -1103,9 +1093,9 @@ mod tests {
         .unwrap();
         let caller = &package.tables["functions"][&result.identities["caller"]];
         assert_eq!(
-            caller["canonical_body"][0][1]["callee_impl_hash"],
+            scalar_source::body(&package, caller).unwrap()[0][1]["callee_impl_hash"],
             result.identities["callee"],
         );
-        check_identities(&package, &selection, &package).unwrap();
+        check_identities(&package, &selection).unwrap();
     }
 }
