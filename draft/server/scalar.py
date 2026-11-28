@@ -228,14 +228,14 @@ def view_package(package, version_hash):
         )
     else:
         program = {"schema": frontend.SCHEMA, "functions": {}}
-    return program, definitions, aliases, functions, calls
+    return program, definitions, aliases, functions, calls, contracts
 
 
 def handle(request):
     action = request["action"]
     if action not in {"validate", "verify"}:
         return {"ok": False, "code": "InvalidArguments", "message": "unknown scalar action"}
-    program, definitions, aliases, functions, calls = view_package(
+    program, definitions, aliases, functions, calls, contracts = view_package(
         request["package"], request.get("version_hash"),
     )
     entry_identity = request.get("entry_impl_hash")
@@ -252,6 +252,7 @@ def handle(request):
         program, definitions, boogie=os.environ.get("BOOGIE", "boogie"),
         z3=os.environ.get("Z3"), timeout=30,
     )
+    report["contract_ir"] = {identity: value.to_ir() for identity, value in sorted(contracts.items())}
     report["identities"] = {
         alias: {
             "implementation_hash": implementation,

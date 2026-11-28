@@ -1,12 +1,12 @@
 //! Typed changes and their canonical identities for the scalar authoring profile.
-use crate::ServerError;
+use crate::{scalar_source, ServerError};
 use llmlang_spg::{content_hash, Package};
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use std::collections::{BTreeMap, BTreeSet};
 
 type Result<T> = std::result::Result<T, ServerError>;
-const SCALAR_PROFILE: &str = "scalar-v1";
+use scalar_source::PROFILE as SCALAR_PROFILE;
 
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
@@ -562,7 +562,11 @@ fn put(
             check_edit(baseline, Table::Functions, previous, expected_hash)?;
             let provided = locals.resolve(provided_contract, Table::Contracts)?;
             let mut body = canonical_body.clone();
-            locals.rewrite_ir(&mut body)?;
+            if let Some(source) = body.as_str() {
+                scalar_source::lower(source)?;
+            } else {
+                locals.rewrite_ir(&mut body)?;
+            }
             let identity = function_identity(typed_signature, &body, &provided)?;
             let signature = package
                 .stage_function_signature(SCALAR_PROFILE, typed_signature)
@@ -671,7 +675,7 @@ fn references_to(
     selection: &Selection,
     table: Table,
     hash: &str,
-) -> BTreeSet<String> {
+) -> Result<BTreeSet<String>> {
     let mut references = BTreeSet::new();
     for (id, function) in &package.tables["functions"] {
         let found = match table {
@@ -685,7 +689,8 @@ fn references_to(
         };
         let mut found_in_ir = false;
         if let Some(pin) = pin {
-            references_in_ir(&function["canonical_body"], pin, &mut |value| {
+            let body = scalar_source::body(package, function)?;
+            references_in_ir(&body, pin, &mut |value| {
                 found_in_ir |= value.as_str() == Some(hash);
             });
         }
@@ -710,29 +715,26 @@ fn references_to(
     if table == Table::Functions && selection.entry_point.as_deref() == Some(hash) {
         references.insert("entry_point".into());
     }
-    references
+    Ok(references)
 }
 
 fn affected_functions(
     baseline: &Package,
     candidate: &Package,
     seeds: &BTreeSet<String>,
-) -> Vec<String> {
+) -> Result<Vec<String>> {
     let mut dependents = BTreeMap::<String, BTreeSet<String>>::new();
     for graph in [baseline, candidate] {
         for (caller, function) in &graph.tables["functions"] {
-            references_in_ir(
-                &function["canonical_body"],
-                "callee_impl_hash",
-                &mut |pin| {
-                    if let Some(callee) = pin.as_str() {
-                        dependents
-                            .entry(callee.to_owned())
-                            .or_default()
-                            .insert(caller.clone());
-                    }
-                },
-            );
+            let body = scalar_source::body(graph, function)?;
+            references_in_ir(&body, "callee_impl_hash", &mut |pin| {
+                if let Some(callee) = pin.as_str() {
+                    dependents
+                        .entry(callee.to_owned())
+                        .or_default()
+                        .insert(caller.clone());
+                }
+            });
         }
     }
     let mut stack = seeds.iter().cloned().collect::<Vec<_>>();
@@ -744,7 +746,7 @@ fn affected_functions(
             }
         }
     }
-    affected.into_iter().collect()
+    Ok(affected.into_iter().collect())
 }
 
 pub(crate) fn apply(
@@ -906,7 +908,7 @@ pub(crate) fn apply(
                 // Both provided and required contract pins affect existing paths.
                 for graph in [baseline, &candidate] {
                     seeds.extend(
-                        references_to(graph, &exports, &selected, Table::Contracts, &previous)
+                        references_to(graph, &exports, &selected, Table::Contracts, &previous)?
                             .into_iter()
                             .filter_map(|reference| {
                                 reference.strip_prefix("functions/").map(str::to_owned)
@@ -931,7 +933,7 @@ pub(crate) fn apply(
         }
     }
     for ((_, identity), table) in removed {
-        let references = references_to(&candidate, &exports, &selected, table, &identity);
+        let references = references_to(&candidate, &exports, &selected, table, &identity)?;
         if !references.is_empty() {
             return Err(conflict(format!(
                 "cannot remove {identity}; retained references: {}",
@@ -948,7 +950,7 @@ pub(crate) fn apply(
             .clear();
     }
     write_selection(&mut candidate, &selected, &exports)?;
-    let affected_functions = affected_functions(baseline, &candidate, &seeds);
+    let affected_functions = affected_functions(baseline, &candidate, &seeds)?;
     *package = candidate;
     *selection = selected;
     Ok(ChangeResult {

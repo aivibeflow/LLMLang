@@ -205,6 +205,135 @@ def read_object(client, uri):
     return json.loads(result["contents"][0]["text"])
 
 
+def check_scalar_source(client):
+    workspace = create(client, "source")
+    workspace_id = workspace["workspace_id"]
+    signature = {"params": [["value", "i64"]], "result": "i64"}
+    body = "{\n    let shifted = value + 1;\n    if value == 0 { return 1; }\n    return shifted;\n}"
+    function = {
+        "op": "put_function", "id": "step", "typed_signature": signature,
+        "provided_contract": local("contract"), "canonical_body": body,
+    }
+    first = client.call("apply_change_set", apply_request(workspace_id, 0, "source", [
+        {"op": "set_version", "version": "1", "expected_version": None},
+        {"op": "put_contract", "id": "contract", "typed_signature": signature, "rules": [
+            {"kind": "requires", "predicate": "0 <= value <= 10"},
+            {"kind": "ensures", "predicate": "result == value + 1"},
+        ]},
+        function,
+    ]))
+    callee, required = (first["identities"][name] for name in ("step", "contract"))
+    caller_body = f'{{ return call("{callee}", "{required}", value); }}'
+    second = client.call("apply_change_set", apply_request(workspace_id, 1, "caller", [
+        {**function, "id": "caller", "canonical_body": caller_body, "provided_contract": required},
+        {"op": "put_interface", "id": "public", "name": "source.step", "public_contract": required},
+        {"op": "bind", "interface": local("public"), "implementation": local("caller"),
+         "expected_implementation": None},
+    ]))
+    caller = second["identities"]["caller"]
+    base = f"llmlang://workspace/{workspace_id}/object/functions/"
+    assert read_object(client, base + callee)["row"]["canonical_body"] == body
+    saved = read_object(client, base + caller)
+    assert saved["row"]["canonical_body"] == caller_body
+    assert {"relation": "Callee", "uri": base + callee} in saved["outgoing"]
+    verification = client.call("verify_workspace", scope(workspace, 2))
+    assert verification["failures"] == []
+    verified = verification["report"]
+    assert verified["ok"], verified
+    proof = verified["report"]
+    assert {"caller_impl_hash": caller, "callee_impl_hash": callee,
+            "required_contract_hash": required} in proof["calls"]
+    ir = proof["contract_ir"][required]
+    assert ir["schema"] == "llmlang-contract-ir/scalar-v1" and ir["requires"][0]["op"] == "and"
+    assert ir["ensures"][0]["args"][1]["args"][1] == {"op": "literal", "type": "Int", "value": "1"}
+
+    unsupported = client.call("apply_change_set", apply_request(workspace_id, 2, "unsupported", [
+        {**function, "provided_contract": required, "canonical_body": "{\n    loop {}\n}"},
+    ]), succeeds=False)
+    assert "line 2, column 5" in unsupported["message"], unsupported
+    missing = client.call("apply_change_set", apply_request(workspace_id, 2, "missing", [
+        {**function, "provided_contract": required,
+         "canonical_body": f'{{ return call("{"0" * 64}", "{required}", value); }}'},
+    ]), succeeds=False)
+    assert missing["code"] == "ValidationFailed", missing
+    unchanged = client.call("inspect_workspace", {"workspace_id": workspace_id})
+    assert unchanged["revision"] == 2, unchanged
+
+    changed = client.call("apply_change_set", apply_request(workspace_id, 2, "counterexample", [
+        {**function, "provided_contract": required, "canonical_body": "{ return value + 2; }",
+         "previous": callee, "expected_hash": read_object(client, base + callee)["content_hash"]},
+    ]))
+    assert caller in changed["affected_functions"], changed
+    commit = client.call("commit_workspace", scope(workspace, 3), succeeds=False)
+    assert commit["code"] == "VerificationFailed", commit
+    verification = commit["verification"]
+    assert verification["workspace_id"] == workspace_id and verification["revision"] == 3
+    assert client.call("inspect_workspace", {"workspace_id": workspace_id})["state"] == "open"
+    rejected = verification["report"]
+    assert not rejected["ok"] and rejected["report"]["status"] == "REJECTED", rejected
+    failure, = verification["failures"]
+    assert failure["kind"] == "body-postcondition" and failure["contract_role"] == "provided"
+    failed_function = failure["function"]
+    assert failed_function["impl_hash"] == changed["identities"]["step"]
+    assert failed_function["canonical_body"] == "{ return value + 2; }"
+    assert failed_function["function_signature"]["typed_signature"] == signature
+    assert failed_function["provided_contract"] == failure["contract"]
+    assert failure["contract"]["contract_hash"] == required and failure["contract"]["ir"] == ir
+    assert any(rule.get("predicate") == "result == value + 1" for rule in failure["contract"]["rules"])
+    assert failure["evidence"]["status"] == "confirmed-source"
+
+    related = client.call("apply_change_set", apply_request(workspace_id, 3, "related-contracts", [
+        {"op": "put_contract", "id": "wider", "typed_signature": signature, "rules": [
+            {"kind": "requires", "predicate": "value == -1"},
+            {"kind": "ensures", "predicate": "result == value + 1"},
+        ]},
+        {**function, "id": "bad_caller", "canonical_body": caller_body,
+         "provided_contract": local("wider")},
+        {"op": "put_interface", "id": "bad_interface", "name": "source.wider",
+         "public_contract": local("wider")},
+        {"op": "bind", "interface": local("bad_interface"), "implementation": callee,
+         "expected_implementation": None},
+    ]))
+    commit = client.call("commit_workspace", scope(workspace, 4), succeeds=False)
+    assert commit["code"] == "VerificationFailed", commit
+    verification = commit["verification"]
+    by_kind = {item["kind"]: item for item in verification["failures"]}
+    failed_call = by_kind["callee-precondition"]
+    assert failed_call["function"]["impl_hash"] == related["identities"]["bad_caller"]
+    assert failed_call["contract_role"] == "required" and failed_call["contract"]["contract_hash"] == required
+    assert failed_call["callee"]["impl_hash"] == callee
+    assert failed_call["evidence"]["invalid_call"]["arguments"] == {"value": -1}
+    refinement = by_kind["provider-precondition"]
+    assert refinement["function"]["impl_hash"] == callee
+    assert refinement["contract"]["contract_hash"] == required
+    assert refinement["comparison_contract"]["contract_hash"] == related["identities"]["wider"]
+
+
+def check_source_arithmetic(client):
+    workspace = create(client, "arithmetic")
+    ops = [{"op": "set_version", "version": "1", "expected_version": None}]
+    for name, body, rules in [
+        ("truncate", "{ return -5 / 2; }", [{"kind": "ensures", "predicate": "result == -2"}]),
+        ("zero", "{ return 1 / 0; }", [
+            {"kind": "ensures", "predicate": False},
+            {"kind": "error_declaration", "error_label": "DivisionByZero"},
+        ]),
+        ("overflow", "{ return -9223372036854775808 / -1; }", [
+            {"kind": "ensures", "predicate": False},
+            {"kind": "error_declaration", "error_label": "ArithmeticOverflow"},
+        ]),
+    ]:
+        contract_id = f"{name}_contract"
+        ops.extend([
+            {"op": "put_contract", "id": contract_id, "typed_signature": SIGNATURE, "rules": rules},
+            {"op": "put_function", "id": name, "typed_signature": SIGNATURE,
+             "provided_contract": local(contract_id), "canonical_body": body},
+        ])
+    client.call("apply_change_set", apply_request(workspace["workspace_id"], 0, "arithmetic", ops))
+    verified = client.call("verify_workspace", scope(workspace, 1))["report"]
+    assert verified["ok"], verified
+
+
 def check_documentation(client):
     draft = Path(__file__).resolve().parents[2]
     prefix = "llmlang://doc/"
@@ -248,6 +377,8 @@ def exercise(executable, root, python):
     state = root / "author"
     with server(executable, state, python) as client:
         check_documentation(client)
+        check_scalar_source(client)
+        check_source_arithmetic(client)
         templates = client.request("resources/templates/list")["resourceTemplates"]
         workspace_template = next(template["uriTemplate"] for template in templates
                                   if template["name"] == "workspace")
@@ -281,6 +412,9 @@ def exercise(executable, root, python):
         assert verified["report"]["ok"], verified
         error = client.call("commit_workspace", scope(workspace, applied["revision"]), succeeds=False)
         assert error["code"] == "UnsupportedProfile", error
+        assert error["verification"]["report"]["report"]["status"] == "VERIFIED", error
+        stale = client.call("commit_workspace", scope(workspace), succeeds=False)
+        assert stale["code"] == "StaleRevision" and "verification" not in stale, stale
 
         bad = create(client, "incorrect")
         bad_version = client.call("apply_change_set", apply_request(

@@ -135,9 +135,9 @@ Read successful values from `result.structuredContent`. The result also includes
 | `import_package` | `path` | Load a package directory and register its snapshot. Load and validate a native source package and register its snapshot. |
 | `open_workspace` | `snapshot_id` | Open an isolated working revision from a known snapshot. |
 | `inspect_workspace` | `workspace_id` | Read the revision, package version, manifest, exports, and entry point. |
-| `apply_change_set` | `workspace_id`, `expected_revision`, `idempotency_key`, `operations` | Validate a batch, derive caller-scoped call compatibility obligations, and apply it atomically. Returns the new revision, local-to-canonical identity mappings, and affected function identities. |
+| `apply_change_set` | `workspace_id`, `expected_revision`, `idempotency_key`, `operations` | Resolve the batch and derive call compatibility obligations. Validate the complete candidate SPG before advancing the workspace revision. Returns the new revision, local-to-canonical identity mappings, and affected function identities. |
 | `verify_workspace` | `workspace_id`, `expected_revision` | Preview the verification report for an exact open revision. Check `report.report.status` for `VERIFIED`. The outer `report` is the backend reply, with `ok` and a nested verifier `report`. A returned reply can describe failed or inconclusive verification. |
-| `commit_workspace` | `workspace_id`, `expected_revision` | Commit a persistable workspace after verification. Scalar workspaces return `UnsupportedProfile`. |
+| `commit_workspace` | `workspace_id`, `expected_revision` | Run contract verification for the exact revision before writing any package data. Publish only after verification succeeds and the profile supports persistence. |
 | `build_package` | `snapshot_id`, `target` | Build a committed or imported snapshot for `linux-x86_64`. Returns an `artifact` path, `verification_status`, and an `exports` map of public names to Rust symbols. Executables also return `debug_artifact`, an adjacent file with the extracted debug information. |
 | `upgrade_server` | `version` and `idempotency_key`, or `operation_id` | Start or poll an approved upgrade through the MCP supervisor. |
 
@@ -151,6 +151,13 @@ Call `resources/read` with a URI. Parse the JSON in `result.contents[0].text`.
 | `llmlang://workspace/{workspace_id}/verification/{revision}` | A report saved by preview or successful commit for that revision. |
 
 For a function use the `functions` table and its implementation identity as `id`. Follow the returned links to inspect signature, call, and contract references. Stored functions reference shared canonical signature text in the `function_signatures` table. Keep sending typed signatures in scalar Change Sets. A stored call compatibility obligation records the caller, callee, and caller-required contract. Its presence records an obligation to check. Use percent encoding for URI path segments where needed.
+
+Every Change Set validates the resulting graph, including its dependencies,
+object identities, exports, entry point, and resolved calls. A rejected batch
+leaves the workspace revision and graph intact. Native workspaces use native
+graph and source resolution checks for edits to existing package selections.
+Contract proofs run in `verify_workspace` and are required by
+`commit_workspace` before publication.
 
 ## Usage scenarios
 
@@ -190,7 +197,7 @@ Create package `answer` using `profile: "scalar"` and `language_version: "0.1.0"
     {
       "op":"put_function","id":"answer",
       "typed_signature":{"params":[],"result":"i64"},
-      "canonical_body":[["return",["i64",42]]],
+      "canonical_body":"{ return 42; }",
       "provided_contract":{"local":"spec"}
     },
     {
@@ -214,6 +221,26 @@ the workspace ID. A successful preview has `report.report.status` set to
 `VERIFIED`. Change the returned literal to `41` while keeping the
 postcondition to exercise a verification failure. The workspace and its report
 remain available until the server process exits.
+The normalized proof input is available in `report.report.contract_ir`, keyed
+by the SPG contract hash. [Scalar syntax and semantics](lang.md#scalar-mcp-authoring)
+
+Read `result.structuredContent.failures` for confirmed failures and empty
+input domains. Each entry includes the failure kind, the role and full data
+of the unsatisfied contract, and the checked function with its `impl_hash`,
+`canonical_body`, resolved function signature and provided contract. A
+contract includes its SPG hash, rules, and typed IR when available. In a
+refinement failure, `comparison_contract` supplies the other contract. For
+a failed call precondition, `function` is the caller, `callee` is the selected
+implementation, and `contract` is the caller-required contract at that call.
+`evidence` carries available witness inputs and outcomes. The detailed
+report retains inconclusive checks and unconfirmed witnesses.
+
+`commit_workspace` runs the same verifier again even after a successful
+preview. Failed or inconclusive proofs return `VerificationFailed` with the
+revision-bound report and failure details under `verification` in the tool
+error JSON. A verified scalar workspace returns `UnsupportedProfile` with the
+report because scalar workspaces are in memory only. Native workspaces return
+`UnsupportedProfile` because native contract verification is unavailable.
 
 ### Build an existing native program
 

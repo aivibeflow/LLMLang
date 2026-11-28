@@ -229,7 +229,11 @@ fn required_string<'a>(params: &'a Map<String, Value>, key: &str) -> Result<&'a 
 }
 
 fn domain_error(error: &ServerError) -> Value {
-    json!({"code": error.code, "message": error.message})
+    let mut result = json!({"code": error.code, "message": error.message});
+    if let Some(verification) = &error.verification {
+        result["verification"] = json!(verification);
+    }
+    result
 }
 
 fn tool_result(result: Result<Value, ServerError>) -> Value {
@@ -387,7 +391,7 @@ fn operation_schema() -> Value {
             ("user_request_texts", json!({"type": "array", "items": {"type": "string"}})),
         ], &["user_request_texts"]),
         put("put_function", &[
-            ("typed_signature", signature()), ("canonical_body", json!({"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/statement"}})),
+            ("typed_signature", signature()), ("canonical_body", json!({"oneOf": [string(), {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/statement"}}]})),
             ("provided_contract", object_ref()),
         ], &[]),
         put("put_interface", &[("name", string()), ("public_contract", object_ref())], &[]),
@@ -530,6 +534,22 @@ fn tools() -> Vec<Value> {
                     ("workspace_id", string()),
                     ("revision", revision()),
                     ("report", object()),
+                    (
+                        "failures",
+                        json!({"type": "array", "items": {
+                            "type": "object",
+                            "required": ["kind", "contract_role", "function", "contract", "evidence"],
+                            "properties": {
+                                "kind": {"enum": ["body-postcondition", "provider-precondition",
+                                    "provider-guarantee", "callee-precondition", "empty-domain"]},
+                                "contract_role": {"enum": ["provided", "public_or_required", "required"]},
+                                "function": {"type": "object"}, "contract": {"type": "object"},
+                                "evidence": {"type": "object"}, "comparison_contract": {"type": "object"},
+                                "callee": {"type": "object"}
+                            },
+                            "additionalProperties": false
+                        }}),
+                    ),
                 ],
                 &[],
                 true,
