@@ -141,10 +141,11 @@ removes the directory when compilation ends. Executables and libraries go
 under `<state-dir>/artifacts/`. Package directories are read-only during
 import and build.
 
-The checked-in packages use repository profile `llmlang.spg.tables.v7`. Start
-with a fresh state directory and reimport dependencies before their consumers
-when switching a server from the v6 examples to the v7 examples. The package
-versions still identify the same releases and v7 packages have new snapshot IDs.
+The checked-in packages use repository profile `llmlang.spg.tables.v7`.
+The [MCP supervisor](../docs/server.md#upgrade-through-mcp) migrates an existing
+v6 state directory and returns the new snapshot IDs. For standalone server
+use, start with a fresh state directory and reimport dependencies before
+their consumers.
 
 The native backend collects built-in calls while lowering reachable functions.
 A parameterless entry point reaching `builtin__syscall` can use a Linux
@@ -170,3 +171,11 @@ python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llml
 The end-to-end tests run the bundled Python client against the server process.
 The scalar test uses Boogie and Z3 to verify edits in an in-memory workspace.
 The native test imports packages, builds artifacts, and executes the binaries.
+
+For an upgrade test, provide the v6 executable, the current executable and
+the `draft` directory from the v6 source checkout.
+
+```sh
+python3 -B draft/server/tests/mcp_upgrade_e2e.py \
+  /path/to/v6/llmlang-server draft/server/target/debug/llmlang-server /path/to/v6/draft
+```

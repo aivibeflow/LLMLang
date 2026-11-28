@@ -7,12 +7,13 @@ use std::process::ExitCode;
 
 const PROTOCOL_VERSION: &str = "2025-11-25";
 const SUPPORTED_VERSIONS: &[&str] = &[PROTOCOL_VERSION, "2025-06-18"];
-const USAGE: &str = "Usage: llmlang-server --state-dir PATH [--python PROGRAM] [--backend PATH]";
+const USAGE: &str = "Usage: llmlang-server --state-dir PATH [--python PROGRAM] [--backend PATH] [--migrate-v6-copy]";
 
 struct Options {
     state_dir: PathBuf,
     python: String,
     backend: PathBuf,
+    migrate_v6_copy: bool,
 }
 
 impl Options {
@@ -20,6 +21,7 @@ impl Options {
         let mut state_dir = None;
         let mut python = None;
         let mut backend = None;
+        let mut migrate_v6_copy = false;
         let mut args = env::args_os().skip(1);
         while let Some(flag) = args.next() {
             match flag.to_str() {
@@ -38,6 +40,7 @@ impl Options {
                 Some("--backend") if backend.is_none() => {
                     backend = Some(PathBuf::from(args.next().ok_or("missing backend path")?));
                 }
+                Some("--migrate-v6-copy") if !migrate_v6_copy => migrate_v6_copy = true,
                 _ => return Err(format!("unexpected argument {}", flag.to_string_lossy())),
             }
         }
@@ -46,6 +49,7 @@ impl Options {
             python: python.unwrap_or_else(|| "python3".into()),
             backend: backend
                 .unwrap_or_else(|| PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("scalar.py")),
+            migrate_v6_copy,
         }))
     }
 }
@@ -566,6 +570,12 @@ fn resource_templates() -> Value {
 }
 
 fn run(options: Options) -> Result<(), String> {
+    if options.migrate_v6_copy {
+        let result = Server::migrate_v6_copy(&options.state_dir, &options.python, &options.backend)
+            .map_err(|error| error.to_string())?;
+        println!("{result}");
+        return Ok(());
+    }
     let server = Server::open(&options.state_dir, &options.python, &options.backend)
         .map_err(|error| format!("{}: {}", error.code, error.message))?;
     let mut adapter = Adapter {
