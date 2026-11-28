@@ -8,7 +8,7 @@ The service serializes operations within one process and holds an exclusive
 lock on the state directory. A local MCP client uses the authority of the
 process that launches it.
 
-The Rust sources are in [draft/src/server](../src/server).
+The Rust sources are in [draft/src/server](../../src/server).
 
 ## Build and run
 
@@ -17,12 +17,12 @@ and Z3. Native Linux x86-64 executable builds also use GNU `objcopy`. Run the fo
 repository root.
 
 ```sh
-cargo build --locked --manifest-path draft/server/Cargo.toml
+cargo build --locked --manifest-path draft/build/server/Cargo.toml
 
 export BOOGIE=/path/to/boogie
 export Z3=/path/to/z3
 
-draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
+draft/build/server/target/debug/llmlang-server --state-dir /path/to/private-state
 ```
 
 Configure the MCP client to launch that last command. The server creates its
@@ -38,13 +38,13 @@ toolchain environment set above. List tools with their input and output
 schemas, then pass any advertised tool name and its arguments as JSON.
 
 ```sh
-python3 draft/server/mcp_client.py tools/list \
-  --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
-python3 draft/server/mcp_client.py tools/call \
+python3 draft/build/server/mcp_client.py tools/list \
+  --server draft/build/server/target/debug/llmlang-server --state-dir /path/to/private-state
+python3 draft/build/server/mcp_client.py tools/call \
   '{"name":"create_package","arguments":{"name":"demo","language_version":"0.1.0.0.0"}}' \
-  --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
-python3 draft/server/mcp_client.py resources/templates/list \
-  --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
+  --server draft/build/server/target/debug/llmlang-server --state-dir /path/to/private-state
+python3 draft/build/server/mcp_client.py resources/templates/list \
+  --server draft/build/server/target/debug/llmlang-server --state-dir /path/to/private-state
 ```
 
 The first argument is an MCP method. Pass `-` in place of the JSON object to
@@ -58,12 +58,12 @@ timeout.
 
 Each CLI invocation starts a new server process. To work with scalar workspaces
 or imported packages across multiple requests, keep a single connection open
-with `connect` from `mcp_client.py` (with `draft/server` on Python's module search path).
+with `connect` from `mcp_client.py` (with `draft/build/server` on Python's module search path).
 
 ```python
 from mcp_client import connect
 
-with connect(["draft/server/target/debug/llmlang-server", "--state-dir", "./private-state"]) as client:
+with connect(["draft/build/server/target/debug/llmlang-server", "--state-dir", "./private-state"]) as client:
     tools = client.request("tools/list")["tools"]
     result = client.call_tool("create_package", {
         "name": "demo", "language_version": "0.1.0.0.0",
@@ -130,7 +130,7 @@ built-in library, native syscall package, and native examples. Supported
 interface-only packages produce a Rust `rlib`.
 
 Compiler built-ins use the `builtin__` prefix. The server returns
-`ValidationFailed` for a direct reference outside the [`builtin` package](../builtin/README.md).
+`ValidationFailed` for a direct reference outside the [`builtin` package](../../builtin/README.md).
 It checks every function body in the package and its dependencies, including
 unbound implementations. The rule also covers scalar `fail` statements,
 which are the canonical form of `builtin__fail`. Packages call the exported
@@ -142,7 +142,7 @@ under `<state-dir>/artifacts/`. Package directories are read-only during
 import and build.
 
 The checked-in packages use repository profile `llmlang.spg.tables.v9`.
-The [MCP supervisor](../docs/server.md#upgrade-through-mcp) migrates an existing
+The [MCP supervisor](../../docs/server.md#upgrade-through-mcp) migrates an existing
 v6, v7, or v8 state directory and returns the new snapshot IDs. For standalone server
 use, start with a fresh state directory and reimport dependencies before
 their consumers.
@@ -162,10 +162,10 @@ debug file. Set `OBJCOPY` to select another executable providing GNU
 ## Verification
 
 ```sh
-cargo test --locked --manifest-path draft/server/Cargo.toml
-python3 -B -m unittest draft.server.scalar_verification.test_counterexamples
-python3 -B draft/server/tests/mcp_e2e.py draft/server/target/debug/llmlang-server
-python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llmlang-server
+cargo test --locked --manifest-path draft/build/server/Cargo.toml
+python3 -B -m unittest draft.build.server.scalar_verification.test_counterexamples
+python3 -B draft/build/server/tests/mcp_e2e.py draft/build/server/target/debug/llmlang-server
+python3 -B draft/build/server/tests/native_build_e2e.py draft/build/server/target/debug/llmlang-server
 ```
 
 The end-to-end tests run the bundled Python client against the server process.
@@ -177,6 +177,6 @@ and the `draft` directory from the previous source checkout. Pass
 `--old-format 6` for v6 fixtures or `--old-format 7` for v7 fixtures. The default is v8.
 
 ```sh
-python3 -B draft/server/tests/mcp_upgrade_e2e.py \
-  /path/to/v8/llmlang-server draft/server/target/debug/llmlang-server /path/to/v8/draft
+python3 -B draft/build/server/tests/mcp_upgrade_e2e.py \
+  /path/to/v8/llmlang-server draft/build/server/target/debug/llmlang-server /path/to/v8/draft
 ```

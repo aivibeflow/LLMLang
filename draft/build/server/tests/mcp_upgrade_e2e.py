@@ -9,8 +9,8 @@ import sys
 import tempfile
 import time
 
-DRAFT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(DRAFT / "server"))
+SERVER = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(SERVER))
 
 from mcp_client import connect
 
@@ -80,7 +80,7 @@ def exercise(old, new, fixtures, directory, old_format):
             "v9-next": {"binary": str(new), "state_format": 9},
         },
     }))
-    command = [sys.executable, "-B", str(DRAFT / "server/mcp_supervisor.py"),
+    command = [sys.executable, "-B", str(SERVER / "mcp_supervisor.py"),
                "--state-dir", str(state), "--releases", str(releases)]
     with connect(command) as client:
         assert "upgrade_server" in {tool["name"] for tool in client.request("tools/list")["tools"]}

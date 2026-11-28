@@ -51,7 +51,7 @@ The server recovers the entry signature through the function's signature-table r
 It checks the caller, callee, and required contract in each call
 compatibility obligation against the block and selected dependency bindings. Their binary and ProtoJSON dumps include all thirteen tables.
 
-The [native MCP build test](../server/tests/native_build_e2e.py) imports and
+The [native MCP build test](../build/server/tests/native_build_e2e.py) imports and
 builds these packages on Linux x86-64, then runs both Hello World examples,
 the calculator, the balance transfer, and the five syscall programs. The scenarios check exit status, binary I/O, Linux error diagnostics,
 and partial file contents after a write failure. Build artifacts are stored in

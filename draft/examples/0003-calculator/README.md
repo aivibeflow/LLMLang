@@ -24,7 +24,7 @@ printf '20 / 4\n' | /path/to/artifact
 | R-0003-04 to R-0003-07 | Use checked signed 64-bit operations. Division truncates toward zero. Zero divisors and arithmetic overflow produce distinct failures. |
 | R-0003-08, R-0003-09 | Write the canonical decimal result and LF to descriptor 1 with status 0, or the specified diagnostic and LF to descriptor 2 with status 1. |
 
-The [native MCP test](../../server/tests/native_build_e2e.py) builds the package
+The [native MCP test](../../build/server/tests/native_build_e2e.py) builds the package
 and checks stdout, stderr and exit status for all thirteen task scenarios,
 the additional RT-01 Calculator cases, input across a read-buffer boundary,
 LF termination and a failed write. Native import and build report

@@ -16,7 +16,7 @@ import json
 
 from mcp_e2e import apply_request, read_object, scope, server
 
-DRAFT = Path(__file__).resolve().parents[2]
+DRAFT = Path(__file__).resolve().parents[3]
 EXAMPLES = DRAFT / "examples"
 NATIVE_EXPORT = re.compile(r"pub unsafe fn llmlang_syscall_(\w+)__[0-9a-f]{64}\s*\(")
 FILE_LIMIT = 4096

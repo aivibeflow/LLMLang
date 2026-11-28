@@ -38,7 +38,7 @@ was missing or invalid.
 
 ## Resolved graph
 
-The Rust crate root is [draft/src/library/spg.rs](../src/library/spg.rs).
+The Rust crate root is [draft/src/library/spg.rs](../../src/library/spg.rs).
 Use `load_graph` to decode typed rows and resolve their references. Look up a
 node by its table and primary key with `Graph::get`. Follow `Node::outgoing`,
 `Node::incoming`, or `Node::calls` to traverse resolved nodes. Canonical IR is
@@ -119,7 +119,7 @@ profile. This crate uses `llmlang.spg.tables.v9`.
 
 The directory publication implementation is tested on Linux.
 
-Run `cargo test --locked --manifest-path draft/library/Cargo.toml` from the repository root.
+Run `cargo test --locked --manifest-path draft/build/library/Cargo.toml` from the repository root.
 
 [architecture RFC]: https://github.com/aivibeflow/LLMLang/blob/main/draft/RFC.md
 [ADR-029]: https://github.com/aivibeflow/LLMLang/blob/main/draft/adr/029-caller-scoped-verification-obligations.md

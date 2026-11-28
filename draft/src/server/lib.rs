@@ -1486,9 +1486,10 @@ mod tests {
     #[test]
     fn native_build_resolves_the_same_caller_for_each_platform() {
         let directory = private_state_directory();
-        let draft = Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap();
+        let server_dir = Path::new(env!("CARGO_MANIFEST_DIR"));
+        let draft = server_dir.join("../..");
         let mut server =
-            Server::open(directory.path(), "python3", &draft.join("server/scalar.py")).unwrap();
+            Server::open(directory.path(), "python3", &server_dir.join("scalar.py")).unwrap();
         let builtin_id = server.import(&draft.join("builtin")).unwrap()["snapshot_id"]
             .as_str()
             .unwrap()
@@ -1588,7 +1589,7 @@ mod tests {
         let mut server =
             Server::open(directory.path(), "python3", &server_dir.join("scalar.py")).unwrap();
         let package = llmlang_spg::load(
-            &server_dir.join("../builtin"),
+            &server_dir.join("../../builtin"),
             VERSIONS,
             LoadOptions::default(),
         )
@@ -1658,7 +1659,7 @@ mod tests {
         let server = Server::open(directory.path(), "python3", &backend).unwrap();
 
         let package = llmlang_spg::load(
-            &Path::new(env!("CARGO_MANIFEST_DIR")).join("../builtin"),
+            &Path::new(env!("CARGO_MANIFEST_DIR")).join("../../builtin"),
             VERSIONS,
             LoadOptions::default(),
         )

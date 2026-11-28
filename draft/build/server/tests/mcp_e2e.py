@@ -14,6 +14,7 @@ import sys
 import tempfile
 
 CLIENT = Path(__file__).resolve().parents[1] / "mcp_client.py"
+DRAFT = CLIENT.parents[2]
 sys.path.insert(0, str(CLIENT.parent))
 from mcp_client import RpcError, connect
 
@@ -389,7 +390,6 @@ def check_source_arithmetic(client):
 
 
 def check_documentation(client):
-    draft = Path(__file__).resolve().parents[2]
     prefix = "llmlang://doc/"
     pages = {
         "bootstrap.md": "docs/bootstrap.md",
@@ -416,7 +416,7 @@ def check_documentation(client):
         assert f"]({prefix}{path})" in index
         if path != "bootstrap.md":
             assert f"]({prefix}{path})" in bootstrap
-        assert read(path) == (draft / source).read_text(encoding="utf-8")
+        assert read(path) == (DRAFT / source).read_text(encoding="utf-8")
 
     for path in ("missing.md", "../AGENTS.md", "%2e%2e/AGENTS.md"):
         try:
@@ -428,9 +428,8 @@ def check_documentation(client):
 
 
 def check_balance_proof(client):
-    draft = CLIENT.parents[1]
-    client.call("import_package", {"path": str(draft / "builtin")})
-    package = draft / "examples" / "0010-balance-transfer"
+    client.call("import_package", {"path": str(DRAFT / "builtin")})
+    package = DRAFT / "examples" / "0010-balance-transfer"
     imported = client.call("import_package", {"path": str(package)})
     workspace = client.call("open_workspace", {"snapshot_id": imported["snapshot_id"]})
     functions = json.loads((package / "functions.json").read_text())

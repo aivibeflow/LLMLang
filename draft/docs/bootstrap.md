@@ -27,20 +27,20 @@ requests, tool arguments, and resource reads. Use the
 
 ## Run the Python MCP client
 
-Build the server and set up the toolchain environment first. From the repository root, use the bundled Python 3.10+ client to discover the current tool schemas and resource URI templates. Each CLI invocation starts a server process. Use one Python API session for related requests that share a workspace. [Build and connection instructions](server.md#build-and-connect) · [Client source](../server/mcp_client.py) · [CLI and API reference](../server/README.md#python-stdio-client)
+Build the server and set up the toolchain environment first. From the repository root, use the bundled Python 3.10+ client to discover the current tool schemas and resource URI templates. Each CLI invocation starts a server process. Use one Python API session for related requests that share a workspace. [Build and connection instructions](server.md#build-and-connect) · [Client source](../build/server/mcp_client.py) · [CLI and API reference](../build/server/README.md#python-stdio-client)
 
 ```sh
 state_dir=$(mktemp -d)
-server=draft/server/target/debug/llmlang-server
+server=draft/build/server/target/debug/llmlang-server
 
-python3 draft/server/mcp_client.py tools/list --server "$server" --state-dir "$state_dir"
-python3 draft/server/mcp_client.py resources/templates/list --server "$server" --state-dir "$state_dir"
+python3 draft/build/server/mcp_client.py tools/list --server "$server" --state-dir "$state_dir"
+python3 draft/build/server/mcp_client.py resources/templates/list --server "$server" --state-dir "$state_dir"
 ```
 
 In the same shell, use the Python API to create a package and read the workspace over one connection.
 
 ```sh
-PYTHONPATH=draft/server python3 - "$server" "$state_dir" <<'PY'
+PYTHONPATH=draft/build/server python3 - "$server" "$state_dir" <<'PY'
 import json
 import sys
 
@@ -68,8 +68,8 @@ Use a Linux x86-64 checkout with Rust 1.85.1 or newer, the
 the repository root.
 
 ```sh
-cargo build --locked --manifest-path draft/server/Cargo.toml
-python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llmlang-server
+cargo build --locked --manifest-path draft/build/server/Cargo.toml
+python3 -B draft/build/server/tests/native_build_e2e.py draft/build/server/target/debug/llmlang-server
 ```
 
 The test client starts its own MCP server and builds and runs both Hello World
@@ -78,7 +78,7 @@ or from `RUSTC`. Boogie and Z3 are needed for the scalar workflow
 below.
 
 To build one package with your MCP client, configure it to launch
-`$PWD/draft/server/target/debug/llmlang-server` over stdio with
+`$PWD/draft/build/server/target/debug/llmlang-server` over stdio with
 `--state-dir` followed by an absolute path to a private directory. On Linux,
 `mktemp -d` provides a suitable directory. The client initializes the session
 before calling tools. [Client configuration and handshake](server.md#build-and-connect)

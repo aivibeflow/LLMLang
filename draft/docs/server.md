@@ -1,6 +1,6 @@
 # LLMLang Server over MCP
 
-The Linux MVP edits, verifies, publishes, imports, and builds LLMLang `0.1.0.0.0` packages over MCP stdio. The client launches a local subprocess. The server validates structured changes against the semantic graph, verifies a specific workspace revision, and registers immutable snapshots on native package import. The current transport is stdio, and the build target is `linux-x86_64`. [Server README](../server/README.md) · [MVP requirements](../adr/031-llmlang-server-mcp-package-authoring.md)
+The Linux MVP edits, verifies, publishes, imports, and builds LLMLang `0.1.0.0.0` packages over MCP stdio. The client launches a local subprocess. The server validates structured changes against the semantic graph, verifies a specific workspace revision, and registers immutable snapshots on native package import. The current transport is stdio, and the build target is `linux-x86_64`. [Server README](../build/server/README.md) · [MVP requirements](../adr/031-llmlang-server-mcp-package-authoring.md)
 
 ## Build and connect
 
@@ -9,7 +9,7 @@ Use Linux x86-64, Rust 1.85.1 or newer with Cargo and a native linker, Python 3.
 Build the server from the repository root.
 
 ```sh
-cargo build --locked --manifest-path draft/server/Cargo.toml
+cargo build --locked --manifest-path draft/build/server/Cargo.toml
 ```
 
 Add a local stdio server in your MCP client. The example uses the common `mcpServers` JSON layout. Replace the absolute path placeholders with paths visible to the launching client.
@@ -18,7 +18,7 @@ Add a local stdio server in your MCP client. The example uses the common `mcpSer
 {
   "mcpServers": {
     "llmlang": {
-      "command": "/path/to/LLMLang/draft/server/target/debug/llmlang-server",
+      "command": "/path/to/LLMLang/draft/build/server/target/debug/llmlang-server",
       "args": ["--state-dir", "/path/to/private/llmlang-state"],
       "env": {
         "BOOGIE": "/path/to/boogie",
@@ -31,7 +31,7 @@ Add a local stdio server in your MCP client. The example uses the common `mcpSer
 
 The server can create the state directory. An existing directory must be private to its owner, typically mode `0700`. One server process holds an exclusive lock on each state directory. Use a separate directory for an independent server. The client delegates the launching OS user's authority to the server. Package paths and artifact paths are local to that process.
 
-The default backend is `draft/server/scalar.py` at the checkout path recorded during the build. Pass `--backend /absolute/path/to/scalar.py` after moving a checkout, and use `--python /absolute/path/to/python3` to choose the interpreter. The command inherits the environment supplied by the client. Set `RUSTC` or provide `rustc` on `PATH` for builds. `BOOGIE` and `Z3` can be omitted if `boogie` and `z3` are on `PATH`. [CLI and stdio adapter](../src/server/main.rs) · [Scalar backend](../server/scalar.py)
+The default backend is `draft/build/server/scalar.py` at the checkout path recorded during the build. Pass `--backend /absolute/path/to/scalar.py` after moving a checkout, and use `--python /absolute/path/to/python3` to choose the interpreter. The command inherits the environment supplied by the client. Set `RUSTC` or provide `rustc` on `PATH` for builds. `BOOGIE` and `Z3` can be omitted if `boogie` and `z3` are on `PATH`. [CLI and stdio adapter](../src/server/main.rs) · [Scalar backend](../build/server/scalar.py)
 
 ### Check the connection from a terminal
 
@@ -39,7 +39,7 @@ The server reads and writes one JSON-RPC 2.0 message per line. A client sends `i
 
 ```sh
 state_dir=$(mktemp -d)
-draft/server/target/debug/llmlang-server --state-dir "$state_dir" <<'EOF_MCP'
+draft/build/server/target/debug/llmlang-server --state-dir "$state_dir" <<'EOF_MCP'
 {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"terminal","version":"1.0"}}}
 {"jsonrpc":"2.0","method":"notifications/initialized"}
 {"jsonrpc":"2.0","id":2,"method":"tools/list"}
@@ -71,7 +71,7 @@ before launching the supervisor. The supervisor owns the backend process
 and keeps the MCP connection open during an upgrade.
 
 ```sh
-python3 /path/to/LLMLang/draft/server/mcp_supervisor.py \
+python3 /path/to/LLMLang/draft/build/server/mcp_supervisor.py \
   --state-dir /path/to/private/llmlang-state \
   --releases /path/to/releases.json
 ```
@@ -256,7 +256,7 @@ revision with `NO_OBLIGATIONS` can be committed after structural validation.
 3. Call `import_package` with the absolute path to `draft/examples/0004-syscall-echo`. Use its returned `snapshot_id` and `target: "linux-x86_64"` in `build_package`.
 4. Run the returned `artifact` and pass input on stdin. For example, `printf '%s\n' 'hello' | /path/to/artifact` prints the input unchanged. Building the dependency snapshot itself produces a Rust `rlib`.
 
-The native build resolves `<package>.main` through the selected version's bindings. The supported entry signatures are `main() -> ExitStatus` and `main(args: LaunchArgs) -> ExitStatus`. `LaunchArgs` excludes the program name and preserves each Unix argument's bytes. Import and build return `verification_status: "unchecked"`. Call `verify_workspace` to obtain a proof report. [Native examples](../examples/README.md#linux-syscall-program-packages) · [Native MCP test](../server/tests/native_build_e2e.py)
+The native build resolves `<package>.main` through the selected version's bindings. The supported entry signatures are `main() -> ExitStatus` and `main(args: LaunchArgs) -> ExitStatus`. `LaunchArgs` excludes the program name and preserves each Unix argument's bytes. Import and build return `verification_status: "unchecked"`. Call `verify_workspace` to obtain a proof report. [Native examples](../examples/README.md#linux-syscall-program-packages) · [Native MCP test](../build/server/tests/native_build_e2e.py)
 
 ### Recover from a conflict or interrupted request
 
@@ -268,8 +268,8 @@ The native build resolves `<package>.main` through the selected version's bindin
 Run the repository's end-to-end check from the root with `BOOGIE` and `Z3` available to the test process. The tests cover scalar editing, verification, publication, and reload, as well as import, build, and execution of native package examples.
 
 ```sh
-python3 -B draft/server/tests/mcp_e2e.py draft/server/target/debug/llmlang-server
-python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llmlang-server
+python3 -B draft/build/server/tests/mcp_e2e.py draft/build/server/target/debug/llmlang-server
+python3 -B draft/build/server/tests/native_build_e2e.py draft/build/server/target/debug/llmlang-server
 ```
 
-[End-to-end client and fixtures](../server/tests/mcp_e2e.py)
+[End-to-end client and fixtures](../build/server/tests/mcp_e2e.py)

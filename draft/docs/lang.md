@@ -78,7 +78,7 @@ the direct-call graph is acyclic. Each input value is a Boolean or a signed
    the exact caller-required contract before the call.
 
 The scalar reference evaluator replays reported counterexamples using these
-outcomes and exact callee pins. [Reference evaluator](../server/scalar_verification/runtime.py)
+outcomes and exact callee pins. [Reference evaluator](../build/server/scalar_verification/runtime.py)
 
 ### Contract rules
 
@@ -93,7 +93,7 @@ A `put_contract` operation takes an array of rules. The server takes the paramet
 ]
 ```
 
-Predicate values can be JSON Booleans or Boolean expression strings. The predicate language supports comparisons, including chains, `and`, `or`, `not`, and mathematical integer `+`, `-`, `*`, and unary minus. Use `quotient(a, b)` for the totalized quotient, which truncates toward zero and returns zero when `b` is zero. Program arithmetic can fail. The example rules apply to the `divide` signature with `left` and `right` as `I64`. The precondition excludes the signed division overflow case. [Historical Scalar Contract IR](https://github.com/aivibeflow/LLMLang/blob/138ba12f754967c9fbc6c0adbf29fc8d591836a3/draft/llmlang_mvp/CONTRACT-IR.md) · [Server rule adapter](../server/scalar.py)
+Predicate values can be JSON Booleans or Boolean expression strings. The predicate language supports comparisons, including chains, `and`, `or`, `not`, and mathematical integer `+`, `-`, `*`, and unary minus. Use `quotient(a, b)` for the totalized quotient, which truncates toward zero and returns zero when `b` is zero. Program arithmetic can fail. The example rules apply to the `divide` signature with `left` and `right` as `I64`. The precondition excludes the signed division overflow case. [Historical Scalar Contract IR](https://github.com/aivibeflow/LLMLang/blob/138ba12f754967c9fbc6c0adbf29fc8d591836a3/draft/llmlang_mvp/CONTRACT-IR.md) · [Server rule adapter](../build/server/scalar.py)
 
 ### Contract IR and verification
 
@@ -139,7 +139,7 @@ then by SPG contract hash in `report.report.contract_ir`, alongside the verified
 caller/callee pins. `VERIFIED` is a result for the scoped profile and backend.
 Timeout, unsupported constructs, and solver failures retain their respective
 statuses. A fully verified source workspace can be committed and built.
-[Verifier](../server/scalar_verification/verify.py) · [Verification architecture](../adr/018-formal-verification-backends.md)
+[Verifier](../build/server/scalar_verification/verify.py) · [Verification architecture](../adr/018-formal-verification-backends.md)
 
 ## Native source syntax
 
