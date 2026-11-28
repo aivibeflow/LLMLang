@@ -1,6 +1,10 @@
 # Agent instructions
 
-These repository-wide instructions apply to agents creating, revising, reviewing, or publishing LLMLang research materials. Follow existing repository contribution requirements and applicable scoped instructions. The rules below govern documentation and evidence presentation; they do not adopt any candidate language semantics or research conclusion.
+These repository-wide instructions apply to agents working on LLMLang. Follow existing repository contribution requirements and applicable scoped instructions. The research documentation and evidence rules do not adopt any candidate language semantics or research conclusion.
+
+## Research review before changes
+
+Before making any project change, including adding or modifying functionality, read the relevant materials in `research/`. Start with the [research index](research/README.md) and follow the relevant studies, prototypes, and evidence. Use what applies to the proposed change and distinguish accepted decisions from research proposals and experimental results.
 
 ## Project language
 

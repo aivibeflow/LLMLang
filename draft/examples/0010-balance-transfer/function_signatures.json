@@ -1,3 +1,4 @@
 [
-{"functionSignatureContent":"(args: LaunchArgs) -> ExitStatus","functionSignatureHash":"sha256:365ed0a2cb5c578071568e8a6203b07ead25fd42a63f0864f9d849bd6a126f61"}
+{"functionSignatureContent":"(args: LaunchArgs) -> ExitStatus","functionSignatureHash":"sha256:365ed0a2cb5c578071568e8a6203b07ead25fd42a63f0864f9d849bd6a126f61"},
+{"functionSignatureContent":"(source: U64, destination: U64, amount: U64, recipient: Bool) -> U64","functionSignatureHash":"sha256:72207ed007503730cccb7c52c81ea5aeafb64781e19e79cb2bf9ad07c2b2e26e"}
 ]

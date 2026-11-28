@@ -28,8 +28,8 @@ fn contract(package: &mut Package) {
         "contracts",
         "contract",
         json!({
-            "contract_hash": "contract", "contract_kind": "function", "profile": "scalar",
-            "typed_signature": {}, "user_request_texts": [], "review_records": []
+            "contract_hash": "contract", "contract_kind": "function",
+            "user_request_texts": [], "review_records": []
         }),
     );
 }
@@ -185,6 +185,21 @@ fn resolves_declared_dependency_and_rejects_missing_targets() {
         target.object(),
         dependency.get("contracts", &["contract"]).unwrap().object()
     ));
+
+    contract(&mut data);
+    data.tables
+        .get_mut("contracts")
+        .unwrap()
+        .get_mut("contract")
+        .unwrap()["user_request_texts"] = json!(["local request"]);
+    let local = directory.path().join("local_metadata");
+    save(&local, &data, SaveOptions::default()).unwrap();
+    let graph = load_graph(&local, VERSIONS, resolve()).unwrap();
+    let contract = graph.get("contracts", &["contract"]).unwrap();
+    let Row::Contract(contract) = &contract.object().row else {
+        panic!("expected a contract");
+    };
+    assert_eq!(contract.user_request_texts, ["local request"]);
 
     call(&mut data, "missing");
     let invalid = directory.path().join("invalid");

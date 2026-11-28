@@ -9,7 +9,7 @@ use std::process::ExitCode;
 
 const PROTOCOL_VERSION: &str = "2025-11-25";
 const SUPPORTED_VERSIONS: &[&str] = &[PROTOCOL_VERSION, "2025-06-18"];
-const USAGE: &str = "Usage: llmlang-server --state-dir PATH [--python PROGRAM] [--backend PATH] [--migrate-v6-copy | --migrate-v7-copy]";
+const USAGE: &str = "Usage: llmlang-server --state-dir PATH [--python PROGRAM] [--backend PATH] [--migrate-v6-copy | --migrate-v7-copy | --migrate-v8-copy]";
 
 struct Options {
     state_dir: PathBuf,
@@ -44,6 +44,7 @@ impl Options {
                 }
                 Some("--migrate-v6-copy") if migrate_from.is_none() => migrate_from = Some(6),
                 Some("--migrate-v7-copy") if migrate_from.is_none() => migrate_from = Some(7),
+                Some("--migrate-v8-copy") if migrate_from.is_none() => migrate_from = Some(8),
                 _ => return Err(format!("unexpected argument {}", flag.to_string_lossy())),
             }
         }
@@ -372,7 +373,7 @@ fn operation_schema() -> Value {
         ], &[]),
         operation("unpin_dependency", &[("name", string()), ("expected_snapshot_id", string())], &[]),
         put("put_contract", &[
-            ("signature", string()), ("rules", json!({"type": "array", "items": rule})),
+            ("rules", json!({"type": "array", "items": rule})),
             ("user_request_texts", json!({"type": "array", "items": {"type": "string"}})),
         ], &["user_request_texts"]),
         put("put_function", &[
@@ -445,11 +446,7 @@ fn tools() -> Vec<Value> {
             "create_package",
             "Open an empty in-memory scalar workspace.",
             record(
-                &[
-                    ("name", string()),
-                    ("language_version", string()),
-                    ("profile", string()),
-                ],
+                &[("name", string()), ("language_version", string())],
                 &[],
                 false,
             ),

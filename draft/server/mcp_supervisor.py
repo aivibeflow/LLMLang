@@ -224,8 +224,8 @@ class Supervisor:
             if version not in self.releases:
                 raise UpgradeError("UnknownRelease", "The release is absent from the approved catalog")
             route = self.releases[current]["state_format"], self.releases[version]["state_format"]
-            if version != current and route not in {(6, 7), (7, 7), (6, 8), (7, 8), (8, 8)}:
-                raise UpgradeError("UnsupportedUpgrade", "Supported upgrades are 6 to 7, 6 or 7 to 8, and 7 or 8 to the same format")
+            if version != current and route not in {(6, 7), (7, 7), (6, 8), (7, 8), (8, 8), (6, 9), (7, 9), (8, 9), (9, 9)}:
+                raise UpgradeError("UnsupportedUpgrade", "Unsupported server state format transition")
             if version != current and self.edited_scalar:
                 raise UpgradeError("UnsavedWork", "An edited in-memory scalar workspace is still open")
             identifier = uuid.uuid4().hex
@@ -311,7 +311,8 @@ class Supervisor:
         return result
 
     def track_workspaces(self, method, params, result):
-        if method != "tools/call" or result.get("isError"):
+        if (method != "tools/call" or result.get("isError")
+                or self.releases[self.journal["version"]]["state_format"] >= 9):
             return
         name = params.get("name")
         value = result.get("structuredContent", {})

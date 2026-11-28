@@ -25,7 +25,7 @@ flowchart LR
 
 ### Program entry points
 
-A package is a program for the selected startup mode when it declares the corresponding public interface with a permitted signature and that interface has a valid binding for the build target in the selected snapshot. The binding pins the implementation by `ImplHash`. Ordinary startup performs the required runtime initialization and calls `main() -> ExitStatus` or `main(args: LaunchArgs) -> ExitStatus`. `LaunchArgs` is an ordered sequence of byte arguments and `ExitStatus` is numeric. Embedding and other modes that transfer control directly invoke `_entry` without additional LLMLang runtime initialization. The startup profile defines the `_entry` signature and calling convention.
+A package is a program for the selected startup mode when the corresponding public interface has a valid binding for the build target in the selected snapshot and its implementation has a permitted signature. The binding pins the implementation by `ImplHash`. Ordinary startup performs the required runtime initialization and calls `main() -> ExitStatus` or `main(args: LaunchArgs) -> ExitStatus`. `LaunchArgs` is an ordered sequence of byte arguments and `ExitStatus` is numeric. Embedding and other modes that transfer control directly invoke `_entry` without additional LLMLang runtime initialization. The startup profile defines the `_entry` signature and calling convention.
 
 ## Language, identity, and contracts
 
@@ -73,13 +73,15 @@ identities.
 
 ### Scalar function contracts
 
-The `scalar-v1` function contract language uses `I64` and `Bool`
-parameters and success results. Scalar `put_contract` and `put_function`
-take a canonical signature string such as `(value: I64) -> Bool`. The
-owning package's language definition selects the signature grammar and type
-rules. A contract attached to an implementation must match its parameter
-names, order, types, and result type. Parameters exclude `result`,
-`quotient`, and the `builtin__` prefix.
+Scalar contracts use `I64`, `U64`, and `Bool` parameters and success
+results. The `put_contract` operation takes rules. The `put_function`
+operation takes a canonical signature string such as
+`(value: I64) -> Bool`. The owning package's language definition selects
+the signature grammar and type rules. For each contract application, the
+checked function supplies the names and types available to its rules.
+The same contract can apply to different signatures if all its rules
+type-check in each context. Parameters exclude `result`, `quotient`, and the
+`builtin__` prefix.
 
 | Rule kind | Required payload | Meaning |
 | --- | --- | --- |
@@ -99,8 +101,8 @@ Predicates support decimal integer and `True` and `False` literals,
 variables, parentheses, unary minus, `*`, `+`, `-`, `quotient(a, b)`,
 comparisons, and `not`, `and`, and `or`. Equality and inequality require
 matching operand types. Ordered comparisons and arithmetic require integers.
-A comparison chain forms a conjunction of adjacent comparisons. The
-integer range at the function boundary is signed 64-bit. Predicate
+A comparison chain forms a conjunction of adjacent comparisons. At the function
+boundary, `I64` and `U64` use their signed and unsigned 64-bit ranges. Predicate
 arithmetic uses mathematical integers, and `quotient` truncates toward zero
 and returns zero at a zero divisor. Program arithmetic can produce checked
 errors independently of predicate arithmetic.
@@ -132,7 +134,7 @@ or inconclusive proof supplies insufficient evidence for publication.
 
 ### MVP package authoring through MCP
 
-`llmlang-server` supports creating and editing a scalar package through its Toolchain API. The MCP adapter exposes structured JSON tools and read-only Resources for scoped graph objects, dependencies, and reports. `create_package` opens a workspace on an empty snapshot. `import_package` reconstructs a snapshot from its manifest and verified table files, and `open_workspace` opens an isolated view of that snapshot for editing. `inspect_workspace` returns the revision and current package selection. Scalar workspaces remain in memory for the lifetime of the server and cannot be committed. Imported native snapshots and source-backed workspaces persist across restart.
+`llmlang-server` supports creating and editing a scalar package through its Toolchain API. The MCP adapter exposes structured JSON tools and read-only Resources for scoped graph objects, dependencies, and reports. `create_package` opens a workspace on an empty snapshot. `import_package` reconstructs a snapshot from its manifest and verified table files, and `open_workspace` opens an isolated view of that snapshot for editing. `inspect_workspace` returns the revision and current package selection. The v9 draft retains source-backed workspaces and snapshots across restart.
 
 `apply_change_set` applies typed operations for versions, dependencies, contracts, implementations, interfaces, bindings, calls, and entry points. A batch can refer to objects created in the same request. The server checks the expected revision and object or binding preconditions, resolves references, and validates the complete candidate before advancing the revision. A failed batch leaves the workspace untouched. A retry with the same request and idempotency key returns the stored result.
 
@@ -153,14 +155,14 @@ The loader resolves both fields before interpreting language-dependent records.
 Each dependency supplies its own manifest. Missing fields, unknown registry
 digests, malformed tuples, and unsupported combinations reject the load.
 The repository profile defines the physical encodings, file names, and
-deterministic record order. Repository profile v8 implements this manifest
+deterministic record order. Repository profile v9 implements this manifest
 format. Its migration maps the v6 and v7 draft version `0.1.0` to
 `0.1.0.0.0` under the initial registry and rebuilds signature references
 before regenerating managed packages.
 
 Each table in that profile has one binary dump and one companion index, including empty tables. A dump stores the table's Protobuf records in independently compressed frames, initially using LZ4. The index maps each Content Hash to the zero-based byte offset of its frame. The companion dump identifies the data file, and the frame header supplies the compressed length. The loader can consult a validated cache by hash before reading the payload. On a miss, it checks the frame bounds, decodes the record, and verifies its hash. Scanning verified records can reconstruct the index. A fixed repository profile produces identical package bytes for identical logical content.
 
-The function signature table has its own dump and companion index. In repository profile v8, `FunctionRecord.canonical_body` is a Protobuf `string` containing the source block. The corresponding ProtoJSON field is a JSON string. Scalar structured bodies stay in memory. When converting a package with inline signatures, validate the original records under their profile, produce canonical signature strings, and rebuild function rows with verified references. Publish the converted package only after checking the reconstructed typed signatures, implementation identities, and bindings.
+The function signature table has its own dump and companion index. In repository profile v9, `FunctionRecord.canonical_body` is a Protobuf `string` containing the source block. The corresponding ProtoJSON field is a JSON string. Scalar structured bodies stay in memory. When converting a package with inline signatures, validate the original records under their profile, produce canonical signature strings, and rebuild function rows with verified references. Publish the converted package only after checking the reconstructed typed signatures, implementation identities, and bindings.
 
 The persistence library accepts `write_text_dump` on save and load. It defaults to `false`. When enabled, save exports the same Protobuf messages used to write each binary table, and load exports the validated decoded messages. Both emit one additional ProtoJSON file per table in record order. Load writes the text files to a separate output location. Text exports leave canonical package bytes and semantic identities unchanged.
 
@@ -177,29 +179,38 @@ flowchart LR
 
 The Toolchain builds the projection from validated canonical package inputs. Versions select exact structure declarations and provide the bindings used to select exact interface implementations for a build target. A structure declaration stores its ordered named field types and can pin its own contract. Functions refer to exact structure declarations by `StructImplHash` in their signatures or bodies. Structural types share representation requirements and resolve layouts for particular target profiles.
 
-Each `FUNCTIONS` row references one `FUNCTION_SIGNATURES` row through `function_signature_hash`. The signature row stores `function_signature_content` as canonical text encoding ordered parameter names and types, the result type, and exact type references. Its primary key is a digest computed under the applicable signature encoding. In repository profile v8, the signature digest covers the canonical UTF-8 text, language version, and registry digest from the owning package. The signature text carries the parameter and result syntax, and the manifest supplies the grammar and type rules. Several functions can share one signature row. Reusing a hash requires a byte-for-byte match. Publish each function and its signature reference atomically.
+Each `FUNCTIONS` row references one `FUNCTION_SIGNATURES` row through `function_signature_hash`. The signature row stores `function_signature_content` as canonical text encoding ordered parameter names and types, the result type, and exact type references. Its primary key is a digest computed under the applicable signature encoding. In repository profile v9, the signature digest covers the canonical UTF-8 text, language version, and registry digest from the owning package. The signature text carries the parameter and result syntax, and the manifest supplies the grammar and type rules. Several functions can share one signature row. Reusing a hash requires a byte-for-byte match. Publish each function and its signature reference atomically.
 
 `FUNCTIONS.canonical_body` in a stored package contains only the function's source block as a UTF-8 string. Verification obligations record resolved call pins. The Toolchain resolves the signature from the package or its pinned dependencies, verifies the hash and canonical text, and parses the text into a typed signature with validated type references. A missing signature or unresolved pin rejects the import. The recovered signature supplies parameter declarations for body checking and callable compatibility and participates in computing `ImplHash` from the reconstructed canonical implementation. The provided contract reference resolves to a function contract.
 
-Functions, structures, and domains share the contract and rule tables. In
-`scalar-v1`, `CONTRACTS.typed_signature` is a required canonical string
-interpreted under the owning manifest. The `contract_kind` is `function`
-and the `profile` is `scalar-v1`. The four scalar rule kinds use the
-payload specified above. `state_signature` and `check_boundary` are absent
-for this profile. State contracts declare typed variables for invariants
-and transitions and set check boundaries where applicable. Request texts
-and review records are metadata.
+Each `INTERFACES` row stores a public name and a `public_contract_hash`
+foreign key to a function contract. Its `interface_hash` identifies those
+two values. The selected binding supplies the implementation and therefore
+the callable signature for that build target. Different bindings of a
+public interface may select different signatures. Validate the public
+rules in the context of each bound implementation before accepting the
+Change Set and prove refinement before publishing the package.
+
+Functions, structures, and domains share the contract and rule tables.
+Function contracts carry rules without a stored signature. The checked
+implementation supplies the signature for its provided contract, its
+bound public contract, and any contract required by a caller. State
+contracts declare typed variables for invariants and transitions and set
+check boundaries where applicable. Request texts and review records are
+package metadata.
 
 A scalar rule hash covers its kind and applicable payload fields under
-`llmlang-server-rule-v1`. The contract hash covers the `profile`, canonical
-`signature`, `language_version`, `language_component_registry_digest`, and
-lexicographically sorted distinct rule hashes in `rules` under
-`llmlang-server-contract-v1`. Both are lowercase hexadecimal SHA-256 over
-`llmlang-spg-content/v1\0` followed by compact UTF-8 JSON of
-`{"key":DOMAIN,"content":OBJECT}`, with recursively sorted object keys and
-preserved array order. Predicate spelling participates in identity. The
-server derives Contract IR from these rows and reports it by SPG contract
-hash.
+`llmlang-server-rule-v1`. The contract hash covers `kind`, `state_signature`
+(null for a function contract), `language_version`,
+`language_component_registry_digest`, and lexicographically sorted distinct
+rule hashes in `rules` under `llmlang-server-contract-v3`. The interface
+hash uses `llmlang-server-interface-v1` with `name` and
+`public_contract_hash`. These hashes are
+lowercase hexadecimal SHA-256 over `llmlang-spg-content/v1\0` followed by
+compact UTF-8 JSON of `{"key":DOMAIN,"content":OBJECT}`, with recursively
+sorted object keys and preserved array order. Predicate spelling
+participates in identity. The server reports typed Contract IR by
+implementation hash and contract hash.
 
 The Toolchain derives call dependencies from canonical function bodies. Verification obligations identify the exact function through `caller_impl_hash`. Call compatibility also pins the callee and the contract required by the caller. A structure contract check pins the exact structure revision and binds the applicable state contracts, rules, and boundaries through the verification context. Public refinement pins the public contract. The provided function contract is resolved from the relevant function revision. Attempt records retain status and evidence by obligation hash. Admission uses evidence applicable to the exact context.
 
@@ -234,8 +245,6 @@ erDiagram
     CONTRACTS {
         hash contract_hash PK
         text contract_kind "function, structure, or domain"
-        text profile
-        value typed_signature "canonical text for scalar function contracts"
         ir state_signature "structure or domain contract"
         texts user_request_texts
         records review_records
@@ -324,7 +333,7 @@ erDiagram
 `INTERFACES`, and `FUNCTIONS`, respectively. Each key is unique. A qualified
 name identifies one interface revision per version across its binding rows.
 The version's `binding_hash` covers both target columns and the implementation
-hash of each row. Repository profile v8 stores both columns in Protobuf
+hash of each row. Repository profile v9 stores both columns in Protobuf
 fields 6 and 7 and includes both in the key used for the record Content Hash.
 
 `arch` and `os` are required, case-sensitive ASCII strings. Each value must
@@ -380,9 +389,27 @@ across targets.
 
 ## Boundaries and open work
 
-JSON through MCP, indexed Protobuf in Git packages, and `llmlang_contract` in native binaries belong to different boundaries. They serve agent-facing exchange, repository reconstruction, and native library inspection, respectively. Open work includes the complete language grammar, hash encodings, several runtime semantics including nested transactions and reentrancy, full target coverage, and validation of the database implementation and migration. The [draft server](server/README.md) exercises a narrower scalar profile for in-memory authoring and verification. The [standalone scalar MVP release] records earlier evidence for the CLI and its Stage 0 compiler. Broader conformance depends on the relevant semantics, implementation and evidence.
+JSON through MCP, indexed Protobuf in Git packages, and `llmlang_contract` in native binaries belong to different boundaries. They serve agent-facing exchange, repository reconstruction, and native library inspection, respectively. Open work includes the complete language grammar, hash encodings, several runtime semantics including nested transactions and reentrancy, full target coverage, and validation of the database implementation and migration. The [draft server](server/README.md) supports contract proofs for the checked scalar fragment. The [standalone scalar MVP release] records earlier evidence for the CLI and its Stage 0 compiler. Broader conformance depends on the relevant semantics, implementation and evidence.
 
 The repository profile must specify the exact signature text grammar, digest encoding, and physical record format.
+
+### Proposed unified compilation and contract verification
+
+The owning manifest's language version and registry digest select the
+semantics of source and contract rules. A common typed SPG would supply
+the compiler and the verifier with the same bodies, outcome semantics, and
+exact call relationships. The compiler would lower the reachable functions
+through one package path using the requested target and bindings. The
+verifier would check body conformance, refinement, and applicable state
+invariants against those same semantics, and report unsupported
+constructs or provider evidence at the affected obligation.
+
+The v9 draft implements the removal of the semantic `profile` column and
+package creation argument and migrates the existing packages. The same
+checked scalar body feeds proof generation and Rust code generation in
+the package compiler. Unsupported obligations name their functions and
+contracts. General proof support for external effects and mutable state
+remains open.
 
 [standalone scalar MVP release]: https://github.com/aivibeflow/LLMLang/blob/138ba12f754967c9fbc6c0adbf29fc8d591836a3/draft/llmlang_mvp/RELEASE.md
 
@@ -413,3 +440,4 @@ The repository profile must specify the exact signature text grammar, digest enc
 - [ADR-036 — Split binding targets into architecture and operating system](adr/036-canonical-platform-identifiers.md)
 - [ADR-037 — Define the scalar function contract language](adr/037-scalar-contract-language.md)
 - [ADR-038 — Version LLMLang through language components](adr/038-composite-language-version.md)
+- [ADR-039 — Compile and verify one versioned LLMLang program (proposed)](adr/039-unified-compilation-and-contract-verification.md)

@@ -133,7 +133,7 @@ fn rejects_invalid_versions_indexes_and_frames() {
         .contains("unknown language component registry digest"));
     let old_manifest = String::from_utf8(manifest.clone())
         .unwrap()
-        .replace("llmlang.spg.tables.v8", "llmlang.spg.tables.v6");
+        .replace("llmlang.spg.tables.v9", "llmlang.spg.tables.v6");
     fs::write(path.join("manifest.json"), old_manifest).unwrap();
     let error = load(&path, VERSIONS, LoadOptions::default()).unwrap_err();
     assert!(error.to_string().contains("unsupported repository profile"));
@@ -176,7 +176,7 @@ fn all_tables_round_trip_with_their_own_columns() {
         (
             "contracts",
             "c",
-            json!({"contract_hash": "c", "contract_kind": "function", "profile": "scalar", "typed_signature": {}, "user_request_texts": ["request"], "review_records": [{"decision": "approved"}]}),
+            json!({"contract_hash": "c", "contract_kind": "function",  "user_request_texts": ["request"], "review_records": [{"decision": "approved"}]}),
         ),
         (
             "contract_rules",

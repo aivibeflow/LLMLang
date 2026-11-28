@@ -65,8 +65,8 @@ message ContractRecord {
   reserved "key";
   optional string contract_hash = 2;
   optional string contract_kind = 3;
-  optional string profile = 4;
-  Value typed_signature = 5;
+  reserved 4, 5, 9;
+  reserved "profile", "typed_signature";
   Value state_signature = 6;
   repeated string user_request_texts = 7;
   repeated Value review_records = 8;

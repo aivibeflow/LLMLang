@@ -1,6 +1,6 @@
 # Native Linux syscalls SPG package
 
-This Linux x86-64 example uses repository profile `llmlang.spg.tables.v8`
+This Linux x86-64 example uses repository profile `llmlang.spg.tables.v9`
 and language version `0.1.0`. It includes a manifest and a Protobuf/LZ4 dump,
 Content Hash index, and debug ProtoJSON file for each of the thirteen tables.
 Package metadata selects version `v6.12`, the pinned Linux kernel tag. Every

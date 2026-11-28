@@ -1,1 +1,5 @@
-[]
+[
+{"contractHash":"57135164be6386be290677c20c1f0ab3af9f525a3aef11721b92ed5a2e4dffea","kind":"requires","predicate":{"stringValue":"amount > 0"},"ruleHash":"95014a5591fd1d66cd6e2b3582820760a7cd70556982e06c597fd2ca5b325aa8"},
+{"contractHash":"57135164be6386be290677c20c1f0ab3af9f525a3aef11721b92ed5a2e4dffea","kind":"ensures","predicate":{"stringValue":"(amount <= source and destination + amount <= 18446744073709551615) or ((recipient and result == destination) or (not recipient and result == source))"},"ruleHash":"e70d6da11f3b5c4ea610906a3db1ceb1616614d66ec1dbde38c207069ddeb3ed"},
+{"contractHash":"57135164be6386be290677c20c1f0ab3af9f525a3aef11721b92ed5a2e4dffea","kind":"ensures","predicate":{"stringValue":"(amount > source or destination + amount > 18446744073709551615) or ((recipient and result == destination + amount and result + (source - amount) == source + destination) or (not recipient and result == source - amount and result + (destination + amount) == source + destination))"},"ruleHash":"ec5d66a16b9952daefaa9cf9a35b66bd3d1f7d34744e44de415619c06da44edf"}
+]

@@ -12,8 +12,8 @@ if not __package__:
 
 from draft.server.scalar_verification import contract, frontend, verify
 
-TYPES = {"i64": "int", "bool": "bool"}
-CONTRACT_TYPES = {"i64": "I64", "bool": "Bool"}
+TYPES = {"i64": "int", "u64": "u64", "bool": "bool"}
+CONTRACT_TYPES = {"i64": "I64", "u64": "U64", "bool": "Bool"}
 OPERATORS = {*frontend.ARITHMETIC_OPERATORS.values(), *frontend.COMPARISON_OPERATORS.values()}
 CALL_FIELDS = {"callee_impl_hash", "required_contract_hash", "arguments"}
 
@@ -98,26 +98,26 @@ def read_contracts(tables):
     by_contract = defaultdict(list)
     for row in tables["contract_rules"].values():
         by_contract[row["contract_hash"]].append(row)
-    result = {}
-    for identity, row in by_hash(tables, "contracts", "contract_hash").items():
-        if (
-            row["contract_kind"] != "function"
-            or row["profile"] != contract.PROFILE
-            or row.get("state_signature") is not None
-        ):
-            raise ValueError("unsupported contract kind or profile")
-        parameters, returns = signature(row["typed_signature"])
-        requires, ensures, errors = clauses(by_contract.pop(identity, ()))
-        result[identity] = contract.parse_contract({
-            "parameters": {name: CONTRACT_TYPES[kind] for name, kind in parameters},
-            "returns": CONTRACT_TYPES[returns],
+    contracts = by_hash(tables, "contracts", "contract_hash")
+    if by_contract.keys() - contracts.keys():
+        raise ValueError("contract rule references a missing function contract")
+    return {identity: by_contract[identity] for identity in contracts}
+
+
+def instantiate(contracts, identity, implementation, params, result):
+    if identity not in contracts:
+        raise ValueError(f"missing function contract {identity}")
+    try:
+        requires, ensures, errors = clauses(contracts[identity])
+        return contract.parse_contract({
+            "parameters": {name: CONTRACT_TYPES[kind] for name, kind in params},
+            "returns": CONTRACT_TYPES[result],
             "requires": sorted(requires),
             "ensures": sorted(ensures),
             "errors": errors,
         })
-    if by_contract:
-        raise ValueError("contract rule references a missing contract")
-    return result
+    except ValueError as error:
+        raise ValueError(f"contract {identity} on implementation {implementation}: {error}") from error
 
 
 def call_pins(node):
@@ -140,6 +140,8 @@ def expression(node, aliases):
             return f"{name}({args})"
         case ["i64", value] if type(value) is int and frontend.MIN_I64 <= value <= frontend.MAX_I64:
             return str(value)
+        case ["u64", value] if type(value) is int and 0 <= value <= frontend.MAX_U64:
+            return f"u64({value})"
         case ["bool", value] if type(value) is bool:
             return str(value)
         case ["var", name]:
@@ -188,6 +190,10 @@ def view_package(package, version_hash):
             pairs.add((callee, required))
             calls.add((caller, callee, required))
 
+    for row in tables["verification_obligations"].values():
+        if row["kind"] == "call_compatibility" and row["callee_impl_hash"] in functions:
+            pairs.add((row["callee_impl_hash"], row["caller_required_contract_hash"]))
+
     export_names = {}
     for row in tables["bindings"].values():
         interface = interfaces[row["interface_hash"]]
@@ -200,6 +206,7 @@ def view_package(package, version_hash):
 
     aliases = {pair: f"function_{index}" for index, pair in enumerate(sorted(pairs))}
     definitions = {}
+    instances = defaultdict(dict)
     provided_hashes = {}
     source = []
     for (identity, required), alias in aliases.items():
@@ -207,17 +214,13 @@ def view_package(package, version_hash):
             raise ValueError(f"missing scalar implementation {identity}")
         row = functions[identity]
         provided = row["provided_contract_hash"]
-        for pin in (required, provided):
-            if pin not in contracts:
-                raise ValueError(f"missing scalar contract {pin}")
         params, result = signature(row["typed_signature"])
+        typed = instances[identity]
         for pin in (required, provided):
-            checked = contracts[pin]
-            params_expected = tuple((name, CONTRACT_TYPES[kind]) for name, kind in params)
-            if checked.parameters != params_expected or checked.returns != CONTRACT_TYPES[result]:
-                raise ValueError(f"contract {pin} does not match implementation {identity}")
-        definitions[alias] = {"provided": contracts[provided], "public": contracts[required]}
-        provided_hashes[alias] = contract.contract_hash(contracts[provided])
+            if pin not in typed:
+                typed[pin] = instantiate(contracts, pin, identity, params, result)
+        definitions[alias] = {"provided": typed[provided], "public": typed[required]}
+        provided_hashes[alias] = contract.contract_hash(typed[provided])
         formals = ", ".join(f"{name}: {TYPES[value_type]}" for name, value_type in params)
         source.append(f"def {alias}({formals}) -> {TYPES[result]}:")
         source.extend(block(row["canonical_body"], aliases))
@@ -228,14 +231,14 @@ def view_package(package, version_hash):
         )
     else:
         program = {"schema": frontend.SCHEMA, "functions": {}}
-    return program, definitions, aliases, functions, calls, contracts
+    return program, definitions, aliases, functions, calls, instances
 
 
 def handle(request):
     action = request["action"]
     if action not in {"validate", "verify"}:
         return {"ok": False, "code": "InvalidArguments", "message": "unknown scalar action"}
-    program, definitions, aliases, functions, calls, contracts = view_package(
+    program, definitions, aliases, functions, calls, instances = view_package(
         request["package"], request.get("version_hash"),
     )
     entry_identity = request.get("entry_impl_hash")
@@ -252,7 +255,10 @@ def handle(request):
         program, definitions, boogie=os.environ.get("BOOGIE", "boogie"),
         z3=os.environ.get("Z3"), timeout=30,
     )
-    report["contract_ir"] = {identity: value.to_ir() for identity, value in sorted(contracts.items())}
+    report["contract_ir"] = {
+        implementation: {identity: value.to_ir() for identity, value in sorted(typed.items())}
+        for implementation, typed in sorted(instances.items())
+    }
     report["identities"] = {
         alias: {
             "implementation_hash": implementation,

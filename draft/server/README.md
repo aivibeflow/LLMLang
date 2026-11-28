@@ -1,7 +1,7 @@
 # LLMLang Server MVP
 
-This Linux server implements in-memory scalar editing and verification, and native
-package import and compilation over MCP stdio. Run a
+This Linux server edits, verifies, publishes, imports, and compiles packages
+over MCP stdio. Run a
 server per local OS principal with an owner-private state directory. Its
 Toolchain operations are also available through the Rust `Server` API.
 The service serializes operations within one process and holds an exclusive
@@ -41,7 +41,7 @@ schemas, then pass any advertised tool name and its arguments as JSON.
 python3 draft/server/mcp_client.py tools/list \
   --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
 python3 draft/server/mcp_client.py tools/call \
-  '{"name":"create_package","arguments":{"name":"demo","profile":"scalar","language_version":"0.1.0.0.0"}}' \
+  '{"name":"create_package","arguments":{"name":"demo","language_version":"0.1.0.0.0"}}' \
   --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
 python3 draft/server/mcp_client.py resources/templates/list \
   --server draft/server/target/debug/llmlang-server --state-dir /path/to/private-state
@@ -66,7 +66,7 @@ from mcp_client import connect
 with connect(["draft/server/target/debug/llmlang-server", "--state-dir", "./private-state"]) as client:
     tools = client.request("tools/list")["tools"]
     result = client.call_tool("create_package", {
-        "name": "demo", "profile": "scalar", "language_version": "0.1.0.0.0",
+        "name": "demo", "language_version": "0.1.0.0.0",
     })
 ```
 
@@ -78,7 +78,7 @@ built from the same checkout.
 ## Package lifecycle
 
 Use `tools/list` to discover the input and output schemas. Start with
-`create_package` using `profile: "scalar"` and `language_version: "0.1.0.0.0"`.
+`create_package` using `language_version: "0.1.0.0.0"`.
 With `apply_change_set`, select a package version and submit structured
 contracts, implementations, interfaces, and bindings. A batch can refer to a
 new object with `{"local":"its_request_id"}`. Use
@@ -94,10 +94,10 @@ name in the version must refer to the same interface revision.
 and validates it before advancing the revision. Each obligation records the
 caller, callee, and caller-required contract. An obligation has no verification
 outcome until it has been checked.
-`verify_workspace` produces a preview. Scalar workspaces live for the
-lifetime of the server process. `commit_workspace` returns `UnsupportedProfile`
-for a scalar workspace. A successful source-backed commit requires verification
-and writes a package with per-table debug ProtoJSON to
+`verify_workspace` produces a preview and identifies unsupported obligations.
+Workspaces persist across restart. `commit_workspace` verifies the exact
+revision again. A successful commit writes a source-backed package with
+per-table debug ProtoJSON to
 `<state-dir>/packages/<package-name>/<version>`.
 
 Each function row points to its canonical signature text in the
@@ -141,9 +141,9 @@ removes the directory when compilation ends. Executables and libraries go
 under `<state-dir>/artifacts/`. Package directories are read-only during
 import and build.
 
-The checked-in packages use repository profile `llmlang.spg.tables.v8`.
+The checked-in packages use repository profile `llmlang.spg.tables.v9`.
 The [MCP supervisor](../docs/server.md#upgrade-through-mcp) migrates an existing
-v6 or v7 state directory and returns the new snapshot IDs. For standalone server
+v6, v7, or v8 state directory and returns the new snapshot IDs. For standalone server
 use, start with a fresh state directory and reimport dependencies before
 their consumers.
 
@@ -169,14 +169,14 @@ python3 -B draft/server/tests/native_build_e2e.py draft/server/target/debug/llml
 ```
 
 The end-to-end tests run the bundled Python client against the server process.
-The scalar test uses Boogie and Z3 to verify edits in an in-memory workspace.
+The verifier test uses Boogie and Z3 and checks publication, import, and compilation.
 The native test imports packages, builds artifacts, and executes the binaries.
 
 For an upgrade test, provide the previous executable, the current executable,
 and the `draft` directory from the previous source checkout. Pass
-`--old-format 6` for v6 fixtures. The default is v7.
+`--old-format 6` for v6 fixtures or `--old-format 7` for v7 fixtures. The default is v8.
 
 ```sh
 python3 -B draft/server/tests/mcp_upgrade_e2e.py \
-  /path/to/v7/llmlang-server draft/server/target/debug/llmlang-server /path/to/v7/draft
+  /path/to/v8/llmlang-server draft/server/target/debug/llmlang-server /path/to/v8/draft
 ```

@@ -36,7 +36,7 @@ pub(super) fn from_ir(package: &Package) -> Result<CallsByCaller> {
     Ok(result)
 }
 
-fn collect_pins(value: &Value, calls: &mut BTreeSet<ResolvedCall>) {
+pub(super) fn collect_pins(value: &Value, calls: &mut BTreeSet<ResolvedCall>) {
     match value {
         Value::Object(fields) => {
             if let (Some(callee), Some(required)) = (
@@ -69,10 +69,9 @@ pub(super) fn rows(package: &Package, calls: &CallsByCaller) -> Result<BTreeMap<
             .get(caller)
             .and_then(|row| row["provided_contract_hash"].as_str())
             .ok_or_else(|| validation("missing caller contract"))?;
-        let profile = package.tables["contracts"]
-            .get(caller_provided)
-            .and_then(|row| row["profile"].as_str())
-            .ok_or_else(|| validation("missing caller profile"))?;
+        if !package.tables["contracts"].contains_key(caller_provided) {
+            return Err(validation("missing caller contract"));
+        }
         for call in calls {
             let callee = &call.callee_impl_hash;
             let required = &call.required_contract_hash;
@@ -88,7 +87,6 @@ pub(super) fn rows(package: &Package, calls: &CallsByCaller) -> Result<BTreeMap<
             let mut context = json!({
                 "language_version": package.manifest.language_version,
                 "language_component_registry_digest": package.manifest.language_component_registry_digest,
-                "profile": profile,
                 "caller_provided_contract_hash": caller_provided,
                 "callee_provided_contract_hash": provided,
             });
