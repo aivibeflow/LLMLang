@@ -1,6 +1,6 @@
 //! Typed changes and their canonical identities for the scalar authoring profile.
 use crate::{scalar_source, ServerError};
-use llmlang_spg::{content_hash, Package};
+use llmlang_spg::{content_hash, parse_function_signature, Package};
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use std::collections::{BTreeMap, BTreeSet};
@@ -85,7 +85,7 @@ enum Operation {
     },
     PutContract {
         id: String,
-        typed_signature: Value,
+        signature: String,
         rules: Vec<Rule>,
         #[serde(default)]
         user_request_texts: Vec<String>,
@@ -94,7 +94,7 @@ enum Operation {
     },
     PutFunction {
         id: String,
-        typed_signature: Value,
+        signature: String,
         canonical_body: Value,
         provided_contract: Reference,
         previous: Option<String>,
@@ -199,12 +199,18 @@ fn rule_identity(rule: &Value) -> Result<String> {
 }
 
 fn contract_identity<'a>(
-    signature: &Value,
+    manifest: &llmlang_spg::Manifest,
+    signature: &str,
     rule_hashes: impl Iterator<Item = &'a String>,
 ) -> Result<String> {
     hash(
         "llmlang-server-contract-v1",
-        &json!({"profile": SCALAR_PROFILE, "signature": signature, "rules": rule_hashes.collect::<Vec<_>>()}),
+        &json!({
+            "profile": SCALAR_PROFILE, "signature": signature,
+            "language_version": manifest.language_version,
+            "language_component_registry_digest": manifest.language_component_registry_digest,
+            "rules": rule_hashes.collect::<Vec<_>>(),
+        }),
     )
 }
 
@@ -503,7 +509,7 @@ fn put(
 ) -> Result<String> {
     match operation {
         Operation::PutContract {
-            typed_signature,
+            signature,
             rules,
             user_request_texts,
             previous,
@@ -519,7 +525,10 @@ fn put(
                     return Err(invalid("duplicate contract rule"));
                 }
             }
-            let identity = contract_identity(typed_signature, canonical.keys())?;
+            parse_function_signature(&package.manifest, signature)
+                .and_then(llmlang_spg::FunctionSignature::into_scalar)
+                .map_err(|error| invalid(error.to_string()))?;
+            let identity = contract_identity(&package.manifest, signature, canonical.keys())?;
             let mut texts: BTreeSet<_> = user_request_texts.iter().cloned().collect();
             let mut reviews = Vec::new();
             if let Some(existing) = package.tables["contracts"].get(&identity) {
@@ -532,7 +541,7 @@ fn put(
             }
             let content = json!({
                 "contract_hash": identity, "contract_kind": "function", "profile": SCALAR_PROFILE,
-                "typed_signature": typed_signature, "user_request_texts": texts, "review_records": reviews
+                "typed_signature": signature, "user_request_texts": texts, "review_records": reviews
             });
             package
                 .tables
@@ -552,7 +561,7 @@ fn put(
             Ok(identity)
         }
         Operation::PutFunction {
-            typed_signature,
+            signature,
             canonical_body,
             provided_contract,
             previous,
@@ -567,10 +576,16 @@ fn put(
             } else {
                 locals.rewrite_ir(&mut body)?;
             }
-            let identity = function_identity(typed_signature, &body, &provided)?;
-            let signature = package
-                .stage_function_signature(SCALAR_PROFILE, typed_signature)
+            let parsed = parse_function_signature(&package.manifest, signature)
                 .map_err(|error| invalid(error.to_string()))?;
+            let signature = package
+                .stage_function_signature(&parsed.typed)
+                .map_err(|error| invalid(error.to_string()))?;
+            let typed = parsed
+                .into_scalar()
+                .map_err(|error| invalid(error.to_string()))?
+                .typed;
+            let identity = function_identity(&typed, &body, &provided)?;
             insert_row(
                 package,
                 "functions",
@@ -989,7 +1004,8 @@ pub(crate) fn check_identities(
             || string(row, "contract_kind")? != "function"
             || string(row, "contract_hash")? != key
             || contract_identity(
-                &row["typed_signature"],
+                &package.manifest,
+                string(row, "typed_signature")?,
                 rules.get(key).into_iter().flatten(),
             )? != *key
         {
@@ -1037,18 +1053,19 @@ mod tests {
     #[test]
     fn resolve_forward_local_references_and_reject_cycles_atomically() {
         let mut package = Package::empty(Manifest {
-            language_version: "0.1.0".into(),
+            language_version: llmlang_spg::LANGUAGE_VERSION.into(),
+            language_component_registry_digest: llmlang_spg::language_component_registry_digest(),
             dependencies: BTreeMap::new(),
         });
         let mut selection = Selection::default();
-        let signature = json!({"params": [], "result": "i64"});
+        let signature = "() -> I64";
         let contract = json!({
-            "op": "put_contract", "id": "contract", "typed_signature": signature,
+            "op": "put_contract", "id": "contract", "signature": signature,
             "rules": [{"kind": "ensures", "predicate": "result == 42"}]
         });
         let function = |id, body: Value| {
             json!({
-                "op": "put_function", "id": id, "typed_signature": signature,
+                "op": "put_function", "id": id, "signature": signature,
                 "canonical_body": [["return", body]],
                 "provided_contract": {"local": "contract"}
             })

@@ -2,9 +2,15 @@
 
 mod graph;
 pub use graph::*;
+mod language_version;
 mod record;
+use language_version::check_manifest;
+pub use language_version::{language_component_registry_digest, LANGUAGE_VERSION};
 mod signature;
-pub use signature::{function_signature_text, resolve_function_signature, FunctionSignature};
+pub use signature::{
+    function_signature_text, parse_function_signature, resolve_function_signature,
+    FunctionSignature,
+};
 
 pub use record::content_hash;
 use record::{digest, TableRecord as Record};
@@ -32,9 +38,9 @@ pub const TABLES: [&str; 13] = [
     "versions",
 ];
 
-const PROFILE: &str = "llmlang.spg.tables.v7";
+const PROFILE: &str = "llmlang.spg.tables.v8";
 const MANIFEST: &str = "manifest.json";
-const MAGIC: &[u8; 8] = b"LLSPG\x07\r\n";
+const MAGIC: &[u8; 8] = b"LLSPG\x08\r\n";
 const HEADER: u64 = 40;
 const MAX_RECORD: usize = 1 << 20;
 const MAX_COMPRESSED: usize = MAX_RECORD + MAX_RECORD / 255 + 16;
@@ -90,6 +96,8 @@ fn invalid(message: impl Into<String>) -> Error {
 #[serde(deny_unknown_fields)]
 pub struct Manifest {
     pub language_version: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub language_component_registry_digest: String,
     /// Dependency name to exact package identity as interpreted by the caller.
     #[serde(default)]
     pub dependencies: BTreeMap<String, String>,
@@ -130,20 +138,9 @@ pub struct LoadOptions<'a> {
 struct PackageManifest {
     profile: String,
     language_version: String,
+    language_component_registry_digest: String,
     #[serde(default)]
     dependencies: BTreeMap<String, String>,
-}
-
-fn check_manifest(manifest: &Manifest, supported_versions: &[&str]) -> Result<()> {
-    semver::Version::parse(&manifest.language_version)
-        .map_err(|_| invalid("invalid manifest language_version"))?;
-    if !supported_versions.contains(&manifest.language_version.as_str()) {
-        return Err(invalid(format!(
-            "unsupported language_version {}",
-            manifest.language_version
-        )));
-    }
-    Ok(())
 }
 
 fn read_manifest(path: &Path, supported_versions: &[&str]) -> Result<Manifest> {
@@ -153,6 +150,7 @@ fn read_manifest(path: &Path, supported_versions: &[&str]) -> Result<Manifest> {
     }
     let result = Manifest {
         language_version: manifest.language_version,
+        language_component_registry_digest: manifest.language_component_registry_digest,
         dependencies: manifest.dependencies,
     };
     check_manifest(&result, supported_versions)?;
@@ -172,6 +170,10 @@ pub fn save(path: &Path, package: &Package, options: SaveOptions) -> Result<()> 
     let manifest = PackageManifest {
         profile: PROFILE.into(),
         language_version: package.manifest.language_version.clone(),
+        language_component_registry_digest: package
+            .manifest
+            .language_component_registry_digest
+            .clone(),
         dependencies: package.manifest.dependencies.clone(),
     };
     write_json(File::create(staging.path().join(MANIFEST))?, &manifest)?;
@@ -183,6 +185,7 @@ pub fn save(path: &Path, package: &Package, options: SaveOptions) -> Result<()> 
         let mut text = TextDump::open(staging.path(), table, options.write_text_dump)?;
         for (key, row) in rows {
             let record = Record::new(table, key, row)?;
+            check_signature_record(&package.manifest, table, key, row)?;
             let raw = record.encode_to_vec();
             if raw.len() > MAX_RECORD {
                 return Err(invalid("record exceeds byte limit"));
@@ -231,7 +234,7 @@ pub fn load(path: &Path, supported_versions: &[&str], options: LoadOptions<'_>) 
             table,
             text.is_some(),
         )?;
-        let observed = scan(path, table, |frame| {
+        let observed = scan(path, &manifest, table, |frame| {
             output.record(&frame.record)?;
             rows.insert(frame.key, frame.row);
             Ok(())
@@ -250,6 +253,16 @@ pub fn load(path: &Path, supported_versions: &[&str], options: LoadOptions<'_>) 
     Ok(package)
 }
 
+fn check_signature_record(manifest: &Manifest, table: &str, key: &str, row: &Value) -> Result<()> {
+    if table == "function_signatures" {
+        let text = row["function_signature_content"]
+            .as_str()
+            .ok_or_else(|| invalid("missing function signature content"))?;
+        resolve_function_signature(manifest, key, text)?;
+    }
+    Ok(())
+}
+
 fn check_local_signatures(package: &Package) -> Result<()> {
     for function in package.tables["functions"].values() {
         if package.manifest.dependencies.is_empty()
@@ -265,9 +278,9 @@ fn check_local_signatures(package: &Package) -> Result<()> {
 
 /// Rebuild a table index from a fully verified dump and replace it atomically.
 pub fn rebuild_index(path: &Path, supported_versions: &[&str], table: &str) -> Result<Index> {
-    read_manifest(path, supported_versions)?;
+    let manifest = read_manifest(path, supported_versions)?;
     check_table(table)?;
-    let index = scan(path, table, |_| Ok(()))?;
+    let index = scan(path, &manifest, table, |_| Ok(()))?;
     write_index(path, table, &index)?;
     Ok(index)
 }
@@ -281,7 +294,7 @@ pub fn load_record(
     hash: &str,
     cache: Option<&BTreeMap<String, (String, Value)>>,
 ) -> Result<Option<(String, Value)>> {
-    read_manifest(path, supported_versions)?;
+    let manifest = read_manifest(path, supported_versions)?;
     check_table(table)?;
     check_hash(hash)?;
     let index = read_index(path, table)?;
@@ -289,6 +302,7 @@ pub fn load_record(
         return Ok(None);
     };
     if let Some((key, row)) = cache.and_then(|cache| cache.get(hash)) {
+        check_signature_record(&manifest, table, key, row)?;
         let size = Record::new(table, key, row)?.encode_to_vec().len();
         if size > MAX_RECORD || hex::encode(digest(key, row)?) != hash {
             return Err(invalid(
@@ -299,7 +313,7 @@ pub fn load_record(
     }
     let (mut dump, size) = open_dump(path, table)?;
     dump.seek(SeekFrom::Start(offset))?;
-    let frame = read_frame(&mut dump, offset, size, table)?;
+    let frame = read_frame(&mut dump, &manifest, offset, size, table)?;
     if hex::encode(frame.hash) != hash {
         return Err(invalid("indexed offset points to a different record"));
     }
@@ -326,7 +340,13 @@ fn open_dump(path: &Path, table: &str) -> Result<(BufReader<File>, u64)> {
     Ok((stream, size))
 }
 
-fn read_frame(stream: &mut impl Read, offset: u64, size: u64, table: &str) -> Result<Frame> {
+fn read_frame(
+    stream: &mut impl Read,
+    manifest: &Manifest,
+    offset: u64,
+    size: u64,
+    table: &str,
+) -> Result<Frame> {
     if offset < MAGIC.len() as u64 || size.saturating_sub(offset) < HEADER {
         return Err(invalid("frame header outside dump"));
     }
@@ -349,6 +369,7 @@ fn read_frame(stream: &mut impl Read, offset: u64, size: u64, table: &str) -> Re
         return Err(invalid("decompressed record size mismatch"));
     }
     let (record, key, row) = Record::parse(table, &raw_bytes)?;
+    check_signature_record(manifest, table, &key, &row)?;
     if digest(&key, &row)? != hash {
         return Err(invalid("record content hash mismatch"));
     }
@@ -361,13 +382,18 @@ fn read_frame(stream: &mut impl Read, offset: u64, size: u64, table: &str) -> Re
     })
 }
 
-fn scan(path: &Path, table: &str, mut record: impl FnMut(Frame) -> Result<()>) -> Result<Index> {
+fn scan(
+    path: &Path,
+    manifest: &Manifest,
+    table: &str,
+    mut record: impl FnMut(Frame) -> Result<()>,
+) -> Result<Index> {
     let (mut dump, size) = open_dump(path, table)?;
     let mut offset = MAGIC.len() as u64;
     let mut index = Index::new();
     let mut previous = String::new();
     while offset < size {
-        let frame = read_frame(&mut dump, offset, size, table)?;
+        let frame = read_frame(&mut dump, manifest, offset, size, table)?;
         if frame.key <= previous {
             return Err(invalid("duplicate or unordered record key"));
         }

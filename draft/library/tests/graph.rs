@@ -4,11 +4,12 @@ use llmlang_spg::{
 use serde_json::{json, Value};
 use std::{collections::BTreeMap, fs, sync::Arc};
 
-const VERSIONS: &[&str] = &["0.1.0"];
+const VERSIONS: &[&str] = &[llmlang_spg::LANGUAGE_VERSION];
 
 fn package() -> Package {
     Package::empty(Manifest {
         language_version: VERSIONS[0].into(),
+        language_component_registry_digest: llmlang_spg::language_component_registry_digest(),
         dependencies: Default::default(),
     })
 }
@@ -35,7 +36,7 @@ fn contract(package: &mut Package) {
 
 fn function(package: &mut Package, key: &str, body: Value) {
     let signature = package
-        .stage_function_signature("scalar", &json!({"parameters": [], "result": "I64"}))
+        .stage_function_signature(&json!({"parameters": [], "result": "I64"}))
         .unwrap();
     insert(
         package,
@@ -143,7 +144,7 @@ fn resolves_declared_dependency_and_rejects_missing_targets() {
     let mut dependency = package();
     contract(&mut dependency);
     let signature_hash = dependency
-        .stage_function_signature("scalar", &json!({"parameters": [], "result": "I64"}))
+        .stage_function_signature(&json!({"parameters": [], "result": "I64"}))
         .unwrap();
     save(&dependency_path, &dependency, SaveOptions::default()).unwrap();
     let dependency = load_graph(&dependency_path, VERSIONS, GraphLoadOptions::default()).unwrap();
@@ -203,39 +204,39 @@ fn canonical_signatures_validate_exact_type_pins_and_hashes() {
         "parameters": [{"name": "value", "type": {"struct_impl_hash": "structure"}}],
         "result": "I64",
     });
-    let hash = data.stage_function_signature("scalar", &typed).unwrap();
+    let hash = data.stage_function_signature(&typed).unwrap();
     let text = data.tables["function_signatures"][&hash]["function_signature_content"]
         .as_str()
         .unwrap()
         .to_owned();
     assert_eq!(
-        llmlang_spg::resolve_function_signature(&hash, &text)
+        llmlang_spg::resolve_function_signature(&data.manifest, &hash, &text)
             .unwrap()
             .typed,
         typed
     );
-    assert!(llmlang_spg::resolve_function_signature(&hash, &format!("{text} ")).is_err());
-    assert!(llmlang_spg::resolve_function_signature("wrong", &text).is_err());
+    assert!(
+        llmlang_spg::resolve_function_signature(&data.manifest, &hash, &format!("{text} "))
+            .is_err()
+    );
+    assert!(llmlang_spg::resolve_function_signature(&data.manifest, "wrong", &text).is_err());
 
     let changed = json!({
         "parameters": [{"name": "value", "type": {"struct_impl_hash": "another"}}],
         "result": "I64",
     });
-    assert_ne!(
-        data.stage_function_signature("scalar", &changed).unwrap(),
-        hash
-    );
+    assert_ne!(data.stage_function_signature(&changed).unwrap(), hash);
     let left = json!({"parameters": [{"name":"left","type":"I64"},{"name":"right","type":"Bool"}], "result":"I64"});
     let mut right = left.clone();
     right["parameters"].as_array_mut().unwrap().reverse();
     assert_ne!(
-        data.stage_function_signature("scalar", &left).unwrap(),
-        data.stage_function_signature("scalar", &right).unwrap()
+        data.stage_function_signature(&left).unwrap(),
+        data.stage_function_signature(&right).unwrap()
     );
     right["result"] = json!("Bool");
     assert_ne!(
-        data.stage_function_signature("scalar", &left).unwrap(),
-        data.stage_function_signature("scalar", &right).unwrap()
+        data.stage_function_signature(&left).unwrap(),
+        data.stage_function_signature(&right).unwrap()
     );
 
     let row = json!({"impl_hash": "f", "function_signature_hash": hash,

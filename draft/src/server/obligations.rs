@@ -87,6 +87,7 @@ pub(super) fn rows(package: &Package, calls: &CallsByCaller) -> Result<BTreeMap<
             }
             let mut context = json!({
                 "language_version": package.manifest.language_version,
+                "language_component_registry_digest": package.manifest.language_component_registry_digest,
                 "profile": profile,
                 "caller_provided_contract_hash": caller_provided,
                 "callee_provided_contract_hash": provided,

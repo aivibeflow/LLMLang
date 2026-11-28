@@ -182,8 +182,13 @@ def exercise(executable, directory):
         assert missing["code"] == "MissingDependency", missing
         for package in [builtin, dependency, hello, calculator, syscall_hello, *programs]:
             before = read_package(package)
-            assert json.loads(before["manifest.json"])["profile"] == "llmlang.spg.tables.v7"
-            assert before["functions.dump"].startswith(b"LLSPG\x07\r\n")
+            manifest = json.loads(before["manifest.json"])
+            assert manifest["profile"] == "llmlang.spg.tables.v8"
+            assert manifest["language_version"] == "0.1.0.0.0"
+            assert re.fullmatch(r"sha256:[0-9a-f]{64}", manifest["language_component_registry_digest"])
+            assert before["functions.dump"].startswith(b"LLSPG\x08\r\n")
+            assert all(row["functionSignatureContent"].startswith("(")
+                       for row in json.loads(before["function_signatures.json"]))
             imported = client.call("import_package", {"path": str(package)})
             assert imported["verification_status"] == "unchecked"
             build = client.call("build_package", {

@@ -46,14 +46,14 @@ def local(name):
     return {"local": name}
 
 
-SIGNATURE = {"params": [], "result": "i64"}
+SIGNATURE = "() -> I64"
 
 
 def implementation(name, body, contract):
     return {
         "op": "put_function",
         "id": name,
-        "typed_signature": SIGNATURE,
+        "signature": SIGNATURE,
         "canonical_body": [["return", body]],
         "provided_contract": contract,
     }
@@ -67,7 +67,7 @@ def contract(name, value):
     return {
         "op": "put_contract",
         "id": name,
-        "typed_signature": SIGNATURE,
+        "signature": SIGNATURE,
         "rules": [{"kind": "ensures", "predicate": f"result == {value}"}],
     }
 
@@ -95,7 +95,7 @@ def first_operations(result=42, promised=42):
 
 def create(client, name):
     return client.call("create_package", {
-        "name": name, "language_version": "0.1.0", "profile": "scalar",
+        "name": name, "language_version": "0.1.0.0.0", "profile": "scalar",
     })
 
 
@@ -148,6 +148,9 @@ def check_rejected_edits(client, workspace, accepted, request):
     error = client.call("apply_change_set", changed_retry, succeeds=False)
     assert error["code"] == "Conflict", error
     cases = {
+        "invalid-signature": [
+            {**contract("bad-signature", 42), "signature": "() -> i64"},
+        ],
         "invalid-type": [implementation(
             "wrong-type", ["bool", True], accepted["identities"]["contract"],
         )],
@@ -208,15 +211,15 @@ def read_object(client, uri):
 def check_scalar_source(client):
     workspace = create(client, "source")
     workspace_id = workspace["workspace_id"]
-    signature = {"params": [["value", "i64"]], "result": "i64"}
+    signature = "(value: I64) -> I64"
     body = "{\n    let shifted = value + 1;\n    if value == 0 { return 1; }\n    return shifted;\n}"
     function = {
-        "op": "put_function", "id": "step", "typed_signature": signature,
+        "op": "put_function", "id": "step", "signature": signature,
         "provided_contract": local("contract"), "canonical_body": body,
     }
     first = client.call("apply_change_set", apply_request(workspace_id, 0, "source", [
         {"op": "set_version", "version": "1", "expected_version": None},
-        {"op": "put_contract", "id": "contract", "typed_signature": signature, "rules": [
+        {"op": "put_contract", "id": "contract", "signature": signature, "rules": [
             {"kind": "requires", "predicate": "0 <= value <= 10"},
             {"kind": "ensures", "predicate": "result == value + 1"},
         ]},
@@ -276,14 +279,18 @@ def check_scalar_source(client):
     failed_function = failure["function"]
     assert failed_function["impl_hash"] == changed["identities"]["step"]
     assert failed_function["canonical_body"] == "{ return value + 2; }"
-    assert failed_function["function_signature"]["typed_signature"] == signature
+    assert failed_function["function_signature"]["function_signature_content"] == signature
+    assert failed_function["function_signature"]["typed_signature"] == {
+        "params": [["value", "i64"]], "result": "i64",
+    }
+    assert failure["contract"]["typed_signature"] == signature
     assert failed_function["provided_contract"] == failure["contract"]
     assert failure["contract"]["contract_hash"] == required and failure["contract"]["ir"] == ir
     assert any(rule.get("predicate") == "result == value + 1" for rule in failure["contract"]["rules"])
     assert failure["evidence"]["status"] == "confirmed-source"
 
     related = client.call("apply_change_set", apply_request(workspace_id, 3, "related-contracts", [
-        {"op": "put_contract", "id": "wider", "typed_signature": signature, "rules": [
+        {"op": "put_contract", "id": "wider", "signature": signature, "rules": [
             {"kind": "requires", "predicate": "value == -1"},
             {"kind": "ensures", "predicate": "result == value + 1"},
         ]},
@@ -325,8 +332,8 @@ def check_source_arithmetic(client):
     ]:
         contract_id = f"{name}_contract"
         ops.extend([
-            {"op": "put_contract", "id": contract_id, "typed_signature": SIGNATURE, "rules": rules},
-            {"op": "put_function", "id": name, "typed_signature": SIGNATURE,
+            {"op": "put_contract", "id": contract_id, "signature": SIGNATURE, "rules": rules},
+            {"op": "put_function", "id": name, "signature": SIGNATURE,
              "provided_contract": local(contract_id), "canonical_body": body},
         ])
     client.call("apply_change_set", apply_request(workspace["workspace_id"], 0, "arithmetic", ops))

@@ -1,8 +1,11 @@
-//! One-time conversion of an offline copy of the v6 server state.
+//! One-time conversion of an offline copy of pre-composite server state.
 
 use super::*;
 
-pub(super) fn migrate(server: &mut Server) -> Result<Value> {
+pub(super) fn migrate(server: &mut Server, format: u8) -> Result<Value> {
+    if !matches!(format, 6 | 7) {
+        return Err(invalid("expected v6 or v7 state format"));
+    }
     let old = &server.state;
     for (id, workspace) in &old.workspaces {
         if workspace.committed.is_none()
@@ -17,7 +20,7 @@ pub(super) fn migrate(server: &mut Server) -> Result<Value> {
     for (id, program) in &old.snapshots {
         if snapshot_id(program)? != *id {
             return Err(validation(format!(
-                "v6 snapshot {id} failed its identity check"
+                "snapshot {id} failed its identity check"
             )));
         }
         let pins = program
@@ -31,6 +34,7 @@ pub(super) fn migrate(server: &mut Server) -> Result<Value> {
     let old = std::mem::take(&mut server.state);
 
     let mut converted = BTreeMap::new();
+    let mut signature_ids = BTreeMap::new();
     let mut remaining = old.snapshots.keys().collect::<BTreeSet<_>>();
     let mut smoke_snapshot = None;
     let mut smoke_executable = false;
@@ -43,7 +47,7 @@ pub(super) fn migrate(server: &mut Server) -> Result<Value> {
                     .iter()
                     .all(|dep| converted.contains_key(dep))
             })
-            .ok_or_else(|| validation("dependency cycle in the v6 catalog"))?;
+            .ok_or_else(|| validation("dependency cycle in the old catalog"))?;
         remaining.remove(old_id);
         let mut program = old.snapshots[old_id].clone();
         for pin in program.manifest.dependencies.values_mut() {
@@ -51,7 +55,10 @@ pub(super) fn migrate(server: &mut Server) -> Result<Value> {
                 *pin = String::clone(new_id);
             }
         }
-        convert_bindings(&mut program)?;
+        if format == 6 {
+            convert_bindings(&mut program)?;
+        }
+        convert_language(&mut program, &mut signature_ids)?;
         refresh_obligations(server, &mut program)?;
         let id = snapshot_id(&program)?;
         server.check_version(&program, &id)?;
@@ -151,6 +158,61 @@ fn convert_bindings(program: &mut Program) -> Result<()> {
     Ok(())
 }
 
+fn convert_language(
+    program: &mut Program,
+    signature_ids: &mut BTreeMap<String, String>,
+) -> Result<()> {
+    if program.manifest.language_version != "0.1.0"
+        || !program
+            .manifest
+            .language_component_registry_digest
+            .is_empty()
+    {
+        return Err(validation(
+            "no migration mapping for the old language definition",
+        ));
+    }
+    program.manifest.language_version = llmlang_spg::LANGUAGE_VERSION.into();
+    program.manifest.language_component_registry_digest =
+        llmlang_spg::language_component_registry_digest();
+
+    let mut package = program.package();
+    let old_signatures = std::mem::take(package.tables.get_mut("function_signatures").unwrap());
+    for (old_hash, row) in old_signatures {
+        let text = row["function_signature_content"]
+            .as_str()
+            .ok_or_else(|| validation("missing old signature text"))?;
+        let (profile, new_text) = text
+            .split_once(' ')
+            .ok_or_else(|| validation("missing old signature profile"))?;
+        if profile != native::PROFILE || row["function_signature_hash"] != old_hash {
+            return Err(validation("invalid old signature profile or key"));
+        }
+        let mut digest = Sha256::new();
+        digest.update(b"llmlang-function-signature/v1\0");
+        digest.update(profile.as_bytes());
+        digest.update(b"\0");
+        digest.update(text.as_bytes());
+        if old_hash != format!("sha256:{:x}", digest.finalize()) {
+            return Err(validation("old function signature hash mismatch"));
+        }
+        let signature = llmlang_spg::parse_function_signature(&program.manifest, new_text)
+            .map_err(validation)?;
+        let new_hash = package
+            .stage_function_signature(&signature.typed)
+            .map_err(validation)?;
+        signature_ids.insert(old_hash, new_hash);
+    }
+    for row in package.tables.get_mut("functions").unwrap().values_mut() {
+        let old_hash = row["function_signature_hash"]
+            .as_str()
+            .ok_or_else(|| validation("missing old function signature hash"))?;
+        row["function_signature_hash"] = json!(mapped_id(signature_ids, old_hash)?);
+    }
+    program.tables = package.tables;
+    Ok(())
+}
+
 fn refresh_obligations(server: &Server, program: &mut Program) -> Result<()> {
     let combined = server.combined_package(program)?;
     let catalogs = server.native_catalogs(program)?;
@@ -160,14 +222,14 @@ fn refresh_obligations(server: &Server, program: &mut Program) -> Result<()> {
         .map(|row| {
             row["caller_impl_hash"]
                 .as_str()
-                .ok_or_else(|| validation("invalid v6 caller"))
+                .ok_or_else(|| validation("invalid old caller"))
         })
         .collect::<Result<_>>()?;
     let mut calls = obligations::CallsByCaller::new();
     for caller in callers {
         let row = program.tables["functions"]
             .get(caller)
-            .ok_or_else(|| validation("v6 caller is absent from the package"))?;
+            .ok_or_else(|| validation("old caller is absent from the package"))?;
         calls.insert(
             caller.to_owned(),
             native::resolved_calls(
@@ -201,16 +263,16 @@ fn regenerate_packages(
         for version in fs::read_dir(name.path())? {
             let version = version?;
             let metadata: PackageMetadata = read_json(&version.path().join("package.json"))?;
-            let previous = old.get(&metadata.snapshot_id).ok_or_else(|| {
-                validation("saved v6 package is missing from the snapshot catalog")
-            })?;
+            let previous = old
+                .get(&metadata.snapshot_id)
+                .ok_or_else(|| validation("saved package is missing from the snapshot catalog"))?;
             if server.package_path(previous)? != version.path()
                 || metadata.name != previous.name
                 || metadata.selection.version != previous.selection.version
                 || metadata.selection.entry_point != previous.selection.entry_point
             {
                 return Err(validation(
-                    "saved v6 package metadata disagrees with its snapshot",
+                    "saved package metadata disagrees with its snapshot",
                 ));
             }
             let id = mapped_id(converted, &metadata.snapshot_id)?;

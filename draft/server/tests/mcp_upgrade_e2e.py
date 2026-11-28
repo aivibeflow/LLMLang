@@ -1,4 +1,4 @@
-"""Upgrade a live MCP session from a real v6 server and verify rollback."""
+"""Upgrade a live MCP session from a real v6 or v7 server and verify rollback."""
 
 import argparse
 import hashlib
@@ -39,7 +39,8 @@ def snapshot_id(program):
     return hashlib.sha256(encoded).hexdigest()
 
 
-def exercise(old, new, fixtures, directory):
+def exercise(old, new, fixtures, directory, old_format):
+    old_release = f"v{old_format}"
     state = directory / "state"
     with connect([str(old), "--state-dir", str(state)]) as client:
         builtin = call(client, "import_package", {"path": str(fixtures / "builtin")})["snapshot_id"]
@@ -71,12 +72,12 @@ def exercise(old, new, fixtures, directory):
     failing.chmod(0o700)
     releases = directory / "releases.json"
     releases.write_text(json.dumps({
-        "initial_version": "v6",
+        "initial_version": old_release,
         "releases": {
-            "v6": {"binary": str(old), "state_format": 6},
-            "bad": {"binary": str(failing), "state_format": 7},
-            "v7": {"binary": str(new), "state_format": 7},
-            "v7-next": {"binary": str(new), "state_format": 7},
+            old_release: {"binary": str(old), "state_format": old_format},
+            "bad": {"binary": str(failing), "state_format": 8},
+            "v8": {"binary": str(new), "state_format": 8},
+            "v8-next": {"binary": str(new), "state_format": 8},
         },
     }))
     command = [sys.executable, "-B", str(DRAFT / "server/mcp_supervisor.py"),
@@ -88,18 +89,18 @@ def exercise(old, new, fixtures, directory):
         bad = call(client, "upgrade_server", {"version": "bad", "idempotency_key": "bad"})
         assert bad["status"] == "running"
         bad = finished(client, bad)
-        assert bad["status"] == "failed" and bad["version"] == "v6", bad
+        assert bad["status"] == "failed" and bad["version"] == old_release, bad
         assert state_file.read_text() == old_catalog
-        assert (managed / "manifest.json").read_text().find("tables.v6") >= 0
+        assert json.loads((managed / "manifest.json").read_text())["profile"] == f"llmlang.spg.tables.{old_release}"
         call(client, "build_package", {"snapshot_id": hello, "target": "linux-x86_64"})
 
-        request = {"version": "v7", "idempotency_key": "v7"}
+        request = {"version": "v8", "idempotency_key": "v8"}
         operation = call(client, "upgrade_server", request)
         assert operation["status"] == "running"
         repeated = call(client, "upgrade_server", request)
         assert repeated["operation_id"] == operation["operation_id"]
         operation = finished(client, operation)
-        assert operation["status"] == "succeeded" and operation["version"] == "v7", operation
+        assert operation["status"] == "succeeded" and operation["version"] == "v8", operation
         bootstrap = "llmlang://doc/bootstrap.md"
         assert any(item["uri"] == bootstrap for item in client.request("resources/list")["resources"])
         assert client.request("resources/read", uri=bootstrap)["contents"][0]["mimeType"] == "text/markdown"
@@ -107,14 +108,14 @@ def exercise(old, new, fixtures, directory):
         assert set(mapped) == {hello, builtin} and all(a != b for a, b in mapped.items())
         assert operation["smoke_snapshot_id"] == mapped[hello], operation
         assert (Path(operation["backup_path"]) / "state.json").read_text() == old_catalog
-        assert json.loads((managed / "manifest.json").read_text())["profile"] == "llmlang.spg.tables.v7"
+        assert json.loads((managed / "manifest.json").read_text())["profile"] == "llmlang.spg.tables.v8"
         assert json.loads((managed / "package.json").read_text())["snapshot_id"] == mapped[builtin]
         assert (managed / "README.md").read_bytes() == (fixtures / "builtin/README.md").read_bytes()
         assert json.loads(state_file.read_text())["snapshots"][mapped[hello]]["manifest"]["dependencies"]["builtin"] == mapped[builtin]
         output = call(client, "build_package", {"snapshot_id": mapped[hello], "target": "linux-x86_64"})
         assert Path(output["artifact"]).is_file()
         workspace = call(client, "create_package", {
-            "name": "unsaved", "profile": "scalar", "language_version": "0.1.0",
+            "name": "unsaved", "profile": "scalar", "language_version": "0.1.0.0.0",
         })
         call(client, "apply_change_set", {
             "workspace_id": workspace["workspace_id"], "expected_revision": 0,
@@ -122,10 +123,10 @@ def exercise(old, new, fixtures, directory):
                 {"op": "set_version", "version": "1", "expected_version": None},
             ],
         })
-        call(client, "upgrade_server", {"version": "v7-next", "idempotency_key": "next"},
+        call(client, "upgrade_server", {"version": "v8-next", "idempotency_key": "next"},
              error="UnsavedWork")
     with connect(command) as client:
-        assert client.server["serverInfo"]["version"] == "v7"
+        assert client.server["serverInfo"]["version"] == "v8"
         assert "llmlang://doc/bootstrap.md" in client.server["instructions"]
         assert call(client, "upgrade_server", request) == operation
 
@@ -136,7 +137,7 @@ def exercise(old, new, fixtures, directory):
     record = json.loads(journal.read_text())
     record["pending"] = interrupted
     record["operations"][interrupted] = {
-        "operation_id": interrupted, "requested_version": "v7-next", "version": "v7",
+        "operation_id": interrupted, "requested_version": "v8-next", "version": "v8",
         "idempotency_key": interrupted, "status": "running",
     }
     journal.write_text(json.dumps(record))
@@ -147,20 +148,22 @@ def exercise(old, new, fixtures, directory):
         recovered = call(client, "upgrade_server", {"operation_id": interrupted})
         assert recovered["status"] == "failed" and recovered["error"]["code"] == "UpgradeInterrupted"
         call(client, "build_package", {"snapshot_id": mapped[hello], "target": "linux-x86_64"})
-        next_release = call(client, "upgrade_server", {"version": "v7-next", "idempotency_key": "next"})
+        next_release = call(client, "upgrade_server", {"version": "v8-next", "idempotency_key": "next"})
         next_release = finished(client, next_release)
-        assert next_release["status"] == "succeeded" and next_release["version"] == "v7-next"
+        assert next_release["status"] == "succeeded" and next_release["version"] == "v8-next"
         assert next_release["snapshot_ids"] == {identifier: identifier for identifier in mapped.values()}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("v6", type=Path)
-    parser.add_argument("v7", type=Path)
-    parser.add_argument("v6_draft", type=Path)
+    parser.add_argument("old", type=Path)
+    parser.add_argument("new", type=Path)
+    parser.add_argument("old_draft", type=Path)
+    parser.add_argument("--old-format", type=int, choices=(6, 7), default=7)
     args = parser.parse_args()
     with tempfile.TemporaryDirectory(prefix="llmlang-upgrade-e2e-") as directory:
-        exercise(args.v6.resolve(), args.v7.resolve(), args.v6_draft.resolve(), Path(directory))
+        exercise(args.old.resolve(), args.new.resolve(), args.old_draft.resolve(),
+                 Path(directory), args.old_format)
     print("MCP upgrade, snapshot mapping, rollback, and interruption recovery passed")
 
 

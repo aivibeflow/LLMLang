@@ -295,11 +295,6 @@ macro_rules! table_records {
                                     return Err(invalid("bindings: unregistered architecture or OS target"));
                                 }
                             }
-                            "function_signatures" => {
-                                let text = row["function_signature_content"].as_str()
-                                    .ok_or_else(|| invalid("missing function signature content"))?;
-                                super::resolve_function_signature(key, text)?;
-                            }
                             "functions" => {
                                 let hash = row["function_signature_hash"].as_str()
                                     .ok_or_else(|| invalid("missing function signature hash"))?;

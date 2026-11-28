@@ -31,14 +31,14 @@ pub(super) fn lower(source: &str) -> Result<Value> {
 pub(super) fn body<'a>(package: &Package, row: &'a Value) -> Result<Cow<'a, Value>> {
     let source = &row["canonical_body"];
     if let Some(text) = source.as_str() {
-        let signature = row["function_signature_hash"]
+        let profile = row["provided_contract_hash"]
             .as_str()
-            .and_then(|id| package.tables["function_signatures"].get(id))
-            .and_then(|row| row["function_signature_content"].as_str());
-        if signature
-            .and_then(|text| text.split_once(' '))
-            .is_some_and(|(profile, _)| profile == PROFILE)
-        {
+            .and_then(|id| package.tables["contracts"].get(id))
+            .and_then(|row| row["profile"].as_str());
+        if profile.map_or_else(
+            || !super::native::is_native(&package.tables),
+            |profile| profile == PROFILE,
+        ) {
             return lower(text).map(Cow::Owned);
         }
     }

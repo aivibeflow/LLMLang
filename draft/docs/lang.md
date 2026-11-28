@@ -4,10 +4,10 @@ This reference covers the syntax implemented in the current checkout. The scalar
 
 ## Scalar MCP authoring
 
-The server accepts typed Change Set objects. Signatures use `i64` and `bool`. For example, a function taking a signed 64-bit integer and returning a Boolean has this signature.
+The scalar Change Set operations `put_function` and `put_contract` take a `signature` string. Use `I64` and `Bool` with the spacing shown below. The server stores that canonical string and uses the owning package's manifest to select the language definition.
 
-```json
-{"params":[["value","i64"]],"result":"bool"}
+```text
+(value: I64) -> Bool
 ```
 
 A `canonical_body` is a braced source string or a nonempty array of structured statements. The notation below uses `EXPR`, `THEN`, `ELSE`, and `REF` as placeholders for the structured form.
@@ -27,7 +27,7 @@ Use an existing server identity (64 lowercase hex digits) or `{"local":"request-
 
 ### Source bodies
 
-Pass the body string to `put_function` and pass the typed signature separately.
+Pass the body string to `put_function` and pass the signature string separately.
 For a function with signature `(value: I64) -> I64`, this body returns
 `value + 1` on the declared input domain `0 <= value <= 10`.
 
@@ -82,7 +82,7 @@ outcomes and exact callee pins. [Reference evaluator](../server/scalar_verificat
 
 ### Contract rules
 
-A `put_contract` operation takes a typed signature and an array of rules. `requires` and `ensures` have a `predicate`. `error_declaration` has an `error_label`. An `error_guard` has both and refers to a declared error. Multiple predicates for one outcome are conjoined. An error declaration with no guards admits that error anywhere in the contract's input domain. Optional `user_request_texts` records the request prose alongside the formal rules. Use parameter names in all predicates and `result` in `ensures`. The contract parser reserves `result` and `quotient` as parameter names.
+A `put_contract` operation takes a signature string and an array of rules. `requires` and `ensures` have a `predicate`. `error_declaration` has an `error_label`. An `error_guard` has both and refers to a declared error. Multiple predicates for one outcome are conjoined. An error declaration with no guards admits that error anywhere in the contract's input domain. Optional `user_request_texts` records the request prose alongside the formal rules. Use parameter names in all predicates and `result` in `ensures`. The contract parser reserves `result` and `quotient` as parameter names.
 
 ```json
 [
@@ -93,7 +93,7 @@ A `put_contract` operation takes a typed signature and an array of rules. `requi
 ]
 ```
 
-Predicate values can be JSON Booleans or Boolean expression strings. The predicate language supports comparisons, including chains, `and`, `or`, `not`, and mathematical integer `+`, `-`, `*`, and unary minus. Use `quotient(a, b)` for the totalized quotient, which truncates toward zero and returns zero when `b` is zero. Program arithmetic can fail. The example rules apply to the `divide` signature with `left` and `right` as `i64`. The precondition excludes the signed division overflow case. [Historical Scalar Contract IR](https://github.com/aivibeflow/LLMLang/blob/138ba12f754967c9fbc6c0adbf29fc8d591836a3/draft/llmlang_mvp/CONTRACT-IR.md) · [Server rule adapter](../server/scalar.py)
+Predicate values can be JSON Booleans or Boolean expression strings. The predicate language supports comparisons, including chains, `and`, `or`, `not`, and mathematical integer `+`, `-`, `*`, and unary minus. Use `quotient(a, b)` for the totalized quotient, which truncates toward zero and returns zero when `b` is zero. Program arithmetic can fail. The example rules apply to the `divide` signature with `left` and `right` as `I64`. The precondition excludes the signed division overflow case. [Historical Scalar Contract IR](https://github.com/aivibeflow/LLMLang/blob/138ba12f754967c9fbc6c0adbf29fc8d591836a3/draft/llmlang_mvp/CONTRACT-IR.md) · [Server rule adapter](../server/scalar.py)
 
 ### Contract IR and verification
 

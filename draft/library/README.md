@@ -15,16 +15,17 @@ use std::path::Path;
 
 fn round_trip(path: &Path) -> llmlang_spg::Result<Package> {
     let package = Package::empty(Manifest {
-        language_version: "0.1.0".into(),
+        language_version: llmlang_spg::LANGUAGE_VERSION.into(),
+        language_component_registry_digest: llmlang_spg::language_component_registry_digest(),
         dependencies: Default::default(),
     });
     save(path, &package, SaveOptions::default())?;
-    load(path, &["0.1.0"], LoadOptions::default())
+    load(path, &[llmlang_spg::LANGUAGE_VERSION], LoadOptions::default())
 }
 ```
 
 `save` creates a new package directory under an existing parent.
-`load` takes the exact SemVer versions supported by the caller. Both default to
+`load` takes the exact composite language versions supported by the caller. Both default to
 binary-only operation. Set `write_text_dump` to emit one JSON array of ProtoJSON
 messages per table. On load also set `text_dump_dir` to a new directory outside
 the package. Load publishes that export only after validating the entire input.
@@ -65,15 +66,14 @@ original typed signature. A graph function links to its signature row, and
 the signature row links to its exact structure revisions when applicable.
 Function contracts retain their typed signatures.
 
-The signature text has the form `<profile> (<name>: <type>, ...) -> <type>`.
+The signature text has the form `(<name>: <type>, ...) -> <type>`. The owning manifest supplies the language definition.
 For example, the scalar signature for one integer parameter is
-`scalar-v1 (value: I64) -> I64`. The scalar profile renders `i64` and `bool`
-as `I64` and `Bool`. Parameter order is preserved, spacing is fixed, and
+`(value: I64) -> I64`. Parameter order is preserved, spacing is fixed, and
 structured type descriptors use compact JSON with recursively sorted keys.
 A type name that cannot use the bare syntax is quoted as a JSON string.
 The signature hash consists of `sha256:` and the lowercase SHA-256 hex digest
-of `llmlang-function-signature/v1\0`, the profile, a NUL byte, and the UTF-8
-signature text, in that order.
+of `llmlang-function-signature/v2\0`, the language version, a NUL byte, the
+registry digest, a NUL byte, and the UTF-8 signature text, in that order.
 
 `FunctionRecord.canonical_body` is a Protobuf `string`.
 In the debug dump, `canonicalBody` is a JSON string containing the original body block.
@@ -91,14 +91,14 @@ with version key `v` and interface key `i` has storage key `v:i::`.
 ## Repository profile
 
 The draft specifies the storage contract and leaves the physical encoding to a
-profile. This crate uses `llmlang.spg.tables.v7`.
+profile. This crate uses `llmlang.spg.tables.v8`.
 
-- `manifest.json` contains `profile`, `language_version`, and `dependencies`.
+- `manifest.json` contains `profile`, `language_version`, `language_component_registry_digest`, and `dependencies`.
 - Each of the thirteen tables has a lowercase `<table>.dump` and
   `<table>.index.json`, even when empty. The index is a JSON object mapping
   lowercase SHA-256 hex digests to zero-based offsets at the start of a frame.
   Index keys are sorted and the compact encoding ends in a newline.
-- Each dump starts with `LLSPG\x07\r\n`. Frames follow in ascending row key order.
+- Each dump starts with `LLSPG\x08\r\n`. Frames follow in ascending row key order.
   Each comprises a little-endian 32-bit compressed length, a little-endian
   32-bit uncompressed length, a 32-byte Content Hash, and a raw LZ4 block.
   The writer uses LZ4 fast mode with acceleration 1. The uncompressed size limit

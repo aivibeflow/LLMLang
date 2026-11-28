@@ -21,7 +21,7 @@ use std::os::unix::fs::{DirBuilderExt, MetadataExt, PermissionsExt};
 use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
-const VERSIONS: &[&str] = &["0.1.0"];
+const VERSIONS: &[&str] = &[llmlang_spg::LANGUAGE_VERSION];
 const BUILTIN: &str = "builtin";
 type Result<T> = std::result::Result<T, ServerError>;
 
@@ -161,21 +161,33 @@ pub struct Server {
 }
 
 impl Server {
-    /// Convert a private, disposable copy after the v6 server has released it.
-    pub fn migrate_v6_copy(state_dir: &Path, python: &str, backend: &Path) -> Result<Value> {
+    /// Convert a private, disposable copy after the old server has released it.
+    pub fn migrate_copy(
+        state_dir: &Path,
+        python: &str,
+        backend: &Path,
+        format: u8,
+    ) -> Result<Value> {
         if !state_dir.is_dir()
             || state_dir.join("pending.json").try_exists()?
             || state_dir.join("pending-package").try_exists()?
         {
             return Err(conflict(
-                "v6 state must be an offline copy with no pending commit",
+                "state must be an offline copy with no pending commit",
             ));
         }
-        let mut server = Self::open(state_dir, python, backend)?;
-        upgrade::migrate(&mut server)
+        let mut server = Self::open_state(state_dir, python, backend)?;
+        upgrade::migrate(&mut server, format)
     }
 
     pub fn open(state_dir: &Path, python: &str, backend: &Path) -> Result<Self> {
+        let mut server = Self::open_state(state_dir, python, backend)?;
+        check_state_language(&server.state)?;
+        server.recover()?;
+        Ok(server)
+    }
+
+    fn open_state(state_dir: &Path, python: &str, backend: &Path) -> Result<Self> {
         fs::DirBuilder::new()
             .recursive(true)
             .mode(0o700)
@@ -207,7 +219,6 @@ impl Server {
         };
         server.state.retain_native();
         check_state_layout(&server.state)?;
-        server.recover()?;
         Ok(server)
     }
 
@@ -222,11 +233,13 @@ impl Server {
                 if !VERSIONS.contains(&args.language_version.as_str()) || args.profile != "scalar" {
                     return Err(ServerError::new(
                         "UnsupportedProfile",
-                        "expected scalar LLMLang 0.1.0",
+                        format!("expected scalar LLMLang {}", llmlang_spg::LANGUAGE_VERSION),
                     ));
                 }
                 let package = Package::empty(Manifest {
                     language_version: args.language_version,
+                    language_component_registry_digest:
+                        llmlang_spg::language_component_registry_digest(),
                     dependencies: BTreeMap::new(),
                 });
                 let program = Program {
@@ -425,7 +438,10 @@ impl Server {
             if dependencies.contains_key(id) {
                 continue;
             }
-            if dependency.manifest.language_version != program.manifest.language_version {
+            if dependency.manifest.language_version != program.manifest.language_version
+                || dependency.manifest.language_component_registry_digest
+                    != program.manifest.language_component_registry_digest
+            {
                 return Err(ServerError::new(
                     "UnsupportedProfile",
                     "dependency language version differs",
@@ -724,6 +740,18 @@ impl Server {
             }
             row["typed_signature"] = package.function_signature(row).map_err(validation)?.typed;
         }
+        for row in tables.get_mut("contracts").unwrap().values_mut() {
+            if row["profile"] != scalar_source::PROFILE {
+                continue;
+            }
+            let text = row["typed_signature"]
+                .as_str()
+                .ok_or_else(|| validation("missing scalar contract signature text"))?;
+            let signature = llmlang_spg::parse_function_signature(&program.manifest, text)
+                .and_then(llmlang_spg::FunctionSignature::into_scalar)
+                .map_err(validation)?;
+            row["typed_signature"] = signature.typed;
+        }
         let request = json!({
             "action": action,
             "package": {"manifest": package.manifest, "tables": tables},
@@ -996,6 +1024,7 @@ impl Server {
     fn recover(&mut self) -> Result<()> {
         if let Some(pending) = read_optional::<PendingCommit>(&self.root.join("pending.json"))? {
             check_state_layout(&pending.state)?;
+            check_state_language(&pending.state)?;
             let program = pending
                 .state
                 .snapshots
@@ -1179,6 +1208,30 @@ fn scalar_uses_fail(node: &Value) -> bool {
         Value::Object(fields) => fields.values().any(scalar_uses_fail),
         _ => false,
     }
+}
+
+fn check_state_language(state: &State) -> Result<()> {
+    let registry = llmlang_spg::language_component_registry_digest();
+    if state
+        .snapshots
+        .values()
+        .chain(
+            state
+                .workspaces
+                .values()
+                .map(|workspace| &workspace.program),
+        )
+        .any(|program| {
+            program.manifest.language_version != llmlang_spg::LANGUAGE_VERSION
+                || program.manifest.language_component_registry_digest != registry
+        })
+    {
+        return Err(ServerError::new(
+            "UnsupportedProfile",
+            "server state requires migration to the composite language version",
+        ));
+    }
+    Ok(())
 }
 
 fn check_state_layout(state: &State) -> Result<()> {
