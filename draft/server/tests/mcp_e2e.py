@@ -15,7 +15,7 @@ import tempfile
 
 CLIENT = Path(__file__).resolve().parents[1] / "mcp_client.py"
 sys.path.insert(0, str(CLIENT.parent))
-from mcp_client import connect
+from mcp_client import RpcError, connect
 
 
 class TestSession:
@@ -205,10 +205,49 @@ def read_object(client, uri):
     return json.loads(result["contents"][0]["text"])
 
 
+def check_documentation(client):
+    draft = Path(__file__).resolve().parents[2]
+    prefix = "llmlang://doc/"
+    pages = {
+        "bootstrap.md": "docs/bootstrap.md",
+        "server.md": "docs/server.md",
+        "lang.md": "docs/lang.md",
+        "examples.md": "examples/README.md",
+        "rfc.md": "RFC.md",
+    }
+    listed = client.request("resources/list")["resources"]
+    assert prefix + "bootstrap.md" in client.client.server["instructions"]
+    assert {item["uri"] for item in listed} == {prefix + path for path in (*pages, "index.md")}
+    assert all(item["mimeType"] == "text/markdown" for item in listed)
+
+    def read(path):
+        uri = prefix + path
+        content, = client.request("resources/read", uri=uri)["contents"]
+        assert content["uri"] == uri and content["mimeType"] == "text/markdown", content
+        return content["text"]
+
+    bootstrap = read("bootstrap.md")
+    assert prefix + "index.md" in bootstrap
+    index = read("index.md")
+    for path, source in pages.items():
+        assert f"]({prefix}{path})" in index
+        if path != "bootstrap.md":
+            assert f"]({prefix}{path})" in bootstrap
+        assert read(path) == (draft / source).read_text(encoding="utf-8")
+
+    for path in ("missing.md", "../AGENTS.md", "%2e%2e/AGENTS.md"):
+        try:
+            read(path)
+        except RpcError as error:
+            assert error.error["data"]["code"] == "MissingReference", error.error
+        else:
+            raise AssertionError(f"Unavailable document was returned: {path}")
+
+
 def exercise(executable, root, python):
     state = root / "author"
     with server(executable, state, python) as client:
-        assert client.request("resources/list") == {"resources": []}
+        check_documentation(client)
         templates = client.request("resources/templates/list")["resourceTemplates"]
         workspace_template = next(template["uriTemplate"] for template in templates
                                   if template["name"] == "workspace")
